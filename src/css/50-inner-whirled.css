@@ -105,3 +105,8 @@ html.iv-2026.iv-plus-ep.iv-iw .iv-plus-dual:has(.iv-dual-btn:last-child.iv-dual-
 @media (max-width:420px){
   html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-word{font-size:18px;letter-spacing:0.06em;}
 }
+
+/* (2026-10-28) When the Inner Whirled wordmark and the full menu do not both
+   fit on one line (iwFit in site.js decides), the menu moves to the burger. */
+html.iv-iw #iv-nav.iv-nav-v2.iv-nav-iw-tight .iv-nav-center{display:none;}
+html.iv-iw #iv-nav.iv-nav-v2.iv-nav-iw-tight .iv-nav-burger{display:flex;}

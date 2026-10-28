@@ -3,7 +3,9 @@
    (IV_BUILD 2026-10-04a-shownotes) on 2026-10-19 and changed in three ways:
    the page is built by the generator, so the fetch-and-draw path is gone and
    hydrate() at the end wires the finished markup; the members' page render
-   moved out; and nothing here talks to Squarespace any more. */
+   (renderPlus) came back on 2026-10-28 for the /plus/<slug> pages, started by
+   ivPlusPage() instead of the Squarespace paywall; and nothing here talks to
+   Squarespace any more. */
 /* ============================================================
    INNERVERSE EPISODE PAGE - STATIC JSON BUILD
    Build 2026-09-24d-headroom (the Lapis Library on episode pages: html.iv-2026 switch, accordions at every width,
@@ -138,7 +140,7 @@
      much smaller render. The branch is taken at the BOTTOM of this
      function, not here: an early return would skip every remaining var
      assignment in the file, and renderPlus reads several of them. */
-  var IS_PLUS = (window.location.pathname.split('/').filter(Boolean)[0] || '').toLowerCase() === 'plus';
+  var IS_PLUS = ((window.ivPath ? window.ivPath() : window.location.pathname).split('/').filter(Boolean)[0] || '').toLowerCase() === 'plus';
 
   /* ---------------- the Lapis Library switch (2026-09-24) ----------------
      html.iv-2026 turns on the iv-episode-2026 stylesheet in HEADER and the
@@ -244,7 +246,7 @@
      The second argument is an old Airtable query, kept only so the call
      sites stay unchanged; it is ignored. */
   function ivIsEpisodePath() {
-    var p = window.location.pathname.split('/').filter(Boolean);
+    var p = (window.ivPath ? window.ivPath() : window.location.pathname).split('/').filter(Boolean);
     var top = (p[0] || '').toLowerCase();
     return p.length >= 2 && (top === 'episodes' || top === 'plus');
   }
@@ -2078,7 +2080,913 @@
     });
   }
 
-  /* The members' page render (iv-plus-episode) moves to its own script with the /plus pages. */
+  /* (2026-10-28, stage 1b) The members' page render, carried back from the
+     live iv-episode-render (IV_BUILD 2026-10-04a-shownotes) as it was, with
+     four changes: renderPlus tells its caller when there is nothing to draw,
+     the related cards and the guest card's See all button stay on this site,
+     and it is started by ivPlusPage() below rather than by the Squarespace
+     paywall. The page arrives as the signed-out join screen; this draws the
+     members' page in front of it once the member state says so. */
+  /* ===== BEGIN iv-plus-episode =====
+     /plus/<slug> is the members' copy of an episode. It shares its slug
+     with /episodes/<slug>, so this script used to match the same Airtable
+     row and take the members' page over with the free layout and the free
+     title - which is why every page under /plus was simply skipped for a
+     while (the iv-plus-optout block this replaces).
+
+     The rule now is narrower and safer than a full render: the paywalled
+     blocks Squarespace serves are the product, so they are never rebuilt.
+     Their video is re-skinned in place, their description is stood down
+     only when Airtable actually has one to put in its place, and
+     everything else this adds is new furniture around them - header,
+     guest and affiliate sidebar, booking CTA, comments heading - in Plus
+     yellow. No Airtable row means the page is left exactly as served.
+
+     Rollback: replace the renderPlus() call below with
+     "if (window.IVLoaderHide) window.IVLoaderHide(); return;" and delete
+     the iv-plus-episode block in the header. ===== */
+
+  /* Blue to yellow, generated from the live stylesheet rather than
+     hand-listed. Every rule that paints rgb(0,137,255) gets a twin
+     scoped to html.iv-plus-ep carrying only its colour declarations,
+     with the blue swapped for Plus yellow. Hand-maintaining that list
+     meant it went stale the moment a colour changed elsewhere; this
+     cannot. The nav and footer are skipped: their member-state colour
+     is decided sitewide by iv-nav-login-state, not per page. */
+  function plusYellow(val) {
+    return val.replace(/rgba?\(\s*0\s*,\s*137\s*,\s*255/g, function (m) {
+      return m.charAt(3) === 'a' ? 'rgba(232,185,35' : 'rgb(232,185,35';
+    });
+  }
+
+  function plusTwins(rules, out) {
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      if (rule.type === 4 && rule.cssRules) {          /* @media */
+        var inner = [];
+        plusTwins(rule.cssRules, inner);
+        if (inner.length) out.push('@media ' + rule.conditionText + '{' + inner.join('') + '}');
+        continue;
+      }
+      if (rule.type !== 1 || !rule.selectorText) continue;
+      var sel = rule.selectorText;
+      if (sel.indexOf('.iv-nav-') > -1 || sel.indexOf('.iv-footer-') > -1) continue;
+      var decls = '';
+      for (var k = 0; k < rule.style.length; k++) {
+        var prop = rule.style[k];
+        var val = rule.style.getPropertyValue(prop);
+        if (!/rgba?\(\s*0\s*,\s*137\s*,\s*255/.test(val)) continue;
+        decls += prop + ':' + plusYellow(val) +
+          (rule.style.getPropertyPriority(prop) ? ' !important' : '') + ';';
+      }
+      if (!decls) continue;
+      out.push(sel.split(',').map(function (s) {
+        return 'html.iv-plus-ep ' + s.trim();
+      }).join(',') + '{' + decls + '}');
+    }
+  }
+
+  function paintPlusYellow() {
+    if (document.getElementById('iv-plus-yellow')) return;
+    var out = [];
+    var sheets = document.styleSheets;
+    for (var i = 0; i < sheets.length; i++) {
+      var rules;
+      try { rules = sheets[i].cssRules; } catch (e) { continue; }  /* cross-origin */
+      if (rules) plusTwins(rules, out);
+    }
+    if (!out.length) return;
+    var el = document.createElement('style');
+    el.id = 'iv-plus-yellow';
+    el.textContent = out.join('\n');
+    document.head.appendChild(el);
+  }
+
+  function plusPageVimeoId() {
+    var f = document.querySelector('.blog-item-content iframe[src*="player.vimeo.com"]');
+    return f ? vimeoId(f.getAttribute('src') || '') : '';
+  }
+
+  /* Tab-switch, plus actually stopping whichever player was running.
+     The free page's wireMediaToggle binds a click handler straight onto
+     .iv-video-cover, which is exactly the direct bind that breaks once
+     Squarespace swaps this native video block for a copy of itself (see
+     the delegated handler in renderPlus below), so that function still
+     isn't reused here. But hiding a panel never stopped its player
+     either, so switching tabs used to leave the old one making sound
+     underneath the new one. The video iframe has no JS API to pause
+     here (cross-origin, built by the delegated handler below), so
+     switching away from Watch tears it down and rebuilds the original
+     cover instead of just hiding it; switching away from Listen just
+     pauses the audio element. */
+  function wirePlusMediaTabs(container) {
+    var btns = container.querySelectorAll('.iv-tbtn');
+    var panels = container.querySelectorAll('.iv-toggle-panel');
+    var box = container.querySelector('.iv-ratio');
+    var coverHtml = box ? box.innerHTML : '';
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var which = btn.getAttribute('data-panel');
+        var audio = container.querySelector('.iv-audio-player audio');
+        var hadVideo = box && box.querySelector('iframe');
+
+        function apply(resumeAt) {
+          btns.forEach(function (b) { b.classList.toggle('iv-tbtn-active', b === btn); });
+          panels.forEach(function (p) { p.style.display = (p.getAttribute('data-panel') === which) ? '' : 'none'; });
+          if (which === 'listen') {
+            if (hadVideo) box.innerHTML = coverHtml;
+            if (resumeAt != null && audio) {
+              audio.currentTime = resumeAt;
+              audio.play()['catch'](function () { });
+            }
+          } else {
+            ivPauseAudio(container);
+            if (resumeAt != null && box) ivMountVideo(box, resumeAt);
+          }
+        }
+
+        if (which === 'listen') {
+          if (hadVideo) {
+            ivVideoState().then(function (s) { apply(s.playing ? s.time : null); });
+          } else {
+            apply(null);
+          }
+        } else if (audio && !audio.paused) {
+          apply(audio.currentTime);
+        } else {
+          apply(null);
+        }
+      });
+    });
+
+    /* Plus pages route through this tab-switcher, not wireMediaToggle,
+       so the PiP button's hookup has to be wired here too - otherwise
+       window.__ivPipOnMount never gets set on /plus pages and the
+       button stays hidden forever, even though Plus is the only place
+       Vimeo (and therefore PiP) is actually used. */
+    wireVideoPip(container);
+  }
+
+
+  /* ===== BEGIN iv-plus-dual =====
+     Chapters, core themes and quotes on the members' page, each as ONE
+     section carrying both cuts behind a FREE / PLUS switch.
+
+     Why a switch rather than two accordions: the Plus cut runs about
+     1.7x the free cut, so its counts scale with it (24 chapters against
+     12, 16 quotes against 10). Stacking a Plus list under a free list
+     would double the height of all three sections at once. One section,
+     one list visible, the other a click away.
+
+     What decides whether a section exists is the PLUS field alone. Around
+     a hundred /plus pages already carry free Chapters, Quotes and Core
+     Themes JSON on their Airtable row, and reading those unconditionally
+     would grow every one of those pages the moment this shipped. The free
+     pane is an extra VIEW inside a section, never a reason for one to
+     appear.
+
+     The markup is the free page's accordion, reused class for class, so
+     it inherits that component's type, rules, spacing and its mobile
+     collapse. Only the switch is new. */
+
+  function plusDualHead(label, title, hasBoth) {
+    return '' +
+      '<div class="iv-section-head">' +
+        '<div>' +
+          '<div class="iv-section-label">' + esc(label) + '</div>' +
+          '<h2 class="iv-section-title">' + esc(title) + '</h2>' +
+        '</div>' +
+        '<div class="iv-dual-headright">' +
+          (hasBoth
+            ? '<div class="iv-dual-switch" role="tablist" aria-label="' + esc(title) + ', free or Plus cut">' +
+                '<button type="button" role="tab" class="iv-dual-btn" data-cut="free" aria-selected="false">Free</button>' +
+                '<button type="button" role="tab" class="iv-dual-btn iv-dual-btn-active" data-cut="plus" aria-selected="true">Plus</button>' +
+              '</div>'
+            : '') +
+          '<button type="button" class="iv-section-toggle" aria-label="Toggle ' + esc(title) + '">' + SVG.chevron + '</button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  /* The Plus cut opens first. This is the members' page and the extended
+     cut is what they came for; the free view is the reference. */
+  function buildDualSection(kind, id, label, title, freeHtml, plusHtml) {
+    if (!freeHtml && !plusHtml) return '';
+    var both = !!(freeHtml && plusHtml);
+    var open = plusHtml ? 'plus' : 'free';
+    function pane(cut, html) {
+      if (!html) return '';
+      return '<div class="iv-dual-pane' + (cut === open ? '' : ' iv-dual-pane-off') +
+             '" data-cut="' + cut + '">' + html + '</div>';
+    }
+    return '' +
+      '<div class="iv-plus-dual iv-accordion iv-dual-' + kind + '" id="' + id + '" data-cut="' + open + '">' +
+        plusDualHead(label, title, both) +
+        '<div class="iv-section-rule"></div>' +
+        '<div class="iv-section-body">' + pane('free', freeHtml) + pane('plus', plusHtml) + '</div>' +
+      '</div>';
+  }
+
+  /* Three list builders that stop at the list. buildChapters, buildThemes
+     and buildQuotes each return a whole accordion of their own, which is
+     right for the free page and one wrapper too many here, and they are
+     left untouched rather than refactored so nothing on the free pages
+     moves for a members-only feature. */
+  function plusChapterRows(chapters) {
+    return '<div class="iv-chapters-list">' + chapters.map(function (ch) {
+      return '' +
+        '<a href="#" class="iv-chapter-row" data-seek="' + esc(ch.seek) + '">' +
+          '<span class="iv-chapter-time">' + esc(ch.time) + '</span>' +
+          '<span class="iv-chapter-title">' + esc(ch.title) + '</span>' +
+          '<span class="iv-chapter-btn">' + SVG.rowPlay + '</span>' +
+        '</a>';
+    }).join('') + '</div>';
+  }
+
+  /* startAt continues the numbering across the switch: the free pane runs
+     1 to 5 and the Plus pane picks up at 6, so the two views read as one
+     numbered run of ten rather than two lists that both start at one. No
+     leading zero, which leaves 10 as the only two character number. */
+  function plusThemeItems(themes, startAt) {
+    return '<div class="iv-themes-list">' + themes.map(function (t, i) {
+      var num = String((startAt || 1) + i);
+      return '' +
+        '<div class="iv-theme-item">' +
+          '<div class="iv-theme-num">' + num + '</div>' +
+          '<div class="iv-theme-body">' +
+            '<h3 class="iv-theme-title">' + esc(t.title) + '</h3>' +
+            '<p class="iv-theme-text">' + esc(t.body) + '</p>' +
+          '</div>' +
+        '</div>';
+    }).join('') + '</div>';
+  }
+
+  function plusQuoteCards(quotes, epTitle) {
+    return '<div class="iv-quotes-wrap">' + quotes.map(function (q) {
+      return '' +
+        '<div class="iv-quote-card">' +
+          '<blockquote class="iv-quote-text">&ldquo;' + esc(q.text) + '&rdquo;</blockquote>' +
+          '<div class="iv-quote-footer">' +
+            '<span class="iv-quote-who">' +
+              '<span class="iv-quote-avatar"></span>' +
+              '<span class="iv-quote-author">' + esc(q.author) + '</span>' +
+            '</span>' +
+            '<button type="button" class="iv-quote-share-btn"' +
+              ' data-quote="' + esc(q.text) + '"' +
+              ' data-author="' + esc(q.author) + '"' +
+              ' data-portrait="' + esc(q.portrait) + '"' +
+              ' data-episode="' + esc(epTitle) + '"' +
+              ' aria-label="Share this quote">' + SVG.quoteShare + '</button>' +
+          '</div>' +
+        '</div>';
+    }).join('') + '</div>';
+  }
+
+  function wirePlusDual(root) {
+    root.querySelectorAll('.iv-plus-dual').forEach(function (sec) {
+      sec.querySelectorAll('.iv-dual-btn').forEach(function (btn) {
+        if (btn.__ivWired) return;
+        btn.__ivWired = true;
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          /* The section head is the accordion's own hit area on mobile, so
+             without this a switch tap also collapses the section. */
+          e.stopPropagation();
+          var cut = btn.getAttribute('data-cut');
+          if (sec.getAttribute('data-cut') === cut) return;
+          sec.setAttribute('data-cut', cut);
+          sec.querySelectorAll('.iv-dual-btn').forEach(function (b) {
+            var on = b.getAttribute('data-cut') === cut;
+            b.classList.toggle('iv-dual-btn-active', on);
+            b.setAttribute('aria-selected', on ? 'true' : 'false');
+          });
+          sec.querySelectorAll('.iv-dual-pane').forEach(function (p) {
+            p.classList.toggle('iv-dual-pane-off', p.getAttribute('data-cut') !== cut);
+          });
+        });
+      });
+    });
+  }
+
+  /* Chapter rows on this page seek the PLUS video, which is the only cut
+     embedded here. That is why the free pane reads a re-timed field rather
+     than Chapters JSON: the free cut is a different edit, so its own
+     timestamps land in the wrong moment of this player.
+
+     wireChapters cannot be reused as-is because it looks for .iv-ratio
+     INSIDE the container it is given, and here the player sits in
+     Squarespace's video block while the chapters sit in a full width row
+     below it. */
+  function wirePlusChapters(root) {
+    root.querySelectorAll('.iv-chapter-row').forEach(function (row) {
+      if (row.__ivWired) return;
+      row.__ivWired = true;
+      row.addEventListener('click', function (e) {
+        e.preventDefault();
+        var seconds = parseFloat(row.getAttribute('data-seek')) || 0;
+        var ratio = document.querySelector('.blog-item-content .iv-ratio');
+        var watchBtn = document.querySelector('.blog-item-content .iv-tbtn[data-panel="watch"]');
+        /* No Watch/Listen tabs at all means this row carries no Plus Audio
+           URL and the video is the only player, so it wins by default. */
+        var watching = !watchBtn || watchBtn.classList.contains('iv-tbtn-active');
+        var hasVideo = !!(ratio && ratio.getAttribute('data-video-id'));
+
+        if (watching && hasVideo) {
+          ivPauseAudio(document);
+          if (ivVideoSeekPlay(ratio, seconds)) { plusScrollToPlayer(); return; }
+        }
+        if (window.__ivAudioSeekPlay) window.__ivAudioSeekPlay(seconds);
+      });
+    });
+  }
+
+  /* ivScrollToVideo anchors on .iv-media-toggle, which only exists on a
+     /plus page whose row has a Plus Audio URL. Anchor on the player box
+     instead so a video-only page still brings the jump into view. */
+  function plusScrollToPlayer() {
+    var box = document.querySelector('.blog-item-content .iv-media-toggle') ||
+              document.querySelector('.blog-item-content .iv-ratio');
+    if (!box) return;
+    var top = box.getBoundingClientRect().top + window.pageYOffset - ivNavHeight() - 16;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+
+  /* A sidebar taller than the window cannot usefully pin to the top: it
+     freezes with its lower half permanently below the fold, so it reads as
+     not moving at all until the column finally runs out. Giving it a
+     NEGATIVE sticky top instead lets it scroll with the page from the
+     first pixel and pin only once its bottom edge has arrived, so the
+     whole column is readable and the movement starts immediately. A
+     sidebar shorter than the window keeps the normal 100px offset. Below
+     900px the column is static and the inline top is cleared. */
+  function fitPlusSide() {
+    var side = document.querySelector('.iv-plus-side');
+    if (!side) return;
+    if (window.innerWidth <= 900) { side.style.top = ''; return; }
+    var h = side.offsetHeight, vh = window.innerHeight, pad = 24, navGap = 100;
+    side.style.top = (h + pad > vh - navGap ? Math.round(vh - h - pad) : navGap) + 'px';
+  }
+
+  /* ===== END iv-plus-dual ===== */
+
+  
+  /* ================================================================
+     PLUS RELATED EPISODES
+     ----------------------------------------------------------------
+     Same idea as the free page's Related Episodes just above (TF-IDF
+     over the title, plus flat bonuses for a shared Show/Theme, plus a
+     small recency nudge), built from plus-index.json instead of
+     Airtable - Airtable only covers about half the /plus catalogue,
+     the same reason the /plus search box (iv-plus-index) reads that
+     file instead. This also means the free-only "no distinct Plus
+     cut" entries (the redirect rows in plus-index.json) are eligible
+     to be recommended here, and their own url already points at
+     their real free page rather than a dead /plus link.
+
+     No Guests/Topic Line signal here, since plus-index.json does not
+     carry them - lighter engine than the free side's. Written so the
+     ranking step is the only thing later work needs to touch: when
+     subject tagging (search upgrade phase 1, see the 2.0 roadmap)
+     lands, the theme/show overlap bonus below gets richer inputs for
+     free; when semantic search (phase 2) lands, plusRelRank's scoring
+     is the one function that needs replacing, everything else (fetch,
+     card markup, mounting) stays as is.
+     ================================================================ */
+  var PLUSREL_MAX = 6, PLUSREL_MIN = 3, PLUSREL_FLOOR = 2.0;
+  var PLUSREL_STOP = {};
+  ('the a an and or of in on to for with is are was were be been it its this that these those you your we our us they them from by at as not no but if then than so what who whom which how why when where all any both each few more most other some such own same too very can will just now ep episode part feat vs amp nbsp plus').split(' ')
+    .forEach(function (w) { PLUSREL_STOP[w] = 1; });
+
+  function plusRelTokens(str) {
+    return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(' ')
+      .filter(function (t) { return t.length > 2 && !PLUSREL_STOP[t]; })
+      .map(function (t) {
+        return (t.length > 4 && /s$/.test(t) && !/ss$/.test(t)) ? t.slice(0, -1) : t;
+      });
+  }
+
+  function plusRelBuildIndex(posts) {
+    var docs = posts.map(function (p) {
+      var words = plusRelTokens(p.title);
+      var tf = {};
+      words.forEach(function (w) { tf[w] = (tf[w] || 0) + 1; });
+      return {
+        slug: p.slug || '', title: p.title || '', url: p.url || '', tf: tf,
+        shows: p.shows || [], themes: p.themes || [], date: p.date || '', thumb: p.thumb || ''
+      };
+    });
+    var n = docs.length, df = {};
+    docs.forEach(function (d) { Object.keys(d.tf).forEach(function (w) { df[w] = (df[w] || 0) + 1; }); });
+    docs.forEach(function (d) {
+      var vec = {}, sum = 0;
+      Object.keys(d.tf).forEach(function (w) {
+        var val = d.tf[w] * (Math.log(n / (df[w] || 1)) + 1);
+        vec[w] = val; sum += val * val;
+      });
+      d.vec = vec; d.norm = Math.sqrt(sum) || 1;
+    });
+    return docs;
+  }
+
+  function plusRelCosine(a, b) {
+    var small = Object.keys(a.vec).length < Object.keys(b.vec).length ? a : b;
+    var large = small === a ? b : a, dot = 0;
+    Object.keys(small.vec).forEach(function (w) { if (large.vec[w]) dot += small.vec[w] * large.vec[w]; });
+    return dot / (a.norm * b.norm);
+  }
+
+  function plusRelOverlap(a, b) {
+    var seen = {};
+    a.forEach(function (x) { seen[x] = 1; });
+    return b.filter(function (x) { return seen[x]; }).length;
+  }
+
+  function plusRelRank(docs, slug) {
+    var me = null;
+    for (var i = 0; i < docs.length; i++) { if (docs[i].slug === slug) { me = docs[i]; break; } }
+    if (!me) return [];
+    var now = Date.now();
+    var scored = [];
+    docs.forEach(function (d) {
+      /* A card with no artwork looks broken, same rule as the free side. */
+      if (d === me || !d.thumb || !d.slug) return;
+      var years = d.date ? Math.max(0, (now - new Date(d.date).getTime()) / (1000 * 86400 * 365)) : 5;
+      var score = 10 * plusRelCosine(me, d)
+        + 3 * plusRelOverlap(me.themes, d.themes)
+        + 2 * plusRelOverlap(me.shows, d.shows)
+        + Math.max(0, 0.5 - years * 0.08);
+      if (score >= PLUSREL_FLOOR) scored.push({ doc: d, score: score });
+    });
+    scored.sort(function (a, b) { return b.score - a.score; });
+    return scored.slice(0, PLUSREL_MAX).map(function (x) { return x.doc; });
+  }
+
+  /* 102 of 108 titles end in "(PLUS)"; noise on a page that is already
+     entirely Plus, same call as the /plus search box makes. Display only. */
+  function plusRelCleanTitle(t) {
+    return String(t || '').replace(/\s*\(\s*PLUS\s*\)\s*$/i, '').trim();
+  }
+
+  var PLUSREL_MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  function plusRelMeta(d) {
+    var when = '';
+    if (d.date) {
+      var parts = String(d.date).split('-');
+      if (parts.length >= 2) when = PLUSREL_MONTHS[parseInt(parts[1], 10) - 1] + ' ' + parts[0];
+    }
+    var lead = (d.shows && d.shows[0]) || '';
+    return [lead, when].filter(Boolean).join(' \u00b7 ');
+  }
+
+  /* (2026-10-28) The index carries live-domain addresses; keep a reader on
+     this site (the head script adds the test address prefix on click). */
+  function plusLocalHref(u) {
+    var m = String(u || '').match(/^https?:\/\/(?:www\.)?innerversepodcast\.com(\/.*)$/);
+    return m ? m[1] : (u || '');
+  }
+
+  function plusRelCard(d) {
+    return '<a class="iv-related-card" href="' + esc(plusLocalHref(d.url)) + '">' +
+        '<div class="iv-related-thumb"><img src="' + esc(ivImg(d.thumb, 500)) + '" alt="" loading="lazy"></div>' +
+        '<div class="iv-related-body">' +
+          '<div class="iv-related-meta">' + esc(plusRelMeta(d)) + '</div>' +
+          '<div class="iv-related-title">' + esc(plusRelCleanTitle(d.title)) + '</div>' +
+        '</div>' +
+      '</a>';
+  }
+
+  /* Reuses .iv-related / .iv-section-label / .iv-section-title /
+     .iv-section-rule / .iv-related-grid wholesale from the free page's
+     stylesheet - same classes, so paintPlusYellow() picks up its blue
+     rules automatically and recolors this section too, with no hand
+     written yellow twin needed here. */
+  function buildPlusRelated() {
+    return '<div class="iv-related" id="iv-plus-related" style="display:none">' +
+        '<div class="iv-section-label">Follow the thread</div>' +
+        '<h2 class="iv-section-title">More episodes</h2>' +
+        '<div class="iv-section-rule"></div>' +
+        '<div class="iv-related-grid" id="iv-plus-related-grid"></div>' +
+      '</div>';
+  }
+
+  var PLUSREL_INDEX_URL = 'https://raw.githubusercontent.com/chance-garton/innerverse-data/main/plus-index.json';
+  function plusRelFetchAll() {
+    var cached = null;
+    try { cached = sessionStorage.getItem('iv_plus_rel_corpus'); } catch (e) {}
+    if (cached) {
+      try { return Promise.resolve(JSON.parse(cached)); } catch (e) {}
+    }
+    return fetch(PLUSREL_INDEX_URL)
+      .then(function (r) { if (!r.ok) throw new Error('plus index ' + r.status); return r.json(); })
+      .then(function (d) {
+        var posts = (d && d.episodes) || [];
+        try { sessionStorage.setItem('iv_plus_rel_corpus', JSON.stringify(posts)); } catch (e) {}
+        return posts;
+      });
+  }
+
+  /* Inserted as a normal full width sibling right after the two column
+     grid (wrap) and before the comments heading, not as a grid row
+     inside wrap - the full width grid row approach is exactly what
+     broke the members' page layout once already for the dual sections
+     (see iv-plus-dual-sections.md), so this avoids that shape of bug
+     entirely by staying outside the grid. */
+  function fillPlusRelated(afterEl, slug) {
+    if (!afterEl || !afterEl.parentElement) return Promise.resolve();
+    var holder = document.createElement('div');
+    holder.innerHTML = buildPlusRelated();
+    var section = holder.firstChild;
+    afterEl.parentElement.insertBefore(section, afterEl.nextSibling);
+    return plusRelFetchAll().then(function (posts) {
+      var picks = plusRelRank(plusRelBuildIndex(posts), slug);
+      if (picks.length < PLUSREL_MIN) {
+        if (section.parentElement) section.parentElement.removeChild(section);
+        return;
+      }
+      document.getElementById('iv-plus-related-grid').innerHTML = picks.map(plusRelCard).join('');
+      section.style.display = '';
+    }).catch(function (err) {
+      console.warn('IV plus related episodes skipped:', err);
+      if (section.parentElement) section.parentElement.removeChild(section);
+    });
+  }
+
+  function renderPlus(plusSlug, onFail) {
+    var done = function () { if (window.IVLoaderHide) window.IVLoaderHide(); };
+    var fail = function () { done(); if (onFail) onFail(); };
+    var wrap = document.querySelector('.blog-item-content-wrapper');
+    var host = document.querySelector('.blog-item-content');
+    if (!wrap || !host) { fail(); return; }
+
+    function slugEq(s) { var v = s.replace(/'/g, "\\'"); return "OR({Slug}='" + v + "',{Plus Slug}='" + v + "')"; }
+    var slugBase = plusSlug.replace(/-[a-z0-9]{5}$/i, '');
+    var filter = encodeURIComponent(
+      slugBase !== plusSlug ? ('OR(' + slugEq(plusSlug) + ',' + slugEq(slugBase) + ')') : slugEq(plusSlug)
+    );
+
+    ivEpisodeGet(plusSlug, 'filterByFormula=' + filter + '&maxRecords=4')
+      .then(function (data) {
+        var recs = data.records || [];
+        var rec = recs.filter(function (x) { return (x.fields || {})['Slug'] === plusSlug; })[0] || recs.filter(function (x) { return (x.fields || {})['Plus Slug'] === plusSlug; })[0] || recs[0];
+        if (!rec) { fail(); return; }
+        var r = rec.fields;
+
+        var f = {
+          title: r['Title'] || '',
+          topicLine: r['Topic Line'] || '',
+          showCategory: (r['Show Categories'] || [])[0] ? (r['Show Categories'][0].name || r['Show Categories'][0]) : '',
+          year: r['Year'] || '',
+          episodeNumber: r['Episode Number'] || '',
+          publishDate: r['Publish Date'] || '',
+          /* Duration is the FREE cut's runtime. Showing it in the members'
+             header understated the episode on every /plus page, by an hour
+             on some (inner-whirled-6 reads 23m free against 2h 35m here),
+             and 48 of the 103 members' rows have no free Duration at all so
+             they showed nothing. Plus Duration carries the members' runtime
+             and is populated on all 103; the fallback keeps a row without
+             one rendering exactly as it did before. */
+          duration: r['Plus Duration'] || r['Duration'] || '',
+          thumbnail: r['Thumbnail URL'] || '',
+          intro1: r['Intro Paragraph 1'] || '',
+          intro2: r['Intro Paragraph 2'] || ''
+        };
+        /* A row with no title is a stub, and a stub header would replace
+           a real Squarespace title with an empty one. */
+        if (!f.title) { fail(); return; }
+
+        paintPlusYellow();
+        document.documentElement.classList.add('iv-plus-ep');
+        /* iv-inner-whirled (2026-09-29): the show skin, as on the free page */
+        if ((r['Show Categories'] || []).some(function (c) { return ((c && c.name) || c) === 'Inner Whirled'; })) document.documentElement.classList.add('iv-iw');
+        keepVisible(wrap);
+
+        /* ---------------- header ---------------- */
+        var head = document.createElement('div');
+        head.className = 'iv-plus-headslot';
+        head.innerHTML = buildHeader(f, 'PLUS');
+        wrap.insertBefore(head, wrap.firstChild);
+
+        /* ---------------- legacy column grid ----------------
+           Mark spacer-only columns so the stylesheet can drop them. */
+        host.querySelectorAll('.sqs-row > .col').forEach(function (col) {
+          if (!col.querySelector('.sqs-block:not(.sqs-block-spacer)')) {
+            col.classList.add('iv-plus-emptycol');
+          }
+        });
+
+        /* ---------------- video ----------------
+           The Vimeo id comes from Airtable's "Plus Video URL", which is a
+           different upload from both "Video URL" (the free YouTube cut)
+           and "YouTube Plus URL" (the members' cut on YouTube). The id
+           already on the page is the fallback, so a page whose row has
+           not been filled in still gets the treatment.
+
+           The eager iframe is REPLACED rather than covered: left in place
+           it loads the whole player before the visitor asks for it. */
+        var vimeo = vimeoId(r['Plus Video URL'] || '') || plusPageVimeoId();
+        var plusAudioUrl = r['Plus Audio URL'] || '';
+        var vblock = host.querySelector('.sqs-block-video');
+        if (vimeo && vblock) {
+          /* No Plus Audio URL on the row -> the exact original video-only
+             re-skin below, untouched. Present -> the same Watch/Listen
+             toggle the free pages use (buildMediaToggle + wireAudioPlayer,
+             reused as-is), so an episode with no audio rendition yet
+             behaves exactly as it did before this was added. */
+          if (plusAudioUrl) {
+            vblock.innerHTML = buildMediaToggle({
+              videoUrl: 'https://vimeo.com/' + vimeo,
+              thumbnail: f.thumbnail,
+              title: f.title,
+              acastAudioUrl: plusAudioUrl
+            });
+            wirePlusMediaTabs(vblock);
+            wireAudioPlayer(vblock);
+          } else {
+            vblock.innerHTML =
+              '<div class="iv-ratio" data-video-platform="vimeo" ' +
+                'data-video-id="' + esc(vimeo) + '" ' +
+                'data-video-src="https://player.vimeo.com/video/' + esc(vimeo) + '?autoplay=1">' +
+                '<div class="iv-video-cover" style="background-image:url(&#39;' + esc(ivImg(f.thumbnail, 1000)) + '&#39;);">' +
+                  '<button type="button" class="iv-video-play" aria-label="Play video">' + SVG.bigPlay + '</button>' +
+                '</div>' +
+              '</div>';
+          }
+          ivFitPlayerArm();
+          /* The play listener is delegated from the document rather than
+             bound to the cover. Squarespace re-initialises its own video
+             blocks after this runs and does it by swapping in a copy of
+             the node: our markup survives that, a listener bound to it
+             does not. Confirmed on the live page - the cover rendered
+             correctly and simply did nothing when clicked. Delegation
+             also covers the toggle-wrapped markup above, since both
+             share the same .iv-ratio/.iv-video-cover contract. */
+          document.addEventListener('click', function (e) {
+            var cover = (e.target && e.target.closest) ? e.target.closest('.iv-video-cover') : null;
+            if (!cover) return;
+            var box = cover.closest('.iv-ratio');
+            if (!box) return;
+            /* Through ivMountVideo first, so the Vimeo player API attaches
+               and a chapter row can seek in place instead of rebuilding the
+               iframe on every jump. The raw build below stays as the fallback
+               for a page whose row has no id, where the id came off the page
+               itself. */
+            if (box.getAttribute('data-video-id') && ivMountVideo(box, 0)) return;
+            var src = box.getAttribute('data-video-src');
+            if (!src) return;
+            var frame = document.createElement('iframe');
+            frame.src = src;
+            frame.title = 'Episode video player';
+            frame.setAttribute('frameborder', '0');
+            frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            frame.setAttribute('allowfullscreen', '');
+            box.innerHTML = '';
+            box.appendChild(frame);
+          });
+        }
+
+        /* ---------------- description ----------------
+           Airtable's intro wins when there is one. The 46 rows added for
+           /plus-only episodes carry no intro, so those pages keep the copy
+           already written on them rather than losing it to a blank. */
+        if (f.intro1) {
+          var theirs = host.querySelectorAll('.sqs-block-html');
+          theirs.forEach(function (b) { b.classList.add('iv-plus-hidden'); });
+          var intro = document.createElement('div');
+          intro.className = 'iv-plus-intro';
+          intro.innerHTML = buildIntro(f);
+          /* Dropped exactly where their description stood, not below the
+             video: inner-whirled-26 carries a "download the show notes"
+             button between the two, and anchoring to the video pushed
+             that button underneath the copy it belongs above. */
+          if (theirs.length && theirs[0].parentElement) {
+            theirs[0].parentElement.insertBefore(intro, theirs[0]);
+          } else if (vblock && vblock.parentElement) {
+            vblock.parentElement.insertBefore(intro, vblock.nextSibling);
+          } else {
+            host.appendChild(intro);
+          }
+        }
+
+        /* ---------------- Get Tuned ----------------
+           2026-09-24: under the description in the content column, the
+           same full-width card the free page carries, instead of squeezed
+           into the sidebar where its tabs were never wired. */
+        var tunedRow = document.createElement('div');
+        tunedRow.className = 'iv-plus-book-row iv-plus-tuned-row';
+        tunedRow.innerHTML = buildBookSession();
+        var tunedIntro = host.querySelector('.iv-plus-intro');
+        var tunedHtml = host.querySelectorAll('.sqs-block-html');
+        var tunedAnchor = tunedIntro || (tunedHtml.length ? tunedHtml[tunedHtml.length - 1] : null) || vblock;
+        if (tunedAnchor && tunedAnchor.parentElement) {
+          tunedAnchor.parentElement.insertBefore(tunedRow, tunedAnchor.nextSibling);
+        } else {
+          host.appendChild(tunedRow);
+        }
+        wireTunedTabs(tunedRow);
+        if (r['Has Show Notes'] === true) ivShowNotes(host, tunedRow, r['Plus Slug'] || r['Slug'] || plusSlug);   /* iv-show-notes */
+
+        /* ---------------- two columns, the free page's way ----------------
+           2026-09-24 evening (Chance: the free format on /plus, only the
+           colours differ). The player keeps the full width on its own and
+           the copy, Get Tuned and the sections sit in a main column with
+           the guest and affiliate cards beside them, level with the
+           description, exactly the free page's .iv-sticky-layout. The
+           video block itself is NOT moved: several selectors here and in
+           the audio handshake expect it inside .blog-item-content, so
+           instead everything that follows it in its column (the intro, Get
+           Tuned, any served block) moves into the main column, and the
+           sections and sidebar are built into the same layout below. The
+           old grid on .blog-item-content-wrapper is switched off by the
+           iv-episode-2026 stylesheet on html.iv-2026 pages. */
+        var layout = document.createElement('div');
+        layout.className = 'iv-sticky-layout iv-plus-cols';
+        var main = document.createElement('div');
+        main.className = 'iv-sticky-main iv-plus-colmain';
+        var side = document.createElement('div');
+        side.className = 'iv-sticky-sidebar iv-plus-side';
+        side.innerHTML = '<div id="iv-guest-slot"></div>' +
+                         '<div id="iv-aff-slot"></div>';
+        layout.appendChild(main);
+        layout.appendChild(side);
+        var moveFrom = vblock && vblock.parentElement ? vblock.nextSibling : null;
+        var toMove = [];
+        while (moveFrom) { toMove.push(moveFrom); moveFrom = moveFrom.nextSibling; }
+        toMove.forEach(function (node) { main.appendChild(node); });
+        host.appendChild(layout);
+
+        /* ---------------- chapters, core themes, quotes ----------------
+           Gated on the PLUS fields alone, so a page whose Plus content has
+           not been built renders exactly as it does today. See the
+           iv-plus-dual block above for why the free JSON is not enough to
+           make a section appear.
+
+           Appended INSIDE the content column, not as a grid item of its
+           own. As a full width grid row they sat in row 3 beneath the
+           sticky sidebar in row 2, and on a real members' page the content
+           column is only the video plus the Airtable intro, so the taller
+           sidebar set the height of row 2, opened a large empty gap under
+           the copy, and ran the sections underneath the sidebar, covering
+           the right hand end of every section head including the switch.
+           In the content column the column simply grows and nothing
+           overlaps, which is also how the free page carries these. */
+        var plusChapters = parseJSONField(r['Plus Chapters JSON']);
+        var plusThemes   = parseJSONField(r['Plus Core Themes JSON']);
+        var plusQuotes   = parseJSONField(r['Plus Quotes JSON']);
+        /* Free chapters come from a re-timed field and never from
+           Chapters JSON, whose seeks belong to the free cut's own edit. */
+        var freeChapters = parseJSONField(r['Plus Free Chapters JSON']);
+        var freeThemes   = parseJSONField(r['Core Themes JSON']);
+        var freeQuotes   = parseJSONField(r['Quotes JSON']);
+
+        var dual = '';
+        if (plusChapters.length) {
+          dual += buildDualSection('chapters', 'iv-plus-chapters-acc', 'Chapters', 'In this episode',
+            freeChapters.length ? plusChapterRows(freeChapters) : '',
+            plusChapterRows(plusChapters));
+        }
+        if (plusThemes.length) {
+          dual += buildDualSection('themes', 'iv-plus-themes-acc', 'Show notes', 'Core themes',
+            freeThemes.length ? plusThemeItems(freeThemes, 1) : '',
+            plusThemeItems(plusThemes, freeThemes.length + 1));
+        }
+        if (plusQuotes.length) {
+          dual += buildDualSection('quotes', 'iv-plus-quotes-acc', 'Memorable', 'Quotes',
+            freeQuotes.length ? plusQuoteCards(freeQuotes, f.title) : '',
+            plusQuoteCards(plusQuotes, f.title));
+        }
+        var dualRoot = null;
+        if (dual) {
+          dualRoot = document.createElement('div');
+          dualRoot.className = 'iv-plus-sections';
+          dualRoot.innerHTML = dual;
+          main.appendChild(dualRoot);
+          wirePlusDual(dualRoot);
+          wireAccordions(dualRoot);
+          if (window.innerWidth > 700) {
+            /* 2026-09-24e: chapters open, themes and quotes closed until clicked, as on the free page. */
+            var plusChapAcc = dualRoot.querySelector('#iv-plus-chapters-acc');
+            if (plusChapAcc) plusChapAcc.classList.add('iv-open');
+          }
+          wirePlusChapters(dualRoot);
+          wireQuoteShare(dualRoot, window.location.href);
+          backfillQuotePortraits(dualRoot, []);
+        }
+
+        /* ---------------- sidebar ----------------
+           Built above as the layout's second column (the guest card and the
+           affiliates card; Get Tuned sits in the main column since the
+           afternoon save). */
+
+        /* Re-fit on every height change, because the guest and affiliate
+           cards arrive from a later request and their portraits load later
+           still, and each one changes how far the column can travel. */
+        fitPlusSide();
+        window.addEventListener('resize', fitPlusSide);
+        window.addEventListener('load', fitPlusSide);
+        /* The observer is kept on window rather than dropped on the floor:
+           an unreferenced ResizeObserver is not reliably retained, which is
+           why the first version of this silently never re-fired and left a
+           1788px column pinned at the 100px offset meant for a short one. */
+        if (window.ResizeObserver) {
+          window.__ivSideRO = new window.ResizeObserver(fitPlusSide);
+          window.__ivSideRO.observe(side);
+        }
+
+        fillPlusRelated(wrap, plusSlug);
+
+        /* ---------------- comments ----------------
+           The prev/next pager below the comments walks the /plus
+           collection in raw publish order and is the one piece of the
+           old page that reads as unfinished, so it goes. */
+        var comments = document.querySelector('.blog-item-comments');
+        if (comments && comments.parentElement) {
+          var ch = document.createElement('div');
+          ch.className = 'iv-plus-comments-head';
+          ch.innerHTML = buildCommentsHeading();
+          comments.parentElement.insertBefore(ch, comments);
+        }
+        document.querySelectorAll('.item-pagination').forEach(function (p) {
+          p.style.display = 'none';
+        });
+
+        /* ---------------- sidebar lookups ---------------- */
+        var guestIds = linkedIds(r['Guests']).filter(function (id) { return id !== HOST_GUEST_ID; });
+        guestIds.push(HOST_GUEST_ID);
+        var affIds = linkedIds(r['Affiliates Shown']);
+        var lookups = [];
+
+        if (guestIds.length) {
+          lookups.push(
+            ivLinkedGet('_guestsById', null, guestIds)
+              .then(function (gdata) {
+                var byId = {};
+                gdata.records.forEach(function (g) { byId[g.id] = g.fields; });
+                var guests = guestIds.map(function (id) {
+                  var gf = byId[id] || {};
+                  return {
+                    id: id,
+                    name: gf['Name'] || '', portrait: gf['Portrait URL'] || '', role: gf['Role'] || '',
+                    bio: gf['Bio'] || '', slug: gf['Guest Page Slug'] || '', website: gf['Website URL'] || '',
+                    youtube: gf['YouTube URL'] || '', substack: gf['Substack URL'] || '',
+                    books: gf['Books URL'] || '', socials: gf['Socials URL'] || ''
+                  };
+                }).filter(function (g) { return g.name; });
+                document.getElementById('iv-guest-slot').outerHTML = buildGuestCard(guests);
+                wireTabs(wrap, '.iv-guest-card', ['.iv-guest-tab-unit', '.iv-guest-tab-name'], '.iv-guest-panel', 'iv-guest-tab-active', 'iv-guest-panel-active');
+                wireGuestNameFit(wrap);
+                plusGuestLinks(wrap);
+                /* A free Quotes JSON row may carry no portrait; the guest
+                   records have one, so the faces arrive with this pass. */
+                if (dualRoot) backfillQuotePortraits(dualRoot, guests);
+              })
+          );
+        }
+
+        if (affIds.length) {
+          lookups.push(
+            ivLinkedGet('_affiliatesById', null, affIds)
+              .then(function (adata) {
+                var byId = {};
+                adata.records.forEach(function (a) { byId[a.id] = a.fields; });
+                var affiliates = affIds.map(function (id) {
+                  var af = byId[id] || {};
+                  return {
+                    name: af['Name'] || '', body: af['Body'] || '', offerLine: af['Offer Line'] || '',
+                    primaryLabel: af['Primary Link Label'] || '', primaryUrl: af['Primary Link URL'] || '',
+                    secondaryLabel: af['Secondary Link Label'] || '', secondaryUrl: af['Secondary Link URL'] || '',
+                    note: af['Note'] || '', booksJson: af['Books JSON'] || ''
+                  };
+                });
+                document.getElementById('iv-aff-slot').outerHTML = buildAffiliatesCard(affiliates);
+                wireTabs(wrap, '.iv-affiliates-card', ['.iv-aff-tab'], '.iv-affiliates-panel', 'iv-aff-tab-active', 'iv-affiliates-panel-active');
+              })
+          );
+        }
+
+        /* The guest and affiliate cards are what make this column taller
+           than the window, so the offset is recomputed once they are in,
+           deterministically, rather than trusting the observer alone. */
+        function settle() { fitPlusSide(); setTimeout(fitPlusSide, 400); if (window.ivInnerWhirled) window.ivInnerWhirled(); done(); }
+        return Promise.all(lookups).then(settle, settle);
+      })
+      .catch(function (err) {
+        console.error('IV plus render:', err);
+        fail();
+      });
+  }
+  /* (2026-10-28) Squarespace category pages go away with Squarespace, so the
+     guest card's See all button goes to the /episodes guest filter, as it
+     already did on every /plus page (they had no categories). */
+  function plusGuestLinks(root) {
+    root.querySelectorAll('.iv-guest-alllink').forEach(function (a) {
+      if (isHostGuest(a.getAttribute('data-guest-id'), a.getAttribute('data-guest-name'))) return;
+      a.href = '/episodes?guest=' + encodeURIComponent(a.getAttribute('data-guest-name') || '');
+      a.innerHTML = 'See all ' + esc(a.getAttribute('data-guest-first') || '') + ' episodes' +
+        '<span class="iv-guest-allcaret">&rarr;</span>';
+      a.style.display = '';
+    });
+  }
+  /* ===== END iv-plus-episode ===== */
 
 
   // ================================================================
@@ -2586,6 +3494,178 @@
 
   /* ===== END iv-chapter-video-seek ===== */
 
+  /* ===== BEGIN iv-plus-page (2026-10-28, stage 1b of the move off Squarespace) =====
+     Takes the job ivPlusMemberfulUnlock did on the live site. There, a locked
+     Squarespace post decided between the join screen and the members' page.
+     Here the generator writes the join screen (and the public part of the
+     episode under it) into the HTML, so this only decides when a member's page
+     goes in front of it:
+       - html.iv-plus-member already set by the head script (a member whose
+         answer is cached): draw the members' page straight away. The
+         stylesheet hides the join screen for them from the first paint.
+       - a sign-in with no cached answer: site.js asks the Worker, sets
+         html.iv-plus-member when entitled, and the watcher below draws it.
+       - the Worker says a cached member is no longer entitled: site.js takes
+         the class away and the page is reloaded, which shows the join screen.
+     The members' video address comes from the episode's public data file, as
+     now; the audio is signed by the Worker (iv-plus-audio-handshake below) and
+     the show notes are fetched through it (iv-show-notes), exactly as now. */
+  function ivPlusPage(st) {
+    var html = document.documentElement;
+    var inner = document.querySelector('.blog-item-inner-wrapper');
+    var pub = document.getElementById('iv-plus-public');
+    if (!inner || !pub || !st || !st.slug) return;
+    var m = window.ivMembership;
+
+    /* The log-in links come back to this very page. */
+    if (m && m.loginUrl) {
+      var back = m.loginUrl(window.location.href);
+      pub.querySelectorAll('a[data-iv-login]').forEach(function (a) { a.setAttribute('href', back); });
+    }
+    wireTabs(pub, '.iv-guest-card', ['.iv-guest-tab-unit', '.iv-guest-tab-name'], '.iv-guest-panel', 'iv-guest-tab-active', 'iv-guest-panel-active');
+    wireGuestNameFit(pub);
+
+    var state = 'public';
+    function signedIn() { return !!(m && m.getToken && m.getToken()); }
+    function mount() {
+      if (state !== 'public' || !signedIn() || !html.classList.contains('iv-plus-member')) return;
+      state = 'member';
+      html.classList.add('iv-plus-unlocked');
+      var synthWrap = document.createElement('div');
+      synthWrap.className = 'blog-item-content-wrapper';
+      var synthHost = document.createElement('div');
+      synthHost.className = 'blog-item-content';
+      var vplaceholder = document.createElement('div');
+      vplaceholder.className = 'sqs-block-video';
+      synthHost.appendChild(vplaceholder);
+      synthWrap.appendChild(synthHost);
+      inner.insertBefore(synthWrap, pub);
+      renderPlus(st.slug, function () {
+        /* No data to draw from: put the join screen back rather than a blank page. */
+        state = 'failed';
+        if (synthWrap.parentNode) synthWrap.parentNode.removeChild(synthWrap);
+        html.classList.remove('iv-plus-unlocked', 'iv-plus-ep');
+        html.classList.add('iv-plus-nodata');
+      });
+      ivPlusAudioHandshake();
+    }
+    mount();
+    if (window.MutationObserver) {
+      new MutationObserver(function () {
+        var member = html.classList.contains('iv-plus-member');
+        if (member) mount();
+        else if (state === 'member') { state = 'leaving'; window.location.reload(); }
+      }).observe(html, { attributes: true, attributeFilter: ['class'] });
+    }
+  }
+
+  /* ===== BEGIN iv-plus-audio-handshake (2026-09-10, carried over 2026-10-28) =====
+     The live FOOTER block of the same name, unchanged except that it is
+     started by ivPlusPage() (so it runs on members' pages only) instead of
+     testing location.pathname, which the test address prefixes.
+
+     The R2 bucket holding members' audio is private, and the Worker gates
+     /audio/<slug> on a short-lived play token in the query string. An
+     <audio> tag cannot send an Authorization header, so the page trades the
+     member's session token for a tokenised play URL first. "Plus Audio URL"
+     holds the canonical, UNSIGNED worker URL; anything not on the worker's
+     /audio/ path is left alone. */
+  var ivPlusAudioStarted = false;
+  function ivPlusAudioHandshake() {
+    if (ivPlusAudioStarted) return;
+    ivPlusAudioStarted = true;
+    var WORKER = 'https://innerverse-plus.chance-5da.workers.dev';
+    var AUDIO_PREFIX = WORKER + '/audio/';
+    var TOKEN_KEY = 'iv_session_token';
+
+    function sessionToken() {
+      try { return localStorage.getItem(TOKEN_KEY) || ''; } catch (e) { return ''; }
+    }
+
+    /* Drop the Listen button and stay on Watch. Better a page that behaves
+       like it did last week than a tab that silently plays nothing. */
+    function dropListen(box, why) {
+      var btn = box.querySelector('.iv-tbtn[data-panel="listen"]');
+      var panel = box.querySelector('.iv-toggle-panel[data-panel="listen"]');
+      if (panel) panel.remove();
+      if (btn) btn.remove();
+      var btns = box.querySelector('.iv-toggle-btns');
+      if (btns && !btns.querySelector('.iv-tbtn[data-panel="listen"]')) {
+        btns.classList.add('iv-toggle-btns-solo');
+      }
+      if (why) console.info('[iv-plus-audio] Listen hidden:', why);
+    }
+
+    function slugOf(src) {
+      return decodeURIComponent(src.slice(AUDIO_PREFIX.length).split('?')[0]);
+    }
+
+    /* Trade the session token for a ~6h play URL. Resolves to a string, or
+       null when this visitor is not entitled / the worker refuses. */
+    function mint(slug) {
+      var tok = sessionToken();
+      if (!tok) return Promise.resolve(null);
+      return fetch(WORKER + '/audio-link/' + encodeURIComponent(slug), {
+        headers: { 'Authorization': 'Bearer ' + tok }
+      }).then(function (res) {
+        if (!res.ok) return null;
+        return res.json();
+      }).then(function (j) {
+        return (j && j.url) ? j.url : null;
+      })['catch'](function () { return null; });
+    }
+
+    function wire(audio) {
+      var box = audio.closest('.iv-media-toggle');
+      var raw = audio.getAttribute('src') || '';
+      if (raw.indexOf(AUDIO_PREFIX) !== 0) return;   /* not ours, leave it */
+
+      var slug = slugOf(raw);
+      audio.removeAttribute('src');                  /* never let the unsigned URL be fetched */
+
+      mint(slug).then(function (url) {
+        if (!url) { if (box) dropListen(box, 'no session token or not entitled'); return; }
+        audio.src = url;
+
+        /* The play token outlives any realistic sitting, but a tab left open
+           overnight would wake up to a 403. One silent re-mint on error, then
+           resume from where the listener was. */
+        var retried = false;
+        audio.addEventListener('error', function () {
+          if (retried) return;
+          retried = true;
+          var at = audio.currentTime || 0;
+          var wasPlaying = !audio.paused;
+          mint(slug).then(function (fresh) {
+            if (!fresh) return;
+            audio.src = fresh;
+            audio.addEventListener('loadedmetadata', function once() {
+              audio.removeEventListener('loadedmetadata', once);
+              try { audio.currentTime = at; } catch (e) {}
+              if (wasPlaying) audio.play()['catch'](function () {});
+            });
+          });
+        });
+      });
+    }
+
+    /* The render is async, so watch for the player rather than guessing a delay. */
+    var seen = typeof WeakSet === 'function' ? new WeakSet() : null;
+    function scan() {
+      document.querySelectorAll('.iv-audio-player audio').forEach(function (a) {
+        if (seen ? seen.has(a) : a.__ivSeen) return;
+        if (seen) seen.add(a); else a.__ivSeen = true;
+        wire(a);
+      });
+    }
+    scan();
+    if (window.MutationObserver) new MutationObserver(scan).observe(document.documentElement, { childList: true, subtree: true });
+    var ticks = 0;
+    var poll = setInterval(function () { scan(); if (++ticks > 40) clearInterval(poll); }, 250);
+  }
+  /* ===== END iv-plus-audio-handshake ===== */
+  /* ===== END iv-plus-page ===== */
+
   /* ===== BEGIN iv-hydrate (2026-10-19, the move off Squarespace) =====
      The page now arrives finished: the generator in innerverse-site wrote
      every section into the HTML from the same episode data, with the same
@@ -2597,9 +3677,11 @@
   function hydrate() {
     var root = document.getElementById('iv-episode-root');
     var dataEl = document.getElementById('iv-page-data');
-    if (!root || !dataEl) return;
+    if (!dataEl) return;
     var st;
     try { st = JSON.parse(dataEl.textContent); } catch (e) { return; }
+    if (st && st.kind === 'plus') { ivPlusPage(st); return; }   /* iv-plus-page (2026-10-28) */
+    if (!root) return;
     var f = st.f || {};
     /* The generator wrote the chip as a flag; the builders want markup. */
     if (f.fullChip === true) f.fullChip = '';

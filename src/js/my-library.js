@@ -1,0 +1,140 @@
+/* Members' My library card (assets/my-library.js). Carried over from the Squarespace Code
+   Injection block iv-my-library (live 2026-10-28) on 2026-10-28; the stylesheet is
+   src/css/61-my-library.css. Only change: the page path comes from ivPath(). */
+(function () {
+  'use strict';
+  /* Members only, on /episodes/<slug> and /plus/<slug>. Waits for the episode page to be drawn
+     (the render is asynchronous) and for the member check, then adds one card under the
+     description. The key matches the app: the members' page when the episode has one ("p:"),
+     otherwise the free page ("e:"). Rollback: delete this block. */
+  var API = 'https://innerverse-circle.chance-5da.workers.dev';
+  var APP_LIB = 'https://circle.innerversepodcast.com/app/#/library';
+  /* 2026-10-10: the episode's own Inner Circle room (the circle maps a /plus slug to its free twin) */
+  var CIRCLE_ROOM = 'https://circle.innerversepodcast.com/#room=ep:';
+  var seg = (window.ivPath ? window.ivPath() : window.location.pathname).split('/').filter(Boolean);
+  if (seg.length !== 2) return;
+  var top = seg[0].toLowerCase();
+  if (top !== 'episodes' && top !== 'plus') return;
+  var slug = decodeURIComponent(seg[1]).toLowerCase();
+  var isPlus = top === 'plus';
+  var HEART = function (on) {
+    return '<svg viewBox="0 0 24 24" width="18" height="18" fill="' + (on ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>';
+  };
+
+  function token() { var m = window.ivMembership; return (m && m.getToken && m.getToken()) || ''; }
+  function member() { return document.documentElement.classList.contains('iv-plus-member') && !!token(); }
+
+  /* plus-index.json joins a free page to its members' page, so a note written on either lands
+     in the same place (the render keeps a copy of it in sessionStorage) */
+  var plusIndex = null;
+  function plusPosts() {
+    if (plusIndex) return plusIndex;
+    var cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem('iv_plus_rel_corpus') || 'null'); } catch (e) {}
+    if (cached && cached.length) { plusIndex = Promise.resolve(cached); return plusIndex; }
+    plusIndex = fetch('https://raw.githubusercontent.com/chance-garton/innerverse-data/main/plus-index.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { return (d && d.episodes) || []; })['catch'](function () { return []; });
+    return plusIndex;
+  }
+  function keys() {
+    return plusPosts().then(function (posts) {
+      var main, twin = '';
+      if (isPlus) {
+        main = 'p:' + slug;
+        var me = posts.filter(function (p) { return p.slug === slug; })[0];
+        if (me && me.freeSlug) twin = 'e:' + me.freeSlug;
+      } else {
+        var hit = posts.filter(function (p) { return p.freeSlug === slug && /\/plus\//.test(p.url || ''); })[0];
+        main = hit ? 'p:' + hit.slug : 'e:' + slug;
+        if (hit) twin = 'e:' + slug;
+      }
+      return { main: main, twin: twin };
+    });
+  }
+
+  function api(method, body) {
+    return fetch(API + '/api/library', {
+      method: method,
+      headers: method === 'POST' ? { Authorization: 'Bearer ' + token(), 'Content-Type': 'application/json' } : { Authorization: 'Bearer ' + token() },
+      body: body ? JSON.stringify(body) : undefined
+    }).then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+  }
+
+  function anchor() {
+    if (isPlus) {
+      var intro = document.querySelector('.blog-item-content .iv-plus-intro');
+      if (intro) return { el: intro, after: true };
+      var tuned = document.querySelector('.blog-item-content .iv-plus-tuned-row');
+      return tuned ? { el: tuned, after: false } : null;
+    }
+    var it = document.querySelector('#iv-episode-root .iv-intro-text');
+    return it ? { el: it, after: true } : null;
+  }
+
+  var mounted = false;
+  function mount() {
+    if (mounted || !member()) return;
+    var a = anchor(); if (!a) return;
+    mounted = true;
+    var card = document.createElement('div');
+    card.className = 'iv2-card ivml-card';
+    card.id = 'ivml';
+    card.innerHTML =
+      '<div class="ivml-top"><div><span class="iv2-eyebrow iv2-gold">Just for you</span><h3 class="iv2-h3">My library</h3></div>' +
+        '<button type="button" class="iv2-btn iv2-btn-secondary ivml-save" aria-pressed="false">' + HEART(false) + '<span>Save episode</span></button></div>' +
+      '<label class="ivml-label" for="ivml-note">My notes <span>(private, only you can see them)</span></label>' +
+      '<textarea id="ivml-note" class="ivml-note" maxlength="10000" placeholder="Thoughts, sources to look up, moments to come back to."></textarea>' +
+      '<div class="ivml-bar"><span class="ivml-msg">Saved to your account, here and in the InnerVerse app.</span><a href="' + APP_LIB + '" target="_blank" rel="noopener">Open My library</a></div>';
+    if (a.after) a.el.parentElement.insertBefore(card, a.el.nextSibling);
+    else a.el.parentElement.insertBefore(card, a.el);
+    var room = document.createElement('div');
+    room.className = 'iv2-card ivml-card ivml-room';
+    room.innerHTML =
+      '<div class="ivml-top"><div><span class="iv2-eyebrow iv2-gold">Inner Circle</span><h3 class="iv2-h3">Talk about this episode</h3></div>' +
+        '<a class="iv2-btn iv2-btn-secondary ivml-go" href="' + CIRCLE_ROOM + encodeURIComponent(slug) + '" target="_blank" rel="noopener">' +
+        '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"></path></svg><span>Join the conversation</span></a></div>' +
+      '<div class="ivml-bar"><span>Share what stood out with fellow members in this episode\'s own room.</span></div>';
+    card.parentElement.insertBefore(room, card.nextSibling);
+    var btn = card.querySelector('.ivml-save'), ta = card.querySelector('.ivml-note'), msg = card.querySelector('.ivml-msg');
+    var base = msg.textContent, key = '', saved = false, last = '', t = null, mt = null;
+    ta.disabled = true; btn.disabled = true;
+    function paint() {
+      btn.classList.toggle('ivml-on', saved);
+      btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
+      btn.innerHTML = HEART(saved) + '<span>' + (saved ? 'Saved' : 'Save episode') + '</span>';
+    }
+    function say(s, back) { msg.textContent = s; clearTimeout(mt); if (back) mt = setTimeout(function () { msg.textContent = base; }, 1800); }
+    Promise.all([keys(), api('GET')]).then(function (res) {
+      var k = res[0], items = (res[1] && res[1].items) || [];
+      var mine = items.filter(function (x) { return x.key === k.main; })[0] || (k.twin && items.filter(function (x) { return x.key === k.twin; })[0]) || null;
+      key = mine ? mine.key : k.main;
+      saved = !!(mine && mine.saved);
+      ta.value = last = (mine && mine.note) || '';
+      paint(); ta.disabled = false; btn.disabled = false;
+    })['catch'](function (e) {
+      if (String(e && e.message) === '401') { card.parentElement && card.parentElement.removeChild(card); room.parentElement && room.parentElement.removeChild(room); return; }
+      say('Your library could not load. Refresh the page to try again.');
+    });
+    btn.addEventListener('click', function () {
+      if (!key) return;
+      saved = !saved; paint();
+      api('POST', { key: key, saved: saved }).then(function () { say(saved ? 'Saved to My library.' : 'Removed from My library.', true); })['catch'](function () { saved = !saved; paint(); say('Not saved. Check your connection.'); });
+    });
+    function saveNote() {
+      clearTimeout(t); t = null;
+      if (!key || ta.value === last) return;
+      var v = ta.value; last = v; say('Saving...');
+      api('POST', { key: key, note: v }).then(function () { say('Saved', true); })['catch'](function () { last = ''; say('Not saved yet. Check your connection.'); });
+    }
+    ta.addEventListener('input', function () { clearTimeout(t); t = setTimeout(saveNote, 900); });
+    ta.addEventListener('blur', saveNote);
+  }
+
+  var tries = 0;
+  var timer = setInterval(function () { mount(); if (mounted || ++tries > 100) clearInterval(timer); }, 400);
+  if (window.MutationObserver) {
+    var mo = new MutationObserver(function () { mount(); if (mounted) mo.disconnect(); });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
+})();

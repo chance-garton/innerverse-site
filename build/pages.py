@@ -33,7 +33,7 @@ def home():
             "thinkers ready to go deeper.")
     h = head(title, desc, LIVE_ORIGIN + "/", DEFAULT_IMAGE, "website", "iv-home-page")
     body = nav("home") + '<main id="iv-main">' + mount(shell) + "</main>" + footer()
-    return page(h, body, "iv-home-page", scripts=("/assets/site.js", "/assets/archive.js", "/assets/home.js"))
+    return page(h, body, "iv-home-page", scripts=("/assets/site.js", "/assets/archive.js", "/assets/home.js", "/assets/promo.js"))
 
 
 def episodes(pages):
@@ -60,6 +60,14 @@ def episodes(pages):
 PLUS_IMAGE = "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69fbc0e54bf4684fff7e35ec/1778106597548/ChatGPT+Image+May+6%2C+2026%2C+03_30_14+PM.png"
 
 
+def local_path(e):
+    """An index entry's own page on this site: /plus/<slug>, or the free page
+    for the free-only rows that have no members' cut."""
+    u = e.get("url") or ""
+    i = u.find("innerversepodcast.com/")
+    return u[i + len("innerversepodcast.com"):] if i > -1 else "/plus/" + e["slug"]
+
+
 def plus(plus_index):
     """The members' archive. plus_index: innerverse-data's plus-index.json
     episodes, newest first. Only what a visitor sees today goes in the HTML
@@ -69,7 +77,7 @@ def plus(plus_index):
             "conversations, Inner Whirled exclusives, and deep dives into consciousness, mythology, holistic "
             "health, and hidden history with Chance Garton.")
     items = "".join(
-        '<li><a href="' + esc(url("/plus/" + e["slug"])) + '">' + esc((e.get("title") or "").replace("—", ", ").replace("–", ", ")) + "</a></li>"
+        '<li><a href="' + esc(url(local_path(e))) + '">' + esc((e.get("title") or "").replace("—", ", ").replace("–", ", ")) + "</a></li>"
         for e in plus_index if e.get("slug")
     )
     every = ('<div class="collection-content-wrapper iv-every">'

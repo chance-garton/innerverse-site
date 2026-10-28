@@ -1,0 +1,22 @@
+/* /plus/<slug> pages (stage 1b, 2026-10-28). The generator writes the
+   signed-out join screen (the live paintLock markup, styled by
+   26-plus-unlock.css) and under it the public part of the episode: the
+   description, the members' chapter titles and the guests, in the free
+   page's two columns. A member's page is drawn in front of it by
+   assets/episode.js (ivPlusPage), so the join screen is hidden for a member
+   from the first paint (the head script sets iv-plus-member from the cached
+   answer) and comes back if there was nothing to draw. */
+html.iv-plus-member .iv-plus-public,
+html.iv-plus-unlocked .iv-plus-public { display: none; }
+html.iv-plus-member.iv-plus-nodata .iv-plus-public { display: block; }
+html.iv-2026 .iv-plus-public > .iv-plus-pubinfo { margin-top: 56px; }
+html.iv-2026 .iv-plus-pubinfo .iv2-locked { margin-top: 0; }
+html.iv-2026 .iv-plus-pubinfo .iv-sticky-main > * + * { margin-top: 40px; }
+@media (max-width: 700px) {
+  html.iv-2026 .iv-plus-public > .iv-plus-pubinfo { margin-top: 32px; }
+  html.iv-2026 .iv-plus-pubinfo .iv-sticky-main > * + * { margin-top: 28px; }
+}
+/* The join screen inherited Squarespace's body type on the live site (Abel,
+   and paragraphs at 1.6em of their own size); keep it identical. */
+.iv-plus-public .iv-lock { font-family: Abel, Manrope, "Segoe UI", Helvetica, Arial, sans-serif; color: #fff; }
+.iv-plus-public .iv-lock p { line-height: 1.6em; }

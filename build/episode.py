@@ -940,4 +940,4 @@ def render(slug, file, post, related, tags):
     html_class = "iv-2026 iv-newtpl" + (" iv-iw" if iw else "")
     h = head(title, description, canonical, image, "article", html_class, iw,
              extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
-    return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js"))
+    return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js"))

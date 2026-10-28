@@ -48,6 +48,7 @@ os.environ.setdefault("IV_ASSET_VERSION", assets_hash())
 import common  # noqa: E402  (reads the environment at import)
 import episode  # noqa: E402
 import pages as hand  # noqa: E402
+import plus_episode  # noqa: E402
 
 
 def write(rel, text):
@@ -111,6 +112,23 @@ def main():
     write("episodes.html", arch)
     write("episodes/index.html", arch)
     plus_eps = sorted(load(os.path.join(DATA, "plus-index.json"))["episodes"], key=lambda e: e.get("date") or "", reverse=True)
+
+    # The members' pages (stage 1b): one per /plus entry in plus-index.json
+    # with an episode file. Entries whose url is a free page are the free-only
+    # rows with no members' cut, and have no /plus page to build.
+    plus_posts = {p["slug"]: p for p in snap.get("plus", [])}
+    plus_pages, plus_no_data = 0, []
+    for e in plus_eps:
+        if "/plus/" not in (e.get("url") or ""):
+            continue
+        file = episode_file(e["slug"])
+        if not file:
+            plus_no_data.append(e["slug"])
+            continue
+        write("plus/" + e["slug"] + ".html", plus_episode.render(e["slug"], file, plus_posts.get(e["slug"]), e))
+        plus_pages += 1
+        lastmod = (file.get("generated") or "")[:10] or (e.get("date") or "")
+        sitemap.append((common.LIVE_ORIGIN + "/plus/" + e["slug"], lastmod))
     plus_page = hand.plus(plus_eps)
     write("plus.html", plus_page)
     write("plus/index.html", plus_page)
@@ -126,13 +144,13 @@ def main():
     write("sitemap.xml", "\n".join(xml) + "\n")
     write(".nojekyll", "")
     # Until every page lives here, an address this site does not have yet
-    # (the homepage, /plus, About...) goes on to the same page on the live site.
+    # (About, Biofield Tuning...) goes on to the same page on the live site.
     write("404.html", "<!doctype html><meta charset=utf-8><title>InnerVerse</title><script>"
           "var b=" + json.dumps(common.BASE) + ",p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);"
           "location.replace(" + json.dumps(common.LIVE_ORIGIN) + "+(p||'/')+location.search+location.hash);</script>"
           "<p>Taking you to <a href=\"" + common.LIVE_ORIGIN + "\">innerversepodcast.com</a>.</p>\n")
 
-    report = {"episodePages": len(pages), "postsWithNoData": [p["slug"] for p, _ in no_data]}
+    report = {"episodePages": len(pages), "plusPages": plus_pages, "postsWithNoData": [p["slug"] for p, _ in no_data], "plusWithNoData": plus_no_data}
     write("build-report.json", json.dumps(report, indent=1))
     print(json.dumps(report))
 

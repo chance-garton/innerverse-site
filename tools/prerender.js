@@ -69,6 +69,8 @@ function fromDist(p) {
       const m = document.getElementById('iv-mount');
       // Things that only make sense live: open panels, focus, timers' state.
       m.querySelectorAll('.is-open,.iv-open').forEach((n) => n.classList.remove('is-open', 'iv-open'));
+      // The promo box comes and goes with a tick in Airtable; visitors get it from promo.js.
+      m.querySelectorAll('.iv-promo-slot,.iv-promo').forEach((n) => n.remove());
       return m.innerHTML;
     });
     const file = path.join(DIST, pg.file);

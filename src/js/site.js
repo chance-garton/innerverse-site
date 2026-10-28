@@ -234,9 +234,41 @@
      nav on those pages. This keeps the menu where it sits on every other
      page (the wordmark is wider than InnerVerse) and tags card headings that
      carry a number so they set in Fjalla One. */
+  /* A members' /plus page turns the skin on only once the member's page is
+     drawn (as on the live site), so the nav it was served with carries the
+     InnerVerse mark; put the Inner Whirled mark and word in its place. */
+  var IW_MARK = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a39095cd-b9d2-444d-b4e2-14a2484d766d/Inner-Whirled-Logo.png?format=300w';
+  function iwBrand(nav) {
+    nav.querySelectorAll('.iv-nav-logo').forEach(function (img) {
+      if (img.getAttribute('src') === IW_MARK) return;
+      img.removeAttribute('data-iv-plus');
+      img.setAttribute('src', IW_MARK);
+      img.setAttribute('alt', 'Inner Whirled');
+    });
+    nav.querySelectorAll('.iv-nav-word').forEach(function (w) {
+      if (!w.querySelector('.iw-inner')) w.innerHTML = '<span class="iw-inner">Inner</span><span class="iw-whirled">Whirled</span>';
+    });
+  }
+  var iwWatching = false;
+  function iwWatch(nav) {
+    if (iwWatching || !nav) return;
+    iwWatching = true;
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(iwFit);
+    window.addEventListener('resize', iwFit);
+    /* Refit when the bar shrinks or grows on scroll, not on the fit's own class. */
+    var wasScrolled = nav.classList.contains('iv-nav-scrolled');
+    new MutationObserver(function () {
+      var now = nav.classList.contains('iv-nav-scrolled');
+      if (now === wasScrolled) return;
+      wasScrolled = now;
+      setTimeout(iwFit, 400);
+    }).observe(nav, { attributes: true, attributeFilter: ['class'] });
+  }
+
   function iwFit() {
     if (!isIW()) return;
     var nav = document.getElementById('iv-nav');
+    if (nav) { iwBrand(nav); iwWatch(nav); }
     var brand = nav && nav.querySelector('.iv-nav-brand');
     var word = nav && nav.querySelector('.iv-nav-word');
     var logo = nav && nav.querySelector('.iv-nav-logo');
@@ -250,8 +282,18 @@
         document.body.appendChild(probe);
         var extra = word.getBoundingClientRect().width - probe.getBoundingClientRect().width + logo.getBoundingClientRect().width - (scrolled ? 36 : 48);
         probe.parentNode.removeChild(probe);
-        if (extra > 0) brand.style.setProperty('--iw-brand-extra', (-extra) + 'px');
-      }
+        /* (2026-10-28) The App link made the menu wider than this pull left
+           room for, so the wordmark ran into EPISODES. Pull only as far as
+           keeps a 32px gap; with no room even unpulled, use the burger. */
+        nav.classList.remove('iv-nav-iw-tight');
+        var first = nav.querySelector('.iv-nav-center .iv-nav-link');
+        var room = first ? first.getBoundingClientRect().left - word.getBoundingClientRect().right : 999;
+        if (room < 24) nav.classList.add('iv-nav-iw-tight');
+        else {
+          var pull = Math.min(extra, room - 32);
+          if (pull > 0) brand.style.setProperty('--iw-brand-extra', (-pull) + 'px');
+        }
+      } else nav.classList.remove('iv-nav-iw-tight');
     }
     document.querySelectorAll('.iv2-h3, .iv2-locked-title').forEach(function (el) {
       if (/\d/.test(el.textContent)) el.classList.add('iv-iw-num');
@@ -266,12 +308,7 @@
       wireLogin(nav);
       wireBurger(nav);
       wireScroll(nav);
-      if (isIW()) {
-        iwFit();
-        if (document.fonts && document.fonts.ready) document.fonts.ready.then(iwFit);
-        window.addEventListener('resize', iwFit);
-        new MutationObserver(function () { setTimeout(iwFit, 400); }).observe(nav, { attributes: true, attributeFilter: ['class'] });
-      }
+      if (isIW()) iwFit();
     }
     wireFooter();
   }
