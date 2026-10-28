@@ -1,0 +1,39 @@
+/* Carried over from the Squarespace Code Injection block iv-plus-feed-card (live 2026-10-28). */
+.iv-feedcard-wrap{max-width:1200px;margin:10px auto 44px;box-sizing:border-box}
+.iv-feedcard{margin:0;padding:22px 26px;border:1px solid rgba(232,185,35,.35);border-radius:16px;
+  background:linear-gradient(120deg,rgba(232,185,35,.13) 0%,rgba(232,185,35,.04) 38%,rgba(255,255,255,.02) 100%),#12141a;
+  box-shadow:0 18px 48px rgba(0,0,0,.45);color:#f3f0e6;font-family:inherit;box-sizing:border-box;
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"art copy apps" "art help help";column-gap:22px;row-gap:4px;align-items:center}
+.iv-feedcard *{box-sizing:border-box}
+.iv-feedcard-top{display:contents}
+.iv-feedcard-art{grid-area:art;align-self:start;width:92px;height:92px;border-radius:12px;background:#111 center/cover no-repeat;box-shadow:0 8px 22px rgba(0,0,0,.5),0 0 0 1px rgba(232,185,35,.25)}
+.iv-feedcard-copy{grid-area:copy;min-width:0}
+.iv-feedcard-eyebrow{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,185,35,.85);font-weight:700;margin:0 0 6px}
+.iv-feedcard h3{margin:0 0 6px;font-family:"Fjalla One",sans-serif;font-weight:400;font-size:24px;line-height:1.15;letter-spacing:.3px;color:#fff}
+.iv-feedcard p{margin:0;font-size:14px;line-height:1.55;color:rgba(243,240,230,.72);max-width:52ch}
+.iv-feedcard-apps{grid-area:apps;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;max-width:420px}
+.iv-feedcard-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 15px;border-radius:999px;border:1px solid rgba(232,185,35,.45);background:rgba(232,185,35,.05);color:#f3f0e6!important;font-size:13px;font-weight:600;letter-spacing:.2px;text-decoration:none!important;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .15s,border-color .15s,transform .15s}
+.iv-feedcard-btn:hover{background:rgba(232,185,35,.16);border-color:#E8B923;transform:translateY(-1px)}
+.iv-feedcard-btn.is-primary{flex-basis:100%;background:#E8B923;border-color:#E8B923;color:#161203!important;box-shadow:0 6px 20px rgba(232,185,35,.28)}
+.iv-feedcard-btn.is-primary:hover{background:#f6d150;border-color:#f6d150}
+.iv-feedcard-url{grid-column:2 / -1;display:none;margin-top:12px;width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.35);color:#f3f0e6;font:12.5px/1.4 ui-monospace,Menlo,Consolas,monospace;word-break:break-all}
+.iv-feedcard.is-open .iv-feedcard-url{display:block}
+.iv-feedcard-toggle{grid-column:2 / -1;justify-self:start;background:none;border:0;padding:0;margin-top:8px;color:rgba(232,185,35,.9);font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit}
+.iv-feedcard-help{grid-column:2 / -1;display:none;margin-top:8px;font-size:13px;line-height:1.6;color:rgba(243,240,230,.75)}
+.iv-feedcard-help.is-open{display:block}
+.iv-feedcard-help b{color:#fff}
+@media (max-width:900px){
+  .iv-feedcard{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"art copy" "apps apps"}
+  .iv-feedcard-apps{justify-content:flex-start;max-width:none;margin-top:14px}
+  .iv-feedcard-btn.is-primary{flex-basis:auto}
+  .iv-feedcard-url,.iv-feedcard-toggle,.iv-feedcard-help{grid-column:1 / -1}
+}
+@media (max-width:600px){
+  .iv-feedcard-wrap{margin:4px auto 34px}
+  .iv-feedcard{padding:18px 16px;column-gap:14px}
+  .iv-feedcard-art{width:64px;height:64px;border-radius:10px}
+  .iv-feedcard h3{font-size:20px}
+  .iv-feedcard p{font-size:13px}
+  .iv-feedcard-btn{flex:1 1 calc(50% - 8px)}
+  .iv-feedcard-btn.is-primary{flex-basis:100%}
+}

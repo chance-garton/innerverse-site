@@ -1,0 +1,32 @@
+/* Carried over from the Squarespace Code Injection block iv-episode-tweaks (live 2026-10-28). */
+/* ===== BEGIN iv-episode-tweaks =====
+   Small corrections to the episode template that do not belong to the
+   comments or guest-episode blocks. */
+
+/* Chapters reads as IN THIS EPISODE only because that string is typed in
+   capitals in the script, while Core Themes and Quotes were title case.
+   Doing it in CSS rather than by retyping the strings means any section
+   added later matches without another code change. */
+.iv-chapters-heading,
+.iv-section-title{text-transform:uppercase;}
+
+/* The breadcrumb sat tight under the fixed nav on phones. */
+@media screen and (max-width:767px){
+  #iv-episode-root .iv-header-breadcrumb{margin-top:8px;}
+}
+
+/* Speaker face on each quote card, so a multi-voice episode is readable at
+   a glance. The image is the same portrait the share card uses, painted by
+   the script once it knows the speaker, and the avatar stays hidden until
+   then so a quote with no face never shows an empty circle. */
+.iv-quote-who{display:flex;align-items:center;gap:11px;min-width:0;}
+.iv-quote-avatar{
+  flex:0 0 34px;width:34px;height:34px;border-radius:50%;
+  background:#0b0d12 center/cover no-repeat;
+  border:1px solid rgba(0,137,255,0.55);
+  box-shadow:0 0 0 3px rgba(0,137,255,0.10);
+  display:none;
+}
+.iv-quote-avatar.iv-on{display:block;}
+.iv-quote-card .iv-quote-author{color:rgba(255,255,255,0.72);}
+/* ===== END iv-episode-tweaks ===== */

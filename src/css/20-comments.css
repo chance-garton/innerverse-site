@@ -1,0 +1,367 @@
+/* Carried over from the Squarespace Code Injection block iv-comments (live 2026-10-28). */
+/* ===== BEGIN iv-comments (managed block: replace as one unit) ===== */
+/* InnerVerse comments restyle + old prev/next pagination hide.
+   Goes in Settings > Advanced > Code Injection > HEADER, inside a <style>
+   tag, after the main .iv- stylesheet. Styles Squarespace's own comment
+   markup, so nothing here depends on the episode render script. */
+
+/* ---------- shell ---------- */
+.squarespace-comments{
+  max-width:760px;
+  margin:40px auto 0 !important;
+  font-family:"Manrope",sans-serif;
+}
+.squarespace-comments *{box-sizing:border-box;}
+
+/* ---------- count + sort row ---------- */
+.squarespace-comments .header-controls{
+  margin:0 0 18px;
+  padding:0 2px;
+}
+.squarespace-comments .header-controls .controls{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.squarespace-comments .comment-count{
+  font-family:"Fjalla One",sans-serif !important;
+  font-size:15px !important;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:#fff !important;
+  margin:0 !important;
+}
+.squarespace-comments .comment-sort{
+  position:relative;
+  display:inline-block;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+  cursor:pointer;
+}
+.squarespace-comments .comment-sort:hover{color:rgb(0,137,255);}
+.squarespace-comments .hidden-ordering{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  cursor:pointer;
+}
+/* nothing to sort yet */
+.squarespace-comments.empty .header-controls{display:none;}
+
+/* ---------- the form card ----------
+   Everything visual here is !important on purpose. Squarespace loads its
+   own comment stylesheet LATER than Code Injection for a signed-in
+   visitor (it ships the moderation UI with it), and that sheet paints
+   .new-comment-area, .input and .comment-btn-wrapper white. Signed out
+   the sheet never loads, which is why an unhardened version of this block
+   looked right to visitors and white to the owner. Anything that can be
+   repainted by that sheet is therefore forced here. */
+.squarespace-comments,
+.squarespace-comments #comments,
+.squarespace-comments .header-controls,
+.squarespace-comments .new-comment-area .input,
+.squarespace-comments .comment-form,
+.squarespace-comments .comment-list,
+.squarespace-comments .comment,
+.squarespace-comments .comment-header,
+.squarespace-comments .comment-body,
+.squarespace-comments .reply-area-wrapper{
+  background:transparent !important;
+  box-shadow:none !important;
+}
+.squarespace-comments .new-comment-area .input,
+.squarespace-comments .comment-form{
+  border:none !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+.squarespace-comments .new-comment-area{
+  background:#0b0d12 !important;
+  border:1px solid rgba(0,137,255,.30) !important;
+  border-radius:14px !important;
+  padding:24px 24px 20px !important;
+  margin:0 !important;
+  box-shadow:none !important;
+}
+.squarespace-comments .new-comment-area.reply-area{
+  background:#08090d !important;
+  border-color:rgba(255,255,255,.10) !important;
+  margin:14px 0 4px 46px !important;
+  padding:18px 18px 14px !important;
+}
+
+/* name + email row, injected by the script when the visitor is signed out */
+.iv-cid-row{
+  display:flex;
+  gap:12px;
+  margin:0 0 12px;
+}
+.iv-cid-row input{
+  flex:1 1 50%;
+  min-width:0;
+}
+.squarespace-comments .iv-cid-row input,
+.squarespace-comments .comment-input{
+  display:block;
+  width:100%;
+  background:#05070b !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.14) !important;
+  border-radius:9px !important;
+  padding:13px 15px !important;
+  font-family:"Manrope",sans-serif !important;
+  font-size:15px !important;
+  line-height:1.55 !important;
+  box-shadow:none !important;
+  transition:border-color .16s ease, box-shadow .16s ease;
+}
+.squarespace-comments .comment-input{
+  min-height:132px !important;
+  resize:vertical;
+}
+.squarespace-comments .reply-area .comment-input{
+  min-height:92px !important;
+}
+.squarespace-comments .iv-cid-row input::placeholder,
+.squarespace-comments .comment-input::placeholder{
+  color:rgba(255,255,255,.34);
+}
+.squarespace-comments .iv-cid-row input:focus,
+.squarespace-comments .comment-input:focus{
+  outline:none;
+  border-color:rgb(0,137,255) !important;
+  box-shadow:0 0 0 3px rgba(0,137,255,.16) !important;
+}
+.iv-cid-row input.iv-cid-bad{
+  border-color:#E8553B !important;
+  box-shadow:0 0 0 3px rgba(232,85,59,.14) !important;
+}
+.squarespace-comments .new-comment-area .input{margin:0;}
+.squarespace-comments .comment-form{margin:0;}
+
+/* signed-in line, in place of the two fields */
+.iv-cid-as{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:0 0 12px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+.iv-cid-as b{
+  color:rgb(0,137,255);
+  font-weight:700;
+  letter-spacing:1.3px;
+}
+.iv-cid-as .iv-cid-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgb(0,137,255);
+  box-shadow:0 0 0 3px rgba(0,137,255,.18);
+}
+
+/* validation note */
+.iv-cid-err{
+  display:none;
+  margin:10px 0 0;
+  font-size:13px;
+  color:#ff9d88;
+}
+.iv-cid-err.iv-on{display:block;}
+
+/* ---------- buttons ---------- */
+.squarespace-comments .comment-btn-wrapper{
+  display:flex !important;
+  align-items:center;
+  gap:16px;
+  margin:14px 0 0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:none !important;
+  text-align:left;
+}
+.squarespace-comments .comment-btn{
+  display:inline-block !important;
+  background:rgb(0,137,255) !important;
+  color:#fff !important;
+  font-family:"Fjalla One",sans-serif !important;
+  font-size:14px !important;
+  letter-spacing:1.4px !important;
+  text-transform:uppercase;
+  padding:13px 26px !important;
+  border-radius:9px !important;
+  border:none !important;
+  cursor:pointer;
+  transition:background .16s ease, transform .16s ease;
+}
+.squarespace-comments .comment-btn:hover{
+  background:rgb(30,155,255) !important;
+  transform:translateY(-1px);
+}
+/* preview adds nothing next to a live comment list */
+.squarespace-comments .btn-text.preview-comment{display:none !important;}
+
+/* ---------- empty state ---------- */
+.iv-cempty{
+  background:transparent !important;
+  margin:16px 0 0;
+  padding:26px 20px;
+  border:1px dashed rgba(255,255,255,.16);
+  border-radius:12px;
+  text-align:center;
+  font-size:14px;
+  letter-spacing:.3px;
+  color:rgba(255,255,255,.42);
+}
+.squarespace-comments:not(.empty) .iv-cempty{display:none;}
+
+/* ---------- posted comments ---------- */
+.squarespace-comments .comment-list{margin-top:26px;}
+.squarespace-comments .comment{
+  padding:20px 0 18px !important;
+  border:none !important;
+  border-top:1px solid rgba(255,255,255,.08) !important;
+}
+.squarespace-comments .comment-list > .comment:first-child{border-top:none !important;padding-top:6px !important;}
+.squarespace-comments .comment-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:9px;
+}
+.squarespace-comments .comment-header .user-info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.squarespace-comments .avatar{flex:0 0 auto;line-height:0;}
+.squarespace-comments .avatar img{
+  width:34px !important;
+  height:34px !important;
+  border-radius:50% !important;
+  object-fit:cover;
+  border:1px solid rgba(0,137,255,.35);
+}
+.squarespace-comments .comment .author{
+  font-family:"Fjalla One",sans-serif !important;
+  font-size:15px !important;
+  letter-spacing:.8px;
+  color:#fff !important;
+}
+.squarespace-comments .comment .date,
+.squarespace-comments .comment .likes{
+  font-size:12px;
+  letter-spacing:.6px;
+  color:rgba(255,255,255,.38);
+}
+.squarespace-comments .comment .date a{color:inherit;text-decoration:none;}
+.squarespace-comments .comment-body{
+  font-family:"Manrope",sans-serif !important;
+  font-size:15.5px !important;
+  line-height:1.72 !important;
+  color:rgba(255,255,255,.86) !important;
+  padding-left:44px;
+}
+.squarespace-comments .comment-body p{margin:0 0 10px;}
+.squarespace-comments .comment-body p:last-child{margin-bottom:0;}
+
+/* icon controls carry no label of their own, so print their title */
+.squarespace-comments .squarespace-comment-buttons{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.squarespace-comments .comment-control{
+  width:auto !important;
+  height:auto !important;
+  background-image:none !important;
+  font-size:11px !important;
+  font-weight:700;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.34);
+  cursor:pointer;
+  transition:color .16s ease;
+}
+.squarespace-comments .comment-control::after{content:attr(title);}
+.squarespace-comments .comment-control:hover{color:rgb(0,137,255);}
+.squarespace-comments .comment-control.reply{order:1;color:rgba(255,255,255,.5);}
+.squarespace-comments .comment-control.like{order:2;}
+.squarespace-comments .comment-control.flag{order:3;color:rgba(255,255,255,.22);}
+.squarespace-comments .comment-control.flag:hover{color:#ff9d88;}
+.squarespace-comments .reply-area-wrapper{margin-left:44px;}
+.squarespace-comments .reply-area-wrapper .new-comment-area{margin-left:0;}
+
+/* pending states stay hidden until Squarespace flags a comment pending */
+.squarespace-comments .posting-text{
+  font-size:11px;
+  letter-spacing:1.1px;
+  text-transform:uppercase;
+  color:#E8B923;
+}
+
+/* ---------- narrow screens ---------- */
+@media screen and (max-width:640px){
+  .squarespace-comments .new-comment-area{padding:18px 16px 16px;border-radius:12px;}
+  .iv-cid-row{flex-direction:column;gap:10px;}
+  .squarespace-comments .comment-body{padding-left:0;}
+  .squarespace-comments .reply-area-wrapper,
+  .squarespace-comments .new-comment-area.reply-area{margin-left:0;}
+  .squarespace-comments .comment-header{flex-wrap:wrap;}
+}
+
+/* ---------- the band the comments sit on ----------
+   An older HEADER rule paints this area solid black:
+     #blogItemCommentsContent, .blog-item-comments{background:#000 !important;}
+   On a #010c17 page that draws a hard-edged 1200px rectangle. It is
+   neutralised for every page here rather than deleted at source, so
+   removing this managed block restores the site exactly.
+
+   Pages that carry the comments heading get the gradient continuing out
+   of it instead: black where the heading ends, faded into the page 420px
+   later. That covers both the generated pages and the hand-built
+   reference page, which carries the same heading markup. Every other page
+   simply has no band at all, which is the right answer when there is no
+   gradient above to continue.
+
+   Two collapsing-margin notes, both learned the hard way. The section has
+   no top border or padding of its own, so the first child's top margin
+   collapses THROUGH it and drags the background down with it, which is
+   why the gap above the card is set as section padding and the card's own
+   margin-top is zeroed. And .blog-item-content carries a 25px bottom
+   margin that opens a strip of page background between the two bands, so
+   it is zeroed too. */
+section.blog-item-comments,
+#blogItemCommentsContent,
+.blog-item-comments-toggle-wrapper{
+  background:transparent !important;
+}
+html:has(.iv-comments-heading) section.blog-item-comments,
+html.iv-ivheading section.blog-item-comments{
+  background-color:#010c17 !important;
+  background-image:linear-gradient(to bottom,#000000 0px,#010c17 420px) !important;
+  background-repeat:no-repeat !important;
+  margin-top:0 !important;
+  margin-left:calc(-50vw + 50%) !important;
+  margin-right:calc(-50vw + 50%) !important;
+  padding:8px 24px 72px !important;
+}
+html:has(.iv-comments-heading) .blog-item-content,
+html.iv-ivheading .blog-item-content{margin-bottom:0 !important;}
+html:has(.iv-comments-heading) .squarespace-comments,
+html.iv-ivheading .squarespace-comments{margin-top:0 !important;}
+
+/* ---------- part 2: retire the old prev/next footer links ---------- */
+html:has(#iv-episode-root) .item-pagination,
+html.iv-newtpl .item-pagination{display:none !important;}
+/* ===== END iv-comments ===== */

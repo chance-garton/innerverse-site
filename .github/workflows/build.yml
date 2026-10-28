@@ -1,0 +1,56 @@
+name: Build and publish the site
+
+# The pages are generated from the files chance-garton/innerverse-data builds
+# from Airtable every day at 09:00 UTC (or by hand). This runs every hour, so
+# an Airtable change reaches the site within the hour after that build, and
+# on every push here, and by hand from the Actions tab.
+on:
+  schedule:
+    - cron: "20 * * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get the episode data
+        uses: actions/checkout@v4
+        with:
+          repository: chance-garton/innerverse-data
+          path: innerverse-data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Until the domain is switched (stage 4 of the plan), the site lives at
+      # the GitHub Pages test address under /innerverse-site and tells search
+      # engines to stay away. At the switch: IV_BASE "" and IV_NOINDEX "0".
+      - name: Build
+        env:
+          IV_DATA_DIR: innerverse-data
+          IV_BASE: /innerverse-site
+          IV_NOINDEX: "1"
+        run: python build/build.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

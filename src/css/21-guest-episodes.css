@@ -1,0 +1,8 @@
+/* Carried over from the Squarespace Code Injection block iv-guest-episodes (live 2026-10-28). */
+/* ===== BEGIN iv-guest-episodes =====
+   The guest card's "see all" control. It was a dropdown; it is now a link to
+   the guest's own Squarespace category page, so the styling the site already
+   carries for a.iv-guest-allbtn does all the work and only the arrow needs
+   adding. The dropdown's panel and toggle rules were removed with it. */
+.iv-guest-allcaret{font-size:13px;line-height:1;}
+/* ===== END iv-guest-episodes ===== */

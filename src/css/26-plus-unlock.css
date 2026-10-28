@@ -1,0 +1,248 @@
+/* Carried over from the Squarespace Code Injection block iv-plus-unlock (live 2026-10-28). */
+/* InnerVerse Plus unlock surfaces: the locked-episode screen, the /plus hero,
+   and the nav account control. One palette, one set of buttons, three places.
+
+   Gold is #E8B923 throughout, matching the nav's Plus treatment and the
+   existing .iv-plus-cta card. Anything sitting ON the gold uses #14161c,
+   because white on gold is unreadable. */
+
+:root { --iv-gold:#E8B923; --iv-gold-lit:#f6d150; --iv-ink:#14161c; }
+
+/* --- the prev/next pager Squarespace prints under every members' post.
+   It is the one piece of the native page a Plus visitor should never see:
+   on a locked page it is the only thing left standing, and on an unlocked
+   one it duplicates navigation the archive already does better. Keyed to
+   iv-loading-plus, which the loader stamps on the root at head time for
+   every /plus/<slug> and never removes, so it is gone from the first
+   frame rather than after a script gets to it. --- */
+html.iv-loading-plus #itemPagination,
+html.iv-loading-plus .item-pagination { display:none !important; }
+
+/* --- the native Squarespace pricing block on /plus still advertises the
+   retired $8 / $88 prices, and it flashed on screen every load before the
+   real CTA replaced it. It is replaced for everyone now, so it never
+   renders at all. --- */
+html.iv-plus-page .fe-block-yui_3_17_2_1_1778098056453_422561 { display:none !important; }
+
+/* ============ shared: mock player, lock orb, buttons ============ */
+
+.iv-lock-player {
+  position:relative; width:100%; aspect-ratio:16/9; border-radius:12px;
+  overflow:hidden; background:#0b0d12;
+  border:1px solid rgba(232,185,35,.32);
+  box-shadow:0 18px 46px rgba(0,0,0,.55), 0 0 0 1px rgba(232,185,35,.07);
+}
+.iv-lock-thumb { width:100%; height:100%; object-fit:cover; display:block; filter:saturate(.82) brightness(.62); }
+.iv-lock-veil {
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at center, rgba(10,12,17,.32) 0%, rgba(10,12,17,.82) 78%);
+}
+.iv-lock-orb {
+  position:absolute; left:50%; top:50%; width:86px; height:86px; margin:-43px 0 0 -43px;
+  border-radius:50%; background:var(--iv-gold); color:var(--iv-ink);
+  display:flex; align-items:center; justify-content:center;
+  animation:iv-lock-pulse 2.4s ease-in-out infinite;
+}
+.iv-lock-orb svg { width:38px; height:38px; display:block; }
+@keyframes iv-lock-pulse {
+  0%,100% { box-shadow:0 0 0 0 rgba(232,185,35,.42), 0 0 18px rgba(232,185,35,.35); transform:scale(1); }
+  50%     { box-shadow:0 0 0 18px rgba(232,185,35,0), 0 0 34px rgba(232,185,35,.6); transform:scale(1.05); }
+}
+.iv-lock-runtime {
+  margin:14px 0 0; text-align:center; font-size:15px; line-height:1.4;
+  color:rgba(255,255,255,.78);
+}
+.iv-lock-runtime strong { color:var(--iv-gold); font-weight:700; }
+
+.iv-lock-brand { display:flex; align-items:center; gap:13px; margin-bottom:16px; }
+.iv-lock-logo { width:62px; height:auto; display:block; animation:iv-plus-logo-pulse 2.6s ease-in-out infinite; }
+.iv-lock-eyebrow {
+  font-family:"Fjalla One",sans-serif; letter-spacing:2.4px; text-transform:uppercase;
+  font-size:15px; color:var(--iv-gold); line-height:1.2;
+}
+.iv-lock-sub {
+  font-size:11px; letter-spacing:1.6px; text-transform:uppercase;
+  color:rgba(255,255,255,.45); margin-top:3px;
+}
+
+.iv-lock-topic {
+  font-size:12px; letter-spacing:1.8px; text-transform:uppercase;
+  color:var(--iv-gold); margin:0 0 6px; font-weight:600;
+}
+.iv-lock-headline {
+  font-family:"Fjalla One",sans-serif; font-size:27px; line-height:1.18;
+  color:#fff; margin:0 0 10px; letter-spacing:.4px;
+}
+.iv-lock-copy { font-size:14px; line-height:1.6; color:rgba(255,255,255,.72); margin:0 0 20px; max-width:44ch; }
+
+.iv-lock-buttons { display:flex; flex-direction:column; gap:10px; max-width:400px; }
+a.iv-lock-btn {
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:14px 20px; border-radius:8px; text-decoration:none;
+  font-family:"Fjalla One",sans-serif; letter-spacing:1.1px; text-transform:uppercase;
+  font-size:15px; box-sizing:border-box;
+  border:1px solid rgba(232,185,35,.42); background:rgba(232,185,35,.07);
+  color:#fff !important;
+  transition:background .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+a.iv-lock-btn span { font-family:inherit; font-size:11px; letter-spacing:1px; opacity:.62; white-space:nowrap; }
+a.iv-lock-btn:hover, a.iv-lock-btn:focus {
+  background:rgba(232,185,35,.16); border-color:var(--iv-gold);
+  transform:translateY(-1px); color:#fff !important;
+}
+a.iv-lock-btn-primary {
+  background:var(--iv-gold); border-color:var(--iv-gold); color:var(--iv-ink) !important;
+  box-shadow:0 6px 22px rgba(232,185,35,.3);
+}
+a.iv-lock-btn-primary span { opacity:.72; }
+a.iv-lock-btn-primary:hover, a.iv-lock-btn-primary:focus {
+  background:var(--iv-gold-lit); border-color:var(--iv-gold-lit); color:var(--iv-ink) !important;
+  box-shadow:0 9px 28px rgba(232,185,35,.45);
+}
+a.iv-lock-login {
+  display:inline-block; margin-top:16px; font-size:13px; letter-spacing:.4px;
+  color:rgba(255,255,255,.62) !important; text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.22); padding-bottom:2px;
+  transition:color .2s ease, border-color .2s ease;
+}
+a.iv-lock-login:hover { color:var(--iv-gold) !important; border-color:var(--iv-gold); }
+
+/* ============ the locked episode screen ============ */
+
+.iv-lock {
+  margin:26px auto 40px; max-width:1120px; padding:30px 32px 34px;
+  box-sizing:border-box; border-radius:14px;
+  background:linear-gradient(160deg,#1b1e26 0%,#111319 62%);
+  border:1px solid rgba(255,255,255,.09); border-top:3px solid var(--iv-gold);
+  box-shadow:0 22px 60px rgba(0,0,0,.45);
+}
+.iv-lock-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:38px; align-items:center; }
+.iv-lock-meta {
+  font-size:11px; letter-spacing:1.6px; text-transform:uppercase;
+  color:rgba(255,255,255,.4); margin:0 0 8px;
+}
+
+/* ============ the /plus hero ============ */
+
+.iv-plus-hero {
+  grid-area:5 / 2 / 12 / 26;
+  display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:44px; align-items:center;
+  padding:34px 38px; box-sizing:border-box; border-radius:16px;
+  background:linear-gradient(150deg,#1d2029 0%,#101218 65%);
+  border:1px solid rgba(255,255,255,.09); border-top:3px solid var(--iv-gold);
+  box-shadow:0 24px 64px rgba(0,0,0,.5);
+}
+.iv-plus-hero .iv-lock-headline { font-size:38px; }
+.iv-plus-hero .iv-lock-logo { width:76px; }
+.iv-plus-hero .iv-lock-eyebrow { font-size:18px; }
+.iv-plus-hero-latest-eyebrow {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:rgba(255,255,255,.42); margin:0 0 10px; text-align:center;
+}
+.iv-plus-hero-latest-title {
+  margin:8px 0 0; text-align:center; font-size:13px; line-height:1.45;
+  color:rgba(255,255,255,.58);
+}
+.iv-plus-hero-member { display:flex; flex-direction:column; gap:14px; }
+
+@media (max-width:1023px) {
+  .iv-lock-grid, .iv-plus-hero { grid-template-columns:1fr; gap:26px; }
+  .iv-plus-hero .iv-lock-headline { font-size:30px; }
+  .iv-lock-buttons { max-width:none; }
+}
+@media (max-width:767px) {
+  .iv-plus-hero { grid-area:7 / 2 / 16 / 10; padding:24px 20px 26px; }
+  .iv-lock { padding:22px 18px 26px; margin:18px auto 30px; }
+  .iv-lock-headline { font-size:24px; }
+  .iv-plus-hero .iv-lock-headline { font-size:26px; }
+  .iv-lock-orb { width:66px; height:66px; margin:-33px 0 0 -33px; }
+  .iv-lock-orb svg { width:29px; height:29px; }
+  a.iv-lock-btn { font-size:14px; padding:13px 16px; }
+}
+
+/* ============ nav account control ============ */
+
+.iv-nav-account-wrap { position:relative; display:inline-flex; }
+/* The menu hangs 6px below the trigger (margin-top below). That 6px of
+   empty space belonged to nobody, so a mouse moving straight down from
+   the button into the menu crossed a gap neither box covered and lost
+   :hover mid-transit, closing the menu before it arrived. Padding the
+   trigger down through that same 6px (desktop bar only - the mobile
+   panel lays these out as plain stacked rows, never as a hover menu)
+   makes the gap part of the hoverable box; the negative margin below
+   cancels it back out of the flex row's own layout so nothing shifts. */
+.iv-nav-inner .iv-nav-account-wrap { padding-bottom:6px; margin-bottom:-6px; }
+.iv-nav-avatar {
+  width:26px; height:26px; border-radius:50%; flex-shrink:0; display:block;
+  object-fit:cover; border:1px solid rgba(255,255,255,.3);
+}
+span.iv-nav-avatar {
+  display:flex; align-items:center; justify-content:center;
+  background:var(--iv-gold); color:var(--iv-ink);
+  font-family:"Fjalla One",sans-serif; font-size:13px; letter-spacing:0; border-color:var(--iv-gold);
+}
+.iv-nav-account-menu {
+  position:absolute; top:100%; right:0; margin-top:0; min-width:168px;
+  background:#12141a; border:1px solid rgba(232,185,35,.26); border-radius:8px;
+  box-shadow:0 16px 38px rgba(0,0,0,.55); padding:6px; z-index:60;
+  opacity:0; visibility:hidden; transform:translateY(-5px);
+  /* visibility is deliberately NOT transitioned: it is a discrete property,
+     so a transition on it defers the flip to the end of the run and any
+     environment that stalls the compositor leaves the menu invisible while
+     every rule says it should be open. Opacity and transform carry the
+     motion; visibility flips at once. */
+  transition:opacity .18s ease, transform .18s ease;
+}
+.iv-nav-account-wrap:hover .iv-nav-account-menu,
+.iv-nav-account-wrap:focus-within .iv-nav-account-menu,
+.iv-nav-account-wrap.iv-nav-account-open .iv-nav-account-menu {
+  opacity:1; visibility:visible; transform:translateY(0);
+}
+.iv-nav-account-item {
+  display:block; width:100%; box-sizing:border-box; text-align:left;
+  padding:9px 12px; border-radius:5px; border:none; background:none; cursor:pointer;
+  font-family:"Fjalla One",sans-serif; letter-spacing:1.6px; text-transform:uppercase;
+  font-size:13px; color:#fff; text-decoration:none;
+  transition:background .18s ease, color .18s ease;
+}
+.iv-nav-account-item:hover { background:rgba(232,185,35,.14); color:var(--iv-gold); }
+/* The dropdown needs somewhere to hang: the nav clips its own overflow while
+   scrolled, which would shear the menu off at the bar's lower edge. */
+#iv-nav, #iv-nav .iv-nav-inner, #iv-nav .iv-nav-side { overflow:visible; }
+/* Inside the hamburger the panel IS the menu, so the account rows sit in it
+   as ordinary rows rather than a dropdown that has to be opened. A dropdown
+   could not survive there in any case: wireBurger binds a close handler to
+   every a and button inside the panel, so the tap that opened the menu also
+   shut the panel around it. They are styled to match the panel's own rows,
+   and Settings is dropped because Account itself already goes there. */
+.iv-nav-mobile-panel .iv-nav-account-wrap { display:block; }
+.iv-nav-mobile-panel .iv-nav-account-wrap.iv-nav-signed .iv-nav-account-menu {
+  display:block; opacity:1; visibility:visible; transform:none;
+  position:static; margin:0; padding:0; min-width:0;
+  background:none; border:none; box-shadow:none; transition:none;
+}
+.iv-nav-mobile-panel .iv-nav-account-item[data-act="settings"] { display:none; }
+.iv-nav-mobile-panel .iv-nav-account-item {
+  padding:12px 0; border-radius:0; font-size:17px; letter-spacing:2px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.iv-nav-mobile-panel .iv-nav-account-item:hover { background:none; color:var(--iv-gold); }
+.iv-nav-account-wrap:not(.iv-nav-signed) .iv-nav-account-menu { display:none !important; }
+/* The signed-in ellipsis rule in iv-nav-login-state targets every span in the
+   button, which now includes the avatar slot. Only the word is clamped. */
+.iv-nav-link.iv-nav-signedin .iv-nav-face { max-width:none; overflow:visible; }
+.iv-nav-face { display:inline-flex; align-items:center; flex-shrink:0; line-height:0; }
+/* ============ member variant of the free-page Plus card (build 2026-09-21c) ============
+   Shown on /episodes pages instead of the sales card when the visitor is an
+   entitled member. Reuses the eyebrow and lock buttons above; these rules
+   only lay them out inside the existing .iv-plus-cta box. */
+.iv-plus-member-brand { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.iv-plus-member-brand .iv-plus-logo-big { width:62px; }
+.iv-plus-member-copy { font-size:14px; margin:0 0 16px; }
+.iv-plus-member-buttons { max-width:none; }
+a.iv-lock-btn.iv-plus-member-secondary { font-size:13px; padding:11px 18px; }
+@media (max-width:767px) {
+  .iv-plus-member-brand .iv-plus-logo-big { width:52px; }
+  .iv-plus-member-eyebrow { font-size:14px; }
+}
+/* ===== END iv-plus-unlock ===== */

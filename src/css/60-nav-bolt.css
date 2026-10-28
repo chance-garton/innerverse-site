@@ -1,0 +1,11 @@
+/* Carried over from the Squarespace Code Injection block iv-site-nav (live 2026-10-28). */
+/* iv-site-nav, Get Tuned (2026-09-29, Chance picked option C, the neon bolt).
+   The link keeps the nav's own type. A small bolt before it flickers now and
+   then like a neon tube, and the words carry a faint glow. The Inner Whirled
+   skin (html.iv-iw) turns both violet. Sits still under reduced motion. */
+#iv-nav .iv-nav-link.iv-nav-tuned{text-shadow:0 0 10px var(--iv-tuned-glow-soft,rgba(0,137,255,.45));}
+#iv-nav .iv-nav-bolt{flex:0 0 auto;display:block;width:15px;height:17px;color:var(--iv-tuned-bolt,#8FB5F0);filter:drop-shadow(0 0 4px var(--iv-tuned-glow,rgba(0,137,255,.9))) drop-shadow(0 0 10px var(--iv-tuned-glow-soft,rgba(0,137,255,.6)));animation:iv-nav-bolt-flicker 5.5s linear infinite;}
+#iv-nav.iv-nav-scrolled .iv-nav-bolt{width:14px;height:16px;}
+@keyframes iv-nav-bolt-flicker{0%,100%{opacity:1}3%{opacity:.25}4.5%{opacity:1}6%{opacity:.4}7%{opacity:1}58%{opacity:1}59.5%{opacity:.3}61%{opacity:1}}
+html.iv-iw{--iv-tuned-bolt:#A596F5;--iv-tuned-glow:rgba(109,63,240,.95);--iv-tuned-glow-soft:rgba(109,63,240,.55);}
+@media (prefers-reduced-motion:reduce){#iv-nav .iv-nav-bolt{animation:none!important;}}

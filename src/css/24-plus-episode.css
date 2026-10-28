@@ -1,0 +1,162 @@
+/* Carried over from the Squarespace Code Injection block iv-plus-episode (live 2026-10-28). */
+/* ===== BEGIN iv-plus-episode =====
+   The members' /plus/<slug> pages keep every block Squarespace serves
+   them - the paywalled video and the copy underneath are the product,
+   and they are never rebuilt from Airtable. What this block adds is the
+   frame around them: the episode header, a right hand column carrying
+   the guest and affiliate cards, the booking CTA, and a comments
+   heading, all in Plus yellow rather than the free page's blue.
+
+   Only the LAYOUT lives here. The blue-to-yellow recolour is generated
+   at render time by paintPlusYellow() in the footer, which walks the
+   live stylesheet and emits a scoped twin for every rule that paints
+   rgb(0,137,255). A hand-written list of those twins went stale the
+   moment a colour was touched anywhere else on the site, so there
+   isn't one.
+
+   Rollback: delete this block and the iv-plus-episode block in the
+   footer. Nothing here hides or moves a Squarespace block permanently,
+   so the members' pages return to their original layout on reload. */
+
+/* ---------- layout ---------- */
+html.iv-plus-ep .blog-item-content-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  column-gap: 34px;
+  align-items: start;
+}
+html.iv-plus-ep .iv-plus-headslot { grid-column: 1 / -1; grid-row: 1; }
+html.iv-plus-ep .blog-item-content { grid-column: 1; grid-row: 2; min-width: 0; }
+html.iv-plus-ep .iv-plus-side { grid-column: 2; grid-row: 2; min-width: 0;
+  position: sticky; top: 100px; }
+html.iv-plus-ep .iv-plus-book { grid-column: 1 / -1; grid-row: 3; margin-top: 6px; }
+html.iv-plus-ep .blog-item-author-profile-wrapper { display: none !important; }
+
+/* The header is drawn at the top of a column that is already 1200px at
+   full width, so it must not add a second max-width of its own. */
+html.iv-plus-ep .iv-plus-headslot .iv-header { max-width: none; margin-bottom: 14px; }
+
+/* These pages predate fluid engine: their blocks sit in a 12 column
+   sqs-row with a 2 column spacer either side, which squeezed the video
+   into two thirds of the width. The spacer columns are dropped and the
+   content column takes the full width. A column is only dropped when it
+   holds nothing but spacer blocks, so a genuine two column post keeps
+   its shape. */
+html.iv-plus-ep .blog-item-content .sqs-row > .col {
+  width: 100% !important; float: none !important; margin-left: 0 !important; margin-right: 0 !important;
+}
+html.iv-plus-ep .blog-item-content .sqs-row > .col.iv-plus-emptycol { display: none !important; }
+html.iv-plus-ep .iv-plus-hidden { display: none !important; }
+/* The free page carries a row of platform pills between the player and the
+   copy. Dropping it here was right, but it also removed the only thing
+   holding the two apart, leaving a 4px gap. */
+html.iv-plus-ep .iv-plus-intro { margin: 30px 0 10px 0; }
+
+@media (max-width: 900px) {
+  html.iv-plus-ep .blog-item-content-wrapper { grid-template-columns: minmax(0, 1fr); }
+  html.iv-plus-ep .iv-plus-headslot,
+  html.iv-plus-ep .blog-item-content,
+  html.iv-plus-ep .iv-plus-side,
+  html.iv-plus-ep .iv-plus-book { grid-column: 1; grid-row: auto; }
+  html.iv-plus-ep .iv-plus-side { position: static; margin-top: 26px; }
+}
+
+/* ---------- the play button ---------- */
+/* animation-name is swapped rather than the keyframes recoloured: the
+   free page runs iv-pulse on the same element and both pages are one
+   stylesheet. */
+@keyframes iv-plus-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(232,185,35,0.55); }
+  70%  { box-shadow: 0 0 0 22px rgba(232,185,35,0); }
+  100% { box-shadow: 0 0 0 0 rgba(232,185,35,0); }
+}
+html.iv-plus-ep .iv-video-play { animation-name: iv-plus-pulse; }
+/* white on yellow is unreadable, so anything sitting ON the yellow
+   flips to the page's near black. */
+html.iv-plus-ep .iv-video-play svg { color: #0b0d12; fill: #0b0d12; }
+html.iv-plus-ep a.iv-booksession-link-primary,
+html.iv-plus-ep .iv-guest-card a.iv-guest-allbtn:hover,
+html.iv-plus-ep .iv-guest-card a.iv-guest-allbtn:focus,
+html.iv-plus-ep .iv-tag-pill:hover,
+html.iv-plus-ep .iv-aff-tab.iv-aff-tab-active,
+html.iv-plus-ep a.iv-aff-link-primary,
+html.iv-plus-ep .squarespace-comments .comment-btn { color: #0b0d12 !important; }
+
+/* Squarespace's own button block is painted by a stylesheet on their CDN,
+   which is cross-origin and therefore invisible to paintPlusYellow. The
+   handful of /plus pages carrying a show-notes download button need it
+   named explicitly or they keep a blue button on a yellow page. */
+html.iv-plus-ep .blog-item-content .sqs-button-element--primary,
+html.iv-plus-ep .blog-item-content .sqs-block-button-element {
+  background-color: #E8B923 !important; color: #0b0d12 !important;
+}
+
+/* ---------- chapters, core themes and quotes (Free / Plus toggle) ----------
+   These three sections are the free page's own accordion component, reused
+   rather than rebuilt, so they inherit its type, spacing and rules. What is
+   new is the segmented switch in each section head: one section holds both
+   cuts and shows one at a time, so a Plus set of twenty four chapters never
+   stacks on top of the free twelve and no block grows to double height.
+
+   They flow INSIDE the content column rather than as a full width row of
+   their own. Full width put them in grid row 3 beneath a sticky sidebar in
+   row 2, and on a real members' page the content column is only the video
+   plus the Airtable intro, so the taller sidebar set the height of row 2,
+   opened a large empty gap under the copy, and covered the right hand end
+   of every section head including the switch. */
+html.iv-plus-ep .iv-plus-sections { margin-top: 44px; }
+html.iv-plus-ep .iv-plus-dual + .iv-plus-dual { margin-top: 48px; }
+html.iv-plus-ep .iv-dual-pane-off { display: none !important; }
+
+html.iv-plus-ep .iv-dual-headright { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+html.iv-plus-ep .iv-dual-switch {
+  display: inline-flex; padding: 3px; border-radius: 999px;
+  border: 1px solid rgba(232,185,35,0.38); background: rgba(232,185,35,0.07);
+}
+html.iv-plus-ep .iv-dual-btn {
+  -webkit-appearance: none; appearance: none; border: 0; background: none; cursor: pointer;
+  font-family: inherit; font-weight: 700; font-size: 12px; letter-spacing: 1.6px;
+  text-transform: uppercase; color: rgba(255,255,255,0.62); line-height: 1;
+  padding: 8px 18px; border-radius: 999px;
+  transition: color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+html.iv-plus-ep .iv-dual-btn:hover,
+html.iv-plus-ep .iv-dual-btn:focus-visible { color: #fff; }
+/* near black on the yellow, the same rule the play button and the primary
+   booking link already follow, because white on this yellow is unreadable */
+html.iv-plus-ep .iv-dual-btn-active,
+html.iv-plus-ep .iv-dual-btn-active:hover,
+html.iv-plus-ep .iv-dual-btn-active:focus-visible {
+  background: #E8B923; color: #0b0d12; box-shadow: 0 0 18px rgba(232,185,35,0.45);
+}
+
+@media (max-width: 700px) {
+  html.iv-plus-ep .iv-dual-headright { gap: 10px; }
+  html.iv-plus-ep .iv-dual-switch { padding: 2px; }
+  html.iv-plus-ep .iv-dual-btn { padding: 7px 13px; font-size: 11px; letter-spacing: 1.2px; }
+}
+
+/* ---------- booking CTA as a sidebar card ----------
+   Moved out of the full width row at the foot of the page and in between
+   the guest card and the affiliates card. The card treatment matches its
+   two neighbours; the two inner links stack, because side by side they do
+   not fit a 320px column. The label and the primary button are painted
+   blue in the base stylesheet, so paintPlusYellow() recolours them here
+   without help, and the existing near-black-on-yellow rule already covers
+   the button text. */
+html.iv-plus-ep .iv-plus-bookcard {
+  background: #14161c; border: 1px solid rgba(255,255,255,0.1);
+  border-top: 3px solid #E8B923; border-radius: 8px;
+  padding: 22px 24px; box-sizing: border-box; margin-bottom: 24px;
+}
+html.iv-plus-ep .iv-plus-bookcard .iv-booksession {
+  flex: none; min-width: 0; padding: 0; display: block;
+}
+html.iv-plus-ep .iv-plus-bookcard .iv-booksession-links {
+  flex-direction: column; align-items: stretch; gap: 10px; margin-bottom: 16px;
+}
+html.iv-plus-ep .iv-plus-bookcard a.iv-booksession-link-primary {
+  text-align: center; padding: 11px 16px;
+}
+html.iv-plus-ep .iv-plus-bookcard .iv-booksession-link { text-align: center; }
+/* ===== END iv-plus-episode ===== */

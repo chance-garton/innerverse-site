@@ -1,0 +1,19 @@
+/* Carried over from the Squarespace Code Injection block iv-my-library (live 2026-10-28). */
+/* iv-my-library (2026-10-09): a Plus+ member's own Save button and private notes on every episode
+   page, the same library the InnerVerse app keeps (stored by the innerverse-circle Worker). */
+html.iv-2026 .ivml-card{margin:40px 0 0!important;padding:22px 24px;border-left:3px solid var(--gold,#D8AA3C);display:flex;flex-direction:column;gap:14px;}
+html.iv-2026 .ivml-top{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+html.iv-2026 .ivml-top .iv2-eyebrow{margin:0;color:var(--gold-text,#E6C46A)!important;}
+html.iv-2026 .ivml-top .iv2-h3{margin:4px 0 0;}
+html.iv-2026 .ivml-save{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;cursor:pointer;}
+html.iv-2026 .ivml-save svg{flex:0 0 auto;}
+html.iv-2026 .ivml-save.ivml-on{color:var(--gold-text,#E6C46A)!important;border-color:var(--gold,#D8AA3C)!important;}
+html.iv-2026 .ivml-label{font-family:Manrope,Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;color:var(--ink,#E9EEF6);}
+html.iv-2026 .ivml-label span{font-weight:500;color:#B7C1D1;}
+html.iv-2026 .ivml-note{display:block;width:100%;box-sizing:border-box;min-height:110px;resize:vertical;border-radius:12px;background:rgba(233,238,246,0.04);border:1px solid rgba(233,238,246,0.16);color:var(--ink,#E9EEF6);padding:12px 14px;font-family:Manrope,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;}
+html.iv-2026 .ivml-note:focus{outline:none;border-color:var(--gold,#D8AA3C);}
+html.iv-2026 .ivml-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:Manrope,Helvetica,Arial,sans-serif;font-size:13px;color:#B7C1D1;}
+html.iv-2026 .ivml-bar a{color:var(--gold-text,#E6C46A)!important;font-weight:700;text-decoration:none!important;}
+html.iv-2026 .ivml-room{margin-top:16px!important;}
+html.iv-2026 .ivml-room .ivml-go{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;text-decoration:none!important;}
+@media (max-width:700px){html.iv-2026 .ivml-room .ivml-go{justify-content:center;}html.iv-2026 .ivml-card{padding:20px;margin:28px 0 0!important;}html.iv-2026 .ivml-top{flex-direction:column;align-items:stretch;}html.iv-2026 .ivml-save{justify-content:center;}}

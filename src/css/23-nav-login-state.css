@@ -1,0 +1,23 @@
+/* Carried over from the Squarespace Code Injection block iv-nav-login-state (live 2026-10-28). */
+/* Nav account button, plus the Plus-member treatment of the whole nav.
+
+   NOTE: an earlier version of this block styled the signed-in state with
+   .iv-nav-link.iv-nav-signedin::after, which is the SAME pseudo-element the
+   nav uses for its hover/active underline. It replaced the underline with a
+   dot on that one button. Never target ::after on .iv-nav-link here. */
+.iv-nav-link.iv-nav-signedin span { max-width:11ch; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+/* A confirmed paid /plus member gets the Plus identity across the nav:
+   the Plus logo in the brand, and the hover/active underline in the same
+   yellow the Plus CTA uses (#E8B923) rather than the site blue. */
+html.iv-plus-member .iv-nav-link::after { background:#E8B923; }
+html.iv-plus-member .iv-nav-brand:hover .iv-nav-logo {
+  filter:drop-shadow(0 0 16px rgba(232,185,35,.95)) drop-shadow(0 0 5px rgba(232,185,35,1));
+}
+/* The idle pulse is a separate animation from the hover glow, so recolouring
+   the hover alone left a Plus member with a yellow logo breathing blue.
+   iv-plus-logo-pulse already exists elsewhere in this stylesheet with the same
+   2.6s timing and the same drop-shadow geometry, only in the Plus yellow, so
+   swap the NAME and inherit duration and easing from .iv-nav-logo untouched. */
+html.iv-plus-member .iv-nav-logo { animation-name:iv-plus-logo-pulse; }
+html.iv-plus-member .iv-nav-link.iv-nav-signedin svg { color:#E8B923; }

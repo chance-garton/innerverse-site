@@ -1,0 +1,107 @@
+/* Carried over from the Squarespace Code Injection block iv-inner-whirled (live 2026-10-28). */
+/* ===== iv-inner-whirled: show skin for Inner Whirled episode pages (free /episodes/<slug> and /plus/<slug>).
+   Everything is scoped to html.iv-iw, which the episode render sets when the row's
+   Show Categories include "Inner Whirled". It sits on top of iv-episode-2026 and only
+   repaints: layout, spacing and markup are the Lapis pages' own.
+   - violet replaces lapis; the ground goes from navy to deep purple
+   - display type is IM Fell Great Primer; any display line carrying a number uses Fjalla One
+   - the nav shows the Inner Whirled mark and an all IM Fell wordmark with a violet glow
+   - /plus: page furniture is violet; gold stays on the membership marks (nav bar and active
+     item, account chip) and on a section while its switch shows the Plus+ view
+   - the Plus+ offer on free pages keeps its gold */
+
+html.iv-iw{
+  --ground:#110C24;--surface:#18122F;--card:#201A3C;--line:rgba(236,233,245,0.12);
+  --ink:#ECE9F5;--ink-muted:#A09BBE;
+  --lapis:#6D3FF0;--lapis-lit:#A596F5;--lapis-glow:rgba(109,63,240,0.55);
+  --nav:rgba(17,12,36,0.92);--hero-glow:rgba(109,63,240,0.28);--on-gold:#110C24;
+  --font-display:'IM Fell Great Primer',Georgia,'Times New Roman',serif;
+  --iw-hover:#7B52F4;--iw-stroke:rgba(165,150,245,0.65);--iw-wash:rgba(109,63,240,0.12);--iw-body:#BDB8D4;
+}
+html.iv-iw,html.iv-iw body,html.iv-2026.iv-iw .page-section,html.iv-2026.iv-iw .section-background{background:var(--ground)!important;}
+
+/* ---- nav: the Inner Whirled mark and wordmark ---- */
+html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-logo,html.iv-iw.iv-plus-member #iv-nav.iv-nav-v2 .iv-nav-logo{height:54px;width:auto!important;margin:-3px 0;object-fit:contain;animation:iw-mark-glow 2.6s ease-in-out infinite;}
+/* the mark file carries its own transparent margin, so it is drawn 6px taller than the InnerVerse logo and the
+   negative margin gives the extra back: the art matches the logo's height and the bar keeps its height */
+html.iv-iw #iv-nav.iv-nav-v2.iv-nav-scrolled .iv-nav-logo{height:40px;margin:-2px 0;}
+/* the wordmark is wider than INNERVERSE; a matching negative margin keeps the menu where it sits on every other page */
+html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-brand{margin-right:var(--iw-brand-extra,0px);}
+html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-brand:hover .iv-nav-logo{filter:drop-shadow(0 0 14px rgba(109,63,240,0.95));}
+@keyframes iw-mark-glow{0%,100%{filter:drop-shadow(0 0 6px rgba(109,63,240,0.6));}50%{filter:drop-shadow(0 0 12px rgba(109,63,240,0.9));}}
+html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-word{display:inline-flex;align-items:baseline;font-family:'IM Fell Great Primer',Georgia,'Times New Roman',serif;font-weight:400;font-synthesis:none;font-size:27px;letter-spacing:0.08em;color:var(--ink);text-shadow:0 0 10px rgba(109,63,240,0.7);}
+html.iv-iw #iv-nav.iv-nav-v2.iv-nav-scrolled .iv-nav-word{font-size:23px;}
+html.iv-iw #iv-nav .iw-inner{margin-right:0.3em;}
+html.iv-iw #iv-nav .iw-whirled{margin-right:-0.08em;}
+
+/* ---- display type ---- */
+html.iv-2026.iv-iw .iv-chapters-heading,html.iv-2026.iv-iw .iv-section-title,html.iv-2026.iv-iw .iv-comments-title,
+html.iv-2026.iv-iw .iv2-h3,html.iv-2026.iv-iw .iv2-locked-title,html.iv-2026.iv-iw .iv-header-topic{font-weight:400;letter-spacing:0;font-synthesis:none;}
+html.iv-2026.iv-iw .iv-chapters-heading,html.iv-2026.iv-iw .iv-section-title{font-size:37px;}
+html.iv-2026.iv-iw .iv-comments-title{font-size:44px;}
+html.iv-2026.iv-iw .iv-header-topic{font-size:30px;}
+/* numbers read in Fjalla One (IM Fell's old-style figures dip below the line), and so does every card heading
+   (the Plus card, the members' chapters card, Get Tuned), number or not (Chance, 2026-09-29) */
+html.iv-2026.iv-iw .iv-theme-num{font-family:'Fjalla One','Arial Narrow',Impact,sans-serif;font-weight:400;font-size:32px;}
+html.iv-2026.iv-iw .iv2-h3{font-family:'Fjalla One','Arial Narrow',Impact,sans-serif;font-size:22px;letter-spacing:0.3px;}
+html.iv-2026.iv-iw .iv2-locked-title{font-family:'Fjalla One','Arial Narrow',Impact,sans-serif;font-size:21px;letter-spacing:0.3px;}
+
+/* ---- colours the Lapis sheet writes out rather than reading from a token ---- */
+html.iv-2026.iv-iw .iv2-btn-primary:hover,html.iv-2026.iv-iw .iv2-btn-primary:focus,html.iv-2026.iv-iw a.iv-aff-link-primary:hover,html.iv-2026.iv-iw a.iv-aff-link-primary:focus{background:var(--iw-hover);}
+html.iv-2026.iv-iw .iv2-btn-secondary,html.iv-2026.iv-iw .iv-aff-link,html.iv-2026.iv-iw .iv-guest-card a.iv-guest-allbtn{border-color:var(--iw-stroke);}
+html.iv-2026.iv-iw .iv2-btn-secondary:hover,html.iv-2026.iv-iw .iv2-btn-secondary:focus,html.iv-2026.iv-iw .iv-aff-link:hover,
+html.iv-2026.iv-iw .iv-guest-card a.iv-guest-allbtn:hover,html.iv-2026.iv-iw .iv-guest-card a.iv-guest-allbtn:focus{background:var(--iw-wash)!important;border-color:var(--lapis-lit);}
+html.iv-2026.iv-iw .iv-ratio,html.iv-2026.iv-iw .iv-audio-player{border-color:rgba(165,150,245,0.45);box-shadow:0 0 44px rgba(109,63,240,0.45);}
+html.iv-2026.iv-iw .iv-video-play{animation-name:iw-pulse;}
+html.iv-2026.iv-iw .iv-video-play:hover{box-shadow:0 0 0 14px rgba(109,63,240,0.35);}
+@keyframes iw-pulse{0%{box-shadow:0 0 0 0 rgba(109,63,240,0.55)}100%{box-shadow:0 0 0 26px rgba(109,63,240,0)}}
+html.iv-2026.iv-iw .iv2-p,html.iv-2026.iv-iw .iv-theme-text,html.iv-2026.iv-iw .iv-aff-body{color:var(--iw-body);}
+html.iv-2026.iv-iw .iv2-media-forks{background:radial-gradient(ellipse at 50% 75%,rgba(109,63,240,0.42),rgba(24,18,47,0) 68%),var(--surface);}
+html.iv-2026.iv-iw .iv-quote-avatar{border-color:rgba(165,150,245,0.5);}
+html.iv-2026.iv-iw .iv-tag-pill{color:#C8C3DD;}
+html.iv-iw .iv-banner{background:#150F28;border-top-color:rgba(109,63,240,0.5);}
+html.iv-iw .iv-banner a{color:var(--lapis-lit);border-bottom-color:rgba(165,150,245,0.45);}
+html.iv-iw .squarespace-comments .comment-btn{background:var(--lapis)!important;}
+html.iv-iw .squarespace-comments .iv-cid-row input:focus,html.iv-iw .squarespace-comments .comment-input:focus{border-color:var(--lapis)!important;box-shadow:0 0 0 3px rgba(109,63,240,0.16)!important;}
+/* the comments band: the older iv-comments rule paints it black to navy, which outranks the Lapis surface */
+html.iv-2026.iv-iw section.blog-item-comments{background:var(--surface)!important;background-image:none!important;}
+html.iv-iw #iv-footer{background:#0C0819;}
+html.iv-iw .iv-footer-accent,html.iv-iw .iv-footer-col-head,html.iv-iw .iv-footer-link:hover{color:var(--lapis-lit);}
+
+/* ---- /plus: violet furniture, gold on the membership marks ---- */
+html.iv-2026.iv-plus-ep.iv-iw .iv-header-topic,
+html.iv-2026.iv-plus-ep.iv-iw .iv-chapters-label,html.iv-2026.iv-plus-ep.iv-iw .iv-section-label,html.iv-2026.iv-plus-ep.iv-iw .iv-tags-label,
+html.iv-2026.iv-plus-ep.iv-iw .iv-affiliates-heading,html.iv-2026.iv-plus-ep.iv-iw .iv-comments-label,html.iv-2026.iv-plus-ep.iv-iw .iv-audio-label,
+html.iv-2026.iv-plus-ep.iv-iw .iv-related-meta,html.iv-2026.iv-plus-ep.iv-iw .iv-aff-offer,html.iv-2026.iv-plus-ep.iv-iw .iv-guest-subtitle,
+html.iv-2026.iv-plus-ep.iv-iw .iv-guest-tab-name.iv-guest-tab-active,html.iv-2026.iv-plus-ep.iv-iw .iv-chapter-time,html.iv-2026.iv-plus-ep.iv-iw .iv-theme-num{color:var(--lapis-lit);}
+html.iv-2026.iv-plus-ep.iv-iw .iv-tbtn-active,html.iv-2026.iv-plus-ep.iv-iw .iv-tbtn-active:hover,
+html.iv-2026.iv-plus-ep.iv-iw .iv-audio-play,html.iv-2026.iv-plus-ep.iv-iw .iv-dual-btn.iv-dual-btn-active{background:var(--lapis);color:#fff;}
+html.iv-2026.iv-plus-ep.iv-iw .iv-ratio,html.iv-2026.iv-plus-ep.iv-iw .iv-audio-player{border-color:rgba(165,150,245,0.45);box-shadow:0 0 44px rgba(109,63,240,0.45);}
+html.iv-2026.iv-plus-ep.iv-iw .iv-video-play{background:var(--lapis);color:#fff;animation-name:iw-pulse;}
+html.iv-2026.iv-plus-ep.iv-iw .iv-video-play svg{color:#fff;fill:#fff;}
+html.iv-2026.iv-plus-ep.iv-iw .iv-video-play:hover{box-shadow:0 0 0 14px rgba(109,63,240,0.35);}
+html.iv-2026.iv-plus-ep.iv-iw .iv-chapter-row:hover .iv-chapter-btn{background:var(--lapis);color:#fff;}
+html.iv-2026.iv-plus-ep.iv-iw .iv-section-head:hover .iv-section-toggle{border-color:var(--lapis-lit);color:var(--lapis-lit);}
+html.iv-2026.iv-plus-ep.iv-iw .iv-guest-tab-unit.iv-guest-tab-active .iv-guest-tab-photo{border-color:var(--lapis);}
+/* the section rules: the page's runtime yellow twin paints them gold; they are hairlines like the free page's */
+html.iv-2026.iv-plus-ep.iv-iw .iv-chapters-rule,html.iv-2026.iv-plus-ep.iv-iw .iv-section-rule{background:var(--line)!important;}
+/* a section showing its Plus+ view takes the gold: switch, chapter times, theme numbers, quote rings.
+   The section label and heading stay violet either way. */
+html.iv-2026.iv-plus-ep.iv-iw .iv-plus-dual:has(.iv-dual-btn:last-child.iv-dual-btn-active) .iv-dual-btn.iv-dual-btn-active{background:var(--gold);color:var(--on-gold);}
+html.iv-2026.iv-plus-ep.iv-iw .iv-plus-dual:has(.iv-dual-btn:last-child.iv-dual-btn-active) .iv-chapter-time,
+html.iv-2026.iv-plus-ep.iv-iw .iv-plus-dual:has(.iv-dual-btn:last-child.iv-dual-btn-active) .iv-theme-num{color:var(--gold-text);}
+html.iv-2026.iv-plus-ep.iv-iw .iv-plus-dual:has(.iv-dual-btn:last-child.iv-dual-btn-active) .iv-chapter-row:hover .iv-chapter-btn{background:var(--gold);color:var(--on-gold);}
+html.iv-2026.iv-plus-ep.iv-iw .iv-plus-dual:has(.iv-dual-btn:last-child.iv-dual-btn-active) .iv-quote-avatar{border-color:rgba(216,170,60,0.6);}
+
+/* ---- phone ---- */
+@media (max-width:700px){
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-logo,html.iv-iw.iv-plus-member #iv-nav.iv-nav-v2 .iv-nav-logo{height:40px;margin:-2px 0;}
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-word{font-size:20px;}
+  html.iv-2026.iv-iw .iv-chapters-heading,html.iv-2026.iv-iw .iv-section-title{font-size:31px;}
+  html.iv-2026.iv-iw .iv-comments-title{font-size:33px;}
+  html.iv-2026.iv-iw .iv-header-topic{font-size:22px;}
+  html.iv-2026.iv-iw .iv-theme-num{font-size:28px;}
+}
+@media (max-width:420px){
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-word{font-size:18px;letter-spacing:0.06em;}
+}

@@ -1,0 +1,15 @@
+/* Carried over from the Squarespace Code Injection block _gap98631 (live 2026-10-28). */
+/* Sits in the Watch/Listen tab row (.iv-toggle-btns), sized to match
+   .iv-tbtn, but outlined rather than filled so it never reads as a third
+   tab someone might click expecting the panel to switch. */
+.iv-pip-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: inherit; font-weight: 400; letter-spacing: 0.03em; font-size: 14px;
+  padding: 10px 16px; border-radius: 3px;
+  background: transparent; border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8); cursor: pointer;
+  transition: border-color .15s, color .15s, background-color .15s;
+}
+.iv-pip-btn svg { flex-shrink: 0; }
+.iv-pip-btn:hover { border-color: #E8B923; color: #E8B923; }
+.iv-pip-btn.iv-pip-active { border-color: #E8B923; color: #E8B923; background: rgba(232,185,35,0.12); }
