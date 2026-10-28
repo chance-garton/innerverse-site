@@ -203,12 +203,12 @@ FONT_IW = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family
 # Runs before first paint: the page classes, the cached Plus member answer (so
 # a member's gold nav and member cards paint from the first frame, as
 # iv-nav-plus-precheck did), and ivImg for every script after it.
-HEAD_SCRIPT = """<script>
+HEAD_SCRIPT = r"""<script>
 (function(){var r=document.documentElement;
 try{if(localStorage.getItem('iv_session_token')&&localStorage.getItem('iv_plus_entitled')==='yes')r.classList.add('iv-plus-member');}catch(e){}
 var S=[100,300,500,750,1000,1500,2500];
 window.ivImg=function(u,w){if(!u)return'';u=String(u);if(u.indexOf('images.squarespace-cdn.com')===-1)return u;var x=S[S.length-1];for(var i=0;i<S.length;i++){if(S[i]>=(w||500)){x=S[i];break;}}var p=u.split('?');var rest=(p[1]||'').split('&').filter(function(kv){return kv&&kv.indexOf('format=')!==0;});return p[0]+'?format='+x+'w'+(rest.length?'&'+rest.join('&'):'');};
-window.IV_BASE=%s;})();
+window.IV_BASE=%s;window.ivPath=function(){var b=window.IV_BASE,p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);p=p.replace(/\/index\.html$/,'/').replace(/\.html$/,'');return p||'/';};if(window.IV_BASE)document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="/"]');if(!a)return;var h=a.getAttribute('href');if(h.indexOf('//')===0||h.indexOf(window.IV_BASE+'/')===0||h===window.IV_BASE)return;a.setAttribute('href',window.IV_BASE+h);},true);})();
 </script>"""
 
 

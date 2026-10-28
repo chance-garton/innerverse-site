@@ -47,6 +47,7 @@ def assets_hash():
 os.environ.setdefault("IV_ASSET_VERSION", assets_hash())
 import common  # noqa: E402  (reads the environment at import)
 import episode  # noqa: E402
+import pages as hand  # noqa: E402
 
 
 def write(rel, text):
@@ -102,6 +103,15 @@ def main():
         write("episodes/" + slug + ".html", html)
         lastmod = (file.get("generated") or "")[:10] or (file["fields"].get("Publish Date") or "")
         sitemap.append((common.LIVE_ORIGIN + "/episodes/" + slug, lastmod))
+
+    # The homepage and the archive (stage 2). The archive lists newest first.
+    write("index.html", hand.home())
+    newest = sorted(pages, key=lambda pf: pf[0].get("publishOn") or 0, reverse=True)
+    arch = hand.episodes(newest)
+    write("episodes.html", arch)
+    write("episodes/index.html", arch)
+    today = __import__("datetime").date.today().isoformat()
+    sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today)]
 
     write("robots.txt", ("User-agent: *\nDisallow: /\n" if common.NOINDEX else
                          "User-agent: *\nAllow: /\n\nSitemap: " + common.LIVE_ORIGIN + "/sitemap.xml\n"))

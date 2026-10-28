@@ -42,6 +42,19 @@ jobs:
           IV_BASE: /innerverse-site
           IV_NOINDEX: "1"
         run: python build/build.py
+      # The homepage and the archive are drawn by their scripts in a headless
+      # browser and saved as finished HTML (tools/prerender.js).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Draw the homepage and the archive
+        env:
+          IV_DATA_DIR: innerverse-data
+          IV_BASE: /innerverse-site
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+          node tools/prerender.js
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -1,0 +1,8 @@
+{
+  "name": "innerverse-site",
+  "private": true,
+  "description": "Build tools for the InnerVerse site. Only the prerender step needs these.",
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}
