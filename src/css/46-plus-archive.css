@@ -1,0 +1,132 @@
+/* Carried over from the Squarespace Code Injection block iv-plus-index (live 2026-10-28). */
+
+/* ===== BEGIN iv-plus-index =====
+   The members' archive on the Lapis Library (2026-09-25). The page is drawn
+   with the /episodes page's own classes (iva-*, styled in the
+   iv-episodes-search HEADER block), so the two archives read one rule set;
+   this block only recolours it gold and tidies the /plus hero above it.
+   Class prefix for anything /plus-only: ivp-. */
+
+/* Retire the native list and its pagination on /plus only. */
+.iv-plus-page .blog-basic-grid.collection-content-wrapper,
+.iv-plus-page .blog-list-pagination,
+.iv-plus-page nav.blog-list-pagination,
+.iv-plus-page .pagination { display: none !important; }
+
+/* The five hand-built category buttons this page replaces, hidden by their
+   block ids so there is no flash of them before the script sweeps. */
+.iv-plus-page .fe-block-yui_3_17_2_1_1778105768389_846,
+.iv-plus-page .fe-block-40a376cc168142fedf67,
+.iv-plus-page .fe-block-yui_3_17_2_1_1778106257208_1596,
+.iv-plus-page .fe-block-444f27bd799ed03f902b,
+.iv-plus-page .fe-block-d2ccd25962b3f94e8d75 { display: none !important; }
+
+/* Hiding a block in a Squarespace fluid-engine grid does not close the space
+   it held. Dropping the explicit row template lets empty rows collapse. */
+.iv-plus-page .fluid-engine {
+  grid-template-rows: none !important;
+  grid-auto-rows: minmax(0, auto) !important;
+}
+
+/* The native pricing block: hidden for a confirmed member and optimistically
+   for any signed-in visitor (the hero the membership script draws beside it
+   carries its own member state). */
+.iv-plus-page.iv-maybe-member .fe-block-yui_3_17_2_1_1778098056453_422561,
+.iv-plus-page.iv-plus-member .fe-block-yui_3_17_2_1_1778098056453_422561 { display: none !important; }
+
+/* ---- gold where /episodes is lapis ---- */
+html.iv-plus-archive { --iv-gold: var(--gold, #D8AA3C); --ivp-stroke: rgba(216,170,60,0.62); --ivp-wash: rgba(216,170,60,0.12); --ivp-wash-on: rgba(216,170,60,0.18); }
+html.iv-plus-archive .iva-eyebrow,
+html.iv-plus-archive .iva-h1 em,
+html.iv-plus-archive .iva-meta,
+html.iv-plus-archive .iva-why,
+html.iv-plus-archive .iva-fbtn .iva-fcaret,
+html.iv-plus-archive .iva-sort svg { color: var(--gold-text, #D8AA3C); }
+html.iv-plus-archive .iva-sort:hover { color: var(--gold-text, #D8AA3C); }
+html.iv-plus-archive .iva-field { color: var(--gold-text, #D8AA3C); box-shadow: 0 0 0 1px var(--gold-glow, rgba(216,170,60,0.55)), 0 0 28px rgba(216,170,60,0.30); }
+html.iv-plus-archive .iva-field:focus-within { border-color: var(--gold, #D8AA3C); }
+html.iv-plus-archive .iva-find { background: var(--gold, #D8AA3C); color: var(--on-gold, #0A0F1C); }
+html.iv-plus-archive .iva-clear,
+html.iv-plus-archive .iva-fbtn,
+html.iv-plus-archive .iva-btn-outline,
+html.iv-plus-archive .iva-car-arrow { border-color: var(--ivp-stroke); }
+html.iv-plus-archive .iva-clear:hover,
+html.iv-plus-archive .iva-fbtn:hover,
+html.iv-plus-archive .iva-fbtn.iva-open,
+html.iv-plus-archive .iva-btn-outline:hover { border-color: var(--gold, #D8AA3C); background: var(--ivp-wash); }
+html.iv-plus-archive .iva-fbtn.iva-active { border-color: var(--gold, #D8AA3C); background: var(--ivp-wash-on); }
+html.iv-plus-archive .iva-pill:hover,
+html.iv-plus-archive .iva-chip:hover { border-color: var(--gold, #D8AA3C); }
+html.iv-plus-archive .iva-pill.iva-on { border-color: var(--gold, #D8AA3C); background: var(--ivp-wash-on); }
+html.iv-plus-archive .iva-card:hover .iva-thumb { border-color: var(--gold, #D8AA3C); }
+html.iv-plus-archive .iva-car-dot.iva-on { background: var(--gold, #D8AA3C); }
+/* The archive's own section headings keep the gold eyebrow but ink titles;
+   the results grid needs no Plus+ mark here, every card is Plus. */
+html.iv-plus-archive .iva-plusmark { display: none; }
+
+/* ---- the /plus hero (drawn by iv-plus-membership, styled by iv-plus-unlock
+   and iv-plus-page-polish) takes the Lapis type: Fraunces headline, Manrope
+   copy and buttons, the design-system gold. Markup untouched. ---- */
+html.iv-plus-archive .page-section:first-of-type .fluid-engine { padding-top: 40px; }
+html.iv-plus-archive .iv-plus-hero .iv-lock-logo { animation: none; width: 52px; }
+html.iv-plus-archive .iv-plus-hero .iv-lock-eyebrow::before { font-family: var(--font-sans); font-weight: 700; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-text, #D8AA3C); }
+html.iv-plus-archive .iv-plus-hero .iv-lock-eyebrow::after { font-family: var(--font-sans); font-weight: 700; font-size: 11px; letter-spacing: 2px; color: var(--ink-muted, #9AA6BA); }
+html.iv-plus-archive .iv-plus-hero .iv-lock-headline { font-family: var(--font-display, 'Fraunces', Georgia, serif) !important; font-weight: 600; font-size: 44px !important; line-height: 1.05 !important; letter-spacing: -0.8px !important; color: var(--ink, #E9EEF6); }
+html.iv-plus-archive .iv-plus-hero .iv-lock-copy { font-family: var(--font-sans); font-size: 17px; line-height: 1.55; color: var(--ink-muted, #9AA6BA); }
+html.iv-plus-archive .iv-plus-hero a.iv-lock-btn { font-family: var(--font-sans); font-weight: 700; font-size: 14px; letter-spacing: 0; text-transform: none; border-radius: 10px; border: 2px solid var(--ivp-stroke); background: transparent; color: var(--ink, #E9EEF6) !important; padding: 13px 18px; }
+html.iv-plus-archive .iv-plus-hero a.iv-lock-btn span { font-family: var(--font-sans); font-size: 12px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--ink-muted, #9AA6BA); }
+html.iv-plus-archive .iv-plus-hero a.iv-lock-btn:hover { border-color: var(--gold, #D8AA3C); background: var(--ivp-wash); }
+html.iv-plus-archive .iv-plus-hero a.iv-lock-btn-primary { background: var(--gold, #D8AA3C); border-color: var(--gold, #D8AA3C); color: var(--on-gold, #0A0F1C) !important; box-shadow: none; }
+html.iv-plus-archive .iv-plus-hero a.iv-lock-btn-primary span { color: rgba(10,15,28,0.7); }
+html.iv-plus-archive .iv-plus-hero a.iv-lock-btn-primary:hover { filter: brightness(1.08); background: var(--gold, #D8AA3C); }
+html.iv-plus-archive .iv-plus-hero .iv-lock-login { font-family: var(--font-sans); font-weight: 700; font-size: 13px; letter-spacing: 0; color: var(--ink, #E9EEF6) !important; border: 2px solid var(--ivp-stroke); border-radius: 999px; padding: 9px 14px; margin-top: 18px; }
+html.iv-plus-archive .iv-plus-hero .iv-lock-login:hover { border-color: var(--gold, #D8AA3C); background: var(--ivp-wash); }
+html.iv-plus-archive .iv-plus-hero-latest-eyebrow { font-family: var(--font-sans); font-size: 12px !important; color: var(--gold-text, #D8AA3C) !important; }
+html.iv-plus-archive .iv-plus-hero .iv-lock-player { border-radius: 10px; box-shadow: 0 18px 44px rgba(0,0,0,0.45), 0 0 0 1px var(--line, rgba(233,238,246,0.12)); }
+html.iv-plus-archive .iv-plus-hero .iv-lock-runtime { font-family: var(--font-sans); font-size: 13px; color: var(--ink-muted, #9AA6BA); }
+html.iv-plus-archive .iv-plus-hero-latest-title { font-family: var(--font-sans) !important; font-weight: 600; font-size: 16px !important; line-height: 1.4 !important; letter-spacing: 0; color: var(--ink, #E9EEF6) !important; }
+html.iv-plus-archive .iv-plus-hero::before { background: radial-gradient(closest-side, rgba(216,170,60,0.10), rgba(216,170,60,0)); }
+/* The search area sits a little closer to the hero than to the /episodes nav. */
+html.iv-plus-archive .iva-hero { padding-top: 40px; }
+
+/* ---- who sees what (Chance, 2026-09-25: a visitor who is not a member does
+   not need a search bar; they need to be told what they get). The page builds
+   both the search area and the perks section; the member class decides which
+   shows, so a member whose cached answer arrives after first paint flips
+   without a rebuild. ---- */
+html.iv-plus-archive:not(.iv-plus-member) .iva-hero { display: none; }
+html.iv-plus-archive.iv-plus-member .ivp-perks { display: none; }
+
+/* ---- the perks section (signed out): what a member gets, in detail ---- */
+.ivp-perks { border-top: 1px solid var(--line); }
+.ivp-perks .iva-wrap { display: flex; flex-direction: column; gap: 28px; padding-top: 44px; padding-bottom: 52px; }
+.ivp-perks-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+.ivp-perks-head .iva-h2 { font-size: 40px; letter-spacing: -0.8px; }
+.ivp-perks-head .iva-sub { text-align: center; }
+.ivp-perks-head .iva-sub em { font-style: italic; color: var(--gold-text, #D8AA3C); }
+.ivp-perk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; list-style: none; margin: 0; padding: 0; }
+.ivp-perk { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px 24px; border-radius: 14px; background: var(--surface, #111827); border: 1px solid var(--line); }
+.ivp-perk-mark { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--ivp-stroke); color: var(--gold-text, #D8AA3C); }
+.ivp-perk-mark svg { display: block; }
+.ivp-perk-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: var(--font-sans); font-weight: 700; font-size: 17px; line-height: 1.3; color: var(--ink, #E9EEF6); }
+.ivp-soon { display: inline-flex; align-items: center; height: 22px; padding: 0 9px; border-radius: 999px; border: 1px solid var(--ivp-stroke); font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-text, #D8AA3C); }
+.ivp-perk-body { margin: 0; font-family: var(--font-sans); font-size: 14.5px; line-height: 1.55; color: var(--ink-muted, #9AA6BA); }
+.ivp-perks-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 6px; }
+.ivp-perks-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.ivp-perks-small { font-family: var(--font-sans); font-size: 13px; color: var(--ink-muted, #9AA6BA); text-align: center; }
+@media (max-width: 1100px) { .ivp-perk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767px) {
+  .ivp-perks .iva-wrap { gap: 20px; padding-top: 28px; padding-bottom: 36px; }
+  .ivp-perks-head .iva-h2 { font-size: 30px; }
+  .ivp-perk-grid { grid-template-columns: 1fr; gap: 12px; }
+  .ivp-perk { padding: 18px 18px 20px; }
+  .ivp-perks-btns { flex-direction: column; width: 100%; }
+  .ivp-perks-btns .iva-btn { width: 100%; box-sizing: border-box; }
+}
+@media (max-width: 767px) {
+  html.iv-plus-archive .page-section:first-of-type .fluid-engine { padding-top: 24px; }
+  html.iv-plus-archive .iv-plus-hero .iv-lock-headline { font-size: 32px !important; }
+  html.iv-plus-archive .iv-plus-hero .iv-lock-copy { font-size: 15px; }
+  html.iv-plus-archive .iva-hero { padding-top: 24px; }
+}
+/* ===== END iv-plus-index ===== */

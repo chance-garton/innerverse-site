@@ -15,6 +15,7 @@ const RAW = 'https://raw.githubusercontent.com/chance-garton/innerverse-data/mai
 const PAGES = [
   { file: 'index.html', url: '/', ready: '#ivh-grid .ivh-card:not([href="/episodes"]), #ivh-grid a[href*="/episodes/"]' },
   { file: 'episodes.html', url: '/episodes', ready: '.iva-results .iva-card, .iva-card' },
+  { file: 'plus.html', url: '/plus', ready: ['.iva-results .iva-card', '.iv-plus-hero .iv-plus-hero-latest-title'] },
 ];
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.xml': 'application/xml', '.txt': 'text/plain' };
 
@@ -56,7 +57,7 @@ function fromDist(p) {
     });
     await page.goto(HOST + BASE + pg.url, { waitUntil: 'domcontentloaded' });
     try {
-      await page.waitForSelector(pg.ready, { timeout: 20000 });
+      for (const sel of [].concat(pg.ready)) await page.waitForSelector(sel, { timeout: 20000 });
     } catch (e) {
       console.error('prerender: ' + pg.file + ' never finished drawing; left as the plain shell. ' + errors.join(' | '));
       failed++;
@@ -85,7 +86,8 @@ function fromDist(p) {
       '<script>(function(){var m=document.getElementById("iv-mount"),t=document.getElementById("iv-mount-shell");if(m&&t)m.innerHTML=t.innerHTML;})();</script>';
     html = html.slice(0, a) + '<div id="iv-mount" data-iv-prerendered>' + out + '</div>' + restore + html.slice(b);
     fs.writeFileSync(file, html);
-    if (pg.file === 'episodes.html') fs.writeFileSync(path.join(DIST, 'episodes', 'index.html'), html);
+    const folder = { 'episodes.html': 'episodes', 'plus.html': 'plus' }[pg.file];
+    if (folder) fs.writeFileSync(path.join(DIST, folder, 'index.html'), html);
     console.log('prerender: ' + pg.file + ' ' + Math.round(out.length / 1024) + ' KB drawn' + (errors.length ? ' (script errors: ' + errors.join(' | ') + ')' : ''));
     await ctx.close();
   }

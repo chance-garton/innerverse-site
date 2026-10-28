@@ -55,3 +55,27 @@ def episodes(pages):
     h = head(title, desc, LIVE_ORIGIN + "/episodes", DEFAULT_IMAGE, "website", cls)
     body = nav("podcast") + '<main id="iv-main">' + mount(every) + "</main>" + footer()
     return page(h, body, cls, scripts=("/assets/site.js", "/assets/archive.js"))
+
+
+PLUS_IMAGE = "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69fbc0e54bf4684fff7e35ec/1778106597548/ChatGPT+Image+May+6%2C+2026%2C+03_30_14+PM.png"
+
+
+def plus(plus_index):
+    """The members' archive. plus_index: innerverse-data's plus-index.json
+    episodes, newest first. Only what a visitor sees today goes in the HTML
+    (titles, artwork, chapter-free cards); nothing members-only."""
+    title = "InnerVerse Plus+ | InnerVerse Podcast"
+    desc = ("InnerVerse Plus is the premium membership archive for InnerVerse Podcast. Full episodes, extended "
+            "conversations, Inner Whirled exclusives, and deep dives into consciousness, mythology, holistic "
+            "health, and hidden history with Chance Garton.")
+    items = "".join(
+        '<li><a href="' + esc(url("/plus/" + e["slug"])) + '">' + esc((e.get("title") or "").replace("—", ", ").replace("–", ", ")) + "</a></li>"
+        for e in plus_index if e.get("slug")
+    )
+    every = ('<div class="collection-content-wrapper iv-every">'
+             '<details class="iv-every-box"><summary>Browse every Plus+ episode by title</summary>'
+             '<ol class="iv-every-list">' + items + "</ol></details></div>")
+    cls = "iv-plus-page iv-archive-2026 iv-plus-archive"
+    h = head(title, desc, LIVE_ORIGIN + "/plus", PLUS_IMAGE, "website", cls)
+    body = nav("plus") + '<main id="iv-main">' + mount('<div class="iv-plus-hero-slot"></div>' + every) + "</main>" + footer()
+    return page(h, body, cls, scripts=("/assets/site.js", "/assets/archive.js", "/assets/plus.js"))

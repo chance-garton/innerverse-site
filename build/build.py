@@ -110,8 +110,12 @@ def main():
     arch = hand.episodes(newest)
     write("episodes.html", arch)
     write("episodes/index.html", arch)
+    plus_eps = sorted(load(os.path.join(DATA, "plus-index.json"))["episodes"], key=lambda e: e.get("date") or "", reverse=True)
+    plus_page = hand.plus(plus_eps)
+    write("plus.html", plus_page)
+    write("plus/index.html", plus_page)
     today = __import__("datetime").date.today().isoformat()
-    sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today)]
+    sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today), (common.LIVE_ORIGIN + "/plus", today)]
 
     write("robots.txt", ("User-agent: *\nDisallow: /\n" if common.NOINDEX else
                          "User-agent: *\nAllow: /\n\nSitemap: " + common.LIVE_ORIGIN + "/sitemap.xml\n"))
