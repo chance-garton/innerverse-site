@@ -875,14 +875,15 @@ def affiliates_for(r, file):
     return out
 
 
-def seo_title(f, post):
-    t = (post or {}).get("seoTitle") or plain(f["title"].replace("*", ""))
+def seo_title(f, post, r=None):
+    # Airtable's SEO Title first (2026-10-29), then the Squarespace snapshot, then Title.
+    t = plain((r or {}).get("SEO Title")) or (post or {}).get("seoTitle") or plain(f["title"].replace("*", ""))
     # Squarespace appended " | InnerVerse" to every SEO title; keep doing so.
     return t if t.endswith("| InnerVerse") else t + " | InnerVerse"
 
 
-def seo_description(f, post):
-    d = (post or {}).get("seoDescription")
+def seo_description(f, post, r=None):
+    d = plain((r or {}).get("SEO Description")) or (post or {}).get("seoDescription")
     if d:
         return plain(d)
     return plain(f["intro1"] or f["topicLine"] or f["title"], 160)
@@ -895,8 +896,8 @@ def render(slug, file, post, related, tags):
     affs = affiliates_for(r, file)
     canonical = LIVE_ORIGIN + "/episodes/" + slug
     page_url = url("/episodes/" + slug)
-    title = seo_title(f, post)
-    description = seo_description(f, post)
+    title = seo_title(f, post, r)
+    description = seo_description(f, post, r)
     image = (post or {}).get("image") or f["thumbnail"]
     iw = "Inner Whirled" in f["showCategories"]
 
