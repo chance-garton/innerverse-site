@@ -1,0 +1,1001 @@
+<!-- Biofield Tuning page body, carried verbatim from the live /biofield-tuning code block on 2026-10-30.
+     build/pages.py biofield_tuning() wraps it in the site head, nav and footer and points the /s/ chart files
+     at the live site until the image move. Edit the copy here. -->
+<!-- Biofield Tuning page. Section 2 revision, 2026-10-04. Based on the supplied live snapshot; ready for installation. -->
+
+<style>
+/* Lapis Library. Inherit the live site's tokens and fonts without redefining them. */
+#ivbt{--ivbt-wash:color-mix(in srgb,var(--lapis) 9%,transparent);--ivbt-stroke:color-mix(in srgb,var(--lapis-lit) 65%,transparent);font-family:var(--font-sans);font-size:16px;line-height:1.65;color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;isolation:isolate;}
+#ivbt *,#ivbt *::before,#ivbt *::after{box-sizing:border-box;}
+#ivbt [hidden]{display:none!important;}
+#ivbt h1,#ivbt h2,#ivbt h3{font-family:var(--font-display);font-weight:600;line-height:1.16;letter-spacing:-.025em;color:var(--ink);margin:0 0 .55em;text-transform:none;}
+#ivbt h1{font-size:clamp(40px,4.1vw,60px);line-height:1.12;max-width:18ch;}
+#ivbt h1 em{font-weight:600;color:var(--lapis-lit);font-style:italic;}
+#ivbt h2{font-size:clamp(29px,2.8vw,40px);text-wrap:balance;}
+#ivbt h3{font-size:24px;}
+#ivbt p{margin:0 0 1em;}
+#ivbt a{color:var(--lapis-lit);text-decoration:none!important;border-bottom:0;}
+#ivbt a:hover{color:var(--ink);}
+#ivbt img{max-width:100%;display:block;}
+#ivbt button{font:inherit;}
+#ivbt :is(a,button,summary):focus-visible{outline:3px solid var(--lapis-lit);outline-offset:5px;}
+#ivbt .sec{padding:64px 28px;position:relative;}
+#ivbt .sec.alt{background:var(--surface);border-block:1px solid var(--line);}
+#ivbt .wrap{width:100%;max-width:1120px;margin:0 auto;min-width:0;}
+#ivbt .wrap.narrow{max-width:800px;}
+#ivbt .center{text-align:center;}
+#ivbt .eyebrow{font-family:var(--font-sans);font-size:11px;font-weight:800;letter-spacing:2px;line-height:1.5;text-transform:uppercase;color:var(--lapis-lit);margin:0 0 16px;}
+#ivbt .lede{font-size:19px;line-height:1.6;}
+#ivbt .dim,#ivbt .small{color:var(--ink-muted);}
+#ivbt .small{font-size:14px;}
+#ivbt .rule{height:1px;border:0;background:var(--line);margin:56px 0;}
+#ivbt :is(#book,#whatitslike){scroll-margin-top:105px;}
+/* One filled primary action per booking group. */
+#ivbt .btn,#ivbt .heroask{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:52px;padding:14px 24px;border:2px solid var(--lapis);border-radius:var(--radius-md);background:var(--lapis);color:var(--on-lapis);font:700 14px/1.4 var(--font-sans);letter-spacing:0;text-transform:none;text-align:center;cursor:pointer;transition:background .18s ease,border-color .18s ease;}
+#ivbt .btn:hover{background:color-mix(in srgb,var(--lapis) 85%,var(--ground));border-color:var(--lapis-lit);color:var(--on-lapis);}
+#ivbt .btn.ghost,#ivbt .heroask{background:transparent;border-color:var(--ivbt-stroke);color:var(--ink);}
+#ivbt .btn.ghost:hover,#ivbt .heroask:hover{border-color:var(--lapis-lit);background:var(--ivbt-wash);color:var(--ink);}
+#ivbt .heroask i{font-style:normal;color:var(--lapis-lit);}
+#ivbt .btn.cta{box-shadow:0 8px 28px color-mix(in srgb,var(--lapis-glow) 45%,transparent);}
+#ivbt .btnrow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;margin-top:25px;}
+/* The 85px site navigation clearance is included in the hero's top padding. */
+#ivbt .hero{padding:125px 28px 48px;border-bottom:1px solid var(--line);}
+#ivbt .hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr);gap:64px;align-items:center;}
+#ivbt .hero-copy{min-width:0;}
+#ivbt .hero .sub{font-size:17px;line-height:1.65;max-width:57ch;margin:20px 0 22px;}
+#ivbt .credline{display:flex;gap:8px 18px;flex-wrap:wrap;color:var(--ink-muted);font-size:12px;font-weight:600;}
+#ivbt .credline span{display:flex;align-items:center;gap:8px;}
+#ivbt .credline span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--lapis-lit);}
+#ivbt .hero .btnrow{justify-content:flex-start;}
+#ivbt .heronote{font-size:12px;color:var(--ink-muted);margin:15px 0 0;}
+#ivbt .hero-photo{margin:0;}
+#ivbt .photo-slot{aspect-ratio:4/5;max-height:450px;display:flex;flex-direction:column;justify-content:center;padding:32px;border:1px dashed var(--ivbt-stroke);background:var(--surface);border-radius:var(--radius-lg);}
+#ivbt .photo-slot>p{font-family:var(--font-display);font-size:30px;line-height:1.25;font-style:italic;color:var(--ink-muted);}
+#ivbt .pending-label,#ivbt .hero-photo figcaption{font-size:11px;line-height:1.6;color:var(--ink-muted);}
+#ivbt .hero-photo figcaption{margin-top:10px;}
+#ivbt .hero-photo img{width:100%;height:auto;border-radius:var(--radius-lg);}
+/* Section 2: generous concern choices and an individual response. */
+#ivbt .ivbt-why{padding-block:72px;}
+#ivbt .ivbt-why-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:34px;}
+#ivbt .ivbt-why-heading h2{font-size:clamp(34px,3.6vw,46px);max-width:20ch;margin:0;}
+#ivbt .ivbt-why-heading .eyebrow{margin-bottom:12px;}
+#ivbt .ivbt-why-heading>p{max-width:29ch;margin:0 0 3px;color:var(--ink-muted);font-size:16px;line-height:1.65;}
+#ivbt .ivbt-explorer{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-rows:repeat(4,minmax(124px,1fr));gap:12px 28px;overflow-anchor:none;}
+#ivbt .ivbt-concern{display:contents;}
+#ivbt .ivbt-concern-choice{appearance:none;grid-column:1;display:flex;align-items:center;gap:18px;width:100%;min-width:0;min-height:110px;padding:22px;border:2px solid var(--line);border-radius:var(--radius-lg);background:transparent;color:var(--ink);text-align:left;cursor:pointer;letter-spacing:normal;text-transform:none;transition:border-color .18s ease,background .18s ease,box-shadow .18s ease;}
+#ivbt .ivbt-concern:nth-child(1) .ivbt-concern-choice{grid-row:1;}
+#ivbt .ivbt-concern:nth-child(2) .ivbt-concern-choice{grid-row:2;}
+#ivbt .ivbt-concern:nth-child(3) .ivbt-concern-choice{grid-row:3;}
+#ivbt .ivbt-concern:nth-child(4) .ivbt-concern-choice{grid-row:4;}
+#ivbt .ivbt-concern-choice:hover{border-color:var(--ivbt-stroke);background:var(--ivbt-wash);}
+#ivbt .ivbt-concern-choice[aria-expanded="true"]{border-color:var(--lapis-lit);background:color-mix(in srgb,var(--lapis) 13%,var(--ground));box-shadow:inset 4px 0 0 var(--lapis-lit);}
+#ivbt .ivbt-concern-symbol{display:flex;align-items:center;justify-content:center;width:42px;height:42px;flex:0 0 42px;color:var(--lapis-lit);}
+#ivbt .ivbt-concern-symbol svg{display:block;width:32px;height:32px;}
+#ivbt .ivbt-concern-words{display:block;flex:1;min-width:0;}
+#ivbt .ivbt-concern-name{display:block;font:700 19px/1.35 var(--font-sans);}
+#ivbt .ivbt-concern-hint{display:block;margin-top:7px;color:var(--ink-muted);font:400 13px/1.5 var(--font-sans);}
+#ivbt .ivbt-concern-direction{display:flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:24px;color:var(--ink-muted);}
+#ivbt .ivbt-concern-direction svg{display:block;width:20px;height:20px;transition:transform .18s ease;}
+#ivbt .ivbt-concern-choice[aria-expanded="true"] .ivbt-concern-direction{color:var(--lapis-lit);}
+#ivbt .ivbt-concern-choice[aria-expanded="true"] .ivbt-concern-direction svg{transform:translateX(3px);}
+#ivbt .ivbt-response{grid-column:2;grid-row:1/5;display:flex;flex-direction:column;min-width:0;padding:32px;border:1px solid var(--ivbt-stroke);border-radius:var(--radius-lg);background:radial-gradient(ellipse at 100% 0%,color-mix(in srgb,var(--lapis) 15%,transparent),transparent 65%),var(--ground);}
+#ivbt .ivbt-response-kicker{font:800 10px/1.5 var(--font-sans);letter-spacing:1.6px;text-transform:uppercase;color:var(--lapis-lit);margin:0 0 12px;}
+#ivbt .ivbt-response h3{font-size:clamp(31px,2.9vw,39px);line-height:1.16;max-width:21ch;margin:0 0 16px;text-wrap:balance;}
+#ivbt .ivbt-response .ivbt-recognition{font-size:15px;line-height:1.65;color:var(--ink-muted);margin:0 0 22px;}
+#ivbt .ivbt-client-voice{margin:0 0 24px;padding:0 0 0 18px;border:0;border-left:2px solid var(--ivbt-stroke);}
+#ivbt .ivbt-client-voice blockquote{padding:0;margin:0;border:0;color:var(--ink);font:400 19px/1.5 var(--font-display);letter-spacing:0;}
+#ivbt .ivbt-client-voice blockquote p{font:inherit;margin:0;}
+#ivbt .ivbt-client-voice figcaption{font:500 11px/1.6 var(--font-sans);color:var(--ink-muted);margin-top:10px;}
+#ivbt .ivbt-client-voice figcaption strong{font-weight:700;color:var(--lapis-lit);}
+#ivbt .ivbt-response-actions{display:flex;align-items:center;gap:18px;margin-top:auto;}
+#ivbt .ivbt-response-actions .btn{flex:0 0 auto;gap:14px;padding-inline:20px;min-height:52px;}
+#ivbt .ivbt-response-actions .btn svg{width:18px;height:18px;flex:none;}
+#ivbt .ivbt-response-actions p{font-size:11px;line-height:1.6;color:var(--ink-muted);margin:0;max-width:19ch;}
+#ivbt .ivbt-why .ivbt-invitation{display:flex;align-items:center;justify-content:center;gap:12px;margin:30px 0 0;color:var(--ink-muted);font-size:14px;text-align:center;}
+#ivbt .ivbt-invitation svg{width:20px;height:20px;flex:none;color:var(--lapis-lit);}
+/* All four responses stay readable before enhancement or without JavaScript. */
+#ivbt .ivbt-explorer:not([data-ready]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:20px;}
+#ivbt .ivbt-explorer:not([data-ready]) .ivbt-concern{display:block;}
+#ivbt .ivbt-explorer:not([data-ready]) .ivbt-concern-choice{display:none;}
+#ivbt .ivbt-explorer:not([data-ready]) .ivbt-response{height:100%;}
+@media(min-width:901px) and (max-width:1100px){
+  #ivbt .ivbt-explorer{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:20px;}
+  #ivbt .ivbt-concern-choice{padding:18px;gap:12px;}
+  #ivbt .ivbt-concern-symbol{width:32px;flex-basis:32px;}
+  #ivbt .ivbt-concern-name{font-size:17px;}
+  #ivbt .ivbt-response{padding:26px;}
+}
+@media(max-width:900px){
+  #ivbt .ivbt-why{padding-block:54px;}
+  #ivbt .ivbt-why-heading{display:block;max-width:640px;margin:0 auto 26px;}
+  #ivbt .ivbt-why-heading h2{font-size:clamp(34px,5vw,42px);max-width:21ch;}
+  #ivbt .ivbt-why-heading>p{max-width:44ch;font-size:15px;margin:17px 0 0;}
+  #ivbt .ivbt-explorer{display:block;max-width:640px;margin-inline:auto;}
+  #ivbt .ivbt-concern{display:block;margin-bottom:12px;}
+  #ivbt .ivbt-concern:last-child{margin-bottom:0;}
+  #ivbt .ivbt-concern-choice{min-height:100px;padding:19px 20px;gap:14px;}
+  #ivbt .ivbt-concern-name{font-size:18px;}
+  #ivbt .ivbt-concern-hint{margin-top:5px;font-size:13px;}
+  #ivbt .ivbt-concern-direction svg{transform:rotate(90deg);}
+  #ivbt .ivbt-concern-choice[aria-expanded="true"]{border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
+  #ivbt .ivbt-concern-choice[aria-expanded="true"] .ivbt-concern-direction svg{transform:rotate(-90deg);}
+  #ivbt .ivbt-response{margin:0;padding:26px;border-top:0;border-radius:0 0 var(--radius-lg) var(--radius-lg);}
+  #ivbt .ivbt-response h3{font-size:32px;max-width:23ch;}
+  #ivbt .ivbt-response .ivbt-recognition{font-size:15px;}
+  #ivbt .ivbt-response-actions .btn{width:auto;}
+  #ivbt .ivbt-why .ivbt-invitation{max-width:38ch;margin:26px auto 0;align-items:flex-start;font-size:13px;}
+  #ivbt .ivbt-invitation svg{margin-top:1px;}
+  #ivbt .ivbt-explorer:not([data-ready]){display:block;}
+  #ivbt .ivbt-explorer:not([data-ready]) .ivbt-response{border:1px solid var(--ivbt-stroke);border-radius:var(--radius-lg);}
+}
+@media(max-width:480px){
+  #ivbt .ivbt-concern-choice{min-height:106px;padding:18px 15px;gap:10px;}
+  #ivbt .ivbt-concern-symbol{width:30px;flex-basis:30px;}
+  #ivbt .ivbt-concern-symbol svg{width:28px;height:28px;}
+  #ivbt .ivbt-concern-name{font-size:17px;}
+  #ivbt .ivbt-concern-hint{font-size:12px;}
+  #ivbt .ivbt-concern-direction{width:18px;flex-basis:18px;}
+  #ivbt .ivbt-response{padding:25px 21px;}
+  #ivbt .ivbt-response h3{font-size:31px;}
+  #ivbt .ivbt-client-voice{padding-left:15px;}
+  #ivbt .ivbt-client-voice blockquote{font-size:19px;}
+  #ivbt .ivbt-response-actions{flex-direction:column;gap:10px;align-items:stretch;}
+  #ivbt .ivbt-response-actions .btn{width:100%;}
+  #ivbt .ivbt-response-actions p{max-width:none;text-align:center;}
+}
+#ivbt .bio{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:56px;align-items:center;}
+#ivbt .bio .photo{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--card);}
+#ivbt .bio .photo img{width:100%;height:auto;}
+#ivbt .bio .cap{font-size:11px;line-height:1.5;color:var(--ink-muted);padding:12px 18px;}
+#ivbt .bio p:not(.eyebrow):not(.lede){font-size:15px;}
+#ivbt .creds{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none;}
+#ivbt .creds li{font-size:11px;font-weight:600;border:1px solid var(--line);padding:6px 10px;border-radius:var(--radius-sm);color:var(--ink-muted);}
+#ivbt .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:30px;}
+#ivbt .step{border-top:1px solid var(--ivbt-stroke);padding:23px 8px 8px 0;}
+#ivbt .step .n{font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--lapis-lit);margin-bottom:14px;}
+#ivbt .step h3{font-size:25px;}
+#ivbt .step p{font-size:15px;color:var(--ink-muted);margin:0;}
+#ivbt .zoombox{margin-top:26px;padding:24px 28px;border:1px solid var(--line);border-left:2px solid var(--lapis-lit);border-radius:var(--radius-md);background:var(--ground);}
+#ivbt .zoombox p{font-size:14px;}
+#ivbt .zoombox p:last-child{margin-bottom:0;}
+#ivbt .wall{columns:3;column-gap:18px;margin-top:28px;}
+#ivbt .quote{break-inside:avoid;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--card);padding:22px;margin:0 0 18px;}
+#ivbt .quote p{font-size:14px;line-height:1.7;}
+#ivbt .quote .who,#ivbt .longq .who{font:700 12px/1.4 var(--font-sans);color:var(--lapis-lit);margin:0;}
+#ivbt .quote .stars{color:var(--lapis-lit);font-size:10px;letter-spacing:3px;margin:0 0 12px;}
+#ivbt .tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px;}
+#ivbt .tier{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--card);overflow:hidden;display:flex;flex-direction:column;}
+#ivbt .tier.featured{border-color:var(--lapis-lit);}
+#ivbt .tier .thumb{padding:16px 20px 0;}
+#ivbt .tier .thumb img{width:100%;height:140px;object-fit:contain;border-radius:var(--radius-sm);}
+#ivbt .tier .body{padding:20px;display:flex;flex:1;flex-direction:column;text-align:center;}
+#ivbt .tier .flag{display:block;align-self:center;font:800 10px/1.5 var(--font-sans);letter-spacing:1.2px;text-transform:uppercase;color:var(--lapis-lit);margin-bottom:12px;}
+#ivbt .tier .flag.plain{color:var(--ink-muted);}
+#ivbt .tier .price{font:700 32px/1.1 var(--font-sans);letter-spacing:-1px;margin-bottom:8px;}
+#ivbt .tier .name{font:700 15px/1.4 var(--font-sans);margin-bottom:12px;}
+#ivbt .tier .desc{font-size:14px;color:var(--ink-muted);flex:1;}
+#ivbt .tier .btn{width:100%;padding-inline:10px;}
+#ivbt .tier .mins{font-size:11px;line-height:1.5;color:var(--ink-muted);margin:10px 0 0;}
+#ivbt .guarantee{margin:24px auto 0;max-width:800px;border-top:1px solid var(--line);padding-top:22px;text-align:center;}
+#ivbt .guarantee h3{font-size:24px;}
+#ivbt .guarantee .pending{text-align:center;border-left:0;background:transparent;padding:0;}
+#ivbt .guarantee p:last-child{margin:0;}
+#ivbt .faq{margin-top:28px;border-top:1px solid var(--line);}
+#ivbt .faq details{border-bottom:1px solid var(--line);}
+#ivbt .faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;position:relative;font:600 16px/1.5 var(--font-sans);color:var(--ink);}
+#ivbt .faq summary::-webkit-details-marker{display:none;}
+#ivbt .faq summary::after{content:"+";position:absolute;right:5px;top:20px;color:var(--lapis-lit);font-size:22px;line-height:1;}
+#ivbt .faq details[open] summary::after{content:"−";}
+#ivbt .faq summary:hover{color:var(--lapis-lit);}
+#ivbt .faq .ans{padding:0 35px 22px 0;font-size:15px;color:var(--ink-muted);}
+#ivbt .faq .ans p:last-child{margin:0;}
+#ivbt .icons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px;}
+#ivbt .icon{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:16px 12px;text-align:left;cursor:pointer;color:var(--ink);}
+#ivbt .icon:hover,#ivbt .icon.on{border-color:var(--lapis-lit);background:var(--ivbt-wash);}
+#ivbt .icon img{width:44px;height:44px;object-fit:contain;flex:none;}
+#ivbt .icon span{font:600 12px/1.5 var(--font-sans);}
+#ivbt .anapanel{margin-top:18px;border:1px solid var(--ivbt-stroke);border-radius:var(--radius-md);background:var(--ivbt-wash);padding:24px;}
+#ivbt .anapanel h3{color:var(--lapis-lit);}
+#ivbt .anapanel p{font-size:15px;}
+#ivbt .anapanel a{font-size:13px;font-weight:700;}
+#ivbt .chart-fallback{display:flex;flex-wrap:wrap;gap:12px 20px;}
+#ivbt .rings{margin-top:24px;border-left:2px solid var(--lapis-lit);padding:8px 0 8px 22px;}
+#ivbt .rings p{font-size:14px;color:var(--ink-muted);margin:0;}
+#ivbt .vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px;}
+#ivbt .vid{aspect-ratio:16/9;border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;background:var(--card);}
+#ivbt .vid iframe{width:100%;height:100%;border:0;}
+#ivbt .res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px;}
+#ivbt .res a{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--card);}
+#ivbt .res a:hover{border-color:var(--lapis-lit);}
+#ivbt .res img{width:60px;height:74px;object-fit:contain;flex:none;}
+#ivbt .res span{font:600 12px/1.5 var(--font-sans);color:var(--ink);}
+#ivbt .finalcta{background:var(--ground);}
+#ivbt .longwrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;margin-bottom:48px;}
+#ivbt .longq{padding:0 0 22px;border-bottom:1px solid var(--line);}
+#ivbt .longq p{font-size:15px;line-height:1.75;}
+#ivbt .altpay{font-size:13px;color:var(--ink-muted);max-width:76ch;margin:22px auto 0;overflow-wrap:anywhere;}
+#ivbt .altpay .pending-inline{display:inline;}
+#ivbt .cautions{margin-top:42px;border-top:1px solid var(--line);padding-top:25px;}
+#ivbt .cautions h3{font:700 12px/1.5 var(--font-sans);letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted);}
+#ivbt .cautions p{font-size:12px;color:var(--ink-muted);max-width:110ch;}
+#ivbt .cautions p:last-child{margin-bottom:0;}
+@media(min-width:901px) and (max-height:800px){#ivbt .hero{padding-top:113px;padding-bottom:34px;}#ivbt h1{font-size:50px;}#ivbt .photo-slot{max-height:410px;}#ivbt .hero .sub{font-size:16px;}}
+@media(max-width:1000px){#ivbt .hero-grid{gap:32px;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);}#ivbt .bio{gap:30px;}#ivbt .icons{grid-template-columns:repeat(2,minmax(0,1fr));}#ivbt .res{grid-template-columns:repeat(2,minmax(0,1fr));}#ivbt .wall{columns:2;}}
+@media(max-width:760px){
+#ivbt .sec{padding:44px 20px;}
+#ivbt .hero{padding:105px 20px 24px;}
+#ivbt .hero-grid{grid-template-columns:1fr;gap:12px;}
+#ivbt h1{font-size:38px;line-height:1.12;max-width:18ch;margin-bottom:16px;}
+#ivbt .hero .eyebrow{font-size:10px;margin-bottom:14px;}
+#ivbt .hero .sub{font-size:15px;line-height:1.62;margin:0 0 18px;}
+#ivbt .credline{font-size:11px;gap:6px 12px;}
+#ivbt .hero .btnrow{margin-top:18px;gap:10px;}
+#ivbt .btnrow{flex-direction:column;align-items:stretch;}
+#ivbt .btn,#ivbt .heroask{width:100%;min-height:50px;padding:13px 18px;}
+#ivbt .heronote{font-size:11px;}
+#ivbt .pending-photo .photo-slot{display:block;aspect-ratio:auto;padding:10px 12px;}
+#ivbt .pending-photo .photo-slot .eyebrow,#ivbt .pending-photo .photo-slot>p,#ivbt .pending-photo figcaption{display:none;}
+/* With the real image inserted, keep it whole below the complete text-first introduction. */
+#ivbt .hero-photo:not(.pending-photo){max-width:420px;justify-self:center;}
+#ivbt .bio,#ivbt .steps,#ivbt .tiers,#ivbt .vids,#ivbt .longwrap{grid-template-columns:1fr;}
+#ivbt .bio>div:first-child{order:2;max-width:380px;width:100%;margin:auto;}
+#ivbt .bio{gap:24px;}
+#ivbt .steps{gap:14px;margin-top:24px;}
+#ivbt .step{padding-top:18px;}
+#ivbt .zoombox{padding:22px;}
+#ivbt .wall{columns:1;}
+#ivbt .tiers{max-width:460px;margin-inline:auto;}
+#ivbt .tier .thumb img{height:150px;}
+#ivbt .tier .body{padding:22px;}
+#ivbt .icons{gap:9px;}
+#ivbt .icon{flex-direction:column;text-align:center;padding:14px 10px;gap:9px;}
+#ivbt .icon span{font-size:11px;}
+#ivbt .res{gap:10px;}
+#ivbt .res a{flex-direction:column;align-items:flex-start;}
+#ivbt .res img{height:95px;width:100%;}
+#ivbt .faq summary{font-size:15px;}
+#ivbt .faq .ans{padding-right:12px;}
+#ivbt .longwrap{gap:24px;}
+}
+@media(max-width:360px){#ivbt h1{font-size:36px;}#ivbt .hero{padding-top:105px;}#ivbt .sec{padding-inline:16px;}}
+@media(prefers-reduced-motion:reduce){#ivbt *,#ivbt *::before,#ivbt *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+
+/* Confirmed interview content, 2026-10-04. Existing artwork retained for review. */
+#ivbt .origin-story{margin-top:24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+#ivbt .origin-story summary{list-style:none;cursor:pointer;position:relative;padding:18px 36px 18px 0;color:var(--lapis-lit);font:700 14px/1.5 var(--font-sans);}
+#ivbt .origin-story summary::-webkit-details-marker{display:none;}
+#ivbt .origin-story summary::after{content:"+";position:absolute;right:8px;top:17px;font-size:22px;}
+#ivbt .origin-story[open] summary::after{content:"−";}
+#ivbt .story-body{padding:8px 0 12px;max-width:65ch;}
+#ivbt .story-body p{font-size:15px;color:var(--ink-muted);}
+#ivbt .story-body .story-opening{font-family:var(--font-display);font-size:25px;font-style:italic;line-height:1.35;color:var(--ink);}
+#ivbt .bio:has(.origin-story[open]){align-items:start;}
+#ivbt .guarantee>p{font-size:15px;line-height:1.7;}
+#ivbt .reading-options{list-style:none;margin:0 0 18px;padding:0;text-align:left;}
+#ivbt .reading-options li{padding:7px 0;border-bottom:1px solid var(--line);font-size:12px;line-height:1.5;color:var(--ink-muted);}
+#ivbt .reading-options li:last-child{border-bottom:0;}
+#ivbt .bundle{display:grid;grid-template-columns:minmax(0,1fr) 235px;gap:32px;align-items:center;padding:26px 28px;margin-top:24px;border:1px solid var(--ivbt-stroke);border-radius:var(--radius-lg);background:var(--ground);}
+#ivbt .bundle .eyebrow{margin-bottom:10px;font-size:10px;}
+#ivbt .bundle h3{font-size:28px;}
+#ivbt .bundle-copy>p:not(.eyebrow){font-size:14px;color:var(--ink-muted);}
+#ivbt .bundle-copy .bundle-how{font-size:12px!important;margin-bottom:0;}
+#ivbt .bundle-action{text-align:center;}
+#ivbt .bundle-price{font:700 32px/1.3 var(--font-sans);margin:0 0 14px;}
+#ivbt .bundle-price span{display:block;font-size:12px;line-height:1.8;color:var(--lapis-lit);}
+#ivbt .bundle-action .btn{width:100%;}
+#ivbt .final-bundle{margin:20px 0 0;font-size:14px;}
+#ivbt .hero-photo figcaption{font-size:11px;margin-top:12px;color:var(--ink-muted);}
+@media(max-width:760px){#ivbt .bundle{grid-template-columns:1fr;gap:20px;padding:24px 22px;}#ivbt .bundle-action{text-align:left;}#ivbt .bundle-price span{display:inline;margin-left:10px;}#ivbt .origin-story summary{min-height:52px;}#ivbt .story-body p{font-size:15px;}}
+
+/* Sole scope exception: the Squarespace shell that contains #ivbt.
+   :has(#ivbt) prevents changes to other page blocks or site navigation. */
+.page-section:has(#ivbt){min-height:0!important;padding:0!important;}
+.page-section:has(#ivbt) .content-wrapper{max-width:none!important;padding:0!important;}
+.fluid-engine:has(#ivbt){display:block!important;}
+.fe-block:has(#ivbt){grid-area:auto!important;width:100%!important;max-width:none!important;height:auto!important;}
+.sqs-block:has(#ivbt){padding:0!important;}
+
+
+/* Approved portrait framing; photograph remains unchanged. */
+#ivbt .bio .photo{border-color:rgba(143,181,240,.25);box-shadow:0 18px 50px rgba(0,0,0,.24),0 0 40px rgba(59,116,204,.10);}
+#ivbt .hero-art img{display:block;background:transparent;border-radius:0;}
+
+/* Feather the aura itself, beyond the image's existing background removal. */
+#ivbt .hero-photo.hero-art{background:transparent;border:0;box-shadow:none;padding:0;}
+#ivbt .hero-photo.hero-art img{border-radius:0;background:transparent;box-shadow:none;
+-webkit-mask-image:radial-gradient(ellipse 49% 50% at 50% 51%,#000 72%,rgba(0,0,0,.94) 80%,rgba(0,0,0,.5) 90%,transparent 99%);
+mask-image:radial-gradient(ellipse 49% 50% at 50% 51%,#000 72%,rgba(0,0,0,.94) 80%,rgba(0,0,0,.5) 90%,transparent 99%);}
+
+
+/* Feather follows the field contour, with a broad fade into page color. */
+#ivbt .hero-art img{display:block;background:transparent;border:0;border-radius:0;box-shadow:none;transform:scale(1.035);-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201122%201402%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22soft%22%20x%3D%22-25%25%22%20y%3D%22-25%25%22%20width%3D%22150%25%22%20height%3D%22150%25%22%3E%3CfeGaussianBlur%20stdDeviation%3D%2224%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22white%22%20filter%3D%22url%28%23soft%29%22%20d%3D%22M561%2090%20C345%2090%20130%20365%20108%20650%20C60%201000%20195%201260%20561%201320%20C930%201260%201050%201000%201014%20650%20C992%20365%20777%2090%20561%2090%20Z%22%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201122%201402%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22soft%22%20x%3D%22-25%25%22%20y%3D%22-25%25%22%20width%3D%22150%25%22%20height%3D%22150%25%22%3E%3CfeGaussianBlur%20stdDeviation%3D%2224%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22white%22%20filter%3D%22url%28%23soft%29%22%20d%3D%22M561%2090%20C345%2090%20130%20365%20108%20650%20C60%201000%20195%201260%20561%201320%20C930%201260%201050%201000%201014%20650%20C992%20365%20777%2090%20561%2090%20Z%22%2F%3E%3C%2Fsvg%3E");-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;mask-mode:alpha;}
+
+/* Booking: a clear choice, then a generous, illustrated session detail. */
+#ivbt #book{padding-block:84px;background:var(--ground);}
+#ivbt #book .booking-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:32px;}
+#ivbt #book .booking-heading h2{font-size:clamp(34px,3.6vw,49px);max-width:16ch;margin-bottom:0;}
+#ivbt #book .booking-heading .eyebrow{margin-bottom:13px;}
+#ivbt #book .booking-intro{max-width:260px;font-size:14px;color:var(--ink-muted);margin:0 0 4px;}
+#ivbt #book .booking-intro strong{display:block;color:var(--ink);font-weight:500;margin-bottom:6px;}
+#ivbt #book .session-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 18px;}
+#ivbt #book .session-choice{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:114px;padding:21px 23px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);transition:background .18s,border-color .18s,box-shadow .18s;}
+#ivbt #book .session-choice:hover{border-color:var(--lapis-lit);background:var(--card);}
+#ivbt #book .session-choice[aria-selected="true"]{background:color-mix(in srgb,var(--lapis) 20%,var(--surface));border-color:var(--lapis-lit);box-shadow:inset 0 -3px 0 var(--lapis-lit);}
+#ivbt #book .choice-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:16px;font-weight:700;line-height:1.35;}
+#ivbt #book .choice-price{font-size:22px;letter-spacing:-.6px;white-space:nowrap;}
+#ivbt #book .choice-summary{font-size:12px;color:var(--ink-muted);margin-top:8px;}
+#ivbt #book .session-choice[aria-selected="true"] .choice-summary{color:var(--ink);}
+#ivbt #book .booking-panel{display:grid;grid-template-columns:minmax(0,.98fr) minmax(0,1fr);gap:48px;align-items:center;padding:38px;border:1px solid var(--line);border-radius:18px;background:var(--surface);margin-bottom:18px;}
+#ivbt #book .booking-art{margin:0;min-width:0;}
+#ivbt #book .booking-art img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:10px;}
+#ivbt #book .booking-detail{min-width:0;display:flex;flex-direction:column;align-items:flex-start;}
+#ivbt #book .session-kicker{font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--lapis-lit);margin:0 0 15px;}
+#ivbt #book .booking-detail h3{font-size:clamp(31px,3vw,43px);margin-bottom:14px;max-width:17ch;}
+#ivbt #book .session-description{font-size:15px;line-height:1.7;color:var(--ink-muted);margin-bottom:21px;max-width:48ch;}
+#ivbt #book .session-time{display:flex;gap:11px;align-items:flex-start;font-size:13px;line-height:1.65;color:var(--ink);margin:0 0 23px;padding:14px 0;border-block:1px solid var(--line);width:100%;}
+#ivbt #book .session-time svg{flex:0 0 18px;margin-top:2px;color:var(--lapis-lit);}
+#ivbt #book .session-purchase{display:flex;gap:20px;align-items:center;width:100%;margin-top:auto;}
+#ivbt #book .session-cost{font:600 35px/1 var(--font-sans);letter-spacing:-1px;white-space:nowrap;margin:0;}
+#ivbt #book .session-cost span{display:block;font-size:11px;line-height:1.5;letter-spacing:0;color:var(--ink-muted);font-weight:400;margin-top:5px;}
+#ivbt #book .booking-cta{flex:1;gap:14px;min-height:54px;padding:14px 17px;font-size:13px;line-height:1.45;}
+#ivbt #book .booking-cta svg{flex:0 0 17px;transition:transform .18s;}
+#ivbt #book .booking-cta:hover svg{transform:translateX(3px);}
+#ivbt #book .reading-options{padding:0;margin:0 0 18px;list-style:none;width:100%;}
+#ivbt #book .reading-options li{display:flex;gap:12px;font-size:12px;line-height:1.5;padding:8px 0;color:var(--ink);border-bottom:1px solid var(--line);}
+#ivbt #book .reading-options li::before{content:"";width:4px;height:4px;flex:0 0 4px;border-radius:50%;background:var(--lapis-lit);margin-top:7px;}
+#ivbt #book .reading-options li:last-child{border:0;}
+#ivbt #book .booking-detail:has(.reading-options) .session-description{margin-bottom:6px;}
+#ivbt #book .booking-detail:has(.reading-options) .session-time{margin-bottom:20px;}
+#ivbt #book .booking-bundle{display:grid;grid-template-columns:86px minmax(0,1fr) 230px;gap:28px;align-items:center;margin-top:24px;padding:30px 34px;border:1px solid color-mix(in srgb,var(--lapis-lit) 28%,transparent);border-radius:14px;background:linear-gradient(115deg,color-mix(in srgb,var(--lapis) 11%,var(--ground)),var(--ground));}
+#ivbt #book .bundle-mark{font-family:var(--font-display);font-size:74px;line-height:1;color:var(--lapis-lit);text-align:center;border-right:1px solid var(--line);padding-right:24px;}
+#ivbt #book .bundle-mark span{display:block;font:500 9px/1.5 var(--font-sans);letter-spacing:1.2px;text-transform:uppercase;margin-top:8px;color:var(--ink-muted);}
+#ivbt #book .booking-bundle .eyebrow{font-size:9px;letter-spacing:1.4px;margin-bottom:9px;}
+#ivbt #book .booking-bundle h3{font-size:27px;margin-bottom:12px;}
+#ivbt #book .bundle-description{font-size:13px;line-height:1.65;color:var(--ink-muted);margin-bottom:12px;}
+#ivbt #book .bundle-details{font-size:12px;color:var(--ink-muted);}
+#ivbt #book .bundle-details summary{cursor:pointer;display:list-item;color:var(--lapis-lit);min-height:32px;padding-block:4px;}
+#ivbt #book .bundle-details p{margin:5px 0 0;max-width:52ch;}
+#ivbt #book .bundle-buy{text-align:center;}
+#ivbt #book .bundle-buy .bundle-cost{font:600 34px/1.2 var(--font-sans);letter-spacing:-1px;margin:0 0 7px;}
+#ivbt #book .bundle-saving{color:var(--lapis-lit);font-size:12px;margin-bottom:14px;}
+#ivbt #book .bundle-buy .btn{width:100%;font-size:13px;min-height:50px;padding:12px;}
+#ivbt #book .booking-assurance{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:70px;border-top:1px solid var(--line);margin-top:40px;padding-top:32px;}
+#ivbt #book .booking-assurance h3{font-size:28px;max-width:14ch;margin-bottom:12px;}
+#ivbt #book .booking-assurance p{font-size:13px;line-height:1.75;color:var(--ink-muted);}
+#ivbt #book .booking-assurance .assurance-contact{font-size:12px;margin:0;}
+#ivbt #book .booking-assurance .assurance-copy p:last-child{margin-bottom:0;}
+@media(min-width:1001px){#ivbt #book .booking-panel{min-height:563px;}}
+@media(min-width:761px) and (max-width:1000px){
+  #ivbt #book .booking-panel{gap:28px;padding:26px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:545px;}
+  #ivbt #book .choice-top{font-size:14px;}
+  #ivbt #book .session-choice{padding:18px;}
+  #ivbt #book .booking-detail h3{font-size:32px;}
+  #ivbt #book .session-description{font-size:14px;}
+  #ivbt #book .session-purchase{gap:14px;}
+  #ivbt #book .booking-cta{font-size:12px;padding:12px;}
+  #ivbt #book .booking-bundle{grid-template-columns:minmax(0,1fr) 210px;padding:28px;}
+  #ivbt #book .bundle-mark{display:none;}
+}
+@media(max-width:760px){
+  #ivbt #book{padding:54px 20px;}
+  #ivbt #book .booking-heading{display:block;margin-bottom:24px;}
+  #ivbt #book .booking-heading h2{font-size:35px;max-width:18ch;margin-bottom:16px;}
+  #ivbt #book .booking-intro{max-width:38ch;font-size:13px;}
+  #ivbt #book .booking-intro strong{display:inline;margin:0;}
+  #ivbt #book .session-choices{grid-template-columns:1fr;gap:8px;margin-bottom:16px;}
+  #ivbt #book .session-choice{min-height:78px;padding:14px 18px;}
+  #ivbt #book .session-choice[aria-selected="true"]{box-shadow:inset 3px 0 0 var(--lapis-lit);}
+  #ivbt #book .choice-top{font-size:15px;}
+  #ivbt #book .choice-price{font-size:20px;}
+  #ivbt #book .choice-summary{font-size:11px;margin-top:5px;}
+  #ivbt #book .booking-panel{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px 20px;padding:22px;border-radius:14px;max-width:480px;margin-inline:auto;}
+  #ivbt #book .booking-art{width:100%;grid-column:1;grid-row:1/3;align-self:center;}
+  #ivbt #book .booking-art img{width:100%;border-radius:8px;}
+  #ivbt #book .booking-detail{display:contents;}
+  #ivbt #book .session-kicker{grid-column:2;grid-row:1;align-self:end;margin:0;font-size:9px;letter-spacing:1px;}
+  #ivbt #book .booking-detail h3{grid-column:2;grid-row:2;align-self:start;font-size:28px;margin:0;overflow-wrap:normal;}
+  #ivbt #book .session-description{grid-column:1/-1;font-size:14px;margin:8px 0 3px;}
+  #ivbt #book .reading-options{grid-column:1/-1;margin:0;}
+  #ivbt #book .session-time{grid-column:1/-1;font-size:12px;margin:0 0 4px;}
+  #ivbt #book .booking-detail:has(.reading-options) .session-time{margin-bottom:4px;}
+  #ivbt #book .session-purchase{grid-column:1/-1;gap:15px;align-items:center;margin-top:2px;}
+  #ivbt #book .session-cost{font-size:31px;}
+  #ivbt #book .booking-cta{width:auto;padding:13px 12px;font-size:12px;gap:8px;}
+  #ivbt #book .booking-bundle{grid-template-columns:1fr;gap:22px;padding:25px 23px;margin-top:20px;max-width:480px;margin-inline:auto;}
+  #ivbt #book .bundle-mark{display:none;}
+  #ivbt #book .booking-bundle h3{font-size:28px;}
+  #ivbt #book .bundle-buy{text-align:left;display:grid;grid-template-columns:1fr 1.25fr;column-gap:18px;align-items:center;}
+  #ivbt #book .bundle-buy .bundle-cost{grid-column:1;grid-row:1;margin-bottom:3px;font-size:31px;}
+  #ivbt #book .bundle-buy .bundle-saving{grid-column:1;grid-row:2;font-size:11px;margin:0;}
+  #ivbt #book .bundle-buy .btn{grid-column:2;grid-row:1/3;font-size:12px;}
+  #ivbt #book .booking-assurance{grid-template-columns:1fr;gap:20px;margin-top:32px;padding-top:28px;}
+  #ivbt #book .booking-assurance h3{max-width:20ch;font-size:27px;}
+}
+@media(max-width:360px){#ivbt #book .booking-panel{padding:18px;grid-template-columns:88px minmax(0,1fr);column-gap:16px;}#ivbt #book .booking-detail h3{font-size:25px;}#ivbt #book .session-purchase{flex-wrap:wrap;}#ivbt #book .booking-cta{flex-basis:100%;}#ivbt #book .session-cost span{display:inline;margin-left:7px;}#ivbt #book .bundle-buy{grid-template-columns:1fr;}#ivbt #book .bundle-buy .btn{grid-column:1;grid-row:3;margin-top:14px;}}
+
+</style>
+<div id="ivbt">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" aria-label="Introduction">
+    <div class="wrap hero-grid">
+      <div class="hero-copy"><p class="eyebrow">Remote Biofield Tuning Sessions</p>
+      <h1>Feel lighter, clearer, and more like <em>yourself</em> again</h1>
+      <p class="sub">
+        Tune in to the power of sound to find where stress, pain, and emotion are stuck in your body, and put
+        that energy back into healthy circulation. Sessions are conducted over Zoom from anywhere in the world.
+      </p>
+
+      <div class="credline">
+        <span>Practicing since 2021</span>
+        <span>600+ sessions completed</span>
+        <span>A decade of InnerVerse</span>
+      </div>
+
+      <div class="btnrow">
+        <a class="btn cta" href="#book">Book a session</a>
+        <a class="heroask" href="#whatitslike">What is a session like? <i aria-hidden="true">↓</i></a>
+      </div>
+
+      <p class="heronote">Also available: Counseling &amp; Readings</p>
+
+      </div><figure class="hero-photo hero-art"><img src="https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/ce6be666-ba60-46a9-bcbc-3bfba2bd7c31/hero-energy-field.webp?format=1000w" alt="Artistic human energy field with seven chakra colors and an iridescent aura" decoding="async" fetchpriority="high" width="1122" height="1402">
+            </figure></div>
+  </section>
+
+  <!-- ============ 2. WHY TRY TUNING? ============ -->
+  <section class="sec alt ivbt-why" aria-labelledby="ivbt-why-title">
+    <div class="wrap">
+      <div class="ivbt-why-heading">
+        <div><p class="eyebrow">Why Try Tuning?</p><h2 id="ivbt-why-title">What would you like to change?</h2></div>
+        <p>Sometimes the hardest part is knowing where to begin. Start with what sounds like you.</p>
+      </div>
+      <div class="ivbt-explorer" id="ivbt-concerns">
+        <div class="ivbt-concern">
+          <button class="ivbt-concern-choice" id="ivbt-concern-pain" type="button" aria-expanded="true" aria-controls="ivbt-response-pain">
+            <span class="ivbt-concern-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/><path d="M7.4 8.2a6.4 6.4 0 0 0 0 7.6M16.6 8.2a6.4 6.4 0 0 1 0 7.6M4.2 5a10.8 10.8 0 0 0 0 14M19.8 5a10.8 10.8 0 0 1 0 14"/></svg></span>
+            <span class="ivbt-concern-words"><span class="ivbt-concern-name">Pain that won&#x27;t go away</span><span class="ivbt-concern-hint">Persistent discomfort or tension</span></span>
+            <span class="ivbt-concern-direction" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="ivbt-response" id="ivbt-response-pain" role="region" aria-labelledby="ivbt-response-title-pain">
+            <p class="ivbt-response-kicker">Pain &amp; tension</p>
+            <h3 id="ivbt-response-title-pain">More ease in your body.</h3>
+            <p class="ivbt-recognition">Chronic pain or health issues that don&#x27;t get better, even when you&#x27;re doing everything right.</p>
+            <figure class="ivbt-client-voice"><blockquote><p>&ldquo;I had forgotten what it was like to walk easily and comfortably, and now that is what it feels like most of the time.&rdquo;</p></blockquote><figcaption><strong>Jeff</strong> · After a remote session</figcaption></figure>
+            <div class="ivbt-response-actions"><a class="btn" href="#book">Explore sessions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p>One-to-one over Zoom.<br>Recorded for you to keep.</p></div>
+          </div>
+        </div>
+        <div class="ivbt-concern">
+          <button class="ivbt-concern-choice" id="ivbt-concern-energy" type="button" aria-expanded="true" aria-controls="ivbt-response-energy">
+            <span class="ivbt-concern-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="16" height="10" rx="2.5"/><path d="M21.5 10v4"/><rect x="5.5" y="10" width="4" height="4" rx="1" fill="currentColor" stroke="none"/></svg></span>
+            <span class="ivbt-concern-words"><span class="ivbt-concern-name">Low energy &amp; brain fog</span><span class="ivbt-concern-hint">Depleted, overwhelmed, or unclear</span></span>
+            <span class="ivbt-concern-direction" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="ivbt-response" id="ivbt-response-energy" role="region" aria-labelledby="ivbt-response-title-energy">
+            <p class="ivbt-response-kicker">Energy &amp; clarity</p>
+            <h3 id="ivbt-response-title-energy">Room to think. Energy to live.</h3>
+            <p class="ivbt-recognition">Easily overwhelmed, lacking the energy for a full life, or stuck in a mental fog.</p>
+            <figure class="ivbt-client-voice"><blockquote><p>&ldquo;I feel lighter, my chest is lighter, I am breathing easier, and most importantly I am feeling optimistic and more energetic.&rdquo;</p></blockquote><figcaption><strong>Bohdan</strong> · After a remote session</figcaption></figure>
+            <div class="ivbt-response-actions"><a class="btn" href="#book">Explore sessions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p>One-to-one over Zoom.<br>Recorded for you to keep.</p></div>
+          </div>
+        </div>
+        <div class="ivbt-concern">
+          <button class="ivbt-concern-choice" id="ivbt-concern-direction" type="button" aria-expanded="true" aria-controls="ivbt-response-direction">
+            <span class="ivbt-concern-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19v-6a4 4 0 0 1 4-4h12M15 4l5 5-5 5"/><circle cx="4" cy="19" r="1.5" fill="currentColor" stroke="none"/></svg></span>
+            <span class="ivbt-concern-words"><span class="ivbt-concern-name">Feeling stuck</span><span class="ivbt-concern-hint">Ready for change, unsure how to move</span></span>
+            <span class="ivbt-concern-direction" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="ivbt-response" id="ivbt-response-direction" role="region" aria-labelledby="ivbt-response-title-direction">
+            <p class="ivbt-response-kicker">Direction &amp; momentum</p>
+            <h3 id="ivbt-response-title-direction">A clearer sense of your next step.</h3>
+            <p class="ivbt-recognition">Feeling stuck or slowed down in making positive life changes, or not knowing what you want.</p>
+            <figure class="ivbt-client-voice"><blockquote><p>&ldquo;I am more confident. Not only that when I am faced with a decision I am capable of making a choice and executing, but also more sure of what I want, and how I want to view the world.&rdquo;</p></blockquote><figcaption><strong>Rand</strong> · After a remote session</figcaption></figure>
+            <div class="ivbt-response-actions"><a class="btn" href="#book">Explore sessions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p>One-to-one over Zoom.<br>Recorded for you to keep.</p></div>
+          </div>
+        </div>
+        <div class="ivbt-concern">
+          <button class="ivbt-concern-choice" id="ivbt-concern-answers" type="button" aria-expanded="true" aria-controls="ivbt-response-answers">
+            <span class="ivbt-concern-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 1-8 8H5l-3 2v-10a9 9 0 0 1 18 0Z"/><path d="M8 9.5a3 3 0 0 1 5.8 1c0 1.7-2.8 1.8-2.8 3"/><circle cx="11" cy="16.2" r=".8" fill="currentColor" stroke="none"/></svg></span>
+            <span class="ivbt-concern-words"><span class="ivbt-concern-name">Still searching for answers</span><span class="ivbt-concern-hint">You&#x27;ve tried things. Something is missing.</span></span>
+            <span class="ivbt-concern-direction" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="ivbt-response" id="ivbt-response-answers" role="region" aria-labelledby="ivbt-response-title-answers">
+            <p class="ivbt-response-kicker">Understanding &amp; connection</p>
+            <h3 id="ivbt-response-title-answers">Space to be heard. A fresh perspective.</h3>
+            <p class="ivbt-recognition">You&#x27;ve tried other approaches, but still have questions about what you are feeling.</p>
+            <figure class="ivbt-client-voice"><blockquote><p>&ldquo;You shared details of my childhood which I have never completely verbalized. I am finding that little girl to nurture her back to wholeness.&rdquo;</p></blockquote><figcaption><strong>Lisa</strong> · After a remote session</figcaption></figure>
+            <div class="ivbt-response-actions"><a class="btn" href="#book">Explore sessions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p>One-to-one over Zoom.<br>Recorded for you to keep.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="ivbt-invitation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>You do not need to arrive with the right words for it.</p>
+    </div>
+  </section>
+
+  <!-- ============ 3. MEET CHANCE ============ -->
+  <section class="sec" aria-label="Meet Chance">
+    <div class="wrap">
+      <div class="bio">
+        <div>
+          <div class="photo">
+            <img src="https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/24214aeb-ad89-47e5-8b38-d41286992292/Chance+Garton+Portrait.png?content-type=image%2Fpng" alt="Chance Garton, Biofield Tuning practitioner and host of InnerVerse" loading="lazy" decoding="async" width="1086" height="1448">
+            <div class="cap">Chance Garton, host of InnerVerse since 2015</div>
+          </div>
+        </div>
+        <div><p class="eyebrow">The Right Practitioner Matters</p><h2>Meet Chance Garton</h2><p class="lede">This work began with a change in my own life.</p><p>In late 2019, hearing Eileen Day McKusick speak about Biofield Tuning led me to try a tuning fork on a persistent shoulder injury. The change I experienced set me on a path of studying her work, learning the Biofield Anatomy, and practicing with others.</p><p>I have been working with clients since 2021. My path was self-directed, built through study, practice, and exchanges with certified practitioners. I also draw on years of exploring energy medicine with the guests of my podcast, InnerVerse. I bring that experience, curiosity, and personal attention to every session.</p><details class="origin-story"><summary>How I came to this work</summary><div class="story-body">
+<p class="story-opening">Something inside me rang like a bell.</p>
+<p>In late 2019, I came across a few podcasts featuring Eileen Day McKusick. I had never before, and have never since, felt so absolutely sure that a podcast had just given me a life-changing new direction to pursue.</p>
+<p>At the time, I was trying to recover from a serious left shoulder injury. For nearly a year, I had lived with pain and limited mobility. I could not raise my arm above shoulder height. I attributed it to rock climbing, which I had been doing regularly for several years. I would take a week off, then two weeks, then a month, and try different ways to rest and recover. Nothing seemed to change.</p>
+<p>After hearing Eileen, I bought her Sonic Slider tuning fork and began using it on my shoulder. I noticed less pain on the first day. In less than a week, my mobility returned. The injury never came back.</p>
+<p>It took more time, and a deeper reading of <em>Tuning the Human Biofield</em>, for me to understand that experience in a different way. Through Eileen's Biofield Anatomy, I came to see a connection between the shoulder and an emotional pattern I had been living out.</p>
+<p>What followed was a difficult period in which my first wife and I separated. Looking back, I recognized my own part in the unhealthy dynamics between us. I had a subconscious need to make a partner the bad guy, while seeing myself as the selfless person who cared for and supported them without appreciation. That narrative gave me someone to blame for why I was not growing, and someone against whom I could feel like the good guy.</p>
+<p>The left shoulder's associations in the Biofield Anatomy closely matched that pattern. I eventually came to understand my recovery as more than a change in my shoulder: it was also an invitation to let go of a victim narrative. Recognizing that story, and my attachment to it, helped me take responsibility for moving beyond it.</p>
+<p>I was so amazed by the transformation in my own life that I wanted to bring this work to others. I interviewed Eileen on InnerVerse, studied the Biofield Anatomy, and began practicing with friends and later with podcast listeners remotely. I also brought previous experience with intuitive energy work to the process.</p>
+<p>By 2022, my practice had grown from experimental self-training into a substantial part of my livelihood. Since then, I have both worked on certified Biofield Tuning practitioners and received sessions from them. Those exchanges have helped me compare and refine my approach. My work also draws on other modalities I have explored through years of study and conversations with InnerVerse guests.</p>
+<p>I encourage people interested in becoming practitioners to pursue official training. That was not my own path. I learned through study, practice, personal experience, and ongoing exchange with others, and I continue to approach this work as a full-time learner.</p>
+</div></details><ul class="creds"><li>InnerVerse Podcast, since 2015</li><li>Practicing since 2021</li><li>600+ remote sessions</li><li>Sessions worldwide via Zoom</li></ul></div>
+      </div>
+
+      </div>
+  </section>
+
+  <!-- ============ 4. WHAT A SESSION IS LIKE ============ -->
+  <section class="sec alt" id="whatitslike" aria-label="Your session">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">My Tested Process</p>
+        <h2>What a Biofield Tuning session is actually like</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">Step One</div>
+          <h3>Intake</h3>
+          <p>
+            We start with a short conversation about what is going on for you, physically, emotionally, or
+            energetically. You do not need to arrive with the right words for it.
+          </p>
+        </div>
+        <div class="step">
+          <div class="n">Step Two</div>
+          <h3>The tuning</h3>
+          <p>I help you get in touch with how your body and energy actually feel. Then I use tuning forks to find the most significant areas of stuck energy and help you release it.</p>
+        </div>
+        <div class="step">
+          <div class="n">Step Three</div>
+          <h3>Integration</h3>
+          <p>We discuss what you can do going forward to not get stuck again, and I recommend an herbal medicine to guide you in the process. Your session is recorded and yours to keep.</p>
+        </div>
+      </div>
+
+      <div class="zoombox">
+        <h3>Does this really work over Zoom?</h3>
+        <p>
+          Yes, and in many cases it works as well or better than in person. During a remote session I work with a
+          crystal grid laid out to represent your body, which lets the forks respond as though you were physically
+          in the room. I have conducted hundreds of remote sessions with clients around the world, and the
+          testimonials below are all remote work.
+        </p>
+        <p class="small dim" style="margin-bottom:0;">
+          All you need on your end is a quiet room, a Zoom link, and somewhere comfortable to lie down or recline.
+        </p>
+      </div>
+
+      </div>
+  </section>
+
+  <!-- ============ 5. PROOF, CLUSTERED ============ -->
+  <section class="sec" aria-label="Client testimonials">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Client Results</p>
+        <h2>What people say after one session</h2>
+        <p class="dim">Every testimonial below came from a remote session conducted over Zoom.</p>
+      </div>
+
+      <div class="wall">
+        <div class="quote">
+          <p class="stars">★★★★★</p>
+          <p>"I was blown away after the session as my lower back had little to no discomfort. It still feels better than ever a couple of weeks later as I write this. There was an UNDENIABLE shift that took place mentally, physically and spiritually."</p>
+          <p class="who">Todd</p>
+        </div>
+        <div class="quote">
+          <p class="stars">★★★★★</p>
+          <p>"My eczema DISAPPEARED two days later. So much expansion is happening in my career and personal life since my session. I feel lighter. I have already told several friends about you."</p>
+          <p class="who">Ashly</p>
+        </div>
+        <div class="quote">
+          <p class="stars">★★★★★</p>
+          <p>"It feels like the air conditioner noise was shut off, and I had not even known it was on all of this time. There is a layer of fear and anxiety that is no longer present in my energetic body."</p>
+          <p class="who">Maureen</p>
+        </div>
+        <div class="quote">
+          <p class="stars">★★★★★</p>
+          <p>"The tightness in my hips has reduced dramatically and I generally feel so much more loose and flexible. I had forgotten what it was like to walk easily and comfortably, and now that is what it feels like most of the time."</p>
+          <p class="who">Jeff</p>
+        </div>
+        <div class="quote">
+          <p class="stars">★★★★★</p>
+          <p>"I feel lighter, my chest is lighter, I am breathing easier, and most importantly I am feeling optimistic and more energetic. This morning a job I really wanted contacted me back."</p>
+          <p class="who">Bohdan</p>
+        </div>
+        <div class="quote">
+          <p class="stars">★★★★★</p>
+          <p>"I am more confident. Not only that when I am faced with a decision I am capable of making a choice and executing, but also more sure of what I want, and how I want to view the world."</p>
+          <p class="who">Rand</p>
+        </div>
+      </div>
+
+      </div>
+  </section>
+
+  <!-- ============ 6. THE OFFER ============ -->
+  <section class="sec alt booking-section" id="book" aria-label="Booking options">
+    <div class="wrap">
+      <div class="booking-heading"><div><p class="eyebrow">Book a session</p><h2>Choose how you want to begin</h2></div><p class="booking-intro"><strong>One-to-one with Chance.</strong> All sessions are conducted over Zoom and recorded for you to keep.</p></div>
+      <nav class="session-choices" aria-label="Session options"><a class="session-choice" id="ivbt-choice-full" href="#ivbt-session-full"><span class="choice-top"><span>Full Session</span><span class="choice-price">$200</span></span><span class="choice-summary">60 to 90 minutes total · Whole-field tuning</span></a><a class="session-choice" id="ivbt-choice-quick" href="#ivbt-session-quick"><span class="choice-top"><span>Quick Tune Up</span><span class="choice-price">$100</span></span><span class="choice-summary">About 45 minutes total · One focused area</span></a><a class="session-choice" id="ivbt-choice-readings" href="#ivbt-session-readings"><span class="choice-top"><span>Counseling & Readings</span><span class="choice-price">$75</span></span><span class="choice-summary">About 45 minutes total · Four ways to explore</span></a></nav>
+      <div class="session-panels"><article class="booking-panel" id="ivbt-session-full">
+          <figure class="booking-art"><img src="https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/6bb5638d-d68e-4ec2-892e-78a18eb52e8c/full-session.webp?format=1000w" alt="Two silver tuning forks and a large piece of selenite on navy linen" loading="lazy" decoding="async" width="1254" height="1254">
+          </figure>
+          <div class="booking-detail">
+            <p class="session-kicker">Most Popular</p>
+            <h3>Full Session</h3>
+            <p class="session-description">The most thorough way to work with your energy field. We identify and balance patterns of stagnant energy across multiple areas, with room to go deep.</p>
+
+            <p class="session-time"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span>45 minutes of tuning; 60 to 90 minutes total with intake and wrap up.</span></p>
+            <div class="session-purchase"><p class="session-cost">$200<span>per session</span></p><a class="btn booking-cta" href="https://innerversepodcast.as.me/45-minute-tuning"><span>Book a Full Session</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a></div>
+          </div>
+        </article><article class="booking-panel" id="ivbt-session-quick">
+          <figure class="booking-art"><img src="https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/644de7b9-776d-4c5b-9890-fdcb0945ccc7/quick-tune-up.webp?format=1000w" alt="A silver tuning fork resting on navy linen" loading="lazy" decoding="async" width="1254" height="1254">
+          </figure>
+          <div class="booking-detail">
+            <p class="session-kicker">Great for first timers</p>
+            <h3>Quick Tune Up</h3>
+            <p class="session-description">A focused introduction to Biofield Tuning and the fastest way to feel what it does. We target one specific area of imbalance and get to work.</p>
+
+            <p class="session-time"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span>20 minutes of tuning; about 45 minutes total with intake and wrap up.</span></p>
+            <div class="session-purchase"><p class="session-cost">$100<span>per session</span></p><a class="btn booking-cta" href="https://innerversepodcast.as.me/20-minute-tuning"><span>Book a Quick Tune Up</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a></div>
+          </div>
+        </article><article class="booking-panel" id="ivbt-session-readings">
+          <figure class="booking-art"><img src="https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/105d1ad2-ff3f-4dc2-8391-19366c5cd3a5/counseling-readings.webp?format=1000w" alt="Rider-Waite Magician and Fool cards beside an open book showing the zodiac" loading="lazy" decoding="async" width="1254" height="1254">
+          </figure>
+          <div class="booking-detail">
+            <p class="session-kicker">Clarity & self-understanding</p>
+            <h3>Counseling & Readings</h3>
+            <p class="session-description">Choose the focus of your reading:</p>
+            <ul class="reading-options"><li>Astrology: Natal Chart Reading</li><li>Astrology: Chiron &amp; Core Wound Healing</li><li>Oracle Cards: Tarot &amp; I Ching</li><li>Open conversation: whatever you would like to talk about</li></ul>
+            <p class="session-time"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span>30-minute reading; about 45 minutes total with intake and wrap up.</span></p>
+            <div class="session-purchase"><p class="session-cost">$75<span>per session</span></p><a class="btn booking-cta" href="https://innerversepodcast.as.me/30-minute-counseling"><span>Book Counseling &amp; Readings</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a></div>
+          </div>
+        </article></div>
+      <aside class="booking-bundle" aria-labelledby="ivbt-bundle-title">
+        <div class="bundle-mark" aria-hidden="true">3<span>full sessions</span></div>
+        <div class="bundle-copy"><p class="eyebrow">For you, or someone you care about</p><h3 id="ivbt-bundle-title">Three full sessions. Room to grow.</h3><p class="bundle-description">Use them at your own pace, or gift sessions to other people. No expiration, no need to schedule all three at once.</p><details class="bundle-details"><summary>How bundle booking works</summary><p>Your booking reserves the first session and pays for all three. I will send you the scheduling link for the remaining sessions.</p></details></div>
+        <div class="bundle-buy"><p class="bundle-cost">$500</p><p class="bundle-saving">Save $100 on three sessions</p><a class="btn ghost" href="https://innerversepodcast.as.me/three-tuning-bundle">Book three sessions</a></div>
+      </aside>
+      <div class="booking-assurance"><div><h3>Your experience matters to me</h3><p class="assurance-contact">Questions or concerns? <a href="mailto:chance@innerversepodcast.com">Email me directly.</a></p></div><div class="assurance-copy"><p>In more than 600 sessions, I have had only two dissatisfied clients. I refunded one and offered the other a free follow-up session, after which they were satisfied.</p><p>If you feel you got nothing out of a session, please tell me. I will work with you individually toward a fair resolution. Depending on the situation, that may mean an additional session or a refund. I handle this case by case, because I care about what you receive from the work.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ 7. FAQ ============ -->
+  <section class="sec" aria-label="Frequently asked questions">
+    <div class="wrap narrow">
+      <div class="center">
+        <p class="eyebrow">Straight Answers</p>
+        <h2>Questions people ask before booking</h2>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>What do I actually need for a remote session?</summary>
+          <div class="ans">
+            <p>A quiet room where you will not be interrupted, a device that runs Zoom, and somewhere comfortable to sit or recline. Headphones are welcome but not required. You will be engaged and participating throughout the tuning, sharing what you notice as we work. Most people feel very relaxed during and afterward, while remaining awake and involved.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Does this conflict with my religion or belief system?</summary>
+          <div class="ans"><p>Biofield Tuning sessions are not inherently religious, and you are welcome to bring your own faith into a session.</p><p>I do not invoke spirits or other entities. My only invocation before a session is to the supreme being, the God of the Universe.</p></div>
+        </details>
+        <details>
+          <summary>What will I feel during a session?</summary>
+          <div class="ans">
+            <p>In my experience, everyone feels something, though what they feel differs from person to person. You may notice warmth, tingling, waves of emotion, or a deep sense of relaxation. There is no wrong way to receive a tuning, and no particular sensation you need to aim for. Your experience is the way it is meant to be for you.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How soon will I notice a difference?</summary>
+          <div class="ans">
+            <p>Most people report feeling lighter by the end of the session itself. In my experience, it typically takes about three days for the body to catch up with shifts in the energy field, while integration can continue to unfold for weeks.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How many sessions will I need?</summary>
+          <div class="ans"><p>In my experience, many people find that one session either resolves the issue they came with or helps them see a path forward. Bodies are like instruments: both can benefit from a periodic tune up. Some of my long-term clients return every three, six, or twelve months. It varies by individual.</p><p>Pay attention to your progress and your sense of momentum in life and health. If growth is good and consistent, keep going. If that momentum fades or progress begins to reverse, that can be a useful time to consider another session.</p><p>I generally leave at least a month between tuning sessions for the same person. Time to integrate changes, develop new habits, and unpack further insights is part of the process.</p><p>If you would like to plan ahead, the <a href="https://innerversepodcast.as.me/three-tuning-bundle">three-session bundle is $500</a>, saving $100. Sessions never expire and can also be gifted to other people. Buying a bundle does not mean you need to book all three close together.</p></div>
+        </details>
+        <details>
+          <summary>Is this a substitute for medical care?</summary>
+          <div class="ans">
+            <p>Biofield Tuning is a different category of work from medical care, not a replacement for it. Nothing in a session constitutes diagnosis or treatment of a medical condition. There are also situations where tuning is not advised, which are listed in full at the bottom of this page.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What are your cancellation, rescheduling, and refund policies?</summary>
+          <div class="ans"><p><strong>Rescheduling:</strong> There is no penalty for rescheduling through the calendar invite generated by your booking, or for emailing me to arrange a different time.</p><p><strong>Missed appointments:</strong> If you miss your appointment without giving at least 30 minutes' notice, there is a $25 fee to reschedule.</p><p><strong>Cancellation refunds:</strong> Cancellations are refunded minus a $25 processing fee.</p><p><strong>Prepaid sessions:</strong> Unused sessions from a three-session bundle never expire and may be gifted to someone else.</p><p><strong>If you are dissatisfied:</strong> Please contact me. I handle concerns individually and will work with you toward a fair resolution, which may include another session or a refund.</p></div>
+        </details>
+      </div>
+
+      </div>
+  </section>
+
+  <!-- ============ 8. GO DEEPER ============ -->
+  <section class="sec alt" aria-label="Explore Biofield Tuning">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Go Deeper</p>
+        <h2>Meet your biofield anatomy</h2>
+        <p class="dim" style="max-width:64ch;margin:0 auto;">
+          The Biofield Anatomy is a map of your energetic blueprint, a guide to the connection between areas of the
+          body and field and their corresponding mental and emotional states. Innovated by Eileen Day McKusick, this
+          is knowledge I believe everyone should have. Tap an icon for the basics.
+        </p>
+      </div>
+
+      <div class="icons" id="ivbt-icons">
+        <button class="icon" data-k="0" type="button" aria-expanded="false" aria-controls="ivbt-anapanel"><img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/da79227e-2005-4e3c-be7c-52525fb6c4d4/foot+ankle+knee.png?format=100w" alt="Feet, ankles and knees biofield anatomy" loading="lazy" decoding="async" width="62" height="62"><span>Feet, Ankles &amp; Knees</span></button>
+        <button class="icon" data-k="1" type="button" aria-expanded="false" aria-controls="ivbt-anapanel"><img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/6d3eab3c-d535-4a3a-9877-b194fd7f82a4/Root-Chakra-Icon.png?format=100w" alt="Root chakra biofield anatomy" loading="lazy" decoding="async" width="62" height="62"><span>Hips, Glutes &amp; Large Intestines</span></button>
+        <button class="icon" data-k="2" type="button" aria-expanded="false" aria-controls="ivbt-anapanel"><img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7cad5439-9152-4d15-8e54-f179a6e64ded/Sacral-Chakra-Icon.png?format=100w" alt="Sacral chakra biofield anatomy" loading="lazy" decoding="async" width="62" height="62"><span>Stomach, Sexual Organs &amp; Bladder</span></button>
+        <button class="icon" data-k="3" type="button" aria-expanded="false" aria-controls="ivbt-anapanel"><img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/ee26db77-6b6b-42a0-84cf-9e1ecf14f4a1/solar-plexus-icon.png?format=100w" alt="Solar plexus biofield anatomy" loading="lazy" decoding="async" width="62" height="62"><span>Solar Plexus, Kidneys &amp; Liver</span></button>
+        <button class="icon" data-k="4" type="button" aria-expanded="false" aria-controls="ivbt-anapanel"><img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/2d755ca9-1d4e-485d-a7c3-2e0603de1b53/heart-chakra-icon.png?format=100w" alt="Heart chakra biofield anatomy" loading="lazy" decoding="async" width="62" height="62"><span>Heart, Lungs &amp; Shoulders</span></button>
+        <button class="icon" data-k="5" type="button" aria-expanded="false" aria-controls="ivbt-anapanel"><img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/2829b6a9-eb09-4d48-ad05-c7d518ec0967/throat-chakra.png?format=100w" alt="Throat chakra biofield anatomy" loading="lazy" decoding="async" width="62" height="62"><span>Throat, Ears, Jaw &amp; Thyroid</span></button>
+        <button class="icon" data-k="6" type="button" aria-expanded="false" aria-controls="ivbt-anapanel"><img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/b36716ca-58be-4a7f-b25a-abd23162cde4/third-eye-chakra.png?format=100w" alt="Third eye chakra biofield anatomy" loading="lazy" decoding="async" width="62" height="62"><span>Mind, Eyes, Brain &amp; Head</span></button>
+        <button class="icon" data-k="7" type="button" aria-expanded="false" aria-controls="ivbt-anapanel"><img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/88ae11c9-b412-4c6b-8504-c42499fc7494/Crown-Chakra.png?format=100w" alt="Crown chakra biofield anatomy" loading="lazy" decoding="async" width="62" height="62"><span>Crown</span></button>
+      </div>
+
+      <div class="anapanel" id="ivbt-anapanel" aria-live="polite" aria-atomic="true">
+        <h3 id="ivbt-anatitle">Explore the regions</h3>
+        <p id="ivbt-anabody">Choose a region above, or open its detail chart below.</p>
+        <div class="chart-fallback"><a href="/s/Feet-Ankles-Knees-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton-2026.png" target="_blank" rel="noopener">Feet, Ankles &amp; Knees</a><a href="/s/Root-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png" target="_blank" rel="noopener">Hips, Glutes &amp; Large Intestines</a><a href="/s/Sacral-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png" target="_blank" rel="noopener">Stomach, Sexual Organs &amp; Bladder</a><a href="/s/Solar-Plexus-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png" target="_blank" rel="noopener">Solar Plexus, Kidneys &amp; Liver</a><a href="/s/Heart-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png" target="_blank" rel="noopener">Heart, Lungs &amp; Shoulders</a><a href="/s/Throat-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png" target="_blank" rel="noopener">Throat, Ears, Jaw, Mouth &amp; Thyroid</a><a href="/s/Third-Eye-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png" target="_blank" rel="noopener">Mind, Eyes, Brain &amp; Head</a><a href="/s/Crown-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png" target="_blank" rel="noopener">Crown</a></div><a id="ivbt-analink" href="/s/Feet-Ankles-Knees-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton-2026.png" target="_blank" rel="noopener" hidden="hidden">View the full detail chart for this region</a></div>
+
+      <div class="rings">
+        <p>
+          Your biofield is more than a map of psychosomatic correspondence, it is also a chronological chart of your
+          life story. When a practitioner finds static in your field, they can determine approximately how old you
+          were when that energy went off balance. Like the rings of a tree, things further from the center represent
+          occurrences longer ago. The outer edge of your field represents your birth, the halfway point is half your
+          current age, and so on. This is what makes Biofield Tuning so remarkably precise.
+        </p>
+      </div>
+
+      <hr class="rule">
+
+      <div class="center">
+        <h2>Want to understand the science?</h2>
+        <p class="dim">Two classic InnerVerse episodes with Biofield Tuning innovator Eileen Day McKusick, plus books and resources for exploring the method.</p>
+      </div>
+
+      <div class="vids">
+        <div class="vid"><iframe src="https://www.youtube.com/embed/31wxBZwIlDo" title="Eileen Day McKusick on Electro-Sonic Health and Human Biofield Tuning" loading="lazy" allowfullscreen></iframe></div>
+        <div class="vid"><iframe src="https://www.youtube.com/embed/0KiTD8ONXto" title="Eileen Day McKusick on InnerVerse Podcast" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+
+      <div class="res">
+        <a href="https://www.amazon.com/Electric-Body-Health-Electromagnetism-Recharge-ebook/dp/B0893RZK7X?ref_=ast_author_dp" target="_blank" rel="noopener">
+          <img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/281249d2-6df8-4bca-bc7a-12d086e1e683/electric+body+electric+health.jpg?format=500w" alt="Electric Body, Electric Health by Eileen Day McKusick" loading="lazy" decoding="async">
+          <span>Electric Body, Electric Health</span>
+        </a>
+        <a href="https://www.amazon.com/Tuning-Human-Biofield-Healing-Vibrational/dp/1620552469" target="_blank" rel="noopener">
+          <img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/16c1e5cd-3072-4a9b-8517-a267250d95d6/tuning+the+human+biofield.jpg?format=500w" alt="Tuning the Human Biofield by Eileen Day McKusick" loading="lazy" decoding="async">
+          <span>Tuning the Human Biofield</span>
+        </a>
+        <a href="https://biofieldtuningstore.com/" target="_blank" rel="noopener">
+          <img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/b7112bd4-9408-4d7d-b178-b23fbc57f47b/biofieldtuningstore.png?format=500w" alt="Biofield Tuning Store" loading="lazy" decoding="async">
+          <span>Biofield Tuning Store</span>
+        </a>
+        <a href="https://electrichealth.com/" target="_blank" rel="noopener">
+          <img src="https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/b066b7c1-50f2-49b3-98a0-3b19382cda34/electric-health.png?format=500w" alt="Electric Health" loading="lazy" decoding="async">
+          <span>Electric Health</span>
+        </a>
+      </div>
+
+      </div>
+  </section>
+
+  <!-- ============ 9. FINAL CTA + CAUTIONS ============ -->
+  <section class="sec finalcta" aria-label="Book your session">
+    <div class="wrap">
+      <div class="longwrap">
+        <div class="longq">
+          <p>
+            "Just wanted to let you know how my chiropractor appointment went three days after our session. The week
+            prior, I could barely walk into his office. This week he started putting his hands on me and was amazed
+            how far I had progressed. He said normally this condition would take many weeks of adjustments and
+            stretching to get the hip and leg back in alignment, and this week they were close to normal. I just did
+            a stairs workout today with no problem, and could not climb stairs last week without great difficulty."
+          </p>
+          <p class="who">Peter</p>
+        </div>
+        <div class="longq">
+          <p>
+            "WOW. You have opened up a whole new world to me. My session with you was beyond enlightening. I have
+            been to numerous psychics and card readers over the years, none of which ever went to the root of my
+            challenges. You shared details of my childhood which I have never completely verbalized. I am finding
+            that little girl to nurture her back to wholeness. Blessings."
+          </p>
+          <p class="who">Lisa</p>
+        </div>
+      </div>
+
+      <div class="center">
+        <p class="eyebrow">Ready to Begin?</p>
+        <h2>Book your session</h2>
+        <p class="lede dim" style="max-width:56ch;margin:0 auto 6px;">
+          Conducted over Zoom from anywhere in the world, recorded for you to keep.
+        </p>
+        <div class="btnrow">
+          <a class="btn big" href="https://innerversepodcast.as.me/45-minute-tuning">Full Session, $200</a>
+          <a class="btn ghost" href="https://innerversepodcast.as.me/20-minute-tuning">Quick Tune Up, $100</a>
+        </div>
+        <p class="final-bundle"><a href="https://innerversepodcast.as.me/three-tuning-bundle">Three full sessions for $500</a> · Save $100 · No expiration · Giftable</p><p class="altpay"><a href="https://innerversepodcast.as.me/30-minute-counseling">Counseling &amp; Readings, $75</a>. Alternate payment by Venmo, CashApp, PayPal, or Bitcoin is possible. Email <a href="mailto:chance@innerversepodcast.com">chance@innerversepodcast.com</a> to arrange it.</p>
+      </div>
+
+      <div class="cautions">
+        <h3>Cautions &amp; guidance</h3>
+        <p>
+          Biofield Tuning is not advised for individuals who are extremely ill, as it may create a strong healing
+          response in the system. As the body releases tension, toxins held in constricted tissue are released,
+          which has the capacity to produce flu like symptoms, exhaustion, waves of emotion, loose stools, and in
+          rare cases rashes and vomiting. Cancer, pregnancy, palliative care, and pacemakers are contraindicated in
+          Biofield Tuning.
+        </p>
+        <p>
+          <a href="https://cdn.shopify.com/s/files/1/2574/6998/files/CAUTIONS___GUIDANCE_1.2.pdf" target="_blank" rel="noopener">View the full list of contraindications and cautions</a>
+        </p>
+      </div>
+
+      </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var root=document.getElementById('ivbt');
+  if(!root || root.dataset.ivbtReady==='true') return;
+  root.dataset.ivbtReady='true';
+  var regions=[
+    ["Feet, Ankles &amp; Knees","Grounding, movement, challenges and obstacles, letting go, walking our path, trusting the past.","/s/Feet-Ankles-Knees-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton-2026.png"],
+    ["Hips, Glutes &amp; Large Intestines","Home, safety, work, action, energy, drive, sleep and rest, survival, effort.","/s/Root-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png"],
+    ["Stomach, Sexual Organs &amp; Bladder","Creativity, self worth, intimacy, relationships, nurture, pleasure, finances, flow state, gratitude, abundance.","/s/Sacral-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png"],
+    ["Solar Plexus, Kidneys &amp; Liver","Assertiveness, healthy aggression, discipline, honesty, self esteem, willpower, setting and achieving goals, confidence.","/s/Solar-Plexus-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png"],
+    ["Heart, Lungs &amp; Shoulders","Love, joy, compassion, empathy, boundaries, healthy expression of grief, sadness and anger.","/s/Heart-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png"],
+    ["Throat, Ears, Jaw, Mouth &amp; Thyroid","Communication, speaking truth, self expression, healthy expression of feelings, listening.","/s/Throat-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png"],
+    ["Mind, Eyes, Brain &amp; Head","Intuition, clear thought, mental clarity, imagination, visionary capacity, memory.","/s/Third-Eye-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png"],
+    ["Crown","Brain, head, relationship with time, nature, divinity, synchronicity, focus.","/s/Crown-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png"]
+  ];
+  var grid=root.querySelector('#ivbt-icons');
+  var panel=root.querySelector('#ivbt-anapanel');
+  if(grid && panel){
+    var title=root.querySelector('#ivbt-anatitle');
+    var body=root.querySelector('#ivbt-anabody');
+    var link=root.querySelector('#ivbt-analink');
+    var fallback=panel.querySelector('.chart-fallback');
+    panel.hidden=true;
+    if(fallback) fallback.hidden=true;
+    link.hidden=false;
+    grid.addEventListener('click',function(e){
+      var button=e.target.closest('.icon');
+      if(!button || !grid.contains(button)) return;
+      var data=regions[Number(button.dataset.k)];
+      if(!data) return;
+      var closing=button.getAttribute('aria-expanded')==='true';
+      grid.querySelectorAll('.icon').forEach(function(item){
+        var selected=!closing && item===button;
+        item.classList.toggle('on',selected);
+        item.setAttribute('aria-expanded',String(selected));
+      });
+      panel.hidden=closing;
+      if(closing) return;
+      title.textContent=data[0].replace(/&amp;/g,'&');body.textContent=data[1];link.href=data[2];
+    });
+  }
+})();
+
+
+/* Section 2: one response beside the choices on desktop, inline on phones. */
+(function(){
+  'use strict';
+  var explorer=document.querySelector('#ivbt #ivbt-concerns');
+  if(!explorer || explorer.dataset.ready) return;
+  var choices=Array.from(explorer.querySelectorAll('.ivbt-concern-choice'));
+  var responses=choices.map(function(choice){return explorer.querySelector('#'+choice.getAttribute('aria-controls'));});
+  if(choices.length!==4 || responses.some(function(response){return !response;})) return;
+  var compact=window.matchMedia('(max-width:900px)');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var selected=compact.matches?-1:0;
+  var lastSelected=0;
+  var userSelected=false;
+  function render(index,animate){
+    selected=index;
+    if(index>=0) lastSelected=index;
+    choices.forEach(function(choice,i){
+      var active=i===index;
+      choice.setAttribute('aria-expanded',String(active));
+      responses[i].hidden=!active;
+    });
+    if(animate && index>=0 && !reduced.matches && responses[index].animate){
+      responses[index].animate([{opacity:.65},{opacity:1}],{duration:180,easing:'ease-out'});
+    }
+  }
+  choices.forEach(function(choice,i){
+    choice.addEventListener('click',function(){
+      var oldTop=choice.getBoundingClientRect().top;
+      userSelected=true;
+      render(compact.matches && selected===i?-1:i,true);
+      /* Keep the tapped choice in place when an earlier mobile answer closes. */
+      if(compact.matches){
+        var delta=choice.getBoundingClientRect().top-oldTop;
+        if(Math.abs(delta)>1) window.scrollBy({top:delta,left:0,behavior:'instant'});
+      }
+    });
+  });
+  function onLayoutChange(){
+    var activeElement=document.activeElement;
+    var focusedResponse=responses.findIndex(function(response){return response.contains(activeElement);});
+    var next=compact.matches && !userSelected?-1:lastSelected;
+    render(next,false);
+    if(focusedResponse>=0 && focusedResponse!==next) choices[focusedResponse].focus({preventScroll:true});
+  }
+  if(compact.addEventListener) compact.addEventListener('change',onLayoutChange);
+  else if(compact.addListener) compact.addListener(onLayoutChange);
+  render(selected,false);
+  explorer.dataset.ready='true';
+})();
+
+/* Links remain usable and all sessions visible when scripting is unavailable. */
+(function(){
+  var root=document.querySelector('#ivbt #book');
+  if(!root || root.dataset.chooserReady) return;
+  var list=root.querySelector('.session-choices');
+  var tabs=Array.from(list.querySelectorAll('.session-choice'));
+  var panels=tabs.map(function(tab){return root.querySelector(tab.getAttribute('href'));});
+  if(panels.some(function(panel){return !panel;})) return;
+  root.dataset.chooserReady='true';
+  list.setAttribute('role','tablist');
+  list.setAttribute('aria-label','Choose your session');
+  var narrow=window.matchMedia('(max-width:760px)');
+  function orientation(){list.setAttribute('aria-orientation',narrow.matches?'vertical':'horizontal');}
+  orientation();
+  if(narrow.addEventListener) narrow.addEventListener('change',orientation);
+  function choose(index,focus){
+    tabs.forEach(function(tab,i){
+      var selected=i===index;
+      tab.setAttribute('aria-selected',String(selected));
+      tab.tabIndex=selected?0:-1;
+      panels[i].hidden=!selected;
+    });
+    if(focus) tabs[index].focus();
+  }
+  tabs.forEach(function(tab,i){
+    tab.setAttribute('role','tab');
+    tab.setAttribute('aria-controls',panels[i].id);
+    panels[i].setAttribute('role','tabpanel');
+    panels[i].setAttribute('aria-labelledby',tab.id);
+    panels[i].tabIndex=0;
+    tab.addEventListener('click',function(event){event.preventDefault();choose(i,false);});
+    tab.addEventListener('keydown',function(event){
+      var next;
+      if(event.key==='ArrowRight' || event.key==='ArrowDown') next=(i+1)%tabs.length;
+      else if(event.key==='ArrowLeft' || event.key==='ArrowUp') next=(i+tabs.length-1)%tabs.length;
+      else if(event.key==='Home') next=0;
+      else if(event.key==='End') next=tabs.length-1;
+      else if(event.key===' ' || event.key==='Enter') next=i;
+      else return;
+      event.preventDefault();choose(next,true);
+    });
+  });
+  choose(0,false);
+})();
+</script>
+<style>/* 2026-10-04 hotfix: Squarespace's own sitewide .icon rule forces 25x25px on the anatomy tiles; undo it. */#ivbt .icon{width:auto;height:auto;line-height:inherit;}</style>
+<style>/* 2026-10-04: the v2 nav is fixed and the Squarespace shell already clears it, so the hero's old 85px nav allowance doubled the gap. Phone: artwork starts below the first screen. */#ivbt .hero{padding-top:40px!important}@media (max-width:760px){#ivbt .hero{padding-top:28px!important}#ivbt .hero-photo.hero-art{margin-top:48px!important}}</style>

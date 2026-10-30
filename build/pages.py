@@ -247,3 +247,46 @@ def about():
     body = (nav("about") + '<main id="iv-main"><article class="iv-about">' + hero
             + '<div class="iv-about-rows">' + rows + "</div></article></main>" + footer())
     return page(h, body, cls, scripts=("/assets/site.js",))
+
+
+# Biofield Tuning (stage 3, 2026-10-30). The page body is the live code block,
+# kept verbatim in src/templates/biofield-tuning.html (its own styles and the
+# Biofield Anatomy script travel with it). This wraps it in the site's head,
+# nav and footer. The /s/ chart PNGs are Squarespace file storage, so they point
+# at the live site until the image move copies them.
+BT_OG = ("https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/"
+         "chance%2Bgarton%2Bbiofield%2Btuning%2Bsessions%2Binnerverse%2Bpodcast.png")
+BT_OFFERS = [
+    ("Full Session", 200, "https://innerversepodcast.as.me/45-minute-tuning"),
+    ("Quick Tune Up", 100, "https://innerversepodcast.as.me/20-minute-tuning"),
+    ("Counseling and Readings", 75, "https://innerversepodcast.as.me/30-minute-counseling"),
+    ("Three Full Sessions", 500, "https://innerversepodcast.as.me/three-tuning-bundle"),
+]
+
+
+def biofield_tuning():
+    title = "Biofield Tuning Sessions with Chance Garton | InnerVerse Podcast"
+    desc = ("Book a remote Biofield Tuning session or a Counseling and Readings session with Chance Garton over Zoom, "
+            "working with sound and the human energy field to support healing, clarity, and alignment.")
+    canonical = LIVE_ORIGIN + "/biofield-tuning"
+    body_html = open(os.path.join(ROOT, "src", "templates", "biofield-tuning.html"), encoding="utf-8").read()
+    body_html = body_html.replace('"/s/', '"' + LIVE_ORIGIN + "/s/")
+    ld = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebPage", "@id": canonical + "#page", "url": canonical, "name": title, "description": desc,
+             "isPartOf": {"@id": LIVE_ORIGIN + "/#website"}, "about": {"@id": canonical + "#service"}},
+            {"@type": "Service", "@id": canonical + "#service", "name": "Remote Biofield Tuning with Chance Garton",
+             "serviceType": "Biofield Tuning", "areaServed": "Worldwide", "url": canonical,
+             "provider": {"@type": "Person", "@id": LIVE_ORIGIN + "/#chance", "name": "Chance Garton"},
+             "offers": [{"@type": "Offer", "name": n, "price": str(p), "priceCurrency": "USD", "url": u}
+                        for n, p, u in BT_OFFERS]},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": LIVE_ORIGIN + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Biofield Tuning", "item": canonical}]},
+        ],
+    }
+    cls = "iv-bt-page"
+    h = head(title, desc, canonical, BT_OG, "website", cls, extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
+    body = nav("tuning") + '<main id="iv-main" class="iv-bt-main">' + body_html + "</main>" + footer()
+    return page(h, body, cls, scripts=("/assets/site.js",))

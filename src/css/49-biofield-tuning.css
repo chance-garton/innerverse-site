@@ -1,0 +1,5 @@
+/* Biofield Tuning (stage 3, 2026-10-30). The page's own styles travel inside
+   src/templates/biofield-tuning.html. This file only stands in for the one
+   Squarespace theme rule the block leaned on: paragraphs at 1.6em. Kept at
+   plain element strength so the block's own rules still win. */
+:where(html.iv-bt-page) p { line-height: 1.6em; }
