@@ -1,0 +1,44 @@
+/* Oracle Cards (stage 3, 2026-10-30). Rebuilt from the live Squarespace layout,
+   measured against it at 1440 and 390 wide. Scoped to html.iv-oc-page. */
+html.iv-oc-page body { background: #010C17; }
+.iv-oc { color: #fff; font-family: Abel, sans-serif; letter-spacing: .03em; }
+.iv-oc section { max-width: 1200px; margin: 0 auto; box-sizing: content-box; padding-left: 6vw; padding-right: 6vw; }
+.iv-oc p { margin: 0; }
+.iv-oc .iv-oc-top { text-align: center; padding-top: 48px; padding-bottom: 46px; }
+.iv-oc .iv-oc-h1 { font-family: "Fjalla One", sans-serif; font-weight: 400; font-size: 34px; line-height: 52px; letter-spacing: .03em; margin: 0; color: #fff; }
+.iv-oc .iv-oc-sub { font-size: 17px; line-height: 27.2px; margin-top: -16px; }
+.iv-oc-card, .iv-oc-iching { display: block; line-height: 0; }
+.iv-oc-card { width: 283px; margin: 47px auto 0; }
+.iv-oc img { width: 100%; height: auto; display: block; }
+.iv-oc .iv-oc-price { font-size: 23.8px; line-height: 38.08px; margin-top: 11px; }
+.iv-oc .iv-oc-big { font-size: 23.8px; line-height: 38.08px; }
+.iv-oc .iv-oc-center { text-align: center; }
+.iv-oc .iv-oc-big + .iv-oc-big { margin-top: 17px; }
+.iv-oc-btn { display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 63px; padding: 8px 20px;
+  background: #0089FF; color: #fff !important; text-decoration: none; font-family: "Fjalla One", sans-serif; font-size: 17px;
+  letter-spacing: .1em; text-transform: uppercase; text-align: center; line-height: 1.2; transition: opacity .15s; }
+.iv-oc-btn:hover { opacity: .85; }
+.iv-oc-book { width: 292px; margin: 11px auto 48px; }
+.iv-oc-pay { display: grid; grid-template-columns: 345fr 393fr 342fr; gap: 60px; margin-top: 52px; }
+.iv-oc-pay .iv-oc-btn:first-child { word-break: break-word; }
+.iv-oc .iv-oc-about { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-top: 100px; padding-bottom: 102px; }
+.iv-oc-text { width: 695px; max-width: 58%; }
+.iv-oc .iv-oc-small { font-size: 17px; line-height: 27.2px; margin-top: 17px; }
+.iv-oc .iv-oc-small a { color: #fff; text-decoration: underline; }
+.iv-oc-iching { width: 282px; margin-right: 80px; margin-bottom: 38px; flex: none; }
+@media (max-width: 767px) {
+  .iv-oc section { padding-left: 23px; padding-right: 23px; }
+  .iv-oc .iv-oc-top { padding-top: 63px; padding-bottom: 40px; }
+  .iv-oc .iv-oc-h1 { font-size: 26.1px; line-height: 40.1px; }
+  .iv-oc .iv-oc-sub { font-size: 16px; line-height: 25.6px; margin-top: 11px; }
+  .iv-oc-card { width: 199px; margin-top: 19px; }
+  .iv-oc .iv-oc-big, .iv-oc .iv-oc-price { font-size: 20.05px; line-height: 32.08px; }
+  .iv-oc-btn { min-height: 59px; font-size: 16px; }
+  .iv-oc-book { width: 100%; margin: 11px 0 11px; }
+  .iv-oc .iv-oc-big + .iv-oc-big { margin-top: 16px; }
+  .iv-oc-pay { grid-template-columns: 1fr; gap: 11px; margin-top: 45px; }
+  .iv-oc .iv-oc-about { flex-direction: column; align-items: stretch; gap: 10px; padding-top: 70px; padding-bottom: 60px; }
+  .iv-oc-text { width: auto; max-width: none; }
+  .iv-oc .iv-oc-small { font-size: 16px; line-height: 25.6px; }
+  .iv-oc-iching { width: 199px; margin: 0 auto; }
+}
