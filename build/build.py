@@ -139,11 +139,8 @@ def main():
     bt = hand.biofield_tuning()
     write("biofield-tuning.html", bt)
     write("biofield-tuning/index.html", bt)
-    oc = hand.oracle_cards()
-    write("oracle-cards.html", oc)
-    write("oracle-cards/index.html", oc)
     sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today), (common.LIVE_ORIGIN + "/plus", today),
-                   (common.LIVE_ORIGIN + "/about", today), (common.LIVE_ORIGIN + "/biofield-tuning", today), (common.LIVE_ORIGIN + "/oracle-cards", today)]
+                   (common.LIVE_ORIGIN + "/about", today), (common.LIVE_ORIGIN + "/biofield-tuning", today)]
 
     write("robots.txt", ("User-agent: *\nDisallow: /\n" if common.NOINDEX else
                          "User-agent: *\nAllow: /\n\nSitemap: " + common.LIVE_ORIGIN + "/sitemap.xml\n"))
