@@ -187,7 +187,7 @@ def footer():
         '<p class="iv-footer-tagline">A podcast dedicated to prying open your third ear<br>so you can stay in perpetual synchronicity.</p>'
         '</div><div class="iv-footer-cols">' + cols + "</div></div>"
         '<div class="iv-footer-rule"></div>'
-        '<div class="iv-footer-bottom"><span class="iv-footer-copy">&copy; Chance Garton 2016 to 2026</span></div>'
+        '<div class="iv-footer-bottom"><span class="iv-footer-copy">&copy; Chance Garton 2015 to 2026</span></div>'
         "</footer>"
     )
 

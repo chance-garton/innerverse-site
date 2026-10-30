@@ -133,7 +133,11 @@ def main():
     write("plus.html", plus_page)
     write("plus/index.html", plus_page)
     today = __import__("datetime").date.today().isoformat()
-    sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today), (common.LIVE_ORIGIN + "/plus", today)]
+    # Hand-made pages (stage 3). Built here and held for the switch.
+    write("about.html", hand.about())
+    write("about/index.html", hand.about())
+    sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today), (common.LIVE_ORIGIN + "/plus", today),
+                   (common.LIVE_ORIGIN + "/about", today)]
 
     write("robots.txt", ("User-agent: *\nDisallow: /\n" if common.NOINDEX else
                          "User-agent: *\nAllow: /\n\nSitemap: " + common.LIVE_ORIGIN + "/sitemap.xml\n"))

@@ -1,0 +1,81 @@
+/* About InnerVerse (stage 3, 2026-10-30). The About-InnerVerse board on the
+   design canvas, in the site's Lapis Library tokens (30-home-tokens-nav.css).
+   Everything is scoped to .iv-about so no other page changes. */
+html.iv-about-page body { background: var(--ground); }
+.iv-about {
+  max-width: 1200px; margin: 0 auto; padding: 130px 6vw 72px;
+  font-family: var(--font-sans); color: var(--ink); letter-spacing: normal; line-height: 1.6;
+}
+.iv-about-kicker {
+  font-family: var(--font-sans); font-weight: 700; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--lapis-lit);
+}
+.iv-about-hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; align-items: center; padding-bottom: 48px;
+}
+.iv-about-hero-text { display: flex; flex-direction: column; gap: 18px; }
+.iv-about h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 64px;
+  line-height: 1; letter-spacing: -2.5px; color: var(--ink);
+}
+.iv-about p { margin: 0; font-size: 17px; line-height: 1.7; color: var(--ink-muted); max-width: 68ch; }
+.iv-about p.iv-about-lede { font-size: 19px; }
+.iv-about-photo {
+  width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: top;
+  border-radius: 20px; display: block; background: var(--card);
+}
+.iv-about-row {
+  display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 48px; padding: 48px 0;
+  border-top: 1px solid var(--line); scroll-margin-top: 100px;
+}
+.iv-about-head { display: flex; flex-direction: column; gap: 10px; }
+.iv-about h2 {
+  margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 32px;
+  line-height: 1.05; letter-spacing: -1px; color: var(--ink);
+}
+.iv-about-body { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.iv-about-shows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.iv-about-show {
+  display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.iv-about-dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; margin-top: 9px; }
+.iv-about-show > div { display: flex; flex-direction: column; gap: 4px; }
+.iv-about-show-name {
+  font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--ink); text-decoration: none;
+}
+.iv-about-show-name:hover { color: var(--lapis-lit); }
+.iv-about .iv-about-show p { font-size: 14.5px; line-height: 1.55; }
+.iv-about-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.iv-about-chip {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 9px 14px; border-radius: var(--radius-pill);
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  font-size: 13.5px; font-weight: 600; text-decoration: none; line-height: 1.2;
+}
+.iv-about-chip:hover { border-color: var(--lapis); color: var(--lapis-lit); }
+.iv-about-link { color: var(--lapis-lit); text-decoration: underline; text-underline-offset: 3px; }
+.iv-about-link:hover { color: var(--ink); }
+.iv-about-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.iv-about-btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 11px 20px;
+  border-radius: var(--radius-md); font-weight: 700; font-size: 14px; text-decoration: none;
+  border: 1px solid transparent; white-space: nowrap; line-height: 1.2;
+}
+.iv-about-btn-lapis { background: var(--lapis); color: var(--on-lapis); }
+.iv-about-btn-lapis:hover { background: #2E62B3; }
+.iv-about-btn-gold { background: var(--gold); color: var(--on-gold); }
+.iv-about-btn-gold:hover { filter: brightness(1.08); }
+.iv-about-btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.iv-about-btn-ghost:hover { border-color: var(--lapis); color: var(--lapis-lit); }
+
+@media (max-width: 960px) {
+  .iv-about-hero { grid-template-columns: 1fr; gap: 32px; }
+  .iv-about-photo { max-width: 560px; }
+  .iv-about-row { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
+}
+@media (max-width: 700px) {
+  .iv-about { padding-top: 100px; padding-bottom: 56px; }
+  .iv-about h1 { font-size: 44px; letter-spacing: -1.5px; }
+  .iv-about h2 { font-size: 28px; }
+  .iv-about p.iv-about-lede { font-size: 18px; }
+  .iv-about p { font-size: 16px; }
+}
