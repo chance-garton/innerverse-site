@@ -1,0 +1,727 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "last",
+ "bytes_added": 40353662,
+ "copied": [
+  {
+   "bytes_added": 0,
+   "h": 500,
+   "key": "sq/0dd20f77-340f-4d4a-94ab-d63d0c2aeaf2/a-godsacre",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/0dd20f77-340f-4d4a-94ab-d63d0c2aeaf2/A godsacre.webp",
+   "w": 500,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 794293,
+   "h": 1254,
+   "key": "sq/0ea89b54-59d9-4724-92bd-0ff35f697ba8/chris-crutchfield",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/0ea89b54-59d9-4724-92bd-0ff35f697ba8/chris-crutchfield.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 259319,
+   "h": 941,
+   "key": "sq/13157315-d5bd-44bb-a79c-bd8bc9860917/revelation-inner-whirled",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/13157315-d5bd-44bb-a79c-bd8bc9860917/revelation-inner-whirled.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 389637,
+   "h": 1080,
+   "key": "sq/150ea76a-ba82-461a-a1a6-768c0933f78a/chicago-fire",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/150ea76a-ba82-461a-a1a6-768c0933f78a/Chicago-Fire.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 0,
+   "h": 1080,
+   "key": "sq/1750350587770-492o095qjuibujcipg3c/mcintosh-sq-thumb",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/1750350587770-492O095QJUIBUJCIPG3C/mcintosh-sq-thumb.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 0,
+   "h": 941,
+   "key": "sq/1780664773490-213vv4vpzjfh1b8n68qi/gemini-herbs-mercury-cedar-holy-basil-the-mint-mystery-astro-herbalism",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/1780664773490-213VV4VPZJFH1B8N68QI/Gemini Herbs Mercury, Cedar, Holy Basil & The Mint Mystery  Astro-Herbalism.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 0,
+   "h": 941,
+   "key": "sq/1786888416132-9h0mkv4jjkdlq2d2th11/astroherbalism-vibe-rant-leo-innerverse",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/1786888416132-9H0MKV4JJKDLQ2D2TH11/ASTROHERBALISM VIBE RANT LEO INNERVERSE.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 0,
+   "h": 720,
+   "key": "sq/1788905125293-1hcb4ap9sao2uqetqkr0/cancer-season-herbs-linden-willow-marshmallow-aloe-astro-herbalism",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/1788905125293-1HCB4AP9SAO2UQETQKR0/Cancer Season Herbs Linden, Willow, Marshmallow, Aloe  Astro Herbalism.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 542204,
+   "h": 941,
+   "key": "sq/27f106b4-5dbe-454e-ab4f-a04a49ca7031/cancer-astro-herbalism",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/27f106b4-5dbe-454e-ab4f-a04a49ca7031/cancer-astro-herbalism.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 650291,
+   "h": 941,
+   "key": "sq/2faed48a-eba3-496c-b798-480b43d97617/gemini-astro-herbalism",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/2faed48a-eba3-496c-b798-480b43d97617/gemini-astro-herbalism.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 609022,
+   "h": 1080,
+   "key": "sq/36e68080-20d5-44ef-86ea-930b7f1812ef/council-grove",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/36e68080-20d5-44ef-86ea-930b7f1812ef/council-grove.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 72315,
+   "h": 400,
+   "key": "sq/48b68a2b-2db1-4c7c-9dd2-935dfb092050/peter-conley",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/48b68a2b-2db1-4c7c-9dd2-935dfb092050/PETER-CONLEY.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 381458,
+   "h": 1080,
+   "key": "sq/49bcfe76-c045-4c7c-a87d-249d83197479/tamara-globe",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/49bcfe76-c045-4c7c-a87d-249d83197479/tamara-globe.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 438008,
+   "h": 1254,
+   "key": "sq/49f810e8-767f-4c8a-bd85-250501d25559/nathan-oakley",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/49f810e8-767f-4c8a-bd85-250501d25559/Nathan-Oakley.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 471497,
+   "h": 941,
+   "key": "sq/59634bb0-22a3-433b-ac9e-7cf046a5c6c3/mary-twelve-gates",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/59634bb0-22a3-433b-ac9e-7cf046a5c6c3/mary-twelve-gates.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 559374,
+   "h": 941,
+   "key": "sq/6c15c563-c360-45a8-8aa8-70cc918b05b6/golden-book",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/6c15c563-c360-45a8-8aa8-70cc918b05b6/Golden-book.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 875211,
+   "h": 1080,
+   "key": "sq/6d0ceafc-67d0-4fc0-b31f-c1be90697edd/iw-30",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/6d0ceafc-67d0-4fc0-b31f-c1be90697edd/IW-30.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 81335,
+   "h": 400,
+   "key": "sq/72d8aecf-5728-42c6-976e-427104fb9105/loralee-scaife",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/72d8aecf-5728-42c6-976e-427104fb9105/LORALEE-SCAIFE.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 33626,
+   "h": 500,
+   "key": "sq/78f88ed0-ca24-42ad-bfb8-e50468ed0f07/terminalia",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/78f88ed0-ca24-42ad-bfb8-e50468ed0f07/terminalia.webp",
+   "w": 500,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 840394,
+   "h": 1080,
+   "key": "sq/7c7632c1-39f5-41b9-9ea3-bcb240e9d284/leo-astro-herbs",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/7c7632c1-39f5-41b9-9ea3-bcb240e9d284/Leo-Astro-herbs.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 329726,
+   "h": 941,
+   "key": "sq/7f134e4d-4d40-4f50-ba5e-634d19fce315/mario-garza-bull",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/7f134e4d-4d40-4f50-ba5e-634d19fce315/mario-garza-bull.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 501375,
+   "h": 941,
+   "key": "sq/80a748a9-95a0-4bfd-a183-f4cc30c8afbf/shining-island",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/80a748a9-95a0-4bfd-a183-f4cc30c8afbf/shining-island.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 467336,
+   "h": 941,
+   "key": "sq/88bf1e88-3e6d-4473-8541-71b7e9dba12b/winner-digital",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/88bf1e88-3e6d-4473-8541-71b7e9dba12b/winner-digital.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 434957,
+   "h": 1080,
+   "key": "sq/89a030aa-ddbe-4788-9711-b2ba7a43736a/astrotheology-101",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/89a030aa-ddbe-4788-9711-b2ba7a43736a/Astrotheology-101.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 55502,
+   "h": 400,
+   "key": "sq/8fa8a281-e0d6-4525-a649-03a65d1b17da/mitch-the-orgone-donor",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/8fa8a281-e0d6-4525-a649-03a65d1b17da/MITCH-THE-ORGONE-DONOR.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 72244,
+   "h": 400,
+   "key": "sq/9ebd8af7-5ef5-467a-950a-eb6bb36d8383/ryan-kemp",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/9ebd8af7-5ef5-467a-950a-eb6bb36d8383/RYAN-KEMP.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 1241523,
+   "h": 1254,
+   "key": "sq/a133e901-9713-49ad-abdf-721104b75c9e/jade-libra-goddess-with-golden-scales-2",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a133e901-9713-49ad-abdf-721104b75c9e/Jade-Libra-goddess-with-golden-scales-2.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 4067511,
+   "h": 1254,
+   "key": "sq/a1f5bcab-e82e-4730-84f8-d163bab5a696/golden-tree-of-life-tooth-illustration",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a1f5bcab-e82e-4730-84f8-d163bab5a696/Golden tree-of-life tooth illustration.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 58102,
+   "h": 400,
+   "key": "sq/a26aa6b6-ceb3-4ba6-bd35-f84d400a0dbe/kerri-hummingbird",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a26aa6b6-ceb3-4ba6-bd35-f84d400a0dbe/KERRI-HUMMINGBIRD.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 610263,
+   "h": 1080,
+   "key": "sq/a2f0b3e0-ae14-4046-ad14-f1d5cde205ef/atoms",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a2f0b3e0-ae14-4046-ad14-f1d5cde205ef/atoms.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 87171,
+   "h": 400,
+   "key": "sq/a3020ce0-a5d8-42a1-87bb-e990593d6555/acharya-shunya",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a3020ce0-a5d8-42a1-87bb-e990593d6555/ACHARYA-SHUNYA.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 127328,
+   "h": 941,
+   "key": "sq/a78e2e36-82a1-4b0d-b4d5-54e1dfe699ff/never-give-up-brandy-gilmore",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a78e2e36-82a1-4b0d-b4d5-54e1dfe699ff/never-give-up-brandy-gilmore.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 372360,
+   "h": 1920,
+   "key": "sq/aaa61e48-bdaf-4ef1-a5d6-33745c71d939/2f8abc52d4e749a098c49616a20cf66a",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/aaa61e48-bdaf-4ef1-a5d6-33745c71d939/2f8abc52d4e749a098c49616a20cf66a.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 937199,
+   "h": 1254,
+   "key": "sq/ac9d861c-c999-4cab-8fa8-a082785b746c/iw-31",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/ac9d861c-c999-4cab-8fa8-a082785b746c/IW-31.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1158772,
+   "h": 1080,
+   "key": "sq/b1628837-d929-4bde-bd00-ce20f3a3a314/virgo-astro-herbs",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/b1628837-d929-4bde-bd00-ce20f3a3a314/virgo-astro-herbs.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 714607,
+   "h": 1254,
+   "key": "sq/b9c4b0f3-7681-4cff-ba7d-247b8f91132e/dawn-lester-terrain-parenting",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/b9c4b0f3-7681-4cff-ba7d-247b8f91132e/Dawn-Lester-Terrain-Parenting.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 549571,
+   "h": 1254,
+   "key": "sq/beab434b-c49f-4a03-9c04-ceb9713c89db/moonbeam",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/beab434b-c49f-4a03-9c04-ceb9713c89db/moonbeam.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 566793,
+   "h": 1080,
+   "key": "sq/c172fa23-d3e7-4570-a005-4bd1d26a2eb8/keys-to-the-tarot",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c172fa23-d3e7-4570-a005-4bd1d26a2eb8/Keys-to-the-Tarot.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 97204,
+   "h": 400,
+   "key": "sq/c4ed30be-814e-4152-8294-140386877639/kalina-lux",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c4ed30be-814e-4152-8294-140386877639/KALINA-LUX.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 506533,
+   "h": 1254,
+   "key": "sq/c7cf84e1-2eea-453b-a57a-97920cdf5da5/inner-whirled-25",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c7cf84e1-2eea-453b-a57a-97920cdf5da5/inner-whirled-25.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 110414,
+   "h": 500,
+   "key": "sq/cc68c653-088d-43fa-bc4e-997896b19c32/the-holy-sailors",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/cc68c653-088d-43fa-bc4e-997896b19c32/the holy sailors.webp",
+   "w": 500,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 4660680,
+   "h": 1440,
+   "key": "sq/cfdef476-971b-4d87-823e-f9d7d3874b4e/lc-king-innerverse-art",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/cfdef476-971b-4d87-823e-f9d7d3874b4e/LC King InnerVerse art.PNG",
+   "w": 1440,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 509508,
+   "h": 1080,
+   "key": "sq/d0096f26-1b67-48ce-95b0-febcde872251/kirkbride-asylums",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/d0096f26-1b67-48ce-95b0-febcde872251/kirkbride-asylums.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 545521,
+   "h": 1254,
+   "key": "sq/da04aaf6-b5b1-4bb1-86f5-675366306395/inner-whirled-26",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/da04aaf6-b5b1-4bb1-86f5-675366306395/inner-whirled-26.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 50178,
+   "h": 500,
+   "key": "sq/ed6a3da5-c8d8-46a0-87e0-ffee9a4f2562/july-s-end",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/ed6a3da5-c8d8-46a0-87e0-ffee9a4f2562/July's End.webp",
+   "w": 500,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 67164,
+   "h": 400,
+   "key": "sq/ee2bb4db-feef-4a00-8649-8444e3c20ad2/sepano-zadeh",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/ee2bb4db-feef-4a00-8649-8444e3c20ad2/SEPANO-ZADEH.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 85671,
+   "h": 400,
+   "key": "sq/fa29827b-b726-4971-a0d0-43f3b8c3ec80/brenden-weber",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/fa29827b-b726-4971-a0d0-43f3b8c3ec80/BRENDEN-WEBER.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 606145,
+   "h": 1080,
+   "key": "sq/fb936153-d823-45a7-9ac4-7a3b1424e9c5/inner-whirled-29",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/fb936153-d823-45a7-9ac4-7a3b1424e9c5/inner-whirled-29.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 55747,
+   "h": 400,
+   "key": "sq/x/1650932790643-6ucqefja33v3r876tk29",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1650932790643-6UCQEFJA33V3R876TK29/",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 8538381,
+   "h": 1395,
+   "key": "sq/1779228340119-8rhvqv7vw51zuqtvz5ik/dylan-saccoccio-the-four-evangelists-are-the-four-royal-stars-and-so-are-the-four-horsemen",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779228340119-8RHVQV7VW51ZUQTVZ5IK/Dylan Saccoccio The Four Evangelists Are the Four Royal Stars, and so are the Four Horsemen.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4463903,
+   "h": 941,
+   "key": "sq/1779375486345-llc3580ffp3ndvz5klis/the-oera-linda-book-a-forbidden-frisian-manuscript-examined-with-dylan-saccoccio",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779375486345-LLC3580FFP3NDVZ5KLIS/The Oera Linda Book A Forbidden Frisian Manuscript Examined With Dylan Saccoccio.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 685809,
+   "h": 1080,
+   "key": "sq/1784137886568-kvuh2mf5uq9eocto04hv/crrow777-1st",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784137886568-KVUH2MF5UQ9EOCTO04HV/crrow777-1st.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2560,
+   "h": 300,
+   "key": "sq/69729e1c29bb4370bfa7ea72-6a0a806bed3b9e731003bbef/1788965355789",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69729e1c29bb4370bfa7ea72/6a0a806bed3b9e731003bbef/1788965355789/",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2560,
+   "h": 300,
+   "key": "sq/69fb5fbe81c2754069402815-6aad8cbdb85a671fce8e7ea9/1789759773040",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cbdb85a671fce8e7ea9/1789759773040/",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2560,
+   "h": 300,
+   "key": "sq/69fb5fbe81c2754069402815-6aad8cff0404081282bacce3/1789759773458",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cff0404081282bacce3/1789759773458/",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2560,
+   "h": 300,
+   "key": "sq/69fb5fbe81c2754069402815-6aad8d386d92b643fba84a1d/1789759773881",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8d386d92b643fba84a1d/1789759773881/",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2560,
+   "h": 300,
+   "key": "sq/69fb5fbe81c2754069402815-6aadbb560e4a3712908a1857/1789770744164",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbb560e4a3712908a1857/1789770744164/",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2560,
+   "h": 300,
+   "key": "sq/69fb5fbe81c2754069402815-6aadbbb60e4a3712908a207e/1789770744658",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbb60e4a3712908a207e/1789770744658/",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2560,
+   "h": 300,
+   "key": "sq/69fb5fbe81c2754069402815-6aadbbcdbf2bce6acfa078a9/1789770745161",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbcdbf2bce6acfa078a9/1789770745161/",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2560,
+   "h": 300,
+   "key": "sq/69fb5fbe81c2754069402815-6aadbbe49696da59cb2c709a/1789770745634",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbe49696da59cb2c709a/1789770745634/",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-10-31T18:36:41+00:00",
+ "skipped": [],
+ "started": "2026-10-31T18:33:11+00:00"
+}
