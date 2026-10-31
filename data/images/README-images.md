@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (865 images, 12 batches). Batches 0 to 4 done (about 350 MB stored). **Next: Stage 2, batch 5 (episode images, 100), on Chance's go (one batch per go).** Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Batches 0 to 5 done (about 560 MB stored). **Next: Stage 2, batch 6 (episode images, 100), on Chance's go (one batch per go).** Update this line at the end of every stage.
 
 ## Files here
 
@@ -69,3 +69,8 @@ The run commits the map and its report back to main. Local test without uploadin
 
 - Run 41213035698: copied 100, skipped 0, failed 0, 258,832,570 bytes added (about 259 MB; episode thumbnails are large PNGs, about 2.6 MB each, so the rest of the episode batches should add roughly 1.3 GB). Total in the bucket for images so far: about 350 MB, well under the 5 GB stop line. Report `runs/4-20261031T150404.json`.
 - Checked: a random 40 of the 586 files answer from the public address with the right type; all 100 are in the map.
+
+### 2026-10-31: Stage 2, batch 5 (episode images 101 to 200), done
+
+- Run 41213866790: copied 100, skipped 0, failed 0, 209,661,608 bytes added (about 210 MB). Total image storage so far: about 557 MB (map totals), under the 5 GB stop line. Report `runs/5-20261031T151414.json`.
+- Checked: a random 40 of the 561 files answer from the public address with the right type; all 100 are in the map.
