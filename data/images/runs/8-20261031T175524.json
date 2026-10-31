@@ -1,0 +1,1313 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "8",
+ "bytes_added": 119447590,
+ "copied": [
+  {
+   "bytes_added": 3748192,
+   "h": 941,
+   "key": "sq/1788364563852-7xfuxknee30l4046znxl/george-wiseman-on-brown-s-gas-hydrogen-and-the-aquacure",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788364563852-7XFUXKNEE30L4046ZNXL/George Wiseman on Brown's Gas, Hydrogen, and the AquaCure.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 339610,
+   "h": 523,
+   "key": "sq/1641707153200-bcal1r7xhndg7unlh4jw/untitled",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1641707153200-BCAL1R7XHNDG7UNLH4JW/Untitled.png",
+   "w": 561,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 2809508,
+   "h": 768,
+   "key": "sq/1788962371606-d077oybr90ru6kae46wv/public-vs-private",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788962371606-D077OYBR90RU6KAE46WV/Public vs private.png",
+   "w": 1376,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 466873,
+   "h": 720,
+   "key": "sq/1789575327253-jp39i3svpnq2s4q00tkz/2021-12-21-mechanics-innerverse-protect-energy-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789575327253-JP39I3SVPNQ2S4Q00TKZ/2021-12-21-mechanics-innerverse-protect-energy-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 603542,
+   "h": 720,
+   "key": "sq/1789574764294-m4hopn8aqahavruspi2n/2021-12-19-chant-innerverse-not-metaverse-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789574764294-M4HOPN8AQAHAVRUSPI2N/2021-12-19-chant-innerverse-not-metaverse-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 34431,
+   "h": 709,
+   "key": "sq/1639600476945-7rnj3kzqakcorcss7nzt/new-new-video-title-thumb",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1639600476945-7RNJ3KZQAKCORCSS7NZT/new-new-video-title-thumb.jpg",
+   "w": 709,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 406491,
+   "h": 1080,
+   "key": "sq/1639769603721-cxwxnpm4m6mrae6zt06f/rising-from-the-ashes",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1639769603721-CXWXNPM4M6MRAE6ZT06F/rising from the ashes.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3314583,
+   "h": 941,
+   "key": "sq/1780846666748-8b5ehf29wxqjkvjt2zqp/the-cult-of-the-medics-and-the-hidden-history-of-hospitals-david-whitehead",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780846666748-8B5EHF29WXQJKVJT2ZQP/The Cult of the Medics and the Hidden History of Hospitals  David Whitehead.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 477451,
+   "h": 720,
+   "key": "sq/1789574741170-spvkubfsfb04nadee2pk/2021-12-17-rising-ashes-electric-body-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789574741170-SPVKUBFSFB04NADEE2PK/2021-12-17-rising-ashes-electric-body-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3927954,
+   "h": 941,
+   "key": "sq/1782328555133-cet0kctlamm2ikw8rvuj/gematria-gnosticism-and-the-mathematics-of-christ-marty-leeds-of-the-gnostic-academy",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782328555133-CET0KCTLAMM2IKW8RVUJ/Gematria, Gnosticism, and the Mathematics of Christ  Marty Leeds of the Gnostic Academy.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 534768,
+   "h": 720,
+   "key": "sq/1789574715513-pmynifpdg5uhsf00tlrh/2021-12-10-emily-ridout-astro-yoga-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789574715513-PMYNIFPDG5UHSF00TLRH/2021-12-10-emily-ridout-astro-yoga-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 795586,
+   "h": 720,
+   "key": "sq/1789574691167-xo5krlwjtkd53p9i1pe9/2021-12-10-jim-gale-infinite-food-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789574691167-XO5KRLWJTKD53P9I1PE9/2021-12-10-jim-gale-infinite-food-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 579157,
+   "h": 720,
+   "key": "sq/1789574640959-fsyudrwd8q83f60t3bop/2021-12-07-cosmic-keys-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789574640959-FSYUDRWD8Q83F60T3BOP/2021-12-07-cosmic-keys-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 595409,
+   "h": 720,
+   "key": "sq/1789574666533-x8qdb6tcx2vwrscamlpw/2021-12-07-odins-alchemy-grail-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789574666533-X8QDB6TCX2VWRSCAMLPW/2021-12-07-odins-alchemy-grail-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 447534,
+   "h": 469,
+   "key": "sq/5f30a924-f4d8-4ed0-88e3-dcc305823336/legit-bat",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/5f30a924-f4d8-4ed0-88e3-dcc305823336/legit bat.png",
+   "w": 831,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 561379,
+   "h": 720,
+   "key": "sq/1789573872451-z1naklauqzrwlzfl2eh9/2021-11-29-mark-steeves-buried-history-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789573872451-Z1NAKLAUQZRWLZFL2EH9/2021-11-29-mark-steeves-buried-history-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3879106,
+   "h": 941,
+   "key": "sq/1780154752859-rtt73s3f0cp7q1mrgqvg/the-fake-frontier-how-secret-societies-rewrote-american-history-with-michelle-gibson",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780154752859-RTT73S3F0CP7Q1MRGQVG/The Fake Frontier How Secret Societies Rewrote American History with Michelle Gibson.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1004887,
+   "h": 1656,
+   "key": "sq/1637428766934-qsfwi67uw7jro35w4f6w/img-2385",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1637428766934-QSFWI67UW7JRO35W4F6W/IMG_2385.JPG",
+   "w": 1655,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 575040,
+   "h": 720,
+   "key": "sq/1789573988030-6kdwiwkzu5cpf7j41cpo/2021-11-18-pat-life-79-break-spell-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789573988030-6KDWIWKZU5CPF7J41CPO/2021-11-18-pat-life-79-break-spell-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 503741,
+   "h": 720,
+   "key": "sq/1789573966568-0m7zlm5bcbyynp4tzhx0/2021-11-16-shadow-banned-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789573966568-0M7ZLM5BCBYYNP4TZHX0/2021-11-16-shadow-banned-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 460093,
+   "h": 720,
+   "key": "sq/1789573940955-5nplleh8nlavkg1bh4po/2021-11-14-pat-life-energy-field-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789573940955-5NPLLEH8NLAVKG1BH4PO/2021-11-14-pat-life-energy-field-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 501320,
+   "h": 720,
+   "key": "sq/1789573919737-igvx6y3oi8gxqcgtm6qs/2021-11-13-derek-eclipse-code-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789573919737-IGVX6Y3OI8GXQCGTM6QS/2021-11-13-derek-eclipse-code-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 530986,
+   "h": 720,
+   "key": "sq/1789000722999-b3dmvikl7c4tir0ze82m/2021-11-12-obstacle-paths-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789000722999-B3DMVIKL7C4TIR0ZE82M/2021-11-12-obstacle-paths-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 482517,
+   "h": 720,
+   "key": "sq/1789000519964-mp43iqxaky6zuomygn63/2021-11-05-zero-cosmic-pulse-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789000519964-MP43IQXAKY6ZUOMYGN63/2021-11-05-zero-cosmic-pulse-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 985216,
+   "h": 993,
+   "key": "sq/1635949302800-syq3vh2enb4czfoibx7v/screenshot-2021-11-03-091229",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1635949302800-SYQ3VH2ENB4CZFOIBX7V/Screenshot 2021-11-03 091229.png",
+   "w": 997,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 496992,
+   "h": 720,
+   "key": "sq/1789000331943-xdlidofqglf6y99nyt77/2021-11-03-peace-talk-150-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789000331943-XDLIDOFQGLF6Y99NYT77/2021-11-03-peace-talk-150-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 549650,
+   "h": 720,
+   "key": "sq/1789000109691-fahwn392zrmk42s7cuk0/2021-11-01-odins-alchemy-electric-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789000109691-FAHWN392ZRMK42S7CUK0/2021-11-01-odins-alchemy-electric-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 490570,
+   "h": 720,
+   "key": "sq/1788999938559-47gezgjj93o0vcsw6aj5/2021-10-27-chessmen-flow-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788999938559-47GEZGJJ93O0VCSW6AJ5/2021-10-27-chessmen-flow-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 595050,
+   "h": 720,
+   "key": "sq/1788999756413-4ur2vv3gam2eix546jnc/2021-10-22-michael-wann-real-time-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788999756413-4UR2VV3GAM2EIX546JNC/2021-10-22-michael-wann-real-time-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 560306,
+   "h": 720,
+   "key": "sq/1788999579631-68kwct8o8n9fnotymibu/2021-10-17-inner-zodiac-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788999579631-68KWCT8O8N9FNOTYMIBU/2021-10-17-inner-zodiac-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 525523,
+   "h": 720,
+   "key": "sq/1788999392336-uca30vrfycpyihj2owm6/2021-10-11-mftic-matrix-patterns-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788999392336-UCA30VRFYCPYIHJ2OWM6/2021-10-11-mftic-matrix-patterns-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 523454,
+   "h": 720,
+   "key": "sq/1788999212707-v82yvvicr2f4797ncl1i/2021-10-08-thrice-great-fire-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788999212707-V82YVVICR2F4797NCL1I/2021-10-08-thrice-great-fire-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 518581,
+   "h": 720,
+   "key": "sq/1788999032427-kbzcpia1sjtpbk59ppq4/2021-10-03-cat-rose-daimon-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788999032427-KBZCPIA1SJTPBK59PPQ4/2021-10-03-cat-rose-daimon-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 4474294,
+   "h": 941,
+   "key": "sq/1780066939330-sghjd1mcrhha78wsa358/the-world-before-the-reset-decoding-the-global-mudflood-evidence-michelle-gibson",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780066939330-SGHJD1MCRHHA78WSA358/The World Before the Reset Decoding the Global Mudflood Evidence  Michelle Gibson.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 517202,
+   "h": 720,
+   "key": "sq/1788998812362-ltik1s1sv8tu80kq5m7j/2021-09-20-slick-dissident-defense-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788998812362-LTIK1S1SV8TU80KQ5M7J/2021-09-20-slick-dissident-defense-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 463143,
+   "h": 720,
+   "key": "sq/1788972554577-76v6g3stgjjsbfigwkfd/2021-09-12-clive-minerals-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788972554577-76V6G3STGJJSBFIGWKFD/2021-09-12-clive-minerals-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 429134,
+   "h": 720,
+   "key": "sq/1788972389940-vi2wdfkgg5t8b7e92opo/2021-09-06-psychopath-puzzle-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788972389940-VI2WDFKGG5T8B7E92OPO/2021-09-06-psychopath-puzzle-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 524759,
+   "h": 720,
+   "key": "sq/1788972223211-g0247m1kn9tu4oyfvzij/2021-08-28-joel-rafidi-paradigm-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788972223211-G0247M1KN9TU4OYFVZIJ/2021-08-28-joel-rafidi-paradigm-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 464440,
+   "h": 720,
+   "key": "sq/1788972015303-n8sn0pq2zuwke4torqey/2021-08-19-rachel-runes-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788972015303-N8SN0PQ2ZUWKE4TORQEY/2021-08-19-rachel-runes-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 509405,
+   "h": 720,
+   "key": "sq/1788971791198-zu1vlgnrv5edp94brxcr/2021-08-16-beth-martens-rights-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788971791198-ZU1VLGNRV5EDP94BRXCR/2021-08-16-beth-martens-rights-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 151088,
+   "h": 300,
+   "key": "sq/1628025987421-06uez5d73eh2mc131qnd/weaving-spiders-welcome",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1628025987421-06UEZ5D73EH2MC131QND/weaving spiders welcome.png",
+   "w": 296,
+   "widths": []
+  },
+  {
+   "bytes_added": 505084,
+   "h": 720,
+   "key": "sq/1788971507625-vv74s7tc2pr4yvrbgujh/2021-08-03-dark-side-crypto-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788971507625-VV74S7TC2PR4YVRBGUJH/2021-08-03-dark-side-crypto-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 130733,
+   "h": 300,
+   "key": "sq/1626454150266-nm2xj5nxdzwk229qbcdv/chance-garton-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1626454150266-NM2XJ5NXDZWK229QBCDV/Chance-Garton-1.jpg",
+   "w": 650,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 600664,
+   "h": 720,
+   "key": "sq/1788970962374-0bj7ac1kx9ot7lmwfukh/2021-07-16-astrotheology-breaking-reality-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788970962374-0BJ7AC1KX9OT7LMWFUKH/2021-07-16-astrotheology-breaking-reality-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 482653,
+   "h": 720,
+   "key": "sq/1788971128141-kbwm569d7o7b1xpn6vwp/2021-07-16-simulation-hypocrisy-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788971128141-KBWM569D7O7B1XPN6VWP/2021-07-16-simulation-hypocrisy-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3724932,
+   "h": 941,
+   "key": "sq/1778853825202-dfno091vbo00tf5bd6b0/chatgpt-image-may-15-2026-08-10-51-am",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778853825202-DFNO091VBO00TF5BD6B0/ChatGPT Image May 15, 2026, 08_10_51 AM.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 990004,
+   "h": 1667,
+   "key": "sq/1625576232452-kqgd7hmeo3bskciqfzxb/pexels-zoosnow-5274226",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1625576232452-KQGD7HMEO3BSKCIQFZXB/pexels-zoosnow-5274226.jpg",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4327740,
+   "h": 941,
+   "key": "sq/1789567335139-zcvqrjjfeawsmlihhx4n/the-secret-of-syncretism-sexual-energy-with-santos-bonacci-sidereal-vs-tropical-astrology",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/1789567335139-ZCVQRJJFEAWSMLIHHX4N/The Secret of Syncretism & Sexual Energy with Santos Bonacci & Sidereal vs Tropical Astrology.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 0,
+   "h": 941,
+   "key": "sq/1789567335139-zcvqrjjfeawsmlihhx4n/the-secret-of-syncretism-sexual-energy-with-santos-bonacci-sidereal-vs-tropical-astrology",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789567335139-ZCVQRJJFEAWSMLIHHX4N/The Secret of Syncretism & Sexual Energy with Santos Bonacci & Sidereal vs Tropical Astrology.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 8538381,
+   "h": 1395,
+   "key": "sq/1779228147708-hi12rfyw5jmayuh2qan9/dylan-saccoccio-the-four-evangelists-are-the-four-royal-stars-and-so-are-the-four-horsemen",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779228147708-HI12RFYW5JMAYUH2QAN9/Dylan Saccoccio The Four Evangelists Are the Four Royal Stars, and so are the Four Horsemen.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 606579,
+   "h": 720,
+   "key": "sq/1788970643733-a9adj7xqcuef67183ywg/2021-04-22-virtual-unreality-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788970643733-A9ADJ7XQCUEF67183YWG/2021-04-22-virtual-unreality-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 519156,
+   "h": 720,
+   "key": "sq/1788970482177-ghpmh6hztsn2j5ved1s4/2021-03-29-miownize-music-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788970482177-GHPMH6HZTSN2J5VED1S4/2021-03-29-miownize-music-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 459085,
+   "h": 720,
+   "key": "sq/1788970313307-t3ix667so57budr7698p/2021-03-28-i-ching-oracle-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788970313307-T3IX667SO57BUDR7698P/2021-03-28-i-ching-oracle-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 509296,
+   "h": 720,
+   "key": "sq/1788970134227-j42f7ihrd2ba72qdlpve/2021-03-16-god-is-a-verb-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788970134227-J42F7IHRD2BA72QDLPVE/2021-03-16-god-is-a-verb-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 590580,
+   "h": 720,
+   "key": "sq/1788916729582-a8sel36slzg49zo2wggj/2021-02-19-transhuman-tarot-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788916729582-A8SEL36SLZG49ZO2WGGJ/2021-02-19-transhuman-tarot-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 443713,
+   "h": 720,
+   "key": "sq/1788916520648-hznld4ljx51i5ghzvcu3/2021-02-04-ring-of-truth-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788916520648-HZNLD4LJX51I5GHZVCU3/2021-02-04-ring-of-truth-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 525306,
+   "h": 720,
+   "key": "sq/1788916326377-wk87rjs8cifgra74z0qr/2021-01-25-cyber-psychosis-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788916326377-WK87RJS8CIFGRA74Z0QR/2021-01-25-cyber-psychosis-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 796730,
+   "h": 1080,
+   "key": "sq/1780842079009-vbur8o8g70tp6cpv8kav/david-weiss",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780842079009-VBUR8O8G70TP6CPV8KAV/david-weiss.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3654994,
+   "h": 941,
+   "key": "sq/1780842283616-er1y5vqkos8pikr2rze4/it-s-not-the-shape-it-s-the-lie-flat-earth-decoded-david-weiss",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780842283616-ER1Y5VQKOS8PIKR2RZE4/It's Not the Shape, It's the Lie Flat Earth Decoded  David Weiss.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 184100,
+   "h": 357,
+   "key": "sq/1610838523032-6oyg6es8yvfgewyrlcwk/untitled-picture",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1610838523032-6OYG6ES8YVFGEWYRLCWK/Untitled picture.png",
+   "w": 363,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 226815,
+   "h": 1400,
+   "key": "sq/1610336658156-qbgpntmdqm5acf94dcji/enter-the-mystery-cam-keefe-dqlz4itg-m3-r7n3nvs5wiy-1400x1400",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1610336658156-QBGPNTMDQM5ACF94DCJI/enter-the-mystery-cam-keefe-dQlz4itG_M3-r7N3nVs5WIy.1400x1400.jpg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 582465,
+   "h": 720,
+   "key": "sq/1788916023761-ec9hicp8or1o9on9b0rc/2020-12-30-clint-red-pill-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788916023761-EC9HICP8OR1O9ON9B0RC/2020-12-30-clint-red-pill-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2590386,
+   "h": 720,
+   "key": "sq/1789604402935-3eukfjv25jfunmie15hi/2020-12-30-clint-richardson-red-pill-sunday-school-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604402935-3EUKFJV25JFUNMIE15HI/2020-12-30-clint-richardson-red-pill-sunday-school-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 567815,
+   "h": 720,
+   "key": "sq/1788915840577-s6ehebxvgvscow7p1ue0/2020-12-25-benny-wills-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788915840577-S6EHEBXVGVSCOW7P1UE0/2020-12-25-benny-wills-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2560356,
+   "h": 720,
+   "key": "sq/1789604335593-uqk10qzdbfpgw2kaz5ag/2020-12-25-benny-wills-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604335593-UQK10QZDBFPGW2KAZ5AG/2020-12-25-benny-wills-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 481916,
+   "h": 720,
+   "key": "sq/1788915683714-7eaf5oq8xtx3yf29j7fy/2020-12-14-derek-tikkuri-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788915683714-7EAF5OQ8XTX3YF29J7FY/2020-12-14-derek-tikkuri-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2129338,
+   "h": 720,
+   "key": "sq/1789604242563-zphgwh5zlzyx3ztyrujj/2020-12-14-derek-tikkuri-gematrinator-second-wave-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604242563-ZPHGWH5ZLZYX3ZTYRUJJ/2020-12-14-derek-tikkuri-gematrinator-second-wave-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 5473495,
+   "h": 2500,
+   "key": "sq/1607096144854-g5pcsw03jiuk24cuwbdo/dan-shukis",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1607096144854-G5PCSW03JIUK24CUWBDO/dan shukis.jpg",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 528566,
+   "h": 720,
+   "key": "sq/1788915532288-pknxpz893zislr388z05/2020-11-28-tom-barnett-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788915532288-PKNXPZ893ZISLR388Z05/2020-11-28-tom-barnett-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2689476,
+   "h": 720,
+   "key": "sq/1789604177752-e1kv2x94h8l1pjiman6j/2020-11-28-tom-barnett-global-biodynamics-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604177752-E1KV2X94H8L1PJIMAN6J/2020-11-28-tom-barnett-global-biodynamics-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 581704,
+   "h": 720,
+   "key": "sq/1788915396698-84496o5r3l70wbtwuhhj/2020-11-22-sonia-barrett-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788915396698-84496O5R3L70WBTWUHHJ/2020-11-22-sonia-barrett-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2544551,
+   "h": 720,
+   "key": "sq/1789604113392-6p69uel8bz8czxm2gb5s/2020-11-22-sonia-barrett-business-of-disease-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604113392-6P69UEL8BZ8CZXM2GB5S/2020-11-22-sonia-barrett-business-of-disease-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 902036,
+   "h": 1080,
+   "key": "sq/1779207952586-yp7t17c9ckmwdyhnlyxl/dylan-spirit-whirled",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779207952586-YP7T17C9CKMWDYHNLYXL/dylan-spirit-whirled.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3982748,
+   "h": 941,
+   "key": "sq/1779217195256-4pd5qhko0yz0sai1glnw/dylan-saccoccio-spirit-whirled-occult-phonetics-and-natural-law",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779217195256-4PD5QHKO0YZ0SAI1GLNW/Dylan Saccoccio Spirit Whirled, Occult Phonetics, and Natural Law.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2492429,
+   "h": 2142,
+   "key": "sq/1604508456869-n75m3ogtfdsyzszb5sog/mike-brancatelli-innerverse",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1604508456869-N75M3OGTFDSYZSZB5SOG/mike brancatelli innerverse.jpg",
+   "w": 2142,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 455249,
+   "h": 720,
+   "key": "sq/1788915211344-m0rhjwr0abhe2y4dzr9z/2020-10-27-matt-landman-fires-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788915211344-M0RHJWR0ABHE2Y4DZR9Z/2020-10-27-matt-landman-fires-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2342899,
+   "h": 720,
+   "key": "sq/1789604594645-pcworxvi4flwaijuhntd/2020-10-27-matt-landman-west-coast-fires-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604594645-PCWORXVI4FLWAIJUHNTD/2020-10-27-matt-landman-west-coast-fires-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 453667,
+   "h": 720,
+   "key": "sq/1788915070310-tbksbo5acagzj3e9r8ja/2020-10-19-emily-ridout-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788915070310-TBKSBO5ACAGZJ3E9R8JA/2020-10-19-emily-ridout-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2426495,
+   "h": 720,
+   "key": "sq/1789604554011-wzeor64eexskqkeq30n9/2020-10-19-emily-ridout-psychic-energy-vampires-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604554011-WZEOR64EEXSKQKEQ30N9/2020-10-19-emily-ridout-psychic-energy-vampires-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 562591,
+   "h": 1080,
+   "key": "sq/1601077369017-j89g7saaoi3njzcbvafk/multiverse-003-title",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1601077369017-J89G7SAAOI3NJZCBVAFK/MULTIVERSE 003 TITLE.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 534826,
+   "h": 720,
+   "key": "sq/1788914769601-d2uhrvqltjhgacjhbrek/2020-09-25-chance-john-coleman-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788914769601-D2UHRVQLTJHGACJHBREK/2020-09-25-chance-john-coleman-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 545048,
+   "h": 720,
+   "key": "sq/1788914916584-4ibuzlxanxka1l02k4sa/2020-09-25-john-coleman-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788914916584-4IBUZLXANXKA1L02K4SA/2020-09-25-john-coleman-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 499981,
+   "h": 1071,
+   "key": "sq/1600699205566-idyp7gcahkgafdpge5rj/korrine-wilson2-occult-priestess-innerverse",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1600699205566-IDYP7GCAHKGAFDPGE5RJ/korrine wilson2  occult priestess innerverse.jpg",
+   "w": 1071,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 491328,
+   "h": 720,
+   "key": "sq/1788914636624-1f9zfqyblhr5scoj55gf/2020-09-09-frank-castle-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788914636624-1F9ZFQYBLHR5SCOJ55GF/2020-09-09-frank-castle-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2338533,
+   "h": 720,
+   "key": "sq/1789604513932-wwl15g9gmkttxw3vfye5/2020-09-09-frank-castle-frankie-fearless-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604513932-WWL15G9GMKTTXW3VFYE5/2020-09-09-frank-castle-frankie-fearless-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 456558,
+   "h": 720,
+   "key": "sq/1788914433951-8flujmlramv4f0249dm6/2020-09-02-paul-lenda-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788914433951-8FLUJMLRAMV4F0249DM6/2020-09-02-paul-lenda-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2068188,
+   "h": 720,
+   "key": "sq/1789604471510-6zhypcd388mm6wyj77l5/2020-09-02-paul-lenda-shift-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604471510-6ZHYPCD388MM6WYJ77L5/2020-09-02-paul-lenda-shift-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 512529,
+   "h": 941,
+   "key": "sq/1778852950731-7jiiw6sy1uh1xtv0v0sc/eileen-mckusick-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778852950731-7JIIW6SY1UH1XTV0V0SC/eileen-mckusick-1.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 473865,
+   "h": 720,
+   "key": "sq/1788914132121-tuz8td0m8imd2sjt8ilk/2020-08-22-spirit-whirled-landman-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788914132121-TUZ8TD0M8IMD2SJT8ILK/2020-08-22-spirit-whirled-landman-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 373155,
+   "h": 1082,
+   "key": "sq/1597027685404-gw23hh78f19n28dniu3q/bradley-philpott",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1597027685404-GW23HH78F19N28DNIU3Q/bradley philpott.jpg",
+   "w": 1125,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 524718,
+   "h": 720,
+   "key": "sq/1788914003189-za3w7ymbavgz5p2l2hl0/2020-08-09-athen-chimenti-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788914003189-ZA3W7YMBAVGZ5P2L2HL0/2020-08-09-athen-chimenti-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 493209,
+   "h": 720,
+   "key": "sq/1788913877702-gi35gbqhlrl4hp5gw25f/2020-08-03-clint-strawman-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788913877702-GI35GBQHLRL4HP5GW25F/2020-08-03-clint-strawman-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2122470,
+   "h": 720,
+   "key": "sq/1789604161752-imxgbcjkn5t8zlxf6rpw/2020-08-03-clint-richardson-strawman-legal-fiction-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604161752-IMXGBCJKN5T8ZLXF6RPW/2020-08-03-clint-richardson-strawman-legal-fiction-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1246555,
+   "h": 994,
+   "key": "sq/1596386253501-9dmma48wi6m2f2htz0g9/untitled",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1596386253501-9DMMA48WI6M2F2HTZ0G9/Untitled.png",
+   "w": 991,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 475003,
+   "h": 720,
+   "key": "sq/1788896070707-24mch8qtnwudch8ftyfb/2020-07-28-matt-presti-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788896070707-24MCH8QTNWUDCH8FTYFB/2020-07-28-matt-presti-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2194290,
+   "h": 720,
+   "key": "sq/1789591979105-ew5h60d2d8n8xi4esbn6/2020-07-28-matt-presti-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789591979105-EW5H60D2D8N8XI4ESBN6/2020-07-28-matt-presti-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 447873,
+   "h": 1080,
+   "key": "sq/1595786325987-89oj16zt43s9b426d39t/doot-title",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1595786325987-89OJ16ZT43S9B426D39T/doot-title.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 303194,
+   "h": 1079,
+   "key": "sq/1595334959282-efnz8yll2jnabyzb2ojr/la2ura-titl-e",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1595334959282-EFNZ8YLL2JNABYZB2OJR/la2ura-titl;e.jpg",
+   "w": 1102,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 490223,
+   "h": 720,
+   "key": "sq/1788895538501-2caeteu9s4yzuz9km1nc/2020-07-21-diction-of-aries-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788895538501-2CAETEU9S4YZUZ9KM1NC/2020-07-21-diction-of-aries-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 332352,
+   "h": 720,
+   "key": "sq/1788895378423-62aop48df8rdtyww2tsc/2020-07-19-jason-lindgren-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788895378423-62AOP48DF8RDTYWW2TSC/2020-07-19-jason-lindgren-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-10-31T18:03:23+00:00",
+ "skipped": [],
+ "started": "2026-10-31T17:55:24+00:00"
+}
