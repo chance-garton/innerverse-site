@@ -1,0 +1,13 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "0",
+ "bytes_added": 0,
+ "copied": [],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-10-31T13:32:55+00:00",
+ "skipped": [
+  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/d086710b-58e4-42e3-bf40-2286d3f899a6/Eye-Logo.png"
+ ],
+ "started": "2026-10-31T13:32:55+00:00"
+}
