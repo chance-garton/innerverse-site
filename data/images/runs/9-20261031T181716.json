@@ -1,0 +1,1356 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "9",
+ "bytes_added": 96702531,
+ "copied": [
+  {
+   "bytes_added": 1577840,
+   "h": 720,
+   "key": "sq/1789587374305-o24oian4t7628qv2g9yy/jason-lindgren-secrets-of-saturn",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789587374305-O24OIAN4T7628QV2G9YY/jason-lindgren-secrets-of-saturn.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 428948,
+   "h": 720,
+   "key": "sq/1788895091257-yb3zvw4v9j9wpokzjqqn/2020-07-17-crrow777-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788895091257-YB3ZVW4V9J9WPOKZJQQN/2020-07-17-crrow777-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 427144,
+   "h": 720,
+   "key": "sq/1788895263431-hkkp6b03gcfhi0113e0r/2020-07-17-cabin-talk-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788895263431-HKKP6B03GCFHI0113E0R/2020-07-17-cabin-talk-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1874892,
+   "h": 720,
+   "key": "sq/1789591906428-kh8efaln0eim1h2t0yhz/2020-07-17-crrow777-lunar-wave-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789591906428-KH8EFALN0EIM1H2T0YHZ/2020-07-17-crrow777-lunar-wave-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 534042,
+   "h": 720,
+   "key": "sq/1788894970208-5ufm0pujebac0xka9ntt/2020-07-09-joakim-bock-saga-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788894970208-5UFM0PUJEBAC0XKA9NTT/2020-07-09-joakim-bock-saga-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2566199,
+   "h": 720,
+   "key": "sq/1789587068266-bpojyp7z04a9wtzxgqgr/joakim-haggstrom-bock-saga",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789587068266-BPOJYP7Z04A9WTZXGQGR/joakim-haggstrom-bock-saga.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 425412,
+   "h": 720,
+   "key": "sq/1788894829753-7p8s6s4lm8spaqnsbc4n/2020-06-30-yerasimos-sophie-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788894829753-7P8S6S4LM8SPAQNSBC4N/2020-06-30-yerasimos-sophie-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2044134,
+   "h": 720,
+   "key": "sq/1789586609433-od7znvd95qnjqecy5aqb/yerasimos-sophie",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789586609433-OD7ZNVD95QNJQECY5AQB/yerasimos-sophie.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 488769,
+   "h": 720,
+   "key": "sq/1788894709169-mfzch7c6955alafdcomy/2020-06-28-john-ech-electric-sun-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788894709169-MFZCH7C6955ALAFDCOMY/2020-06-28-john-ech-electric-sun-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2464085,
+   "h": 720,
+   "key": "sq/1789586484547-ipbg5upjc5ymf9i83zqj/john-ech-electric-sun",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789586484547-IPBG5UPJC5YMF9I83ZQJ/john-ech-electric-sun.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 472594,
+   "h": 720,
+   "key": "sq/1788894579893-61dhkzmgmt109ma4wa88/2020-06-17-gematrinator-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788894579893-61DHKZMGMT109MA4WA88/2020-06-17-gematrinator-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2281921,
+   "h": 720,
+   "key": "sq/1789591857434-el3hb9uh24r6d2ft1m3u/2020-06-17-gematrinator-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789591857434-EL3HB9UH24R6D2FT1M3U/2020-06-17-gematrinator-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 370665,
+   "h": 720,
+   "key": "sq/1788894455358-500di2iaaskumhlijza5/2020-06-11-matt-landman-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788894455358-500DI2IAASKUMHLIJZA5/2020-06-11-matt-landman-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1967936,
+   "h": 720,
+   "key": "sq/1789591812276-khpjj0mpduefvh9jpegs/2020-06-11-matt-landman-unmasking-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789591812276-KHPJJ0MPDUEFVH9JPEGS/2020-06-11-matt-landman-unmasking-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 158122,
+   "h": 286,
+   "key": "sq/1594328541142-7l4ef5zp940d2ijn71co/a2nnotation-2020-07-09-155348",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1594328541142-7L4EF5ZP940D2IJN71CO/A2nnotation 2020-07-09 155348.png",
+   "w": 311,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 501150,
+   "h": 447,
+   "key": "sq/1594328839044-bpm0nmpp342pnutj174f/image-asset",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1594328839044-BPM0NMPP342PNUTJ174F/image-asset.png",
+   "w": 797,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 601913,
+   "h": 1080,
+   "key": "sq/1789586290428-devgpuepx9ryyagojvro/gematria-reality-by-the-numbers",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789586290428-DEVGPUEPX9RYYAGOJVRO/gematria-reality-by-the-numbers.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 299003,
+   "h": 828,
+   "key": "sq/1590782441960-73q28zlmon5tn65ej0b4/kw-cover",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1590782441960-73Q28ZLMON5TN65EJ0B4/kw cover.jpg",
+   "w": 829,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 496109,
+   "h": 720,
+   "key": "sq/1788894155016-cm6y2y09hi5o0jjgtqih/2020-05-22-john-ech-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788894155016-CM6Y2Y09HI5O0JJGTQIH/2020-05-22-john-ech-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2371990,
+   "h": 720,
+   "key": "sq/1789591722811-rvozy3b7lox1gyd2ih27/2020-05-22-john-ech-aether-force-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789591722811-RVOZY3B7LOX1GYD2IH27/2020-05-22-john-ech-aether-force-plus.png",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 502552,
+   "h": 720,
+   "key": "sq/1788894031540-acgqtfr8zlm6uv7zm21k/2020-05-15-becca-tarnas-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788894031540-ACGQTFR8ZLM6UV7ZM21K/2020-05-15-becca-tarnas-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 413794,
+   "h": 720,
+   "key": "sq/1788893910485-7y81mauftkukbme3dxsx/2020-05-06-david-whitehead-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788893910485-7Y81MAUFTKUKBME3DXSX/2020-05-06-david-whitehead-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 530136,
+   "h": 720,
+   "key": "sq/1788893784283-e90zijbutxg778kcm8za/2020-04-28-michael-wann-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788893784283-E90ZIJBUTXG778KCM8ZA/2020-04-28-michael-wann-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 486029,
+   "h": 720,
+   "key": "sq/1788893648193-2w60d4zp954sgssa3g96/2020-04-27-cosmic-egg-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788893648193-2W60D4ZP954SGSSA3G96/2020-04-27-cosmic-egg-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 477036,
+   "h": 720,
+   "key": "sq/1788879011092-ra324mez0nyly6tto86w/2020-04-21-laurel-airica-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788879011092-RA324MEZ0NYLY6TTO86W/2020-04-21-laurel-airica-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 476027,
+   "h": 720,
+   "key": "sq/1788878705575-ebz1n9tyh01cf7b5y6z8/2020-04-16-shelley-kaehr-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788878705575-EBZ1N9TYH01CF7B5Y6Z8/2020-04-16-shelley-kaehr-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 646112,
+   "h": 960,
+   "key": "sq/1586038508656-bud01y9120mvcy4bnm8k/heather-cover-art",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1586038508656-BUD01Y9120MVCY4BNM8K/heather cover art.jpg",
+   "w": 960,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 344136,
+   "h": 720,
+   "key": "sq/1788878184176-z0enbc6mwzjbusjh24jm/2020-03-30-matt-landman-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788878184176-Z0ENBC6MWZJBUSJH24JM/2020-03-30-matt-landman-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 837275,
+   "h": 2142,
+   "key": "sq/1585319754018-hftg1rgb79yr73laam9u/anthony-guilbert",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1585319754018-HFTG1RGB79YR73LAAM9U/anthony guilbert.jpg",
+   "w": 2142,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1690419,
+   "h": 2142,
+   "key": "sq/1584398315803-auft6tc1rhc8izhp4a13/stacy-vid-art",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1584398315803-AUFT6TC1RHC8IZHP4A13/stacy vid art.jpg",
+   "w": 2142,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2688835,
+   "h": 2500,
+   "key": "sq/1584370081188-4st7g5cjtf8germrme6g/xan",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1584370081188-4ST7G5CJTF8GERMRME6G/xan.jpg",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 486505,
+   "h": 720,
+   "key": "sq/1788877540536-jhd67v2l5byi8bs43pqj/2020-03-12-cfree-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788877540536-JHD67V2L5BYI8BS43PQJ/2020-03-12-cfree-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 468515,
+   "h": 720,
+   "key": "sq/1788877359413-alq9hav9t6pgpmgjbnvp/2020-03-04-becca-tarnas-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788877359413-ALQ9HAV9T6PGPMGJBNVP/2020-03-04-becca-tarnas-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1044056,
+   "h": 1615,
+   "key": "sq/1582727536303-nmocgh7vgcg7wjmnecpo/soohan-cover-art",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1582727536303-NMOCGH7VGCG7WJMNECPO/soohan cover art.jpg",
+   "w": 1615,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 620192,
+   "h": 1080,
+   "key": "sq/1582835321244-h7ov53w7htkztdm4hurc/soohan2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1582835321244-H7OV53W7HTKZTDM4HURC/soohan2.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 530693,
+   "h": 720,
+   "key": "sq/1788877188348-4k8l1g4bkbjpwxud2c84/2020-02-26-soohan-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788877188348-4K8L1G4BKBJPWXUD2C84/2020-02-26-soohan-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 574954,
+   "h": 720,
+   "key": "sq/1788876923172-tykm496hqqsoojixbzy5/2020-02-19-philosophy-guy-1280x720",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788876923172-TYKM496HQQSOOJIXBZY5/2020-02-19-philosophy-guy-1280x720.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 393533,
+   "h": 860,
+   "key": "sq/1577830905954-be9wotjm0zp1a5ssrlax/davv",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1577830905954-BE9WOTJM0ZP1A5SSRLAX/davv.jpg",
+   "w": 860,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 364324,
+   "h": 973,
+   "key": "sq/1577121592925-jvgo6q72e6ggeeczr6e5/mm2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1577121592925-JVGO6Q72E6GGEECZR6E5/mm2.jpg",
+   "w": 973,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 1032741,
+   "h": 2500,
+   "key": "sq/1576531381608-fwmfa3qpbkn1d7ogpnyb/untitled-picture3",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1576531381608-FWMFA3QPBKN1D7OGPNYB/Untitled picture3.jpg",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1260070,
+   "h": 2500,
+   "key": "sq/1575296084794-p9pi8gv1v5qz79xyeqhf/no-title",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1575296084794-P9PI8GV1V5QZ79XYEQHF/no title.jpg",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 981886,
+   "h": 1125,
+   "key": "sq/1574345056531-jmf6s8vfboe7wlpy6xx9/enlight400",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1574345056531-JMF6S8VFBOE7WLPY6XX9/Enlight400.JPG",
+   "w": 1125,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3084512,
+   "h": 1920,
+   "key": "sq/1573481141706-91s6zbkqlss16646zdt9/image-output",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1573481141706-91S6ZBKQLSS16646ZDT9/Image_output.jpeg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 859028,
+   "h": 1080,
+   "key": "sq/1572565500470-9xa3xbbjhd3rgg7qotew/untitled-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1572565500470-9XA3XBBJHD3RGG7QOTEW/Untitled-1.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 814142,
+   "h": 1636,
+   "key": "sq/1572028328398-wsxobp7jau5v2ix91mzj/untitled-picture",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1572028328398-WSXOBP7JAU5V2IX91MZJ/Untitled picture.jpg",
+   "w": 1635,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 911530,
+   "h": 2142,
+   "key": "sq/1571327990585-ntpdne7khyrya2ar42n5/bc",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1571327990585-NTPDNE7KHYRYA2AR42N5/bc.jpg",
+   "w": 2142,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 263129,
+   "h": 750,
+   "key": "sq/1571248648008-tg0vnvb31bbusw5pbmuk/ck",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1571248648008-TG0VNVB31BBUSW5PBMUK/ck.jpg",
+   "w": 750,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 3295276,
+   "h": 1969,
+   "key": "sq/1570108250801-9asbpch90wry9cs30ec0/enlight363",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1570108250801-9ASBPCH90WRY9CS30EC0/Enlight363.JPG",
+   "w": 1969,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 498126,
+   "h": 1071,
+   "key": "sq/1568809434011-e939ek3l4gr4pxpz3vg0/enlight354",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1568809434011-E939EK3L4GR4PXPZ3VG0/Enlight354.jpg",
+   "w": 1071,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 469095,
+   "h": 1365,
+   "key": "sq/1568035900380-f35ch8ph09c4oh41mysw/enlight349",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1568035900380-F35CH8PH09C4OH41MYSW/Enlight349.jpeg",
+   "w": 1365,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 444413,
+   "h": 1080,
+   "key": "sq/1566567884257-jtuyi9p8i1op1oms1cy7/david-krantz-title",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1566567884257-JTUYI9P8I1OP1OMS1CY7/David Krantz Title.jpeg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 601364,
+   "h": 1080,
+   "key": "sq/1563803025841-gyd53duxo9ni7inlwsl3/casey-t",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1563803025841-GYD53DUXO9NI7INLWSL3/casey t.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 553550,
+   "h": 1080,
+   "key": "sq/1563725752711-w9gs36tuvmp7xnjupi3s/keith-title-image",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1563725752711-W9GS36TUVMP7XNJUPI3S/keith title image.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 465842,
+   "h": 1080,
+   "key": "sq/1563046763825-rvcv85i5jy7iojf9uaug/richard-sacks-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1563046763825-RVCV85I5JY7IOJF9UAUG/richard sacks 2.jpeg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 659434,
+   "h": 1080,
+   "key": "sq/1562119465806-zx8xuktxiois86p60j2j/img-3153",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1562119465806-ZX8XUKTXIOIS86P60J2J/IMG_3153.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1050385,
+   "h": 1080,
+   "key": "sq/1544109378857-x8r1jewrviqefgar2d59/115",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1544109378857-X8R1JEWRVIQEFGAR2D59/115.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1670948,
+   "h": 1080,
+   "key": "sq/1540053650846-4hhr21by6kv1smvdx7mq/img-1536",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1540053650846-4HHR21BY6KV1SMVDX7MQ/IMG_1536.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1585571,
+   "h": 1080,
+   "key": "sq/1538783770195-xcbx4rsg0wfhi47v2k09/img-1449",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1538783770195-XCBX4RSG0WFHI47V2K09/IMG_1449.PNG",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 788301,
+   "h": 1080,
+   "key": "sq/1530275348797-7k076iv0imijuvh2kuqw/enlight109",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1530275348797-7K076IV0IMIJUVH2KUQW/Enlight109.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1936477,
+   "h": 2346,
+   "key": "sq/1504187880721-dqu1yvhrpe3qjt888qr5/img-2542",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1504187880721-DQU1YVHRPE3QJT888QR5/IMG_2542.JPG",
+   "w": 2346,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 640351,
+   "h": 1080,
+   "key": "sq/1778095794836-a3o3zosxpnaop98dyx4s/topherplus-thumbnail",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778095794836-A3O3ZOSXPNAOP98DYX4S/topherplus-thumbnail.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 647973,
+   "h": 1080,
+   "key": "sq/1778163181261-200wxi8pievyu3tea4n6/mike-wann-innerverse-the-map-of-time",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778163181261-200WXI8PIEVYU3TEA4N6/Mike-Wann-InnerVerse-the-Map-of-TIme.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 715280,
+   "h": 1080,
+   "key": "sq/1778549964779-8h8ecy4wkz8fhdhhmwdx/mario-plus-thumb",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778549964779-8H8ECY4WKZ8FHDHHMWDX/mario-plus-thumb.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3291703,
+   "h": 941,
+   "key": "sq/1778789699919-85cuvj7lz6hwohygrgf9/chatgpt-image-may-14-2026-03-09-33-pm",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778789699919-85CUVJ7LZ6HWOHYGRGF9/ChatGPT Image May 14, 2026, 03_09_33 PM.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 686985,
+   "h": 1080,
+   "key": "sq/1778851232793-6pezzrhbpc31g5ndyjbw/eileen-mckusick-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778851232793-6PEZZRHBPC31G5NDYJBW/eileen-mckusick-2.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 786701,
+   "h": 941,
+   "key": "sq/1778942826696-0zd5eb66ijfhfw1lq6pc/kurtis-r-kallenbach",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778942826696-0ZD5EB66IJFHFW1LQ6PC/kurtis-r-kallenbach.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 781120,
+   "h": 941,
+   "key": "sq/1778951044915-elc84tpctaq6ujfld7y3/howdie-mckoski-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778951044915-ELC84TPCTAQ6UJFLD7Y3/howdie-mckoski-2.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 757226,
+   "h": 941,
+   "key": "sq/1778955390029-1iko5mop6sqfcutrasuc/crrow-inner-whirled-13",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778955390029-1IKO5MOP6SQFCUTRASUC/crrow-inner-whirled-13.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 812031,
+   "h": 941,
+   "key": "sq/1778959643122-4rx3hwkblm4odmney7sc/inner-whirled-9",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778959643122-4RX3HWKBLM4ODMNEY7SC/inner-whirled-9.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 722098,
+   "h": 941,
+   "key": "sq/1778968283975-mwie1g51c1jtmovs4kcg/inner-whirled-11",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778968283975-MWIE1G51C1JTMOVS4KCG/inner-whirled-11.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 681642,
+   "h": 941,
+   "key": "sq/1778981640068-cewcgzwybnk0gn5rynu3/inner-whirled-10",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778981640068-CEWCGZWYBNK0GN5RYNU3/inner-whirled-10.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 754551,
+   "h": 941,
+   "key": "sq/1779021063204-bruef4rulunkl35c5p4v/inner-whirled-8",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779021063204-BRUEF4RULUNKL35C5P4V/inner-whirled-8.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 596711,
+   "h": 1080,
+   "key": "sq/1779194225223-nzioo20cu1xx6i8nulsd/inner-whirled-22-plus-thumb",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779194225223-NZIOO20CU1XX6I8NULSD/inner-whirled-22-plus-thumb.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 847812,
+   "h": 1080,
+   "key": "sq/1779303490866-mrczulrsxx0hys8r1lpq/inner-whirled-5",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779303490866-MRCZULRSXX0HYS8R1LPQ/inner-whirled-5.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 818054,
+   "h": 1080,
+   "key": "sq/1779468157113-tgfz1vlp8i6ol7qiut4b/inner-whirled-16",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779468157113-TGFZ1VLP8I6OL7QIUT4B/inner-whirled-16.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 959245,
+   "h": 1080,
+   "key": "sq/1779535704642-3q3mm4m0qjkawi9edn19/inner-whirled-17",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779535704642-3Q3MM4M0QJKAWI9EDN19/inner-whirled-17.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 982171,
+   "h": 1080,
+   "key": "sq/1779625275007-j2xq2ysxj2tyh5hn70k0/jack-kelley-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779625275007-J2XQ2YSXJ2TYH5HN70K0/jack-kelley-2.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 552866,
+   "h": 1080,
+   "key": "sq/1779979141701-ns3kywq988nafso6u9ur/bigelsens",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779979141701-NS3KYWQ988NAFSO6U9UR/bigelsens.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1017260,
+   "h": 1080,
+   "key": "sq/1780064151679-cqva7of5w9ekjon5t97n/inner-whirled-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780064151679-CQVA7OF5W9EKJON5T97N/inner-whirled-2.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1056086,
+   "h": 1080,
+   "key": "sq/1780067245389-0km0jsld8gtgi9kv556g/michelle-gibson-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780067245389-0KM0JSLD8GTGI9KV556G/michelle-gibson-1.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 937037,
+   "h": 1080,
+   "key": "sq/1780071635354-3eqnnv8zej3t2hfvez7t/michelle-gibson-3",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780071635354-3EQNNV8ZEJ3T2HFVEZ7T/michelle-gibson-3.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 884505,
+   "h": 1080,
+   "key": "sq/1780154423179-shv4u0w55yli2msrzvgg/michelle-gibson-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780154423179-SHV4U0W55YLI2MSRZVGG/michelle-gibson-2.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 880388,
+   "h": 1080,
+   "key": "sq/1780156819834-rleizvddie3eh3cnf67f/veda-austin",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780156819834-RLEIZVDDIE3EH3CNF67F/veda-austin.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4046232,
+   "h": 941,
+   "key": "sq/1780159576226-4rzueo2roynhal107c7t/water-is-watching-you-the-secret-intelligence-of-the-mirror-world-with-veda-austin",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780159576226-4RZUEO2ROYNHAL107C7T/Water is Watching You The Secret Intelligence of the Mirror World with Veda Austin.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 666508,
+   "h": 1080,
+   "key": "sq/1780165789153-dcna3pesxv5vqee04lec/mark-gober-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780165789153-DCNA3PESXV5VQEE04LEC/mark-gober-1.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 833756,
+   "h": 1080,
+   "key": "sq/1780432720844-zyblih0wq3e6pr73qapd/the-bible-s-scariest-book-is-a-forgery-revelation-mind-war-plus-inner-whirled-episode-23",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780432720844-ZYBLIH0WQ3E6PR73QAPD/The-Bible's-Scariest-Book-Is-a-Forgery-Revelation-Mind-War-PLUS-Inner-Whirled-episode-23.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 892613,
+   "h": 1080,
+   "key": "sq/1780684988650-4z1hc5gczv0jc1i7w2tm/steven-young-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780684988650-4Z1HC5GCZV0JC1I7W2TM/steven-young-1.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 767398,
+   "h": 1080,
+   "key": "sq/1780846917700-bqowkqpm8ijze67skhvb/david-whitehead-cult-of-the-medics",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780846917700-BQOWKQPM8IJZE67SKHVB/david-whitehead-cult-of-the-medics.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 756858,
+   "h": 1080,
+   "key": "sq/1780869723225-pj6o8ojbc08x6y9paj7l/alec-zeck",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780869723225-PJ6O8OJBC08X6Y9PAJ7L/alec-zeck.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 905507,
+   "h": 1080,
+   "key": "sq/1780878373360-exxo5wl13ams0h3ohbc0/inner-whirled-21",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780878373360-EXXO5WL13AMS0H3OHBC0/inner-whirled-21.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 491683,
+   "h": 1080,
+   "key": "sq/1781036533226-u62z0xt1jbc4rs5yn891/isabel-friend",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781036533226-U62Z0XT1JBC4RS5YN891/isabel-friend.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 790538,
+   "h": 1080,
+   "key": "sq/1781275053030-hpc8ojkz3z3ojrcirhvx/santos",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781275053030-HPC8OJKZ3Z3OJRCIRHVX/santos.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 759873,
+   "h": 1080,
+   "key": "sq/1781704166971-e4ay6x0dfezudvoilegl/jason-quit-atlantis",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781704166971-E4AY6X0DFEZUDVOILEGL/jason-quit-atlantis.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 559706,
+   "h": 1080,
+   "key": "sq/1781715426557-n46ws4u0zjd0hsxrorcf/jason-quit-postures-of-power",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781715426557-N46WS4U0ZJD0HSXRORCF/jason-quit-postures-of-power.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 863840,
+   "h": 1080,
+   "key": "sq/1781790873514-n1nohu16nggig1et8qc0/john-munro",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781790873514-N1NOHU16NGGIG1ET8QC0/john-munro.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 469744,
+   "h": 1080,
+   "key": "sq/1781878695585-fjg2kdkzeosrxf8y3it1/shaone",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781878695585-FJG2KDKZEOSRXF8Y3IT1/shaone.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 862334,
+   "h": 1080,
+   "key": "sq/1781888100696-3hm9q2807ppvi2n0mkkh/mario-garza-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781888100696-3HM9Q2807PPVI2N0MKKH/mario-garza-1.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 954939,
+   "h": 1080,
+   "key": "sq/1782237973605-teekzwmpzrl14c6b0146/inner-whirled-24",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782237973605-TEEKZWMPZRL14C6B0146/inner-whirled-24.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 774967,
+   "h": 1080,
+   "key": "sq/1782313435964-o34ms0cx7jcdo21931vy/greg-little",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782313435964-O34MS0CX7JCDO21931VY/greg-little.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1342428,
+   "h": 1080,
+   "key": "sq/1782317818481-owa6xe8lfs0zktdjhk3i/bernie-taylor",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782317818481-OWA6XE8LFS0ZKTDJHK3I/bernie-taylor.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-10-31T18:22:23+00:00",
+ "skipped": [],
+ "started": "2026-10-31T18:17:16+00:00"
+}
