@@ -48,6 +48,7 @@ ADDR = re.compile(
     r"|https?://(?:www\.)?innerversepodcast\.com/s/[^\s\"'<>()\\\]\[]+\.(?:png|jpe?g|gif|webp|svg|avif)",
     re.I,
 )
+WHOLE = re.compile(r"^https?://(?:images\.squarespace-cdn\.com|static1\.squarespace\.com)/\S+(?: [^\n]*)?$")
 SKIP_DIRS = {".git", "node_modules", "dist", "_dryrun", "runs"}
 TEXT_EXT = {".py", ".js", ".css", ".html", ".json", ".md", ".txt", ".yml", ".yaml", ".toml", ".webmanifest", ".src", ".mjs"}
 
@@ -59,7 +60,14 @@ def found(text):
     out = []
     text = text.replace("&amp;", "&").replace("\\/", "/")
     for m in ADDR.findall(text):
-        out.append(m.rstrip(".,;:"))
+        m = m.rstrip(".,;:")
+        if m.endswith("/"):
+            last = m.rstrip("/").rsplit("/", 1)[-1]
+            if not re.search(r"\.(?:png|jpe?g|gif|webp|svg|avif)$", last, re.I) and not re.search(r"/\d{13}/$", m):
+                continue  # a folder or code prefix, not an image (a Squarespace asset ends in its 13 digit timestamp)
+            if re.search(r"\.(?:png|jpe?g|gif|webp|svg|avif)/$", m, re.I):
+                m = m.rstrip("/")
+        out.append(m)
     for m in REL.findall(text):  # relative /s/ file links, as the Biofield page uses
         out.append("https://www.innerversepodcast.com" + m)
     return out
@@ -67,8 +75,12 @@ def found(text):
 
 def walk_json(node, path, emit):
     if isinstance(node, str):
-        for a in found(node):
-            emit(a, path)
+        t = node.strip()
+        if WHOLE.match(t) and "\n" not in t:
+            emit(t, path)  # a field holding just the address (file names can have spaces)
+        else:
+            for a in found(node):
+                emit(a, path)
         s = node.strip()
         if s[:1] in "[{":  # JSON stored inside a text field (quotes, books, chapters)
             try:
@@ -90,6 +102,8 @@ class Inv:
 
     def add(self, raw, use):
         key = normalise(raw)
+        if key.endswith("/") and re.search(r"\.(?:png|jpe?g|gif|webp|svg|avif)/$", key, re.I):
+            key = key.rstrip("/")  # the live pages write a stray slash after the file name
         e = self.imgs[key]
         e["raw"].add(raw.split("?")[0] if "?" in raw else raw)
         sig = json.dumps(use, sort_keys=True)
@@ -124,8 +138,7 @@ def scan_data(inv, ddir):
     for f in ["episodes-index.json", "plus-index.json", "promo.json", "episodes-extra.json", os.path.join("episodes", "_corpus.json")]:
         p = os.path.join(ddir, f)
         if os.path.exists(p):
-            for a in set(found(open(p, encoding="utf-8", errors="ignore").read())):
-                inv.add(a, {"kind": "data-file", "repo": "innerverse-data", "path": f})
+            walk_json(json.load(open(p, encoding="utf-8")), [], lambda a, pth, f=f: inv.add(a, {"kind": "data-file", "repo": "innerverse-data", "path": f}))
     return dates
 
 
@@ -146,6 +159,12 @@ def scan_repo(inv, rdir, repo, kind="repo", cap=None):
                 txt = open(p, encoding="utf-8", errors="ignore").read()
             except OSError:
                 continue
+            if ext == ".json":
+                try:
+                    walk_json(json.loads(txt), [], lambda a, pth, rel=rel: inv.add(a, {"kind": kind, "repo": repo, "path": rel}))
+                    continue
+                except ValueError:
+                    pass
             for a in set(found(txt)):
                 inv.add(a, {"kind": kind, "repo": repo, "path": rel})
 
@@ -189,6 +208,8 @@ def group_of(entry):
     kinds = {u["kind"] for u in uses}
     paths = [u.get("path", "") for u in uses if u["kind"] == "repo" and u.get("repo") == "innerverse-site"]
     site_wide = [p for p in paths if not p.startswith("data/")]
+    if entry.get("noname"):
+        return "leftover"
     if site_wide and not all(p.startswith("src/templates/") for p in site_wide):
         return "sitewide"
     if any(u["kind"] == "live-page" and u["page"] in ("/", "/about", "/biofield-tuning", "/support", "/contact") for u in uses) or \
@@ -241,7 +262,7 @@ def main():
         entries.append(ent)
     slugdate = lambda e: max([dates.get(u.get("slug", ""), "") for u in e["uses"]] + [""])
     for ent in entries:
-        ent["group"] = group_of({"uses": [u for u in inv.imgs[ent["address"]]["uses"]], "raw": inv.imgs[ent["address"]]["raw"]})
+        ent["group"] = group_of({"noname": ent["address"].endswith("/") and not any(u["kind"] == "repo" and u["path"].startswith(("src/", "build/")) for u in inv.imgs[ent["address"]]["uses"]), "uses": [u for u in inv.imgs[ent["address"]]["uses"]], "raw": inv.imgs[ent["address"]]["raw"]})
         ent["_date"] = max([dates.get(u.get("slug", ""), "") for u in inv.imgs[ent["address"]]["uses"]] + [""])
     entries.sort(key=lambda e: (e["group"], e["address"]))
 

@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Batch 0 done (one test image). Stage 1 done 2026-10-31: 910 images found, split into 12 batches (0 to 10 plus "last"). **Next: Stage 2, batch 1 (site-wide images), on Chance's go.** Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (868 images, 12 batches). Batch 0 done. Batch 1 done (11 of 11). **Next: Stage 2, batch 2 (hand-made pages), on Chance's go.** Update this line at the end of every stage.
 
 ## Files here
 
@@ -42,7 +42,13 @@ The run commits the map and its report back to main. Local test without uploadin
 ### 2026-10-31: Stage 1, inventory, done
 
 - Script `tools/images/inventory.py` (reads `normalise()` from `migrate.py`). Outputs `inventory.json` and `batches.json` (batch 0 kept). Nothing copied, nothing changed anywhere else.
-- Found **910 images** (including the batch 0 test image): 884 on `images.squarespace-cdn.com`, 18 on `static1.squarespace.com`, 8 `/s/` Biofield chart files (linked as relative `/s/...` paths, so the scan matches those too).
+- Found **868 images** after the batch 1 clean-up below (including the batch 0 test image): `images.squarespace-cdn.com`, `static1.squarespace.com` and 8 `/s/` Biofield chart files (linked as relative `/s/...` paths, so the scan matches those too).
 - Sources scanned: the Airtable mirror (`innerverse-data`: all 586 per-episode files with their embedded guests and affiliates, plus the index files); every text file in `innerverse-site` and `innerverse-data`; `squarespace-posts.json`; the live pages `/`, `/episodes`, `/plus`, `/about`, `/biofield-tuning`, `/support`, `/contact` (all answered); `chance-garton/inner-circle` (34 images: song cover links in `songs/songs.json`, share pages and the app). No other `chance-garton` repo was checked: the session cannot list the account's repos, only this one was named in the project docs. Nothing was changed in any of them.
 - Airtable was read two ways: the mirror above (it carries every episode field the site shows), and directly through the Airtable connector for the Guests and Promotions tables (the Promotions image is the one Airtable row not in the mirror). The direct rows are saved nowhere in the repo, so `inventory.py --extra` needs them again in Stage 4: the Stage 4 daily run must read Airtable itself (needs an Airtable token secret) or accept the mirror alone.
-- Batches (no per-image size checks, no dead-image check; a dead image shows as a failure when its batch is copied): 1 site-wide 12, 2 hand-made pages 44 (includes the 8 chart files), 3 guest and host portraits 149, 4 to 10 episode images newest first (100 each, last 13; 613 in all), "last" leftovers 91 (affiliate book covers, promo art, song covers, images seen only on live pages). Every image is in one batch only.
+- Batches (no per-image size checks, no dead-image check; a dead image shows as a failure when its batch is copied): 1 site-wide 11, 2 hand-made pages 43 (includes the 8 chart files), 3 guest and host portraits 149, 4 to 10 episode images newest first (100 each, last 5; 605 in all), "last" leftovers 59 (affiliate book covers, promo art, song covers, images seen only on live pages). Every image is in one batch only.
+
+### 2026-10-31: Stage 2, batch 1 (site-wide images), done
+
+- Run 41207835145: copied 11, skipped 0, failed 1, 18,823,378 bytes added (about 18 MB). The 1 failure was not an image: the first inventory had mistaken a bare folder address in the code (`.../content/<site id>/`) for one (HTTP 400). Report kept as `runs/1-20261031T135654.json`.
+- That showed the inventory scan had flaws, so it was fixed and rerun the same day: folder-style and code-prefix addresses are no longer counted, a stray slash after a file name on the live pages is dropped, and file names with spaces are kept whole instead of cut at the first space. Result: 868 images (was 910); batch 1 is now exactly the 11 that copied, so it counts as 11 of 11. Batches 2 onward were rebuilt from the corrected list; none of them had been copied yet. 8 episode-snapshot addresses with no file name stay in "last" and will fail when that batch runs (they are the dead-image list).
+- Checked: all 60 files from the 12 map entries answer from the public address (HEAD, no failures).

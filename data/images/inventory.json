@@ -1,21 +1,21 @@
 {
- "generated": "2026-10-31T13:54:23Z",
- "total": 910,
+ "generated": "2026-10-31T14:01:10Z",
+ "total": 868,
  "by_group": {
-  "episodes": 613,
-  "leftover": 91,
-  "pages": 44,
+  "episodes": 605,
+  "leftover": 59,
+  "pages": 43,
   "portraits": 149,
-  "sitewide": 12
+  "sitewide": 11
  },
  "live_pages": {
-  "/": 17,
-  "/episodes": 176,
-  "/plus": 176,
-  "/about": 22,
-  "/biofield-tuning": 41,
-  "/support": 112,
-  "/contact": 16
+  "/": 15,
+  "/episodes": 174,
+  "/plus": 174,
+  "/about": 20,
+  "/biofield-tuning": 39,
+  "/support": 110,
+  "/contact": 14
  },
  "other_repos": {
   "inner-circle": 34
@@ -12005,9 +12005,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781037045118-E8MAJZGIPWXMO1CE13F2/brandy-gillmore.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781037045118-E8MAJZGIPWXMO1CE13F2/brandy-gillmore.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781037045118-E8MAJZGIPWXMO1CE13F2/brandy-gillmore.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781037045118-E8MAJZGIPWXMO1CE13F2/brandy-gillmore.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -12024,6 +12025,10 @@
      "group": "plus",
      "slug": "brandy-gillmore",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -12371,9 +12376,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781704166971-E4AY6X0DFEZUDVOILEGL/jason-quit-atlantis.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781704166971-E4AY6X0DFEZUDVOILEGL/jason-quit-atlantis.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781704166971-E4AY6X0DFEZUDVOILEGL/jason-quit-atlantis.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781704166971-E4AY6X0DFEZUDVOILEGL/jason-quit-atlantis.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -12390,6 +12396,10 @@
      "group": "plus",
      "slug": "jason-quitt-atlantis",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -12906,9 +12916,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782237973605-TEEKZWMPZRL14C6B0146/inner-whirled-24.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782237973605-TEEKZWMPZRL14C6B0146/inner-whirled-24.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782237973605-TEEKZWMPZRL14C6B0146/inner-whirled-24.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782237973605-TEEKZWMPZRL14C6B0146/inner-whirled-24.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -12925,6 +12936,10 @@
      "group": "plus",
      "slug": "inner-whirled-24",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13202,9 +13217,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782936506430-5S69T3UU208G0MMS2N0Q/chris-crutchfield.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782936506430-5S69T3UU208G0MMS2N0Q/chris-crutchfield.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782936506430-5S69T3UU208G0MMS2N0Q/chris-crutchfield.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782936506430-5S69T3UU208G0MMS2N0Q/chris-crutchfield.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13221,6 +13237,10 @@
      "group": "plus",
      "slug": "chris-crutchfield",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13271,9 +13291,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1783524539684-SVT1ASW2OCHU99LS5O5B/inner-whirled-25.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1783524539684-SVT1ASW2OCHU99LS5O5B/inner-whirled-25.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1783524539684-SVT1ASW2OCHU99LS5O5B/inner-whirled-25.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1783524539684-SVT1ASW2OCHU99LS5O5B/inner-whirled-25.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13290,6 +13311,10 @@
      "group": "plus",
      "slug": "inner-whirled-25",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13340,9 +13365,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784132891794-4WTMN9UCLMCOJ8V5V3VN/inner-whirled-26-plus.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784132891794-4WTMN9UCLMCOJ8V5V3VN/inner-whirled-26-plus.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784132891794-4WTMN9UCLMCOJ8V5V3VN/inner-whirled-26-plus.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784132891794-4WTMN9UCLMCOJ8V5V3VN/inner-whirled-26-plus.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13359,6 +13385,10 @@
      "group": "plus",
      "slug": "inner-whirled-26",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13526,9 +13556,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784668455886-DACYLJGAEPS932ZY9OOP/meg-moonbeam.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784668455886-DACYLJGAEPS932ZY9OOP/meg-moonbeam.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784668455886-DACYLJGAEPS932ZY9OOP/meg-moonbeam.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784668455886-DACYLJGAEPS932ZY9OOP/meg-moonbeam.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13545,6 +13576,10 @@
      "group": "plus",
      "slug": "meg-moonbeam",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13552,9 +13587,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784722233073-JV5RTID7LJNR7BXF1WJM/Secret Superpowers In Your Chart Chiron, Natal Eclipses, & Advanced Astrology with Meg Moonbeam.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784722233073-JV5RTID7LJNR7BXF1WJM/Secret+Superpowers+In+Your+Chart+Chiron%2C+Natal+Eclipses%2C+%26+Advanced+Astrology+with+Meg+Moonbeam.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784722233073-JV5RTID7LJNR7BXF1WJM/Secret+Superpowers+In+Your+Chart+Chiron%2C+Natal+Eclipses%2C+%26+Advanced+Astrology+with+Meg+Moonbeam.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784722233073-JV5RTID7LJNR7BXF1WJM/Secret+Superpowers+In+Your+Chart+Chiron%2C+Natal+Eclipses%2C+%26+Advanced+Astrology+with+Meg+Moonbeam.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -13588,6 +13624,10 @@
      "group": "episodes",
      "slug": "meg-moonbeam",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -13595,9 +13635,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785114817163-HWFXZAOWX7JWB78XL3TH/inner-whirled-27.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785114817163-HWFXZAOWX7JWB78XL3TH/inner-whirled-27.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785114817163-HWFXZAOWX7JWB78XL3TH/inner-whirled-27.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785114817163-HWFXZAOWX7JWB78XL3TH/inner-whirled-27.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13614,6 +13655,10 @@
      "group": "plus",
      "slug": "inner-whirled-27",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13621,9 +13666,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785117351477-ABYB9795GTO52UONA9ZB/They-Lied-About-Tartari--Kirkbride-Asylums-and-Old-World-Evidence-Explained.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785117351477-ABYB9795GTO52UONA9ZB/They-Lied-About-Tartari--Kirkbride-Asylums-and-Old-World-Evidence-Explained.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785117351477-ABYB9795GTO52UONA9ZB/They-Lied-About-Tartari--Kirkbride-Asylums-and-Old-World-Evidence-Explained.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785117351477-ABYB9795GTO52UONA9ZB/They-Lied-About-Tartari--Kirkbride-Asylums-and-Old-World-Evidence-Explained.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -13657,6 +13703,10 @@
      "group": "episodes",
      "slug": "inner-whirled-27",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -13664,9 +13714,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785187103389-LF59ZSX6UICITQR8XYBD/ChatGPT Image Jul 27, 2026, 04_11_30 PM.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785187103389-LF59ZSX6UICITQR8XYBD/ChatGPT+Image+Jul+27%2C+2026%2C+04_11_30+PM.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785187103389-LF59ZSX6UICITQR8XYBD/ChatGPT+Image+Jul+27%2C+2026%2C+04_11_30+PM.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785187103389-LF59ZSX6UICITQR8XYBD/ChatGPT+Image+Jul+27%2C+2026%2C+04_11_30+PM.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -13700,6 +13751,10 @@
      "group": "episodes",
      "slug": "tartaria-chance-garton-fkn",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -13707,9 +13762,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785878800341-72YJSJUXHW44M0SYIJ62/marty-steve-atomism.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785878800341-72YJSJUXHW44M0SYIJ62/marty-steve-atomism.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785878800341-72YJSJUXHW44M0SYIJ62/marty-steve-atomism.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785878800341-72YJSJUXHW44M0SYIJ62/marty-steve-atomism.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13726,6 +13782,10 @@
      "group": "plus",
      "slug": "atoms-dont-exist",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13733,9 +13793,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785879048724-4RGC9SEL4GNYVHOAQGP4/You Can't Prove Atoms Exist  PhD Steven Young (Hedflux) & Marty Leeds (Gnostic Academy).png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785879048724-4RGC9SEL4GNYVHOAQGP4/You+Can%27t+Prove+Atoms+Exist++PhD+Steven+Young+%28Hedflux%29+%26+Marty+Leeds+%28Gnostic+Academy%29.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785879048724-4RGC9SEL4GNYVHOAQGP4/You+Can%27t+Prove+Atoms+Exist++PhD+Steven+Young+%28Hedflux%29+%26+Marty+Leeds+%28Gnostic+Academy%29.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785879048724-4RGC9SEL4GNYVHOAQGP4/You+Can%27t+Prove+Atoms+Exist++PhD+Steven+Young+%28Hedflux%29+%26+Marty+Leeds+%28Gnostic+Academy%29.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -13769,6 +13830,10 @@
      "group": "episodes",
      "slug": "atoms-dont-exist",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -13776,9 +13841,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408306555-61I6K5URWIQE6LXPLQ5H/tamara-plus.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408306555-61I6K5URWIQE6LXPLQ5H/tamara-plus.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408306555-61I6K5URWIQE6LXPLQ5H/tamara-plus.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408306555-61I6K5URWIQE6LXPLQ5H/tamara-plus.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13795,6 +13861,10 @@
      "group": "plus",
      "slug": "tamara-sheville",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13802,9 +13872,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408480379-HHT9QZJPE503WBOJDPR0/Can You Prove Earth Is Round Tamara Sheville's Level Plane Poems.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408480379-HHT9QZJPE503WBOJDPR0/Can+You+Prove+Earth+Is+Round+Tamara+Sheville%27s+Level+Plane+Poems.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408480379-HHT9QZJPE503WBOJDPR0/Can+You+Prove+Earth+Is+Round+Tamara+Sheville%27s+Level+Plane+Poems.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408480379-HHT9QZJPE503WBOJDPR0/Can+You+Prove+Earth+Is+Round+Tamara+Sheville%27s+Level+Plane+Poems.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -13838,6 +13909,10 @@
      "group": "episodes",
      "slug": "tamara-sheville",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -13845,9 +13920,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786888416132-9H0MKV4JJKDLQ2D2TH11/ASTROHERBALISM VIBE RANT LEO INNERVERSE.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786888416132-9H0MKV4JJKDLQ2D2TH11/ASTROHERBALISM+VIBE+RANT+LEO+INNERVERSE.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786888416132-9H0MKV4JJKDLQ2D2TH11/ASTROHERBALISM+VIBE+RANT+LEO+INNERVERSE.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786888416132-9H0MKV4JJKDLQ2D2TH11/ASTROHERBALISM+VIBE+RANT+LEO+INNERVERSE.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -13881,6 +13957,10 @@
      "group": "episodes",
      "slug": "leo-astroherbalism",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -13888,9 +13968,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787156207676-QX9NDXO54BBVL0UD09CP/inner-whirled-28.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787156207676-QX9NDXO54BBVL0UD09CP/inner-whirled-28.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787156207676-QX9NDXO54BBVL0UD09CP/inner-whirled-28.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787156207676-QX9NDXO54BBVL0UD09CP/inner-whirled-28.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13907,6 +13988,10 @@
      "group": "plus",
      "slug": "inner-whirled-28",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13914,9 +13999,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787157184446-KFWJHWVY6DQHRK10EG0M/Did They Finally Find a Tartaria Witness.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787157184446-KFWJHWVY6DQHRK10EG0M/Did+They+Finally+Find+a+Tartaria+Witness.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787157184446-KFWJHWVY6DQHRK10EG0M/Did+They+Finally+Find+a+Tartaria+Witness.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787157184446-KFWJHWVY6DQHRK10EG0M/Did+They+Finally+Find+a+Tartaria+Witness.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -13950,6 +14036,10 @@
      "group": "episodes",
      "slug": "inner-whirled-28",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -13957,9 +14047,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787677150689-E2IF1GJMEE3SCUITG9M5/Chicago-Great-Fire-PLUS-thumbnail-innerverse.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787677150689-E2IF1GJMEE3SCUITG9M5/Chicago-Great-Fire-PLUS-thumbnail-innerverse.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787677150689-E2IF1GJMEE3SCUITG9M5/Chicago-Great-Fire-PLUS-thumbnail-innerverse.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787677150689-E2IF1GJMEE3SCUITG9M5/Chicago-Great-Fire-PLUS-thumbnail-innerverse.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -13976,6 +14067,10 @@
      "group": "plus",
      "slug": "great-chicago-fire",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -13983,9 +14078,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788276557210-IHF44OO6CKJN61MMKC2X/ChatGPT Image Aug 25, 2026, 10_45_03 AM.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788276557210-IHF44OO6CKJN61MMKC2X/ChatGPT+Image+Aug+25%2C+2026%2C+10_45_03+AM.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788276557210-IHF44OO6CKJN61MMKC2X/ChatGPT+Image+Aug+25%2C+2026%2C+10_45_03+AM.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788276557210-IHF44OO6CKJN61MMKC2X/ChatGPT+Image+Aug+25%2C+2026%2C+10_45_03+AM.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -14019,6 +14115,10 @@
      "group": "episodes",
      "slug": "great-chicago-fire",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -14026,9 +14126,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788293113510-QI7ASVQ6S5MMY3VC8ZWW/The-Greek-Myth-That-Wasn't-Greek-PLUS.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788293113510-QI7ASVQ6S5MMY3VC8ZWW/The-Greek-Myth-That-Wasn%27t-Greek-PLUS.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788293113510-QI7ASVQ6S5MMY3VC8ZWW/The-Greek-Myth-That-Wasn%27t-Greek-PLUS.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788293113510-QI7ASVQ6S5MMY3VC8ZWW/The-Greek-Myth-That-Wasn%27t-Greek-PLUS.png/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -14045,6 +14146,10 @@
      "group": "plus",
      "slug": "inner-whirled-29",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -14052,9 +14157,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788297697955-AF0EF2BE0UBMWZWFLEL1/The Greek Myth That Wasn't Greek.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788297697955-AF0EF2BE0UBMWZWFLEL1/The+Greek+Myth+That+Wasn%27t+Greek.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788297697955-AF0EF2BE0UBMWZWFLEL1/The+Greek+Myth+That+Wasn%27t+Greek.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788297697955-AF0EF2BE0UBMWZWFLEL1/The+Greek+Myth+That+Wasn%27t+Greek.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -14066,6 +14172,10 @@
      "group": "episodes",
      "slug": "inner-whirled-29",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -14221,9 +14331,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788706058000-0NSKC0RSGCUKJ4TIT4OW/hereforthetruth tartaria exposed chance garton.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788706058000-0NSKC0RSGCUKJ4TIT4OW/hereforthetruth+tartaria+exposed+chance+garton.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788706058000-0NSKC0RSGCUKJ4TIT4OW/hereforthetruth+tartaria+exposed+chance+garton.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788706058000-0NSKC0RSGCUKJ4TIT4OW/hereforthetruth+tartaria+exposed+chance+garton.jpg/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -14257,6 +14368,10 @@
      "group": "episodes",
      "slug": "hfft-tartaria-exposed",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -14264,9 +14379,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788721633155-3WQVOGJ9D5CPTNOJ40KX/marty-mario-keys-to-tarot.jpg",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788721633155-3WQVOGJ9D5CPTNOJ40KX/marty-mario-keys-to-tarot.jpg"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788721633155-3WQVOGJ9D5CPTNOJ40KX/marty-mario-keys-to-tarot.jpg",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788721633155-3WQVOGJ9D5CPTNOJ40KX/marty-mario-keys-to-tarot.jpg/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -14283,6 +14399,10 @@
      "group": "plus",
      "slug": "keys-to-the-tarot",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -15999,9 +16119,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788961397049-0MDPLYUBE2X3QVC5IL6P/The Hidden Science of Tarot Marty Leeds and Mario Garza.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788961397049-0MDPLYUBE2X3QVC5IL6P/The+Hidden+Science+of+Tarot+Marty+Leeds+and+Mario+Garza.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788961397049-0MDPLYUBE2X3QVC5IL6P/The+Hidden+Science+of+Tarot+Marty+Leeds+and+Mario+Garza.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788961397049-0MDPLYUBE2X3QVC5IL6P/The+Hidden+Science+of+Tarot+Marty+Leeds+and+Mario+Garza.png/"
    ],
-   "use_count": 6,
+   "use_count": 7,
    "uses": [
     {
      "kind": "airtable",
@@ -16035,6 +16156,10 @@
      "group": "episodes",
      "slug": "keys-to-the-tarot",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -17127,9 +17252,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789567335139-ZCVQRJJFEAWSMLIHHX4N/The Secret of Syncretism & Sexual Energy with Santos Bonacci & Sidereal vs Tropical Astrology.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789567335139-ZCVQRJJFEAWSMLIHHX4N/The+Secret+of+Syncretism+%26+Sexual+Energy+with+Santos+Bonacci+%26+Sidereal+vs+Tropical+Astrology.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789567335139-ZCVQRJJFEAWSMLIHHX4N/The+Secret+of+Syncretism+%26+Sexual+Energy+with+Santos+Bonacci+%26+Sidereal+vs+Tropical+Astrology.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789567335139-ZCVQRJJFEAWSMLIHHX4N/The+Secret+of+Syncretism+%26+Sexual+Energy+with+Santos+Bonacci+%26+Sidereal+vs+Tropical+Astrology.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -17141,6 +17267,10 @@
      "group": "episodes",
      "slug": "santos-bonacci-syncretism-astrology",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -17148,9 +17278,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789568552495-0SKTMKOZUX0D3HJKVL4I/ASTROHERBALISM VIRGO INNERVERSE.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789568552495-0SKTMKOZUX0D3HJKVL4I/ASTROHERBALISM+VIRGO+INNERVERSE.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789568552495-0SKTMKOZUX0D3HJKVL4I/ASTROHERBALISM+VIRGO+INNERVERSE.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789568552495-0SKTMKOZUX0D3HJKVL4I/ASTROHERBALISM+VIRGO+INNERVERSE.png/"
    ],
-   "use_count": 8,
+   "use_count": 9,
    "uses": [
     {
      "kind": "airtable",
@@ -17194,6 +17325,10 @@
      "group": "episodes",
      "slug": "astroherbalism-virgo",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -19661,9 +19796,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912715222-EMH78AJCI9J78BOKTZW9/What Connects Christianity Tarot the Stars Astrotheology 101.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912715222-EMH78AJCI9J78BOKTZW9/What+Connects+Christianity+Tarot+the+Stars+Astrotheology+101.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912715222-EMH78AJCI9J78BOKTZW9/What+Connects+Christianity+Tarot+the+Stars+Astrotheology+101.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912715222-EMH78AJCI9J78BOKTZW9/What+Connects+Christianity+Tarot+the+Stars+Astrotheology+101.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -19675,6 +19811,10 @@
      "group": "episodes",
      "slug": "astrotheology-101",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -19682,9 +19822,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912850930-GIGKRUM91PB11U59T3LB/What Connects Christianity Tarot the Stars Astrotheology 101.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912850930-GIGKRUM91PB11U59T3LB/What+Connects+Christianity+Tarot+the+Stars+Astrotheology+101.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912850930-GIGKRUM91PB11U59T3LB/What+Connects+Christianity+Tarot+the+Stars+Astrotheology+101.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912850930-GIGKRUM91PB11U59T3LB/What+Connects+Christianity+Tarot+the+Stars+Astrotheology+101.png/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -19701,6 +19842,10 @@
      "group": "plus",
      "slug": "astrotheology-101",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -19708,9 +19853,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790522262012-3XMJYEXI17TO521T8J7U/nathan-oakley-why-the-globe-needs-a-flat-earth.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790522262012-3XMJYEXI17TO521T8J7U/nathan-oakley-why-the-globe-needs-a-flat-earth.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790522262012-3XMJYEXI17TO521T8J7U/nathan-oakley-why-the-globe-needs-a-flat-earth.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790522262012-3XMJYEXI17TO521T8J7U/nathan-oakley-why-the-globe-needs-a-flat-earth.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -19722,6 +19868,10 @@
      "group": "episodes",
      "slug": "nathanoakley1980",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -19729,9 +19879,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790537672647-WGEZC2EDXN5T93UMOLZU/nathan-oakley-why-the-globe-needs-a-flat-earth.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790537672647-WGEZC2EDXN5T93UMOLZU/nathan-oakley-why-the-globe-needs-a-flat-earth.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790537672647-WGEZC2EDXN5T93UMOLZU/nathan-oakley-why-the-globe-needs-a-flat-earth.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790537672647-WGEZC2EDXN5T93UMOLZU/nathan-oakley-why-the-globe-needs-a-flat-earth.png/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -19748,6 +19899,10 @@
      "group": "plus",
      "slug": "nathanoakley1980",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -19992,9 +20147,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125127734-SWXZ6LPMIV1BYNXBRD54/inner-whirled-30.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125127734-SWXZ6LPMIV1BYNXBRD54/inner-whirled-30.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125127734-SWXZ6LPMIV1BYNXBRD54/inner-whirled-30.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125127734-SWXZ6LPMIV1BYNXBRD54/inner-whirled-30.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -20006,6 +20162,10 @@
      "group": "episodes",
      "slug": "inner-whirled-30",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -20013,9 +20173,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125129194-1JH7RJFYDWM67ZN1IQ7I/inner-whirled-30.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125129194-1JH7RJFYDWM67ZN1IQ7I/inner-whirled-30.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125129194-1JH7RJFYDWM67ZN1IQ7I/inner-whirled-30.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125129194-1JH7RJFYDWM67ZN1IQ7I/inner-whirled-30.png/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -20032,6 +20193,10 @@
      "group": "plus",
      "slug": "inner-whirled-30",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -20717,9 +20882,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717419583-U63WT2OPLA4FP3CMO3ZW/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717419583-U63WT2OPLA4FP3CMO3ZW/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717419583-U63WT2OPLA4FP3CMO3ZW/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717419583-U63WT2OPLA4FP3CMO3ZW/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -20731,6 +20897,10 @@
      "group": "episodes",
      "slug": "dawn-lester-terrain-parenting",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -20738,9 +20908,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717501262-FF9HNLZWB79AG5G5DD0L/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717501262-FF9HNLZWB79AG5G5DD0L/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717501262-FF9HNLZWB79AG5G5DD0L/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717501262-FF9HNLZWB79AG5G5DD0L/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -20757,6 +20928,10 @@
      "group": "plus",
      "slug": "dawn-lester-terrain-parenting",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -20764,9 +20939,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326753470-JXFB5AGXG7MVKP52X991/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326753470-JXFB5AGXG7MVKP52X991/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326753470-JXFB5AGXG7MVKP52X991/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326753470-JXFB5AGXG7MVKP52X991/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -20778,6 +20954,10 @@
      "group": "episodes",
      "slug": "inner-whirled-31",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -20785,9 +20965,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326754877-I4JFA7JUHOHRR01DUDC5/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326754877-I4JFA7JUHOHRR01DUDC5/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326754877-I4JFA7JUHOHRR01DUDC5/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326754877-I4JFA7JUHOHRR01DUDC5/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -20804,6 +20985,10 @@
      "group": "plus",
      "slug": "inner-whirled-31",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -20811,9 +20996,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792599827217-VWT4RRIEFO4PRB7W1O8J/libra-herbs-goddess-of-balance.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792599827217-VWT4RRIEFO4PRB7W1O8J/libra-herbs-goddess-of-balance.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792599827217-VWT4RRIEFO4PRB7W1O8J/libra-herbs-goddess-of-balance.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792599827217-VWT4RRIEFO4PRB7W1O8J/libra-herbs-goddess-of-balance.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -20825,6 +21011,10 @@
      "group": "episodes",
      "slug": "astroherbalism-libra",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -21042,9 +21232,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944348805-Q2PWMJ2XWQAM9PZCMJEQ/kyle-denton-herbal-dentistry-2.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944348805-Q2PWMJ2XWQAM9PZCMJEQ/kyle-denton-herbal-dentistry-2.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944348805-Q2PWMJ2XWQAM9PZCMJEQ/kyle-denton-herbal-dentistry-2.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944348805-Q2PWMJ2XWQAM9PZCMJEQ/kyle-denton-herbal-dentistry-2.png/"
    ],
-   "use_count": 2,
+   "use_count": 3,
    "uses": [
     {
      "kind": "repo",
@@ -21056,6 +21247,10 @@
      "group": "episodes",
      "slug": "kyle-denton-herbal-dentistry",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/episodes"
     }
    ],
    "group": "episodes"
@@ -21063,9 +21258,10 @@
   {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944350202-NZ24XAHRPW8WPS9XF17I/kyle-denton-herbal-dentistry-2.png",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944350202-NZ24XAHRPW8WPS9XF17I/kyle-denton-herbal-dentistry-2.png"
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944350202-NZ24XAHRPW8WPS9XF17I/kyle-denton-herbal-dentistry-2.png",
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944350202-NZ24XAHRPW8WPS9XF17I/kyle-denton-herbal-dentistry-2.png/"
    ],
-   "use_count": 3,
+   "use_count": 4,
    "uses": [
     {
      "kind": "data-file",
@@ -21082,6 +21278,10 @@
      "group": "plus",
      "slug": "kyle-denton-herbal-dentistry",
      "field": "image"
+    },
+    {
+     "kind": "live-page",
+     "page": "/plus"
     }
    ],
    "group": "episodes"
@@ -21103,209 +21303,6 @@
      "group": "episodes",
      "slug": "cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast",
      "field": "body"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69729e1c29bb4370bfa7ea72/6a0a806bed3b9e731003bbef/1788965355789/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69729e1c29bb4370bfa7ea72/6a0a806bed3b9e731003bbef/1788965355789/"
-   ],
-   "use_count": 2,
-   "uses": [
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "episodes",
-     "slug": "inner-whirled-15",
-     "field": "image"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cbdb85a671fce8e7ea9/1789759773040/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cbdb85a671fce8e7ea9/1789759773040/"
-   ],
-   "use_count": 3,
-   "uses": [
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "plus-index.json"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "plus",
-     "slug": "sophie-fletcher-human-design",
-     "field": "image"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cff0404081282bacce3/1789759773458/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cff0404081282bacce3/1789759773458/"
-   ],
-   "use_count": 3,
-   "uses": [
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "plus-index.json"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "plus",
-     "slug": "mike-wann-syncromystic",
-     "field": "image"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8d386d92b643fba84a1d/1789759773881/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8d386d92b643fba84a1d/1789759773881/"
-   ],
-   "use_count": 3,
-   "uses": [
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "plus-index.json"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "plus",
-     "slug": "clint-richardson-private-bloodlines",
-     "field": "image"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbb560e4a3712908a1857/1789770744164/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbb560e4a3712908a1857/1789770744164/"
-   ],
-   "use_count": 3,
-   "uses": [
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "plus-index.json"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "plus",
-     "slug": "paranoid-american-ai-thomas-gorence",
-     "field": "image"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbb60e4a3712908a207e/1789770744658/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbb60e4a3712908a207e/1789770744658/"
-   ],
-   "use_count": 3,
-   "uses": [
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "plus-index.json"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "plus",
-     "slug": "symbolic-studies-kabbalah",
-     "field": "image"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbcdbf2bce6acfa078a9/1789770745161/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbcdbf2bce6acfa078a9/1789770745161/"
-   ],
-   "use_count": 3,
-   "uses": [
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "plus-index.json"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "plus",
-     "slug": "parallel-mike",
-     "field": "image"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbe49696da59cb2c709a/1789770745634/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbe49696da59cb2c709a/1789770745634/"
-   ],
-   "use_count": 3,
-   "uses": [
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "plus-index.json"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "plus",
-     "slug": "seed-sistas",
-     "field": "image"
     }
    ],
    "group": "episodes"
@@ -22841,90 +22838,6 @@
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781037045118-E8MAJZGIPWXMO1CE13F2/brandy-gillmore.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781037045118-E8MAJZGIPWXMO1CE13F2/brandy-gillmore.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781704166971-E4AY6X0DFEZUDVOILEGL/jason-quit-atlantis.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781704166971-E4AY6X0DFEZUDVOILEGL/jason-quit-atlantis.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782237973605-TEEKZWMPZRL14C6B0146/inner-whirled-24.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782237973605-TEEKZWMPZRL14C6B0146/inner-whirled-24.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782936506430-5S69T3UU208G0MMS2N0Q/chris-crutchfield.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782936506430-5S69T3UU208G0MMS2N0Q/chris-crutchfield.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1783524539684-SVT1ASW2OCHU99LS5O5B/inner-whirled-25.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1783524539684-SVT1ASW2OCHU99LS5O5B/inner-whirled-25.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784132891794-4WTMN9UCLMCOJ8V5V3VN/inner-whirled-26-plus.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784132891794-4WTMN9UCLMCOJ8V5V3VN/inner-whirled-26-plus.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784137886568-KVUH2MF5UQ9EOCTO04HV/crrow777-1st.jpg",
    "raw_forms": [
     "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784137886568-KVUH2MF5UQ9EOCTO04HV/crrow777-1st.jpg"
@@ -22945,477 +22858,204 @@
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784668455886-DACYLJGAEPS932ZY9OOP/meg-moonbeam.jpg/",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69729e1c29bb4370bfa7ea72/6a0a806bed3b9e731003bbef/1788965355789/",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784668455886-DACYLJGAEPS932ZY9OOP/meg-moonbeam.jpg/"
+    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69729e1c29bb4370bfa7ea72/6a0a806bed3b9e731003bbef/1788965355789/"
    ],
-   "use_count": 1,
+   "use_count": 2,
    "uses": [
     {
-     "kind": "live-page",
-     "page": "/plus"
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
+    {
+     "kind": "post-snapshot",
+     "group": "episodes",
+     "slug": "inner-whirled-15",
+     "field": "image"
     }
    ],
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784722233073-JV5RTID7LJNR7BXF1WJM/Secret Superpowers In Your Chart Chiron, Natal Eclipses, & Advanced Astrology with Meg Moonbeam.png/",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cbdb85a671fce8e7ea9/1789759773040/",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784722233073-JV5RTID7LJNR7BXF1WJM/Secret+Superpowers+In+Your+Chart+Chiron%2C+Natal+Eclipses%2C+%26+Advanced+Astrology+with+Meg+Moonbeam.png/"
+    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cbdb85a671fce8e7ea9/1789759773040/"
    ],
-   "use_count": 1,
+   "use_count": 3,
    "uses": [
     {
-     "kind": "live-page",
-     "page": "/episodes"
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "plus-index.json"
+    },
+    {
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
+    {
+     "kind": "post-snapshot",
+     "group": "plus",
+     "slug": "sophie-fletcher-human-design",
+     "field": "image"
     }
    ],
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785114817163-HWFXZAOWX7JWB78XL3TH/inner-whirled-27.jpg/",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cff0404081282bacce3/1789759773458/",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785114817163-HWFXZAOWX7JWB78XL3TH/inner-whirled-27.jpg/"
+    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8cff0404081282bacce3/1789759773458/"
    ],
-   "use_count": 1,
+   "use_count": 3,
    "uses": [
     {
-     "kind": "live-page",
-     "page": "/plus"
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "plus-index.json"
+    },
+    {
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
+    {
+     "kind": "post-snapshot",
+     "group": "plus",
+     "slug": "mike-wann-syncromystic",
+     "field": "image"
     }
    ],
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785117351477-ABYB9795GTO52UONA9ZB/They-Lied-About-Tartari--Kirkbride-Asylums-and-Old-World-Evidence-Explained.png/",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8d386d92b643fba84a1d/1789759773881/",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785117351477-ABYB9795GTO52UONA9ZB/They-Lied-About-Tartari--Kirkbride-Asylums-and-Old-World-Evidence-Explained.png/"
+    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aad8d386d92b643fba84a1d/1789759773881/"
    ],
-   "use_count": 1,
+   "use_count": 3,
    "uses": [
     {
-     "kind": "live-page",
-     "page": "/episodes"
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "plus-index.json"
+    },
+    {
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
+    {
+     "kind": "post-snapshot",
+     "group": "plus",
+     "slug": "clint-richardson-private-bloodlines",
+     "field": "image"
     }
    ],
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785187103389-LF59ZSX6UICITQR8XYBD/ChatGPT Image Jul 27, 2026, 04_11_30 PM.png/",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbb560e4a3712908a1857/1789770744164/",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785187103389-LF59ZSX6UICITQR8XYBD/ChatGPT+Image+Jul+27%2C+2026%2C+04_11_30+PM.png/"
+    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbb560e4a3712908a1857/1789770744164/"
    ],
-   "use_count": 1,
+   "use_count": 3,
    "uses": [
     {
-     "kind": "live-page",
-     "page": "/episodes"
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "plus-index.json"
+    },
+    {
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
+    {
+     "kind": "post-snapshot",
+     "group": "plus",
+     "slug": "paranoid-american-ai-thomas-gorence",
+     "field": "image"
     }
    ],
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785878800341-72YJSJUXHW44M0SYIJ62/marty-steve-atomism.jpg/",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbb60e4a3712908a207e/1789770744658/",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785878800341-72YJSJUXHW44M0SYIJ62/marty-steve-atomism.jpg/"
+    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbb60e4a3712908a207e/1789770744658/"
    ],
-   "use_count": 1,
+   "use_count": 3,
    "uses": [
     {
-     "kind": "live-page",
-     "page": "/plus"
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "plus-index.json"
+    },
+    {
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
+    {
+     "kind": "post-snapshot",
+     "group": "plus",
+     "slug": "symbolic-studies-kabbalah",
+     "field": "image"
     }
    ],
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785879048724-4RGC9SEL4GNYVHOAQGP4/You Can't Prove Atoms Exist  PhD Steven Young (Hedflux) & Marty Leeds (Gnostic Academy).png/",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbcdbf2bce6acfa078a9/1789770745161/",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1785879048724-4RGC9SEL4GNYVHOAQGP4/You+Can%27t+Prove+Atoms+Exist++PhD+Steven+Young+%28Hedflux%29+%26+Marty+Leeds+%28Gnostic+Academy%29.png/"
+    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbcdbf2bce6acfa078a9/1789770745161/"
    ],
-   "use_count": 1,
+   "use_count": 3,
    "uses": [
     {
-     "kind": "live-page",
-     "page": "/episodes"
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "plus-index.json"
+    },
+    {
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
+    {
+     "kind": "post-snapshot",
+     "group": "plus",
+     "slug": "parallel-mike",
+     "field": "image"
     }
    ],
    "group": "leftover"
   },
   {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408306555-61I6K5URWIQE6LXPLQ5H/tamara-plus.jpg/",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbe49696da59cb2c709a/1789770745634/",
    "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408306555-61I6K5URWIQE6LXPLQ5H/tamara-plus.jpg/"
+    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbe49696da59cb2c709a/1789770745634/"
    ],
-   "use_count": 1,
+   "use_count": 3,
    "uses": [
     {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408480379-HHT9QZJPE503WBOJDPR0/Can You Prove Earth Is Round Tamara Sheville's Level Plane Poems.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786408480379-HHT9QZJPE503WBOJDPR0/Can+You+Prove+Earth+Is+Round+Tamara+Sheville%27s+Level+Plane+Poems.png/"
-   ],
-   "use_count": 1,
-   "uses": [
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "plus-index.json"
+    },
     {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786888416132-9H0MKV4JJKDLQ2D2TH11/ASTROHERBALISM VIBE RANT LEO INNERVERSE.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1786888416132-9H0MKV4JJKDLQ2D2TH11/ASTROHERBALISM+VIBE+RANT+LEO+INNERVERSE.png/"
-   ],
-   "use_count": 1,
-   "uses": [
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
     {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787156207676-QX9NDXO54BBVL0UD09CP/inner-whirled-28.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787156207676-QX9NDXO54BBVL0UD09CP/inner-whirled-28.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787157184446-KFWJHWVY6DQHRK10EG0M/Did They Finally Find a Tartaria Witness.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787157184446-KFWJHWVY6DQHRK10EG0M/Did+They+Finally+Find+a+Tartaria+Witness.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787677150689-E2IF1GJMEE3SCUITG9M5/Chicago-Great-Fire-PLUS-thumbnail-innerverse.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1787677150689-E2IF1GJMEE3SCUITG9M5/Chicago-Great-Fire-PLUS-thumbnail-innerverse.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788276557210-IHF44OO6CKJN61MMKC2X/ChatGPT Image Aug 25, 2026, 10_45_03 AM.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788276557210-IHF44OO6CKJN61MMKC2X/ChatGPT+Image+Aug+25%2C+2026%2C+10_45_03+AM.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788293113510-QI7ASVQ6S5MMY3VC8ZWW/The-Greek-Myth-That-Wasn't-Greek-PLUS.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788293113510-QI7ASVQ6S5MMY3VC8ZWW/The-Greek-Myth-That-Wasn%27t-Greek-PLUS.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788297697955-AF0EF2BE0UBMWZWFLEL1/The Greek Myth That Wasn't Greek.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788297697955-AF0EF2BE0UBMWZWFLEL1/The+Greek+Myth+That+Wasn%27t+Greek.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788706058000-0NSKC0RSGCUKJ4TIT4OW/hereforthetruth tartaria exposed chance garton.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788706058000-0NSKC0RSGCUKJ4TIT4OW/hereforthetruth+tartaria+exposed+chance+garton.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788721633155-3WQVOGJ9D5CPTNOJ40KX/marty-mario-keys-to-tarot.jpg/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788721633155-3WQVOGJ9D5CPTNOJ40KX/marty-mario-keys-to-tarot.jpg/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788961397049-0MDPLYUBE2X3QVC5IL6P/The Hidden Science of Tarot Marty Leeds and Mario Garza.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788961397049-0MDPLYUBE2X3QVC5IL6P/The+Hidden+Science+of+Tarot+Marty+Leeds+and+Mario+Garza.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789567335139-ZCVQRJJFEAWSMLIHHX4N/The Secret of Syncretism & Sexual Energy with Santos Bonacci & Sidereal vs Tropical Astrology.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789567335139-ZCVQRJJFEAWSMLIHHX4N/The+Secret+of+Syncretism+%26+Sexual+Energy+with+Santos+Bonacci+%26+Sidereal+vs+Tropical+Astrology.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789568552495-0SKTMKOZUX0D3HJKVL4I/ASTROHERBALISM VIRGO INNERVERSE.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789568552495-0SKTMKOZUX0D3HJKVL4I/ASTROHERBALISM+VIRGO+INNERVERSE.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912715222-EMH78AJCI9J78BOKTZW9/What Connects Christianity Tarot the Stars Astrotheology 101.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912715222-EMH78AJCI9J78BOKTZW9/What+Connects+Christianity+Tarot+the+Stars+Astrotheology+101.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912850930-GIGKRUM91PB11U59T3LB/What Connects Christianity Tarot the Stars Astrotheology 101.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789912850930-GIGKRUM91PB11U59T3LB/What+Connects+Christianity+Tarot+the+Stars+Astrotheology+101.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790522262012-3XMJYEXI17TO521T8J7U/nathan-oakley-why-the-globe-needs-a-flat-earth.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790522262012-3XMJYEXI17TO521T8J7U/nathan-oakley-why-the-globe-needs-a-flat-earth.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790537672647-WGEZC2EDXN5T93UMOLZU/nathan-oakley-why-the-globe-needs-a-flat-earth.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790537672647-WGEZC2EDXN5T93UMOLZU/nathan-oakley-why-the-globe-needs-a-flat-earth.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125127734-SWXZ6LPMIV1BYNXBRD54/inner-whirled-30.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125127734-SWXZ6LPMIV1BYNXBRD54/inner-whirled-30.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125129194-1JH7RJFYDWM67ZN1IQ7I/inner-whirled-30.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791125129194-1JH7RJFYDWM67ZN1IQ7I/inner-whirled-30.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717419583-U63WT2OPLA4FP3CMO3ZW/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717419583-U63WT2OPLA4FP3CMO3ZW/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717501262-FF9HNLZWB79AG5G5DD0L/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717501262-FF9HNLZWB79AG5G5DD0L/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326753470-JXFB5AGXG7MVKP52X991/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326753470-JXFB5AGXG7MVKP52X991/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326754877-I4JFA7JUHOHRR01DUDC5/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792326754877-I4JFA7JUHOHRR01DUDC5/Is-Fomenko-Legit--Checking-the-Receipts-On-New-Chronology.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792599827217-VWT4RRIEFO4PRB7W1O8J/libra-herbs-goddess-of-balance.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792599827217-VWT4RRIEFO4PRB7W1O8J/libra-herbs-goddess-of-balance.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944348805-Q2PWMJ2XWQAM9PZCMJEQ/kyle-denton-herbal-dentistry-2.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944348805-Q2PWMJ2XWQAM9PZCMJEQ/kyle-denton-herbal-dentistry-2.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    }
-   ],
-   "group": "leftover"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944350202-NZ24XAHRPW8WPS9XF17I/kyle-denton-herbal-dentistry-2.png/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944350202-NZ24XAHRPW8WPS9XF17I/kyle-denton-herbal-dentistry-2.png/"
-   ],
-   "use_count": 1,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/plus"
+     "kind": "post-snapshot",
+     "group": "plus",
+     "slug": "seed-sistas",
+     "field": "image"
     }
    ],
    "group": "leftover"
@@ -24000,44 +23640,6 @@
    "address": "https://static1.squarespace.com/static/versioned-site-css/5987d897cf81e0278ec5322e/204/5c5a519771c10ba3470d8101/669aa8fc9068f30fa1093f61/1847/site.css",
    "raw_forms": [
     "https://static1.squarespace.com/static/versioned-site-css/5987d897cf81e0278ec5322e/204/5c5a519771c10ba3470d8101/669aa8fc9068f30fa1093f61/1847/site.css"
-   ],
-   "use_count": 7,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/"
-    },
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    },
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    },
-    {
-     "kind": "live-page",
-     "page": "/about"
-    },
-    {
-     "kind": "live-page",
-     "page": "/biofield-tuning"
-    },
-    {
-     "kind": "live-page",
-     "page": "/support"
-    },
-    {
-     "kind": "live-page",
-     "page": "/contact"
-    }
-   ],
-   "group": "pages"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/scripts/",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/scripts/"
    ],
    "use_count": 7,
    "uses": [
@@ -31327,59 +30929,6 @@
     }
    ],
    "group": "portraits"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/"
-   ],
-   "use_count": 10,
-   "uses": [
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "src/js/episode.js"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "src/js/home.js"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "build/common.py"
-    },
-    {
-     "kind": "live-page",
-     "page": "/"
-    },
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    },
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    },
-    {
-     "kind": "live-page",
-     "page": "/about"
-    },
-    {
-     "kind": "live-page",
-     "page": "/biofield-tuning"
-    },
-    {
-     "kind": "live-page",
-     "page": "/support"
-    },
-    {
-     "kind": "live-page",
-     "page": "/contact"
-    }
-   ],
-   "group": "sitewide"
   },
   {
    "address": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/5f54aa66-6f0f-473b-91ca-6fcb9d07373f/InnerVerse Inner Whirled Podcast Patreon.png",
