@@ -4,6 +4,10 @@ Running log for the move of the site's images off Squarespace into Cloudflare R2
 Brief: `claude/BRIEF-image-migration-2026-10-30.md` in Chance's Claude project.
 Every stage adds a dated entry here: what was done, counts, commit ids, anything odd.
 
+## Status (the only place it is kept)
+
+Stage 0 done. Batch 0 done (one test image). **Next: Stage 1, the inventory, on Chance's go.** Update this line at the end of every stage.
+
 ## Files here
 
 - `batches.json`: the copy batches, by name. Each has `what` and `images` (Squarespace addresses).
@@ -18,6 +22,12 @@ The run commits the map and its report back to main. Local test without uploadin
 
 ## Log
 
+### 2026-10-30 to 31: Stage 0, setup, done
+
+- Bucket `innerverse-images` created by Chance (Standard, Eastern North America); temporary public r2.dev address switched on.
+- R2 token created 2026-10-31. Its first values were pasted into a chat, so Chance replaced it and entered the new values in the five repository secrets himself before batch 0 ran (confirmed by Chance). Secret names were checked on the GitHub settings page; values never read.
+- The final image address (`images.innerversepodcast.com`, needs Cloudflare to run the DNS) is still Chance's open decision; testing uses the r2.dev address.
+
 ### 2026-10-31: Stage 2, batch 0 (one test image), done
 
 - Tool `tools/images/migrate.py` and workflow `.github/workflows/images.yml` added (commit c6411eb). `batches.json` holds only batch 0 for now; Stage 1 (inventory) adds the real batches and keeps batch 0.
@@ -26,3 +36,4 @@ The run commits the map and its report back to main. Local test without uploadin
 - Checked from outside GitHub: all four files answer at `https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev/sq/d086710b-58e4-42e3-bf40-2286d3f899a6/eye-logo/` with the right content type and `Cache-Control: public, max-age=31536000, immutable`. So the R2 secrets are correct.
 - Rerun 41206041220: copied 0, skipped 1, failed 0 (rerunning is safe).
 - Bucket key pattern in use: `sq/<image id>/<clean name>/orig.<ext>` and `w<width>.webp`; `/s/` files go to `files/<clean name>/`.
+- Batch 0 was run before Stage 1 on Chance's ask ("do a test image migration before we go about with the inventory").
