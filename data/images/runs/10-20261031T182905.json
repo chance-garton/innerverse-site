@@ -1,0 +1,68 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "10",
+ "bytes_added": 2851889,
+ "copied": [
+  {
+   "bytes_added": 672833,
+   "h": 1080,
+   "key": "sq/1782328752662-e7s0br4oguae4g6j1p7u/marty-leeds-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782328752662-E7S0BR4OGUAE4G6J1P7U/marty-leeds-1.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 899968,
+   "h": 1080,
+   "key": "sq/1784212345904-zdkh20s9to5ut5gcgp3b/barre-lando",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784212345904-ZDKH20S9TO5UT5GCGP3B/barre-lando.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 693745,
+   "h": 1080,
+   "key": "sq/1788363380353-n11jhn58mvse7z3dkisu/george-wiseman-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788363380353-N11JHN58MVSE7Z3DKISU/george-wiseman-1.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 585343,
+   "h": 1080,
+   "key": "sq/1788367570994-9qjz09ibxdoje7mhcgp2/george-wiseman-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788367570994-9QJZ09IBXDOJE7MHCGP2/george-wiseman-2.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-10-31T18:29:21+00:00",
+ "skipped": [],
+ "started": "2026-10-31T18:29:05+00:00"
+}

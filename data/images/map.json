@@ -12775,6 +12775,35 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782328752662-E7S0BR4OGUAE4G6J1P7U/marty-leeds-1.jpg": {
+  "bytes": {
+   "orig.jpg": 352519,
+   "w1000.webp": 81162,
+   "w1500.webp": 141282,
+   "w300.webp": 14322,
+   "w500.webp": 29704,
+   "w750.webp": 53844
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1782328752662-e7s0br4oguae4g6j1p7u/marty-leeds-1",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782333936422-MA5IN4LTT5JDTPEPMURF/The Golden Orphism Book Oldest Book in the World, Or Fake Ancient Etruscan Artifact.png": {
   "bytes": {
    "orig.png": 3997403,
@@ -13028,6 +13057,35 @@
   "h": 941,
   "key": "sq/1784212135841-m211fdi0gkl39l2gmi8f/radiesthesia-biogeometry-and-walter-russell-s-waveforms-with-dr-barre-lando-of-alfa-vedic",
   "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1784212345904-ZDKH20S9TO5UT5GCGP3B/barre-lando.jpg": {
+  "bytes": {
+   "orig.jpg": 437430,
+   "w1000.webp": 119760,
+   "w1500.webp": 208730,
+   "w300.webp": 17730,
+   "w500.webp": 39616,
+   "w750.webp": 76702
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1784212345904-zdkh20s9to5ut5gcgp3b/barre-lando",
+  "w": 1920,
   "widths": [
    300,
    500,
@@ -13500,6 +13558,35 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788363380353-N11JHN58MVSE7Z3DKISU/george-wiseman-1.jpg": {
+  "bytes": {
+   "orig.jpg": 360915,
+   "w1000.webp": 84456,
+   "w1500.webp": 145138,
+   "w300.webp": 15076,
+   "w500.webp": 31774,
+   "w750.webp": 56386
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1788363380353-n11jhn58mvse7z3dkisu/george-wiseman-1",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788364563852-7XFUXKNEE30L4046ZNXL/George Wiseman on Brown's Gas, Hydrogen, and the AquaCure.png": {
   "bytes": {
    "orig.png": 3431372,
@@ -13521,6 +13608,35 @@
   "h": 941,
   "key": "sq/1788364563852-7xfuxknee30l4046znxl/george-wiseman-on-brown-s-gas-hydrogen-and-the-aquacure",
   "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1788367570994-9QJZ09IBXDOJE7MHCGP2/george-wiseman-2.jpg": {
+  "bytes": {
+   "orig.jpg": 305307,
+   "w1000.webp": 71616,
+   "w1500.webp": 115232,
+   "w300.webp": 14714,
+   "w500.webp": 28962,
+   "w750.webp": 49512
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1788367570994-9qjz09ibxdoje7mhcgp2/george-wiseman-2",
+  "w": 1920,
   "widths": [
    300,
    500,
