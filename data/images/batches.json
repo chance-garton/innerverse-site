@@ -923,5 +923,24 @@
    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbcdbf2bce6acfa078a9/1789770745161/",
    "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69fb5fbe81c2754069402815/6aadbbe49696da59cb2c709a/1789770745634/"
   ]
+ },
+ "gap-1": {
+  "what": "14 images the Stage 1 scan missed because the code builds their address from pieces (platform icons, InnerVerse logo, quote card frame, homepage hero portraits); found in Stage 3",
+  "images": [
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/5d0e8860-e033-455f-a928-ac117245bcd8/InnerVerse+Podcast+Logo.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/97ea4460-fa59-4cec-aeb7-738c2a811286/SUBSTACK.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a71319bb-a7f7-4bc7-934e-227cfea475d7/PATREON.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/2d9b38a3-e7fd-48a4-93fc-72391a9e8b41/APPLE.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/e25969fb-b848-4f61-bdb8-f4fb1953c3f6/SPOTIFY.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/084be10d-b58a-4cce-8e56-0ec65d279c5d/RUMBLE.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/8b43cf98-5e5a-4d66-b17c-e53003e00ba3/SHARE.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/bec737af-11ac-4d1d-b28c-5c5717a15a94/text.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/49f44b8f-7aa0-4f45-87dd-b590e1a74520/INSTA.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/3bfe10e1-b999-4d2b-9912-eaef614c6cd2/TELEGRAM.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/803e4681-439b-4acd-943a-b7a6d5149626/copy-link.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/d103f353-b80d-4fc1-aa9b-9f55ee195c83/Quote+Card+Frame.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/9c1dfacf-dd4d-4987-95d7-3a2a1a57d65d/Chance-Garton-hero-circular-feather-Portrait.png",
+   "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/0d1c6b4a-baa8-46a6-8e7a-7b5ad8f90fd5/Chance-Garton-hero-Portrait.png"
+  ]
  }
 }
