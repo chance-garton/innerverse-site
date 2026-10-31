@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (865 images, 12 batches). Batches 0 to 9 done (about 1.2 GB stored). **Next: Stage 2, batch 10 (the last 4 episode images), then "last" (60 leftovers), on Chance's go (one batch per go).** Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done: every batch copied and checked (865 of 865, about 1.26 GB stored, no failures in the final state). **Next: Stage 3, point the new site at the copies (test address only), on Chance's go.** Update this line at the end of every stage.
 
 ## Files here
 
@@ -94,3 +94,11 @@ The run commits the map and its report back to main. Local test without uploadin
 
 - Run 41228643234: copied 100, skipped 0, failed 0, 96,702,531 bytes added (about 97 MB). Total image storage so far: about 1.21 GB, under the 5 GB stop line. Report `runs/9-20261031T181716.json`.
 - Checked: a random 40 of the 544 files answer from the public address with the right type; all 100 are in the map.
+
+### 2026-10-31: Stage 2, batches 10 and last, done; Stage 2 complete
+
+- Batch 10: run 41229617460, copied 4, failed 0, 2,851,889 bytes. Report `runs/10-20261031T182905.json`.
+- Batch last: run 41229958559, copied 60, skipped 0, failed 0, 40,353,662 bytes (about 40 MB). Report `runs/last-20261031T183311.json`. The 8 episode addresses that have no file name in the old snapshot did copy fine, so there is no dead-image list: nothing failed in the final state (the only earlier failures were false entries in the first inventory, fixed on batches 1 and 2).
+- Checked: all 865 inventory images are in `map.json`; a random sample of files from both batches answers from the public address with the right type (0 bad).
+- Totals: 865 of 865 copied, about 1.26 GB of image data stored (original plus sizes), well under the 5 GB stop line. Run both batches back to back at Chance's word (2026-10-31), with a few minutes between them.
+- Still open for later stages: Stage 3 lookup must apply `normalise()` twice (see the batch 2 note); the final image address is still Chance's open decision (r2.dev is testing only).
