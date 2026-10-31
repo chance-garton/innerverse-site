@@ -1,0 +1,25 @@
+{
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/d086710b-58e4-42e3-bf40-2286d3f899a6/Eye-Logo.png": {
+  "bytes": {
+   "orig.png": 248470,
+   "w300.webp": 12862,
+   "w500.webp": 20196,
+   "w750.webp": 34460
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp"
+  ],
+  "h": 998,
+  "key": "sq/d086710b-58e4-42e3-bf40-2286d3f899a6/eye-logo",
+  "w": 998,
+  "widths": [
+   300,
+   500,
+   750
+  ]
+ }
+}
