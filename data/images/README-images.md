@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done: every batch copied and checked (865 of 865, about 1.26 GB stored, no failures in the final state). **Next: Stage 3, point the new site at the copies (test address only), on Chance's go.** Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). **Next: Stage 4, stay in sync until the switch, on Chance's go.** Open for later: the bucket needs a CORS rule before the switch (see the Stage 3 entry); the final image address is still Chance's decision. Update this line at the end of every stage.
 
 ## Files here
 
@@ -102,3 +102,19 @@ The run commits the map and its report back to main. Local test without uploadin
 - Checked: all 865 inventory images are in `map.json`; a random sample of files from both batches answers from the public address with the right type (0 bad).
 - Totals: 865 of 865 copied, about 1.26 GB of image data stored (original plus sizes), well under the 5 GB stop line. Run both batches back to back at Chance's word (2026-10-31), with a few minutes between them.
 - Still open for later stages: Stage 3 lookup must apply `normalise()` twice (see the batch 2 note); the final image address is still Chance's open decision (r2.dev is testing only).
+
+### 2026-10-31: Stage 3, the new site points at the copies (test address only), done
+
+- Commit 99a5082 (code), on top of 705a2e1 and 31b4548 (batch gap-1). Live site, Airtable and Code Injection untouched.
+- `iv_img` (build/common.py) and `window.ivImg` (head script) now look an address up in the map, with `normalise()` applied twice (the Python side imports it from `migrate.py`; the JavaScript side mirrors it). Found: the R2 WebP at the smallest width that is at least the one asked for, else the largest; the original file when an image has no WebP sizes. Not found: exactly as before. `window.ivImgR2` is the lookup alone, `window.ivImgSq` the old behaviour.
+- The browser's lookup is `assets/img-map.js` (7.7 KB, cached, versioned with the other assets): one 9 character entry per image (32 bit hash of the bucket key, original type, widths). The build stops if two keys ever hash alike.
+- Every finished page also swaps any copied Squarespace image address it carries (templates, episode bodies, JSON-LD) for its R2 file: the width it asked for with `format=`, or the largest WebP. Page data (`<script type="application/json">`) keeps the Squarespace addresses; the scripts map them through `ivImg` and keep them as a fallback. Share images (`og:image`, `twitter:image`) use the original file (PNG or JPEG), as crawlers expect.
+- Fixed script images (logos, platform icons, homepage hero portraits, Plus logo) now go through the lookup too. The preconnect hint points at the image base instead of Squarespace.
+- The eight Biofield Tuning `/s/` chart links point at their R2 originals (they fall back to the live site only if one is ever missing from the map).
+- One setting for the image base: `IMAGE_BASE` in `build/common.py` (or the `IV_IMAGE_BASE` environment variable). Today the r2.dev address, testing only.
+- `migrate.py` now imports Pillow only where it resizes, so the site build can import `normalise()` and `key_for()` without installing it.
+- **Batch gap-1:** 14 images were never in the inventory because the code builds their address from pieces (`CDN + id + name + suffix`): ten platform icons, the InnerVerse logo, the quote card frame and the two homepage hero portraits. Run 41231568434: copied 14, failed 0, 11,135,651 bytes. (A first dispatch, 41231467674, started before the batch was pushed and failed harmlessly.) Stage 4's build check (Squarespace addresses in built pages not in the map) is what catches this kind of miss from now on; `inventory.py` still does not see addresses built from pieces.
+- **CORS, needed before the switch:** the bucket sends no `Access-Control-Allow-Origin` header (Squarespace's CDN sends `*`). Normal images do not care, but the quote share card draws the frame, logo and portrait onto a canvas, which needs it. Until the bucket has a CORS rule (R2, bucket `innerverse-images`, Settings, CORS policy: allow GET from any origin), the card falls back to the Squarespace address for those three images only, on click. Once the rule exists the fallback never fires; it must exist before Squarespace is cancelled.
+- Checked on the test address after the deploy: homepage, /episodes, /plus, /about, /biofield-tuning, 10 episode pages and 5 /plus pages, at 1440x900 and 390x844 (40 loads): 0 images from Squarespace, 0 failed or broken images, 0 script errors, same image count on every page as before. Built pages carry 0 Squarespace image addresses outside page data.
+- Page weight, same 20 pages measured before and after in the same headless browser: images 33.1 MB down to 12.4 MB at 1440x900 and 38.5 MB down to 15.8 MB at 390x844; no page got heavier. Examples at 1440: homepage 2.1 MB to 0.9 MB, /episodes/thomas-zinser 2.8 MB to 0.8 MB, /biofield-tuning 4.9 MB to 2.9 MB. Side by side with the live site (/biofield-tuning, /episodes/thomas-zinser, homepage): no visible difference.
+
