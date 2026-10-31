@@ -1,0 +1,1373 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "5",
+ "bytes_added": 209661608,
+ "copied": [
+  {
+   "bytes_added": 759226,
+   "h": 1080,
+   "key": "sq/1778161820629-j5kdzbzrkjvq2bqpl1i4/new-plus-thumbnail",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778161820629-J5KDZBZRKJVQ2BQPL1I4/New-Plus-Thumbnail.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 345175,
+   "h": 1080,
+   "key": "sq/1744485108053-ohqwkpbraafgim0lf5pm/james-frosch-innerverse-square-thumbnail",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1744485108053-OHQWKPBRAAFGIM0LF5PM/James-Frosch-InnerVerse-Square-Thumbnail.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 572508,
+   "h": 1080,
+   "key": "sq/1778161921456-xemt46n74stdjypqzkom/james-frosch-innerverse-family-fungi-thumbnail-3",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778161921456-XEMT46N74STDJYPQZKOM/James-Frosch-InnerVerse-Family-Fungi-Thumbnail-3.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 961106,
+   "h": 941,
+   "key": "sq/1779018626665-p3adh10uw6uben9gu0tx/inner-whirled-14",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779018626665-P3ADH10UW6UBEN9GU0TX/inner-whirled-14.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4497951,
+   "h": 941,
+   "key": "sq/1779018884741-ssnm7ig63h989rs5z1ed/what-does-amen-really-mean-decoding-the-ancient-roots-of-the-word-symbolism-and-astro-theology",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779018884741-SSNM7IG63H989RS5Z1ED/What Does Amen Really Mean Decoding the Ancient Roots of the Word Symbolism and Astro-Theology.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3601562,
+   "h": 941,
+   "key": "sq/1778932848550-ys2no7ao3yfcttouikwb/58d232f3-dc78-4ab2-ba81-3ac4cd4e1dab",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778932848550-YS2NO7AO3YFCTTOUIKWB/58d232f3-dc78-4ab2-ba81-3ac4cd4e1dab.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1001546,
+   "h": 1080,
+   "key": "sq/1780583821039-i410noq2iebqgbq9un5a/robert-fludd-marty-leeds-stephen-young",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780583821039-I410NOQ2IEBQGBQ9UN5A/robert-fludd-marty-leeds-stephen-young.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 8465348,
+   "h": 1395,
+   "key": "sq/1780583927762-85s0kb2crtui5o1zxalh/the-alchemist-erased-by-history-robert-fludd-vs-kepler-marty-leeds-stephen-young",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780583927762-85S0KB2CRTUI5O1ZXALH/The Alchemist Erased by History Robert Fludd vs Kepler  Marty Leeds & Stephen Young.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3736579,
+   "h": 941,
+   "key": "sq/1779719426947-d487z2apo84d47q778f7/germs-are-friends-not-foes-terrain-medicine-and-pleomorphism-jacob-diaz-undercover-virologist",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779719426947-D487Z2APO84D47Q778F7/Germs Are Friends Not Foes Terrain Medicine and Pleomorphism  Jacob Diaz (Undercover Virologist).png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 715006,
+   "h": 1080,
+   "key": "sq/1779719484862-o8mq3yw9ospsp6hn46cc/jacob-diaz",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779719484862-O8MQ3YW9OSPSP6HN46CC/jacob-diaz.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 687575,
+   "h": 1080,
+   "key": "sq/1741060402695-a0pw0erm7ybkyi4uowkr/untitled-11",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1741060402695-A0PW0ERM7YBKYI4UOWKR/Untitled-11.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 887340,
+   "h": 1080,
+   "key": "sq/1778162344060-uml2a6dbi0dp0i7v38tk/new-plus-thumbnail-david-pantano",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778162344060-UML2A6DBI0DP0I7V38TK/New-Plus-Thumbnail-david-pantano.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3978653,
+   "h": 941,
+   "key": "sq/1780242898581-9l1639dw3eazjgxd9vq2/why-everything-you-were-taught-about-physics-is-upside-down-with-mark-gober-and-topher-gardner",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780242898581-9L1639DW3EAZJGXD9VQ2/Why Everything You Were Taught About Physics is Upside Down with Mark Gober and Topher Gardner.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 587116,
+   "h": 1080,
+   "key": "sq/1740163779426-5zto72tocipphoopnerp/vibe-rant",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1740163779426-5ZTO72TOCIPPHOOPNERP/vibe-rant.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3770500,
+   "h": 941,
+   "key": "sq/1778953503395-cxoqx1wkfc0kkr4brruc/crrow777-the-bible-is-a-star-map-the-acceptable-year-and-the-12-zodiac-tribes",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778953503395-CXOQX1WKFC0KKR4BRRUC/Crrow777 The Bible Is a Star Map the Acceptable Year and the 12 Zodiac Tribes.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 416343,
+   "h": 1080,
+   "key": "sq/1739477645962-i0s5tc5p4yroc77vrtqx/square",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1739477645962-I0S5TC5P4YROC77VRTQX/square.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 374352,
+   "h": 660,
+   "key": "sq/1738778029723-8mxi83hdtdb7scdtxvjt/ollantay-sun-temple-stone-sq",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1738778029723-8MXI83HDTDB7SCDTXVJT/Ollantay-sun-temple-stone-sq.jpg",
+   "w": 660,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 812502,
+   "h": 1080,
+   "key": "sq/1778162453498-hqutjrtu9tqnifcfxoay/new-plus-thumbnail",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778162453498-HQUTJRTU9TQNIFCFXOAY/New-Plus-Thumbnail.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3837962,
+   "h": 941,
+   "key": "sq/1779713234440-kui6fi99pyh0mtjza4n1/nature-is-alive-shamanic-herbal-and-doctrine-of-signatures-herbalists-matthew-wood-kyle-denton",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779713234440-KUI6FI99PYH0MTJZA4N1/Nature Is Alive Shamanic Herbal and Doctrine of Signatures  Herbalists Matthew Wood & Kyle Denton.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 763582,
+   "h": 1080,
+   "key": "sq/1779713317452-4o338reooytus4kppal4/matthew-wood",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779713317452-4O338REOOYTUS4KPPAL4/matthew-wood.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 969563,
+   "h": 941,
+   "key": "sq/1779019587848-moeky1gjzg3lg6s8zsdl/inner-whirled-12",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779019587848-MOEKY1GJZG3LG6S8ZSDL/inner-whirled-12.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4559252,
+   "h": 941,
+   "key": "sq/1779019691599-xvdealw815dbtpbt1lm6/why-is-jesus-called-lord-the-etymology-of-kyrios-innerverse",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779019691599-XVDEALW815DBTPBT1LM6/Why Is Jesus Called Lord The Etymology of Kyrios  InnerVerse.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4221342,
+   "h": 941,
+   "key": "sq/1780754398608-k03c9jh3miwkkn1dad82/the-forgotten-science-of-fire-water-earth-and-air-steven-young",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780754398608-K03C9JH3MIWKKN1DAD82/The Forgotten Science of Fire, Water, Earth, and Air  Steven Young.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1012658,
+   "h": 1080,
+   "key": "sq/1780754565149-4uz6l3hbh286ech0lqsr/steven-young-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780754565149-4UZ6L3HBH286ECH0LQSR/steven-young-2.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 460975,
+   "h": 1080,
+   "key": "sq/1736450351869-ytaqmkxn0ufevsh4q89t/vibe-rant",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1736450351869-YTAQMKXN0UFEVSH4Q89T/vibe-rant.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 619509,
+   "h": 1080,
+   "key": "sq/1789123482706-3yrdo1086t5o1hlxcqhj/90-minutes-with-a-ghost-chris-bores-the-ghost-doctor-innerverse",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789123482706-3YRDO1086T5O1HLXCQHJ/90 Minutes With a Ghost - Chris Bores The Ghost Doctor - InnerVerse.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 619509,
+   "h": 1080,
+   "key": "sq/1789123536052-f5r0v6s5gv0wf03c2mwz/90-minutes-with-a-ghost-chris-bores-the-ghost-doctor-innerverse",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789123536052-F5R0V6S5GV0WF03C2MWZ/90 Minutes With a Ghost - Chris Bores The Ghost Doctor - InnerVerse.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1802271,
+   "h": 2500,
+   "key": "sq/1735662645314-598ps88wfxpxlqopdt05/img-6786",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1735662645314-598PS88WFXPXLQOPDT05/IMG_6786.JPG",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 362872,
+   "h": 720,
+   "key": "sq/1790858237391-4ugtvpliswggd8pfeikz/vibe-rant-153-maiden-to-mother",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790858237391-4UGTVPLISWGGD8PFEIKZ/Vibe Rant 153 Maiden to Mother.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 497606,
+   "h": 720,
+   "key": "sq/1790858473203-mm48on87x0f4kmlr70zn/vibe-rant-152-peace-dealer",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790858473203-MM48ON87X0F4KMLR70ZN/Vibe Rant 152 Peace Dealer.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1270936,
+   "h": 2500,
+   "key": "sq/1733855763362-3ubqkmfi9akojfrl1v3o/img-6670",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1733855763362-3UBQKMFI9AKOJFRL1V3O/IMG_6670.JPG",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3457321,
+   "h": 1500,
+   "key": "sq/1789663524759-9c8hja6ob2v0bfrabztx/2024-12-10-deepak-chari-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663524759-9C8HJA6OB2V0BFRABZTX/2024-12-10-deepak-chari-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 359104,
+   "h": 720,
+   "key": "sq/1790858336825-0wcpud46rc1pcrb77nvd/vibe-rant-151-moshe-daniel-block",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790858336825-0WCPUD46RC1PCRB77NVD/Vibe Rant 151 Moshe Daniel Block.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 4149712,
+   "h": 941,
+   "key": "sq/1781896213833-noju1nxor1sycdmy1cja/theory-praxis-why-philosophers-never-say-what-they-mean-with-slick-dissident",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781896213833-NOJU1NXOR1SYCDMY1CJA/Theory & Praxis Why Philosophers Never Say What They Mean, with Slick Dissident.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 997499,
+   "h": 1080,
+   "key": "sq/1781896306190-zxykvei2v28r6n4lehwj/slick-dissident-theory-and-praxis",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781896306190-ZXYKVEI2V28R6N4LEHWJ/slick-dissident-theory-and-praxis.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 809250,
+   "h": 2500,
+   "key": "sq/1732642362015-3ib9isosmvsxb1wgxi9z/img-6593",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1732642362015-3IB9ISOSMVSXB1WGXI9Z/IMG_6593.JPG",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3289118,
+   "h": 1500,
+   "key": "sq/1789663431400-717037zmxzrxxigbr5l4/2024-11-26-moshe-daniel-block-jewish-identity-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663431400-717037ZMXZRXXIGBR5L4/2024-11-26-moshe-daniel-block-jewish-identity-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 280192,
+   "h": 720,
+   "key": "sq/1790858379390-vt9l9j72g96v5an99rcn/vibe-rant-150-king-of-the-world",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790858379390-VT9L9J72G96V5AN99RCN/Vibe Rant 150 King of the World.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 8687625,
+   "h": 1395,
+   "key": "sq/1778968434773-0pyb0rzszslexhkljy96/who-was-melchizedek-the-mystery-king-at-the-origin-of-every-religion",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778968434773-0PYB0RZSZSLEXHKLJY96/Who Was Melchizedek The Mystery King at the Origin of Every Religion.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1963239,
+   "h": 2500,
+   "key": "sq/1731345450498-uz0rag7gi0l0d1ytwnqn/img-6279",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1731345450498-UZ0RAG7GI0L0D1YTWNQN/IMG_6279.JPG",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 5327716,
+   "h": 1500,
+   "key": "sq/1789663391460-330v495yiwyaj6wybpwo/2024-11-11-brandy-anderson-afterlife-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663391460-330V495YIWYAJ6WYBPWO/2024-11-11-brandy-anderson-afterlife-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 471083,
+   "h": 720,
+   "key": "sq/1790858430981-11af6ljpgqd1jsatanhb/vibe-rant-149-infinite-paradox",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790858430981-11AF6LJPGQD1JSATANHB/Vibe Rant 149 Infinite Paradox.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 579691,
+   "h": 1080,
+   "key": "sq/1780230571621-aa83bh2uctslfkysponx/mark-gober-3",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780230571621-AA83BH2UCTSLFKYSPONX/mark-gober-3.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2224925,
+   "h": 768,
+   "key": "sq/1780230781976-o99jxdvdiif1b4kk8l7z/science-is-a-house-of-cards-the-96-dark-matter-delusion-upside-down-cosmos-with-mark-gober",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780230781976-O99JXDVDIIF1B4KK8L7Z/Science is a House of Cards The 96% Dark Matter Delusion  Upside Down Cosmos with Mark Gober.png",
+   "w": 1365,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 417244,
+   "h": 720,
+   "key": "sq/1790895231931-1tondremf21up5i71mn2/vibe-rant-148-halloween-dad-rant",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790895231931-1TONDREMF21UP5I71MN2/Vibe Rant 148 Halloween Dad Rant.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1872453,
+   "h": 2500,
+   "key": "sq/1728929397136-fxktp6lh2ahkxk7it46w/img-5905",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1728929397136-FXKTP6LH2AHKXK7IT46W/IMG_5905.JPG",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 5772885,
+   "h": 1500,
+   "key": "sq/1789663350489-cbvyhzi511ypy7xe0bj3/2024-10-14-stellium7-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663350489-CBVYHZI511YPY7XE0BJ3/2024-10-14-stellium7-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 236587,
+   "h": 720,
+   "key": "sq/1790895301984-ssppyo0dshwhpeb8t6bo/vibe-rant-147-jesus-and-chill-iads",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790895301984-SSPPYO0DSHWHPEB8T6BO/Vibe Rant 147 Jesus and Chill-iads.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 8468164,
+   "h": 1395,
+   "key": "sq/1778981829331-9sefe7nvwhuibd0hdp5y/who-were-abraham-and-sarah-decoding-the-symbolism-astro-theology-and-ancient-roots",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778981829331-9SEFE7NVWHUIBD0HDP5Y/Who Were Abraham and Sarah Decoding the Symbolism, Astro-Theology and Ancient Roots.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 481719,
+   "h": 720,
+   "key": "sq/1790895355082-7vz079eo951u5a1e3eef/vibe-rant-146-the-obstacle-is-the-course",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790895355082-7VZ079EO951U5A1E3EEF/Vibe Rant 146 The Obstacle is the Course.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 834402,
+   "h": 2500,
+   "key": "sq/1727794429622-0hmq5kg7290uwcr9h1ew/img-5875",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1727794429622-0HMQ5KG7290UWCR9H1EW/IMG_5875.JPG",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 7200985,
+   "h": 1395,
+   "key": "sq/1781722824959-wifrg3hr96moy5ol5odj/the-same-mysterious-symbol-found-in-utah-peru-egypt-with-john-mchugh-and-jason-quitt",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781722824959-WIFRG3HR96MOY5OL5ODJ/The Same Mysterious Symbol Found in Utah, Peru, & Egypt with John McHugh and Jason Quitt.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3783346,
+   "h": 1500,
+   "key": "sq/1789663314127-jnkex6m1c2pdawa4u4yb/2024-10-01-maryn-green-indie-birth-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663314127-JNKEX6M1C2PDAWA4U4YB/2024-10-01-maryn-green-indie-birth-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3945253,
+   "h": 941,
+   "key": "sq/1780685351390-9ndczsw6lxewrpq8fgcm/the-phd-physicist-who-realized-modern-science-is-a-myth-steven-young",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780685351390-9NDCZSW6LXEWRPQ8FGCM/The PhD Physicist Who Realized Modern Science is a Myth  Steven Young.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4266658,
+   "h": 941,
+   "key": "sq/1778959581202-plm2bp7ayesad1r61qrd/noah-s-ark-decoded",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778959581202-PLM2BP7AYESAD1R61QRD/Noah's Ark Decoded.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 327189,
+   "h": 720,
+   "key": "sq/1790895398522-cyc4k9b8pjho09tgv68r/vibe-rant-144-harvest-moon-hangout",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790895398522-CYC4K9B8PJHO09TGV68R/Vibe Rant 144 Harvest Moon Hangout.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 357783,
+   "h": 720,
+   "key": "sq/1790895441749-4frrr6kk1xrtji289zxc/vibe-rant-143-never-forget-conspiracy-nostalgia",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1790895441749-4FRRR6KK1XRTJI289ZXC/Vibe Rant 143 Never Forget Conspiracy Nostalgia.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 4445520,
+   "h": 941,
+   "key": "sq/1779625477932-ri6sokq7y1vd8xcydtbs/atlantis-wasn-t-in-the-atlantic-jack-kelly-on-plato-s-hidden-warning-and-the-atlantis-puzzle",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779625477932-RI6SOKQ7Y1VD8XCYDTBS/Atlantis Wasn't in the Atlantic Jack Kelly on Plato's Hidden Warning and The Atlantis Puzzle.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1125964,
+   "h": 1080,
+   "key": "sq/1781628298417-xqz9nwwltfwmw5n68rd4/jason-quitt-annunaki",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781628298417-XQZ9NWWLTFWMW5N68RD4/jason-quitt-annunaki.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4140825,
+   "h": 941,
+   "key": "sq/1781628484983-8qjob5oa71plx32oul0z/your-skeleton-has-the-same-sacred-numbers-as-ancient-babylon-jason-quitt-gates-of-the-anunnaki",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781628484983-8QJOB5OA71PLX32OUL0Z/Your Skeleton Has the Same Sacred Numbers as Ancient Babylon  Jason Quitt, Gates of the Anunnaki.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 984330,
+   "h": 1400,
+   "key": "sq/1725378783166-617vww9jx2lfl6vr1fnj/170307160940-shango-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1725378783166-617VWW9JX2LFL6VR1FNJ/170307160940-shango-2.jpg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 4952684,
+   "h": 1400,
+   "key": "sq/1789663274075-gxs2wa3t00rws07j4xva/2024-09-03-david-mathisen-aboriginal-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663274075-GXS2WA3T00RWS07J4XVA/2024-09-03-david-mathisen-aboriginal-plus.png",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 290370,
+   "h": 720,
+   "key": "sq/1791325175143-jad16b324yup19ysyvfg/vibe-rant-142-lighting-the-void",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791325175143-JAD16B324YUP19YSYVFG/Vibe Rant 142 Lighting the Void.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 9160918,
+   "h": 1395,
+   "key": "sq/1779021298528-q8sduysha4bn812n0uch/the-priest-as-mediator-decoding-pontifex-maximus-moses-and-hermes-through-astro-theology",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779021298528-Q8SDUYSHA4BN812N0UCH/The Priest as Mediator Decoding Pontifex Maximus, Moses, and Hermes Through Astro-Theology.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 421774,
+   "h": 720,
+   "key": "sq/1791325233507-kav6ccdxgeus0hbj8m0e/vibe-rant-141-health-improvement-through-astrology",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791325233507-KAV6CCDXGEUS0HBJ8M0E/Vibe Rant 141 Health Improvement Through Astrology.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 927070,
+   "h": 1536,
+   "key": "sq/1724083966907-6f7k6gq2rry55irrc1dw/img-5564",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1724083966907-6F7K6GQ2RRY55IRRC1DW/IMG_5564.JPG",
+   "w": 1536,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4760003,
+   "h": 1500,
+   "key": "sq/1789663181446-vghfi1b8g3kug4vdy525/2024-08-19-marty-leeds-gnosticism-defined-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663181446-VGHFI1B8G3KUG4VDY525/2024-08-19-marty-leeds-gnosticism-defined-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 384909,
+   "h": 720,
+   "key": "sq/1791325272480-nulpo35ohfwj85fcsft6/vibe-rant-140-the-ancestral-river",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791325272480-NULPO35OHFWJ85FCSFT6/Vibe Rant 140 The Ancestral River.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 516436,
+   "h": 1881,
+   "key": "sq/1723564260524-1ajl90x0vmanvxpazbst/img-5553",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1723564260524-1AJL90X0VMANVXPAZBST/IMG_5553.JPG",
+   "w": 1881,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2065988,
+   "h": 1500,
+   "key": "sq/1789663143896-8hy815zjt2icomng6uhr/2024-08-13-keith-thompson-ufo-paradox-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663143896-8HY815ZJT2ICOMNG6UHR/2024-08-13-keith-thompson-ufo-paradox-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 314870,
+   "h": 720,
+   "key": "sq/1791325299439-nd4zfixtj6lapbdeqcfz/vibe-rant-139-the-new-word-order",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791325299439-ND4ZFIXTJ6LAPBDEQCFZ/Vibe Rant 139 The New Word Order.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 526485,
+   "h": 1080,
+   "key": "sq/1780238698483-cav0ayarx2gbn4ighpe9/mark-gober-2",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780238698483-CAV0AYARX2GBN4IGHPE9/mark-gober-2.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2532732,
+   "h": 768,
+   "key": "sq/1780239272223-pomzq5pdv5803zx7qs6c/the-mind-contact-connection-why-aliens-aren-t-from-space-with-mark-gober",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780239272223-POMZQ5PDV5803ZX7QS6C/The Mind-Contact Connection Why Aliens Aren't From Space with Mark Gober.png",
+   "w": 1365,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 487110,
+   "h": 720,
+   "key": "sq/1791325326588-av88y1hsp0zeb9ohg9py/vibe-rant-138-astrology-with-kayleigh",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791325326588-AV88Y1HSP0ZEB9OHG9PY/Vibe Rant 138 Astrology with Kayleigh.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 349471,
+   "h": 720,
+   "key": "sq/1791328437820-2r6o82nejpgqaj8fvezh/vibe-rant-137-power-of-the-auryn",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791328437820-2R6O82NEJPGQAJ8FVEZH/Vibe Rant 137 Power of the Auryn.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 972387,
+   "h": 1080,
+   "key": "sq/1779030588167-2eynf1j2rj9x9oxw593s/inner-whirled-7",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779030588167-2EYNF1J2RJ9X9OXW593S/inner-whirled-7.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4030626,
+   "h": 941,
+   "key": "sq/1779031632757-es1ycc5vqmp5uj4dm0i9/better-the-devil-you-know-decoding-the-book-of-job-apollo-and-the-astro-theology-of-robert-taylor",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779031632757-ES1YCC5VQMP5UJ4DM0I9/Better the Devil You Know Decoding the Book of Job, Apollo and the Astro-Theology of Robert Taylor.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 359125,
+   "h": 720,
+   "key": "sq/1791328465434-4jkqfnjd6qiqco7k24sc/vibe-rant-136-cosmogenesis-with-volo",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791328465434-4JKQFNJD6QIQCO7K24SC/Vibe Rant 136 Cosmogenesis with VOLO.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 138412,
+   "h": 900,
+   "key": "sq/1721060631314-jtnez2dtwblfsn0xd53e/img-5362",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1721060631314-JTNEZ2DTWBLFSN0XD53E/IMG_5362.JPG",
+   "w": 900,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 988300,
+   "h": 900,
+   "key": "sq/1789663051108-pb5rr8hu6c8f5jgx5sqt/2024-07-15-dave-maybe-auricular-medicine-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663051108-PB5RR8HU6C8F5JGX5SQT/2024-07-15-dave-maybe-auricular-medicine-plus.png",
+   "w": 900,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 775759,
+   "h": 1080,
+   "key": "sq/1778163447209-04pjpft64dapzc1ukdq1/video-thumb",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778163447209-04PJPFT64DAPZC1UKDQ1/video-thumb.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 411105,
+   "h": 720,
+   "key": "sq/1789751128810-415qf8kv4gf4khlx2h6r/the-devil-in-the-details-inner-whirled-6",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789751128810-415QF8KV4GF4KHLX2H6R/The Devil In the Details - Inner Whirled 6.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 294158,
+   "h": 720,
+   "key": "sq/1791328490558-65tpcur6h2qp83h9y8oa/vibe-rant-135-verbal-judo",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791328490558-65TPCUR6H2QP83H9Y8OA/Vibe Rant 135 Verbal Judo.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 785740,
+   "h": 1510,
+   "key": "sq/1720536260358-j27knl8vlm7l0woenxmv/img-5280",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1720536260358-J27KNL8VLM7L0WOENXMV/IMG_5280.JPG",
+   "w": 1510,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 814366,
+   "h": 1536,
+   "key": "sq/1720019782826-03270u4u16mzzhn3pp4o/img-5306",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1720019782826-03270U4U16MZZHN3PP4O/IMG_5306.JPG",
+   "w": 1536,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 5273140,
+   "h": 1500,
+   "key": "sq/1789663012359-5yd13wuiqw5z2u27r9hk/2024-07-03-dental-shaman-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789663012359-5YD13WUIQW5Z2U27R9HK/2024-07-03-dental-shaman-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 483507,
+   "h": 720,
+   "key": "sq/1791328515608-0gmpwl7i8mime0653vzl/vibe-rant-134-the-source-cards",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791328515608-0GMPWL7I8MIME0653VZL/Vibe Rant 134 The Source Cards.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1008779,
+   "h": 1513,
+   "key": "sq/1719244337147-si9l58ej300ryyjwnnoh/img-5249",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1719244337147-SI9L58EJ300RYYJWNNOH/IMG_5249.JPG",
+   "w": 1513,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 5662758,
+   "h": 1500,
+   "key": "sq/1789662971427-cmt6c9vfg25ccetb9ype/2024-06-24-dawn-lester-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789662971427-CMT6C9VFG25CCETB9YPE/2024-06-24-dawn-lester-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 514883,
+   "h": 720,
+   "key": "sq/1791328540860-dp756yd37y6f6jq024c3/vibe-rant-133-essential-elixirs",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791328540860-DP756YD37Y6F6JQ024C3/Vibe Rant 133 Essential Elixirs.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1007635,
+   "h": 1536,
+   "key": "sq/1718643257978-cxrji6lon1hwpb8m5gbs/img-5214",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1718643257978-CXRJI6LON1HWPB8M5GBS/IMG_5214.JPG",
+   "w": 1536,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4875204,
+   "h": 1500,
+   "key": "sq/1789662851587-ui4tvj2qfve2vu57ckp2/2024-06-17-kyle-serena-tippecanoe-herbs-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789662851587-UI4TVJ2QFVE2VU57CKP2/2024-06-17-kyle-serena-tippecanoe-herbs-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 609254,
+   "h": 720,
+   "key": "sq/1791377296065-8fi2baitfbsmune182dv/the-nurturer-archetype-vibe-rant-132",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791377296065-8FI2BAITFBSMUNE182DV/The Nurturer Archetype Vibe Rant 132.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 599273,
+   "h": 1536,
+   "key": "sq/1718040194230-hjzit32ws2onyheogay9/img-5189",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1718040194230-HJZIT32WS2ONYHEOGAY9/IMG_5189.JPG",
+   "w": 1536,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3869749,
+   "h": 941,
+   "key": "sq/1779303417542-s0fmjxfbdzn2369w4sf1/crrow777-on-the-tragedy-of-lazarus-belief-vs-knowing-and-the-astro-theology-of-the-bible",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779303417542-S0FMJXFBDZN2369W4SF1/Crrow777 on the Tragedy of Lazarus Belief vs Knowing and the Astro-Theology of the Bible.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3619344,
+   "h": 1500,
+   "key": "sq/1789662667562-lhtsclburd5boa70yq20/2024-06-10-ashley-mosaic-futurism-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789662667562-LHTSCLBURD5BOA70YQ20/2024-06-10-ashley-mosaic-futurism-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 472161,
+   "h": 720,
+   "key": "sq/1791377328396-fossj96lgo0wemuxms7f/apollo-s-purple-posies-vibe-rant-131",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791377328396-FOSSJ96LGO0WEMUXMS7F/Apollo's Purple Posies Vibe Rant 131.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 893705,
+   "h": 1080,
+   "key": "sq/1779197841167-8q5jf92u2edu17rjv55q/robert-falconer",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779197841167-8Q5JF92U2EDU17RJV55Q/Robert-falconer.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4418649,
+   "h": 941,
+   "key": "sq/1779198061554-8gqcpjgrusfr69to2hgr/robert-falconer-spirit-possession-in-therapy-internal-family-systems-and-the-others-within-us",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779198061554-8GQCPJGRUSFR69TO2HGR/Robert Falconer Spirit Possession in Therapy, Internal Family Systems and the Others Within Us.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 666562,
+   "h": 1535,
+   "key": "sq/1716224085587-3343hhd950i4rgdss575/img-5048",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1716224085587-3343HHD950I4RGDSS575/IMG_5048.JPG",
+   "w": 1535,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-10-31T15:23:44+00:00",
+ "skipped": [],
+ "started": "2026-10-31T15:14:14+00:00"
+}
