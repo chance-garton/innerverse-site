@@ -1,0 +1,530 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "2",
+ "bytes_added": 54821719,
+ "copied": [
+  {
+   "bytes_added": 701582,
+   "h": 1254,
+   "key": "sq/105d1ad2-ff3f-4dc2-8391-19366c5cd3a5/counseling-readings",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/105d1ad2-ff3f-4dc2-8391-19366c5cd3a5/counseling-readings.webp",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3361822,
+   "h": 1448,
+   "key": "sq/24214aeb-ad89-47e5-8b38-d41286992292/chance-garton-portrait",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/24214aeb-ad89-47e5-8b38-d41286992292/Chance Garton Portrait.png",
+   "w": 1086,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 502108,
+   "h": 1254,
+   "key": "sq/644de7b9-776d-4c5b-9890-fdcb0945ccc7/quick-tune-up",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/644de7b9-776d-4c5b-9890-fdcb0945ccc7/quick-tune-up.webp",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 427346,
+   "h": 1254,
+   "key": "sq/6bb5638d-d68e-4ec2-892e-78a18eb52e8c/full-session",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/6bb5638d-d68e-4ec2-892e-78a18eb52e8c/full-session.webp",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 955963,
+   "h": 1402,
+   "key": "sq/ce6be666-ba60-46a9-bcbc-3bfba2bd7c31/hero-energy-field",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/ce6be666-ba60-46a9-bcbc-3bfba2bd7c31/hero-energy-field.webp",
+   "w": 1122,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 571596,
+   "h": 1010,
+   "key": "sq/025478ea-ef40-443c-bd06-554aba0a9bcf/lotuswei",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/025478ea-ef40-443c-bd06-554aba0a9bcf/lotuswei.png",
+   "w": 804,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 93549,
+   "h": 500,
+   "key": "sq/0dd20f77-340f-4d4a-94ab-d63d0c2aeaf2/a-godsacre",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/0dd20f77-340f-4d4a-94ab-d63d0c2aeaf2/A godsacre.webp",
+   "w": 500,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 1014651,
+   "h": 941,
+   "key": "sq/0ea36d78-0ea0-4069-84c3-357546676fd8/plus-icon",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/0ea36d78-0ea0-4069-84c3-357546676fd8/Plus-Icon.png",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 199405,
+   "h": 1000,
+   "key": "sq/16c1e5cd-3072-4a9b-8517-a267250d95d6/tuning-the-human-biofield",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/16c1e5cd-3072-4a9b-8517-a267250d95d6/tuning the human biofield.jpg",
+   "w": 666,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 249933,
+   "h": 1000,
+   "key": "sq/281249d2-6df8-4bca-bc7a-12d086e1e683/electric-body-electric-health",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/281249d2-6df8-4bca-bc7a-12d086e1e683/electric body electric health.jpg",
+   "w": 663,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 2915543,
+   "h": 1254,
+   "key": "sq/2829b6a9-eb09-4d48-ad05-c7d518ec0967/throat-chakra",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/2829b6a9-eb09-4d48-ad05-c7d518ec0967/throat-chakra.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2538912,
+   "h": 1254,
+   "key": "sq/2d755ca9-1d4e-485d-a7c3-2e0603de1b53/heart-chakra-icon",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/2d755ca9-1d4e-485d-a7c3-2e0603de1b53/heart-chakra-icon.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 11405,
+   "h": 150,
+   "key": "sq/3afb5875-8010-411f-973b-a5994f21daae/favicon",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/3afb5875-8010-411f-973b-a5994f21daae/favicon.ico",
+   "w": 150,
+   "widths": []
+  },
+  {
+   "bytes_added": 838455,
+   "h": 1079,
+   "key": "sq/4886f9a3-5af4-419b-ab75-ff31986fe08a/patreon",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/4886f9a3-5af4-419b-ab75-ff31986fe08a/Patreon.png",
+   "w": 1919,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1694414,
+   "h": 1086,
+   "key": "sq/4e0c5819-8627-4923-a558-ebed935da372/chance-garton-about-page-innerverse",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/4e0c5819-8627-4923-a558-ebed935da372/CHANCE GARTON ABOUT PAGE INNERVERSE.png",
+   "w": 1448,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 964447,
+   "h": 1079,
+   "key": "sq/5d82bbd2-a173-4a85-a835-33e268485695/substack",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/5d82bbd2-a173-4a85-a835-33e268485695/substack.png",
+   "w": 1919,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 45032,
+   "h": 400,
+   "key": "sq/6670d9e4-df07-4fcb-831f-47c6f4c1582c/dylan",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/6670d9e4-df07-4fcb-831f-47c6f4c1582c/dylan.jpg",
+   "w": 400,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2057068,
+   "h": 1254,
+   "key": "sq/6d3eab3c-d535-4a3a-9877-b194fd7f82a4/root-chakra-icon",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/6d3eab3c-d535-4a3a-9877-b194fd7f82a4/Root-Chakra-Icon.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 85910,
+   "h": 500,
+   "key": "sq/78f88ed0-ca24-42ad-bfb8-e50468ed0f07/terminalia",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/78f88ed0-ca24-42ad-bfb8-e50468ed0f07/terminalia.webp",
+   "w": 500,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 2468675,
+   "h": 1254,
+   "key": "sq/7cad5439-9152-4d15-8e54-f179a6e64ded/sacral-chakra-icon",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7cad5439-9152-4d15-8e54-f179a6e64ded/Sacral-Chakra-Icon.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3336842,
+   "h": 1254,
+   "key": "sq/88ae11c9-b412-4c6b-8504-c42499fc7494/crown-chakra",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/88ae11c9-b412-4c6b-8504-c42499fc7494/Crown-Chakra.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1065147,
+   "h": 1079,
+   "key": "sq/a3a82ad1-a924-4be7-971d-4e5f59f32c5b/youtuber",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/a3a82ad1-a924-4be7-971d-4e5f59f32c5b/youtuber.png",
+   "w": 1919,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 12598,
+   "h": 183,
+   "key": "sq/b066b7c1-50f2-49b3-98a0-3b19382cda34/electric-health",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/b066b7c1-50f2-49b3-98a0-3b19382cda34/electric-health.png",
+   "w": 198,
+   "widths": []
+  },
+  {
+   "bytes_added": 2237954,
+   "h": 1254,
+   "key": "sq/b36716ca-58be-4a7f-b25a-abd23162cde4/third-eye-chakra",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/b36716ca-58be-4a7f-b25a-abd23162cde4/third-eye-chakra.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 16156,
+   "h": 86,
+   "key": "sq/b7112bd4-9408-4d7d-b178-b23fbc57f47b/biofieldtuningstore",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/b7112bd4-9408-4d7d-b178-b23fbc57f47b/biofieldtuningstore.png",
+   "w": 280,
+   "widths": []
+  },
+  {
+   "bytes_added": 206988,
+   "h": 1337,
+   "key": "sq/b9ecc671-b201-40f9-95ce-f9ff0c004f08/tippecanoe-logo",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/b9ecc671-b201-40f9-95ce-f9ff0c004f08/tippecanoe logo.webp",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 246173,
+   "h": 500,
+   "key": "sq/cc68c653-088d-43fa-bc4e-997896b19c32/the-holy-sailors",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/cc68c653-088d-43fa-bc4e-997896b19c32/the holy sailors.webp",
+   "w": 500,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 1923296,
+   "h": 1254,
+   "key": "sq/da79227e-2005-4e3c-be7c-52525fb6c4d4/foot-ankle-knee",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/da79227e-2005-4e3c-be7c-52525fb6c4d4/foot ankle knee.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 123569,
+   "h": 500,
+   "key": "sq/ed6a3da5-c8d8-46a0-87e0-ffee9a4f2562/july-s-end",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/ed6a3da5-c8d8-46a0-87e0-ffee9a4f2562/July's End.webp",
+   "w": 500,
+   "widths": [
+    300,
+    500
+   ]
+  },
+  {
+   "bytes_added": 2503315,
+   "h": 1254,
+   "key": "sq/ee26db77-6b6b-42a0-84cf-9e1ecf14f4a1/solar-plexus-icon",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/ee26db77-6b6b-42a0-84cf-9e1ecf14f4a1/solar-plexus-icon.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2108006,
+   "h": 909,
+   "key": "sq/t-69fba4fde74674760d4a6655-1778099453966/chatgpt-image-may-6-2026-03-30-14-pm",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69fba4fde74674760d4a6655/1778099453966/ChatGPT Image May 6, 2026, 03_30_14 PM.png",
+   "w": 1731,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2788129,
+   "h": 909,
+   "key": "sq/t-6ac2b6826681143eec927d37-1791145602054/chance-garton-biofield-tuning-sessions-innerverse-podcast",
+   "url": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/chance garton biofield tuning sessions innerverse podcast.png",
+   "w": 1731,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2485941,
+   "h": 941,
+   "key": "files/crown-chakra-biofield-tuning-innerverse-podcast-chance-garton",
+   "url": "https://www.innerversepodcast.com/s/Crown-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2138781,
+   "h": 941,
+   "key": "files/feet-ankles-knees-biofield-tuning-innerverse-podcast-chance-garton-2026",
+   "url": "https://www.innerversepodcast.com/s/Feet-Ankles-Knees-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton-2026.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1931980,
+   "h": 941,
+   "key": "files/heart-chakra-biofield-tuning-innerverse-podcast-chance-garton",
+   "url": "https://www.innerversepodcast.com/s/Heart-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2103003,
+   "h": 941,
+   "key": "files/root-chakra-biofield-tuning-innerverse-podcast-chance-garton",
+   "url": "https://www.innerversepodcast.com/s/Root-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1816601,
+   "h": 941,
+   "key": "files/sacral-chakra-biofield-tuning-innerverse-podcast-chance-garton",
+   "url": "https://www.innerversepodcast.com/s/Sacral-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1737369,
+   "h": 941,
+   "key": "files/solar-plexus-chakra-biofield-tuning-innerverse-podcast-chance-garton",
+   "url": "https://www.innerversepodcast.com/s/Solar-Plexus-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2278209,
+   "h": 941,
+   "key": "files/third-eye-chakra-biofield-tuning-innerverse-podcast-chance-garton",
+   "url": "https://www.innerversepodcast.com/s/Third-Eye-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2063846,
+   "h": 941,
+   "key": "files/throat-chakra-biofield-tuning-innerverse-podcast-chance-garton",
+   "url": "https://www.innerversepodcast.com/s/Throat-Chakra-Biofield-Tuning-InnerVerse-Podcast-Chance-Garton.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [
+  {
+   "key": "sq/versioned-site-css-204-5c5a519771c10ba3470d8101-669aa8fc9068f30fa1093f61-1847/site",
+   "reason": "not an image (first bytes b':root{--whit')",
+   "url": "https://static1.squarespace.com/static/versioned-site-css/5987d897cf81e0278ec5322e/204/5c5a519771c10ba3470d8101/669aa8fc9068f30fa1093f61/1847/site.css"
+  },
+  {
+   "key": "sq/vta-5c5a519771c10ba3470d8101-scripts/site-bundle-dd2e7c413d1ccd0b88463e1d3ea04e6c",
+   "reason": "not an image (first bytes b'/*! For lice')",
+   "url": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/scripts/site-bundle.dd2e7c413d1ccd0b88463e1d3ea04e6c.js"
+  },
+  {
+   "key": "sq/vta-5c5a519771c10ba3470d8101-versioned-assets-1793303477445-mv4sej2esjha5e89l1j2/static",
+   "reason": "not an image (first bytes b'@keyframes a')",
+   "url": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1793303477445-MV4SEJ2ESJHA5E89L1J2/static.css"
+  }
+ ],
+ "finished": "2026-10-31T14:54:22+00:00",
+ "skipped": [],
+ "started": "2026-10-31T14:49:05+00:00"
+}
