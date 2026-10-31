@@ -1,0 +1,1356 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "6",
+ "bytes_added": 220087214,
+ "copied": [
+  {
+   "bytes_added": 4024737,
+   "h": 1535,
+   "key": "sq/1789604111673-en7uyzr5b1069sd03wkm/2024-05-20-katie-hess-lotuswei-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604111673-EN7UYZR5B1069SD03WKM/2024-05-20-katie-hess-lotuswei-plus.png",
+   "w": 1535,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 194559,
+   "h": 1086,
+   "key": "sq/0e3c1fb0-5bb6-41fd-9e58-6ae567b7b48c/ray-catiana",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/0e3c1fb0-5bb6-41fd-9e58-6ae567b7b48c/ray-catiana.jpg",
+   "w": 1086,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 453549,
+   "h": 1536,
+   "key": "sq/1715618815388-9s48wf5ytnfh4fr78ce8/img-4997",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1715618815388-9S48WF5YTNFH4FR78CE8/IMG_4997.JPG",
+   "w": 1536,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2652329,
+   "h": 1536,
+   "key": "sq/1789604063746-o2bg78cpr5z50mu7vxfz/2024-05-13-ray-catania-athiest-afterlife-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604063746-O2BG78CPR5Z50MU7VXFZ/2024-05-13-ray-catania-athiest-afterlife-plus.png",
+   "w": 1536,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 391368,
+   "h": 1170,
+   "key": "sq/1715096859310-f2utlr9rscsfl14d07xn/img-4881",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1715096859310-F2UTLR9RSCSFL14D07XN/IMG_4881.PNG",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2438847,
+   "h": 1170,
+   "key": "sq/1789604010553-8l35dspirlgo7xbkmgh8/2024-05-07-christopher-mcintosh-tetrad-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604010553-8L35DSPIRLGO7XBKMGH8/2024-05-07-christopher-mcintosh-tetrad-plus.png",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 416741,
+   "h": 720,
+   "key": "sq/1791377356783-9fw0ukcvg0c3tevrnyo1/morality-and-islam-vibe-rant-129",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791377356783-9FW0UKCVG0C3TEVRNYO1/Morality and Islam Vibe Rant 129.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3579392,
+   "h": 941,
+   "key": "sq/1780165683726-ukf5fl6t51kfnax0nhe0/science-is-upside-down-the-evidence-that-mind-creates-matter-mark-gober",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780165683726-UKF5FL6T51KFNAX0NHE0/Science is Upside Down The Evidence That Mind Creates Matter  Mark Gober.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 581098,
+   "h": 1080,
+   "key": "sq/1778163666224-a31phkz30nl0nfg940tg/video-thumb",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778163666224-A31PHKZ30NL0NFG940TG/video-thumb.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 314472,
+   "h": 720,
+   "key": "sq/1789751015933-94tovmu127lx7h19pjg9/the-fallout-of-historical-forgery-inner-whirled-4",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789751015933-94TOVMU127LX7H19PJG9/The Fallout of Historical Forgery - Inner Whirled 4.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 386415,
+   "h": 720,
+   "key": "sq/1791377384309-2ct4061gag7unybpuevw/human-design-q-and-a-vibe-rant-128",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791377384309-2CT4061GAG7UNYBPUEVW/Human Design Q and A Vibe Rant 128.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 830934,
+   "h": 1536,
+   "key": "sq/1713802789109-6ygr217e0cg5dxussbei/img-4767",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1713802789109-6YGR217E0CG5DXUSSBEI/IMG_4767.JPG",
+   "w": 1536,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4861707,
+   "h": 1536,
+   "key": "sq/1789603897886-k0pza59srqhvitrdglgi/2024-04-22-waters-above-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789603897886-K0PZA59SRQHVITRDGLGI/2024-04-22-waters-above-plus.png",
+   "w": 1536,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 384502,
+   "h": 720,
+   "key": "sq/1791377412798-3hxq4vwj54vabcp0813w/kingdoms-and-crosses-vibe-rant-127",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791377412798-3HXQ4VWJ54VABCP0813W/Kingdoms and Crosses Vibe Rant 127.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1340711,
+   "h": 1920,
+   "key": "sq/1713195924164-7b0l6dsjjz0kqv973zln/img-4732",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1713195924164-7B0L6DSJJZ0KQV973ZLN/IMG_4732.JPG",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 319774,
+   "h": 720,
+   "key": "sq/1791380301092-rc59vyl55q3zrjjdhs1k/mike-wann-and-the-story-of-2024-eclipse-susquehanna-synchronicities-vibe-rant-126",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380301092-RC59VYL55Q3ZRJJDHS1K/Mike Wann and The Story of 2024 Eclipse Susquehanna Synchronicities Vibe Rant 126.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 227678,
+   "h": 720,
+   "key": "sq/1791380343068-kknvs7d439dup0ntyylf/child-education-at-home-and-academic-freedom-with-john-coleman-vibe-rant-125",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380343068-KKNVS7D439DUP0NTYYLF/Child Education at Home and Academic Freedom with John Coleman Vibe Rant 125.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 527041,
+   "h": 1598,
+   "key": "sq/1712586688836-97y4fteol4o24oovnylq/img-4703",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1712586688836-97Y4FTEOL4O24OOVNYLQ/IMG_4703.JPG",
+   "w": 1598,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3120359,
+   "h": 1500,
+   "key": "sq/1789604605950-a647bhs8idgaz0l676hj/2024-04-08-sajah-popham-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604605950-A647BHS8IDGAZ0L676HJ/2024-04-08-sajah-popham-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1418132,
+   "h": 1587,
+   "key": "sq/1711987946573-zlm0yj8aicfnk3am0abp/img-4685",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1711987946573-ZLM0YJ8AICFNK3AM0ABP/IMG_4685.JPG",
+   "w": 1587,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 316634,
+   "h": 720,
+   "key": "sq/1791380377134-ebx9r617t782qqzr48od/the-mystical-adventures-of-ceb-bland-and-slick-dissident-vibe-rant-124",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380377134-EBX9R617T782QQZR48OD/The Mystical Adventures of Ceb Bland and Slick Dissident Vibe Rant 124.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 337871,
+   "h": 1080,
+   "key": "sq/1711386617331-qipzg5i408dd5p1audvh/photo-2024-03-25-11-11-49",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1711386617331-QIPZG5I408DD5P1AUDVH/photo_2024-03-25_11-11-49.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2197963,
+   "h": 1080,
+   "key": "sq/1789604567355-8pmn0dgou3bh5djn1iln/2024-03-25-christopher-mcintosh-occult-germany-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604567355-8PMN0DGOU3BH5DJN1ILN/2024-03-25-christopher-mcintosh-occult-germany-plus.png",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 4334827,
+   "h": 941,
+   "key": "sq/1778879512946-keinspfhrh1xf1hz5l1z/eileen-mckusick-kyle-denton-the-biofield-of-plants-morphic-fields-sound-healing-with-herbs",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778879512946-KEINSPFHRH1XF1HZ5L1Z/Eileen McKusick & Kyle Denton The Biofield of Plants, Morphic Fields & Sound Healing With Herbs.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 613862,
+   "h": 1080,
+   "key": "sq/1781214598584-w9p4vkh6lgez3uald3dv/inner-whirled-3",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781214598584-W9P4VKH6LGEZ3UALD3DV/inner-whirled-3.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 7241086,
+   "h": 1395,
+   "key": "sq/1781356798962-ni7trem1ur3md81ufz4z/tarot-taurus-the-secret-language-of-the-tower-builders",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781356798962-NI7TREM1UR3MD81UFZ4Z/Tarot, Taurus, & The Secret Language of the Tower Builders.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1048025,
+   "h": 2232,
+   "key": "sq/1710777093143-e7tdivaabpxs0m22n74j/img-4620",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1710777093143-E7TDIVAABPXS0M22N74J/IMG_4620.JPG",
+   "w": 2232,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 5500651,
+   "h": 1500,
+   "key": "sq/1789604525851-8jpzpjtpj09qu8bhx1g2/2024-03-18-michelle-lundquist-pet-health-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604525851-8JPZPJTPJ09QU8BHX1G2/2024-03-18-michelle-lundquist-pet-health-plus.png",
+   "w": 1500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4232874,
+   "h": 941,
+   "key": "sq/1780063688358-hseh4580rqajmekvpafk/before-the-greeks-the-secret-civilization-that-invented-everything",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780063688358-HSEH4580RQAJMEKVPAFK/Before the Greeks The Secret Civilization That Invented Everything.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 273206,
+   "h": 720,
+   "key": "sq/1791380411060-9foku1udtsn937jkbisl/creating-treasures-on-the-oregonite-trail-with-isaac-layzell-and-slick-dissident-vibe-rant-122",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380411060-9FOKU1UDTSN937JKBISL/Creating Treasures on the Oregonite Trail with Isaac Layzell and Slick Dissident Vibe Rant 122.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 852689,
+   "h": 1080,
+   "key": "sq/1779371601005-rx1kl6hy64k5pb6xlqxj/inner-whirled-1",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779371601005-RX1KL6HY64K5PB6XLQXJ/inner-whirled-1.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3619353,
+   "h": 941,
+   "key": "sq/1779373273178-2puezb0v0tvxb3klh1i7/why-herodotus-never-mentioned-rome",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779373273178-2PUEZB0V0TVXB3KLH1I7/Why Herodotus Never Mentioned Rome.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 221341,
+   "h": 720,
+   "key": "sq/1791380445166-q2bqsfi0wygblj6qpvsu/monomythic-cryptomnesia-catching-up-with-slick-dissident-vibe-rant-121",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380445166-Q2BQSFI0WYGBLJ6QPVSU/MonoMythic Cryptomnesia Catching Up with Slick Dissident Vibe Rant 121.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 360450,
+   "h": 720,
+   "key": "sq/1791397591859-79m67319l6if6c7myq09/vibe-rant-120",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397591859-79M67319L6IF6C7MYQ09/Vibe Rant 120.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 223773,
+   "h": 762,
+   "key": "sq/1708979243585-suddw0j4tq0c2udkg9oh/img-4449",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1708979243585-SUDDW0J4TQ0C2UDKG9OH/IMG_4449.JPG",
+   "w": 762,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 1251034,
+   "h": 762,
+   "key": "sq/1789604481768-er7dbpi44m6qx4hsmnul/2024-02-27-julia-lupine-emf-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604481768-ER7DBPI44M6QX4HSMNUL/2024-02-27-julia-lupine-emf-plus.png",
+   "w": 762,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 484463,
+   "h": 720,
+   "key": "sq/1791397663931-xoxd4lopajljug9tc3j0/vibe-rant-119",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397663931-XOXD4LOPAJLJUG9TC3J0/Vibe Rant 119.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1008945,
+   "h": 1600,
+   "key": "sq/1707179036512-o7gse8qfb3p4mhqwj0li/michael-tsarion",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1707179036512-O7GSE8QFB3P4MHQWJ0LI/michael-tsarion.jpg",
+   "w": 1600,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4008280,
+   "h": 941,
+   "key": "sq/1778935818476-8udnpvcy8hfh10xqlan3/how-your-birth-affects-your-biofield-chance-kyle-denton-on-c-sections-herbs-tuning",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778935818476-8UDNPVCY8HFH10XQLAN3/How Your Birth Affects Your Biofield Chance & Kyle Denton on C-Sections, Herbs & Tuning.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 540404,
+   "h": 1406,
+   "key": "sq/1706544727552-bw1g0w14uwjm647uod9n/img-4160",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1706544727552-BW1G0W14UWJM647UOD9N/IMG_4160.JPG",
+   "w": 1406,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3978982,
+   "h": 1406,
+   "key": "sq/1789604388138-1pbkfsejt4erasury0iy/2024-01-30-mark-english-eso-el-neigong-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604388138-1PBKFSEJT4ERASURY0IY/2024-01-30-mark-english-eso-el-neigong-plus.png",
+   "w": 1406,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 376882,
+   "h": 720,
+   "key": "sq/1791397701480-32ifsh7o1f391ioroqt5/vibe-rant-117",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397701480-32IFSH7O1F391IOROQT5/Vibe Rant 117.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 561892,
+   "h": 1170,
+   "key": "sq/1705948891998-lhofqltyuslbszprmc7u/img-4120",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1705948891998-LHOFQLTYUSLBSZPRMC7U/IMG_4120.JPG",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3178128,
+   "h": 1170,
+   "key": "sq/1789595637449-a2ewa8cblt9i2fovkbyb/adam-butler-dmt",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595637449-A2EWA8CBLT9I2FOVKBYB/adam-butler-dmt.png",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 445433,
+   "h": 1170,
+   "key": "sq/1705341285810-8ak33btyymv00ebmsx6j/img-4066",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1705341285810-8AK33BTYYMV00EBMSX6J/IMG_4066.JPG",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2328498,
+   "h": 1170,
+   "key": "sq/1789595592387-tqjpr8mrxx7gxqksk4hc/john-lundwall-myth-cosmos",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595592387-TQJPR8MRXX7GXQKSK4HC/john-lundwall-myth-cosmos.png",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 497140,
+   "h": 720,
+   "key": "sq/1791397730877-zv28nc1y9g21ot8poab8/vibe-rant-116",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397730877-ZV28NC1Y9G21OT8POAB8/Vibe Rant 116.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 308012,
+   "h": 720,
+   "key": "sq/1791397778944-p9fx38rnbblv1a946veg/vibe-rant-115",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397778944-P9FX38RNBBLV1A946VEG/Vibe Rant 115.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 510448,
+   "h": 1170,
+   "key": "sq/1704129933718-xhxupd81nnclnax3b6kf/img-3937",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1704129933718-XHXUPD81NNCLNAX3B6KF/IMG_3937.JPG",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2954231,
+   "h": 1170,
+   "key": "sq/1789595685763-cxlj4a4y1vie8mp0vunz/rj-spina-ascend-frequencies",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595685763-CXLJ4A4Y1VIE8MP0VUNZ/rj-spina-ascend-frequencies.png",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 371447,
+   "h": 720,
+   "key": "sq/1791409007691-51j1qwmk01sh9x6mvoeb/vibe-rant-114",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409007691-51J1QWMK01SH9X6MVOEB/Vibe Rant 114.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 336431,
+   "h": 834,
+   "key": "sq/1702947172765-aj425l1rwlo3sj8g403h/img-3875",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1702947172765-AJ425L1RWLO3SJ8G403H/IMG_3875.JPG",
+   "w": 834,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 654517,
+   "h": 941,
+   "key": "sq/1778869350479-dl61ph6h49bwgkmgrpd3/keith-parker",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778869350479-DL61PH6H49BWGKMGRPD3/keith-parker.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3373034,
+   "h": 941,
+   "key": "sq/1778869900557-f8inrkz0lbelqhjrwvyz/chatgpt-image-may-15-2026-10-45-13-am",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778869900557-F8INRKZ0LBELQHJRWVYZ/ChatGPT Image May 15, 2026, 10_45_13 AM.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1318060,
+   "h": 2232,
+   "key": "sq/1701126690159-0f8ubtxp5yddmn8qqmds/img-3723",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1701126690159-0F8UBTXP5YDDMN8QQMDS/IMG_3723.JPG",
+   "w": 2232,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 291275,
+   "h": 1284,
+   "key": "sq/1700601384464-7m7scoo7glvo4so24tac/img-3695",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1700601384464-7M7SCOO7GLVO4SO24TAC/IMG_3695.JPG",
+   "w": 1284,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 428217,
+   "h": 1097,
+   "key": "sq/1699904010952-d85d87dyw1xe41yyhr6y/img-3665",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1699904010952-D85D87DYW1XE41YYHR6Y/IMG_3665.JPG",
+   "w": 1097,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2612850,
+   "h": 1097,
+   "key": "sq/1789595548360-zt9bchdizlx3sf2l6dhy/gregory-ripley-100-remedies",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595548360-ZT9BCHDIZLX3SF2L6DHY/gregory-ripley-100-remedies.png",
+   "w": 1097,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 340233,
+   "h": 720,
+   "key": "sq/1791409039642-bvj4vbxrhpyhnil5zzdb/vibe-rant-112",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409039642-BVJ4VBXRHPYHNIL5ZZDB/Vibe Rant 112.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1106697,
+   "h": 1246,
+   "key": "sq/1698684037801-atrk7fnazqpn1vdj8z8r/img-3549",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1698684037801-ATRK7FNAZQPN1VDJ8Z8R/IMG_3549.JPG",
+   "w": 1246,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 4874565,
+   "h": 1246,
+   "key": "sq/1789595481103-sefmyiqd0uiyievd7n9x/john-mchugh-rock-art",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595481103-SEFMYIQD0UIYIEVD7N9X/john-mchugh-rock-art.png",
+   "w": 1246,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 380035,
+   "h": 720,
+   "key": "sq/1791409071783-akmjxpg6pusyikohhurz/what-every-pain-in-your-body-is-trying-to-tell-you",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409071783-AKMJXPG6PUSYIKOHHURZ/What Every Pain in Your Body Is Trying to Tell You.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3868855,
+   "h": 941,
+   "key": "sq/1779203477065-7u00w9ywsnbsqiu6c37o/owen-benjamin-topher-gardner-noble-savages-biocharisma-and-the-symbolism-of-the-eclipse",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779203477065-7U00W9YWSNBSQIU6C37O/Owen Benjamin & Topher Gardner Noble Savages, Biocharisma and the Symbolism of the Eclipse.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4005633,
+   "h": 941,
+   "key": "sq/1780071576165-qkh5fkopdyobq9rpjni5/the-stolen-grid-how-they-hijacked-the-earth-s-energy-michelle-gibson",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780071576165-QKH5FKOPDYOBQ9RPJNI5/The Stolen Grid How They Hijacked the Earth's Energy  Michelle Gibson.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 2143747,
+   "h": 941,
+   "key": "sq/1781878274630-ltza01ofs1ffmf2mo1cc/the-seven-musical-modes-are-planetary-zodiac-and-alchemical-keys-shaone-slick-dissident",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781878274630-LTZA01OFS1FFMF2MO1CC/The Seven Musical Modes Are Planetary, Zodiac, and Alchemical Keys  shaOne & Slick Dissident.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 319514,
+   "h": 720,
+   "key": "sq/1791409105683-8v3b2a5fc0ontzltd7yh/vibe-rant-108",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409105683-8V3B2A5FC0ONTZLTD7YH/Vibe Rant 108.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2254996,
+   "h": 1682,
+   "key": "sq/1696174672732-tp74pjx713528e8h618u/img-3290",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1696174672732-TP74PJX713528E8H618U/IMG_3290.JPG",
+   "w": 1682,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 9079675,
+   "h": 1682,
+   "key": "sq/1789595210576-hejcc21fye0ueljj12ot/2023-10-02-hakan-hisim-universal-transmissions-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595210576-HEJCC21FYE0UELJJ12OT/2023-10-02-hakan-hisim-universal-transmissions-plus.png",
+   "w": 1682,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 7980835,
+   "h": 1395,
+   "key": "sq/1781721072221-36xwbhy1z80xes4ykqf3/the-book-of-the-dead-is-a-zodiac-map-of-the-underworld-jason-quitt-mario-garza-slick-dissident",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781721072221-36XWBHY1Z80XES4YKQF3/The Book of the Dead Is a Zodiac Map of the Underworld  Jason Quitt, Mario Garza & Slick Dissident.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 3520472,
+   "h": 941,
+   "key": "sq/1781206600749-ufwucuhwokgbcvphelxn/god-hid-the-number-pi-inside-the-english-alphabet-marty-leeds-of-the-gnostic-academy",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781206600749-UFWUCUHWOKGBCVPHELXN/God Hid the Number Pi Inside the English Alphabet  Marty Leeds of the Gnostic Academy.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 498476,
+   "h": 1080,
+   "key": "sq/1781206634939-v6v1zopt2wyye1clde8o/marty-leeds-pi",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781206634939-V6V1ZOPT2WYYE1CLDE8O/marty-leeds-pi.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4285223,
+   "h": 941,
+   "key": "sq/1779377198021-kz56zy5japohx4lguu8b/the-oera-linda-book-part-2-allegory-the-holy-sailors-and-the-astro-theology-beneath-the-manuscript",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779377198021-KZ56ZY5JAPOHX4LGUU8B/The Oera Linda Book Part 2 Allegory, the Holy Sailors and the Astro-Theology Beneath the Manuscript.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1510374,
+   "h": 2500,
+   "key": "sq/1694968685945-jvjqrj2iv924oha6pdbg/img-3020",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1694968685945-JVJQRJ2IV924OHA6PDBG/IMG_3020.JPG",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 12303858,
+   "h": 2500,
+   "key": "sq/1789595152715-isgk6ucjn4m2maywxurs/2023-09-18-clive-de-carle-secret-health-club-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595152715-ISGK6UCJN4M2MAYWXURS/2023-09-18-clive-de-carle-secret-health-club-plus.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 622375,
+   "h": 1170,
+   "key": "sq/1694451906097-pdjf7acmwgwkmh5a04hm/img-2960",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1694451906097-PDJF7ACMWGWKMH5A04HM/IMG_2960.PNG",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3888741,
+   "h": 1170,
+   "key": "sq/1789595100136-g4hh90xkv0wkl976m0te/2023-09-11-adam-stevens-grateful-harvest-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595100136-G4HH90XKV0WKL976M0TE/2023-09-11-adam-stevens-grateful-harvest-plus.png",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 306248,
+   "h": 720,
+   "key": "sq/1791409138399-zzeycq7049aeqn3bp37e/vibe-rant-104",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409138399-ZZEYCQ7049AEQN3BP37E/Vibe Rant 104.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 229487,
+   "h": 1170,
+   "key": "sq/1693851786196-p3guih0u8sg4zkg8h5jh/img-2793",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1693851786196-P3GUIH0U8SG4ZKG8H5JH/IMG_2793.JPG",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1488531,
+   "h": 1170,
+   "key": "sq/1789595040638-5jhvzn1kk8yi5z4pra6u/2023-09-05-michaela-crandell-ifs-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595040638-5JHVZN1KK8YI5Z4PRA6U/2023-09-05-michaela-crandell-ifs-plus.png",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 320983,
+   "h": 720,
+   "key": "sq/1792679668947-8jxm1vrdyw6dpx9tbl6i/blue-morpho-domes-vibe-rant-103",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679668947-8JXM1VRDYW6DPX9TBL6I/Blue Morpho Domes Vibe Rant 103.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2144432,
+   "h": 2500,
+   "key": "sq/1693163099558-82ulr2ptski9bubclv0l/img-2871",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1693163099558-82ULR2PTSKI9BUBCLV0L/IMG_2871.JPG",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 4463903,
+   "h": 941,
+   "key": "sq/1779375588111-l1gir1nlylwgm0obkv8g/the-oera-linda-book-a-forbidden-frisian-manuscript-examined-with-dylan-saccoccio",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779375588111-L1GIR1NLYLWGM0OBKV8G/The Oera Linda Book A Forbidden Frisian Manuscript Examined With Dylan Saccoccio.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1248170,
+   "h": 2232,
+   "key": "sq/1692654882164-73euz4wk9s9o7zisaqo0/img-2785",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1692654882164-73EUZ4WK9S9O7ZISAQO0/IMG_2785.JPG",
+   "w": 2232,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 11163477,
+   "h": 2232,
+   "key": "sq/1789594965310-26jlts6hm1ou6esg2dof/2023-08-21-dominique-cordivari-epiastrology-plus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789594965310-26JLTS6HM1OU6ESG2DOF/2023-08-21-dominique-cordivari-epiastrology-plus.png",
+   "w": 2232,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 383034,
+   "h": 720,
+   "key": "sq/1792679709757-wrg3edcx0xo8n80mp5zs/new-biology-clinic-vibe-rant-101",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679709757-WRG3EDCX0XO8N80MP5ZS/New Biology Clinic Vibe Rant 101.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 909455,
+   "h": 1920,
+   "key": "sq/1692036173167-80dwrjin7or10pzvgawp/img-2736",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1692036173167-80DWRJIN7OR10PZVGAWP/IMG_2736.JPG",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1148886,
+   "h": 2232,
+   "key": "sq/1691429553585-iz91ulkfktxkgh0ighhc/img-2681",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1691429553585-IZ91ULKFKTXKGH0IGHHC/IMG_2681.JPG",
+   "w": 2232,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 10302536,
+   "h": 2232,
+   "key": "sq/1789595738425-g935sh5r9b7rsxhow3c2/paranoid-american-nlp",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595738425-G935SH5R9B7RSXHOW3C2/paranoid-american-nlp.png",
+   "w": 2232,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 392561,
+   "h": 720,
+   "key": "sq/1792679739023-qwittg1ufi4p75j8uho6/oracular-origins-of-ancient-sibylization-vibe-rant-99",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679739023-QWITTG1UFI4P75J8UHO6/Oracular Origins of Ancient Sibylization Vibe Rant 99.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 722811,
+   "h": 1170,
+   "key": "sq/1690908842678-68btlcsvitl2q7cfrv8p/img-2614",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1690908842678-68BTLCSVITL2Q7CFRV8P/IMG_2614.PNG",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3612329,
+   "h": 1170,
+   "key": "sq/1789595692784-ticwtirhly5dqlsquqv1/carla-adams-ancestral-river",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595692784-TICWTIRHLY5DQLSQUQV1/carla-adams-ancestral-river.png",
+   "w": 1170,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 961488,
+   "h": 2232,
+   "key": "sq/1689566041797-3klq1jmgbjgqi3sfgatl/img-2535",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1689566041797-3KLQ1JMGBJGQI3SFGATL/IMG_2535.JPG",
+   "w": 2232,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 9668013,
+   "h": 2232,
+   "key": "sq/1789595634227-1qr82jg4s1ax0nuqo7k7/teri-hunter",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595634227-1QR82JG4S1AX0NUQO7K7/teri-hunter.png",
+   "w": 2232,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 306022,
+   "h": 720,
+   "key": "sq/1792679864162-6ojprx6yhnzi3w7aj8v6/safe-havens-pma-vibe-rant-98",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679864162-6OJPRX6YHNZI3W7AJ8V6/Safe Havens PMA Vibe Rant 98.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 4682346,
+   "h": 941,
+   "key": "sq/1782317742263-bvcxz9nszb7rh4bla183/cave-art-the-primal-hero-and-the-origins-of-mythology-bernie-taylor-finding-the-face-of-the-hero",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782317742263-BVCXZ9NSZB7RH4BLA183/Cave Art, the Primal Hero and the Origins of Mythology  Bernie Taylor, Finding the Face of the Hero.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 442708,
+   "h": 1080,
+   "key": "sq/1780850924421-cz3khiqftbcnpfj904ax/thomas-zinser",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780850924421-CZ3KHIQFTBCNPFJ904AX/thomas-zinser.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 6865929,
+   "h": 1395,
+   "key": "sq/1780851071114-f07fl0dxsld2dvke31kz/trauma-creates-other-versions-of-you-that-are-still-alive-thomas-zinser-soul-centered-healing",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780851071114-F07FL0DXSLD2DVKE31KZ/Trauma Creates Other Versions of You That Are Still Alive  Thomas Zinser, Soul-Centered Healing.png",
+   "w": 2500,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 424657,
+   "h": 720,
+   "key": "sq/1792679810687-0hsvya2rgwjov68vp8an/electrorgone-mojo-energy-vibe-rant-96",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679810687-0HSVYA2RGWJOV68VP8AN/ElectrOrgone Mojo Energy Vibe Rant 96.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 405983,
+   "h": 1200,
+   "key": "sq/1687752962948-33dzwntc4yxndfdhw9x8/img-2387",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1687752962948-33DZWNTC4YXNDFDHW9X8/IMG_2387.JPG",
+   "w": 1196,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 2851368,
+   "h": 1200,
+   "key": "sq/1789595553949-lzdc6xogdvbrlg7v6v2o/juan-on-juan-homunculus",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595553949-LZDC6XOGDVBRLG7V6V2O/juan-on-juan-homunculus.png",
+   "w": 1196,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-10-31T15:36:59+00:00",
+ "skipped": [],
+ "started": "2026-10-31T15:28:10+00:00"
+}

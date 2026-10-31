@@ -136,6 +136,32 @@
    300
   ]
  },
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/0e3c1fb0-5bb6-41fd-9e58-6ae567b7b48c/ray-catiana.jpg": {
+  "bytes": {
+   "orig.jpg": 114325,
+   "w1000.webp": 38444,
+   "w300.webp": 5664,
+   "w500.webp": 12054,
+   "w750.webp": 24072
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1086,
+  "key": "sq/0e3c1fb0-5bb6-41fd-9e58-6ae567b7b48c/ray-catiana",
+  "w": 1086,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
  "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/0ec2df35-b454-4183-b99b-35e0967125a3/MARIZELLE-ARCE.jpg": {
   "bytes": {
    "orig.jpg": 30993,
@@ -3196,6 +3222,365 @@
    750
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1687752962948-33DZWNTC4YXNDFDHW9X8/IMG_2387.JPG": {
+  "bytes": {
+   "orig.jpg": 198487,
+   "w1000.webp": 86652,
+   "w300.webp": 20516,
+   "w500.webp": 38486,
+   "w750.webp": 61842
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1200,
+  "key": "sq/1687752962948-33dzwntc4yxndfdhw9x8/img-2387",
+  "w": 1196,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1689566041797-3KLQ1JMGBJGQI3SFGATL/IMG_2535.JPG": {
+  "bytes": {
+   "orig.jpg": 563502,
+   "w1000.webp": 100070,
+   "w1500.webp": 174018,
+   "w300.webp": 17474,
+   "w500.webp": 38402,
+   "w750.webp": 68022
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2232,
+  "key": "sq/1689566041797-3klq1jmgbjgqi3sfgatl/img-2535",
+  "w": 2232,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1690908842678-68BTLCSVITL2Q7CFRV8P/IMG_2614.PNG": {
+  "bytes": {
+   "orig.jpg": 333011,
+   "w1000.webp": 185866,
+   "w300.webp": 24762,
+   "w500.webp": 61608,
+   "w750.webp": 117564
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1690908842678-68btlcsvitl2q7cfrv8p/img-2614",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1691429553585-IZ91ULKFKTXKGH0IGHHC/IMG_2681.JPG": {
+  "bytes": {
+   "orig.jpg": 641496,
+   "w1000.webp": 131252,
+   "w1500.webp": 209876,
+   "w300.webp": 22858,
+   "w500.webp": 51802,
+   "w750.webp": 91602
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2232,
+  "key": "sq/1691429553585-iz91ulkfktxkgh0ighhc/img-2681",
+  "w": 2232,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1692036173167-80DWRJIN7OR10PZVGAWP/IMG_2736.JPG": {
+  "bytes": {
+   "orig.jpg": 522205,
+   "w1000.webp": 92120,
+   "w1500.webp": 177128,
+   "w300.webp": 18374,
+   "w500.webp": 37322,
+   "w750.webp": 62306
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1920,
+  "key": "sq/1692036173167-80dwrjin7or10pzvgawp/img-2736",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1692654882164-73EUZ4WK9S9O7ZISAQO0/IMG_2785.JPG": {
+  "bytes": {
+   "orig.jpg": 670630,
+   "w1000.webp": 144630,
+   "w1500.webp": 232188,
+   "w300.webp": 31716,
+   "w500.webp": 64596,
+   "w750.webp": 104410
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2232,
+  "key": "sq/1692654882164-73euz4wk9s9o7zisaqo0/img-2785",
+  "w": 2232,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1693163099558-82ULR2PTSKI9BUBCLV0L/IMG_2871.JPG": {
+  "bytes": {
+   "orig.jpg": 1322030,
+   "w1000.webp": 199468,
+   "w1500.webp": 427598,
+   "w300.webp": 24796,
+   "w500.webp": 57176,
+   "w750.webp": 113364
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2500,
+  "key": "sq/1693163099558-82ulr2ptski9bubclv0l/img-2871",
+  "w": 2500,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1693851786196-P3GUIH0U8SG4ZKG8H5JH/IMG_2793.JPG": {
+  "bytes": {
+   "orig.jpg": 128177,
+   "w1000.webp": 44244,
+   "w300.webp": 8724,
+   "w500.webp": 18114,
+   "w750.webp": 30228
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1693851786196-p3guih0u8sg4zkg8h5jh/img-2793",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1694451906097-PDJF7ACMWGWKMH5A04HM/IMG_2960.PNG": {
+  "bytes": {
+   "orig.jpg": 275067,
+   "w1000.webp": 149580,
+   "w300.webp": 28820,
+   "w500.webp": 62848,
+   "w750.webp": 106060
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1694451906097-pdjf7acmwgwkmh5a04hm/img-2960",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1694968685945-JVJQRJ2IV924OHA6PDBG/IMG_3020.JPG": {
+  "bytes": {
+   "orig.jpg": 966898,
+   "w1000.webp": 133736,
+   "w1500.webp": 270300,
+   "w300.webp": 19836,
+   "w500.webp": 41290,
+   "w750.webp": 78314
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2500,
+  "key": "sq/1694968685945-jvjqrj2iv924oha6pdbg/img-3020",
+  "w": 2500,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1696174672732-TP74PJX713528E8H618U/IMG_3290.JPG": {
+  "bytes": {
+   "orig.jpg": 903548,
+   "w1000.webp": 353864,
+   "w1500.webp": 618138,
+   "w300.webp": 39858,
+   "w500.webp": 110442,
+   "w750.webp": 229146
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1682,
+  "key": "sq/1696174672732-tp74pjx713528e8h618u/img-3290",
+  "w": 1682,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1698684037801-ATRK7FNAZQPN1VDJ8Z8R/IMG_3549.JPG": {
+  "bytes": {
+   "orig.jpg": 494693,
+   "w1000.webp": 299738,
+   "w300.webp": 36474,
+   "w500.webp": 89888,
+   "w750.webp": 185904
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1246,
+  "key": "sq/1698684037801-atrk7fnazqpn1vdj8z8r/img-3549",
+  "w": 1246,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1699904010952-D85D87DYW1XE41YYHR6Y/IMG_3665.JPG": {
+  "bytes": {
+   "orig.jpg": 208887,
+   "w1000.webp": 102556,
+   "w300.webp": 15748,
+   "w500.webp": 35840,
+   "w750.webp": 65186
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1097,
+  "key": "sq/1699904010952-d85d87dyw1xe41yyhr6y/img-3665",
+  "w": 1097,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/16c1e5cd-3072-4a9b-8517-a267250d95d6/tuning the human biofield.jpg": {
   "bytes": {
    "orig.jpg": 116737,
@@ -3214,6 +3599,466 @@
   "widths": [
    300,
    500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1700601384464-7M7SCOO7GLVO4SO24TAC/IMG_3695.JPG": {
+  "bytes": {
+   "orig.jpg": 159319,
+   "w1000.webp": 53082,
+   "w300.webp": 14432,
+   "w500.webp": 25946,
+   "w750.webp": 38496
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1284,
+  "key": "sq/1700601384464-7m7scoo7glvo4so24tac/img-3695",
+  "w": 1284,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1701126690159-0F8UBTXP5YDDMN8QQMDS/IMG_3723.JPG": {
+  "bytes": {
+   "orig.jpg": 750606,
+   "w1000.webp": 144100,
+   "w1500.webp": 247254,
+   "w300.webp": 24784,
+   "w500.webp": 54378,
+   "w750.webp": 96938
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2232,
+  "key": "sq/1701126690159-0f8ubtxp5yddmn8qqmds/img-3723",
+  "w": 2232,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1702947172765-AJ425L1RWLO3SJ8G403H/IMG_3875.JPG": {
+  "bytes": {
+   "orig.jpg": 160583,
+   "w300.webp": 25634,
+   "w500.webp": 55860,
+   "w750.webp": 94354
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp"
+  ],
+  "h": 834,
+  "key": "sq/1702947172765-aj425l1rwlo3sj8g403h/img-3875",
+  "w": 834,
+  "widths": [
+   300,
+   500,
+   750
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1704129933718-XHXUPD81NNCLNAX3B6KF/IMG_3937.JPG": {
+  "bytes": {
+   "orig.jpg": 232894,
+   "w1000.webp": 117506,
+   "w300.webp": 23898,
+   "w500.webp": 51876,
+   "w750.webp": 84274
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1704129933718-xhxupd81nnclnax3b6kf/img-3937",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1705341285810-8AK33BTYYMV00EBMSX6J/IMG_4066.JPG": {
+  "bytes": {
+   "orig.jpg": 216837,
+   "w1000.webp": 102894,
+   "w300.webp": 17186,
+   "w500.webp": 39492,
+   "w750.webp": 69024
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1705341285810-8ak33btyymv00ebmsx6j/img-4066",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1705948891998-LHOFQLTYUSLBSZPRMC7U/IMG_4120.JPG": {
+  "bytes": {
+   "orig.jpg": 258246,
+   "w1000.webp": 127630,
+   "w300.webp": 25460,
+   "w500.webp": 57764,
+   "w750.webp": 92792
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1705948891998-lhofqltyuslbszprmc7u/img-4120",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1706544727552-BW1G0W14UWJM647UOD9N/IMG_4160.JPG": {
+  "bytes": {
+   "orig.jpg": 305862,
+   "w1000.webp": 103002,
+   "w300.webp": 19680,
+   "w500.webp": 40918,
+   "w750.webp": 70942
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1406,
+  "key": "sq/1706544727552-bw1g0w14uwjm647uod9n/img-4160",
+  "w": 1406,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1707179036512-O7GSE8QFB3P4MHQWJ0LI/michael-tsarion.jpg": {
+  "bytes": {
+   "orig.jpg": 445387,
+   "w1000.webp": 146740,
+   "w1500.webp": 251400,
+   "w300.webp": 20612,
+   "w500.webp": 48926,
+   "w750.webp": 95880
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1600,
+  "key": "sq/1707179036512-o7gse8qfb3p4mhqwj0li/michael-tsarion",
+  "w": 1600,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1708979243585-SUDDW0J4TQ0C2UDKG9OH/IMG_4449.JPG": {
+  "bytes": {
+   "orig.jpg": 106637,
+   "w300.webp": 15572,
+   "w500.webp": 34514,
+   "w750.webp": 67050
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp"
+  ],
+  "h": 762,
+  "key": "sq/1708979243585-suddw0j4tq0c2udkg9oh/img-4449",
+  "w": 762,
+  "widths": [
+   300,
+   500,
+   750
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1710777093143-E7TDIVAABPXS0M22N74J/IMG_4620.JPG": {
+  "bytes": {
+   "orig.jpg": 600769,
+   "w1000.webp": 113582,
+   "w1500.webp": 197812,
+   "w300.webp": 17602,
+   "w500.webp": 42092,
+   "w750.webp": 76168
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2232,
+  "key": "sq/1710777093143-e7tdivaabpxs0m22n74j/img-4620",
+  "w": 2232,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1711386617331-QIPZG5I408DD5P1AUDVH/photo_2024-03-25_11-11-49.jpg": {
+  "bytes": {
+   "orig.jpg": 145831,
+   "w1000.webp": 86300,
+   "w300.webp": 14678,
+   "w500.webp": 32604,
+   "w750.webp": 58458
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1711386617331-qipzg5i408dd5p1audvh/photo-2024-03-25-11-11-49",
+  "w": 1080,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1711987946573-ZLM0YJ8AICFNK3AM0ABP/IMG_4685.JPG": {
+  "bytes": {
+   "orig.jpg": 598932,
+   "w1000.webp": 211682,
+   "w1500.webp": 355956,
+   "w300.webp": 32316,
+   "w500.webp": 76460,
+   "w750.webp": 142786
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1587,
+  "key": "sq/1711987946573-zlm0yj8aicfnk3am0abp/img-4685",
+  "w": 1587,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1712586688836-97Y4FTEOL4O24OOVNYLQ/IMG_4703.JPG": {
+  "bytes": {
+   "orig.jpg": 265961,
+   "w1000.webp": 65818,
+   "w1500.webp": 108074,
+   "w300.webp": 13810,
+   "w500.webp": 27744,
+   "w750.webp": 45634
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1598,
+  "key": "sq/1712586688836-97y4fteol4o24oovnylq/img-4703",
+  "w": 1598,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1713195924164-7B0L6DSJJZ0KQV973ZLN/IMG_4732.JPG": {
+  "bytes": {
+   "orig.jpg": 682373,
+   "w1000.webp": 172346,
+   "w1500.webp": 283776,
+   "w300.webp": 26308,
+   "w500.webp": 62156,
+   "w750.webp": 113752
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1920,
+  "key": "sq/1713195924164-7b0l6dsjjz0kqv973zln/img-4732",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1713802789109-6YGR217E0CG5DXUSSBEI/IMG_4767.JPG": {
+  "bytes": {
+   "orig.jpg": 359000,
+   "w1000.webp": 121484,
+   "w1500.webp": 196388,
+   "w300.webp": 21908,
+   "w500.webp": 48290,
+   "w750.webp": 83864
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1536,
+  "key": "sq/1713802789109-6ygr217e0cg5dxussbei/img-4767",
+  "w": 1536,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1715096859310-F2UTLR9RSCSFL14D07XN/IMG_4881.PNG": {
+  "bytes": {
+   "orig.jpg": 196690,
+   "w1000.webp": 85412,
+   "w300.webp": 15066,
+   "w500.webp": 33990,
+   "w750.webp": 60210
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1715096859310-f2utlr9rscsfl14d07xn/img-4881",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1715618815388-9S48WF5YTNFH4FR78CE8/IMG_4997.JPG": {
+  "bytes": {
+   "orig.jpg": 234227,
+   "w1000.webp": 53238,
+   "w1500.webp": 92494,
+   "w300.webp": 12456,
+   "w500.webp": 23426,
+   "w750.webp": 37708
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1536,
+  "key": "sq/1715618815388-9s48wf5ytnfh4fr78ce8/img-4997",
+  "w": 1536,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
   ]
  },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1716224085587-3343HHD950I4RGDSS575/IMG_5048.JPG": {
@@ -4319,6 +5164,35 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778163666224-A31PHKZ30NL0NFG940TG/video-thumb.jpg": {
+  "bytes": {
+   "orig.jpg": 307402,
+   "w1000.webp": 69346,
+   "w1500.webp": 121344,
+   "w300.webp": 12040,
+   "w500.webp": 25594,
+   "w750.webp": 45372
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1778163666224-a31phkz30nl0nfg940tg/video-thumb",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778685651035-A8JEDO5E06MK698PWBRC/substack the chariot doesnt move.png": {
   "bytes": {
    "orig.png": 3365596,
@@ -4377,6 +5251,93 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778869350479-DL61PH6H49BWGKMGRPD3/keith-parker.jpg": {
+  "bytes": {
+   "orig.jpg": 313401,
+   "w1000.webp": 85924,
+   "w1500.webp": 158124,
+   "w300.webp": 13856,
+   "w500.webp": 29072,
+   "w750.webp": 54140
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1778869350479-dl61ph6h49bwgkmgrpd3/keith-parker",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778869900557-F8INRKZ0LBELQHJRWVYZ/ChatGPT Image May 15, 2026, 10_45_13 AM.png": {
+  "bytes": {
+   "orig.png": 3014844,
+   "w1000.webp": 89532,
+   "w1500.webp": 171238,
+   "w300.webp": 13432,
+   "w500.webp": 28840,
+   "w750.webp": 55148
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1778869900557-f8inrkz0lbelqhjrwvyz/chatgpt-image-may-15-2026-10-45-13-am",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778879512946-KEINSPFHRH1XF1HZ5L1Z/Eileen McKusick & Kyle Denton The Biofield of Plants, Morphic Fields & Sound Healing With Herbs.png": {
+  "bytes": {
+   "orig.png": 3867055,
+   "w1000.webp": 120030,
+   "w1500.webp": 215606,
+   "w300.webp": 17846,
+   "w500.webp": 39154,
+   "w750.webp": 75136
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1778879512946-keinspfhrh1xf1hz5l1z/eileen-mckusick-kyle-denton-the-biofield-of-plants-morphic-fields-sound-healing-with-herbs",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778932848550-YS2NO7AO3YFCTTOUIKWB/58d232f3-dc78-4ab2-ba81-3ac4cd4e1dab.png": {
   "bytes": {
    "orig.png": 3336872,
@@ -4397,6 +5358,35 @@
   ],
   "h": 941,
   "key": "sq/1778932848550-ys2no7ao3yfcttouikwb/58d232f3-dc78-4ab2-ba81-3ac4cd4e1dab",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1778935818476-8UDNPVCY8HFH10XQLAN3/How Your Birth Affects Your Biofield Chance & Kyle Denton on C-Sections, Herbs & Tuning.png": {
+  "bytes": {
+   "orig.png": 3584840,
+   "w1000.webp": 108284,
+   "w1500.webp": 196660,
+   "w300.webp": 15978,
+   "w500.webp": 35298,
+   "w750.webp": 67220
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1778935818476-8udnpvcy8hfh10xqlan3/how-your-birth-affects-your-biofield-chance-kyle-denton-on-c-sections-herbs-tuning",
   "w": 1672,
   "widths": [
    300,
@@ -4841,6 +5831,35 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779203477065-7U00W9YWSNBSQIU6C37O/Owen Benjamin & Topher Gardner Noble Savages, Biocharisma and the Symbolism of the Eclipse.png": {
+  "bytes": {
+   "orig.png": 3416811,
+   "w1000.webp": 113524,
+   "w1500.webp": 225076,
+   "w300.webp": 14150,
+   "w500.webp": 32522,
+   "w750.webp": 66772
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1779203477065-7u00w9ywsnbsqiu6c37o/owen-benjamin-topher-gardner-noble-savages-biocharisma-and-the-symbolism-of-the-eclipse",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779303417542-S0FMJXFBDZN2369W4SF1/Crrow777 on the Tragedy of Lazarus Belief vs Knowing and the Astro-Theology of the Bible.png": {
   "bytes": {
    "orig.png": 3426261,
@@ -4861,6 +5880,122 @@
   ],
   "h": 941,
   "key": "sq/1779303417542-s0fmjxfbdzn2369w4sf1/crrow777-on-the-tragedy-of-lazarus-belief-vs-knowing-and-the-astro-theology-of-the-bible",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779371601005-RX1KL6HY64K5PB6XLQXJ/inner-whirled-1.jpg": {
+  "bytes": {
+   "orig.jpg": 422847,
+   "w1000.webp": 110870,
+   "w1500.webp": 194636,
+   "w300.webp": 16274,
+   "w500.webp": 36890,
+   "w750.webp": 71172
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1779371601005-rx1kl6hy64k5pb6xlqxj/inner-whirled-1",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779373273178-2PUEZB0V0TVXB3KLH1I7/Why Herodotus Never Mentioned Rome.png": {
+  "bytes": {
+   "orig.png": 3172673,
+   "w1000.webp": 112812,
+   "w1500.webp": 211802,
+   "w300.webp": 15756,
+   "w500.webp": 35814,
+   "w750.webp": 70496
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1779373273178-2puezb0v0tvxb3klh1i7/why-herodotus-never-mentioned-rome",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779375588111-L1GIR1NLYLWGM0OBKV8G/The Oera Linda Book A Forbidden Frisian Manuscript Examined With Dylan Saccoccio.png": {
+  "bytes": {
+   "orig.png": 3769277,
+   "w1000.webp": 176268,
+   "w1500.webp": 354262,
+   "w300.webp": 17490,
+   "w500.webp": 45602,
+   "w750.webp": 101004
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1779375588111-l1gir1nlylwgm0obkv8g/the-oera-linda-book-a-forbidden-frisian-manuscript-examined-with-dylan-saccoccio",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779377198021-KZ56ZY5JAPOHX4LGUU8B/The Oera Linda Book Part 2 Allegory, the Holy Sailors and the Astro-Theology Beneath the Manuscript.png": {
+  "bytes": {
+   "orig.png": 3632581,
+   "w1000.webp": 164916,
+   "w1500.webp": 329634,
+   "w300.webp": 17334,
+   "w500.webp": 44850,
+   "w750.webp": 95908
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1779377198021-kz56zy5japohx4lguu8b/the-oera-linda-book-part-2-allegory-the-holy-sailors-and-the-astro-theology-beneath-the-manuscript",
   "w": 1672,
   "widths": [
    300,
@@ -5769,6 +6904,93 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780063688358-HSEH4580RQAJMEKVPAFK/Before the Greeks The Secret Civilization That Invented Everything.png": {
+  "bytes": {
+   "orig.png": 3681574,
+   "w1000.webp": 140800,
+   "w1500.webp": 271116,
+   "w300.webp": 16498,
+   "w500.webp": 39906,
+   "w750.webp": 82980
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1780063688358-hseh4580rqajmekvpafk/before-the-greeks-the-secret-civilization-that-invented-everything",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780071576165-QKH5FKOPDYOBQ9RPJNI5/The Stolen Grid How They Hijacked the Earth's Energy  Michelle Gibson.png": {
+  "bytes": {
+   "orig.png": 3490175,
+   "w1000.webp": 131150,
+   "w1500.webp": 253722,
+   "w300.webp": 15630,
+   "w500.webp": 37690,
+   "w750.webp": 77266
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1780071576165-qkh5fkopdyobq9rpjni5/the-stolen-grid-how-they-hijacked-the-earth-s-energy-michelle-gibson",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780165683726-UKF5FL6T51KFNAX0NHE0/Science is Upside Down The Evidence That Mind Creates Matter  Mark Gober.png": {
+  "bytes": {
+   "orig.png": 3252708,
+   "w1000.webp": 82282,
+   "w1500.webp": 153594,
+   "w300.webp": 12476,
+   "w500.webp": 26402,
+   "w750.webp": 51930
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1780165683726-ukf5fl6t51kfnax0nhe0/science-is-upside-down-the-evidence-that-mind-creates-matter-mark-gober",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780230571621-AA83BH2UCTSLFKYSPONX/mark-gober-3.jpg": {
   "bytes": {
    "orig.jpg": 301937,
@@ -6111,6 +7333,64 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780850924421-CZ3KHIQFTBCNPFJ904AX/thomas-zinser.jpg": {
+  "bytes": {
+   "orig.jpg": 248266,
+   "w1000.webp": 47864,
+   "w1500.webp": 83510,
+   "w300.webp": 10462,
+   "w500.webp": 19588,
+   "w750.webp": 33018
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1780850924421-cz3khiqftbcnpfj904ax/thomas-zinser",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780851071114-F07FL0DXSLD2DVKE31KZ/Trauma Creates Other Versions of You That Are Still Alive  Thomas Zinser, Soul-Centered Healing.png": {
+  "bytes": {
+   "orig.png": 6684229,
+   "w1000.webp": 44984,
+   "w1500.webp": 77792,
+   "w300.webp": 9918,
+   "w500.webp": 18386,
+   "w750.webp": 30620
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1395,
+  "key": "sq/1780851071114-f07fl0dxsld2dvke31kz/trauma-creates-other-versions-of-you-that-are-still-alive-thomas-zinser-soul-centered-healing",
+  "w": 2500,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1780878510578-GOPXIOELJ8Y9Y9BVPI9J/The Secret Phoenician Origin of the Celts & Beltane  The Empire of Baal Part 2.png": {
   "bytes": {
    "orig.png": 2912583,
@@ -6198,6 +7478,122 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781206600749-UFWUCUHWOKGBCVPHELXN/God Hid the Number Pi Inside the English Alphabet  Marty Leeds of the Gnostic Academy.png": {
+  "bytes": {
+   "orig.png": 3289788,
+   "w1000.webp": 57810,
+   "w1500.webp": 98296,
+   "w300.webp": 12142,
+   "w500.webp": 23262,
+   "w750.webp": 39174
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1781206600749-ufwucuhwokgbcvphelxn/god-hid-the-number-pi-inside-the-english-alphabet-marty-leeds-of-the-gnostic-academy",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781206634939-V6V1ZOPT2WYYE1CLDE8O/marty-leeds-pi.jpg": {
+  "bytes": {
+   "orig.jpg": 270032,
+   "w1000.webp": 57584,
+   "w1500.webp": 95228,
+   "w300.webp": 12600,
+   "w500.webp": 23718,
+   "w750.webp": 39314
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1781206634939-v6v1zopt2wyye1clde8o/marty-leeds-pi",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781214598584-W9P4VKH6LGEZ3UALD3DV/inner-whirled-3.jpg": {
+  "bytes": {
+   "orig.jpg": 326420,
+   "w1000.webp": 73022,
+   "w1500.webp": 124884,
+   "w300.webp": 13332,
+   "w500.webp": 27122,
+   "w750.webp": 49082
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1781214598584-w9p4vkh6lgez3uald3dv/inner-whirled-3",
+  "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781356798962-NI7TREM1UR3MD81UFZ4Z/Tarot, Taurus, & The Secret Language of the Tower Builders.png": {
+  "bytes": {
+   "orig.png": 6964380,
+   "w1000.webp": 70042,
+   "w1500.webp": 119934,
+   "w300.webp": 12922,
+   "w500.webp": 26580,
+   "w750.webp": 47228
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1395,
+  "key": "sq/1781356798962-ni7trem1ur3md81ufz4z/tarot-taurus-the-secret-language-of-the-tower-builders",
+  "w": 2500,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781628298417-XQZ9NWWLTFWMW5N68RD4/jason-quitt-annunaki.jpg": {
   "bytes": {
    "orig.jpg": 540492,
@@ -6248,6 +7644,35 @@
   "h": 941,
   "key": "sq/1781628484983-8qjob5oa71plx32oul0z/your-skeleton-has-the-same-sacred-numbers-as-ancient-babylon-jason-quitt-gates-of-the-anunnaki",
   "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781721072221-36XWBHY1Z80XES4YKQF3/The Book of the Dead Is a Zodiac Map of the Underworld  Jason Quitt, Mario Garza & Slick Dissident.png": {
+  "bytes": {
+   "orig.png": 7652985,
+   "w1000.webp": 83828,
+   "w1500.webp": 141150,
+   "w300.webp": 14760,
+   "w500.webp": 31824,
+   "w750.webp": 56288
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1395,
+  "key": "sq/1781721072221-36xwbhy1z80xes4ykqf3/the-book-of-the-dead-is-a-zodiac-map-of-the-underworld-jason-quitt-mario-garza-slick-dissident",
+  "w": 2500,
   "widths": [
    300,
    500,
@@ -6314,6 +7739,35 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781878274630-LTZA01OFS1FFMF2MO1CC/The Seven Musical Modes Are Planetary, Zodiac, and Alchemical Keys  shaOne & Slick Dissident.png": {
+  "bytes": {
+   "orig.png": 1920583,
+   "w1000.webp": 55938,
+   "w1500.webp": 103022,
+   "w300.webp": 9534,
+   "w500.webp": 19306,
+   "w750.webp": 35364
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1781878274630-ltza01ofs1ffmf2mo1cc/the-seven-musical-modes-are-planetary-zodiac-and-alchemical-keys-shaone-slick-dissident",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1781896213833-NOJU1NXOR1SYCDMY1CJA/Theory & Praxis Why Philosophers Never Say What They Mean, with Slick Dissident.png": {
   "bytes": {
    "orig.png": 3604348,
@@ -6364,6 +7818,35 @@
   "h": 1080,
   "key": "sq/1781896306190-zxykvei2v28r6n4lehwj/slick-dissident-theory-and-praxis",
   "w": 1920,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1782317742263-BVCXZ9NSZB7RH4BLA183/Cave Art, the Primal Hero and the Origins of Mythology  Bernie Taylor, Finding the Face of the Hero.png": {
+  "bytes": {
+   "orig.png": 3898518,
+   "w1000.webp": 199106,
+   "w1500.webp": 392980,
+   "w300.webp": 20892,
+   "w500.webp": 54470,
+   "w750.webp": 116380
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1782317742263-bvcxz9nszb7rh4bla183/cave-art-the-primal-hero-and-the-origins-of-mythology-bernie-taylor-finding-the-face-of-the-hero",
+  "w": 1672,
   "widths": [
    300,
    500,
@@ -7265,6 +8748,631 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789594965310-26JLTS6HM1OU6ESG2DOF/2023-08-21-dominique-cordivari-epiastrology-plus.png": {
+  "bytes": {
+   "orig.png": 10599881,
+   "w1000.webp": 140742,
+   "w1500.webp": 225216,
+   "w300.webp": 31658,
+   "w500.webp": 63420,
+   "w750.webp": 102560
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2232,
+  "key": "sq/1789594965310-26jlts6hm1ou6esg2dof/2023-08-21-dominique-cordivari-epiastrology-plus",
+  "w": 2232,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595040638-5JHVZN1KK8YI5Z4PRA6U/2023-09-05-michaela-crandell-ifs-plus.png": {
+  "bytes": {
+   "orig.png": 1388027,
+   "w1000.webp": 43412,
+   "w300.webp": 8886,
+   "w500.webp": 18422,
+   "w750.webp": 29784
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1789595040638-5jhvzn1kk8yi5z4pra6u/2023-09-05-michaela-crandell-ifs-plus",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595100136-G4HH90XKV0WKL976M0TE/2023-09-11-adam-stevens-grateful-harvest-plus.png": {
+  "bytes": {
+   "orig.png": 3532405,
+   "w1000.webp": 155436,
+   "w300.webp": 29708,
+   "w500.webp": 63722,
+   "w750.webp": 107470
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1789595100136-g4hh90xkv0wkl976m0te/2023-09-11-adam-stevens-grateful-harvest-plus",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595152715-ISGK6UCJN4M2MAYWXURS/2023-09-18-clive-de-carle-secret-health-club-plus.png": {
+  "bytes": {
+   "orig.png": 11774582,
+   "w1000.webp": 130454,
+   "w1500.webp": 255636,
+   "w300.webp": 20436,
+   "w500.webp": 43064,
+   "w750.webp": 79686
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2500,
+  "key": "sq/1789595152715-isgk6ucjn4m2maywxurs/2023-09-18-clive-de-carle-secret-health-club-plus",
+  "w": 2500,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595210576-HEJCC21FYE0UELJJ12OT/2023-10-02-hakan-hisim-universal-transmissions-plus.png": {
+  "bytes": {
+   "orig.png": 7727067,
+   "w1000.webp": 354276,
+   "w1500.webp": 617214,
+   "w300.webp": 40306,
+   "w500.webp": 110792,
+   "w750.webp": 230020
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1682,
+  "key": "sq/1789595210576-hejcc21fye0ueljj12ot/2023-10-02-hakan-hisim-universal-transmissions-plus",
+  "w": 1682,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595481103-SEFMYIQD0UIYIEVD7N9X/john-mchugh-rock-art.png": {
+  "bytes": {
+   "orig.png": 4262989,
+   "w1000.webp": 298386,
+   "w300.webp": 36674,
+   "w500.webp": 90972,
+   "w750.webp": 185544
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1246,
+  "key": "sq/1789595481103-sefmyiqd0uiyievd7n9x/john-mchugh-rock-art",
+  "w": 1246,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595548360-ZT9BCHDIZLX3SF2L6DHY/gregory-ripley-100-remedies.png": {
+  "bytes": {
+   "orig.png": 2389500,
+   "w1000.webp": 104278,
+   "w300.webp": 16474,
+   "w500.webp": 36172,
+   "w750.webp": 66426
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1097,
+  "key": "sq/1789595548360-zt9bchdizlx3sf2l6dhy/gregory-ripley-100-remedies",
+  "w": 1097,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595553949-LZDC6XOGDVBRLG7V6V2O/juan-on-juan-homunculus.png": {
+  "bytes": {
+   "orig.png": 2647682,
+   "w1000.webp": 85696,
+   "w300.webp": 19988,
+   "w500.webp": 37690,
+   "w750.webp": 60312
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1200,
+  "key": "sq/1789595553949-lzdc6xogdvbrlg7v6v2o/juan-on-juan-homunculus",
+  "w": 1196,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595592387-TQJPR8MRXX7GXQKSK4HC/john-lundwall-myth-cosmos.png": {
+  "bytes": {
+   "orig.png": 2105114,
+   "w1000.webp": 99114,
+   "w300.webp": 17284,
+   "w500.webp": 39060,
+   "w750.webp": 67926
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1789595592387-tqjpr8mrxx7gxqksk4hc/john-lundwall-myth-cosmos",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595634227-1QR82JG4S1AX0NUQO7K7/teri-hunter.png": {
+  "bytes": {
+   "orig.png": 9296053,
+   "w1000.webp": 93792,
+   "w1500.webp": 157776,
+   "w300.webp": 17298,
+   "w500.webp": 37526,
+   "w750.webp": 65568
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2232,
+  "key": "sq/1789595634227-1qr82jg4s1ax0nuqo7k7/teri-hunter",
+  "w": 2232,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595637449-A2EWA8CBLT9I2FOVKBYB/adam-butler-dmt.png": {
+  "bytes": {
+   "orig.png": 2872040,
+   "w1000.webp": 129364,
+   "w300.webp": 25642,
+   "w500.webp": 58420,
+   "w750.webp": 92662
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1789595637449-a2ewa8cblt9i2fovkbyb/adam-butler-dmt",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595685763-CXLJ4A4Y1VIE8MP0VUNZ/rj-spina-ascend-frequencies.png": {
+  "bytes": {
+   "orig.png": 2683309,
+   "w1000.webp": 114406,
+   "w300.webp": 23600,
+   "w500.webp": 50900,
+   "w750.webp": 82016
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1789595685763-cxlj4a4y1vie8mp0vunz/rj-spina-ascend-frequencies",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595692784-TICWTIRHLY5DQLSQUQV1/carla-adams-ancestral-river.png": {
+  "bytes": {
+   "orig.png": 3222847,
+   "w1000.webp": 184536,
+   "w300.webp": 25150,
+   "w500.webp": 62134,
+   "w750.webp": 117662
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1789595692784-ticwtirhly5dqlsquqv1/carla-adams-ancestral-river",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789595738425-G935SH5R9B7RSXHOW3C2/paranoid-american-nlp.png": {
+  "bytes": {
+   "orig.png": 9798942,
+   "w1000.webp": 129384,
+   "w1500.webp": 210270,
+   "w300.webp": 22536,
+   "w500.webp": 51624,
+   "w750.webp": 89780
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 2232,
+  "key": "sq/1789595738425-g935sh5r9b7rsxhow3c2/paranoid-american-nlp",
+  "w": 2232,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789603897886-K0PZA59SRQHVITRDGLGI/2024-04-22-waters-above-plus.png": {
+  "bytes": {
+   "orig.png": 4411983,
+   "w1000.webp": 115130,
+   "w1500.webp": 184964,
+   "w300.webp": 21790,
+   "w500.webp": 47022,
+   "w750.webp": 80818
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1536,
+  "key": "sq/1789603897886-k0pza59srqhvitrdglgi/2024-04-22-waters-above-plus",
+  "w": 1536,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604010553-8L35DSPIRLGO7XBKMGH8/2024-05-07-christopher-mcintosh-tetrad-plus.png": {
+  "bytes": {
+   "orig.png": 2245439,
+   "w1000.webp": 84942,
+   "w300.webp": 15290,
+   "w500.webp": 33900,
+   "w750.webp": 59276
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1170,
+  "key": "sq/1789604010553-8l35dspirlgo7xbkmgh8/2024-05-07-christopher-mcintosh-tetrad-plus",
+  "w": 1170,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604063746-O2BG78CPR5Z50MU7VXFZ/2024-05-13-ray-catania-athiest-afterlife-plus.png": {
+  "bytes": {
+   "orig.png": 2429423,
+   "w1000.webp": 53912,
+   "w1500.webp": 94152,
+   "w300.webp": 12716,
+   "w500.webp": 23846,
+   "w750.webp": 38280
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1536,
+  "key": "sq/1789604063746-o2bg78cpr5z50mu7vxfz/2024-05-13-ray-catania-athiest-afterlife-plus",
+  "w": 1536,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604111673-EN7UYZR5B1069SD03WKM/2024-05-20-katie-hess-lotuswei-plus.png": {
+  "bytes": {
+   "orig.png": 3700901,
+   "w1000.webp": 70132,
+   "w1500.webp": 174436,
+   "w300.webp": 12428,
+   "w500.webp": 24360,
+   "w750.webp": 42480
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1535,
+  "key": "sq/1789604111673-en7uyzr5b1069sd03wkm/2024-05-20-katie-hess-lotuswei-plus",
+  "w": 1535,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604388138-1PBKFSEJT4ERASURY0IY/2024-01-30-mark-english-eso-el-neigong-plus.png": {
+  "bytes": {
+   "orig.png": 3742806,
+   "w1000.webp": 103318,
+   "w300.webp": 19974,
+   "w500.webp": 40836,
+   "w750.webp": 72048
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1406,
+  "key": "sq/1789604388138-1pbkfsejt4erasury0iy/2024-01-30-mark-english-eso-el-neigong-plus",
+  "w": 1406,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604481768-ER7DBPI44M6QX4HSMNUL/2024-02-27-julia-lupine-emf-plus.png": {
+  "bytes": {
+   "orig.png": 1134358,
+   "w300.webp": 15616,
+   "w500.webp": 34144,
+   "w750.webp": 66916
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp"
+  ],
+  "h": 762,
+  "key": "sq/1789604481768-er7dbpi44m6qx4hsmnul/2024-02-27-julia-lupine-emf-plus",
+  "w": 762,
+  "widths": [
+   300,
+   500,
+   750
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604525851-8JPZPJTPJ09QU8BHX1G2/2024-03-18-michelle-lundquist-pet-health-plus.png": {
+  "bytes": {
+   "orig.png": 5084485,
+   "w1000.webp": 103628,
+   "w1500.webp": 184198,
+   "w300.webp": 17822,
+   "w500.webp": 40190,
+   "w750.webp": 70328
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1500,
+  "key": "sq/1789604525851-8jpzpjtpj09qu8bhx1g2/2024-03-18-michelle-lundquist-pet-health-plus",
+  "w": 1500,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604567355-8PMN0DGOU3BH5DJN1ILN/2024-03-25-christopher-mcintosh-occult-germany-plus.png": {
+  "bytes": {
+   "orig.png": 2021855,
+   "w1000.webp": 77704,
+   "w300.webp": 14446,
+   "w500.webp": 30900,
+   "w750.webp": 53058
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1080,
+  "key": "sq/1789604567355-8pmn0dgou3bh5djn1iln/2024-03-25-christopher-mcintosh-occult-germany-plus",
+  "w": 1080,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789604605950-A647BHS8IDGAZ0L676HJ/2024-04-08-sajah-popham-plus.png": {
+  "bytes": {
+   "orig.png": 2856535,
+   "w1000.webp": 64680,
+   "w1500.webp": 111006,
+   "w300.webp": 14230,
+   "w500.webp": 27994,
+   "w750.webp": 45914
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 1500,
+  "key": "sq/1789604605950-a647bhs8idgaz0l676hj/2024-04-08-sajah-popham-plus",
+  "w": 1500,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789662667562-LHTSCLBURD5BOA70YQ20/2024-06-10-ashley-mosaic-futurism-plus.png": {
   "bytes": {
    "orig.png": 3304714,
@@ -7631,6 +9739,32 @@
    750,
    1000,
    1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789751015933-94TOVMU127LX7H19PJG9/The Fallout of Historical Forgery - Inner Whirled 4.jpg": {
+  "bytes": {
+   "orig.jpg": 155658,
+   "w1000.webp": 72312,
+   "w300.webp": 12730,
+   "w500.webp": 26508,
+   "w750.webp": 47264
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1789751015933-94tovmu127lx7h19pjg9/the-fallout-of-historical-forgery-inner-whirled-4",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
   ]
  },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1789751128810-415QF8KV4GF4KHLX2H6R/The Devil In the Details - Inner Whirled 6.jpg": {
@@ -8405,6 +10539,474 @@
    1000
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791377356783-9FW0UKCVG0C3TEVRNYO1/Morality and Islam Vibe Rant 129.jpg": {
+  "bytes": {
+   "orig.jpg": 210167,
+   "w1000.webp": 103362,
+   "w300.webp": 13286,
+   "w500.webp": 29636,
+   "w750.webp": 60290
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791377356783-9fw0ukcvg0c3tevrnyo1/morality-and-islam-vibe-rant-129",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791377384309-2CT4061GAG7UNYBPUEVW/Human Design Q and A Vibe Rant 128.jpg": {
+  "bytes": {
+   "orig.jpg": 192549,
+   "w1000.webp": 89030,
+   "w300.webp": 14702,
+   "w500.webp": 31652,
+   "w750.webp": 58482
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791377384309-2ct4061gag7unybpuevw/human-design-q-and-a-vibe-rant-128",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791377412798-3HXQ4VWJ54VABCP0813W/Kingdoms and Crosses Vibe Rant 127.jpg": {
+  "bytes": {
+   "orig.jpg": 201976,
+   "w1000.webp": 90770,
+   "w300.webp": 11796,
+   "w500.webp": 25882,
+   "w750.webp": 54078
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791377412798-3hxq4vwj54vabcp0813w/kingdoms-and-crosses-vibe-rant-127",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380301092-RC59VYL55Q3ZRJJDHS1K/Mike Wann and The Story of 2024 Eclipse Susquehanna Synchronicities Vibe Rant 126.jpg": {
+  "bytes": {
+   "orig.jpg": 168336,
+   "w1000.webp": 67342,
+   "w300.webp": 12678,
+   "w500.webp": 25714,
+   "w750.webp": 45704
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791380301092-rc59vyl55q3zrjjdhs1k/mike-wann-and-the-story-of-2024-eclipse-susquehanna-synchronicities-vibe-rant-126",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380343068-KKNVS7D439DUP0NTYYLF/Child Education at Home and Academic Freedom with John Coleman Vibe Rant 125.jpg": {
+  "bytes": {
+   "orig.jpg": 121342,
+   "w1000.webp": 45856,
+   "w300.webp": 9748,
+   "w500.webp": 18974,
+   "w750.webp": 31758
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791380343068-kknvs7d439dup0ntyylf/child-education-at-home-and-academic-freedom-with-john-coleman-vibe-rant-125",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380377134-EBX9R617T782QQZR48OD/The Mystical Adventures of Ceb Bland and Slick Dissident Vibe Rant 124.jpg": {
+  "bytes": {
+   "orig.jpg": 160858,
+   "w1000.webp": 69320,
+   "w300.webp": 12678,
+   "w500.webp": 27032,
+   "w750.webp": 46746
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791380377134-ebx9r617t782qqzr48od/the-mystical-adventures-of-ceb-bland-and-slick-dissident-vibe-rant-124",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380411060-9FOKU1UDTSN937JKBISL/Creating Treasures on the Oregonite Trail with Isaac Layzell and Slick Dissident Vibe Rant 122.jpg": {
+  "bytes": {
+   "orig.jpg": 140432,
+   "w1000.webp": 59544,
+   "w300.webp": 10850,
+   "w500.webp": 22456,
+   "w750.webp": 39924
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791380411060-9foku1udtsn937jkbisl/creating-treasures-on-the-oregonite-trail-with-isaac-layzell-and-slick-dissident-vibe-rant-122",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791380445166-Q2BQSFI0WYGBLJ6QPVSU/MonoMythic Cryptomnesia Catching Up with Slick Dissident Vibe Rant 121.jpg": {
+  "bytes": {
+   "orig.jpg": 119989,
+   "w1000.webp": 42464,
+   "w300.webp": 10176,
+   "w500.webp": 18964,
+   "w750.webp": 29748
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791380445166-q2bqsfi0wygblj6qpvsu/monomythic-cryptomnesia-catching-up-with-slick-dissident-vibe-rant-121",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397591859-79M67319L6IF6C7MYQ09/Vibe Rant 120.jpg": {
+  "bytes": {
+   "orig.jpg": 178064,
+   "w1000.webp": 77556,
+   "w300.webp": 16834,
+   "w500.webp": 33320,
+   "w750.webp": 54676
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791397591859-79m67319l6if6c7myq09/vibe-rant-120",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397663931-XOXD4LOPAJLJUG9TC3J0/Vibe Rant 119.jpg": {
+  "bytes": {
+   "orig.jpg": 238813,
+   "w1000.webp": 121300,
+   "w300.webp": 14738,
+   "w500.webp": 35290,
+   "w750.webp": 74322
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791397663931-xoxd4lopajljug9tc3j0/vibe-rant-119",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397701480-32IFSH7O1F391IOROQT5/Vibe Rant 117.jpg": {
+  "bytes": {
+   "orig.jpg": 183722,
+   "w1000.webp": 85292,
+   "w300.webp": 15884,
+   "w500.webp": 33184,
+   "w750.webp": 58800
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791397701480-32ifsh7o1f391ioroqt5/vibe-rant-117",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397730877-ZV28NC1Y9G21OT8POAB8/Vibe Rant 116.jpg": {
+  "bytes": {
+   "orig.jpg": 234396,
+   "w1000.webp": 122772,
+   "w300.webp": 18172,
+   "w500.webp": 42406,
+   "w750.webp": 79394
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791397730877-zv28nc1y9g21ot8poab8/vibe-rant-116",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791397778944-P9FX38RNBBLV1A946VEG/Vibe Rant 115.jpg": {
+  "bytes": {
+   "orig.jpg": 160888,
+   "w1000.webp": 64718,
+   "w300.webp": 12418,
+   "w500.webp": 25936,
+   "w750.webp": 44052
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791397778944-p9fx38rnbblv1a946veg/vibe-rant-115",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409007691-51J1QWMK01SH9X6MVOEB/Vibe Rant 114.jpg": {
+  "bytes": {
+   "orig.jpg": 182411,
+   "w1000.webp": 82194,
+   "w300.webp": 16534,
+   "w500.webp": 32962,
+   "w750.webp": 57346
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791409007691-51j1qwmk01sh9x6mvoeb/vibe-rant-114",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409039642-BVJ4VBXRHPYHNIL5ZZDB/Vibe Rant 112.jpg": {
+  "bytes": {
+   "orig.jpg": 164231,
+   "w1000.webp": 74124,
+   "w300.webp": 16666,
+   "w500.webp": 32544,
+   "w750.webp": 52668
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791409039642-bvj4vbxrhpyhnil5zzdb/vibe-rant-112",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409071783-AKMJXPG6PUSYIKOHHURZ/What Every Pain in Your Body Is Trying to Tell You.jpg": {
+  "bytes": {
+   "orig.jpg": 202237,
+   "w1000.webp": 83924,
+   "w300.webp": 12802,
+   "w500.webp": 28192,
+   "w750.webp": 52880
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791409071783-akmjxpg6pusyikohhurz/what-every-pain-in-your-body-is-trying-to-tell-you",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409105683-8V3B2A5FC0ONTZLTD7YH/Vibe Rant 108.jpg": {
+  "bytes": {
+   "orig.jpg": 166906,
+   "w1000.webp": 71740,
+   "w300.webp": 11622,
+   "w500.webp": 23922,
+   "w750.webp": 45324
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791409105683-8v3b2a5fc0ontzltd7yh/vibe-rant-108",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791409138399-ZZEYCQ7049AEQN3BP37E/Vibe Rant 104.jpg": {
+  "bytes": {
+   "orig.jpg": 164818,
+   "w1000.webp": 65484,
+   "w300.webp": 11640,
+   "w500.webp": 23012,
+   "w750.webp": 41294
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1791409138399-zzeycq7049aeqn3bp37e/vibe-rant-104",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1791717419583-U63WT2OPLA4FP3CMO3ZW/What-Really-Makes-Kids-Sick-Dawn-Lester-on-Terrain-Parenting.png": {
   "bytes": {
    "orig.png": 3116802,
@@ -8548,6 +11150,136 @@
    750,
    1000,
    1500
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679668947-8JXM1VRDYW6DPX9TBL6I/Blue Morpho Domes Vibe Rant 103.jpg": {
+  "bytes": {
+   "orig.jpg": 166383,
+   "w1000.webp": 70858,
+   "w300.webp": 12604,
+   "w500.webp": 25338,
+   "w750.webp": 45800
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1792679668947-8jxm1vrdyw6dpx9tbl6i/blue-morpho-domes-vibe-rant-103",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679709757-WRG3EDCX0XO8N80MP5ZS/New Biology Clinic Vibe Rant 101.jpg": {
+  "bytes": {
+   "orig.jpg": 182720,
+   "w1000.webp": 90332,
+   "w300.webp": 14420,
+   "w500.webp": 33646,
+   "w750.webp": 61916
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1792679709757-wrg3edcx0xo8n80mp5zs/new-biology-clinic-vibe-rant-101",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679739023-QWITTG1UFI4P75J8UHO6/Oracular Origins of Ancient Sibylization Vibe Rant 99.jpg": {
+  "bytes": {
+   "orig.jpg": 181699,
+   "w1000.webp": 92996,
+   "w300.webp": 17162,
+   "w500.webp": 36468,
+   "w750.webp": 64236
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1792679739023-qwittg1ufi4p75j8uho6/oracular-origins-of-ancient-sibylization-vibe-rant-99",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679810687-0HSVYA2RGWJOV68VP8AN/ElectrOrgone Mojo Energy Vibe Rant 96.jpg": {
+  "bytes": {
+   "orig.jpg": 209069,
+   "w1000.webp": 99686,
+   "w300.webp": 17632,
+   "w500.webp": 35310,
+   "w750.webp": 62960
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1792679810687-0hsvya2rgwjov68vp8an/electrorgone-mojo-energy-vibe-rant-96",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792679864162-6OJPRX6YHNZI3W7AJ8V6/Safe Havens PMA Vibe Rant 98.jpg": {
+  "bytes": {
+   "orig.jpg": 161280,
+   "w1000.webp": 67218,
+   "w300.webp": 11202,
+   "w500.webp": 23688,
+   "w750.webp": 42634
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/1792679864162-6ojprx6yhnzi3w7aj8v6/safe-havens-pma-vibe-rant-98",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
   ]
  },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1792944348805-Q2PWMJ2XWQAM9PZCMJEQ/kyle-denton-herbal-dentistry-2.png": {
