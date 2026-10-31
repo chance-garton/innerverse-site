@@ -1,0 +1,164 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "gap-1",
+ "bytes_added": 11135651,
+ "copied": [
+  {
+   "bytes_added": 1097142,
+   "h": 1486,
+   "key": "sq/5d0e8860-e033-455f-a928-ac117245bcd8/innerverse-podcast-logo",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/5d0e8860-e033-455f-a928-ac117245bcd8/InnerVerse Podcast Logo.png",
+   "w": 1486,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 60101,
+   "h": 300,
+   "key": "sq/97ea4460-fa59-4cec-aeb7-738c2a811286/substack",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/97ea4460-fa59-4cec-aeb7-738c2a811286/SUBSTACK.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 20244,
+   "h": 300,
+   "key": "sq/a71319bb-a7f7-4bc7-934e-227cfea475d7/patreon",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a71319bb-a7f7-4bc7-934e-227cfea475d7/PATREON.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 59525,
+   "h": 300,
+   "key": "sq/2d9b38a3-e7fd-48a4-93fc-72391a9e8b41/apple",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/2d9b38a3-e7fd-48a4-93fc-72391a9e8b41/APPLE.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 54687,
+   "h": 300,
+   "key": "sq/e25969fb-b848-4f61-bdb8-f4fb1953c3f6/spotify",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/e25969fb-b848-4f61-bdb8-f4fb1953c3f6/SPOTIFY.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 23918,
+   "h": 300,
+   "key": "sq/084be10d-b58a-4cce-8e56-0ec65d279c5d/rumble",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/084be10d-b58a-4cce-8e56-0ec65d279c5d/RUMBLE.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 22933,
+   "h": 300,
+   "key": "sq/8b43cf98-5e5a-4d66-b17c-e53003e00ba3/share",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/8b43cf98-5e5a-4d66-b17c-e53003e00ba3/SHARE.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 114551,
+   "h": 300,
+   "key": "sq/bec737af-11ac-4d1d-b28c-5c5717a15a94/text",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/bec737af-11ac-4d1d-b28c-5c5717a15a94/text.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 108567,
+   "h": 300,
+   "key": "sq/49f44b8f-7aa0-4f45-87dd-b590e1a74520/insta",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/49f44b8f-7aa0-4f45-87dd-b590e1a74520/INSTA.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 22067,
+   "h": 300,
+   "key": "sq/3bfe10e1-b999-4d2b-9912-eaef614c6cd2/telegram",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/3bfe10e1-b999-4d2b-9912-eaef614c6cd2/TELEGRAM.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 65880,
+   "h": 300,
+   "key": "sq/803e4681-439b-4acd-943a-b7a6d5149626/copy-link",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/803e4681-439b-4acd-943a-b7a6d5149626/copy-link.png",
+   "w": 300,
+   "widths": [
+    300
+   ]
+  },
+  {
+   "bytes_added": 2350542,
+   "h": 1254,
+   "key": "sq/d103f353-b80d-4fc1-aa9b-9f55ee195c83/quote-card-frame",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/d103f353-b80d-4fc1-aa9b-9f55ee195c83/Quote Card Frame.png",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3753652,
+   "h": 1448,
+   "key": "sq/9c1dfacf-dd4d-4987-95d7-3a2a1a57d65d/chance-garton-hero-circular-feather-portrait",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/9c1dfacf-dd4d-4987-95d7-3a2a1a57d65d/Chance-Garton-hero-circular-feather-Portrait.png",
+   "w": 1086,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 3381842,
+   "h": 1448,
+   "key": "sq/0d1c6b4a-baa8-46a6-8e7a-7b5ad8f90fd5/chance-garton-hero-portrait",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/0d1c6b4a-baa8-46a6-8e7a-7b5ad8f90fd5/Chance-Garton-hero-Portrait.png",
+   "w": 1086,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-10-31T18:54:39+00:00",
+ "skipped": [],
+ "started": "2026-10-31T18:53:28+00:00"
+}
