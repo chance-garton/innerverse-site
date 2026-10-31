@@ -1,4 +1,180 @@
 {
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/5f54aa66-6f0f-473b-91ca-6fcb9d07373f/InnerVerse Inner Whirled Podcast Patreon.png": {
+  "bytes": {
+   "orig.png": 1214033,
+   "w300.webp": 19756,
+   "w500.webp": 44496,
+   "w750.webp": 83562
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp"
+  ],
+  "h": 768,
+  "key": "sq/5f54aa66-6f0f-473b-91ca-6fcb9d07373f/innerverse-inner-whirled-podcast-patreon",
+  "w": 768,
+  "widths": [
+   300,
+   500,
+   750
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/9a710a85-f780-4b67-a4c7-2b45690b6006/2025-Electric-Logo-2026.png": {
+  "bytes": {
+   "orig.png": 812196,
+   "w1000.webp": 167828,
+   "w300.webp": 33156,
+   "w500.webp": 63828,
+   "w750.webp": 113640
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1034,
+  "key": "sq/9a710a85-f780-4b67-a4c7-2b45690b6006/2025-electric-logo-2026",
+  "w": 1034,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a39095cd-b9d2-444d-b4e2-14a2484d766d/Inner-Whirled-Logo.png": {
+  "bytes": {
+   "orig.png": 42863,
+   "w1000.webp": 47744,
+   "w300.webp": 11662,
+   "w500.webp": 21480,
+   "w750.webp": 34084
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1080,
+  "key": "sq/a39095cd-b9d2-444d-b4e2-14a2484d766d/inner-whirled-logo",
+  "w": 1080,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/aa717e55-9487-4255-a7df-3f8ef10940c4/Chance Garton Patreon Portrait.png": {
+  "bytes": {
+   "orig.png": 3345047,
+   "w1000.webp": 87340,
+   "w300.webp": 12928,
+   "w500.webp": 29686,
+   "w750.webp": 57044
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1254,
+  "key": "sq/aa717e55-9487-4255-a7df-3f8ef10940c4/chance-garton-patreon-portrait",
+  "w": 1254,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/b8217739-ae93-4527-bd8a-37d690f4296b/VIBRANT_LOGO.png": {
+  "bytes": {
+   "orig.png": 43072,
+   "w300.webp": 8562,
+   "w500.webp": 14724,
+   "w750.webp": 23056
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp"
+  ],
+  "h": 558,
+  "key": "sq/b8217739-ae93-4527-bd8a-37d690f4296b/vibrant-logo",
+  "w": 992,
+  "widths": [
+   300,
+   500,
+   750
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus asset.png": {
+  "bytes": {
+   "orig.png": 1956384,
+   "w1000.webp": 146918,
+   "w300.webp": 28330,
+   "w500.webp": 56014,
+   "w750.webp": 97894
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1254,
+  "key": "sq/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus-asset",
+  "w": 1254,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7a926674-e13c-4827-ac2a-8d4cf8964ab0/CHANCE GARTON ABOUT PAGE INNERVERSE.png": {
+  "bytes": {
+   "orig.png": 1547584,
+   "w1000.webp": 67946,
+   "w300.webp": 11362,
+   "w500.webp": 23574,
+   "w750.webp": 43948
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1086,
+  "key": "sq/7a926674-e13c-4827-ac2a-8d4cf8964ab0/chance-garton-about-page-innerverse",
+  "w": 1448,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/d086710b-58e4-42e3-bf40-2286d3f899a6/Eye-Logo.png": {
   "bytes": {
    "orig.png": 248470,
@@ -20,6 +196,119 @@
    300,
    500,
    750
+  ]
+ },
+ "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6070e0ff1834a220b71fa697/1618010367716/rokfin-cover-art.jpg": {
+  "bytes": {
+   "orig.jpg": 83614,
+   "w1000.webp": 48842,
+   "w300.webp": 8886,
+   "w500.webp": 19340,
+   "w750.webp": 33286
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 474,
+  "key": "sq/t-6070e0ff1834a220b71fa697-1618010367716/rokfin-cover-art",
+  "w": 1000,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69f7320df691fe20c1392d7c/1777807885424/ChatGPT Image Apr 30, 2026, 09_03_08 AM.png": {
+  "bytes": {
+   "orig.png": 3105152,
+   "w1000.webp": 79202,
+   "w1500.webp": 156018,
+   "w300.webp": 10676,
+   "w500.webp": 23528,
+   "w750.webp": 46958
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/t-69f7320df691fe20c1392d7c-1777807885424/chatgpt-image-apr-30-2026-09-03-08-am",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69fbc0e54bf4684fff7e35ec/1778106597548/ChatGPT Image May 6, 2026, 03_30_14 PM.png": {
+  "bytes": {
+   "orig.png": 1962194,
+   "w1000.webp": 36200,
+   "w1500.webp": 62932,
+   "w300.webp": 7434,
+   "w500.webp": 14588,
+   "w750.webp": 24658
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 909,
+  "key": "sq/t-69fbc0e54bf4684fff7e35ec-1778106597548/chatgpt-image-may-6-2026-03-30-14-pm",
+  "w": 1731,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/": {
+  "bytes": {
+   "orig.png": 2583217,
+   "w1000.webp": 52146,
+   "w1500.webp": 93120,
+   "w300.webp": 8586,
+   "w500.webp": 17948,
+   "w750.webp": 33112
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 909,
+  "key": "sq/t-6ac2b6826681143eec927d37/1791145602054",
+  "w": 1731,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
   ]
  }
 }
