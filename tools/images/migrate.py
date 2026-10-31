@@ -28,8 +28,6 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
-from PIL import Image
-
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 IMG_DIR = os.path.join(ROOT, "data", "images")
 BATCHES = os.path.join(IMG_DIR, "batches.json")
@@ -115,6 +113,8 @@ def make_sizes(data, kind):
     """Return (width, height, {width: webp bytes})."""
     if kind == "svg":
         return None, None, {}
+    from PIL import Image  # here, not at the top, so the site build can import normalise() without Pillow
+
     im = Image.open(io.BytesIO(data))
     w, h = im.size
     if getattr(im, "is_animated", False):

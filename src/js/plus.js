@@ -1038,7 +1038,9 @@
   var CHECKOUT_TRIAL = 'https://innerverseplus.memberful.com/checkout?plan=149343';
   var CHECKOUT_MONTHLY = 'https://innerverseplus.memberful.com/checkout?plan=149341';
   var CHECKOUT_YEARLY = 'https://innerverseplus.memberful.com/checkout?plan=149342';
-  var PLUS_LOGO_URL = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng';
+  /* Copied images load from R2 (image move, stage 3); anything else as before. */
+  var ivR2 = function (u) { return (window.ivImgR2 && window.ivImgR2(u)) || u; }
+  var PLUS_LOGO_URL = ivR2('https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng');
   var PLUS_INDEX_URL = 'https://raw.githubusercontent.com/chance-garton/innerverse-data/main/plus-index.json';
 
   /* Per-episode static files built daily from Airtable (build-index.yml).

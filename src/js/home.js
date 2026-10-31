@@ -21,10 +21,12 @@
 
   var DATA = 'https://raw.githubusercontent.com/chance-garton/innerverse-data/main/';
   var CDN = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/';
-  var PORTRAIT_DESKTOP = CDN + '9c1dfacf-dd4d-4987-95d7-3a2a1a57d65d/Chance-Garton-hero-circular-feather-Portrait.png?format=750w';
-  var PORTRAIT_PHONE = CDN + '0d1c6b4a-baa8-46a6-8e7a-7b5ad8f90fd5/Chance-Garton-hero-Portrait.png?format=500w';
-  var HOST_IMG = 'https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7a926674-e13c-4827-ac2a-8d4cf8964ab0/CHANCE+GARTON+ABOUT+PAGE+INNERVERSE.png?format=750w';
-  var PLUS_LOGO = CDN + 'c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng';
+  /* Copied images load from R2 (image move, stage 3); anything else as before. */
+  var ivR2 = function (u) { return (window.ivImgR2 && window.ivImgR2(u)) || u; }
+  var PORTRAIT_DESKTOP = ivR2(CDN + '9c1dfacf-dd4d-4987-95d7-3a2a1a57d65d/Chance-Garton-hero-circular-feather-Portrait.png?format=750w');
+  var PORTRAIT_PHONE = ivR2(CDN + '0d1c6b4a-baa8-46a6-8e7a-7b5ad8f90fd5/Chance-Garton-hero-Portrait.png?format=500w');
+  var HOST_IMG = ivR2('https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7a926674-e13c-4827-ac2a-8d4cf8964ab0/CHANCE+GARTON+ABOUT+PAGE+INNERVERSE.png?format=750w');
+  var PLUS_LOGO = ivR2(CDN + 'c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng');
   var CHECKOUT_TRIAL = 'https://innerverseplus.memberful.com/checkout?plan=149343';
   var ABOUT_URL = '/about';
   var GUEST_SHOW = 'Chance Guest Spots';

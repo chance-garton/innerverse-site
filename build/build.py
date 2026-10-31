@@ -39,8 +39,10 @@ def load(path):
 
 def assets_hash():
     h = hashlib.sha1()
-    for p in sorted(glob.glob(os.path.join(ROOT, "src", "css", "*.css")) + glob.glob(os.path.join(ROOT, "src", "js", "*.js"))):
-        h.update(open(p, "rb").read())
+    for p in sorted(glob.glob(os.path.join(ROOT, "src", "css", "*.css")) + glob.glob(os.path.join(ROOT, "src", "js", "*.js"))
+                    + [os.path.join(ROOT, "data", "images", "map.json")]):
+        if os.path.exists(p):
+            h.update(open(p, "rb").read())
     return h.hexdigest()[:10]
 
 
@@ -63,6 +65,9 @@ def build_assets():
     write("assets/site.css", css)
     for p in glob.glob(os.path.join(ROOT, "src", "js", "*.js")):
         write("assets/" + os.path.basename(p), open(p, encoding="utf-8").read())
+    # The image lookup window.ivImg reads (image move, stage 3): one small
+    # cached file instead of the whole map in every page.
+    write("assets/img-map.js", "window.IV_IMG_T=" + json.dumps(common.image_table()) + ";\n")
 
 
 def episode_file(slug):

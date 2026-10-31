@@ -11,6 +11,7 @@ import html
 import json
 import os
 import re
+import sys
 
 LIVE_ORIGIN = "https://www.innerversepodcast.com"
 CDN = "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/"
@@ -47,13 +48,75 @@ def url(path):
 
 STEPS = [100, 300, 500, 750, 1000, 1500, 2500]
 
+# Images copied off Squarespace into Cloudflare R2 (image move, stage 3).
+# IMAGE_BASE is the one setting for where the copies are served from. Today it
+# is the bucket's temporary r2.dev address, for the test address only; when
+# Chance picks the final address, change it here (or set IV_IMAGE_BASE).
+IMAGE_BASE = os.environ.get("IV_IMAGE_BASE", "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev").rstrip("/")
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT_DIR, "tools", "images"))
+from migrate import key_for, normalise  # noqa: E402  (the same keys the copy tool used)
+
+IMG_EXT = {"png": "p", "jpg": "j", "gif": "g", "webp": "w", "svg": "s"}
+IMG_WIDTHS = [300, 500, 750, 1000, 1500]
+
+
+def _load_image_map():
+    path = os.path.join(ROOT_DIR, "data", "images", "map.json")
+    if not os.path.exists(path):
+        return {}
+    out = {}
+    for entry in json.load(open(path, encoding="utf-8")).values():
+        out[entry["key"]] = (entry["ext"], sorted(entry.get("widths") or []))
+    return out
+
+
+IMAGES = _load_image_map()  # bucket key -> (original type, WebP widths that exist)
+
+
+def img_key(u):
+    """The bucket key for a Squarespace address (or an /s/ path), if copied.
+    normalise() runs twice, as in the copy tool: a %2B in a file name only
+    lines up with the map after the second pass."""
+    u = str(u or "").strip()
+    if u.startswith("/s/"):
+        u = LIVE_ORIGIN + u
+    if not re.match(r"https?://(images\.squarespace-cdn\.com|static1\.squarespace\.com|(www\.)?innerversepodcast\.com/s/)", u):
+        return None
+    k = key_for(normalise(normalise(u)))
+    return k if k in IMAGES else None
+
+
+def img_file(k, width=None, original=False):
+    """The R2 address for one copied image: the smallest WebP at least
+    `width` wide, else the largest WebP; the original file when asked for, or
+    when no WebP sizes exist (tiny images, GIF, SVG)."""
+    ext, widths = IMAGES[k]
+    if original or not widths:
+        return IMAGE_BASE + "/" + k + "/orig." + ext
+    pick = widths[-1]
+    for w in widths:
+        if w >= (width or widths[-1]):
+            pick = w
+            break
+    return IMAGE_BASE + "/" + k + "/w" + str(pick) + ".webp"
+
+
+def _asked_width(u):
+    m = re.search(r"[?&](?:amp;)?format=(\d+)w", u)
+    return int(m.group(1)) if m else None
+
 
 def iv_img(u, width=500):
-    """Python twin of window.ivImg: format= first, width snapped to a size the
-    Squarespace CDN actually generates. Anything else comes back untouched."""
+    """Python twin of window.ivImg. A copied image comes back as its R2 file at
+    the nearest width that exists; anything else as before: format= first,
+    width snapped to a size the Squarespace CDN actually generates."""
     if not u:
         return ""
     u = str(u)
+    k = img_key(u)
+    if k:
+        return img_file(k, width or _asked_width(u) or 500)
     if "images.squarespace-cdn.com" not in u:
         return u
     w = STEPS[-1]
@@ -64,6 +127,66 @@ def iv_img(u, width=500):
     base, _, query = u.partition("?")
     rest = [kv for kv in query.split("&") if kv and not kv.startswith("format=")]
     return base + "?format=" + str(w) + "w" + ("&" + "&".join(rest) if rest else "")
+
+
+# Any copied Squarespace image address left in a finished page (templates,
+# episode bodies, page data) is swapped for its R2 file: the width it asked
+# for with format=, or the largest WebP when it asked for none.
+_SQ_IMG = re.compile(r"https?://(?:images\.squarespace-cdn\.com|static1\.squarespace\.com)/[^\"'\s)<>\\]+")
+
+
+def _swap(m):
+    u = m.group(0)
+    tail = ""
+    for stop in ("&#39;", "&quot;", "&#x27;"):
+        i = u.find(stop)
+        if i != -1:
+            u, tail = u[:i], u[i:] + tail
+    k = img_key(html.unescape(u))
+    if not k:
+        return m.group(0)
+    return img_file(k, _asked_width(u)) + tail
+
+
+_PAGE_DATA = re.compile(r'(<script type="application/json"[^>]*>.*?</script>)', re.S)
+
+
+def swap_images(text):
+    """Page data (the JSON the scripts read) keeps its Squarespace addresses:
+    the scripts map them with ivImg, and keep them as a fallback."""
+    parts = _PAGE_DATA.split(text)
+    return "".join(p if i % 2 else _SQ_IMG.sub(_swap, p) for i, p in enumerate(parts))
+
+
+def image_table():
+    """The lookup the browser needs, small: one entry per copied image, a
+    32 bit hash of its bucket key, its original type and which widths exist."""
+    out, seen = [], {}
+    for k, (ext, widths) in sorted(IMAGES.items()):
+        h = fnv(k)
+        if h in seen:
+            raise SystemExit("image map: hash clash between %s and %s" % (seen[h], k))
+        seen[h] = k
+        bits = sum(1 << i for i, w in enumerate(IMG_WIDTHS) if w in widths)
+        out.append(_b36(h).rjust(7, "0") + IMG_EXT[ext] + _b36(bits))
+    return "".join(out)
+
+
+def fnv(s):
+    h = 0x811C9DC5
+    for ch in s.encode("utf-8"):
+        h = ((h ^ ch) * 0x01000193) & 0xFFFFFFFF
+    return h
+
+
+def _b36(n):
+    d = "0123456789abcdefghijklmnopqrstuvwxyz"
+    s = ""
+    while True:
+        n, r = divmod(n, 36)
+        s = d[r] + s
+        if not n:
+            return s
 
 
 def json_ld(obj):
@@ -195,7 +318,7 @@ def footer():
 FONTS = (
     '<link rel="preconnect" href="https://fonts.googleapis.com">'
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-    '<link rel="preconnect" href="https://images.squarespace-cdn.com">'
+    '<link rel="preconnect" href="' + IMAGE_BASE + '">'
     '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap">'
 )
 FONT_IW = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap">'
@@ -207,14 +330,27 @@ HEAD_SCRIPT = r"""<script>
 (function(){var r=document.documentElement;
 try{if(localStorage.getItem('iv_session_token')&&localStorage.getItem('iv_plus_entitled')==='yes')r.classList.add('iv-plus-member');}catch(e){}
 var S=[100,300,500,750,1000,1500,2500];
-window.ivImg=function(u,w){if(!u)return'';u=String(u);if(u.indexOf('images.squarespace-cdn.com')===-1)return u;var x=S[S.length-1];for(var i=0;i<S.length;i++){if(S[i]>=(w||500)){x=S[i];break;}}var p=u.split('?');var rest=(p[1]||'').split('&').filter(function(kv){return kv&&kv.indexOf('format=')!==0;});return p[0]+'?format='+x+'w'+(rest.length?'&'+rest.join('&'):'');};
+var IB=%s,IE={p:'png',j:'jpg',g:'gif',w:'webp',s:'svg'},IW=[300,500,750,1000,1500],IT=null;
+function itab(){if(IT)return IT;var s=window.IV_IMG_T;if(!s)return null;IT={};for(var i=0;i+9<=s.length;i+=9)IT[s.substr(i,7)]=s.substr(i+7,2);return IT;}
+function inrm(u){var m=/^(?:https?:)?\/\/([^\/?#]*)([^?#]*)/i.exec(u);if(!m)return'';var p=m[2].replace(/\+/g,' ');try{p=decodeURIComponent(p);}catch(e){}return'https://'+m[1].toLowerCase()+p;}
+function icl(s){s=s.toLowerCase().replace(/\.[a-z0-9]{2,4}$/,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');return s||'image';}
+function ikey(u){if(u.indexOf(IB+'/')===0){var r=u.slice(IB.length+1).split(/[?#]/)[0];return r.slice(0,r.lastIndexOf('/'));}
+var n=inrm(inrm(u)),m=/^https:\/\/([^\/]*)(.*)$/.exec(n);if(!m||!/^(images\.squarespace-cdn\.com|static1\.squarespace\.com)$/.test(m[1]))return'';
+var a=m[2].split('/').filter(Boolean);if(!a.length)return'';var ids=a.slice(0,-1).filter(function(x){return x!=='content'&&x!=='v1'&&x!=='static'&&x!=='5987d897cf81e0278ec5322e';}).map(icl).join('-');return'sq/'+(ids||'x')+'/'+icl(a[a.length-1]);}
+function ihash(k){var h=0x811c9dc5;for(var i=0;i<k.length;i++){h^=k.charCodeAt(i)&255;h=Math.imul(h,0x01000193)>>>0;}return('0000000'+h.toString(36)).slice(-7);}
+window.ivImgR2=function(u,w){var t=itab();if(!t)return'';var k=ikey(u);if(!k)return'';var e=t[ihash(k)];if(!e)return'';
+if(!w){var f=/[?&]format=(\d+)w/.exec(u)||/\/w(\d+)\.webp/.exec(u);w=f?+f[1]:500;}var b=parseInt(e.charAt(1),36),ws=[];for(var i=0;i<IW.length;i++)if(b&(1<<i))ws.push(IW[i]);
+if(!ws.length)return IB+'/'+k+'/orig.'+IE[e.charAt(0)];var x=ws[ws.length-1];for(i=0;i<ws.length;i++){if(ws[i]>=w){x=ws[i];break;}}return IB+'/'+k+'/w'+x+'.webp';};
+window.ivImgSq=function(u,w){if(!u)return'';u=String(u);if(u.indexOf('images.squarespace-cdn.com')===-1)return u;var x=S[S.length-1];for(var i=0;i<S.length;i++){if(S[i]>=(w||500)){x=S[i];break;}}var p=u.split('?');var rest=(p[1]||'').split('&').filter(function(kv){return kv&&kv.indexOf('format=')!==0;});return p[0]+'?format='+x+'w'+(rest.length?'&'+rest.join('&'):'');};
+window.ivImg=function(u,w){if(!u)return'';return window.ivImgR2(String(u),w)||window.ivImgSq(u,w);};
 window.IV_BASE=%s;window.ivPath=function(){var b=window.IV_BASE,p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);p=p.replace(/\/index\.html$/,'/').replace(/\.html$/,'');return p||'/';};if(window.IV_BASE)document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="/"]');if(!a)return;var h=a.getAttribute('href');if(h.indexOf('//')===0||h.indexOf(window.IV_BASE+'/')===0||h===window.IV_BASE)return;a.setAttribute('href',window.IV_BASE+h);},true);})();
 </script>"""
 
 
 def head(title, description, canonical, image="", og_type="website", html_class="", inner_whirled=False, extra=""):
     robots = '<meta name="robots" content="noindex, nofollow">' if NOINDEX else '<meta name="robots" content="index, follow, max-image-preview:large">'
-    img = iv_img(image, 1500) if image else ""
+    k = img_key(image) if image else None
+    img = img_file(k, original=True) if k else (iv_img(image, 1500) if image else "")
     parts = [
         '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -242,16 +378,18 @@ def head(title, description, canonical, image="", og_type="website", html_class=
         FONTS,
         FONT_IW if inner_whirled else "",
         '<link rel="stylesheet" href="' + url("/assets/site.css") + "?v=" + ASSET_VERSION + '">',
-        HEAD_SCRIPT % json.dumps(BASE),
+        HEAD_SCRIPT % (json.dumps(IMAGE_BASE), json.dumps(BASE)),
         extra,
     ]
     return "<head>" + "".join(p for p in parts if p) + "</head>"
 
 
 def page(head_html, body_html, html_class="", scripts=()):
+    if scripts:
+        scripts = ("/assets/img-map.js",) + tuple(scripts)
     tags = "".join('<script src="' + url(s) + "?v=" + ASSET_VERSION + '" defer></script>' for s in scripts)
     return (
         "<!doctype html>\n"
         '<html lang="en"' + (' class="' + html_class + '"' if html_class else "") + ">"
-        + head_html + "<body>" + body_html + tags + "</body></html>\n"
+        + swap_images(head_html) + "<body>" + swap_images(body_html) + tags + "</body></html>\n"
     )

@@ -67,8 +67,10 @@
   };
 
   /* ---------------- nav ---------------- */
-  var LOGO_URL = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/9a710a85-f780-4b67-a4c7-2b45690b6006/2025-Electric-Logo-2026.png?format=300w&content-type=image%2Fpng';
-  var IV_PLUS_LOGO = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng';
+  /* Copied images load from R2 (image move, stage 3); anything else as before. */
+  var ivR2 = function (u) { return (window.ivImgR2 && window.ivImgR2(u)) || u; }
+  var LOGO_URL = ivR2('https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/9a710a85-f780-4b67-a4c7-2b45690b6006/2025-Electric-Logo-2026.png?format=300w&content-type=image%2Fpng');
+  var IV_PLUS_LOGO = ivR2('https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng');
 
   function syncHeaderHeightVar(nav) {
     document.documentElement.style.setProperty('--header-height', nav.offsetHeight + 'px');
@@ -237,7 +239,7 @@
   /* A members' /plus page turns the skin on only once the member's page is
      drawn (as on the live site), so the nav it was served with carries the
      InnerVerse mark; put the Inner Whirled mark and word in its place. */
-  var IW_MARK = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a39095cd-b9d2-444d-b4e2-14a2484d766d/Inner-Whirled-Logo.png?format=300w';
+  var IW_MARK = ivR2('https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/a39095cd-b9d2-444d-b4e2-14a2484d766d/Inner-Whirled-Logo.png?format=300w');
   function iwBrand(nav) {
     nav.querySelectorAll('.iv-nav-logo').forEach(function (img) {
       if (img.getAttribute('src') === IW_MARK) return;

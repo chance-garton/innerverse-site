@@ -10,8 +10,9 @@ work exactly as on Squarespace.
 """
 
 import os
+import re
 
-from common import LIVE_ORIGIN, esc, footer, head, iv_img, json_ld, nav, page, url
+from common import LIVE_ORIGIN, esc, footer, head, img_file, img_key, iv_img, json_ld, nav, page, url
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -252,8 +253,9 @@ def about():
 # Biofield Tuning (stage 3, 2026-10-30). The page body is the live code block,
 # kept verbatim in src/templates/biofield-tuning.html (its own styles and the
 # Biofield Anatomy script travel with it). This wraps it in the site's head,
-# nav and footer. The /s/ chart PNGs are Squarespace file storage, so they point
-# at the live site until the image move copies them.
+# nav and footer. The /s/ chart PNGs were Squarespace file storage; they now
+# point at their R2 copies (the original files), and at the live site only if
+# one is ever missing from the image map.
 BT_OG = ("https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/"
          "chance%2Bgarton%2Bbiofield%2Btuning%2Bsessions%2Binnerverse%2Bpodcast.png")
 BT_OFFERS = [
@@ -264,13 +266,18 @@ BT_OFFERS = [
 ]
 
 
+def _chart_file(m):
+    k = img_key(m.group(1))
+    return '"' + (img_file(k, original=True) if k else LIVE_ORIGIN + m.group(1)) + '"'
+
+
 def biofield_tuning():
     title = "Biofield Tuning Sessions with Chance Garton | InnerVerse Podcast"
     desc = ("Book a remote Biofield Tuning session or a Counseling and Readings session with Chance Garton over Zoom, "
             "working with sound and the human energy field to support healing, clarity, and alignment.")
     canonical = LIVE_ORIGIN + "/biofield-tuning"
     body_html = open(os.path.join(ROOT, "src", "templates", "biofield-tuning.html"), encoding="utf-8").read()
-    body_html = body_html.replace('"/s/', '"' + LIVE_ORIGIN + "/s/")
+    body_html = re.sub(r'"(/s/[^"]+)"', _chart_file, body_html)
     ld = {
         "@context": "https://schema.org",
         "@graph": [

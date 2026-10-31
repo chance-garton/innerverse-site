@@ -103,6 +103,9 @@
     copy:     CDN + '803e4681-439b-4acd-943a-b7a6d5149626/copy-link' + PNG,
     quoteFrame: CDN + 'd103f353-b80d-4fc1-aa9b-9f55ee195c83/Quote+Card+Frame' + PNG_BIG
   };
+  /* Copied images load from R2 (image move, stage 3); anything else as before. */
+  var ICON_SQ = {};
+  Object.keys(ICON).forEach(function (k) { ICON_SQ[k] = ICON[k]; ICON[k] = (window.ivImgR2 && window.ivImgR2(ICON[k])) || ICON[k]; });
 
   var PLATFORMS = [
     ['Apple',    'https://itunes.apple.com/us/podcast/innerverse-podcast/id1066918535?mt=2', ICON.apple],
@@ -1646,13 +1649,18 @@
       (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   }
 
-  function loadImage(src) {
+  /* `alt` is the Squarespace address: used only if the R2 copy will not load
+     for a canvas (the bucket needs a CORS rule for that; image move, stage 3). */
+  function loadImage(src, alt) {
     return new Promise(function (resolve, reject) {
       if (!src) { reject(new Error('no src')); return; }
       var img = new Image();
       img.crossOrigin = 'anonymous';
       img.onload = function () { resolve(img); };
-      img.onerror = reject;
+      img.onerror = function (e) {
+        if (!alt || alt === src) { reject(e); return; }
+        loadImage(alt).then(resolve, reject);
+      };
       img.src = src;
     });
   }
@@ -1768,7 +1776,7 @@
     ctx.fillStyle = '#000308';
     ctx.fillRect(0, 0, S, S);
     try {
-      var frame = await loadImage(ICON.quoteFrame);
+      var frame = await loadImage(ICON.quoteFrame, ICON_SQ.quoteFrame);
       ctx.drawImage(frame, 0, 0, S, S);
     } catch (e) { /* frame optional */ }
 
@@ -1813,7 +1821,7 @@
     }
 
     try {
-      var portrait = await loadImage(ivImg(portraitUrl, 500));
+      var portrait = await loadImage(ivImg(portraitUrl, 500), window.ivImgSq ? window.ivImgSq(portraitUrl, 500) : '');
       ctx.save();
       ctx.beginPath(); ctx.arc(pX, pY, pR, 0, Math.PI * 2); ctx.closePath(); ctx.clip();
       ctx.drawImage(portrait, pX - pR, pY - pR, pR * 2, pR * 2);
@@ -1927,7 +1935,7 @@
        as a unit. */
     var M = CARD.margin, LOGO_W = 172, logoH = LOGO_W, logo = null;
     try {
-      logo = await loadImage(ICON.ivLogo);
+      logo = await loadImage(ICON.ivLogo, ICON_SQ.ivLogo);
       logoH = LOGO_W * (logo.height / logo.width);
     } catch (e) { logoH = LOGO_W; }
 
