@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (865 images, 12 batches). Batches 0, 1 and 2 done. **Next: Stage 2, batch 3 (guest and host portraits, 149), on Chance's go. Chance wants one batch per go (2026-10-31).** Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Batches 0 to 3 done. **Next: Stage 2, batch 4 (episode images, newest first, 100), on Chance's go (one batch per go).** Update this line at the end of every stage.
 
 ## Files here
 
@@ -59,3 +59,8 @@ The run commits the map and its report back to main. Local test without uploadin
 - Checked: all 179 files of the batch answer from the public address with the right type (jpeg, png, webp).
 - Second scan fix: one file name has a literal plus sign (`chance+garton+biofield+tuning+sessions...png`, a `%2B` in the page). `normalise()` changes a plus to a space, so the inventory now applies it twice, as `migrate.py` does, so inventory and map keys match. **For Stage 3:** the lookup of a page's image address in the map must apply `normalise()` twice as well, or that one image will not be found.
 - Inventory rebuilt: 865 images. Batches 1 and 2 are exactly what was copied (11 and 40, all in the map); batches 3 onward are unchanged apart from this rebuild. Chance's pace (2026-10-31): one batch per go.
+
+### 2026-10-31: Stage 2, batch 3 (guest and host portraits), done
+
+- Run 41212597140: copied 149, skipped 0, failed 0, 14,960,035 bytes added (about 15 MB). Report `runs/3-20261031T145841.json`. Most portraits are small, so many have only one WebP size besides the original (321 files in all).
+- Checked: a random 40 of the 321 files answer from the public address with the right type; all 149 are in the map.
