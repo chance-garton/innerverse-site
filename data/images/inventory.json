@@ -1,10 +1,10 @@
 {
- "generated": "2026-10-31T14:01:10Z",
- "total": 868,
+ "generated": "2026-10-31T14:55:47Z",
+ "total": 865,
  "by_group": {
-  "episodes": 605,
-  "leftover": 59,
-  "pages": 43,
+  "episodes": 604,
+  "leftover": 60,
+  "pages": 40,
   "portraits": 149,
   "sitewide": 11
  },
@@ -2287,49 +2287,6 @@
      "kind": "post-snapshot",
      "group": "episodes",
      "slug": "chance-garton-13-questions-podcast",
-     "field": "image"
-    }
-   ],
-   "group": "episodes"
-  },
-  {
-   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1650932790643-6UCQEFJA33V3R876TK29/#7 Chance Garton Sound Healing & Dreams.jpg",
-   "raw_forms": [
-    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1650932790643-6UCQEFJA33V3R876TK29/%237+Chance+Garton+Sound+Healing+%26+Dreams.jpg"
-   ],
-   "use_count": 6,
-   "uses": [
-    {
-     "kind": "airtable",
-     "table": "Episodes",
-     "record": "recz94zfdfvu9KhCM",
-     "field": "Thumbnail URL",
-     "slug": "chance-garton-inquiries-of-our-reality-7-sound-healing-dreams"
-    },
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "episodes-index.json"
-    },
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "episodes/_corpus.json"
-    },
-    {
-     "kind": "repo",
-     "repo": "innerverse-site",
-     "path": "data/squarespace-posts.json"
-    },
-    {
-     "kind": "data-file",
-     "repo": "innerverse-data",
-     "path": "episodes/chance-garton-inquiries-of-our-reality-7-sound-healing-dreams.json"
-    },
-    {
-     "kind": "post-snapshot",
-     "group": "episodes",
-     "slug": "chance-garton-inquiries-of-our-reality-7-sound-healing-dreams",
      "field": "image"
     }
    ],
@@ -22798,6 +22755,49 @@
    "group": "leftover"
   },
   {
+   "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1650932790643-6UCQEFJA33V3R876TK29/",
+   "raw_forms": [
+    "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1650932790643-6UCQEFJA33V3R876TK29/%237+Chance+Garton+Sound+Healing+%26+Dreams.jpg"
+   ],
+   "use_count": 6,
+   "uses": [
+    {
+     "kind": "airtable",
+     "table": "Episodes",
+     "record": "recz94zfdfvu9KhCM",
+     "field": "Thumbnail URL",
+     "slug": "chance-garton-inquiries-of-our-reality-7-sound-healing-dreams"
+    },
+    {
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "episodes-index.json"
+    },
+    {
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "episodes/_corpus.json"
+    },
+    {
+     "kind": "repo",
+     "repo": "innerverse-site",
+     "path": "data/squarespace-posts.json"
+    },
+    {
+     "kind": "data-file",
+     "repo": "innerverse-data",
+     "path": "episodes/chance-garton-inquiries-of-our-reality-7-sound-healing-dreams.json"
+    },
+    {
+     "kind": "post-snapshot",
+     "group": "episodes",
+     "slug": "chance-garton-inquiries-of-our-reality-7-sound-healing-dreams",
+     "field": "image"
+    }
+   ],
+   "group": "leftover"
+  },
+  {
    "address": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779228340119-8RHVQV7VW51ZUQTVZ5IK/Dylan Saccoccio The Four Evangelists Are the Four Royal Stars, and so are the Four Horsemen.png",
    "raw_forms": [
     "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1779228340119-8RHVQV7VW51ZUQTVZ5IK/Dylan+Saccoccio+The+Four+Evangelists+Are+the+Four+Royal+Stars%2C+and+so+are+the+Four+Horsemen.png"
@@ -23623,7 +23623,7 @@
    "group": "pages"
   },
   {
-   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/chance+garton+biofield+tuning+sessions+innerverse+podcast.png",
+   "address": "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/chance garton biofield tuning sessions innerverse podcast.png",
    "raw_forms": [
     "http://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/chance%2Bgarton%2Bbiofield%2Btuning%2Bsessions%2Binnerverse%2Bpodcast.png"
    ],
@@ -23632,120 +23632,6 @@
     {
      "kind": "live-page",
      "page": "/biofield-tuning"
-    }
-   ],
-   "group": "pages"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/versioned-site-css/5987d897cf81e0278ec5322e/204/5c5a519771c10ba3470d8101/669aa8fc9068f30fa1093f61/1847/site.css",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/versioned-site-css/5987d897cf81e0278ec5322e/204/5c5a519771c10ba3470d8101/669aa8fc9068f30fa1093f61/1847/site.css"
-   ],
-   "use_count": 7,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/"
-    },
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    },
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    },
-    {
-     "kind": "live-page",
-     "page": "/about"
-    },
-    {
-     "kind": "live-page",
-     "page": "/biofield-tuning"
-    },
-    {
-     "kind": "live-page",
-     "page": "/support"
-    },
-    {
-     "kind": "live-page",
-     "page": "/contact"
-    }
-   ],
-   "group": "pages"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/scripts/site-bundle.dd2e7c413d1ccd0b88463e1d3ea04e6c.js",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/scripts/site-bundle.dd2e7c413d1ccd0b88463e1d3ea04e6c.js"
-   ],
-   "use_count": 7,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/"
-    },
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    },
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    },
-    {
-     "kind": "live-page",
-     "page": "/about"
-    },
-    {
-     "kind": "live-page",
-     "page": "/biofield-tuning"
-    },
-    {
-     "kind": "live-page",
-     "page": "/support"
-    },
-    {
-     "kind": "live-page",
-     "page": "/contact"
-    }
-   ],
-   "group": "pages"
-  },
-  {
-   "address": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1793303477445-MV4SEJ2ESJHA5E89L1J2/static.css",
-   "raw_forms": [
-    "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1793303477445-MV4SEJ2ESJHA5E89L1J2/static.css"
-   ],
-   "use_count": 7,
-   "uses": [
-    {
-     "kind": "live-page",
-     "page": "/"
-    },
-    {
-     "kind": "live-page",
-     "page": "/episodes"
-    },
-    {
-     "kind": "live-page",
-     "page": "/plus"
-    },
-    {
-     "kind": "live-page",
-     "page": "/about"
-    },
-    {
-     "kind": "live-page",
-     "page": "/biofield-tuning"
-    },
-    {
-     "kind": "live-page",
-     "page": "/support"
-    },
-    {
-     "kind": "live-page",
-     "page": "/contact"
     }
    ],
    "group": "pages"

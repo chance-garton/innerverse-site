@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (868 images, 12 batches). Batch 0 done. Batch 1 done (11 of 11). **Next: Stage 2, batch 2 (hand-made pages), on Chance's go.** Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Batches 0, 1 and 2 done. **Next: Stage 2, batch 3 (guest and host portraits, 149), on Chance's go. Chance wants one batch per go (2026-10-31).** Update this line at the end of every stage.
 
 ## Files here
 
@@ -52,3 +52,10 @@ The run commits the map and its report back to main. Local test without uploadin
 - Run 41207835145: copied 11, skipped 0, failed 1, 18,823,378 bytes added (about 18 MB). The 1 failure was not an image: the first inventory had mistaken a bare folder address in the code (`.../content/<site id>/`) for one (HTTP 400). Report kept as `runs/1-20261031T135654.json`.
 - That showed the inventory scan had flaws, so it was fixed and rerun the same day: folder-style and code-prefix addresses are no longer counted, a stray slash after a file name on the live pages is dropped, and file names with spaces are kept whole instead of cut at the first space. Result: 868 images (was 910); batch 1 is now exactly the 11 that copied, so it counts as 11 of 11. Batches 2 onward were rebuilt from the corrected list; none of them had been copied yet. 8 episode-snapshot addresses with no file name stay in "last" and will fail when that batch runs (they are the dead-image list).
 - Checked: all 60 files from the 12 map entries answer from the public address (HEAD, no failures).
+
+### 2026-10-31: Stage 2, batch 2 (hand-made pages), done
+
+- Run 41211870168: copied 40, skipped 0, failed 3, 54,821,719 bytes added (about 55 MB). All 8 Biofield chart files are in (largest original about 3 MB). The 3 failures were Squarespace's own site style and script files (not images) that the live pages link from the same address host; the scan was fixed to ignore css, js and similar files. Report: `runs/2-20261031T145405.json` (time in the file name may differ by seconds).
+- Checked: all 179 files of the batch answer from the public address with the right type (jpeg, png, webp).
+- Second scan fix: one file name has a literal plus sign (`chance+garton+biofield+tuning+sessions...png`, a `%2B` in the page). `normalise()` changes a plus to a space, so the inventory now applies it twice, as `migrate.py` does, so inventory and map keys match. **For Stage 3:** the lookup of a page's image address in the map must apply `normalise()` twice as well, or that one image will not be found.
+- Inventory rebuilt: 865 images. Batches 1 and 2 are exactly what was copied (11 and 40, all in the map); batches 3 onward are unchanged apart from this rebuild. Chance's pace (2026-10-31): one batch per go.

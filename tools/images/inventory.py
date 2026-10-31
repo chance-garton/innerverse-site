@@ -101,7 +101,9 @@ class Inv:
         self.meta = {}  # normalised address -> extra hints (episode date, etc.)
 
     def add(self, raw, use):
-        key = normalise(raw)
+        if re.search(r"\.(?:css|js|map|json|woff2?|ttf|eot)(?:\?|$)", raw.split("#")[0], re.I):
+            return  # Squarespace's own style and script files are not images
+        key = normalise(normalise(raw))  # twice, as migrate.py does, so inventory and map keys always match
         if key.endswith("/") and re.search(r"\.(?:png|jpe?g|gif|webp|svg|avif)/$", key, re.I):
             key = key.rstrip("/")  # the live pages write a stray slash after the file name
         e = self.imgs[key]
