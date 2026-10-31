@@ -55,7 +55,7 @@ The run commits the map and its report back to main. Local test without uploadin
 
 ### 2026-10-31: Stage 2, batch 2 (hand-made pages), done
 
-- Run 41211870168: copied 40, skipped 0, failed 3, 54,821,719 bytes added (about 55 MB). All 8 Biofield chart files are in (largest original about 3 MB). The 3 failures were Squarespace's own site style and script files (not images) that the live pages link from the same address host; the scan was fixed to ignore css, js and similar files. Report: `runs/2-20261031T145405.json` (time in the file name may differ by seconds).
+- Run 41211870168: copied 40, skipped 0, failed 3, 54,821,719 bytes added (about 55 MB). All 8 Biofield chart files are in (largest original about 3 MB). The 3 failures were Squarespace's own site style and script files (not images) that the live pages link from the same address host; the scan was fixed to ignore css, js and similar files. Report: `runs/2-20261031T144905.json`.
 - Checked: all 179 files of the batch answer from the public address with the right type (jpeg, png, webp).
 - Second scan fix: one file name has a literal plus sign (`chance+garton+biofield+tuning+sessions...png`, a `%2B` in the page). `normalise()` changes a plus to a space, so the inventory now applies it twice, as `migrate.py` does, so inventory and map keys match. **For Stage 3:** the lookup of a page's image address in the map must apply `normalise()` twice as well, or that one image will not be found.
 - Inventory rebuilt: 865 images. Batches 1 and 2 are exactly what was copied (11 and 40, all in the map); batches 3 onward are unchanged apart from this rebuild. Chance's pace (2026-10-31): one batch per go.
