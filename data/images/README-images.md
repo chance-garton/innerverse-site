@@ -6,10 +6,11 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Batch 0 done (one test image). **Next: Stage 1, the inventory, on Chance's go.** Update this line at the end of every stage.
+Stage 0 done. Batch 0 done (one test image). Stage 1 done 2026-10-31: 910 images found, split into 12 batches (0 to 10 plus "last"). **Next: Stage 2, batch 1 (site-wide images), on Chance's go.** Update this line at the end of every stage.
 
 ## Files here
 
+- `inventory.json`: every image found (address, every place it is used, copy group). Rebuilt by `tools/images/inventory.py`.
 - `batches.json`: the copy batches, by name. Each has `what` and `images` (Squarespace addresses).
 - `map.json`: one entry per copied image, keyed by its normalised Squarespace address (https, no query string, decoded): bucket `key`, original `ext`, `w` and `h`, the WebP `widths` that exist (never larger than the original), `files` and their `bytes`.
 - `runs/<batch>-<UTC time>.json`: one report per workflow run: copied, skipped, failed (with reason), bytes added.
@@ -37,3 +38,11 @@ The run commits the map and its report back to main. Local test without uploadin
 - Rerun 41206041220: copied 0, skipped 1, failed 0 (rerunning is safe).
 - Bucket key pattern in use: `sq/<image id>/<clean name>/orig.<ext>` and `w<width>.webp`; `/s/` files go to `files/<clean name>/`.
 - Batch 0 was run before Stage 1 on Chance's ask ("do a test image migration before we go about with the inventory").
+
+### 2026-10-31: Stage 1, inventory, done
+
+- Script `tools/images/inventory.py` (reads `normalise()` from `migrate.py`). Outputs `inventory.json` and `batches.json` (batch 0 kept). Nothing copied, nothing changed anywhere else.
+- Found **910 images** (909 plus the batch 0 test image): 896 on `images.squarespace-cdn.com`, 6 on `static1.squarespace.com`, 8 `/s/` Biofield chart files (linked as relative `/s/...` paths, so the scan matches those too).
+- Sources scanned: the Airtable mirror (`innerverse-data`: all 586 per-episode files with their embedded guests and affiliates, plus the index files); every text file in `innerverse-site` and `innerverse-data`; `squarespace-posts.json`; the live pages `/`, `/episodes`, `/plus`, `/about`, `/biofield-tuning`, `/support`, `/contact` (all answered); `chance-garton/inner-circle` (34 images: song cover links in `songs/songs.json`, share pages and the app). No other `chance-garton` repo was checked: the session cannot list the account's repos, only this one was named in the project docs. Nothing was changed in any of them.
+- Airtable was read two ways: the mirror above (it carries every episode field the site shows), and directly through the Airtable connector for the Guests and Promotions tables (the Promotions image is the one Airtable row not in the mirror). The direct rows are saved nowhere in the repo, so `inventory.py --extra` needs them again in Stage 4: the Stage 4 daily run must read Airtable itself (needs an Airtable token secret) or accept the mirror alone.
+- Batches (no per-image size checks, no dead-image check; a dead image shows as a failure when its batch is copied): 1 site-wide 12, 2 hand-made pages 44 (includes the 8 chart files), 3 guest and host portraits 149, 4 to 10 episode images newest first (100 each, last 13; 613 in all), "last" leftovers 91 (affiliate book covers, promo art, song covers, images seen only on live pages). Every image is in one batch only.
