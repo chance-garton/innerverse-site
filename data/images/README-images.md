@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). **Next: Stage 4, stay in sync until the switch, on Chance's go.** Open for later: the bucket needs a CORS rule before the switch (see the Stage 3 entry); the final image address is still Chance's decision. Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). **Next: Stage 4, stay in sync until the switch, on Chance's go. Until then each new episode's thumbnail is copied by hand (see "New episode catch-up" below).** Open for later: the bucket needs a CORS rule before the switch (see the Stage 3 entry); the final image address is still Chance's decision. Update this line at the end of every stage.
 
 ## Files here
 
@@ -20,6 +20,10 @@ Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, a
 Actions tab, workflow "Copy images to R2", Run workflow, type the batch name. Or from a Claude session (the `gh workflow run` command does not work there, use the REST call):
 `gh api -X POST repos/chance-garton/innerverse-site/actions/workflows/images.yml/dispatches -f ref=main -f 'inputs[batch]=<name>'`
 The run commits the map and its report back to main. Local test without uploading: `python3 tools/images/migrate.py <name> --dry-run` (files land in `_dryrun/`, ignored by git).
+
+## New episode catch-up (until Stage 4 automates it)
+
+Run after the episode's Airtable row exists. 1) Read the row's `Thumbnail URL` (and `Plus Thumbnail URL` if filled). 2) If its `normalise()`d address is not in `map.json`, add a batch named `ep-<slug>` to `batches.json` (`{"what": ..., "images": [address]}`), commit and push. 3) Dispatch `images.yml` with that batch name (REST call above) and wait for success. 4) `git pull`, confirm the map has the key. The hourly site build picks it up; nothing else to do.
 
 ## Log
 
@@ -118,3 +122,7 @@ The run commits the map and its report back to main. Local test without uploadin
 - Checked on the test address after the deploy: homepage, /episodes, /plus, /about, /biofield-tuning, 10 episode pages and 5 /plus pages, at 1440x900 and 390x844 (40 loads): 0 images from Squarespace, 0 failed or broken images, 0 script errors, same image count on every page as before. Built pages carry 0 Squarespace image addresses outside page data.
 - Page weight, same 20 pages measured before and after in the same headless browser: images 33.1 MB down to 12.4 MB at 1440x900 and 38.5 MB down to 15.8 MB at 390x844; no page got heavier. Examples at 1440: homepage 2.1 MB to 0.9 MB, /episodes/thomas-zinser 2.8 MB to 0.8 MB, /biofield-tuning 4.9 MB to 2.9 MB. Side by side with the live site (/biofield-tuning, /episodes/thomas-zinser, homepage): no visible difference.
 
+### 2026-11-01: new episode catch-up, Inner Whirled 32
+
+- Thumbnail was still on Squarespace and not in the map. Batch `ep-inner-whirled-32` (commit on main), run 41328815411: copied 1, failed 0, 1,002,826 bytes. Report `runs/ep-inner-whirled-32-20261101T165600.json`. Plus Thumbnail URL on the row is empty, so nothing else to copy.
+- Done on Chance's word ("whatever migration steps are needed to catch it up"), so this one needed no separate go. Stage 4 is still open.
