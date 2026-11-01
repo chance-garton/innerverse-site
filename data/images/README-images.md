@@ -23,7 +23,7 @@ The run commits the map and its report back to main. Local test without uploadin
 
 ## New episode catch-up (until Stage 4 automates it)
 
-Run after the episode's Airtable row exists. 1) Read the row's `Thumbnail URL` (and `Plus Thumbnail URL` if filled). 2) If its `normalise()`d address is not in `map.json`, add a batch named `ep-<slug>` to `batches.json` (`{"what": ..., "images": [address]}`), commit and push. 3) Dispatch `images.yml` with that batch name (REST call above) and wait for success. 4) `git pull`, confirm the map has the key. The hourly site build picks it up; nothing else to do.
+Run after the episode's Airtable row exists. 1) Read the row's `Thumbnail URL` (and `Plus Thumbnail URL` if filled), and the `art` of its songs in `songs/songs.json` of `chance-garton/inner-circle` (the music cover, usually a different image). 2) If its `normalise()`d address is not in `map.json`, add a batch named `ep-<slug>` to `batches.json` (`{"what": ..., "images": [address]}`), commit and push. 3) Dispatch `images.yml` with that batch name (REST call above) and wait for success. 4) `git pull`, confirm the map has the key. The hourly site build picks it up; nothing else to do.
 
 ## Log
 
@@ -126,3 +126,4 @@ Run after the episode's Airtable row exists. 1) Read the row's `Thumbnail URL` (
 
 - Thumbnail was still on Squarespace and not in the map. Batch `ep-inner-whirled-32` (commit on main), run 41328815411: copied 1, failed 0, 1,002,826 bytes. Report `runs/ep-inner-whirled-32-20261101T165600.json`. Plus Thumbnail URL on the row is empty, so nothing else to copy.
 - Done on Chance's word ("whatever migration steps are needed to catch it up"), so this one needed no separate go. Stage 4 is still open.
+- Same day, on Chance's ask ("what about its music thumb"): the two Inner Whirled 32 songs (Galatea, Loggia) share one cover, `IW-32.jpg`, also not in the map. Batch `ep-inner-whirled-32-music`, run 41329051302, copied 1, failed 0. The app and share pages still use the Squarespace address in `songs.json` until Stage 5.
