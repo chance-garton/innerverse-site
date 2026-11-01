@@ -2337,6 +2337,32 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/8836ff9c-6857-4e29-b52e-aa8c4ac97fb0/IW-32.jpg": {
+  "bytes": {
+   "orig.jpg": 470718,
+   "w1000.webp": 263168,
+   "w300.webp": 28022,
+   "w500.webp": 74648,
+   "w750.webp": 161788
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1254,
+  "key": "sq/8836ff9c-6857-4e29-b52e-aa8c4ac97fb0/iw-32",
+  "w": 1254,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
  "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/88bf1e88-3e6d-4473-8541-71b7e9dba12b/winner-digital.jpg": {
   "bytes": {
    "orig.jpg": 248578,

@@ -1,0 +1,25 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "ep-inner-whirled-32-music",
+ "bytes_added": 998344,
+ "copied": [
+  {
+   "bytes_added": 998344,
+   "h": 1254,
+   "key": "sq/8836ff9c-6857-4e29-b52e-aa8c4ac97fb0/iw-32",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/8836ff9c-6857-4e29-b52e-aa8c4ac97fb0/IW-32.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-01T16:58:53+00:00",
+ "skipped": [],
+ "started": "2026-11-01T16:58:49+00:00"
+}
