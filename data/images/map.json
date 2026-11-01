@@ -3857,6 +3857,35 @@
    1000
   ]
  },
+ "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/ce7915f9-5f60-4a5e-b464-ddf012ab027a/Exposing-the-Astrological-Errors-of-Fomenko's-New-Chronology.jpg": {
+  "bytes": {
+   "orig.jpg": 433844,
+   "w1000.webp": 143706,
+   "w1500.webp": 282768,
+   "w300.webp": 16772,
+   "w500.webp": 40468,
+   "w750.webp": 85268
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/ce7915f9-5f60-4a5e-b464-ddf012ab027a/exposing-the-astrological-errors-of-fomenko-s-new-chronology",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/cea7e1b1-8e90-40fa-b2b7-1f2b6cc7b534/MARK-ENGLISH.jpg": {
   "bytes": {
    "orig.jpg": 46592,

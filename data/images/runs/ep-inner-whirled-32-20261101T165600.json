@@ -1,0 +1,26 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "ep-inner-whirled-32",
+ "bytes_added": 1002826,
+ "copied": [
+  {
+   "bytes_added": 1002826,
+   "h": 941,
+   "key": "sq/ce7915f9-5f60-4a5e-b464-ddf012ab027a/exposing-the-astrological-errors-of-fomenko-s-new-chronology",
+   "url": "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/ce7915f9-5f60-4a5e-b464-ddf012ab027a/Exposing-the-Astrological-Errors-of-Fomenko's-New-Chronology.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-01T16:56:04+00:00",
+ "skipped": [],
+ "started": "2026-11-01T16:56:00+00:00"
+}
