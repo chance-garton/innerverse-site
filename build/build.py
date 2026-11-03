@@ -141,11 +141,15 @@ def main():
     # Hand-made pages (stage 3). Built here and held for the switch.
     write("about.html", hand.about())
     write("about/index.html", hand.about())
+    ct = hand.contact()
+    write("contact.html", ct)
+    write("contact/index.html", ct)
     bt = hand.biofield_tuning()
     write("biofield-tuning.html", bt)
     write("biofield-tuning/index.html", bt)
     sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today), (common.LIVE_ORIGIN + "/plus", today),
-                   (common.LIVE_ORIGIN + "/about", today), (common.LIVE_ORIGIN + "/biofield-tuning", today)]
+                   (common.LIVE_ORIGIN + "/about", today), (common.LIVE_ORIGIN + "/biofield-tuning", today),
+                   (common.LIVE_ORIGIN + "/contact", today)]
 
     write("robots.txt", ("User-agent: *\nDisallow: /\n" if common.NOINDEX else
                          "User-agent: *\nAllow: /\n\nSitemap: " + common.LIVE_ORIGIN + "/sitemap.xml\n"))

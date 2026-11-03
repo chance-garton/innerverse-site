@@ -297,3 +297,59 @@ def biofield_tuning():
     h = head(title, desc, canonical, BT_OG, "website", cls, extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
     body = nav("tuning") + '<main id="iv-main" class="iv-bt-main">' + body_html + "</main>" + footer()
     return page(h, body, cls, scripts=("/assets/site.js",))
+
+
+# Contact (stage 3, 2026-11-03). The live page is one Squarespace form (Name,
+# Email, Subject, Message) under two lines of copy; the copy is carried word
+# for word. The form posts as JSON to a small Worker (CONTACT_ENDPOINT) that
+# emails Chance; src/js/contact.js does the sending and shows the thank-you.
+CONTACT_ENDPOINT = "https://innerverse-contact.chance-5da.workers.dev/contact"
+CONTACT_EMAIL = "chance@innerversepodcast.com"
+
+
+def contact():
+    title = "Contact | InnerVerse Podcast"
+    desc = ("Send Chance Garton a message about the InnerVerse podcast: thoughts on the show, guest recommendations, "
+            "shows to appear on, interview requests or anything else.")
+    canonical = LIVE_ORIGIN + "/contact"
+    ld = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "ContactPage", "@id": canonical + "#page", "url": canonical, "name": title, "description": desc,
+             "isPartOf": {"@id": LIVE_ORIGIN + "/#website"}, "about": {"@id": LIVE_ORIGIN + "/#podcast"}},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": LIVE_ORIGIN + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Contact", "item": canonical}]},
+        ],
+    }
+    form = (
+        '<form class="iv-contact-form" id="iv-contact-form" method="post" action="' + esc(CONTACT_ENDPOINT) + '" novalidate>'
+        '<div class="iv-contact-field"><label for="iv-c-name">Name <span>(required)</span></label>'
+        '<input id="iv-c-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>'
+        '<div class="iv-contact-field"><label for="iv-c-email">Email <span>(required)</span></label>'
+        '<input id="iv-c-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>'
+        '<div class="iv-contact-field"><label for="iv-c-subject">Subject</label>'
+        '<input id="iv-c-subject" name="subject" type="text" maxlength="200"></div>'
+        '<div class="iv-contact-field"><label for="iv-c-message">Message <span>(required)</span></label>'
+        '<textarea id="iv-c-message" name="message" rows="7" required maxlength="5000"></textarea></div>'
+        '<div class="iv-contact-trap" aria-hidden="true"><label>Leave this empty'
+        '<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>'
+        '<button class="iv-contact-submit" type="submit">Submit</button>'
+        '<p class="iv-contact-status" id="iv-contact-status" role="status" aria-live="polite"></p>'
+        '</form>'
+    )
+    body_html = (
+        '<main id="iv-main"><article class="iv-contact">'
+        '<header class="iv-contact-head"><div class="iv-contact-kicker">Contact</div>'
+        "<h1>Get in touch</h1>"
+        "<p class=\"iv-contact-lede\">Hey there! I’d love to hear your thoughts on the show, recommendations for guests, "
+        "shows you’d like to me appear on, or any other messages you’ve got for me. I’m also available for "
+        "interviews on other shows.</p>"
+        "<p class=\"iv-contact-sub\">Fill out this contact form and I’ll get back to you as quickly as I can.</p></header>"
+        + form +
+        '<p class="iv-contact-alt">Prefer email? Write to <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + "</a>.</p>"
+        "</article></main>"
+    )
+    cls = "iv-contact-page"
+    h = head(title, desc, canonical, ABOUT_OG, "website", cls, extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
+    return page(h, nav("contact") + body_html + footer(), cls, scripts=("/assets/site.js", "/assets/contact.js"))

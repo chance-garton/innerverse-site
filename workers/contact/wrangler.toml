@@ -1,0 +1,9 @@
+name = "innerverse-contact"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+TO_EMAIL = "chance@innerversepodcast.com"
+FROM_EMAIL = "contact@innerversepodcast.com"
+ALLOWED_ORIGINS = "https://www.innerversepodcast.com,https://innerversepodcast.com,https://chance-garton.github.io"
+# Secret, set in Cloudflare (not here): RESEND_API_KEY

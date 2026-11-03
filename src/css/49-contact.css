@@ -1,0 +1,43 @@
+/* Contact (stage 3, 2026-11-03). Scoped to .iv-contact, Lapis Library tokens as on About. */
+html.iv-contact-page body { background: var(--ground); }
+.iv-contact {
+  max-width: 760px; margin: 0 auto; padding: 130px 6vw 72px;
+  font-family: var(--font-sans); color: var(--ink); letter-spacing: normal; line-height: 1.6;
+}
+.iv-contact-kicker {
+  font-family: var(--font-sans); font-weight: 700; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--lapis-lit);
+}
+.iv-contact-head { display: flex; flex-direction: column; gap: 16px; padding-bottom: 36px; }
+.iv-contact h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 56px;
+  line-height: 1; letter-spacing: -2px; color: var(--ink);
+}
+.iv-contact p { margin: 0; font-size: 17px; line-height: 1.7; color: var(--ink-muted); }
+.iv-contact p.iv-contact-lede { font-size: 19px; }
+.iv-contact p.iv-contact-sub { color: var(--ink); font-weight: 600; }
+.iv-contact-form { display: flex; flex-direction: column; gap: 20px; border-top: 1px solid var(--line); padding-top: 36px; }
+.iv-contact-form.is-sent .iv-contact-field, .iv-contact-form.is-sent .iv-contact-submit { display: none; }
+.iv-contact-field { display: flex; flex-direction: column; gap: 8px; }
+.iv-contact-field label { font-weight: 600; font-size: 15px; color: var(--ink); }
+.iv-contact-field label span { font-weight: 400; font-size: 13px; color: var(--ink-muted); }
+.iv-contact-field input, .iv-contact-field textarea {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; color: var(--ink);
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;
+}
+.iv-contact-field textarea { resize: vertical; min-height: 160px; }
+.iv-contact-field input:focus, .iv-contact-field textarea:focus { outline: 2px solid var(--lapis-lit); outline-offset: 1px; }
+.iv-contact-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.iv-contact-submit {
+  align-self: flex-start; font: inherit; font-weight: 700; font-size: 16px; cursor: pointer;
+  color: var(--on-lapis); background: var(--lapis); border: 0; border-radius: 999px; padding: 14px 36px;
+}
+.iv-contact-submit:hover:not(:disabled) { background: #2E62B3; }
+.iv-contact-submit:disabled { opacity: .6; cursor: default; }
+.iv-contact-status { min-height: 1.6em; font-size: 16px; }
+.iv-contact-status.is-bad { color: #e5736b; }
+.iv-contact-status.is-ok { color: var(--ink); }
+.iv-contact-form.is-sent .iv-contact-status { font-size: 22px; font-family: var(--font-display); }
+.iv-contact-alt { margin-top: 28px; font-size: 15px; }
+.iv-contact-alt a { color: var(--lapis-lit); }
+@media (max-width: 640px) { .iv-contact { padding-top: 104px; } .iv-contact h1 { font-size: 40px; letter-spacing: -1.5px; } }
