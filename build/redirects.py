@@ -130,9 +130,22 @@ def build(episode_slugs, plus_slugs, index_episodes):
 
     lines = ["# Redirects for the switch. Built by build/redirects.py; do not edit by hand.",
              "# Specific addresses first, then one catch-all per old family."]
+    # Cloudflare matches the decoded path, except for / ? # and %, so a rule
+    # written %27 or %2B or %26 never matches; write those characters plainly.
+    def _cf_source(old):
+        def one(m):
+            c = chr(int(m.group(1), 16))
+            return c if (33 <= ord(c) < 127 and c not in "/?#%") else m.group(0)
+        return re.sub(r"%([0-9A-Fa-f]{2})", one, old)
+
+    written = set()
     for old in sorted(rules):
         new, status, _ = rules[old]
-        lines.append("%s %s %d" % (old, new, status))
+        src = _cf_source(old)
+        if src in written:
+            continue
+        written.add(src)
+        lines.append("%s %s %d" % (src, new, status))
 
     # 6. Catch-alls for anything the crawl missed (tag, category and season pages, plus categories).
     lines += ["/episodes/tag/* /episodes 301",
