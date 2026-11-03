@@ -51,6 +51,7 @@ import common  # noqa: E402  (reads the environment at import)
 import episode  # noqa: E402
 import pages as hand  # noqa: E402
 import plus_episode  # noqa: E402
+import redirects  # noqa: E402
 
 
 def write(rel, text):
@@ -165,6 +166,13 @@ def main():
           "var b=" + json.dumps(common.BASE) + ",p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);"
           "location.replace(" + json.dumps(common.LIVE_ORIGIN) + "+(p||'/')+location.search+location.hash);</script>"
           "<p>Taking you to <a href=\"" + common.LIVE_ORIGIN + "\">innerversepodcast.com</a>.</p>\n")
+
+    # Redirects for the switch (stage 4): written to _redirects (Cloudflare Pages format; GitHub Pages ignores it).
+    ep_slugs = {p["slug"] for p, _ in pages}
+    plus_slugs = {e["slug"] for e in plus_eps if "/plus/" in (e.get("url") or "") and episode_file(e["slug"])}
+    redirect_lines, redirect_report = redirects.build(ep_slugs, plus_slugs, list(index.values()))
+    write("_redirects", "\n".join(redirect_lines) + "\n")
+    write("redirects-report.json", json.dumps(redirect_report, indent=1))
 
     report = {"episodePages": len(pages), "plusPages": plus_pages, "postsWithNoData": [p["slug"] for p, _ in no_data], "plusWithNoData": plus_no_data}
     write("build-report.json", json.dumps(report, indent=1))
