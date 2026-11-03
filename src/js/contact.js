@@ -19,7 +19,7 @@
       .then(function () {
         f.reset();
         f.classList.add('is-sent');
-        say('Thank you, I’ll be in touch!', false);
+        say('Thank you, your message was sent.', false);
       })
       .catch(function () {
         btn.disabled = false;
