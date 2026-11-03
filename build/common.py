@@ -347,6 +347,12 @@ window.IV_BASE=%s;window.ivPath=function(){var b=window.IV_BASE,p=location.pathn
 </script>"""
 
 
+# Visitor counter (2026-11-03): Cloudflare Web Analytics for www.innerversepodcast.com, no cookies.
+# Left out of test-address builds (IV_NOINDEX=1) so the counts hold real visits only. The token is public by design.
+ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+             'data-cf-beacon=\'{"token": "cebe8e3f9775468fb1df77995875a1a2"}\'></script>')
+
+
 def head(title, description, canonical, image="", og_type="website", html_class="", inner_whirled=False, extra=""):
     robots = '<meta name="robots" content="noindex, nofollow">' if NOINDEX else '<meta name="robots" content="index, follow, max-image-preview:large">'
     k = img_key(image) if image else None
@@ -379,6 +385,7 @@ def head(title, description, canonical, image="", og_type="website", html_class=
         FONT_IW if inner_whirled else "",
         '<link rel="stylesheet" href="' + url("/assets/site.css") + "?v=" + ASSET_VERSION + '">',
         HEAD_SCRIPT % (json.dumps(IMAGE_BASE), json.dumps(BASE)),
+        ANALYTICS if not NOINDEX else "",
         extra,
     ]
     return "<head>" + "".join(p for p in parts if p) + "</head>"
