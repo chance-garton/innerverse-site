@@ -148,11 +148,11 @@ def build(episode_slugs, plus_slugs, index_episodes):
         lines.append("%s %s %d" % (src, new, status))
 
     # 6. Catch-alls for anything the crawl missed (tag, category and season pages, plus categories).
-    # The tag and category catch-alls carry the old name into the archive's search
-    # (Cloudflare does not match a few percent-encoded addresses, such as %27, to
-    # their own line, and those land here instead of on a bare /episodes).
-    lines += ["/episodes/tag/* /episodes?q=:splat 301",
-              "/episodes/category/* /episodes?q=:splat 301",
+    # Cloudflare does not substitute :splat in a query string, so these stay plain.
+    # A few percent-encoded tag addresses (%27, %2B, %26, %3B; about a dozen of the
+    # crawl's 1,299) are not matched to their own line and land here.
+    lines += ["/episodes/tag/* /episodes 301",
+              "/episodes/category/* /episodes 301",
               "/plus/category/* /plus 301",
               "/season-* /episodes 301"]
 
