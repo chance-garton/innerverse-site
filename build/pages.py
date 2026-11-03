@@ -345,7 +345,7 @@ def contact():
         "<p class=\"iv-contact-lede\">Hey there! I’d love to hear your thoughts on the show, recommendations for guests, "
         "shows you’d like to me appear on, or any other messages you’ve got for me. I’m also available for "
         "interviews on other shows.</p>"
-        "<p class=\"iv-contact-sub\">Fill out this contact form and I’ll get back to you as quickly as I can.</p></header>"
+        "<p class=\"iv-contact-sub\">Fill out this contact form and I’ll read everything that comes in.</p></header>"
         + form +
         '<p class="iv-contact-alt">Prefer email? Write to <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + "</a>.</p>"
         "</article></main>"
