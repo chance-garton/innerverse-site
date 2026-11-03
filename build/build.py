@@ -160,12 +160,9 @@ def main():
     xml.append("</urlset>")
     write("sitemap.xml", "\n".join(xml) + "\n")
     write(".nojekyll", "")
-    # Until every page lives here, an address this site does not have yet
-    # (About, Biofield Tuning...) goes on to the same page on the live site.
-    write("404.html", "<!doctype html><meta charset=utf-8><title>InnerVerse</title><script>"
-          "var b=" + json.dumps(common.BASE) + ",p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);"
-          "location.replace(" + json.dumps(common.LIVE_ORIGIN) + "+(p||'/')+location.search+location.hash);</script>"
-          "<p>Taking you to <a href=\"" + common.LIVE_ORIGIN + "\">innerversepodcast.com</a>.</p>\n")
+    # A real not-found page: Cloudflare Pages serves it with a 404 status for any address
+    # that has no page and no redirect.
+    write("404.html", hand.not_found())
 
     # Redirects for the switch (stage 4): written to _redirects (Cloudflare Pages format; GitHub Pages ignores it).
     ep_slugs = {p["slug"] for p, _ in pages}

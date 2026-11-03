@@ -353,3 +353,31 @@ def contact():
     cls = "iv-contact-page"
     h = head(title, desc, canonical, ABOUT_OG, "website", cls, extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
     return page(h, nav("contact") + body_html + footer(), cls, scripts=("/assets/site.js", "/assets/contact.js"))
+
+
+def not_found():
+    """The real 404 page (stage 4). Cloudflare Pages serves 404.html with a
+    404 status for any address with no page and no redirect. Always noindex,
+    on every build, so a dead address never gets listed."""
+    title = "Page not found | InnerVerse Podcast"
+    desc = "That address has no page on InnerVerse. Search the archive or head to a main page."
+    h = head(title, desc, LIVE_ORIGIN + "/", "", "website", "iv-nf-page")
+    h = h.replace('content="index, follow, max-image-preview:large"', 'content="noindex, nofollow"')
+    body = (
+        nav("") + '<main id="iv-main"><section class="iv-nf">'
+        '<div class="iv-nf-kicker">Error 404</div>'
+        "<h1>This page wandered off</h1>"
+        "<p>Nothing lives at this address. It may have moved, or the link may have a typo. "
+        "Search the archive, or head to one of the main rooms.</p>"
+        '<form class="iv-nf-search" action="' + esc(url("/episodes")) + '" method="get" role="search">'
+        '<input type="search" name="q" placeholder="Search episodes, guests, subjects" aria-label="Search episodes">'
+        '<button type="submit">Search</button></form>'
+        '<div class="iv-nf-links">'
+        '<a href="' + esc(url("/")) + '">Home</a>'
+        '<a href="' + esc(url("/episodes")) + '">All episodes</a>'
+        '<a href="' + esc(url("/plus")) + '">Plus+</a>'
+        '<a href="' + esc(url("/biofield-tuning")) + '">Biofield Tuning</a>'
+        '<a href="' + esc(url("/contact")) + '">Contact</a></div>'
+        "</section></main>" + footer()
+    )
+    return page(h, body, "iv-nf-page", scripts=("/assets/site.js",))
