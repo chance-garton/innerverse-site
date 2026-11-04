@@ -16,6 +16,7 @@ Environment:
     IV_ASSET_VERSION  cache-buster for site.css and the scripts
 """
 
+import datetime
 import glob
 import hashlib
 import json
@@ -98,6 +99,26 @@ def main():
     for p in posts:
         file = episode_file(p["slug"])
         (pages if file else no_data).append((p, file))
+    # Episodes published after the snapshot (2026-11-04): every index row whose
+    # url is a free /episodes/ page also gets a page, so new episodes appear
+    # without a Squarespace post. The snapshot only adds old SEO text and dates.
+    known = {p["slug"] for p in posts}
+    for e in index.values():
+        u = (e.get("url") or "").rstrip("/")
+        if "/episodes/" not in u:
+            continue
+        slug = u.rsplit("/", 1)[-1]
+        file = episode_file(slug) or episode_file(e["slug"])
+        if slug in known or not file:
+            continue
+        known.add(slug)
+        when = 0
+        try:
+            when = int(datetime.datetime.strptime(e.get("date") or "", "%Y-%m-%d").replace(tzinfo=datetime.timezone.utc).timestamp() * 1000)
+        except ValueError:
+            pass
+        pages.append(({"slug": slug, "title": e.get("title") or "", "tags": e.get("tags") or [], "publishOn": when,
+                       "date": e.get("date") or ""}, file))
     live = {p["slug"] for p, _ in pages} | {(f or {}).get("fields", {}).get("Slug") for _, f in pages}
     related = episode.Related(corpus, live)
 
