@@ -79,6 +79,12 @@ def img_key(u):
     normalise() runs twice, as in the copy tool: a %2B in a file name only
     lines up with the map after the second pass."""
     u = str(u or "").strip()
+    if u.startswith(IMAGE_BASE + "/"):
+        # an address already on our own image host (Stage 5 links): the key is
+        # the path between the base and the last slash, as in the browser twin
+        r = re.split(r"[?#]", u[len(IMAGE_BASE) + 1:])[0]
+        k = r[:r.rfind("/")] if "/" in r else ""
+        return k if k in IMAGES else None
     if u.startswith("/s/"):
         u = LIVE_ORIGIN + u
     if not re.match(r"https?://(images\.squarespace-cdn\.com|static1\.squarespace\.com|(www\.)?innerversepodcast\.com/s/)", u):
@@ -103,7 +109,7 @@ def img_file(k, width=None, original=False):
 
 
 def _asked_width(u):
-    m = re.search(r"[?&](?:amp;)?format=(\d+)w", u)
+    m = re.search(r"[?&](?:amp;)?format=(\d+)w", u) or re.search(r"/w(\d+)\.webp", u)
     return int(m.group(1)) if m else None
 
 

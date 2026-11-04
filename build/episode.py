@@ -612,7 +612,7 @@ def aff_panel_inner(a):
         if not b or not b.get("title"):
             continue
         books_html += ('<a class="iv-aff-book" href="' + esc(b.get("url") or "#") + '" target="_blank" rel="noopener">'
-                       + ('<img src="' + esc(b["image"]) + '" alt="' + esc(b["title"]) + '" loading="lazy">' if b.get("image") else "")
+                       + ('<img src="' + esc(iv_img(b["image"], 500)) + '" alt="' + esc(b["title"]) + '" loading="lazy">' if b.get("image") else "")
                        + "<span>" + esc(b["title"]) + "</span></a>")
     return (
         '<div class="iv-aff-name iv-aff-name-solo">' + esc(a["name"]) + "</div>"
