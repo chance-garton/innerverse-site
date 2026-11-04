@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). Stage 4 done 2026-11-04: an hourly workflow copies any new image by itself (see "Stage 4" in the log); the hand-run catch-up below is no longer needed. **Next: the CORS rule and the final image address, both waiting on Cloudflare.** Open for later: the bucket needs a CORS rule before the switch (see the Stage 3 entry); the final image address is still Chance's decision. Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). Stage 4 done 2026-11-04: an hourly workflow copies any new image by itself (see "Stage 4" in the log); the hand-run catch-up below is no longer needed. Final address and CORS done 2026-11-04: the site serves every image from `images.innerversepodcast.com`, and the bucket has its CORS rule. **Next: Stage 5, only when Chance starts the switch.** Open for later: turn off the temporary r2.dev address once nothing uses it. Update this line at the end of every stage.
 
 ## Files here
 
@@ -134,3 +134,13 @@ Run after the episode's Airtable row exists. 1) Read the row's `Thumbnail URL` (
 - First run (41848881717, by hand): copied 1, failed 0, 3,879,226 bytes (an Inner Whirled 32 image the Airtable mirror pointed at). Dry run beforehand listed the same single address (724 in use, 881 in the map).
 - Not covered: addresses the code builds from pieces (see the gap-1 note above) and the 8 `/s/` chart files; those are fixed lists already in the map.
 - Still open: the bucket CORS rule and the final image address.
+
+### 2026-11-04: final image address and CORS rule, done
+
+- Cloudflare now runs the domain's DNS (nameservers moved from GoDaddy the same day; registration stays at GoDaddy).
+- Chance connected `images.innerversepodcast.com` to the bucket (R2, Custom Domains), added the CORS rule (allow GET and HEAD from any origin, max age 86400; the editor's `localhost:3000` text was Cloudflare's sample, not a rule) and set the `IMAGE_BASE_URL` secret to `https://images.innerversepodcast.com`.
+- Checked from outside: files answer from the new address with the right type, `Access-Control-Allow-Origin: *` and the long cache header; 50 files from 25 random map entries all answer.
+- `IMAGE_BASE` in `build/common.py` now defaults to `https://images.innerversepodcast.com` (commit 42d857b). Build passed.
+- Browser check on the test address, the 5 hand-made pages plus 10 episode and 5 /plus pages, at 1440x900 and 390x844: 726 image loads from the new address, zero from Squarespace, zero from r2.dev, zero script errors. Two images on one page showed broken once and loaded fine on two reloads (a network blip). A canvas draw from the new address works, so the quote share card no longer needs its Squarespace fallback.
+- The r2.dev address is still switched on; old run reports mention it. Turn it off (R2, bucket, Settings, Public Development URL) once Chance agrees.
+
