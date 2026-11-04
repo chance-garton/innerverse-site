@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). Stage 4 done 2026-11-04: an hourly workflow copies any new image by itself (see "Stage 4" in the log); the hand-run catch-up below is no longer needed. Final address and CORS done 2026-11-04: the site serves every image from `images.innerversepodcast.com`, and the bucket has its CORS rule. **Next: Stage 5, only when Chance starts the switch.** The temporary r2.dev address was switched off 2026-11-04. Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). Stage 4 done 2026-11-04: an hourly workflow copies any new image by itself (see "Stage 4" in the log); the hand-run catch-up below is no longer needed. Final address and CORS done 2026-11-04: the site serves every image from `images.innerversepodcast.com`, and the bucket has its CORS rule. **Next: Stage 4b (the build learns to size its own image addresses before Airtable switches to them; full steps in the brief, Sonnet medium), then Stage 5, only when Chance starts the switch.** The temporary r2.dev address was switched off 2026-11-04. Update this line at the end of every stage.
 
 ## Files here
 
@@ -143,4 +143,8 @@ Run after the episode's Airtable row exists. 1) Read the row's `Thumbnail URL` (
 - `IMAGE_BASE` in `build/common.py` now defaults to `https://images.innerversepodcast.com` (commit 42d857b). Build passed.
 - Browser check on the test address, the 5 hand-made pages plus 10 episode and 5 /plus pages, at 1440x900 and 390x844: 726 image loads from the new address, zero from Squarespace, zero from r2.dev, zero script errors. Two images on one page showed broken once and loaded fine on two reloads (a network blip). A canvas draw from the new address works, so the quote share card no longer needs its Squarespace fallback.
 - Same day, on Chance's ask ("can you do it?"): the r2.dev address was switched off in the dashboard (R2, bucket, Settings, Public Development URL, Disable). It now answers 401; the new address still answers 200. Old run reports still name it; they are history only.
+
+### 2026-11-04: gap found, handed off as Stage 4b
+
+- `img_key()` in `build/common.py` only recognises Squarespace addresses, so once Stage 5 puts `images.innerversepodcast.com/<key>/orig.<ext>` links in Airtable, the build would print the full original instead of a sized WebP (images still load, pages get heavier). The browser lookup (`ikey()` in the head script) already handles those addresses. Chance asked for the fix before the switch; steps are in the brief, section "Stage 4b". Also decided: at the switch the domain is pointed at the new site before Airtable is rewritten, so the old Squarespace site never sees the new links.
 
