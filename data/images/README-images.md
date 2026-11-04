@@ -6,7 +6,7 @@ Every stage adds a dated entry here: what was done, counts, commit ids, anything
 
 ## Status (the only place it is kept)
 
-Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). **Next: Stage 4, stay in sync until the switch, on Chance's go. Until then each new episode's thumbnail is copied by hand (see "New episode catch-up" below).** Open for later: the bucket needs a CORS rule before the switch (see the Stage 3 entry); the final image address is still Chance's decision. Update this line at the end of every stage.
+Stage 0 done. Stage 1 done (865 images, 12 batches). Stage 2 done (865 of 865, about 1.26 GB), plus batch gap-1 (14 images found in Stage 3, all copied). Stage 3 done 2026-10-31: the test address loads every image from R2 (zero from Squarespace on the 20 pages checked, both sizes). Stage 4 done 2026-11-04: an hourly workflow copies any new image by itself (see "Stage 4" in the log); the hand-run catch-up below is no longer needed. **Next: the CORS rule and the final image address, both waiting on Cloudflare.** Open for later: the bucket needs a CORS rule before the switch (see the Stage 3 entry); the final image address is still Chance's decision. Update this line at the end of every stage.
 
 ## Files here
 
@@ -21,7 +21,7 @@ Actions tab, workflow "Copy images to R2", Run workflow, type the batch name. Or
 `gh api -X POST repos/chance-garton/innerverse-site/actions/workflows/images.yml/dispatches -f ref=main -f 'inputs[batch]=<name>'`
 The run commits the map and its report back to main. Local test without uploading: `python3 tools/images/migrate.py <name> --dry-run` (files land in `_dryrun/`, ignored by git).
 
-## New episode catch-up (until Stage 4 automates it)
+## New episode catch-up (by hand; no longer needed since Stage 4, kept as a fallback)
 
 Run after the episode's Airtable row exists. 1) Read the row's `Thumbnail URL` (and `Plus Thumbnail URL` if filled), and the `art` of its songs in `songs/songs.json` of `chance-garton/inner-circle` (the music cover, usually a different image). 2) If its `normalise()`d address is not in `map.json`, add a batch named `ep-<slug>` to `batches.json` (`{"what": ..., "images": [address]}`), commit and push. 3) Dispatch `images.yml` with that batch name (REST call above) and wait for success. 4) `git pull`, confirm the map has the key. The hourly site build picks it up; nothing else to do.
 
@@ -127,3 +127,10 @@ Run after the episode's Airtable row exists. 1) Read the row's `Thumbnail URL` (
 - Thumbnail was still on Squarespace and not in the map. Batch `ep-inner-whirled-32` (commit on main), run 41328815411: copied 1, failed 0, 1,002,826 bytes. Report `runs/ep-inner-whirled-32-20261101T165600.json`. Plus Thumbnail URL on the row is empty, so nothing else to copy.
 - Done on Chance's word ("whatever migration steps are needed to catch it up"), so this one needed no separate go. Stage 4 is still open.
 - Same day, on Chance's ask ("what about its music thumb"): the two Inner Whirled 32 songs (Galatea, Loggia) share one cover, `IW-32.jpg`, also not in the map. Batch `ep-inner-whirled-32-music`, run 41329051302, copied 1, failed 0. The app and share pages still use the Squarespace address in `songs.json` until Stage 5.
+
+### 2026-11-04: Stage 4, the hourly sync, done
+
+- `tools/images/sync.py` scans the Airtable mirror (innerverse-data) and the songs file of chance-garton/inner-circle for Squarespace image addresses with no entry in `map.json`, and copies exactly those with `migrate.run` (which now also accepts a list of addresses). `.github/workflows/images-sync.yml` runs it every hour at :05, before the site build at :20, and commits the map and a report named `auto-<time>.json`. Nothing new means no commit. Commit dfe3181.
+- First run (41848881717, by hand): copied 1, failed 0, 3,879,226 bytes (an Inner Whirled 32 image the Airtable mirror pointed at). Dry run beforehand listed the same single address (724 in use, 881 in the map).
+- Not covered: addresses the code builds from pieces (see the gap-1 note above) and the 8 `/s/` chart files; those are fixed lists already in the map.
+- Still open: the bucket CORS rule and the final image address.
