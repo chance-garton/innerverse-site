@@ -1,0 +1,26 @@
+{
+ "base": "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev",
+ "batch": "auto",
+ "bytes_added": 3879226,
+ "copied": [
+  {
+   "bytes_added": 3879226,
+   "h": 941,
+   "key": "sq/1793547308101-f07jmg7dphf08i22qdhf/inner-whirled-32",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1793547308101-F07JMG7DPHF08I22QDHF/inner-whirled-32.png",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-04T14:35:01+00:00",
+ "skipped": [],
+ "started": "2026-11-04T14:34:54+00:00"
+}

@@ -20939,6 +20939,35 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/1793547308101-F07JMG7DPHF08I22QDHF/inner-whirled-32.png": {
+  "bytes": {
+   "orig.png": 3324220,
+   "w1000.webp": 140208,
+   "w1500.webp": 274318,
+   "w300.webp": 16504,
+   "w500.webp": 40090,
+   "w750.webp": 83886
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/1793547308101-f07jmg7dphf08i22qdhf/inner-whirled-32",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/281249d2-6df8-4bca-bc7a-12d086e1e683/electric body electric health.jpg": {
   "bytes": {
    "orig.jpg": 147283,
