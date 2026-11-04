@@ -1,0 +1,57 @@
+name: Keep images in step
+
+# Stage 4 of the image move (claude/BRIEF-image-migration-2026-10-30.md).
+# Every hour at :05, fifteen minutes before the site build at :20, copies any
+# Squarespace image that Airtable (or the songs file) now points at and the
+# bucket does not have yet, then commits data/images/map.json and a run report.
+# Nothing new means nothing happens. Also runnable by hand from the Actions tab.
+on:
+  schedule:
+    - cron: "5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: images
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get the episode data
+        uses: actions/checkout@v4
+        with:
+          repository: chance-garton/innerverse-data
+          path: innerverse-data
+      - name: Get the songs file
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: chance-garton/inner-circle
+          path: inner-circle
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow boto3
+      - name: Copy what is missing
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          IMAGE_BASE_URL: ${{ secrets.IMAGE_BASE_URL }}
+        run: python tools/images/sync.py --data innerverse-data --songs inner-circle/songs/songs.json
+      - name: Save the map and the run report
+        if: always()
+        run: |
+          git config user.name "innerverse-images"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/images/map.json data/images/runs || true
+          if git diff --cached --quiet; then echo "Nothing to save"; exit 0; fi
+          git commit -m "Images: new images copied to R2 (hourly sync)"
+          for i in 1 2 3; do git pull --rebase origin main && git push && exit 0; sleep 5; done
+          exit 1

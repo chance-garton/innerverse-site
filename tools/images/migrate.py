@@ -221,11 +221,14 @@ def save(path, obj):
         f.write("\n")
 
 
-def run(batch, dry):
-    batches = load(BATCHES, {})
-    if batch not in batches:
-        sys.exit("No batch named %r in data/images/batches.json" % batch)
-    urls = batches[batch]["images"] if isinstance(batches[batch], dict) else batches[batch]
+def run(batch, dry, urls=None):
+    """urls: copy this list directly (used by tools/images/sync.py); otherwise
+    the batch is read from data/images/batches.json."""
+    if urls is None:
+        batches = load(BATCHES, {})
+        if batch not in batches:
+            sys.exit("No batch named %r in data/images/batches.json" % batch)
+        urls = batches[batch]["images"] if isinstance(batches[batch], dict) else batches[batch]
     bucket = DryBucket() if dry else Bucket()
     imap = load(MAP, {})
     report = {"batch": batch, "started": datetime.now(timezone.utc).isoformat(timespec="seconds"),
