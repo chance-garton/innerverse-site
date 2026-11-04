@@ -24,7 +24,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "data")
 
 # Real pages on the new site, besides episode and plus pages.
-STATIC_PAGES = {"/", "/episodes", "/plus", "/about", "/biofield-tuning", "/contact"}
+STATIC_PAGES = {"/", "/episodes", "/plus", "/about", "/biofield-tuning", "/contact", "/support"}
 
 
 def _read_lines(name):

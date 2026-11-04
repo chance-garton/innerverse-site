@@ -1271,6 +1271,13 @@
   }
 
   function mountSupportCta() {
+    /* New site (2026-11-04): the page carries the signed-out card in its HTML;
+       redraw it in place for signed-in and lapsed members. */
+    var own = document.getElementById('iv-support-plus');
+    if (own) {
+      checkStatus(function (status) { own.innerHTML = buildSupportCta(status); });
+      return;
+    }
     var blocks = document.querySelectorAll('.sqs-block-pricing-plan');
     if (!blocks.length) return;
     checkStatus(function (status) {

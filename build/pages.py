@@ -381,3 +381,209 @@ def not_found():
         "</section></main>" + footer()
     )
     return page(h, body, "iv-nf-page", scripts=("/assets/site.js",))
+
+
+# -------------------------------------------------------------- Support ----
+# Support InnerVerse (stage 3, 2026-11-04). The live /support page is where the
+# alt domain innerverseplus.com lands. Chance asked for it redesigned in line
+# with the new pages (not carried block for block): the live copy is kept, two
+# em dashes reworded, the Oracle Card block dropped (Chance, 2026-11-04), and
+# the Astro-Herbalism button points at the show's archive on this site.
+# The Plus+ card is the signed-out view in the HTML; plus.js (mountSupportCta)
+# redraws it for signed-in and lapsed members, as on Squarespace.
+SQ = "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/"
+SUPPORT_OG = ("https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69fba4fde74674760d4a6655/"
+              "1778099453966/ChatGPT+Image+May+6%2C+2026%2C+03_30_14+PM.png")
+SUP_PLUS_ICON = SQ + "0ea36d78-0ea0-4069-84c3-357546676fd8/Plus-Icon.png"
+SUP_CHECKOUT = "https://innerverseplus.memberful.com/checkout?plan="
+SUP_PLATFORMS = [
+    ("Patreon", "$9", "https://www.patreon.com/cw/innerverse", "Become a patron",
+     SQ + "4886f9a3-5af4-419b-ab75-ff31986fe08a/Patreon.png",
+     "Patreon has the most complete archive of InnerVerse Plus+ Content, along with over 300 free episodes. As a "
+     "Patreon member you get access to the extended video for each episode, and a custom RSS Feed URL Link to plug in "
+     "to your favorite podcast player, allowing you to listen to InnerVerse Plus+ in the iTunes Podcast App or similar program.",
+     "Patreon", ["Custom RSS Feed", "Video Episodes", "Complete Archive", "Episodes Collected By Topic"]),
+    ("Substack", "$8", "https://innerversepodcast.substack.com", "Try free for 7 days",
+     SQ + "5d82bbd2-a173-4a85-a835-33e268485695/substack.png",
+     "Joining InnerVerse Plus+ here has the exclusive benefit of giving you access to more complete episode research "
+     "notes for Inner Whirled Podcasts. Substack members get access to the extended video for each episode, and a custom "
+     "RSS Feed URL Link to plug in to your favorite podcast player, allowing you to listen to InnerVerse Plus+ in the "
+     "iTunes Podcast App or similar program.",
+     "Substack", ["Custom RSS Feed", "Video Episodes", "Complete Research Notes", "Great Community"]),
+    ("YouTube", "$10", "https://www.youtube.com/playlist?list=UUMOrqPdnXaoZ18JoXSXN5MjjA", "Join YouTube membership",
+     SQ + "a3a82ad1-a924-4be7-971d-4e5f59f32c5b/youtuber.png",
+     "For those who enjoy YouTube’s infrastructure and functionality, you can join InnerVerse Plus+ with a paid "
+     "YouTube channel membership and get premium episodes there.",
+     None, ["Video Episodes", "Watch Without Leaving YouTube"]),
+]
+SUP_BOOKS = [
+    ("July’s End with Black Swans", SQ + "ed6a3da5-c8d8-46a0-87e0-ffee9a4f2562/July%27s+End.webp",
+     "https://www.audible.com/pd/Julys-End-with-Black-Swans-Audiobook/B09RQ7G6CY?ref=acx_bty_BK_ACX0_296155_pd_us&source_code=AUDFPWS0223189MWU-BK-ACX0-296155"),
+    ("A Godsacre for Winds of the Soul", SQ + "0dd20f77-340f-4d4a-94ab-d63d0c2aeaf2/A+godsacre.webp",
+     "https://www.audible.com/pd/A-Godsacre-for-Winds-of-the-Soul-Audiobook/B0BSR7MFX5?ref=acx_bty_BK_ACX0_335197_pd_us&source_code=AUDFPWS0223189MWU-BK-ACX0-335197"),
+    ("The Holy Sailors", SQ + "cc68c653-088d-43fa-bc4e-997896b19c32/the+holy+sailors.webp",
+     "https://www.audible.com/pd/The-Holy-Sailors-Audiobook/B0C5FJXB9Y?ref=acx_bty_BK_ACX0_351752_pd_us&source_code=AUDFPWS0223189MWU-BK-ACX0-351752"),
+    ("Terminalia", SQ + "78f88ed0-ca24-42ad-bfb8-e50468ed0f07/terminalia.webp",
+     "https://www.audible.com/pd/B0CXG1VYX2/?source_code=AUDFPWS0223189MWU-BK-ACX0-389833&ref=acx_bty_BK_ACX0_389833_pd_us"),
+]
+DYLAN_SUBSTACK = "https://greattide.substack.com?r=1x95oc"
+
+
+def _ext(href, label, cls):
+    return '<a class="' + cls + '" href="' + esc(href) + '" target="_blank" rel="noopener">' + label + "</a>"
+
+
+def _sup_section(sid, kicker, title, intro, inner):
+    return ('<section class="iv-sup-section" id="' + sid + '" aria-labelledby="' + sid + '-h">'
+            '<div class="iv-sup-section-head"><div class="iv-sup-kicker">' + kicker + "</div>"
+            '<h2 id="' + sid + '-h">' + title + "</h2>" + (("<p>" + intro + "</p>") if intro else "") + "</div>"
+            + inner + "</section>")
+
+
+def support_plus_card():
+    """The signed-out Plus+ card, same markup plus.js draws (buildSupportCta)."""
+    return (
+        '<div class="iv-plus-cta iv-plus-signup-cta iv-sup-plus-card" id="iv-support-plus">'
+        '<div class="iv-plus-content">'
+        '<div class="iv-plus-price-line"><span class="iv-plus-price-num">$9</span><span class="iv-plus-price-unit">/ month</span></div>'
+        '<p class="iv-plus-blurb">Unlock every Plus episode across InnerVerse and Inner Whirled.</p>'
+        '<a class="iv-plus-btn" href="' + SUP_CHECKOUT + '149343">Start 7-day free trial</a>'
+        '<div class="iv-plus-alt"><div class="iv-plus-alt-label">OR</div><div class="iv-plus-alt-row">'
+        '<a class="iv-pill" href="' + SUP_CHECKOUT + '149341">$9 / month</a>'
+        '<a class="iv-pill" href="' + SUP_CHECKOUT + '149342">$100 / year</a>'
+        '<a class="iv-pill iv-sup-login" href="' + esc(url("/plus")) + '">Already a member? Log in</a>'
+        "</div></div></div></div>"
+    )
+
+
+def support():
+    title = "Support InnerVerse | Plus+ Membership, Sessions and Trusted Affiliates"
+    desc = ("Support InnerVerse: join Plus+ for full episodes on this site, Patreon, Substack or YouTube, book a "
+            "Biofield Tuning session with Chance Garton, and explore trusted affiliates and audiobooks.")
+    canonical = LIVE_ORIGIN + "/support"
+
+    jumps = "".join('<a class="iv-sup-jump" href="#' + h + '">' + l + "</a>" for l, h in [
+        ("Other ways to join", "join"), ("Sessions with Chance", "workwithchance"),
+        ("Trusted affiliates", "affiliates"), ("Spirit Whirled audiobooks", "spiritwhirled"),
+        ("Dylan Saccoccio on Substack", "dylan")])
+
+    hero = (
+        '<header class="iv-sup-hero">'
+        '<div class="iv-sup-hero-text">'
+        '<div class="iv-sup-kicker">Support</div>'
+        "<h1>Support InnerVerse</h1>"
+        '<p class="iv-sup-lede">InnerVerse is free to explore. This page is for those who want to support the work, '
+        "access full episodes, work with Chance directly, or connect with trusted affiliates.</p>"
+        '<div class="iv-sup-new"><span class="iv-sup-new-badge">New membership option</span>'
+        "<p><b>Unlock access to InnerVerse and Inner Whirled Plus+.</b> InnerVerse Plus+ memberships are now accessible "
+        "within the InnerVerse website. If you’ve put off subscribing because you didn’t want to deal with a third party "
+        "like Patreon or Substack, you can now support InnerVerse and get premium content directly from the source. "
+        "Other options listed below.</p></div>"
+        '<nav class="iv-sup-jumps" aria-label="On this page">' + jumps + "</nav>"
+        "</div>"
+        '<div class="iv-sup-hero-card">'
+        '<img class="iv-sup-plus-icon" src="' + esc(iv_img(SUP_PLUS_ICON, 300)) + '" alt="InnerVerse Plus+" width="96" height="96">'
+        '<div class="iv-sup-card-title">InnerVerse Plus+</div>'
+        '<div class="iv-sup-card-sub">Premium content, extended episodes</div>'
+        + support_plus_card() +
+        "</div></header>"
+    )
+
+    cards = ""
+    for name, price, href, btn, img, body, browser, perks in SUP_PLATFORMS:
+        note = ('<p class="iv-sup-note"><b>Join ' + browser + " on a web browser.</b> The " + browser + " app is "
+                + ("good" if browser == "Patreon" else "great") + ", but if you sign up through it you will be paying "
+                "more due to Apple’s 30% tax.</p>") if browser else ""
+        cards += (
+            '<article class="iv-sup-card">'
+            '<img class="iv-sup-card-img" src="' + esc(iv_img(img, 700)) + '" alt="' + name + '" width="640" height="360" loading="lazy">'
+            '<div class="iv-sup-card-body">'
+            '<div class="iv-sup-card-top"><h3>' + name + '</h3><div class="iv-sup-price"><b>' + price + "</b> / month</div></div>"
+            "<p>" + body + "</p>" + note +
+            '<ul class="iv-sup-perks">' + "".join("<li>" + p + "</li>" for p in perks) + "</ul>"
+            + _ext(href, btn, "iv-sup-btn iv-sup-btn-ghost") +
+            "</div></article>"
+        )
+    join = _sup_section("join", "Plus+ elsewhere", "Other ways to join",
+                        "Already living on one of these platforms? Plus+ is there too.",
+                        '<div class="iv-sup-grid iv-sup-grid-3">' + cards + "</div>")
+
+    work = _sup_section(
+        "workwithchance", "Sessions", "Work with Chance", "",
+        '<div class="iv-sup-feature">'
+        '<img class="iv-sup-feature-img" src="' + esc(iv_img(SQ + "4e0c5819-8627-4923-a558-ebed935da372/CHANCE+GARTON+ABOUT+PAGE+INNERVERSE.png", 1000))
+        + '" alt="Chance Garton" width="724" height="543" loading="lazy">'
+        '<div class="iv-sup-feature-body"><h3>Biofield Tuning</h3>'
+        "<p>Remote sound healing sessions via Zoom using tuning forks to locate and balance energetic dissonance in the biofield.</p>"
+        '<div class="iv-sup-buttons"><a class="iv-sup-btn iv-sup-btn-lapis" href="' + esc(url("/biofield-tuning")) + '">Book a session</a></div>'
+        "</div></div>")
+
+    affiliates = _sup_section(
+        "affiliates", "Trusted affiliates", "Products Chance actually uses", "",
+        '<div class="iv-sup-grid iv-sup-grid-2">'
+        '<article class="iv-sup-card iv-sup-aff">'
+        '<a class="iv-sup-aff-logo" href="https://tippecanoeherbs.com/" target="_blank" rel="noopener">'
+        '<img src="' + esc(iv_img(SQ + "b9ecc671-b201-40f9-95ce-f9ff0c004f08/tippecanoe+logo.webp", 700)) + '" alt="Tippecanoe Herbs" width="640" height="342" loading="lazy"></a>'
+        '<div class="iv-sup-card-body"><h3>Tippecanoe Herbs</h3>'
+        '<div class="iv-sup-code">Use coupon code <b>innerverse</b> at checkout for a 10% discount</div>'
+        "<p>Kyle and Serena Denton are community herbalists creating wild-crafted and organic plant medicines out of "
+        "Milwaukee since 2015. I have used their teas and tinctures on an almost daily basis for years now. Kyle is a great "
+        "friend of InnerVerse and has appeared on the channel more times than I can count. These products work, not in the "
+        "allopathic “pharma-medicine” way, but in a terrain-support, consciousness bolstering <i>plant-teacher</i> sort of way.</p>"
+        '<div class="iv-sup-buttons">' + _ext("https://tippecanoeherbs.com/", "Shop Tippecanoe", "iv-sup-btn iv-sup-btn-gold")
+        + '<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(url("/episodes?show=Astro-Herbalism")) + '">Watch the Astro-Herbalism series</a></div>'
+        "</div></article>"
+        '<article class="iv-sup-card iv-sup-aff">'
+        '<a class="iv-sup-aff-logo iv-sup-aff-logo-tall" href="https://lotuswei.com/innerverse" target="_blank" rel="noopener">'
+        '<img src="' + esc(iv_img(SQ + "025478ea-ef40-443c-bd06-554aba0a9bcf/lotuswei.png", 700)) + '" alt="LotusWei flower essence elixirs" width="402" height="505" loading="lazy"></a>'
+        '<div class="iv-sup-card-body"><h3>LotusWei Flower Essence Elixirs</h3>'
+        '<div class="iv-sup-code">Use my affiliate link to support InnerVerse</div>'
+        "<p>LotusWei provides amazing and transformative plant essence elixirs, using one of nature’s most gentle and "
+        "beautiful elements: the flowers themselves. Led by founder Katie Hess, LotusWei supports customers with diverse "
+        "products that operate on homeopathic principles and energetic resonances. I use LotusWei Elixirs to give me an "
+        "edge with psychic &amp; energetic sensitivity, discernment, and life force coherence. In other words, LotusWei "
+        "Elixirs help me be a better podcaster and Biofield Tuner. Benefits accumulate over long term use!</p>"
+        '<div class="iv-sup-buttons">' + _ext("https://lotuswei.com/innerverse", "Shop LotusWei", "iv-sup-btn iv-sup-btn-gold")
+        + '<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(url("/episodes/katie-hess-lotuswei")) + '">Watch Katie Hess on InnerVerse</a></div>'
+        "</div></article></div>")
+
+    books = "".join(
+        '<a class="iv-sup-book" href="' + esc(h) + '" target="_blank" rel="noopener">'
+        '<img src="' + esc(iv_img(i, 500)) + '" alt="' + esc(t) + ' audiobook cover" width="250" height="250" loading="lazy">'
+        "<span>" + t + "</span></a>"
+        for t, i, h in SUP_BOOKS)
+    spirit = _sup_section(
+        "spiritwhirled", "Audiobooks narrated by Chance Garton", "Spirit Whirled by Dylan Saccoccio",
+        "If you ever wondered where I gained my symbolic and linguistic chops, it was the <i>Spirit Whirled</i> series of "
+        "books, by Dylan Saccoccio. If you want to keep up with us on our show Inner Whirled, you’ll need to do the same "
+        "work. These books are a value and treasure greater than a college education in comparative mythology and "
+        "religious studies ever could be. Give yourself the keys of discernment. Listen to Spirit Whirled.",
+        '<div class="iv-sup-books">' + books + "</div>"
+        '<p class="iv-sup-fine">New to Audible? Activate your <b>Free Trial</b> and use it to listen to one of my audiobooks. '
+        "Amazon Prime members get <b>2 free audiobooks</b> during trial. Use your free trial to try <i>Spirit Whirled</i>.</p>")
+
+    dylan = _sup_section(
+        "dylan", "Inner Whirled co-host", "Support Dylan Saccoccio on Substack", "",
+        '<div class="iv-sup-feature iv-sup-feature-small">'
+        '<img class="iv-sup-feature-img" src="' + esc(iv_img(SQ + "6670d9e4-df07-4fcb-831f-47c6f4c1582c/dylan.jpg", 500)) + '" alt="Dylan Saccoccio" width="400" height="400" loading="lazy">'
+        '<div class="iv-sup-feature-body">'
+        "<p>The <i>Spirit Whirled</i> series may be finished, but Dylan’s work isn’t. There are hundreds of articles on his "
+        "Substack along with access to our shared podcast Inner Whirled for paying supporters at greattide.substack.com.</p>"
+        '<div class="iv-sup-buttons">' + _ext(DYLAN_SUBSTACK, "Ancient history, mythology and epic fantasy: join Dylan on Substack", "iv-sup-btn iv-sup-btn-lapis") + "</div>"
+        "</div></div>")
+
+    ld = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebPage", "@id": canonical + "#page", "url": canonical, "name": title, "description": desc,
+             "isPartOf": {"@id": LIVE_ORIGIN + "/#website"}, "about": {"@id": LIVE_ORIGIN + "/#podcast"}},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": LIVE_ORIGIN + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Support", "item": canonical}]},
+        ],
+    }
+    cls = "iv-support-page"
+    h = head(title, desc, canonical, SUPPORT_OG, "website", cls, extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
+    body = (nav("") + '<main id="iv-main"><article class="iv-sup">' + hero
+            + join + work + affiliates + spirit + dylan + "</article></main>" + footer())
+    return page(h, body, cls, scripts=("/assets/site.js", "/assets/plus.js"))

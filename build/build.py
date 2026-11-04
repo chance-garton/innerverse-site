@@ -145,12 +145,15 @@ def main():
     ct = hand.contact()
     write("contact.html", ct)
     write("contact/index.html", ct)
+    sp = hand.support()
+    write("support.html", sp)
+    write("support/index.html", sp)
     bt = hand.biofield_tuning()
     write("biofield-tuning.html", bt)
     write("biofield-tuning/index.html", bt)
     sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today), (common.LIVE_ORIGIN + "/plus", today),
                    (common.LIVE_ORIGIN + "/about", today), (common.LIVE_ORIGIN + "/biofield-tuning", today),
-                   (common.LIVE_ORIGIN + "/contact", today)]
+                   (common.LIVE_ORIGIN + "/contact", today), (common.LIVE_ORIGIN + "/support", today)]
 
     write("robots.txt", ("User-agent: *\nDisallow: /\n" if common.NOINDEX else
                          "User-agent: *\nAllow: /\n\nSitemap: " + common.LIVE_ORIGIN + "/sitemap.xml\n"))

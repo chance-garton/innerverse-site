@@ -1,0 +1,163 @@
+/* Support InnerVerse (stage 3, 2026-11-04). Where innerverseplus.com lands.
+   Lapis Library tokens (30-home-tokens-nav.css), the About page's rhythm,
+   everything scoped to .iv-sup so no other page changes. The Plus+ card
+   keeps its shared .iv-plus-cta styles (10-sq-base.css), sized up here. */
+html.iv-support-page body { background: var(--ground); }
+.iv-sup {
+  max-width: 1200px; margin: 0 auto; padding: 130px 6vw 72px;
+  font-family: var(--font-sans); color: var(--ink); letter-spacing: normal; line-height: 1.6;
+}
+.iv-sup p { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-muted); }
+.iv-sup b { color: var(--ink); }
+.iv-sup-kicker {
+  font-weight: 700; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--lapis-lit);
+}
+
+/* Hero: the pitch on the left, the Plus+ card on the right */
+.iv-sup-hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; align-items: start; padding-bottom: 56px;
+}
+.iv-sup-hero-text { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.iv-sup h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 64px;
+  line-height: 1; letter-spacing: -2.5px; color: var(--ink);
+}
+.iv-sup p.iv-sup-lede { font-size: 19px; max-width: 60ch; }
+.iv-sup-new {
+  border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: var(--radius-md);
+  background: var(--card); padding: 18px 20px; display: flex; flex-direction: column; gap: 10px;
+}
+.iv-sup-new-badge {
+  align-self: flex-start; font-size: 11px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--on-gold); background: var(--gold); border-radius: var(--radius-pill); padding: 4px 10px;
+}
+.iv-sup .iv-sup-new p { font-size: 15.5px; }
+.iv-sup-jumps { display: flex; flex-wrap: wrap; gap: 8px; }
+.iv-sup-jump {
+  display: inline-flex; align-items: center; min-height: 38px; padding: 8px 14px; border-radius: var(--radius-pill);
+  border: 1px solid var(--line); color: var(--ink); font-size: 13.5px; font-weight: 600; text-decoration: none; line-height: 1.2;
+}
+.iv-sup-jump:hover { border-color: var(--lapis); color: var(--lapis-lit); }
+
+.iv-sup-hero-card {
+  position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 28px 24px 24px; border-radius: var(--radius-lg); border: 1px solid rgba(232,185,35,0.28);
+  background: radial-gradient(ellipse at top, rgba(232,185,35,0.12), transparent 60%), var(--card);
+  box-shadow: var(--shadow-card);
+}
+.iv-sup-plus-icon { width: 96px; height: 96px; object-fit: contain; filter: drop-shadow(0 0 12px rgba(232,185,35,0.45)); }
+.iv-sup-card-title {
+  margin-top: 10px; font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1.1; color: var(--ink);
+}
+.iv-sup-card-sub { margin-top: 4px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+.iv-sup .iv-sup-plus-card {
+  width: 100%; min-width: 0; margin-top: 18px; text-align: left; background: rgba(0,0,0,0.22); box-shadow: none;
+}
+.iv-sup .iv-sup-plus-card .iv-plus-price-num { font-size: 30px; }
+.iv-sup .iv-sup-plus-card .iv-plus-price-unit { font-size: 14px; }
+.iv-sup .iv-sup-plus-card .iv-plus-blurb { font-size: 15px; color: var(--ink-muted); }
+.iv-sup .iv-sup-plus-card a.iv-plus-btn { display: block; text-align: center; font-size: 14px; padding: 14px 20px; margin-bottom: 4px; }
+.iv-sup .iv-sup-plus-card .iv-plus-alt-row .iv-pill { padding: 6px 12px; font-size: 12.5px; }
+
+/* Sections */
+.iv-sup-section { padding: 56px 0; border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+.iv-sup-section-head { display: flex; flex-direction: column; gap: 10px; max-width: 760px; margin-bottom: 28px; }
+.iv-sup h2 {
+  margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 38px;
+  line-height: 1.05; letter-spacing: -1.2px; color: var(--ink);
+}
+.iv-sup h3 {
+  margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.15; color: var(--ink);
+}
+.iv-sup-grid { display: grid; gap: 20px; }
+.iv-sup-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.iv-sup-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.iv-sup-card {
+  display: flex; flex-direction: column; min-width: 0; overflow: hidden;
+  border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--card);
+}
+.iv-sup-card-img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; display: block; background: var(--surface); }
+.iv-sup-card-body { display: flex; flex-direction: column; gap: 14px; padding: 22px 22px 24px; flex: 1; }
+.iv-sup-card-body > .iv-sup-btn, .iv-sup-card-body > .iv-sup-buttons { margin-top: auto; }
+.iv-sup .iv-sup-card-body p { font-size: 15px; line-height: 1.65; }
+.iv-sup-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.iv-sup-price { font-size: 14px; color: var(--ink-muted); white-space: nowrap; }
+.iv-sup-price b { font-size: 22px; color: var(--gold); font-weight: 800; }
+.iv-sup .iv-sup-note { font-size: 14px; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--surface); }
+.iv-sup-perks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.iv-sup-perks li {
+  font-size: 12px; font-weight: 600; color: var(--ink); padding: 4px 10px;
+  border-radius: var(--radius-pill); border: 1px solid var(--line);
+}
+
+/* Buttons */
+.iv-sup-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.iv-sup-btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 11px 20px;
+  border-radius: var(--radius-md); font-weight: 700; font-size: 14px; text-decoration: none; text-align: center;
+  border: 1px solid transparent; line-height: 1.25;
+}
+.iv-sup-btn-lapis { background: var(--lapis); color: var(--on-lapis); }
+.iv-sup-btn-lapis:hover { background: #2E62B3; }
+.iv-sup-btn-gold { background: var(--gold); color: var(--on-gold); }
+.iv-sup-btn-gold:hover { filter: brightness(1.08); }
+.iv-sup-btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.iv-sup-btn-ghost:hover { border-color: var(--lapis); color: var(--lapis-lit); }
+
+/* Feature rows: Work with Chance, Dylan */
+.iv-sup-feature {
+  display: grid; grid-template-columns: 420px minmax(0, 1fr); gap: 40px; align-items: center;
+  padding: 20px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--card);
+}
+.iv-sup-feature-small { grid-template-columns: 200px minmax(0, 1fr); }
+.iv-sup-feature-img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border-radius: var(--radius-md); display: block; }
+.iv-sup-feature-small .iv-sup-feature-img { aspect-ratio: 1; border-radius: 50%; }
+.iv-sup-feature-body { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+/* Affiliates */
+.iv-sup-aff-logo { display: flex; align-items: center; justify-content: center; height: 220px; background: #fff; }
+.iv-sup-aff-logo img { max-width: 80%; max-height: 180px; width: auto; height: auto; object-fit: contain; display: block; }
+.iv-sup-aff-logo-tall { background: var(--surface); }
+.iv-sup-aff-logo-tall img { max-height: 200px; border-radius: var(--radius-sm); }
+.iv-sup-code { font-size: 14px; color: var(--gold); font-weight: 600; }
+.iv-sup-code b { color: var(--gold); letter-spacing: .5px; }
+
+/* Spirit Whirled */
+.iv-sup-books { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.iv-sup-book { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--ink); min-width: 0; }
+.iv-sup-book img {
+  width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card); transition: transform .2s ease;
+}
+.iv-sup-book:hover img { transform: translateY(-3px); }
+.iv-sup-book span { font-family: var(--font-display); font-weight: 600; font-size: 17px; line-height: 1.25; font-style: italic; }
+.iv-sup-book:hover span { color: var(--lapis-lit); }
+.iv-sup .iv-sup-fine { margin-top: 22px; font-size: 14.5px; }
+
+@media (max-width: 1060px) {
+  .iv-sup-grid-3 { grid-template-columns: 1fr; }
+  .iv-sup-grid-3 .iv-sup-card { display: grid; grid-template-columns: 280px minmax(0, 1fr); }
+  .iv-sup-grid-3 .iv-sup-card-img { height: 100%; aspect-ratio: auto; }
+}
+@media (max-width: 960px) {
+  .iv-sup-hero { grid-template-columns: 1fr; gap: 36px; }
+  .iv-sup-hero-card { max-width: 480px; }
+  .iv-sup-grid-2 { grid-template-columns: 1fr; }
+  .iv-sup-feature { grid-template-columns: 1fr; gap: 20px; }
+  .iv-sup-feature .iv-sup-feature-img { max-width: 520px; }
+  .iv-sup-feature-small { grid-template-columns: 120px minmax(0, 1fr); align-items: start; }
+  .iv-sup-books { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .iv-sup { padding-top: 100px; padding-bottom: 56px; }
+  .iv-sup h1 { font-size: 44px; letter-spacing: -1.5px; }
+  .iv-sup h2 { font-size: 30px; }
+  .iv-sup p.iv-sup-lede { font-size: 18px; }
+  .iv-sup-section { padding: 44px 0; }
+  .iv-sup-grid-3 .iv-sup-card { display: flex; }
+  .iv-sup-grid-3 .iv-sup-card-img { height: auto; aspect-ratio: 16 / 9; }
+  .iv-sup-feature { padding: 14px; }
+  .iv-sup-feature-small { grid-template-columns: 1fr; }
+  .iv-sup-feature-small .iv-sup-feature-img { width: 120px; }
+  .iv-sup-aff-logo { height: 180px; }
+}
