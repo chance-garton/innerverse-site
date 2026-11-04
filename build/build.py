@@ -184,6 +184,10 @@ def main():
     xml.append("</urlset>")
     write("sitemap.xml", "\n".join(xml) + "\n")
     write(".nojekyll", "")
+    # Cloudflare Pages: keep the pages.dev addresses (production and previews) out of search,
+    # so only www.innerversepodcast.com is indexed once the build is in real-domain mode.
+    write("_headers", "https://:project.pages.dev/*\n  X-Robots-Tag: noindex\n\n"
+                      "https://:version.:project.pages.dev/*\n  X-Robots-Tag: noindex\n")
     # A real not-found page: Cloudflare Pages serves it with a 404 status for any address
     # that has no page and no redirect.
     write("404.html", hand.not_found())

@@ -69,7 +69,8 @@ jobs:
         uses: actions/deploy-pages@v4
   # The same site built for the Cloudflare Pages project (stage 4 prep): no
   # path prefix, so the pages and the _redirects file sit at the root of
-  # https://innerverse-site.pages.dev. Still noindex until the switch. Needs the
+  # https://innerverse-site.pages.dev. Real-domain mode since the 2026-11-04 switch
+  # (indexable, visitor counter on); the pages.dev addresses stay noindex through _headers. Needs the
   # repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
   cloudflare:
     runs-on: ubuntu-latest
@@ -87,7 +88,7 @@ jobs:
         env:
           IV_DATA_DIR: innerverse-data
           IV_BASE: ""
-          IV_NOINDEX: "1"
+          IV_NOINDEX: "0"
         run: python build/build.py
       - uses: actions/setup-node@v4
         with:
