@@ -49,10 +49,10 @@ def url(path):
 STEPS = [100, 300, 500, 750, 1000, 1500, 2500]
 
 # Images copied off Squarespace into Cloudflare R2 (image move, stage 3).
-# IMAGE_BASE is the one setting for where the copies are served from. Today it
-# is the bucket's temporary r2.dev address, for the test address only; when
-# Chance picks the final address, change it here (or set IV_IMAGE_BASE).
-IMAGE_BASE = os.environ.get("IV_IMAGE_BASE", "https://pub-d6456f3195384e739bb2ddc2ce445321.r2.dev").rstrip("/")
+# IMAGE_BASE is the one setting for where the copies are served from: the
+# bucket's own address, images.innerversepodcast.com (live 2026-11-04).
+# Override with IV_IMAGE_BASE if it ever moves.
+IMAGE_BASE = os.environ.get("IV_IMAGE_BASE", "https://images.innerversepodcast.com").rstrip("/")
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT_DIR, "tools", "images"))
 from migrate import key_for, normalise  # noqa: E402  (the same keys the copy tool used)
