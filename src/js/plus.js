@@ -138,9 +138,11 @@
     if (key === 'topics') return THEME_LABEL[value] || value;
     return value;
   }
+  /* 2026-11-05 (Chance): a Vibe Rant card names its episode number, as the episode page's breadcrumb does; Vibe Rant wins the label over Inner Whirled. */
   function showOf(e) {
     var shows = e.shows || [];
     if (shows.indexOf('Astro-Herbalism') >= 0) return 'Astro-Herbalism';
+    if (shows.indexOf('Vibe Rant') >= 0) return 'Vibe Rant' + (e.num ? ' \u00b7 Episode ' + e.num : '');
     return shows[0] || 'InnerVerse';
   }
   function whenOf(e) {

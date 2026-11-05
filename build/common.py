@@ -212,6 +212,7 @@ def plain(s, limit=None):
 
 LOGO_URL = CDN + "9a710a85-f780-4b67-a4c7-2b45690b6006/2025-Electric-Logo-2026.png?format=300w&content-type=image%2Fpng"
 IW_MARK = CDN + "a39095cd-b9d2-444d-b4e2-14a2484d766d/Inner-Whirled-Logo.png?format=300w"
+VR_LOGO = CDN + "b8217739-ae93-4527-bd8a-37d690f4296b/VIBRANT_LOGO.png"
 
 V2_LINKS = [
     ("podcast", "Episodes", "/episodes"),
@@ -246,8 +247,15 @@ def _login():
     )
 
 
-def nav(active="", inner_whirled=False):
-    if inner_whirled:
+def nav(active="", inner_whirled=False, vibe_rant=False):
+    if vibe_rant:
+        # 2026-11-05 (Chance): Vibe Rant pages keep the InnerVerse colours and
+        # mark, with the Vibe Rant wordmark in place of the word INNERVERSE.
+        brand = (
+            '<img class="iv-nav-logo" src="' + esc(LOGO_URL) + '" alt="InnerVerse Podcast" width="48" height="48">'
+            '<span class="iv-nav-word iv-nav-vr"><img class="iv-nav-vrmark" src="' + esc(iv_img(VR_LOGO, 500)) + '" alt="Vibe Rant" width="992" height="558"></span>'
+        )
+    elif inner_whirled:
         brand = (
             '<img class="iv-nav-logo" src="' + esc(IW_MARK) + '" alt="Inner Whirled" width="48" height="48">'
             '<span class="iv-nav-word"><span class="iw-inner">Inner</span><span class="iw-whirled">Whirled</span></span>'

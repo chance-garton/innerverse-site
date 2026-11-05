@@ -135,9 +135,11 @@
     if (key === 'topics') return String(value).replace(/,\s*&/g, ' &').replace(/,/g, '');
     return value;
   }
+  /* 2026-11-05 (Chance): a Vibe Rant card names its episode number, as the episode page's breadcrumb does; Vibe Rant wins the label over Inner Whirled. */
   function showOf(e) {
     var shows = e.shows || [];
     if (shows.indexOf('Astro-Herbalism') >= 0) return 'Astro-Herbalism';
+    if (shows.indexOf('Vibe Rant') >= 0) return labelFor('shows', 'Vibe Rant') + (e.num ? ' \u00b7 Episode ' + e.num : '');
     return labelFor('shows', shows[0] || 'InnerVerse');
   }
   function whenOf(e) {
@@ -1034,7 +1036,11 @@
     var title = clean(f.Title || e.title);
     var thumb = f['Thumbnail URL'] || e.thumb;
     var vid = ytId(f['Video URL']);
-    var show = (e.shows || []).indexOf('Astro-Herbalism') >= 0 ? 'Astro-Herbalism' : (SHOW_LABEL[(e.shows || [])[0]] || (e.shows || [])[0] || 'InnerVerse');
+    var shows = e.shows || [];
+    var vrNum = f['Episode Number'] || e.num;
+    var show = shows.indexOf('Astro-Herbalism') >= 0 ? 'Astro-Herbalism'
+      : shows.indexOf('Vibe Rant') >= 0 ? (SHOW_LABEL['Vibe Rant'] || 'Vibe Rant') + (vrNum ? ' \u00b7 Episode ' + vrNum : '')
+      : (SHOW_LABEL[shows[0]] || shows[0] || 'InnerVerse');
     var meta = [show, f.Duration || e.duration, niceDate(e.date)].filter(Boolean).join(' · ');
     var blurb = clean(f['Intro Paragraph 1'] || '');
 

@@ -2665,7 +2665,9 @@
         paintPlusYellow();
         document.documentElement.classList.add('iv-plus-ep');
         /* iv-inner-whirled (2026-09-29): the show skin, as on the free page */
-        if ((r['Show Categories'] || []).some(function (c) { return ((c && c.name) || c) === 'Inner Whirled'; })) document.documentElement.classList.add('iv-iw');
+        /* 2026-11-05 (Chance): a Vibe Rant row never takes the Inner Whirled skin. */
+        var ivShowNames = (r['Show Categories'] || []).map(function (c) { return (c && c.name) || c; });
+        if (ivShowNames.indexOf('Inner Whirled') >= 0 && ivShowNames.indexOf('Vibe Rant') < 0) document.documentElement.classList.add('iv-iw');
         keepVisible(wrap);
 
         /* ---------------- header ---------------- */

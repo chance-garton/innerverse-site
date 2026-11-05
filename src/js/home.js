@@ -58,7 +58,12 @@
     if (window.ivImg) return window.ivImg(u, w);
     return u || '';
   }
-  function showOf(e) { var s = (e.shows || [])[0] || 'InnerVerse'; return SHOW_LABEL[s] || s; }
+  /* 2026-11-05 (Chance): a Vibe Rant card names its episode number, as the episode page's breadcrumb does; Vibe Rant wins the label over Inner Whirled. */
+  function showOf(e) {
+    var shows = e.shows || [];
+    if (shows.indexOf('Vibe Rant') >= 0 && shows.indexOf('Astro-Herbalism') < 0) return (SHOW_LABEL['Vibe Rant'] || 'Vibe Rant') + (e.num ? ' \u00b7 Episode ' + e.num : '');
+    var s = shows[0] || 'InnerVerse'; return SHOW_LABEL[s] || s;
+  }
   function monthYear(d) {
     var p = String(d || '').split('-');
     return p.length >= 2 && MONTHS[+p[1] - 1] ? MONTHS[+p[1] - 1] + ' ' + p[0] : '';

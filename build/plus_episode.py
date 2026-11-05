@@ -126,6 +126,7 @@ def structured_data(f, guests, canonical, description, image, date):
 def render(slug, file, post, entry):
     r = file["fields"]
     shows = ep.names(r.get("Show Categories"))
+    vr = "Vibe Rant" in shows   # 2026-11-05: InnerVerse colours, Vibe Rant wordmark, never the Inner Whirled skin
     f = {
         "title": r.get("Title") or entry.get("title") or "",
         "topicLine": r.get("Topic Line") or entry.get("topicLine") or "",
@@ -158,7 +159,7 @@ def render(slug, file, post, entry):
     # The members' page script needs only which file to read.
     state = {"kind": "plus", "slug": slug, "dataSlug": r.get("Slug") or slug, "shareUrl": canonical}
     body = (
-        nav("plus")
+        nav("plus", vibe_rant=vr)
         + '<main class="iv-page"><div class="blog-item-wrapper"><article class="entry"><div class="blog-item-inner-wrapper">'
         + '<div class="iv-plus-public" id="iv-plus-public">' + build_lock(f, canonical) + info + "</div>"
         + "</div></article></div></main>"
@@ -167,8 +168,8 @@ def render(slug, file, post, entry):
     )
     ld = structured_data(f, guests, canonical, description, image, date)
     # The Inner Whirled skin waits for a member's page, as on the live site.
-    html_class = "iv-2026 iv-plus-slug"
-    h = head(title, description, canonical, image, "article", html_class, "Inner Whirled" in shows,
+    html_class = "iv-2026 iv-plus-slug" + (" iv-vr" if vr else "")
+    h = head(title, description, canonical, image, "article", html_class, "Inner Whirled" in shows and not vr,
              extra='<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abel&display=swap">'
              + '<script type="application/ld+json">' + json_ld(ld) + "</script>")
     return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js"))

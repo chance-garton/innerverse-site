@@ -899,7 +899,11 @@ def render(slug, file, post, related, tags):
     title = seo_title(f, post, r)
     description = seo_description(f, post, r)
     image = (post or {}).get("image") or f["thumbnail"]
-    iw = "Inner Whirled" in f["showCategories"]
+    # 2026-11-05 (Chance): a Vibe Rant episode is never skinned Inner Whirled,
+    # even when it is tagged with both; it gets the InnerVerse colours and the
+    # Vibe Rant wordmark in the nav instead.
+    vr = "Vibe Rant" in f["showCategories"]
+    iw = "Inner Whirled" in f["showCategories"] and not vr
 
     chapters = parse_json_field(r.get("Chapters JSON"))
     themes = parse_json_field(r.get("Core Themes JSON"))
@@ -930,7 +934,7 @@ def render(slug, file, post, related, tags):
              "guests": [{"id": g["id"], "name": g["name"], "portrait": g["portrait"]} for g in guests]}
 
     body = (
-        nav("podcast", iw)
+        nav("podcast", iw, vr)
         + '<main class="iv-page"><div class="blog-item-wrapper"><article class="entry"><div class="blog-item-content-wrapper"><div class="blog-item-content">'
         + '<div id="iv-episode-root">' + root + "</div>"
         + "</div></div></article></div></main>"
@@ -938,7 +942,7 @@ def render(slug, file, post, related, tags):
         + '<script type="application/json" id="iv-page-data">' + json_ld(state) + "</script>"
     )
     ld = structured_data(f, r, guests, canonical, description, image, post)
-    html_class = "iv-2026 iv-newtpl" + (" iv-iw" if iw else "")
+    html_class = "iv-2026 iv-newtpl" + (" iv-iw" if iw else "") + (" iv-vr" if vr else "")
     h = head(title, description, canonical, image, "article", html_class, iw,
              extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
     return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js"))

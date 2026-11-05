@@ -1,0 +1,29 @@
+/* ===== Vibe Rant nav wordmark (2026-11-05, Chance) =====
+   Vibe Rant episode pages (free and /plus, html.iv-vr) keep the InnerVerse
+   colours and the InnerVerse mark; the Vibe Rant wordmark stands in for the
+   word INNERVERSE. The logo file is 992x558 with wide transparent margins and
+   the art (shadow included) at x 132 to 864, y 204 to 358, so the box below is
+   sized to that art and the image is shifted inside it. --vrh is the art's
+   height; every other number is a ratio of the file (732/154, 558/154,
+   132/154, 204/154). */
+#iv-nav .iv-nav-word.iv-nav-vr{
+  --vrh:28px;
+  display:inline-block;position:relative;overflow:hidden;flex:0 0 auto;
+  height:var(--vrh);width:calc(var(--vrh) * 4.7532);
+  font-size:0;letter-spacing:0;line-height:0;
+  transition:height .3s ease,width .3s ease;
+}
+#iv-nav .iv-nav-vr .iv-nav-vrmark{
+  position:absolute;display:block;max-width:none;width:auto;
+  height:calc(var(--vrh) * 3.6234);
+  left:calc(var(--vrh) * -0.8571);
+  top:calc(var(--vrh) * -1.3247);
+}
+#iv-nav.iv-nav-scrolled .iv-nav-word.iv-nav-vr{--vrh:23px;}
+@media (max-width:700px){
+  #iv-nav .iv-nav-word.iv-nav-vr,#iv-nav.iv-nav-scrolled .iv-nav-word.iv-nav-vr{--vrh:22px;}
+}
+@media (max-width:420px){
+  #iv-nav.iv-nav-v2 .iv-nav-word.iv-nav-vr{display:inline-block;}
+  #iv-nav .iv-nav-word.iv-nav-vr,#iv-nav.iv-nav-scrolled .iv-nav-word.iv-nav-vr{--vrh:19px;}
+}
