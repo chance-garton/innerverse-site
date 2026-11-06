@@ -235,9 +235,10 @@ def about():
             {"@type": "PodcastSeries", "@id": LIVE_ORIGIN + "/#podcast", "name": "InnerVerse",
              "alternateName": ["InnerVerse Podcast", "Inner Verse"], "url": LIVE_ORIGIN + "/",
              "webFeed": RSS, "startDate": "2015", "author": {"@id": LIVE_ORIGIN + "/#chance"},
-             "sameAs": [h for _, h, e in ABOUT_LISTEN if e and h != RSS] + [h for _, h in ABOUT_PROFILES]},
+             "sameAs": [h for _, h, e in ABOUT_LISTEN if e and h != RSS] + [h for _, h in ABOUT_PROFILES] + ["https://www.wikidata.org/wiki/Q142069834"]},
             {"@type": "Person", "@id": LIVE_ORIGIN + "/#chance", "name": "Chance Garton",
-             "jobTitle": "Podcast host and Biofield Tuning practitioner", "url": canonical, "image": ABOUT_PHOTO},
+             "jobTitle": "Podcast host and Biofield Tuning practitioner", "url": canonical, "image": ABOUT_PHOTO,
+             "sameAs": ["https://www.wikidata.org/wiki/Q142069835"]},
             {"@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "Home", "item": LIVE_ORIGIN + "/"},
                 {"@type": "ListItem", "position": 2, "name": "About", "item": canonical}]},
