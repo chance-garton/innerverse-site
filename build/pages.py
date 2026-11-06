@@ -29,9 +29,7 @@ def mount(shell):
 def home():
     shell = open(os.path.join(ROOT, "src", "templates", "home-root.html"), encoding="utf-8").read()
     title = "InnerVerse Podcast with Chance Garton | Official Site"
-    desc = ("InnerVerse is a podcast exploring consciousness, alternative health, esoteric philosophy, and the "
-            "nature of reality. Host Chance Garton brings a decade of research and conversation for independent "
-            "thinkers ready to go deeper.")
+    desc = "InnerVerse is an independent podcast created and hosted by Chance Garton since 2015, exploring astrology, mythology, lost history, natural health, and symbolism."
     h = head(title, desc, LIVE_ORIGIN + "/", DEFAULT_IMAGE, "website", "iv-home-page")
     body = nav("home") + '<main id="iv-main">' + mount(shell) + "</main>" + footer()
     return page(h, body, "iv-home-page", scripts=("/assets/site.js", "/assets/archive.js", "/assets/home.js", "/assets/promo.js"))
@@ -43,8 +41,8 @@ def episodes(pages):
     is one click from the archive for a crawler, as Squarespace's paged list
     was."""
     title = "All Episodes | InnerVerse Podcast"
-    desc = ("Search every InnerVerse episode with Chance Garton: consciousness, holistic health, mythology, "
-            "symbolism, esoteric philosophy and hidden history. Filter by topic, show, guest or year.")
+    desc = ("Search every InnerVerse episode with Chance Garton: astrology, mythology, lost history, natural health, and symbolism. "
+            "Filter by topic, show, guest or year.")
     items = "".join(
         '<li><a href="' + esc(url("/episodes/" + p["slug"])) + '">' + esc((f["fields"].get("Title") or p.get("title") or "").replace("—", ", ").replace("–", ", ")) + "</a></li>"
         for p, f in pages
@@ -151,8 +149,7 @@ def _section(kicker, title, body, sid):
 
 def about():
     title = "About InnerVerse | The Podcast by Chance Garton"
-    desc = ("InnerVerse is the independent podcast created and hosted by Chance Garton since 2015, exploring "
-            "consciousness, holistic health, mythology, symbolism and esoteric philosophy.")
+    desc = "InnerVerse is an independent podcast created and hosted by Chance Garton since 2015, exploring astrology, mythology, lost history, natural health, and symbolism."
     canonical = LIVE_ORIGIN + "/about"
 
     shows = "".join(
@@ -171,8 +168,7 @@ def about():
         "<h1>About InnerVerse</h1>"
         '<p class="iv-about-lede">InnerVerse is an independent podcast created and hosted by Chance Garton. '
         "It publishes long-form conversations, research-driven investigations, round tables and solo presentations "
-        "about consciousness, holistic health, mythology, symbolism, esoteric philosophy, alternative history, "
-        "language and the nature of reality.</p>"
+        "about astrology, mythology, lost history, natural health, and symbolism.</p>"
         "<p>Since 2015 the show has grown from a single podcast into a family of shows and a deep archive, with "
         "free episodes for everyone and full, extended editions for InnerVerse Plus+ members. The earliest "
         "recordings are no longer in the public feed, so the archive on this site begins with the episodes that are.</p>"
