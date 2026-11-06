@@ -33,6 +33,52 @@ DATA = os.environ.get("IV_DATA_DIR", os.path.join(ROOT, "..", "innerverse-data")
 OUT = os.path.join(ROOT, "dist")
 
 
+
+def llms_txt(newest):
+    """A plain-text guide for AI tools (llmstxt.org): what InnerVerse is and where its pages are."""
+    o = common.LIVE_ORIGIN
+    lines = [
+        "# InnerVerse",
+        "",
+        "> InnerVerse is an independent podcast created and hosted by Chance Garton, running since 2015 with more "
+        "than 1,000 conversations. It explores consciousness, holistic and alternative health, sound healing, "
+        "terrain biology, comparative mythology, symbolism, etymology, esoteric philosophy and gnosticism. "
+        "The official site is " + o + "/ .",
+        "",
+        "Not to be confused with other businesses that share the name (a Pilates studio, a coaching app, a nonprofit "
+        "and others). InnerVerse the podcast is the one hosted by Chance Garton.",
+        "",
+        "Shows under the InnerVerse name: InnerVerse (guest interviews), Vibe Rant (co-hosted with Gabe, Slick "
+        "Dissident), Inner Whirled (co-hosted with researcher Dylan Saccoccio) and Astro-Herbalism.",
+        "",
+        "## Main pages",
+        "",
+        "- [Home](" + o + "/): what InnerVerse is, the latest episode and how to listen",
+        "- [Episodes](" + o + "/episodes): the full free archive, searchable by topic, show and guest",
+        "- [About](" + o + "/about): Chance Garton and the history of the show",
+        "- [InnerVerse Plus+](" + o + "/plus): the members' archive with full-length and bonus episodes",
+        "- [Biofield Tuning](" + o + "/biofield-tuning): remote sound healing sessions with Chance Garton over Zoom",
+        "- [Contact](" + o + "/contact)",
+        "",
+        "## Recent episodes",
+        "",
+    ]
+    for post, _ in newest[:25]:
+        lines.append("- [" + __import__("html").unescape(post.get("title") or post["slug"]).strip() + "](" + o + "/episodes/" + post["slug"] + ")")
+    lines += [
+        "",
+        "## Optional",
+        "",
+        "- [Sitemap](" + o + "/sitemap.xml): every episode page",
+        "- [YouTube](https://www.youtube.com/@InnerVersePodcast)",
+        "- [Apple Podcasts](https://podcasts.apple.com/us/podcast/innerverse/id1066918535)",
+        "- [Spotify](https://open.spotify.com/show/3PtsUrYFJiradha3biNf9Y)",
+        "- [Substack](https://innerversepodcast.substack.com)",
+        "- [Patreon](https://www.patreon.com/innerverse)",
+        "",
+    ]
+    return "\n".join(lines)
+
 def load(path):
     with open(path, encoding="utf-8") as fh:
         return json.load(fh)
@@ -129,7 +175,8 @@ def main():
         tags = (index.get(data_slug) or {}).get("tags") or post.get("tags") or []
         html = episode.render(slug, file, post, related.rank(data_slug), tags)
         write("episodes/" + slug + ".html", html)
-        lastmod = (file.get("generated") or "")[:10] or (file["fields"].get("Publish Date") or "")
+        # Real dates only: "generated" is the hourly data build time, so it said every page changed today.
+        lastmod = (file["fields"].get("Publish Date") or post.get("date") or "")[:10]
         sitemap.append((common.LIVE_ORIGIN + "/episodes/" + slug, lastmod))
 
     # The homepage and the archive (stage 2). The archive lists newest first.
@@ -154,7 +201,7 @@ def main():
             continue
         write("plus/" + e["slug"] + ".html", plus_episode.render(e["slug"], file, plus_posts.get(e["slug"]), e))
         plus_pages += 1
-        lastmod = (file.get("generated") or "")[:10] or (e.get("date") or "")
+        lastmod = (e.get("date") or file["fields"].get("Publish Date") or "")[:10]
         sitemap.append((common.LIVE_ORIGIN + "/plus/" + e["slug"], lastmod))
     plus_page = hand.plus(plus_eps)
     write("plus.html", plus_page)
@@ -172,9 +219,14 @@ def main():
     bt = hand.biofield_tuning()
     write("biofield-tuning.html", bt)
     write("biofield-tuning/index.html", bt)
-    sitemap[:0] = [(common.LIVE_ORIGIN + "/", today), (common.LIVE_ORIGIN + "/episodes", today), (common.LIVE_ORIGIN + "/plus", today),
-                   (common.LIVE_ORIGIN + "/about", today), (common.LIVE_ORIGIN + "/biofield-tuning", today),
-                   (common.LIVE_ORIGIN + "/contact", today), (common.LIVE_ORIGIN + "/support", today)]
+    # The home page and the two archives change when a new episode lands, so they carry the newest
+    # episode date. The hand-made pages carry no date rather than a false one.
+    newest_date = max([d for d in [s[1] for s in sitemap] if d] or [today])
+    sitemap[:0] = [(common.LIVE_ORIGIN + "/", newest_date), (common.LIVE_ORIGIN + "/episodes", newest_date),
+                   (common.LIVE_ORIGIN + "/plus", newest_date),
+                   (common.LIVE_ORIGIN + "/about", ""), (common.LIVE_ORIGIN + "/biofield-tuning", ""),
+                   (common.LIVE_ORIGIN + "/contact", ""), (common.LIVE_ORIGIN + "/support", "")]
+    write("llms.txt", llms_txt(newest))
 
     write("robots.txt", ("User-agent: *\nDisallow: /\n" if common.NOINDEX else
                          "User-agent: *\nAllow: /\n\nSitemap: " + common.LIVE_ORIGIN + "/sitemap.xml\n"))
