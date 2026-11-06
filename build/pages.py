@@ -79,8 +79,8 @@ def plus(plus_index):
             "health, and hidden history with Chance Garton.")
     items = "".join(
         '<li><a href="' + esc(url(local_path(e))) + '">' + esc((e.get("title") or "").replace("—", ", ").replace("–", ", ")) + "</a></li>"
-        for e in plus_index if e.get("slug")
-    )
+        for e in plus_index if e.get("slug") and local_path(e).startswith("/plus/")
+    )  # only episodes with a members' cut; free-only rows are already in the /episodes list (Chance, 2026-11-06)
     every = ('<div class="collection-content-wrapper iv-every">'
              '<details class="iv-every-box"><summary>Browse every Plus+ episode by title</summary>'
              '<ol class="iv-every-list">' + items + "</ol></details></div>")
