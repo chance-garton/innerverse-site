@@ -256,10 +256,10 @@ def about():
 BT_OG = ("https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/"
          "chance%2Bgarton%2Bbiofield%2Btuning%2Bsessions%2Binnerverse%2Bpodcast.png")
 BT_OFFERS = [
-    ("Full Session", 200, "https://innerversepodcast.as.me/45-minute-tuning"),
-    ("Quick Tune Up", 100, "https://innerversepodcast.as.me/20-minute-tuning"),
-    ("Counseling and Readings", 75, "https://innerversepodcast.as.me/30-minute-counseling"),
-    ("Three Full Sessions", 500, "https://innerversepodcast.as.me/three-tuning-bundle"),
+    ("Full Session", 200, LIVE_ORIGIN + "/booking?type=tuning-45"),
+    ("Quick Tune Up", 100, LIVE_ORIGIN + "/booking?type=tuning-20"),
+    ("Counseling and Readings", 75, LIVE_ORIGIN + "/booking?type=counseling-30"),
+    ("Three Full Sessions", 500, LIVE_ORIGIN + "/booking?type=bundle-3"),
 ]
 
 
