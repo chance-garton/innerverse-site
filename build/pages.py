@@ -29,7 +29,7 @@ def mount(shell):
 def home():
     shell = open(os.path.join(ROOT, "src", "templates", "home-root.html"), encoding="utf-8").read()
     title = "InnerVerse Podcast with Chance Garton | Official Site"
-    desc = "InnerVerse is an independent podcast created and hosted by Chance Garton since 2015, exploring astrology, mythology, lost history, natural health, and symbolism."
+    desc = "InnerVerse is an independent podcast hosted by Chance Garton since 2015, exploring astrology, mythology, lost history, natural health, and symbolism."
     h = head(title, desc, LIVE_ORIGIN + "/", DEFAULT_IMAGE, "website", "iv-home-page")
     body = nav("home") + '<main id="iv-main">' + mount(shell) + "</main>" + footer()
     return page(h, body, "iv-home-page", scripts=("/assets/site.js", "/assets/archive.js", "/assets/home.js", "/assets/promo.js"))
@@ -149,7 +149,7 @@ def _section(kicker, title, body, sid):
 
 def about():
     title = "About InnerVerse | The Podcast by Chance Garton"
-    desc = "InnerVerse is an independent podcast created and hosted by Chance Garton since 2015, exploring astrology, mythology, lost history, natural health, and symbolism."
+    desc = "InnerVerse is an independent podcast hosted by Chance Garton since 2015, exploring astrology, mythology, lost history, natural health, and symbolism."
     canonical = LIVE_ORIGIN + "/about"
 
     shows = "".join(
@@ -166,7 +166,7 @@ def about():
         '<div class="iv-about-hero-text">'
         '<div class="iv-about-kicker">About</div>'
         "<h1>About InnerVerse</h1>"
-        '<p class="iv-about-lede">InnerVerse is an independent podcast created and hosted by Chance Garton. '
+        '<p class="iv-about-lede">InnerVerse is an independent podcast hosted by Chance Garton. '
         "It publishes long-form conversations, research-driven investigations, round tables and solo presentations "
         "about astrology, mythology, lost history, natural health, and symbolism.</p>"
         "<p>Since 2015 the show has grown from a single podcast into a family of shows and a deep archive, with "

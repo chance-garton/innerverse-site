@@ -40,7 +40,7 @@ def llms_txt(newest):
     lines = [
         "# InnerVerse",
         "",
-        "> InnerVerse is an independent podcast created and hosted by Chance Garton, running since 2015 with more "
+        "> InnerVerse is an independent podcast hosted by Chance Garton, running since 2015 with more "
         "than 1,000 conversations. It explores astrology, mythology, lost history, natural health, and symbolism. "
         "The official site is " + o + "/ .",
         "",
