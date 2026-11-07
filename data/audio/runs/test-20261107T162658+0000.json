@@ -1,0 +1,24 @@
+{
+ "batch": "test",
+ "started": "2026-11-07T16:26:57+00:00",
+ "copied": [],
+ "failed": [
+  {
+   "slug": "kyle-denton-herbal-dentistry",
+   "id": "6ade173faa04895c1fff6ee8",
+   "reason": "Failed to upload /tmp/tmp6nksqno0/a.mp3 to innerverse-audio\n/episodes/kyle-denton-herbal-dentistry.mp3: An error occurred (AccessDenied) when calling the CreateMultipartUpload operation: Access Denied"
+  },
+  {
+   "slug": "inner-whirled-32",
+   "id": "6ae7523aaa1187db3696975c",
+   "reason": "Failed to upload /tmp/tmpmh3xai54/a.mp3 to innerverse-audio\n/episodes/inner-whirled-32.mp3: An error occurred (AccessDenied) when calling the CreateMultipartUpload operation: Access Denied"
+  },
+  {
+   "slug": "astroherbalism-libra",
+   "id": "6ad8e512f1b125139912089a",
+   "reason": "Failed to upload /tmp/tmppgfoh6p8/a.mp3 to innerverse-audio\n/episodes/astroherbalism-libra.mp3: An error occurred (AccessDenied) when calling the CreateMultipartUpload operation: Access Denied"
+  }
+ ],
+ "bytes": 0,
+ "finished": "2026-11-07T16:26:58+00:00"
+}
