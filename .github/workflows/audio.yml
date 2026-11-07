@@ -1,0 +1,55 @@
+name: Copy episode audio to R2
+
+# Copies the free episode audio from Acast into our own R2 bucket so the
+# site, the app and the members' feed never depend on a podcast host.
+# Run by hand from the Actions tab: batch "test" (newest 3), a number N
+# (next N not yet copied) or "all". Safe to rerun: finished files are
+# skipped and nothing is overwritten. Commits data/audio/map.json and a run
+# report in data/audio/runs/.
+on:
+  workflow_dispatch:
+    inputs:
+      batch:
+        description: "test, a number, or all"
+        required: true
+        default: "test"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audio
+  cancel-in-progress: false
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: chance-garton/innerverse-data
+          path: _data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install boto3
+      - name: Copy the batch
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_AUDIO_ACCESS_KEY_ID: ${{ secrets.R2_AUDIO_ACCESS_KEY_ID }}
+          R2_AUDIO_SECRET_ACCESS_KEY: ${{ secrets.R2_AUDIO_SECRET_ACCESS_KEY }}
+          R2_AUDIO_BUCKET: ${{ secrets.R2_AUDIO_BUCKET }}
+          AUDIO_BASE_URL: ${{ secrets.AUDIO_BASE_URL }}
+        run: python tools/audio/copy_audio.py "${{ inputs.batch }}" --data _data
+      - name: Save the map and the run report
+        if: always()
+        run: |
+          git config user.name "innerverse-audio"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/audio/map.json data/audio/runs || true
+          if git diff --cached --quiet; then echo "Nothing to save"; exit 0; fi
+          git commit -m "Audio: batch ${{ inputs.batch }} copied to R2"
+          for i in 1 2 3; do git pull --rebase origin main && git push && exit 0; sleep 5; done
+          exit 1
