@@ -23,7 +23,8 @@ Usage:
     batch: "test" (newest 3), "all", or a number N (next N not yet copied)
 
 Environment (repository secrets): R2_ACCOUNT_ID, R2_AUDIO_ACCESS_KEY_ID,
-R2_AUDIO_SECRET_ACCESS_KEY, R2_AUDIO_BUCKET, AUDIO_BASE_URL.
+R2_AUDIO_SECRET_ACCESS_KEY. R2_AUDIO_BUCKET and AUDIO_BASE_URL are set in
+the workflow itself (innerverse-audio, https://audio.innerversepodcast.com).
 """
 import glob
 import json
@@ -168,6 +169,7 @@ def preflight(cli, bucket):
         % (os.environ.get("AUDIO_BASE_URL", "").rstrip("/") == "https://audio.innerversepodcast.com"))
     try:
         cli.put_object(Bucket=bucket, Key="_check.txt", Body=b"ok", ContentType="text/plain")
+        cli.delete_object(Bucket=bucket, Key="_check.txt")
         log("  test write: ok")
     except Exception as e:
         sys.exit("  test write refused: %s" % str(e)[:200])
