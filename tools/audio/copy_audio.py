@@ -148,6 +148,31 @@ def check_public(url, size):
     raise RuntimeError("public check failed: %s" % err)
 
 
+def preflight(cli, bucket):
+    """Say what shape each secret has (never its value) and try one tiny write."""
+    def shape(name, want_len=None, hexy=False):
+        v = os.environ.get(name, "")
+        notes = ["%d chars" % len(v)]
+        if v != v.strip():
+            notes.append("HAS SPACES OR A NEW LINE AT AN END")
+        if want_len and len(v.strip()) != want_len:
+            notes.append("expected %d" % want_len)
+        if hexy and not re.fullmatch(r"[0-9a-f]+", v.strip()):
+            notes.append("not plain hex")
+        log("  %s: %s" % (name, ", ".join(notes)))
+    shape("R2_ACCOUNT_ID", 32, True)
+    shape("R2_AUDIO_ACCESS_KEY_ID", 32, True)
+    shape("R2_AUDIO_SECRET_ACCESS_KEY", 64, True)
+    log("  R2_AUDIO_BUCKET is innerverse-audio: %s" % (bucket == "innerverse-audio"))
+    log("  AUDIO_BASE_URL is https://audio.innerversepodcast.com: %s"
+        % (os.environ.get("AUDIO_BASE_URL", "").rstrip("/") == "https://audio.innerversepodcast.com"))
+    try:
+        cli.put_object(Bucket=bucket, Key="_check.txt", Body=b"ok", ContentType="text/plain")
+        log("  test write: ok")
+    except Exception as e:
+        sys.exit("  test write refused: %s" % str(e)[:200])
+
+
 def run_one(ep, cli, bucket, base, dry):
     key = "episodes/%s.mp3" % ep["slug"]
     public = "%s/%s" % (base.rstrip("/"), key)
@@ -196,6 +221,7 @@ def main():
             if not os.environ.get(v):
                 sys.exit("Missing %s" % v)
         cli, bucket = s3(), os.environ["R2_AUDIO_BUCKET"]
+        preflight(cli, bucket)
     base = os.environ.get("AUDIO_BASE_URL", "https://audio.innerversepodcast.com")
 
     def save_map():
