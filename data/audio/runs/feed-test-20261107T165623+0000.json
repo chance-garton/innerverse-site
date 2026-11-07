@@ -1,0 +1,12 @@
+{
+ "batch": "feed-test",
+ "started": "2026-11-07T16:56:16+00:00",
+ "copied": [
+  "acast-6984af7e0ee6c7cf9bfbfc49",
+  "acast-65fc93f22f72c1001645c2ab",
+  "acast-696952e64a98b04d3d8c4f0e"
+ ],
+ "failed": [],
+ "bytes": 77094899,
+ "finished": "2026-11-07T16:56:23+00:00"
+}
