@@ -1,0 +1,3542 @@
+{
+ "run": "switch-2026-11-07",
+ "what": "Acast Audio URL moved from Acast to audio.innerversepodcast.com stored copies. To roll back a row, write 'old' back into Acast Audio URL (fldxQM1lxVLEkrLcX).",
+ "count": 505,
+ "rows": [
+  {
+   "id": "rec0DV5sNWhDOup3E",
+   "slug": "john-mchugh-rock-art",
+   "eid": "653fe0d2bfecf800129ecca8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/653fe0d2bfecf800129ecca8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/john-mchugh-rock-art.mp3"
+  },
+  {
+   "id": "rec0FWnCihBD5w4F4",
+   "slug": "before-the-greeks",
+   "eid": "6aa06be5e0cfd309ad822a02",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6aa06be5e0cfd309ad822a02.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/before-the-greeks.mp3"
+  },
+  {
+   "id": "rec0IXdMjfs8IBBhF",
+   "slug": "inner-whirled-27",
+   "eid": "6a66bb9aa51cbd54e23bd60a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a66bb9aa51cbd54e23bd60a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-27.mp3"
+  },
+  {
+   "id": "rec0fzj09yvJP7i4a",
+   "slug": "chris-cfree-fremin-this-esoteric-life",
+   "eid": "5e69966ed22bfc26784b113f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5e69966ed22bfc26784b113f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chris-cfree-fremin-this-esoteric-life.mp3"
+  },
+  {
+   "id": "rec0hN5aJNOLTzuwj",
+   "slug": "marvelous-demystifiers-22",
+   "eid": "657370928321cf0012771fbf",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/657370928321cf0012771fbf.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-22.mp3"
+  },
+  {
+   "id": "rec0tUVSbO8XBpOcj",
+   "slug": "clive-de-carle-proteolytic-enzymes",
+   "eid": "627568622f16cf0013cce1ab",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/627568622f16cf0013cce1ab.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/clive-de-carle-proteolytic-enzymes.mp3"
+  },
+  {
+   "id": "rec0yFlbR5nzYB0WJ",
+   "slug": "vibe-rant-137",
+   "eid": "66a673f072497b6115b83df1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66a673f072497b6115b83df1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-137.mp3"
+  },
+  {
+   "id": "rec17HG6MXysMkBVN",
+   "slug": "mike-brancatelli-mikeadelic",
+   "eid": "5fa2bb6706ae3d333e81cbd1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5fa2bb6706ae3d333e81cbd1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mike-brancatelli-mikeadelic.mp3"
+  },
+  {
+   "id": "rec1OCGk4kYExsi2P",
+   "slug": "vibe-rant-48",
+   "eid": "62d9aa4b21e3ee00124f2f56",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62d9aa4b21e3ee00124f2f56/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-48.mp3"
+  },
+  {
+   "id": "rec1VUfxIrRLcXB8E",
+   "slug": "dylan-saccoccio-norse-phoenicians-te78l",
+   "eid": "643edbb1c9ba5a00112cfbd3",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/643edbb1c9ba5a00112cfbd3.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-norse-phoenicians-te78l.mp3"
+  },
+  {
+   "id": "rec1WePr7jE3iKFup",
+   "slug": "vibe-rant-134",
+   "eid": "6685677ef364c640081145d4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6685677ef364c640081145d4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-134.mp3"
+  },
+  {
+   "id": "rec1nAaAQzOBw5HR5",
+   "slug": "christopher-mcintosh-call-of-the-old-gods",
+   "eid": "68543ace0bed216db7c9af35",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/68543ace0bed216db7c9af35.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/christopher-mcintosh-call-of-the-old-gods.mp3"
+  },
+  {
+   "id": "rec1uJ9RmTKi9IwFq",
+   "slug": "tartaria-chance-garton-fkn",
+   "eid": "6a67caf6f14e2f7d750f1db9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a67caf6f14e2f7d750f1db9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/tartaria-chance-garton-fkn.mp3"
+  },
+  {
+   "id": "rec2BkQoGVspe8mRL",
+   "slug": "paul-lenda-shift",
+   "eid": "5f4f963fcfcfd677cdc1a926",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f4f963fcfcfd677cdc1a926.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/paul-lenda-shift.mp3"
+  },
+  {
+   "id": "rec2DiXfOa3edraZ7",
+   "slug": "soohan-super-heady-spiritual",
+   "eid": "5e5729bb971769dd68ff4daf",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5e5729bb971769dd68ff4daf.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/soohan-super-heady-spiritual.mp3"
+  },
+  {
+   "id": "rec2MUytPNqMdnX9D",
+   "slug": "vibe-rant-14",
+   "eid": "61a50bac39ae50001c48ead8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61a50bac39ae50001c48ead8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-14.mp3"
+  },
+  {
+   "id": "rec2bFfl2WCvdl90b",
+   "slug": "vibe-rant-44",
+   "eid": "62b67502689b1f00127534f9",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62b67502689b1f00127534f9/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-44.mp3"
+  },
+  {
+   "id": "rec2ojPCQzDsG47fY",
+   "slug": "vibe-rant-62",
+   "eid": "6366725d58f856001285c288",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6366725d58f856001285c288/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-62.mp3"
+  },
+  {
+   "id": "rec2wDlCa5ICvTrfo",
+   "slug": "beth-martens-know-your-rights",
+   "eid": "611aece32ce03f0012d13e56",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/611aece32ce03f0012d13e56.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/beth-martens-know-your-rights.mp3"
+  },
+  {
+   "id": "rec3Eei1YckphdRff",
+   "slug": "david-weiss",
+   "eid": "60046c268c85dd1704ce994d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60046c268c85dd1704ce994d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-weiss.mp3"
+  },
+  {
+   "id": "rec3KKGCJLoBKowAk",
+   "slug": "alex-michael-conspiracy-music-guru",
+   "eid": "62bf2defb00d0000129a2803",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62bf2defb00d0000129a2803.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/alex-michael-conspiracy-music-guru.mp3"
+  },
+  {
+   "id": "rec3N3VdKlPV2enJc",
+   "slug": "oera-linda-manuscript",
+   "eid": "650dcf18321d6c0010da97f8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/650dcf18321d6c0010da97f8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-106.mp3"
+  },
+  {
+   "id": "rec3PYKrGu62foiSz",
+   "slug": "slick-dissident-enneagram",
+   "eid": "638e3de49a65b100118a7304",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/638e3de49a65b100118a7304.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/slick-dissident-enneagram.mp3"
+  },
+  {
+   "id": "rec3PymOql6nbdFsd",
+   "slug": "nicholas-leach",
+   "eid": "699dd061e84fcb90f2c99cc8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/699dd061e84fcb90f2c99cc8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/nicholas-leach.mp3"
+  },
+  {
+   "id": "rec3QniGzxabeA8Sp",
+   "slug": "vibe-rant-143",
+   "eid": "66eda687e76ffcead56dddde",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66eda687e76ffcead56dddde.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-143.mp3"
+  },
+  {
+   "id": "rec3e0cgroE30y8yp",
+   "slug": "vibe-rant-56",
+   "eid": "63235530ac3d0f0013beec7c",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63235530ac3d0f0013beec7c/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-56.mp3"
+  },
+  {
+   "id": "rec3oYwhT5CX2VVnT",
+   "slug": "emily-ridout-astroyoga-aquarian-age",
+   "eid": "63daa8b71e96380010c28e3f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63daa8b71e96380010c28e3f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/emily-ridout-astroyoga-aquarian-age.mp3"
+  },
+  {
+   "id": "rec3ouuyFAfE0KlC4",
+   "slug": "clive-de-carle-secret-health-club",
+   "eid": "65072da7ccb27600110f410c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65072da7ccb27600110f410c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/clive-de-carle-secret-health-club.mp3"
+  },
+  {
+   "id": "rec3qqWPFGjAn1yjd",
+   "slug": "chris-crutchfield",
+   "eid": "6a4576906a72c54c8d8bb169",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a4576906a72c54c8d8bb169.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chris-crutchfield.mp3"
+  },
+  {
+   "id": "rec3r6uOddNV5cFXI",
+   "slug": "jack-kelley-atlantis-puzzle",
+   "eid": "697fc97599b92e31b17a77e6",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/697fc97599b92e31b17a77e6.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jack-kelley-atlantis-puzzle.mp3"
+  },
+  {
+   "id": "rec43OFgQqrrYpzqc",
+   "slug": "vibe-rant-140",
+   "eid": "66be1e17d23c01579a12145b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66be1e17d23c01579a12145b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-140.mp3"
+  },
+  {
+   "id": "rec45la8qGPqkrPIR",
+   "slug": "ray-catania-athiest-afterlife",
+   "eid": "66424e270122a6001315a525",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66424e270122a6001315a525.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/ray-catania-athiest-afterlife.mp3"
+  },
+  {
+   "id": "rec4BWXAW4JicwVSp",
+   "slug": "isabel-friend-water-is-life",
+   "eid": "6432db56dd3f7d0011fdb134",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6432db56dd3f7d0011fdb134.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/isabel-friend-water-is-life.mp3"
+  },
+  {
+   "id": "rec4ErRAYw8NWRr3p",
+   "slug": "michelle-gibson-philanthropists-odd-fellows-sanitary-fairs",
+   "eid": "619ada296c1def0019f56e2e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/619ada296c1def0019f56e2e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michelle-gibson-philanthropists-odd-fellows-sanitary-fairs.mp3"
+  },
+  {
+   "id": "rec4KuVOE7Uj3Y9Gm",
+   "slug": "michael-alberta",
+   "eid": "68a5fa1ee2f63983a7ba0eec",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/68a5fa1ee2f63983a7ba0eec.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michael-alberta.mp3"
+  },
+  {
+   "id": "rec4U7Lrf4SDwkYWP",
+   "slug": "my-interview-on-enter-the-mystery-podcast-with-cam-keefe",
+   "eid": "600777891360e83b7a4bedba",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/600777891360e83b7a4bedba.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/my-interview-on-enter-the-mystery-podcast-with-cam-keefe.mp3"
+  },
+  {
+   "id": "rec4tEmwusOETFYhk",
+   "slug": "dani-katz-word-up",
+   "eid": "62b12ef232d37c0014038891",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62b12ef232d37c0014038891.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dani-katz-word-up.mp3"
+  },
+  {
+   "id": "rec4uyPYSU1u0TA3C",
+   "slug": "king-hero-verbal-judo",
+   "eid": "66954c4bd050c6cd5083cc69",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66954c4bd050c6cd5083cc69.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/king-hero-verbal-judo.mp3"
+  },
+  {
+   "id": "rec4v7rmCftjOEhLR",
+   "slug": "kyle-denton-herbal-dentistry",
+   "eid": "6ade173faa04895c1fff6ee8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ade173faa04895c1fff6ee8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/kyle-denton-herbal-dentistry.mp3"
+  },
+  {
+   "id": "rec4yL51jmajDAvX3",
+   "slug": "inner-whirled-6",
+   "eid": "66900de17b4fb006ca588578",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66900de17b4fb006ca588578.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-6.mp3"
+  },
+  {
+   "id": "rec55V5Noh2wiC06d",
+   "slug": "marvelous-demystifiers-15",
+   "eid": "64b3136f47aa9b00124db1fd",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64b3136f47aa9b00124db1fd.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-15.mp3"
+  },
+  {
+   "id": "rec56bZHKS3IqSbbH",
+   "slug": "the-obstacle-is-the-way-w-chance-garton-of-innerverse-podcast",
+   "eid": "619171ba4f72200012960829",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/619171ba4f72200012960829.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/the-obstacle-is-the-way-w-chance-garton-of-innerverse-podcast.mp3"
+  },
+  {
+   "id": "rec5DW7vMDQQHOBKE",
+   "slug": "emily-moyer-etheric-watchers",
+   "eid": "626ac86dc86d490012516518",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/626ac86dc86d490012516518.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/emily-moyer-etheric-watchers.mp3"
+  },
+  {
+   "id": "rec5Hc4roN1qjVw3U",
+   "slug": "marty-leeds-scripture-in-the-stars-astrotheology-amp-the-heavenly-origin-of-bible-tales",
+   "eid": "63bb9d4b24f1f90012b52189",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63bb9d4b24f1f90012b52189.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marty-leeds-scripture-in-the-stars-astrotheology-amp-the-heavenly-origin-of-bible-tales.mp3"
+  },
+  {
+   "id": "rec5OikRL0cB2uuiP",
+   "slug": "vibe-rant-79",
+   "eid": "64055d491d175d0011416033",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64055d491d175d0011416033.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-79.mp3"
+  },
+  {
+   "id": "rec5Ri5dfHyd7rTqk",
+   "slug": "crrow777-acceptable-year",
+   "eid": "67b22c4606914ec62d569e30",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67b22c4606914ec62d569e30.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/crrow777-acceptable-year.mp3"
+  },
+  {
+   "id": "rec5TuvNx9zND1NPL",
+   "slug": "vibe-rant-100",
+   "eid": "64d91e4473cfc00011f3c7b2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64d91e4473cfc00011f3c7b2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-100.mp3"
+  },
+  {
+   "id": "rec5d4g2P1mbOpd18",
+   "slug": "vibe-rant-99",
+   "eid": "64cfdf22da2e210011b99fc4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64cfdf22da2e210011b99fc4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-99.mp3"
+  },
+  {
+   "id": "rec5dasig0rSGPCux",
+   "slug": "joel-rafidi-taroscopes",
+   "eid": "612a927f407ad60013fa6eaa",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/612a927f407ad60013fa6eaa.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/joel-rafidi-taroscopes.mp3"
+  },
+  {
+   "id": "rec5s5QvSmMpnpn3D",
+   "slug": "vibe-rant-155",
+   "eid": "67ad531e505cb2a0a384a9d3",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67ad531e505cb2a0a384a9d3.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-155.mp3"
+  },
+  {
+   "id": "rec5y74Wp1yjL711F",
+   "slug": "inner-whirled-7",
+   "eid": "66a6777972497b6115b8aecf",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66a6777972497b6115b8aecf.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-7.mp3"
+  },
+  {
+   "id": "rec623xv6VRI4ab39",
+   "slug": "vibe-rant-91",
+   "eid": "64739af81e633f0011d4073a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64739af81e633f0011d4073a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-91.mp3"
+  },
+  {
+   "id": "rec64xfrFyCdAfg65",
+   "slug": "vibe-rant-24-part-2",
+   "eid": "61f886085596870013b21f5b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61f886085596870013b21f5b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-24-part-2.mp3"
+  },
+  {
+   "id": "rec6PGht1nVmF9gww",
+   "slug": "owen-benjamin-noble-savage",
+   "eid": "65315af0a1d9fe00121a55dc",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65315af0a1d9fe00121a55dc.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/owen-benjamin-noble-savage.mp3"
+  },
+  {
+   "id": "rec6XqmXqPF8zYDkN",
+   "slug": "vibe-rant-46",
+   "eid": "62caf1c7d1d98900120238ed",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62caf1c7d1d98900120238ed/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-46.mp3"
+  },
+  {
+   "id": "rec6aUw1LApOjrmpU",
+   "slug": "dylan-saccoccio-holy-sailors",
+   "eid": "637bc8627e88c40010964a34",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/637bc8627e88c40010964a34.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-holy-sailors.mp3"
+  },
+  {
+   "id": "rec71IC1aG0NSSk9g",
+   "slug": "matt-presti",
+   "eid": "5f20264bc26c245f26076b5a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f20264bc26c245f26076b5a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/matt-presti.mp3"
+  },
+  {
+   "id": "rec71LarFWKqaJEKx",
+   "slug": "vibe-rant-127",
+   "eid": "662688a2b0984b0012f9f798",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/662688a2b0984b0012f9f798.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-127.mp3"
+  },
+  {
+   "id": "rec7IMWoguiBqXjB5",
+   "slug": "athen-chimenti-2020-sidereal-astrology",
+   "eid": "5f314561cfaf1f79f79423b5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f314561cfaf1f79f79423b5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/athen-chimenti-2020-sidereal-astrology.mp3"
+  },
+  {
+   "id": "rec7mupmUdWL0CiBn",
+   "slug": "vibe-rant-39",
+   "eid": "627d23994e084d001268540c",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/627d23994e084d001268540c/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-39.mp3"
+  },
+  {
+   "id": "rec7z2gk7jGKVciY4",
+   "slug": "mark-gober-cosmos",
+   "eid": "6728ff3fdc854c95770bd352",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6728ff3fdc854c95770bd352.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mark-gober-cosmos.mp3"
+  },
+  {
+   "id": "rec802f2GRwCGoJxr",
+   "slug": "my-family-thinks-im-crazy-553",
+   "eid": "69233b76e842b164eeba5293",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69233b76e842b164eeba5293.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/my-family-thinks-im-crazy-553.mp3"
+  },
+  {
+   "id": "rec8GwyVwa7LewYi0",
+   "slug": "vibe-rant-87",
+   "eid": "64500ba201f03100117cac5c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64500ba201f03100117cac5c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-87.mp3"
+  },
+  {
+   "id": "rec8NWYkJtlkTu3d2",
+   "slug": "moshe-daniel-block-jewish-identity",
+   "eid": "674605159c0398a2ee94e5a2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/674605159c0398a2ee94e5a2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/moshe-daniel-block-jewish-identity.mp3"
+  },
+  {
+   "id": "rec8Qh0lYXKJujg5Z",
+   "slug": "marty-leeds-pi",
+   "eid": "6511b35e5b90e600116a854f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6511b35e5b90e600116a854f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marty-leeds-pi.mp3"
+  },
+  {
+   "id": "rec8TVG8CXsOAYbl1",
+   "slug": "hakan-hisim-universal-transmissions",
+   "eid": "651995f128434100110f2dec",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/651995f128434100110f2dec.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/hakan-hisim-universal-transmissions.mp3"
+  },
+  {
+   "id": "rec8h1D5P7RcnVLOQ",
+   "slug": "learn-and-discern-the-ring-of-truth-chance-on-the-king-heros-journey-with-beth-martens",
+   "eid": "6012cb87d24aee1d9728af1b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6012cb87d24aee1d9728af1b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/learn-and-discern-the-ring-of-truth-chance-on-the-king-heros-journey-with-beth-martens.mp3"
+  },
+  {
+   "id": "rec8uQqwfRa7cgT3G",
+   "slug": "chance-garton-philosophy-guy",
+   "eid": "5e4d4a29fe92dc156f8a076f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5e4d4a29fe92dc156f8a076f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-philosophy-guy.mp3"
+  },
+  {
+   "id": "rec9Cv9pyjXelTGvA",
+   "slug": "astroherbalism-libra",
+   "eid": "6ad8e512f1b125139912089a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ad8e512f1b125139912089a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/astroherbalism-libra.mp3"
+  },
+  {
+   "id": "rec9MvKTyk2EhvxL1",
+   "slug": "vibe-rant-68",
+   "eid": "639f5aa4c7693300129ac154",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/639f5aa4c7693300129ac154.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-68.mp3"
+  },
+  {
+   "id": "rec9N440LB2XfHlLB",
+   "slug": "vibe-rant-116",
+   "eid": "65a023d31664bf00177b7519",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65a023d31664bf00177b7519.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-116.mp3"
+  },
+  {
+   "id": "rec9RdPXaj4gEygfc",
+   "slug": "dr-strange-mr-crowley-marvelous-demystifiers",
+   "eid": "626acb4ac1fd8500126a7704",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/626acb4ac1fd8500126a7704.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dr-strange-mr-crowley-marvelous-demystifiers.mp3"
+  },
+  {
+   "id": "rec9XVUlHJQw8Cb2R",
+   "slug": "vibe-rant-69",
+   "eid": "63a6327482094f00102c688f",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63a6327482094f00102c688f/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-69.mp3"
+  },
+  {
+   "id": "rec9aW993cC4SlkDU",
+   "slug": "marvelous-demystifiers-21",
+   "eid": "656f7a651ce7dc001284d2bd",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/656f7a651ce7dc001284d2bd.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-21.mp3"
+  },
+  {
+   "id": "rec9eav02yCrzofpK",
+   "slug": "marvel-shang-chi",
+   "eid": "621fe93baa5be50013ba53a8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/621fe93baa5be50013ba53a8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvel-shang-chi.mp3"
+  },
+  {
+   "id": "rec9gQBVfO2r4LSZ8",
+   "slug": "chance-garton-false-reality-check-podcast",
+   "eid": "618299d12fdb59001670aca0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/618299d12fdb59001670aca0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-false-reality-check-podcast.mp3"
+  },
+  {
+   "id": "rec9p9yCJqMwgpIwg",
+   "slug": "wayne-mcroy-jr-demic-of-pan-joshua-donohew",
+   "eid": "627e7fb76b5fa500149a8e79",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/627e7fb76b5fa500149a8e79.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/wayne-mcroy-jr-demic-of-pan-joshua-donohew.mp3"
+  },
+  {
+   "id": "rec9wrO0zYd44E9Wx",
+   "slug": "clint-richardson-red-pill-sunday-school",
+   "eid": "5fecdcf44d9cb878e86f494a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5fecdcf44d9cb878e86f494a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/clint-richardson-red-pill-sunday-school.mp3"
+  },
+  {
+   "id": "rec9xYY72JEV4sdKr",
+   "slug": "emily-ridout-psychic-energy-vampires",
+   "eid": "5f8da575ed7e1e613a4155b6",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f8da575ed7e1e613a4155b6.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/emily-ridout-psychic-energy-vampires.mp3"
+  },
+  {
+   "id": "recA0rXrF1O7vRrT6",
+   "slug": "nathanoakley1980",
+   "eid": "6ab91f1404370b785808225a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ab91f1404370b785808225a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/nathanoakley1980.mp3"
+  },
+  {
+   "id": "recADGL4zchOUj28k",
+   "slug": "inner-whirled-26",
+   "eid": "6a57cd2c08297530435b2f21",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a57cd2c08297530435b2f21.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-26.mp3"
+  },
+  {
+   "id": "recAs3XMgiuXzTPk0",
+   "slug": "melchizedek-decoded",
+   "eid": "673b82056cb27c3ca413d5b4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/673b82056cb27c3ca413d5b4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/melchizedek-decoded.mp3"
+  },
+  {
+   "id": "recAthxypkliZoZHa",
+   "slug": "ascension-of-the-chessmen-49-chance-garton",
+   "eid": "6179648539698200121be3dd",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6179648539698200121be3dd.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/ascension-of-the-chessmen-49-chance-garton.mp3"
+  },
+  {
+   "id": "recBCkEu2fSkMmIUO",
+   "slug": "mike-winner-ai",
+   "eid": "6a1751d26ee822cbfb815d86",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a1751d26ee822cbfb815d86.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mike-winner-ai.mp3"
+  },
+  {
+   "id": "recBK3St5ThLqD1SX",
+   "slug": "hp-lovecraft-cthulu",
+   "eid": "6229173c3e2c06001416680d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6229173c3e2c06001416680d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/hp-lovecraft-cthulu.mp3"
+  },
+  {
+   "id": "recBQnvSyNQxGRuqD",
+   "slug": "vibe-rant-78",
+   "eid": "63f70039d49c3c0011045d17",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63f70039d49c3c0011045d17/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-78.mp3"
+  },
+  {
+   "id": "recBWDzXOqoL8pDFt",
+   "slug": "elise-frosch-birth-keeper",
+   "eid": "634700eea23fcd0012cf2448",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/634700eea23fcd0012cf2448.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/elise-frosch-birth-keeper.mp3"
+  },
+  {
+   "id": "recBXFz5EYjUQtlq1",
+   "slug": "inner-whirled-32",
+   "eid": "6ae7523aaa1187db3696975c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ae7523aaa1187db3696975c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-32.mp3"
+  },
+  {
+   "id": "recBpwYw7VA79JnRo",
+   "slug": "vibe-rant-98",
+   "eid": "64b3136a59542d0011c027f6",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64b3136a59542d0011c027f6.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-98.mp3"
+  },
+  {
+   "id": "recBvHPnz6QmCE5oE",
+   "slug": "marizelle-arce-terrain-doctor",
+   "eid": "68755ee212713a20e1aef86d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/68755ee212713a20e1aef86d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marizelle-arce-terrain-doctor.mp3"
+  },
+  {
+   "id": "recC2LTCaCBVNXvYI",
+   "slug": "laurel-airica-word-magic-secret-spells",
+   "eid": "5bb7f9bcac8922f843285c13",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5bb7f9bcac8922f843285c13.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/laurel-airica-word-magic-secret-spells.mp3"
+  },
+  {
+   "id": "recC8vvMmJpFjFCFk",
+   "slug": "vibe-rant-71",
+   "eid": "63bb3840e7aeff001158b2a8",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63bb3840e7aeff001158b2a8/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-71.mp3"
+  },
+  {
+   "id": "recCCFxMnXt4aayvr",
+   "slug": "shelley-kaehr-meet-your-karma",
+   "eid": "5e985a708e21902a05f58b82",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5e985a708e21902a05f58b82.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/shelley-kaehr-meet-your-karma.mp3"
+  },
+  {
+   "id": "recCKurkvn3MvoXBw",
+   "slug": "juan-ayala-gnosticism",
+   "eid": "625c3ef460b4bd0012874e86",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/625c3ef460b4bd0012874e86.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/juan-ayala-gnosticism.mp3"
+  },
+  {
+   "id": "recCbCD3TqgND1QSD",
+   "slug": "oera-linda-book",
+   "eid": "64e7a8bd4ce8bf00114de7c8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64e7a8bd4ce8bf00114de7c8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/oera-linda-book.mp3"
+  },
+  {
+   "id": "recCc8IGMdEysUvRS",
+   "slug": "vibe-rant-111",
+   "eid": "653ac19c8b57bc0012b1e3d9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/653ac19c8b57bc0012b1e3d9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-111.mp3"
+  },
+  {
+   "id": "recCdY283Y1V4LKzn",
+   "slug": "vibe-rant-107",
+   "eid": "651846987ccbe40011f6896b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/651846987ccbe40011f6896b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-107.mp3"
+  },
+  {
+   "id": "recD06g7tu7BQLAE7",
+   "slug": "vibe-rant-83",
+   "eid": "6429abef5f80b2001139db19",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6429abef5f80b2001139db19/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-83.mp3"
+  },
+  {
+   "id": "recD0CVH0at5en0Hm",
+   "slug": "eileen-mckusick-self-talk-electric-health",
+   "eid": "60eeeb6e1c94860015440c10",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60eeeb6e1c94860015440c10.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/eileen-mckusick-self-talk-electric-health.mp3"
+  },
+  {
+   "id": "recD8T38NIlipizb1",
+   "slug": "vibe-rant-90",
+   "eid": "646a8265b6ca3800114d2d2e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/646a8265b6ca3800114d2d2e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-90.mp3"
+  },
+  {
+   "id": "recDGNskfVd5ECoVx",
+   "slug": "vibe-rant-81",
+   "eid": "6417d572735632001166f939",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6417d572735632001166f939/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-81.mp3"
+  },
+  {
+   "id": "recDJnfZZ0Yv5zZ7E",
+   "slug": "jenny-rivers-wombcraft",
+   "eid": "61e4a0a3f1cd4c0012f6fb98",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61e4a0a3f1cd4c0012f6fb98.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jenny-rivers-wombcraft.mp3"
+  },
+  {
+   "id": "recDSvgajBCLig2aO",
+   "slug": "mr-kindness-117",
+   "eid": "672e46d9a42e23dc4bb9fdcb",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/672e46d9a42e23dc4bb9fdcb.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mr-kindness-117.mp3"
+  },
+  {
+   "id": "recDUvWxAgNuAh7uK",
+   "slug": "frank-castle-frankie-fearless",
+   "eid": "5f590d5bb5b17977f76da667",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f590d5bb5b17977f76da667.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/frank-castle-frankie-fearless.mp3"
+  },
+  {
+   "id": "recDYN6MIaLbB81Lh",
+   "slug": "dylan-saccoccio-godsacre",
+   "eid": "62d0660b0964ca0012a7bf6e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62d0660b0964ca0012a7bf6e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-godsacre.mp3"
+  },
+  {
+   "id": "recDgzHzTXuFH5shW",
+   "slug": "vibe-rant-53",
+   "eid": "630ad8c62e777e0012a4c526",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/630ad8c62e777e0012a4c526/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-53.mp3"
+  },
+  {
+   "id": "recDk92Tbw7XZoKh8",
+   "slug": "vibe-rant-52",
+   "eid": "62fff7ab8666ed00148e5c37",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62fff7ab8666ed00148e5c37/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-52.mp3"
+  },
+  {
+   "id": "recDrIjzN6gtOpWBp",
+   "slug": "marvel-eternals",
+   "eid": "61f824e6896123001284f193",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61f824e6896123001284f193.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvel-eternals.mp3"
+  },
+  {
+   "id": "recEJPjxe8IUUtOrj",
+   "slug": "david-whitehead-cult-medics-venom-tech",
+   "eid": "62a6351e2240ad00149facd5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62a6351e2240ad00149facd5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-whitehead-cult-medics-venom-tech.mp3"
+  },
+  {
+   "id": "recEKPMnK8sG3U9z1",
+   "slug": "vibe-rant-135",
+   "eid": "66900a27cfb7aba3d34abc1f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66900a27cfb7aba3d34abc1f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-135.mp3"
+  },
+  {
+   "id": "recEQwlgdFk3eKlDc",
+   "slug": "rachel-runes-divination",
+   "eid": "611e62533a54930012a5bec1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/611e62533a54930012a5bec1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/rachel-runes-divination.mp3"
+  },
+  {
+   "id": "recEfIs9NBkbSh5Ct",
+   "slug": "natural-af-68",
+   "eid": "694ae4d3cb029db7572cec9a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/694ae4d3cb029db7572cec9a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/natural-af-68.mp3"
+  },
+  {
+   "id": "recEwn0WgRaw4EPyV",
+   "slug": "royal-stars",
+   "eid": "60915169cbde607346c0ce85",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60915169cbde607346c0ce85.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/royal-stars.mp3"
+  },
+  {
+   "id": "recF0kqGTF7ywyATA",
+   "slug": "vibe-rant-94",
+   "eid": "648b7febc6f9af001107eed7",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/648b7febc6f9af001107eed7.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-94.mp3"
+  },
+  {
+   "id": "recFHqSofpu6vp3pR",
+   "slug": "my-family-thinks-im-crazy-chance-garton",
+   "eid": "61645fda26141b0013cb733b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61645fda26141b0013cb733b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/my-family-thinks-im-crazy-chance-garton.mp3"
+  },
+  {
+   "id": "recFWM6aaqna9w6l4",
+   "slug": "marvelous-demystifiers-26",
+   "eid": "65d4d72a9784d400174a6a4a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65d4d72a9784d400174a6a4a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-26.mp3"
+  },
+  {
+   "id": "recFeWhsuuVwDPww9",
+   "slug": "dawn-lester",
+   "eid": "66799739ab8b26b10f4e2506",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66799739ab8b26b10f4e2506.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dawn-lester.mp3"
+  },
+  {
+   "id": "recFjB7PBaOTBhHGK",
+   "slug": "vibe-rant-33",
+   "eid": "624727c9c153830012d63497",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/624727c9c153830012d63497/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-33.mp3"
+  },
+  {
+   "id": "recFmhL4VHhLXgyiD",
+   "slug": "gnostic-chef-frequency-healing",
+   "eid": "66329528ac8cdb00126913b8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66329528ac8cdb00126913b8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/gnostic-chef-frequency-healing.mp3"
+  },
+  {
+   "id": "recFqDLI343k3MZme",
+   "slug": "vibe-rant-109",
+   "eid": "652830e1b774f700118c2ff6",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/652830e1b774f700118c2ff6.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-109.mp3"
+  },
+  {
+   "id": "recFt6LwxcW42qzT3",
+   "slug": "inner-whirled-20",
+   "eid": "69e91b58abe143da5b984a95",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69e91b58abe143da5b984a95.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-20.mp3"
+  },
+  {
+   "id": "recG88edOUOWvFXpU",
+   "slug": "cabin-talk-porn-biz-human-trafficking",
+   "eid": "5f1227928ed17b65b983cf73",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f1227928ed17b65b983cf73.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/cabin-talk-porn-biz-human-trafficking.mp3"
+  },
+  {
+   "id": "recGAgvylIrnxnNnX",
+   "slug": "revelation-mind-war-inner-whirled-23",
+   "eid": "6a2095ee44a383b494e40594",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a2095ee44a383b494e40594.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/revelation-mind-war-inner-whirled-23.mp3"
+  },
+  {
+   "id": "recGEuTVLfsjqq1lA",
+   "slug": "eileen-mckusick-sing-the-body-electric",
+   "eid": "636fb97fef3e200012bd923b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/636fb97fef3e200012bd923b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/eileen-mckusick-sing-the-body-electric.mp3"
+  },
+  {
+   "id": "recGHFHqtYuyfyu6n",
+   "slug": "james-frosch-family-fungi",
+   "eid": "6320dc8dd962eb0013f53faa",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6320dc8dd962eb0013f53faa.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/james-frosch-family-fungi.mp3"
+  },
+  {
+   "id": "recGJEYfg5zbOrfTH",
+   "slug": "eileen-mckusick-plant-biofields",
+   "eid": "65fc91c4995e830016b2d9b9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65fc91c4995e830016b2d9b9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/eileen-mckusick-plant-biofields.mp3"
+  },
+  {
+   "id": "recGQeMOZT43VIyiw",
+   "slug": "vibe-rant-27",
+   "eid": "620ec6ef6e69eb0012f7c08e",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/620ec6ef6e69eb0012f7c08e/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-27.mp3"
+  },
+  {
+   "id": "recGUp4MLMwgUBARw",
+   "slug": "topher-gardner-biocharisma-2023",
+   "eid": "61fd7b95baac030012dc8908",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61fd7b95baac030012dc8908.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/topher-gardner-biocharisma-2023.mp3"
+  },
+  {
+   "id": "recGXj3yOSAysy8Xc",
+   "slug": "dawn-lester-terrain-parenting",
+   "eid": "6acb63c86df8015a36b32f0e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6acb63c86df8015a36b32f0e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dawn-lester-terrain-parenting.mp3"
+  },
+  {
+   "id": "recGmosJkwyyevyFG",
+   "slug": "owen-benjamin",
+   "eid": "62d437afdbfc6f0013c987a9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62d437afdbfc6f0013c987a9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/owen-benjamin.mp3"
+  },
+  {
+   "id": "recGqiYLfop2ybg2h",
+   "slug": "austin-walters-biomagnetism",
+   "eid": "63c495e09c69e70011a27a11",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63c495e09c69e70011a27a11.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/austin-walters-biomagnetism.mp3"
+  },
+  {
+   "id": "recGrBf8MnM5Zm76T",
+   "slug": "vibe-rant-105",
+   "eid": "6505de8dcfc4540011750364",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6505de8dcfc4540011750364.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-105.mp3"
+  },
+  {
+   "id": "recHBvZcrJgaUEJis",
+   "slug": "vibe-rant-59",
+   "eid": "633f838156bee10012e8a3ed",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/633f838156bee10012e8a3ed/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-59.mp3"
+  },
+  {
+   "id": "recHEjrJhxcTam2uL",
+   "slug": "vibe-rant-157",
+   "eid": "67c33589a7ca43b05ec18889",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67c33589a7ca43b05ec18889.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-157.mp3"
+  },
+  {
+   "id": "recHKigRham9Vzdid",
+   "slug": "golden-orphism-book",
+   "eid": "6a3c42cd1d1e464c657cfc43",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a3c42cd1d1e464c657cfc43.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/golden-orphism-book.mp3"
+  },
+  {
+   "id": "recHTbvBbIG1tB1Vr",
+   "slug": "vibe-rant-60",
+   "eid": "634792e7892bfd0011e0c9b7",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/634792e7892bfd0011e0c9b7/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-60.mp3"
+  },
+  {
+   "id": "recHZ2qOIVy8e03oL",
+   "slug": "julia-lupine-emf",
+   "eid": "65dcf7a440ac05001601e283",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65dcf7a440ac05001601e283.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/julia-lupine-emf.mp3"
+  },
+  {
+   "id": "recHwdZkpRAfNohE5",
+   "slug": "gregory-ripley-100-remedies",
+   "eid": "655279dced0a44001292b8e2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/655279dced0a44001292b8e2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/gregory-ripley-100-remedies.mp3"
+  },
+  {
+   "id": "recI0LXhhHMvJ7Kki",
+   "slug": "vibe-rant-29",
+   "eid": "622915b234ecdf00121d03a6",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/622915b234ecdf00121d03a6/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-29.mp3"
+  },
+  {
+   "id": "recI2rgq3RWymu0x1",
+   "slug": "robert-falconer-ifs",
+   "eid": "665e0d119b516d0011ea6293",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/665e0d119b516d0011ea6293.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/robert-falconer-ifs.mp3"
+  },
+  {
+   "id": "recI4hPEtHs059yOM",
+   "slug": "great-chicago-fire",
+   "eid": "6a8dcd9ba21bedf9fb9b191f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a8dcd9ba21bedf9fb9b191f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/great-chicago-fire.mp3"
+  },
+  {
+   "id": "recIE4UyrpqyAN7Ny",
+   "slug": "laurel-airica-linguistic-ascension",
+   "eid": "5e9eea44b14b47c656860ed2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5e9eea44b14b47c656860ed2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/laurel-airica-linguistic-ascension.mp3"
+  },
+  {
+   "id": "recIVLgc0V9fS2Dd3",
+   "slug": "john-lundwall-myth-cosmos",
+   "eid": "65a570ad0a194a0016f7ca22",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65a570ad0a194a0016f7ca22.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/john-lundwall-myth-cosmos.mp3"
+  },
+  {
+   "id": "recIrC7mzy2RnVEyP",
+   "slug": "miownize-michael-martin-talking-music",
+   "eid": "6061d38987ba2b50ccbbe23e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6061d38987ba2b50ccbbe23e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/miownize-michael-martin-talking-music.mp3"
+  },
+  {
+   "id": "recIvStRwJKJgGXyt",
+   "slug": "marvelous-demystifiers-27",
+   "eid": "65d4d7c60d6576001780c97d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65d4d7c60d6576001780c97d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-27.mp3"
+  },
+  {
+   "id": "recJEulDft91GARCS",
+   "slug": "tom-barnett-global-biodynamics",
+   "eid": "5fc2b16be0640028d4cd4300",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5fc2b16be0640028d4cd4300.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/tom-barnett-global-biodynamics.mp3"
+  },
+  {
+   "id": "recJIJrFlpjssk7iY",
+   "slug": "vibe-rant-51",
+   "eid": "62f573833268480011fb0381",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62f573833268480011fb0381/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-51.mp3"
+  },
+  {
+   "id": "recJIiHRD8bHI8JWm",
+   "slug": "vibe-rant-13",
+   "eid": "61968d4bf2a68400119b03d2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61968d4bf2a68400119b03d2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-13.mp3"
+  },
+  {
+   "id": "recJKQaVJLHJMR2Ml",
+   "slug": "lindsey-scharmyn-rogue-ways-psychopathy",
+   "eid": "6136a5b8be20a60019f66bee",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6136a5b8be20a60019f66bee.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/lindsey-scharmyn-rogue-ways-psychopathy.mp3"
+  },
+  {
+   "id": "recJSnhePOuyNi67p",
+   "slug": "jack-kelley-atlantis",
+   "eid": "66e9aa45075fcb2b8fc0987b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66e9aa45075fcb2b8fc0987b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jack-kelley-atlantis.mp3"
+  },
+  {
+   "id": "recJZ7IRJn3BS6r41",
+   "slug": "vibe-rant-103",
+   "eid": "64f61f7dd5566e00106d85e3",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64f61f7dd5566e00106d85e3.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-103.mp3"
+  },
+  {
+   "id": "recJdKUthdsuTa7AU",
+   "slug": "astroherbalism-virgo",
+   "eid": "6aaa9e75340dc9eed3f6a4de",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6aaa9e75340dc9eed3f6a4de.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/astroherbalism-virgo.mp3"
+  },
+  {
+   "id": "recJiC7Btw2xUbH6u",
+   "slug": "vibe-rant-126",
+   "eid": "661d447c2e0a630016b6fed0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/661d447c2e0a630016b6fed0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-126.mp3"
+  },
+  {
+   "id": "recJjhZioRVMOU1rd",
+   "slug": "word-up-dani-katz",
+   "eid": "62d9a89f14e0190012ac75b1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62d9a89f14e0190012ac75b1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/word-up-dani-katz.mp3"
+  },
+  {
+   "id": "recJqWWf3EbvtMbOV",
+   "slug": "astroherbalism-gemini",
+   "eid": "6a22cba2e25fe33c7cb30738",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a22cba2e25fe33c7cb30738.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/astroherbalism-gemini.mp3"
+  },
+  {
+   "id": "recJtVgKJaMkmFb9P",
+   "slug": "diction-of-aries-soap-box-hero-chance-garton",
+   "eid": "5f1490ee6fbdb44326198ce6",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f1490ee6fbdb44326198ce6.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/diction-of-aries-soap-box-hero-chance-garton.mp3"
+  },
+  {
+   "id": "recKDqffUrcZM2sXK",
+   "slug": "cult-of-the-medics-david-whitehead",
+   "eid": "61ba50d820c1ca0013637f79",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61ba50d820c1ca0013637f79.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/cult-of-the-medics-david-whitehead.mp3"
+  },
+  {
+   "id": "recKEZS0XWnwQVVQM",
+   "slug": "yerasimos-stilianessis-sophie-fletcher",
+   "eid": "5efb529d3b06471c831e9374",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5efb529d3b06471c831e9374.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/yerasimos-stilianessis-sophie-fletcher.mp3"
+  },
+  {
+   "id": "recKGSFSX5WpU3Mif",
+   "slug": "mark-gober-contact",
+   "eid": "66afab306038d9e0ea2dbb37",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66afab306038d9e0ea2dbb37.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mark-gober-contact.mp3"
+  },
+  {
+   "id": "recKGTN6lKB8Pcrai",
+   "slug": "vibe-rant-35",
+   "eid": "625c30eb2133440012182ee9",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/625c30eb2133440012182ee9/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-35.mp3"
+  },
+  {
+   "id": "recKM2gU1OjdTjNY1",
+   "slug": "christopher-mcintosh-occult-germany",
+   "eid": "6601afc18116090016141bd0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6601afc18116090016141bd0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/christopher-mcintosh-occult-germany.mp3"
+  },
+  {
+   "id": "recKPM80vVNG7NFaA",
+   "slug": "vibe-rant-136",
+   "eid": "66993d703bbdd745dcd85c48",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66993d703bbdd745dcd85c48.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-136.mp3"
+  },
+  {
+   "id": "recKPZCi0J70je5Wk",
+   "slug": "steve-falconer-scamtarctica",
+   "eid": "680a5c81989b552478c2bb0f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/680a5c81989b552478c2bb0f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/steve-falconer-scamtarctica.mp3"
+  },
+  {
+   "id": "recKTYZX4jYrvVCGF",
+   "slug": "clive-de-carle-nutritional-gnosis",
+   "eid": "67741bab97bec40ae99bdffe",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67741bab97bec40ae99bdffe.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/clive-de-carle-nutritional-gnosis.mp3"
+  },
+  {
+   "id": "recKlONVcsUYu9fJb",
+   "slug": "john-mchugh-star-of-bethlehem",
+   "eid": "6580e9f07cfac400163431ab",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6580e9f07cfac400163431ab.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/john-mchugh-star-of-bethlehem.mp3"
+  },
+  {
+   "id": "recKrwnQ6qXCj9608",
+   "slug": "vibe-rant-65",
+   "eid": "638028a29e5dcf001196a3a7",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/638028a29e5dcf001196a3a7/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-65.mp3"
+  },
+  {
+   "id": "recKtjGrpQaCCEHKP",
+   "slug": "david-pantano",
+   "eid": "67c67856b48a8f157c47fbd1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67c67856b48a8f157c47fbd1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-pantano.mp3"
+  },
+  {
+   "id": "recKuTmo9xhY5LjPQ",
+   "slug": "marvelous-demystifiers-moon-knight-1",
+   "eid": "6297a1a719b5c80012715e88",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6297a1a719b5c80012715e88.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-moon-knight-1.mp3"
+  },
+  {
+   "id": "recKuf8HdOlCYJXEr",
+   "slug": "teri-hunter",
+   "eid": "64b4bcdf4e9feb0011febd18",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64b4bcdf4e9feb0011febd18.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/teri-hunter.mp3"
+  },
+  {
+   "id": "recL8IzVvzjkDysuQ",
+   "slug": "marizelle-arce-2026",
+   "eid": "69cfd263f44b357ce99df1cf",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69cfd263f44b357ce99df1cf.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marizelle-arce-2026.mp3"
+  },
+  {
+   "id": "recL9k0uiV4iPIpl2",
+   "slug": "sajah-popham",
+   "eid": "6614017fd8c7a9001605123c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6614017fd8c7a9001605123c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/sajah-popham.mp3"
+  },
+  {
+   "id": "recL9yY3DbxqsWo9C",
+   "slug": "alec-zeck-the-way-forward",
+   "eid": "6383f1e638ba58001141466e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6383f1e638ba58001141466e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/alec-zeck-the-way-forward.mp3"
+  },
+  {
+   "id": "recLCpwYlDLamHqvm",
+   "slug": "vibe-rant-86",
+   "eid": "64440bf24561b100119170ac",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64440bf24561b100119170ac/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-86.mp3"
+  },
+  {
+   "id": "recLLdd0izFOJjmnD",
+   "slug": "marvelous-demystifiers-12",
+   "eid": "6346e00a84830f0012f8baa0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6346e00a84830f0012f8baa0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-12.mp3"
+  },
+  {
+   "id": "recLP0qL6QLdO5hmW",
+   "slug": "santos-bonacci-syncretism-astrology",
+   "eid": "6095756da461284864f9bacc",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6095756da461284864f9bacc.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/santos-bonacci-syncretism-astrology.mp3"
+  },
+  {
+   "id": "recLan7IUN74XLLsD",
+   "slug": "matt-powers-permaculture-student",
+   "eid": "62e2cb4f555dfd0012882e85",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62e2cb4f555dfd0012882e85.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/matt-powers-permaculture-student.mp3"
+  },
+  {
+   "id": "recLhZMoCzR5E0afc",
+   "slug": "matt-landman-west-coast-fires",
+   "eid": "5f9821d12430793f4f66ab49",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f9821d12430793f4f66ab49.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/matt-landman-west-coast-fires.mp3"
+  },
+  {
+   "id": "recM1srzXL6OZoyvJ",
+   "slug": "stellium7",
+   "eid": "670d5e35883ece125868971a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/670d5e35883ece125868971a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/stellium7.mp3"
+  },
+  {
+   "id": "recMD7LJIcXQAMPu6",
+   "slug": "vibe-rant-36",
+   "eid": "6261d83fff50dd001420b22d",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6261d83fff50dd001420b22d/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-36.mp3"
+  },
+  {
+   "id": "recMF3EYuBEvAFKqp",
+   "slug": "marvelous-demystifiers-28",
+   "eid": "65f47de1da458200167b174c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65f47de1da458200167b174c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-28.mp3"
+  },
+  {
+   "id": "recMSnE2G8WblJR97",
+   "slug": "slick-dissident",
+   "eid": "614893685780800012873737",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/614893685780800012873737.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/slick-dissident.mp3"
+  },
+  {
+   "id": "recMbFrzePLko5SAt",
+   "slug": "rj-spina-ascend-frequencies",
+   "eid": "65930ba7aa48e000164db66f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65930ba7aa48e000164db66f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/rj-spina-ascend-frequencies.mp3"
+  },
+  {
+   "id": "recMd1o4Zi2XkBEvl",
+   "slug": "abraham-and-sarah-decoded",
+   "eid": "6703d2486f369dd035b10a69",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6703d2486f369dd035b10a69.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/abraham-and-sarah-decoded.mp3"
+  },
+  {
+   "id": "recMkmLgntMHS83A7",
+   "slug": "vibe-rant-19",
+   "eid": "61cfa4734d50360012218e4e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61cfa4734d50360012218e4e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-19.mp3"
+  },
+  {
+   "id": "recMuBBrVEblJB7Xf",
+   "slug": "noahs-ark-decoded",
+   "eid": "66edaa3dc63b952f9aded856",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66edaa3dc63b952f9aded856.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/noahs-ark-decoded.mp3"
+  },
+  {
+   "id": "recN56OHIBCQJgD5n",
+   "slug": "vibe-rant-138",
+   "eid": "66ad0174da0a3151729d2b28",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66ad0174da0a3151729d2b28.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-138.mp3"
+  },
+  {
+   "id": "recN8I8bGOkIOykbR",
+   "slug": "steven-young-a-fools-wisdom",
+   "eid": "66f2dc1c7a3d63d20f068cbc",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66f2dc1c7a3d63d20f068cbc.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/steven-young-a-fools-wisdom.mp3"
+  },
+  {
+   "id": "recNF20INV2zlG5Ep",
+   "slug": "vibe-rant-95",
+   "eid": "649899b1ad43d40011a201bd",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/649899b1ad43d40011a201bd.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-95.mp3"
+  },
+  {
+   "id": "recNHeYM3uvdpcDRg",
+   "slug": "vibe-rant-122",
+   "eid": "65f47e28da458200167b20ab",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65f47e28da458200167b20ab.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-122.mp3"
+  },
+  {
+   "id": "recNKD4igWche9vAO",
+   "slug": "vibe-rant-43",
+   "eid": "62ab6743c0474c00123fe2a1",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62ab6743c0474c00123fe2a1/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-43.mp3"
+  },
+  {
+   "id": "recNP4on4JKEuhUUn",
+   "slug": "marvelous-demystifiers-18",
+   "eid": "654bcdac1111a40012788e54",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/654bcdac1111a40012788e54.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-18.mp3"
+  },
+  {
+   "id": "recNTyFve6Hk20k25",
+   "slug": "vibe-rant-18",
+   "eid": "61bf7b0474b6190012806e7d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61bf7b0474b6190012806e7d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-18.mp3"
+  },
+  {
+   "id": "recNguEI9t3KCP2tC",
+   "slug": "meg-moonbeam",
+   "eid": "6a60b3d84fac21e67f290ad3",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a60b3d84fac21e67f290ad3.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/meg-moonbeam.mp3"
+  },
+  {
+   "id": "recOBmY1uCBipSVH9",
+   "slug": "marvelous-demystifiers-14",
+   "eid": "645032921fbd8000111e1647",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/645032921fbd8000111e1647.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-14.mp3"
+  },
+  {
+   "id": "recOSI4DJcWJJPRci",
+   "slug": "marvelous-demystifiers-19",
+   "eid": "655805303dcdee0012c4bc92",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/655805303dcdee0012c4bc92.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-19.mp3"
+  },
+  {
+   "id": "recOXfkcvUKMhavUD",
+   "slug": "edith-ubuntu-chan",
+   "eid": "69e25d51abe143da5b490777",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69e25d51abe143da5b490777.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/edith-ubuntu-chan.mp3"
+  },
+  {
+   "id": "recOa37OwcU13qqIJ",
+   "slug": "barre-lando-alfa-vedic",
+   "eid": "629d40fe6501a7001236ae0e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/629d40fe6501a7001236ae0e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/barre-lando-alfa-vedic.mp3"
+  },
+  {
+   "id": "recOcNRVc53OgEcCD",
+   "slug": "vibe-rant-124",
+   "eid": "660ad93ac3ddb30016f85fb9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/660ad93ac3ddb30016f85fb9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-124.mp3"
+  },
+  {
+   "id": "recOgGyAPH3XDcSSx",
+   "slug": "inner-whirled-3",
+   "eid": "6a2d595acd023694943bee5d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a2d595acd023694943bee5d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-3.mp3"
+  },
+  {
+   "id": "recOi4Gnf40tL6iV1",
+   "slug": "rogue-ways-i-ching-chance-garton",
+   "eid": "606235890c3e61512967f31b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/606235890c3e61512967f31b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/rogue-ways-i-ching-chance-garton.mp3"
+  },
+  {
+   "id": "recOpTtRA861Fa89q",
+   "slug": "vibe-rant-15",
+   "eid": "61af814fd3de6d0013a36843",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61af814fd3de6d0013a36843.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-15.mp3"
+  },
+  {
+   "id": "recP5GKc4XWoiF0IY",
+   "slug": "vibe-rant-57",
+   "eid": "632c8e410b0d520016e930ed",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/632c8e410b0d520016e930ed/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-57.mp3"
+  },
+  {
+   "id": "recPDS7oguiEfu3ub",
+   "slug": "truthwarrior-medical-sorcery-human-trafficking-amp-maritime-law-with-chance-garton-amp-gabriel-peters",
+   "eid": "62ba74458d71fa0012ce2fdb",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62ba74458d71fa0012ce2fdb.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/truthwarrior-medical-sorcery-human-trafficking-amp-maritime-law-with-chance-garton-amp-gabriel-peters.mp3"
+  },
+  {
+   "id": "recPGQHKaWPFNFD6t",
+   "slug": "false-reality-check-53-with-chance-garton-amp-mitch-the-orgone-donor",
+   "eid": "61da75ed35501c0012bd19b5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61da75ed35501c0012bd19b5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/false-reality-check-53-with-chance-garton-amp-mitch-the-orgone-donor.mp3"
+  },
+  {
+   "id": "recPJjcDAdp3SJ6QF",
+   "slug": "vibe-rant-61",
+   "eid": "635ab9dc7d15c30011881ac9",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/635ab9dc7d15c30011881ac9/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-61.mp3"
+  },
+  {
+   "id": "recPJpER2aTycp5gp",
+   "slug": "mark-steeves-esoteric-america",
+   "eid": "63043716d7d67b0013bb50f1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63043716d7d67b0013bb50f1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mark-steeves-esoteric-america.mp3"
+  },
+  {
+   "id": "recPUXKndopEYuLnS",
+   "slug": "veda-austin-hydroglyphs",
+   "eid": "63b1d52e408745001113efc4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63b1d52e408745001113efc4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/veda-austin-hydroglyphs.mp3"
+  },
+  {
+   "id": "recPkUtHlvRLs6VvF",
+   "slug": "camille-sauve-sorcerers-of-stone",
+   "eid": "67a3a6383eadb4f808f94d8b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67a3a6383eadb4f808f94d8b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/camille-sauve-sorcerers-of-stone.mp3"
+  },
+  {
+   "id": "recPpMGQAmy2xkuaV",
+   "slug": "vibe-rant-38",
+   "eid": "627400304cd774001298d589",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/627400304cd774001298d589/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-38.mp3"
+  },
+  {
+   "id": "recPqHaslqJACEsHb",
+   "slug": "clint-richardson-private-bloodlines",
+   "eid": "648763671dba0300116c607f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/648763671dba0300116c607f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/clint-richardson-private-bloodlines.mp3"
+  },
+  {
+   "id": "recPxblOz3Z1nGhhJ",
+   "slug": "brian-s-staveley-mandela-effect-dose-of-reality",
+   "eid": "628d4ccaa868cf0014f5e494",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/628d4ccaa868cf0014f5e494.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/brian-s-staveley-mandela-effect-dose-of-reality.mp3"
+  },
+  {
+   "id": "recQcgWfKObmT1R7n",
+   "slug": "rachel-fulton-brown-tolkien",
+   "eid": "648f2f2695b6da0011f65f5d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/648f2f2695b6da0011f65f5d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/rachel-fulton-brown-tolkien.mp3"
+  },
+  {
+   "id": "recQjDxtagsdQLaM8",
+   "slug": "atoms-dont-exist",
+   "eid": "6a725e2167f03d99be34d652",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a725e2167f03d99be34d652.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/atoms-dont-exist.mp3"
+  },
+  {
+   "id": "recR4T5hJ113pK5oD",
+   "slug": "hidden-in-plain-sight-chance-garton",
+   "eid": "628fea0c61e1450012c35fd5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/628fea0c61e1450012c35fd5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/hidden-in-plain-sight-chance-garton.mp3"
+  },
+  {
+   "id": "recR9YYE7eydGD1df",
+   "slug": "derek-tikkuri-gematrinator-eclipse-code",
+   "eid": "61916b26689f570013e7db31",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61916b26689f570013e7db31.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/derek-tikkuri-gematrinator-eclipse-code.mp3"
+  },
+  {
+   "id": "recRDlZqf62mchXEn",
+   "slug": "vibe-rant-58",
+   "eid": "63361943dd0b870013218691",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63361943dd0b870013218691/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-58.mp3"
+  },
+  {
+   "id": "recREGQk5VaVtQUrT",
+   "slug": "becca-tarnas-perilous-realm",
+   "eid": "5ebebb3442ecff3e00174680",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5ebebb3442ecff3e00174680.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/becca-tarnas-perilous-realm.mp3"
+  },
+  {
+   "id": "recRHTEwTclDvbZJu",
+   "slug": "slick-dissident-public-vs-private-sovereignty",
+   "eid": "61d535f347aaaf00131b2cfb",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61d535f347aaaf00131b2cfb.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/slick-dissident-public-vs-private-sovereignty.mp3"
+  },
+  {
+   "id": "recRNXauJLLQqeDtx",
+   "slug": "vibe-rant-115",
+   "eid": "6597232afa07a40015f915c4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6597232afa07a40015f915c4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-115.mp3"
+  },
+  {
+   "id": "recRV2qFgXWiiKOKa",
+   "slug": "rogue-ways-god-is-a-verb",
+   "eid": "60512a03941ed46c2171e159",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60512a03941ed46c2171e159.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/rogue-ways-god-is-a-verb.mp3"
+  },
+  {
+   "id": "recRfO8TmYggEQqfh",
+   "slug": "maryn-green-indie-birth",
+   "eid": "66fc0e45687515ec94e76e07",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66fc0e45687515ec94e76e07.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/maryn-green-indie-birth.mp3"
+  },
+  {
+   "id": "recRxzgc7JxTAFmq4",
+   "slug": "becca-tarnas-imaginal-realm",
+   "eid": "5e5fbae5a2278f1d6fddf1fe",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5e5fbae5a2278f1d6fddf1fe.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/becca-tarnas-imaginal-realm.mp3"
+  },
+  {
+   "id": "recS34fWVWSjyJeqo",
+   "slug": "astrotheology-101",
+   "eid": "6aafdb92d97b6578ee0fe696",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6aafdb92d97b6578ee0fe696.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/astrotheology-101.mp3"
+  },
+  {
+   "id": "recS4BaDIGRLXk354",
+   "slug": "liev-dalton-beyond-terrain",
+   "eid": "69f23a24be5ab6849c66d40a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69f23a24be5ab6849c66d40a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/liev-dalton-beyond-terrain.mp3"
+  },
+  {
+   "id": "recS4u4m5lJ9o0pPE",
+   "slug": "vibe-rant-125",
+   "eid": "661d4462f50b79001714bc6a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/661d4462f50b79001714bc6a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-125.mp3"
+  },
+  {
+   "id": "recSKomXSmhMyTcys",
+   "slug": "matt-landman-questioning-coronavirus-narrative",
+   "eid": "5e81eba82a38198340de9d28",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5e81eba82a38198340de9d28.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/matt-landman-questioning-coronavirus-narrative.mp3"
+  },
+  {
+   "id": "recSUGs06yc1FpEHc",
+   "slug": "apocatastasis-energy-healing",
+   "eid": "664ccb53ef9f8200121e462a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/664ccb53ef9f8200121e462a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/apocatastasis-energy-healing.mp3"
+  },
+  {
+   "id": "recSXCICBl8ZojWGw",
+   "slug": "vibe-rant-128",
+   "eid": "662a8568437bd70012133840",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/662a8568437bd70012133840.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-128.mp3"
+  },
+  {
+   "id": "recSazvz018EeFv4H",
+   "slug": "vibe-rant-80",
+   "eid": "640a7092d790480011a5ce4f",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/640a7092d790480011a5ce4f/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-80.mp3"
+  },
+  {
+   "id": "recSeUsL3RCOCVoAK",
+   "slug": "project-chaney-slick-dissident-placenta",
+   "eid": "61993564eee9080013605481",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61993564eee9080013605481.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/project-chaney-slick-dissident-placenta.mp3"
+  },
+  {
+   "id": "recSmlOhFAuKpnDPG",
+   "slug": "james-frosch-family-fungi-2025",
+   "eid": "67faaebeb51a627d151b53c7",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67faaebeb51a627d151b53c7.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/james-frosch-family-fungi-2025.mp3"
+  },
+  {
+   "id": "recSzmLAQr8hcuZVa",
+   "slug": "resonature",
+   "eid": "69d02671f57702d2d998a4f7",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69d02671f57702d2d998a4f7.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/resonature.mp3"
+  },
+  {
+   "id": "recTFRcXN8xpQPxdT",
+   "slug": "heaven-is-the-sky",
+   "eid": "6369d98d825b410012145a03",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6369d98d825b410012145a03.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/heaven-is-the-sky.mp3"
+  },
+  {
+   "id": "recTKbpqqaTpDPAAC",
+   "slug": "emily-ridout-astroyoga-2021-2022",
+   "eid": "61b4005c48392200132cdf72",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61b4005c48392200132cdf72.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/emily-ridout-astroyoga-2021-2022.mp3"
+  },
+  {
+   "id": "recTQckg7Lc0Ld3Ic",
+   "slug": "katie-hess-lotuswei",
+   "eid": "664b80cee25fc50012f1201a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/664b80cee25fc50012f1201a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/katie-hess-lotuswei.mp3"
+  },
+  {
+   "id": "recTYv15D2M4KWyTD",
+   "slug": "project-chaney-conspirituality",
+   "eid": "624ca7106a8b540013b31b20",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/624ca7106a8b540013b31b20.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/project-chaney-conspirituality.mp3"
+  },
+  {
+   "id": "recTgJJOnZa203ylV",
+   "slug": "fomenko-time-ciphers-biocharisma",
+   "eid": "69050d13c89076b5e2be75bb",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69050d13c89076b5e2be75bb.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/fomenko-time-ciphers-biocharisma.mp3"
+  },
+  {
+   "id": "recU66vZGcy7phUxQ",
+   "slug": "vibe-rant-28",
+   "eid": "621feae257a04a0014e5729c",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/621feae257a04a0014e5729c/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-28.mp3"
+  },
+  {
+   "id": "recU8HCiHWGt6mCy7",
+   "slug": "tree-of-knowledge-sonja-testerman",
+   "eid": "6824ce27571d171f04998af3",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6824ce27571d171f04998af3.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/tree-of-knowledge-sonja-testerman.mp3"
+  },
+  {
+   "id": "recUByUuFpAgJAPRj",
+   "slug": "vibe-rant-121",
+   "eid": "65e9f4caf4982e00170a8805",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65e9f4caf4982e00170a8805.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-121.mp3"
+  },
+  {
+   "id": "recUUXiCVknNVvDim",
+   "slug": "my-family-thinks-im-crazy-world-age",
+   "eid": "67730797c82b0a641358c7e2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67730797c82b0a641358c7e2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/my-family-thinks-im-crazy-world-age.mp3"
+  },
+  {
+   "id": "recUntKECc8jn1Urd",
+   "slug": "inner-whirled-18",
+   "eid": "69c6edb626c1fb9c07f24e5b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69c6edb626c1fb9c07f24e5b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-18.mp3"
+  },
+  {
+   "id": "recUxj91tGgQkw9Yc",
+   "slug": "keys-to-the-tarot",
+   "eid": "6aa161fe45106148fa2e460b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6aa161fe45106148fa2e460b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/keys-to-the-tarot.mp3"
+  },
+  {
+   "id": "recV0JSsnLAZC97ji",
+   "slug": "james-mattie-mindful-xpansion-sovereignty-2020",
+   "eid": "5f26ed1f18cf462a0897a674",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f26ed1f18cf462a0897a674.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/james-mattie-mindful-xpansion-sovereignty-2020.mp3"
+  },
+  {
+   "id": "recV6rqUep8LDjEz6",
+   "slug": "vibe-rant-72",
+   "eid": "63c06d8533f3c000111519b4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63c06d8533f3c000111519b4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-72.mp3"
+  },
+  {
+   "id": "recVPMtx47LT5DTfh",
+   "slug": "sonia-barrett-business-of-disease",
+   "eid": "5fb94609ae0f1a77a682a9c9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5fb94609ae0f1a77a682a9c9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/sonia-barrett-business-of-disease.mp3"
+  },
+  {
+   "id": "recVR63HG6fDBdoRb",
+   "slug": "clint-richardson-patriot-myths",
+   "eid": "61f820983df7cf00143a13d9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61f820983df7cf00143a13d9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/clint-richardson-patriot-myths.mp3"
+  },
+  {
+   "id": "recVXERxFngbzAy1G",
+   "slug": "jack-parsons-sorcerers-of-scientism",
+   "eid": "6250530858911600148f09c8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6250530858911600148f09c8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jack-parsons-sorcerers-of-scientism.mp3"
+  },
+  {
+   "id": "recVeSr2NUsMkvQWa",
+   "slug": "michael-wann-rewilding-consciousness",
+   "eid": "61720b351f635f0012d727a2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61720b351f635f0012d727a2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michael-wann-rewilding-consciousness.mp3"
+  },
+  {
+   "id": "recVlxX46HaDjb6iA",
+   "slug": "jan-ott-dylan-saccoccio-oera-linda-book",
+   "eid": "64eba029dec1b000122f2036",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64eba029dec1b000122f2036.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jan-ott-dylan-saccoccio-oera-linda-book.mp3"
+  },
+  {
+   "id": "recVpgXMAny3SAq1l",
+   "slug": "vibe-rant-88",
+   "eid": "6457d399eff3730011042480",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6457d399eff3730011042480.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-88.mp3"
+  },
+  {
+   "id": "recW0Ta0gpzFTnco6",
+   "slug": "dylan-saccoccio-spirit-whirled",
+   "eid": "5faaa12c7484f637050efdc5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5faaa12c7484f637050efdc5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-spirit-whirled.mp3"
+  },
+  {
+   "id": "recW2Lo9uWTMUA6iF",
+   "slug": "vibe-rant-25",
+   "eid": "61fc2f309d0e30001359dda7",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/61fc2f309d0e30001359dda7/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-25.mp3"
+  },
+  {
+   "id": "recW5QUeIx91vKTBU",
+   "slug": "vibe-rant-132",
+   "eid": "666b22f96312350012fd931c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/666b22f96312350012fd931c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-132.mp3"
+  },
+  {
+   "id": "recWAWdJ2hsZMAsvI",
+   "slug": "kyle-serena-tippecanoe-herbs",
+   "eid": "66706f5bd68641f68769b396",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66706f5bd68641f68769b396.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/kyle-serena-tippecanoe-herbs.mp3"
+  },
+  {
+   "id": "recWCnAtsFf1JHFsT",
+   "slug": "symbolic-studies-kabbalah",
+   "eid": "64751a9e064cb10011d84407",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64751a9e064cb10011d84407.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/symbolic-studies-kabbalah.mp3"
+  },
+  {
+   "id": "recWF6LQem24rYJZP",
+   "slug": "inner-whirled-31",
+   "eid": "6ad4b2909fb0eafdba4e4535",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ad4b2909fb0eafdba4e4535.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-31.mp3"
+  },
+  {
+   "id": "recWGONDYupJtLljW",
+   "slug": "marvelous-demystifiers-8",
+   "eid": "62caf334ffa3eb00120f8e46",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62caf334ffa3eb00120f8e46.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-8.mp3"
+  },
+  {
+   "id": "recWa5mDBkEX90Tz9",
+   "slug": "vibe-rant-131",
+   "eid": "6667313c347d87001254a0b0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6667313c347d87001254a0b0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-131.mp3"
+  },
+  {
+   "id": "recWc2JxyEkuwnHVK",
+   "slug": "mark-steeves-my-family-thinks-im-crazy",
+   "eid": "61a510fa39ae50001c490526",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61a510fa39ae50001c490526.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mark-steeves-my-family-thinks-im-crazy.mp3"
+  },
+  {
+   "id": "recX7v2bQVADpSG8E",
+   "slug": "thomas-zinser",
+   "eid": "64a1ae9e83ba00001164e837",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64a1ae9e83ba00001164e837.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/thomas-zinser.mp3"
+  },
+  {
+   "id": "recXBZpdbAba0tA4s",
+   "slug": "decoding-pontifex-maximus",
+   "eid": "66cb570eff5eaa8e1be00bb9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66cb570eff5eaa8e1be00bb9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/decoding-pontifex-maximus.mp3"
+  },
+  {
+   "id": "recXFfidOU69gOkbq",
+   "slug": "inner-whirled-12",
+   "eid": "679126dd22302f87e1a1780b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/679126dd22302f87e1a1780b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-12.mp3"
+  },
+  {
+   "id": "recXT0fIXw5itw317",
+   "slug": "healing-vibes-with-chance-garton-on-soul-nectar-show",
+   "eid": "62a89d3f6af3920012d78c51",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62a89d3f6af3920012d78c51.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/healing-vibes-with-chance-garton-on-soul-nectar-show.mp3"
+  },
+  {
+   "id": "recXUOw7cwIqLuo5i",
+   "slug": "john-mchugh-celestial-code",
+   "eid": "6398006f28c3c9001196b35c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6398006f28c3c9001196b35c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/john-mchugh-celestial-code.mp3"
+  },
+  {
+   "id": "recXcdOjqup9WiY4w",
+   "slug": "howdie-mickoski-holographic-khonsu",
+   "eid": "6261e668ff50dd001420e21d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6261e668ff50dd001420e21d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/howdie-mickoski-holographic-khonsu.mp3"
+  },
+  {
+   "id": "recXeaAwMHLZxpxXv",
+   "slug": "thinking-about-13-bonus-episode",
+   "eid": "61bce583b07d620013852294",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61bce583b07d620013852294.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/thinking-about-13-bonus-episode.mp3"
+  },
+  {
+   "id": "recY3TrjNgvQ9EOpw",
+   "slug": "homie-romie-antiquated-transhumanism",
+   "eid": "6292effe6e0a2f0012f9a0de",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6292effe6e0a2f0012f9a0de.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/homie-romie-antiquated-transhumanism.mp3"
+  },
+  {
+   "id": "recYANEtFMM8rTnrf",
+   "slug": "vibe-rant-158-eileen-mckusick",
+   "eid": "67e5a9683cc004e4535a1c83",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67e5a9683cc004e4535a1c83.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-158-eileen-mckusick.mp3"
+  },
+  {
+   "id": "recYAxXABOOqtc0xn",
+   "slug": "jim-gale-food-forest",
+   "eid": "6405600d62d67f00113d701c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6405600d62d67f00113d701c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jim-gale-food-forest.mp3"
+  },
+  {
+   "id": "recYCISqizAt1jG8b",
+   "slug": "elise-frosch",
+   "eid": "668d501723ad15482808d30e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/668d501723ad15482808d30e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/elise-frosch.mp3"
+  },
+  {
+   "id": "recYEcqY3kQ3fr53W",
+   "slug": "if-i-only-knew-2-levald-thomas",
+   "eid": "5d1c0fe0da4b4a43125c4d75",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5d1c0fe0da4b4a43125c4d75.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/if-i-only-knew-2-levald-thomas.mp3"
+  },
+  {
+   "id": "recYKNX3EzeE6a6Fe",
+   "slug": "vibe-rant-148",
+   "eid": "6722f4c3b53ba2cacde4be16",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6722f4c3b53ba2cacde4be16.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-148.mp3"
+  },
+  {
+   "id": "recYLY0abztHxmtE7",
+   "slug": "jim-maiden-sb-alger-rxop-weaving-spiders",
+   "eid": "61eef0df73f0a00012f9772d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61eef0df73f0a00012f9772d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jim-maiden-sb-alger-rxop-weaving-spiders.mp3"
+  },
+  {
+   "id": "recYW2IHNJRnoK32k",
+   "slug": "moon-knight-2",
+   "eid": "62a631339063cc0013197129",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62a631339063cc0013197129.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/moon-knight-2.mp3"
+  },
+  {
+   "id": "recYYawBccQrvo7dy",
+   "slug": "mario-garza-symbolic-studies-chaos",
+   "eid": "635ff513ce73ed0012ef97b8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/635ff513ce73ed0012ef97b8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mario-garza-symbolic-studies-chaos.mp3"
+  },
+  {
+   "id": "recYjEK7WfgTF8MEv",
+   "slug": "dylan-saccoccio-matt-landman",
+   "eid": "5f4148c5af3733572d9287c0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f4148c5af3733572d9287c0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-matt-landman.mp3"
+  },
+  {
+   "id": "recZ89QVpZVKmLF68",
+   "slug": "vibe-rant-101",
+   "eid": "64e2593f41893100110538a4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64e2593f41893100110538a4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-101.mp3"
+  },
+  {
+   "id": "recZA8RT8Dmn813f5",
+   "slug": "occult-priestess-korinne-wilson",
+   "eid": "5ed16a695aa2943ecfd44640",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5ed16a695aa2943ecfd44640.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/occult-priestess-korinne-wilson.mp3"
+  },
+  {
+   "id": "recZFHTVBp9ydYhLd",
+   "slug": "dominique-cordivari-epiastrology",
+   "eid": "64e3ddad8aa21e0011acf8ee",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64e3ddad8aa21e0011acf8ee.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dominique-cordivari-epiastrology.mp3"
+  },
+  {
+   "id": "recZJQdw0ZtsTVqEP",
+   "slug": "vibe-rant-139",
+   "eid": "66b92a628443e670a6b229e0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66b92a628443e670a6b229e0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-139.mp3"
+  },
+  {
+   "id": "recZWhoZBFneKig9c",
+   "slug": "tamara-sheville",
+   "eid": "6a7a702f446de273c0192863",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a7a702f446de273c0192863.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/tamara-sheville.mp3"
+  },
+  {
+   "id": "recZdtOnP4BbMex8E",
+   "slug": "tim-james-health-hero",
+   "eid": "622146b7891c9700142b8606",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/622146b7891c9700142b8606.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/tim-james-health-hero.mp3"
+  },
+  {
+   "id": "recZifZ0AipBYD9Ds",
+   "slug": "john-mchugh-pegasus-ark",
+   "eid": "642118d4b3335a0012c29abd",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/642118d4b3335a0012c29abd.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/john-mchugh-pegasus-ark.mp3"
+  },
+  {
+   "id": "recZp44e0qG7ZbKgk",
+   "slug": "michelle-lundquist-pet-health",
+   "eid": "65f86cfa1ca19d0016194842",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65f86cfa1ca19d0016194842.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michelle-lundquist-pet-health.mp3"
+  },
+  {
+   "id": "recZpYhPje50xOVeZ",
+   "slug": "seed-sistas",
+   "eid": "6457d8c03f7d9900112ccdbb",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6457d8c03f7d9900112ccdbb.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/seed-sistas.mp3"
+  },
+  {
+   "id": "recZxnZNLgtkQ17yy",
+   "slug": "vibe-rant-24-part-1",
+   "eid": "61f8860249cba90012f3db42",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61f8860249cba90012f3db42.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-24-part-1.mp3"
+  },
+  {
+   "id": "reca9KZMS2cFuFIAX",
+   "slug": "marvelous-demystifiers-11",
+   "eid": "6346dfae487be80012ff0d45",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6346dfae487be80012ff0d45.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-11.mp3"
+  },
+  {
+   "id": "recaC6Jo2aqZvngfI",
+   "slug": "vibe-rant-151",
+   "eid": "675203c06af55bd515bf1dbc",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/675203c06af55bd515bf1dbc.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-151.mp3"
+  },
+  {
+   "id": "recaEECYkBW6cuJPc",
+   "slug": "carla-adams-ancestral-river",
+   "eid": "64c939cdc9f4850011f5a8f5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64c939cdc9f4850011f5a8f5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/carla-adams-ancestral-river.mp3"
+  },
+  {
+   "id": "recaSjb28gK2GQNUP",
+   "slug": "vibe-rant-150",
+   "eid": "673f5b1ed17a686dfe00948d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/673f5b1ed17a686dfe00948d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-150.mp3"
+  },
+  {
+   "id": "recabcPvDDpMtz8y9",
+   "slug": "vibe-rant-63",
+   "eid": "636d3bb72b51320012e8412f",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/636d3bb72b51320012e8412f/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-63.mp3"
+  },
+  {
+   "id": "recaeuGtbOjGlYyu1",
+   "slug": "marvelous-demystifiers-13",
+   "eid": "64500cd730540d00115db85e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64500cd730540d00115db85e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-13.mp3"
+  },
+  {
+   "id": "recanFZdUpuALcjw3",
+   "slug": "vibe-rant-97",
+   "eid": "64a86cc1fa3d060011437385",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64a86cc1fa3d060011437385.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-97.mp3"
+  },
+  {
+   "id": "recatALgDQOyG0kNM",
+   "slug": "the-empire-of-baal-2",
+   "eid": "69fb5af27272023359a6d0b0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69fb5af27272023359a6d0b0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/the-empire-of-baal-2.mp3"
+  },
+  {
+   "id": "recb2u11mByyOyqa1",
+   "slug": "john-coleman-apocatastasis",
+   "eid": "5f6e8338ba448a5956247b9e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f6e8338ba448a5956247b9e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/john-coleman-apocatastasis.mp3"
+  },
+  {
+   "id": "recb4SRvMmGykSLIO",
+   "slug": "vibe-rant-40",
+   "eid": "628feccea4599700126ad614",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/628feccea4599700126ad614/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-40.mp3"
+  },
+  {
+   "id": "recb4iiqrrq5cayOQ",
+   "slug": "biocharisma-topher-gardner",
+   "eid": "655d1e44bacc090012499c7d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/655d1e44bacc090012499c7d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/biocharisma-topher-gardner.mp3"
+  },
+  {
+   "id": "recbMBFxenzO1EGJa",
+   "slug": "vibe-rant-70",
+   "eid": "63b069034722fa0011e993a1",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63b069034722fa0011e993a1/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-70.mp3"
+  },
+  {
+   "id": "recbQONsuH48c6ecB",
+   "slug": "robert-comber-lost-octave",
+   "eid": "661d60e567d64d00173985b1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/661d60e567d64d00173985b1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/robert-comber-lost-octave.mp3"
+  },
+  {
+   "id": "recbanhHH2A4RgR6H",
+   "slug": "david-mathisen-aboriginal",
+   "eid": "66d73042a7a4982508fc04d0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66d73042a7a4982508fc04d0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-mathisen-aboriginal.mp3"
+  },
+  {
+   "id": "recbfi8W4ayZ4Rjg3",
+   "slug": "vibe-rant-42",
+   "eid": "62a242f1f31eab00166a8ddc",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62a242f1f31eab00166a8ddc/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-42.mp3"
+  },
+  {
+   "id": "recbqIOVNbzXolmgl",
+   "slug": "inner-whirled-28",
+   "eid": "6a85d9053f3983dd482d6225",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a85d9053f3983dd482d6225.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-28.mp3"
+  },
+  {
+   "id": "recbqIbR6HCbbOE5G",
+   "slug": "parallel-mike",
+   "eid": "646a81c195c17b00116d027a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/646a81c195c17b00116d027a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/parallel-mike.mp3"
+  },
+  {
+   "id": "recbz3l4yJv1mYCdH",
+   "slug": "chronspiracists-cosmic-egg",
+   "eid": "5ea6dd50f08cadd91bd1e9cf",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5ea6dd50f08cadd91bd1e9cf.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chronspiracists-cosmic-egg.mp3"
+  },
+  {
+   "id": "recc1ycS15MFjiQoS",
+   "slug": "robert-fludd-marty-leeds-steven-young",
+   "eid": "67d820c7af1d043055faccc2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67d820c7af1d043055faccc2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/robert-fludd-marty-leeds-steven-young.mp3"
+  },
+  {
+   "id": "reccLP9QNZu3fUdX9",
+   "slug": "vibe-rant-156",
+   "eid": "67b8cae0c0f169362a6c413f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67b8cae0c0f169362a6c413f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-156.mp3"
+  },
+  {
+   "id": "reccXhhcT06nUSTTB",
+   "slug": "topher-gardner-elementals-gathering",
+   "eid": "69729f66d284f5cd091a6c53",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69729f66d284f5cd091a6c53.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/topher-gardner-elementals-gathering.mp3"
+  },
+  {
+   "id": "recd0siOhHvV7dBdX",
+   "slug": "marvelous-demystifiers-9",
+   "eid": "62e9b4b2a6961d0017f9bba1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62e9b4b2a6961d0017f9bba1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-9.mp3"
+  },
+  {
+   "id": "recdCdkxrs128u0mK",
+   "slug": "paranoid-american-ai-thomas-gorence",
+   "eid": "647f9743aa1f1000116150c3",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/647f9743aa1f1000116150c3.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/paranoid-american-ai-thomas-gorence.mp3"
+  },
+  {
+   "id": "recdNEBlvN6AiMMkq",
+   "slug": "deepak-chari",
+   "eid": "67588a8d6d1777b3685024c4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67588a8d6d1777b3685024c4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/deepak-chari.mp3"
+  },
+  {
+   "id": "recdU0UBWkrTvuznR",
+   "slug": "inner-whirled-14",
+   "eid": "67e6c8e25fb59eadfcf3a1e1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67e6c8e25fb59eadfcf3a1e1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-14.mp3"
+  },
+  {
+   "id": "recdcHbmwNIXi91ur",
+   "slug": "mark-gober",
+   "eid": "662fc027e9f4880011d04230",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/662fc027e9f4880011d04230.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mark-gober.mp3"
+  },
+  {
+   "id": "recdeG2iplc2wkB8f",
+   "slug": "vibe-rant-73",
+   "eid": "63c98e6c1e5f8a0011cdfa70",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63c98e6c1e5f8a0011cdfa70/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-73.mp3"
+  },
+  {
+   "id": "recdhBNDRP3ealuzH",
+   "slug": "matthew-wood-shamanic-herbal",
+   "eid": "679a7870a234f420da9e0fb1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/679a7870a234f420da9e0fb1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/matthew-wood-shamanic-herbal.mp3"
+  },
+  {
+   "id": "rece30kRsOCueYYaW",
+   "slug": "eileen-day-mckusick-biofield-tuning",
+   "eid": "5f43be0f809e38392896ae18",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f43be0f809e38392896ae18.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/eileen-day-mckusick-biofield-tuning.mp3"
+  },
+  {
+   "id": "rece4Qh5E6CUDrziQ",
+   "slug": "symbolic-studies-wheel",
+   "eid": "6a04960c8ef936897386ae7f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a04960c8ef936897386ae7f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/symbolic-studies-wheel.mp3"
+  },
+  {
+   "id": "receLBQcyLs7Dj5dd",
+   "slug": "brianna-columbini-astro-numerology",
+   "eid": "5da871e48fc5ac743ad34035",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5da871e48fc5ac743ad34035.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/brianna-columbini-astro-numerology.mp3"
+  },
+  {
+   "id": "receU7QaLXjwBJXMw",
+   "slug": "vibe-rant-129",
+   "eid": "66390e622f30550012c3a5e6",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66390e622f30550012c3a5e6.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-129.mp3"
+  },
+  {
+   "id": "recebwtGUFANN5nXX",
+   "slug": "theory-praxis",
+   "eid": "674f3d175e1cc0fabe16b652",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/674f3d175e1cc0fabe16b652.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/theory-praxis.mp3"
+  },
+  {
+   "id": "recf6Ao8AaKa0fc53",
+   "slug": "vibe-rant-117",
+   "eid": "65b3f6c1912de90017d45cd9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65b3f6c1912de90017d45cd9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-117.mp3"
+  },
+  {
+   "id": "recfF0hgmrJyWeiLm",
+   "slug": "crrow777-lunar-wave",
+   "eid": "5f11e46021245c2a58740a92",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f11e46021245c2a58740a92.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/crrow777-lunar-wave.mp3"
+  },
+  {
+   "id": "recfFoucJXFA9yw0s",
+   "slug": "john-ech-electric-sun",
+   "eid": "5ef8a61998f05a2b24836d2f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5ef8a61998f05a2b24836d2f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/john-ech-electric-sun.mp3"
+  },
+  {
+   "id": "recfINSYZgQ9TqO63",
+   "slug": "dr-greg-l-little-origins-of-the-gods",
+   "eid": "62daf505dfa4450013eeec3f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62daf505dfa4450013eeec3f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dr-greg-l-little-origins-of-the-gods.mp3"
+  },
+  {
+   "id": "recfKW3IZLuQ17eXc",
+   "slug": "inner-circle-11",
+   "eid": "69375ab03d875cc257132fb5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69375ab03d875cc257132fb5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-circle-11.mp3"
+  },
+  {
+   "id": "recfR8v7dh4c11y15",
+   "slug": "king-heros-journey-stealth-grace",
+   "eid": "60e453b5209a8b0012743e28",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60e453b5209a8b0012743e28.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/king-heros-journey-stealth-grace.mp3"
+  },
+  {
+   "id": "recfRX4f8XYjcaL9t",
+   "slug": "steven-young-elements",
+   "eid": "6787f0ef339cdeb44ce82234",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6787f0ef339cdeb44ce82234.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/steven-young-elements.mp3"
+  },
+  {
+   "id": "recff6DPo60MCvw1S",
+   "slug": "dental-shaman",
+   "eid": "66856afa9249f596b75304cd",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66856afa9249f596b75304cd.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dental-shaman.mp3"
+  },
+  {
+   "id": "recfyDkcJEI6Jn4MN",
+   "slug": "vibe-rant-32",
+   "eid": "623c9283cac22b0014ee80ec",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/623c9283cac22b0014ee80ec/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-32.mp3"
+  },
+  {
+   "id": "recg1OXL9JQgmfUV5",
+   "slug": "vibe-rant-45",
+   "eid": "62be029e99d33c00125710b2",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62be029e99d33c00125710b2/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-45.mp3"
+  },
+  {
+   "id": "recg4cHjuLx0QdWaM",
+   "slug": "vibe-rant-76",
+   "eid": "63e941a47cc1970011713060",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63e941a47cc1970011713060/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-76.mp3"
+  },
+  {
+   "id": "recg5jTlGJKvM7vPp",
+   "slug": "health-energy-podcast-42",
+   "eid": "66e1d3a4f684e0b759a8e5c6",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66e1d3a4f684e0b759a8e5c6.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/health-energy-podcast-42.mp3"
+  },
+  {
+   "id": "recg9tQcowgRNbtos",
+   "slug": "ben-balderson-rachel-maiden-havamal",
+   "eid": "6417d8df7982d0001160f432",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6417d8df7982d0001160f432.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/ben-balderson-rachel-maiden-havamal.mp3"
+  },
+  {
+   "id": "recgGJ57z9pTGrqSR",
+   "slug": "mark-english-eso-el-neigong",
+   "eid": "65b7d32a1ba4700016e568af",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65b7d32a1ba4700016e568af.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mark-english-eso-el-neigong.mp3"
+  },
+  {
+   "id": "recgK3MUAMq27yxqL",
+   "slug": "inner-whirled-15",
+   "eid": "6932debe38a11f5f3e01815f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6932debe38a11f5f3e01815f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-15.mp3"
+  },
+  {
+   "id": "recgRbTKy0CbrITOD",
+   "slug": "odins-alchemy-chance-garton",
+   "eid": "61afa33c60dbc40013b643bd",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61afa33c60dbc40013b643bd.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/odins-alchemy-chance-garton.mp3"
+  },
+  {
+   "id": "recgYPDXVD0rMSC0A",
+   "slug": "day-out-of-time",
+   "eid": "5f1ed4b8494aa0305f09b96c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f1ed4b8494aa0305f09b96c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/day-out-of-time.mp3"
+  },
+  {
+   "id": "recga5BRsG5waomrg",
+   "slug": "chance-john-coleman",
+   "eid": "5f6e1547edf9f73d1b6599f8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f6e1547edf9f73d1b6599f8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-john-coleman.mp3"
+  },
+  {
+   "id": "recgcctlN1ZvPoV4h",
+   "slug": "brandon-sterling",
+   "eid": "681e33ccca7273465252ff9b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/681e33ccca7273465252ff9b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/brandon-sterling.mp3"
+  },
+  {
+   "id": "recgiPLnNEnG7rve0",
+   "slug": "waters-above",
+   "eid": "662693a15dd0140012c0c900",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/662693a15dd0140012c0c900.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/waters-above.mp3"
+  },
+  {
+   "id": "recgmYT38BU745odJ",
+   "slug": "chance-garton-on-cosmic-keys-podcast",
+   "eid": "600774e90a438540e4bfbc11",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/600774e90a438540e4bfbc11.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-on-cosmic-keys-podcast.mp3"
+  },
+  {
+   "id": "rech4luC28tAvLozf",
+   "slug": "vibe-rant-26",
+   "eid": "62059d054750d30012b2994e",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62059d054750d30012b2994e/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-26.mp3"
+  },
+  {
+   "id": "rechC13pzO6YCiSfb",
+   "slug": "derek-tikkuri-gematrinator-second-wave",
+   "eid": "5fd7786bc08ac45a2c50d012",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5fd7786bc08ac45a2c50d012.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/derek-tikkuri-gematrinator-second-wave.mp3"
+  },
+  {
+   "id": "rechEvr6mhA6lWKOD",
+   "slug": "vibe-rant-75",
+   "eid": "63dc90ee639e350012dc7000",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63dc90ee639e350012dc7000.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-75.mp3"
+  },
+  {
+   "id": "rechSCxFU6Gf9UKgI",
+   "slug": "jocke-haggstrom-bock",
+   "eid": "5f071997d8242d654313be0a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f071997d8242d654313be0a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jocke-haggstrom-bock.mp3"
+  },
+  {
+   "id": "rechXFZMhCzoSTXmy",
+   "slug": "juan-on-juan-homunculus",
+   "eid": "649912b7db3d69001191c59f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/649912b7db3d69001191c59f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/juan-on-juan-homunculus.mp3"
+  },
+  {
+   "id": "rechaQsNROU14Ze81",
+   "slug": "kurtis-r-kallenbach-placenta",
+   "eid": "645eefeb62ead300112dbc02",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/645eefeb62ead300112dbc02.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/kurtis-r-kallenbach-placenta.mp3"
+  },
+  {
+   "id": "rechaheMxUZHBkrEd",
+   "slug": "odins-alchemy-35-balderson-chance-garton-sound-healing",
+   "eid": "627bd566be84d10012ef9e74",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/627bd566be84d10012ef9e74.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/odins-alchemy-35-balderson-chance-garton-sound-healing.mp3"
+  },
+  {
+   "id": "rechbY4LkLxwiaC1b",
+   "slug": "david-mathisen-thor",
+   "eid": "63f3abab5d4e130011cf5a83",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63f3abab5d4e130011cf5a83.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-mathisen-thor.mp3"
+  },
+  {
+   "id": "rechoqqmt1z9PpSKI",
+   "slug": "vibe-rant-147",
+   "eid": "67080c3a14b366c897ba7cfa",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67080c3a14b366c897ba7cfa.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-147.mp3"
+  },
+  {
+   "id": "rechtqTPTmzCQX1dH",
+   "slug": "allen-marcus-slick-dissident",
+   "eid": "616116b293cf7d00150720c8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/616116b293cf7d00150720c8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/allen-marcus-slick-dissident.mp3"
+  },
+  {
+   "id": "rechycYD9G4ZUiupG",
+   "slug": "michael-wann-inception-etheric-pathways",
+   "eid": "5ea8254602a57ed346db8ef9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5ea8254602a57ed346db8ef9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michael-wann-inception-etheric-pathways.mp3"
+  },
+  {
+   "id": "reci58RHYktooKDK1",
+   "slug": "vibe-rant-141",
+   "eid": "66cb56618ffe447a75978607",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66cb56618ffe447a75978607.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-141.mp3"
+  },
+  {
+   "id": "reci6Yp7LU57XYBGo",
+   "slug": "vibe-rant-152",
+   "eid": "675f1d4a9b72f37e5d3f8750",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/675f1d4a9b72f37e5d3f8750.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-152.mp3"
+  },
+  {
+   "id": "reciDFmBcS9UnHW8v",
+   "slug": "jason-lindgren-secrets-of-saturn",
+   "eid": "5f148582f2902243898427f3",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f148582f2902243898427f3.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jason-lindgren-secrets-of-saturn.mp3"
+  },
+  {
+   "id": "reciFmMg8r0oCEjn1",
+   "slug": "vibe-rant-20",
+   "eid": "61d21178dec7b70013296477",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61d21178dec7b70013296477.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-20.mp3"
+  },
+  {
+   "id": "reciHKvnUvA6y7BLj",
+   "slug": "marvelous-demystifiers-24",
+   "eid": "65aebbdab5f0e2001721aea9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65aebbdab5f0e2001721aea9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-24.mp3"
+  },
+  {
+   "id": "reciHPZCDUZHwuAUz",
+   "slug": "vibe-rant-92",
+   "eid": "647cc78d84801c001159f437",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/647cc78d84801c001159f437.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-92.mp3"
+  },
+  {
+   "id": "reciHkIXCNHiulmAt",
+   "slug": "vibe-rant-21",
+   "eid": "61d902bc4a70fd00136829b8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61d902bc4a70fd00136829b8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-21.mp3"
+  },
+  {
+   "id": "reciJVihBO2fekvQk",
+   "slug": "mike-winner-alfa-vedic",
+   "eid": "6234b6a952a3210014f17b14",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6234b6a952a3210014f17b14.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mike-winner-alfa-vedic.mp3"
+  },
+  {
+   "id": "reciJnaFapbChAAJI",
+   "slug": "clint-richardson-strawman-legal-fiction",
+   "eid": "5f280fc124959d582debe59d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f280fc124959d582debe59d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/clint-richardson-strawman-legal-fiction.mp3"
+  },
+  {
+   "id": "reciUmZYDDb7YeL3s",
+   "slug": "vibe-rant-55",
+   "eid": "631aa29fe45ca00012f8a5f0",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/631aa29fe45ca00012f8a5f0/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-55.mp3"
+  },
+  {
+   "id": "reciVOApsOTSR7Qhf",
+   "slug": "jacob-diaz-undercover-virologist",
+   "eid": "67d1b74e288f0479391c3f31",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67d1b74e288f0479391c3f31.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jacob-diaz-undercover-virologist.mp3"
+  },
+  {
+   "id": "reciyikY26L9UHhRm",
+   "slug": "12-gates-new-jerusalem-zodiac-inner-whirled-22",
+   "eid": "6a0dd7bc163f1001837e778e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a0dd7bc163f1001837e778e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/12-gates-new-jerusalem-zodiac-inner-whirled-22.mp3"
+  },
+  {
+   "id": "recj21wC8LdfbQIdV",
+   "slug": "baals-pyramid-scheme",
+   "eid": "69ea769ac8a506316d19327f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69ea769ac8a506316d19327f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/baals-pyramid-scheme.mp3"
+  },
+  {
+   "id": "recjAZ0NULWstTCUk",
+   "slug": "fkn-belief-spiritual-development",
+   "eid": "6674877c7cd9830012ebfdf0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6674877c7cd9830012ebfdf0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/fkn-belief-spiritual-development.mp3"
+  },
+  {
+   "id": "recjEXn3AhXoz3x9B",
+   "slug": "astroherbalism-cancer",
+   "eid": "6aa0822c4684433d827d4c4e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6aa0822c4684433d827d4c4e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/astroherbalism-cancer.mp3"
+  },
+  {
+   "id": "recjI9MWRDERAo2a4",
+   "slug": "inner-whirled-25",
+   "eid": "6a4e6e56f8a80edf85e113da",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a4e6e56f8a80edf85e113da.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-25.mp3"
+  },
+  {
+   "id": "recjIlPfTjDYJmeGF",
+   "slug": "kyle-denton-tippecanoe-herbs",
+   "eid": "63555d5322c1ef0012b33429",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63555d5322c1ef0012b33429.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/kyle-denton-tippecanoe-herbs.mp3"
+  },
+  {
+   "id": "recjLKJuyMoPvD5Ax",
+   "slug": "cult-of-conspiracy-537",
+   "eid": "66c4cb34f9374471fbcbcef0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66c4cb34f9374471fbcbcef0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/cult-of-conspiracy-537.mp3"
+  },
+  {
+   "id": "recjNxbC9RZaTmiS9",
+   "slug": "jason-quitt-annunaki",
+   "eid": "66e07a5775bacb90ac54dd73",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66e07a5775bacb90ac54dd73.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jason-quitt-annunaki.mp3"
+  },
+  {
+   "id": "recjQ5t6vBve4pk91",
+   "slug": "marvelous-demystifiers-10",
+   "eid": "630130e5cdc26b0013e1bf2a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/630130e5cdc26b0013e1bf2a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-10.mp3"
+  },
+  {
+   "id": "recjZRDGWjagOhegZ",
+   "slug": "elementals-gathering-2026-recap",
+   "eid": "6a0748ff3fd6979bfc80470b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a0748ff3fd6979bfc80470b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/elementals-gathering-2026-recap.mp3"
+  },
+  {
+   "id": "recjkV2JI40Fmf8Te",
+   "slug": "pat-life-podcast-dylan-saccoccio-chance-garton",
+   "eid": "6196773bc732590012d98f3d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6196773bc732590012d98f3d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/pat-life-podcast-dylan-saccoccio-chance-garton.mp3"
+  },
+  {
+   "id": "recjzikMICm23CCXX",
+   "slug": "biofield-birth-tuning-kyle-denton",
+   "eid": "65bd313e0fb47b0017bd2b4e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65bd313e0fb47b0017bd2b4e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/biofield-birth-tuning-kyle-denton.mp3"
+  },
+  {
+   "id": "reckAjvoj8yx4SEsM",
+   "slug": "marvelous-demystifiers-17",
+   "eid": "6544196e8235ab0012d05e84",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6544196e8235ab0012d05e84.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-17.mp3"
+  },
+  {
+   "id": "reckAtCI8TgO6dIcr",
+   "slug": "chance-garton-on-shadow-banned",
+   "eid": "6193c916bd341f001592a408",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6193c916bd341f001592a408.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-on-shadow-banned.mp3"
+  },
+  {
+   "id": "reckJjlaAzhUMdl8r",
+   "slug": "chance-garton-13-questions-podcast",
+   "eid": "626576dbec420f0012222a23",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/626576dbec420f0012222a23.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-13-questions-podcast.mp3"
+  },
+  {
+   "id": "reckMyBMNkN7542Bt",
+   "slug": "vibe-rant-130",
+   "eid": "665e063e9b516d0011e89a0e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/665e063e9b516d0011e89a0e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-130.mp3"
+  },
+  {
+   "id": "reckVIzSM9uIdqmFV",
+   "slug": "bluetech-evan-bartholomew-holotrope",
+   "eid": "5dc96b65e3abdadf08f876d9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5dc96b65e3abdadf08f876d9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/bluetech-evan-bartholomew-holotrope.mp3"
+  },
+  {
+   "id": "reckXy0CMdaAmZLSq",
+   "slug": "vibe-rant-82",
+   "eid": "641e4ad8c3bc87001175511d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/641e4ad8c3bc87001175511d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-82.mp3"
+  },
+  {
+   "id": "reckahXCATWip8xrL",
+   "slug": "inner-whirled-16-moses-astrotheology",
+   "eid": "6993779c2a42aa7d9bd1e257",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6993779c2a42aa7d9bd1e257.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-16-moses-astrotheology.mp3"
+  },
+  {
+   "id": "reckieIKCSLLu7iqV",
+   "slug": "hfft-tartaria-exposed",
+   "eid": "6a9d770a620644368b3d2357",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a9d770a620644368b3d2357.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/hfft-tartaria-exposed.mp3"
+  },
+  {
+   "id": "reckjuwzbxjXXOvQA",
+   "slug": "inner-whirled-17-moses",
+   "eid": "69b41a3b7ebe44dc8b15b2ba",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69b41a3b7ebe44dc8b15b2ba.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-17-moses.mp3"
+  },
+  {
+   "id": "reclKmTvwYXrmEEbP",
+   "slug": "keith-parker-field-dynamics",
+   "eid": "6577513e59a0980012e0f61f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6577513e59a0980012e0f61f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/keith-parker-field-dynamics.mp3"
+  },
+  {
+   "id": "reclME03VVyqzRlJk",
+   "slug": "dan-shukis-cosmic-keys-great-conjunction",
+   "eid": "5fc8fa5bce287c48a0af0870",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5fc8fa5bce287c48a0af0870.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dan-shukis-cosmic-keys-great-conjunction.mp3"
+  },
+  {
+   "id": "reclcbmyRnStanW3e",
+   "slug": "chance-garton-peace-dealer-talk",
+   "eid": "6184035f15a9ae00121283a7",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6184035f15a9ae00121283a7.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-peace-dealer-talk.mp3"
+  },
+  {
+   "id": "reclpI3Itc7Fx2YsG",
+   "slug": "marvelous-demystifiers-16",
+   "eid": "65381760ebdabd0012135dcb",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65381760ebdabd0012135dcb.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-16.mp3"
+  },
+  {
+   "id": "reclrrt6cTw0qNPQU",
+   "slug": "david-whitehead-unslaved-truth-warrior",
+   "eid": "5bcb5dcc901d25246f778230",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5bcb5dcc901d25246f778230.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-whitehead-unslaved-truth-warrior.mp3"
+  },
+  {
+   "id": "recm2wrnnhj1Ps9Af",
+   "slug": "bradley-philpott-faerie-fire",
+   "eid": "5f357fde39303a2425d76b84",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f357fde39303a2425d76b84.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/bradley-philpott-faerie-fire.mp3"
+  },
+  {
+   "id": "recmFnOuyeA7peJcv",
+   "slug": "vibe-rant-144",
+   "eid": "66eda68bd4cef78b2b54430a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66eda68bd4cef78b2b54430a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-144.mp3"
+  },
+  {
+   "id": "recmOZdAm3OXTCYBG",
+   "slug": "juan-ayala-homie-romie",
+   "eid": "633a130867467800123fa9fa",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/633a130867467800123fa9fa.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/juan-ayala-homie-romie.mp3"
+  },
+  {
+   "id": "recmPuBjEUIL7QJ9G",
+   "slug": "ghost-doctor-chris",
+   "eid": "677d58da1f00b28b23b62d97",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/677d58da1f00b28b23b62d97.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/ghost-doctor-chris.mp3"
+  },
+  {
+   "id": "recmkoigyrBDDxveS",
+   "slug": "david-mathisen-ophiuchus",
+   "eid": "656522b81a0cae00117dc238",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/656522b81a0cae00117dc238.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-mathisen-ophiuchus.mp3"
+  },
+  {
+   "id": "recmtZXbkz6CW1csy",
+   "slug": "marvel-spider-man-no-way-home",
+   "eid": "62472210c9e55700126240e0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62472210c9e55700126240e0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvel-spider-man-no-way-home.mp3"
+  },
+  {
+   "id": "recmu2S6ZQeu4h34l",
+   "slug": "chance-garton-health-hero-show-tim-james",
+   "eid": "627158e2f0d7c900158ef9ff",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/627158e2f0d7c900158ef9ff.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-health-hero-show-tim-james.mp3"
+  },
+  {
+   "id": "recmz97cfYGeOGAY0",
+   "slug": "vibe-rant-154",
+   "eid": "678021eeec40818e0b1b1455",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/678021eeec40818e0b1b1455.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-154.mp3"
+  },
+  {
+   "id": "recn2MgdfYiUCx3B5",
+   "slug": "david-whitehead-truth-warrior",
+   "eid": "5eb1e84963088f6c20de1c8c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5eb1e84963088f6c20de1c8c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-whitehead-truth-warrior.mp3"
+  },
+  {
+   "id": "recn2Y7TDDuyHlINo",
+   "slug": "jim-gale-food-forest-abundance",
+   "eid": "61afcbf64285b7001294574c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61afcbf64285b7001294574c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jim-gale-food-forest-abundance.mp3"
+  },
+  {
+   "id": "recn3C8kcdEJPNOEj",
+   "slug": "vibe-rant-54",
+   "eid": "631a9fa2e09d2c001356416e",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/631a9fa2e09d2c001356416e/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-54.mp3"
+  },
+  {
+   "id": "recnIJAFIoeJUBbqR",
+   "slug": "vibe-rant-104",
+   "eid": "64fa09b29986fb0010ec9574",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64fa09b29986fb0010ec9574.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-104.mp3"
+  },
+  {
+   "id": "recnP1d4XtYFtXdpO",
+   "slug": "marvelous-demystifiers-23",
+   "eid": "65aebacbb5f0e20017217704",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65aebacbb5f0e20017217704.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-23.mp3"
+  },
+  {
+   "id": "recnfbWNZhulLgssk",
+   "slug": "marvelous-demystifiers-20",
+   "eid": "6568dfde480dcb0012312d20",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6568dfde480dcb0012312d20.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-20.mp3"
+  },
+  {
+   "id": "recntigMvprBYuYdB",
+   "slug": "moshe-daniel",
+   "eid": "6445f4c1dcef590011c64ceb",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6445f4c1dcef590011c64ceb.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/moshe-daniel.mp3"
+  },
+  {
+   "id": "recnusLaFqDguNXKS",
+   "slug": "amandha-vollmer",
+   "eid": "6450165a37e8240011b48ac0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6450165a37e8240011b48ac0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/amandha-vollmer.mp3"
+  },
+  {
+   "id": "reco1f8TS72yfvFdG",
+   "slug": "matt-presti-dimensional-madness",
+   "eid": "63cedb517637d30010132f25",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63cedb517637d30010132f25.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/matt-presti-dimensional-madness.mp3"
+  },
+  {
+   "id": "reco1pGElcIOTPhP8",
+   "slug": "bernie-taylor-before-orion",
+   "eid": "64aaed5a7b60ed001174c747",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64aaed5a7b60ed001174c747.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/bernie-taylor-before-orion.mp3"
+  },
+  {
+   "id": "reco9HAzFPm1xCq8f",
+   "slug": "matt-landman-unmasking-truth",
+   "eid": "5ee22dce61d0303071e0b9ec",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5ee22dce61d0303071e0b9ec.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/matt-landman-unmasking-truth.mp3"
+  },
+  {
+   "id": "recoAIuXsVxE9ntYO",
+   "slug": "howdie-mickoski-exit-the-cave",
+   "eid": "6330970386cc7d00115799de",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6330970386cc7d00115799de.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/howdie-mickoski-exit-the-cave.mp3"
+  },
+  {
+   "id": "recocrBk4KiQO5Cwu",
+   "slug": "chance-garton-on-pat-life-podcast",
+   "eid": "61917491fba2e70012fcef89",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61917491fba2e70012fcef89.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-on-pat-life-podcast.mp3"
+  },
+  {
+   "id": "recogOngjrC3pgpo7",
+   "slug": "michael-wann",
+   "eid": "690d185b77626ebfbf8b50f0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/690d185b77626ebfbf8b50f0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michael-wann.mp3"
+  },
+  {
+   "id": "recokasIf9o6Nr6aH",
+   "slug": "dean-mcdonnell-lusid",
+   "eid": "5d94bcb846e63392153ec76c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5d94bcb846e63392153ec76c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dean-mcdonnell-lusid.mp3"
+  },
+  {
+   "id": "recozDz4b0LkxJj4y",
+   "slug": "matt-landman-frankenskies-actual-activists",
+   "eid": "5d765533aa813df753dcb4b9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5d765533aa813df753dcb4b9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/matt-landman-frankenskies-actual-activists.mp3"
+  },
+  {
+   "id": "recp0i6s3FK8R0NaZ",
+   "slug": "vibe-rant-47",
+   "eid": "62d060443719f000127a3efc",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62d060443719f000127a3efc/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-47.mp3"
+  },
+  {
+   "id": "recp3CuDBeeoXgsh4",
+   "slug": "vibe-rant-30",
+   "eid": "623135380aabe000124f4d97",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/623135380aabe000124f4d97/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-30.mp3"
+  },
+  {
+   "id": "recpBsfPCTRjV2F1U",
+   "slug": "crrow777-tragedy-of-lazarus",
+   "eid": "666b2981fc8fc300123e9e37",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/666b2981fc8fc300123e9e37.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/crrow777-tragedy-of-lazarus.mp3"
+  },
+  {
+   "id": "recpkw8gGbQPsGwdF",
+   "slug": "vibe-rant-23",
+   "eid": "61e99483349ccb0013203d51",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61e99483349ccb0013203d51.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-23.mp3"
+  },
+  {
+   "id": "recpvKm8cV6lwakE5",
+   "slug": "inner-whirled-19",
+   "eid": "69d91313d3f0dd7747d32167",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69d91313d3f0dd7747d32167.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-19.mp3"
+  },
+  {
+   "id": "recqANbyyYWATCUdv",
+   "slug": "korinne-wilson-occult-priestess-rituals-2020",
+   "eid": "5f69f9bc39e0e418c7b789ab",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f69f9bc39e0e418c7b789ab.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/korinne-wilson-occult-priestess-rituals-2020.mp3"
+  },
+  {
+   "id": "recqFXBdegCxOVKX0",
+   "slug": "vibe-rant-41",
+   "eid": "629a7dc814d29a0013900eb4",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/629a7dc814d29a0013900eb4/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-41.mp3"
+  },
+  {
+   "id": "recqHjiVgOpTa4Wo2",
+   "slug": "ashley-mosaic-futurism",
+   "eid": "6667386d51554900139ec9d8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6667386d51554900139ec9d8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/ashley-mosaic-futurism.mp3"
+  },
+  {
+   "id": "recqItozaoGdD3NNX",
+   "slug": "slick-dissident-tarot-territories",
+   "eid": "6249d3e9d73dd90013655598",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6249d3e9d73dd90013655598.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/slick-dissident-tarot-territories.mp3"
+  },
+  {
+   "id": "recqMqGEfES41dHPk",
+   "slug": "crrow-777-revelation",
+   "eid": "6a57ccadc0080f2be7f2f7bf",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a57ccadc0080f2be7f2f7bf.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/crrow-777-revelation.mp3"
+  },
+  {
+   "id": "recr0OzFAUVlkk9DG",
+   "slug": "adam-stevens-grateful-harvest",
+   "eid": "64ff49c5ae641f0010364648",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64ff49c5ae641f0010364648.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/adam-stevens-grateful-harvest.mp3"
+  },
+  {
+   "id": "recr6NgikP78G1Qn9",
+   "slug": "marty-leeds-gnosticism-defined",
+   "eid": "66c36f7fc657d26e5df57cf4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66c36f7fc657d26e5df57cf4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marty-leeds-gnosticism-defined.mp3"
+  },
+  {
+   "id": "recrRN7enCoel2sCC",
+   "slug": "michael-tsarion",
+   "eid": "65c17b37063f0100164e8f5d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65c17b37063f0100164e8f5d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michael-tsarion.mp3"
+  },
+  {
+   "id": "recroPGa8QokcJbwk",
+   "slug": "cosmic-salon-niish",
+   "eid": "671ec4f7df525fe12161151e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/671ec4f7df525fe12161151e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/cosmic-salon-niish.mp3"
+  },
+  {
+   "id": "recs5oxcqdezG9xV0",
+   "slug": "vibe-rant-146",
+   "eid": "6702b6e83bf8f4c96d2953cc",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6702b6e83bf8f4c96d2953cc.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-146.mp3"
+  },
+  {
+   "id": "recsDrRnAoICOTWpA",
+   "slug": "izzy-ivy-beyond-lemuria",
+   "eid": "5d82237d9ed3d11326be6856",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5d82237d9ed3d11326be6856.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/izzy-ivy-beyond-lemuria.mp3"
+  },
+  {
+   "id": "recsFxeQtOyFPqXO9",
+   "slug": "vibe-rant-108",
+   "eid": "6520431e8e657c00114133af",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6520431e8e657c00114133af.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-108.mp3"
+  },
+  {
+   "id": "recsP4P94juRgHU3m",
+   "slug": "kurtis-kallenbach",
+   "eid": "620570485ba3b10012e09f8f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/620570485ba3b10012e09f8f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/kurtis-kallenbach.mp3"
+  },
+  {
+   "id": "recsS0m2u52wj1wu5",
+   "slug": "inner-whirled-30",
+   "eid": "6ac2515bad6b5fb02315125b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ac2515bad6b5fb02315125b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-30.mp3"
+  },
+  {
+   "id": "recsgNEt92BqN5zhY",
+   "slug": "vibe-rant-16",
+   "eid": "61b4dea0df210c0014b380b9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61b4dea0df210c0014b380b9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-16.mp3"
+  },
+  {
+   "id": "recslYeylbLtJSTST",
+   "slug": "vibe-rant-112",
+   "eid": "654e719846e5c9001176670c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/654e719846e5c9001176670c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-112.mp3"
+  },
+  {
+   "id": "recsoPUe0PGViVYDn",
+   "slug": "rising-from-the-ashes",
+   "eid": "61bf791c6d6e7d00135ee091",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61bf791c6d6e7d00135ee091.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/rising-from-the-ashes.mp3"
+  },
+  {
+   "id": "recsrRD8WXzV1em5O",
+   "slug": "chance-garton-chant-it-down",
+   "eid": "61c1fafa74b61900128ba3eb",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61c1fafa74b61900128ba3eb.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-chant-it-down.mp3"
+  },
+  {
+   "id": "recsv2h5r2IfzHY3B",
+   "slug": "brandy-gillmore",
+   "eid": "6a29d32c4df224c1a48bddd1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a29d32c4df224c1a48bddd1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/brandy-gillmore.mp3"
+  },
+  {
+   "id": "rectNMjokGshnudDk",
+   "slug": "chance-garton-wake-the-dead",
+   "eid": "61c1f9e74c4bca0013694f23",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61c1f9e74c4bca0013694f23.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-wake-the-dead.mp3"
+  },
+  {
+   "id": "rectQ9hJNngIkA3ye",
+   "slug": "vibe-rant-142",
+   "eid": "66d72f58a7a4982508fb8883",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66d72f58a7a4982508fb8883.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-142.mp3"
+  },
+  {
+   "id": "rectRi9WutlEinEVL",
+   "slug": "vibe-rant-67",
+   "eid": "639275ee6f72090010a27903",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/639275ee6f72090010a27903/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-67.mp3"
+  },
+  {
+   "id": "rectScf1XFGK3idhJ",
+   "slug": "jackie-jolie-light-life",
+   "eid": "630edd52439f8200126c1cf1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/630edd52439f8200126c1cf1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jackie-jolie-light-life.mp3"
+  },
+  {
+   "id": "rectkUXpIXyW5TgQT",
+   "slug": "lcking-electric-flat-earth",
+   "eid": "62194312ed35180013626843",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62194312ed35180013626843.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/lcking-electric-flat-earth.mp3"
+  },
+  {
+   "id": "rectmrXBM2IjT5peg",
+   "slug": "benny-wills",
+   "eid": "5fe5e9e4752c560d5607d0c7",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5fe5e9e4752c560d5607d0c7.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/benny-wills.mp3"
+  },
+  {
+   "id": "rectnZWQBPH0WhOsB",
+   "slug": "vibe-rant-49",
+   "eid": "62e2c731bd17c20012f08211",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62e2c731bd17c20012f08211/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-49.mp3"
+  },
+  {
+   "id": "recttI7n8lye1RweM",
+   "slug": "chance-garton-project-chaney",
+   "eid": "6250a3eb9e5d62001358990d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6250a3eb9e5d62001358990d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-project-chaney.mp3"
+  },
+  {
+   "id": "rectxEpMSHllBW04G",
+   "slug": "jason-quitt-astral-genesis",
+   "eid": "640e90ff761d7a0011dc9f7b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/640e90ff761d7a0011dc9f7b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jason-quitt-astral-genesis.mp3"
+  },
+  {
+   "id": "recu5TwazuClGAAhn",
+   "slug": "adam-butler-dmt",
+   "eid": "65aebf6099b91600176a65c2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65aebf6099b91600176a65c2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/adam-butler-dmt.mp3"
+  },
+  {
+   "id": "recuE0sAoOpErSKrX",
+   "slug": "vibe-rant-153",
+   "eid": "67730923024ebc889d2b2671",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67730923024ebc889d2b2671.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-153.mp3"
+  },
+  {
+   "id": "recuJPyBNNbIPgEKe",
+   "slug": "vibe-rant-120",
+   "eid": "65e7fcf001c0a40016c5d128",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65e7fcf001c0a40016c5d128.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-120.mp3"
+  },
+  {
+   "id": "recuNUb1tWYQcL70M",
+   "slug": "cat-rose-neligan-discovering-your-daimon",
+   "eid": "6159b673dadda3001a123f0f",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6159b673dadda3001a123f0f.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/cat-rose-neligan-discovering-your-daimon.mp3"
+  },
+  {
+   "id": "recuPsMSf1jqP1voP",
+   "slug": "leo-astroherbalism",
+   "eid": "6a81b67d621f9a176baa6bb9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a81b67d621f9a176baa6bb9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/leo-astroherbalism.mp3"
+  },
+  {
+   "id": "recuQ0VEhqRK2ie4U",
+   "slug": "benjamin-balderson-odns-alchemy-electric-universe-world-tree",
+   "eid": "61802dea8b8c250012bf7242",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61802dea8b8c250012bf7242.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/benjamin-balderson-odns-alchemy-electric-universe-world-tree.mp3"
+  },
+  {
+   "id": "recuR02vyEsbNSLfG",
+   "slug": "vibe-rant-106",
+   "eid": "650dcf18321d6c0010da97f8",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/650dcf18321d6c0010da97f8.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-106.mp3"
+  },
+  {
+   "id": "recuU6MTgJrYYxiu1",
+   "slug": "vibe-rant-50",
+   "eid": "62ec0fb8495cb40012a794c2",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62ec0fb8495cb40012a794c2/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-50.mp3"
+  },
+  {
+   "id": "recufPWxnxZXcN9f3",
+   "slug": "marvelous-demystifiers-7",
+   "eid": "62b67b27ab3d6500135f3f1d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62b67b27ab3d6500135f3f1d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-7.mp3"
+  },
+  {
+   "id": "recumzCpfJOBVYbsv",
+   "slug": "saints-and-vampires-korinne-wilson-occult-priestess",
+   "eid": "5f6e6c9c6a3ee54bd5f9f0c3",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f6e6c9c6a3ee54bd5f9f0c3.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/saints-and-vampires-korinne-wilson-occult-priestess.mp3"
+  },
+  {
+   "id": "recuoCRWiwXyUk7dA",
+   "slug": "inner-whirled-29",
+   "eid": "6a971b4e7f7e9faba6da3b9d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a971b4e7f7e9faba6da3b9d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-29.mp3"
+  },
+  {
+   "id": "recuqooWIX3aDeUHQ",
+   "slug": "melissa-kupsch-rmdy-homeopathy-kyle-denton-tippecanoe-herbs",
+   "eid": "68d2ef3340bbaff2b9f3a033",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/68d2ef3340bbaff2b9f3a033.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/melissa-kupsch-rmdy-homeopathy-kyle-denton-tippecanoe-herbs.mp3"
+  },
+  {
+   "id": "recv5GlM9RdlfaMWR",
+   "slug": "keith-thompson-ufo-paradox",
+   "eid": "66bb818aa7f4fbb991ff22d5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66bb818aa7f4fbb991ff22d5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/keith-thompson-ufo-paradox.mp3"
+  },
+  {
+   "id": "recvCQpZj1K7wjKjJ",
+   "slug": "mike-wann-syncromystic",
+   "eid": "64da6d300fa6eb0011556d22",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64da6d300fa6eb0011556d22.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/mike-wann-syncromystic.mp3"
+  },
+  {
+   "id": "recvFQNCivpIJnW4c",
+   "slug": "vibe-rant-119",
+   "eid": "65dcf442d2f5590016d45cf7",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65dcf442d2f5590016d45cf7.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-119.mp3"
+  },
+  {
+   "id": "recvJYAevHqL8rOTC",
+   "slug": "vibe-rant-66",
+   "eid": "6388f21f9a505d0011ab1ac1",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6388f21f9a505d0011ab1ac1/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-66.mp3"
+  },
+  {
+   "id": "recvNZrK2DtkqeTyx",
+   "slug": "vibe-rant-74",
+   "eid": "63d2cc6bc539150011bcd398",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63d2cc6bc539150011bcd398/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-74.mp3"
+  },
+  {
+   "id": "recvRUtmAnqNQ4Hfg",
+   "slug": "michael-nnebe-jr-peace-dealer-astrology",
+   "eid": "616c43ff102fc20013c2cb3a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/616c43ff102fc20013c2cb3a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michael-nnebe-jr-peace-dealer-astrology.mp3"
+  },
+  {
+   "id": "recvRbtrYtCEkK7Lp",
+   "slug": "dylan-saccoccio-mario-garza-godsacre-ark",
+   "eid": "63eb9aafe7cacc00115f6869",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63eb9aafe7cacc00115f6869.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-mario-garza-godsacre-ark.mp3"
+  },
+  {
+   "id": "recvV0OfrkLySS9cb",
+   "slug": "marvelous-demystifiers-25",
+   "eid": "65d4d529947e97001632ae33",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65d4d529947e97001632ae33.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-25.mp3"
+  },
+  {
+   "id": "recvfwVVRitzZCo1p",
+   "slug": "vibe-rant-96",
+   "eid": "64a1a89f9270770011e0b901",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64a1a89f9270770011e0b901.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-96.mp3"
+  },
+  {
+   "id": "recvi7URbgc1h0DhU",
+   "slug": "topher-gardner-biocharisma",
+   "eid": "63fc2dae188c360011732c8d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63fc2dae188c360011732c8d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/topher-gardner-biocharisma.mp3"
+  },
+  {
+   "id": "recvqDqvcOxJE3xVq",
+   "slug": "inner-whirled-1",
+   "eid": "6a0f160411eba3cf1556001c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a0f160411eba3cf1556001c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-1.mp3"
+  },
+  {
+   "id": "recvt14G6Ad53RX5F",
+   "slug": "inner-whirled-4",
+   "eid": "662a887e437bd7001213e154",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/662a887e437bd7001213e154.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/inner-whirled-4.mp3"
+  },
+  {
+   "id": "recvxuqVqzKfmWKxB",
+   "slug": "vibe-rant-93",
+   "eid": "6484f3ff1afaa2001143c7e2",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6484f3ff1afaa2001143c7e2.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-93.mp3"
+  },
+  {
+   "id": "recvyy6wu8QQkNp2x",
+   "slug": "vibe-rant-12",
+   "eid": "618dd56e4195f500149b5c33",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/618dd56e4195f500149b5c33.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-12.mp3"
+  },
+  {
+   "id": "recvzJWTstz106ER9",
+   "slug": "vibe-rant-145",
+   "eid": "66fc079b4f98175c75d461d5",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/66fc079b4f98175c75d461d5.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-145.mp3"
+  },
+  {
+   "id": "recwCQEL6YJbs0GAV",
+   "slug": "benjamin-balderson-laboratory-alchemy",
+   "eid": "6327676258412d001298df83",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6327676258412d001298df83.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/benjamin-balderson-laboratory-alchemy.mp3"
+  },
+  {
+   "id": "recwUYIebQ3cg7ZwK",
+   "slug": "vibe-rant-133",
+   "eid": "667481bb7cd9830012eb61d0",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/667481bb7cd9830012eb61d0.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-133.mp3"
+  },
+  {
+   "id": "recwV0ym7gqQ5bqaW",
+   "slug": "vibe-rant-37",
+   "eid": "626acced28df730012512314",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/626acced28df730012512314/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-37.mp3"
+  },
+  {
+   "id": "recwcQQGCP7KrM2yR",
+   "slug": "michaela-crandell-ifs",
+   "eid": "64f61fc1186f81001148de5c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64f61fc1186f81001148de5c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michaela-crandell-ifs.mp3"
+  },
+  {
+   "id": "recwkPbcZWCHdqvO7",
+   "slug": "vibe-rant-64",
+   "eid": "637818293e348f001116593e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/637818293e348f001116593e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-64.mp3"
+  },
+  {
+   "id": "recx9T0mMTFxIje1P",
+   "slug": "vibe-rant-85",
+   "eid": "643ea5c2ae2be60011e6d7bc",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/643ea5c2ae2be60011e6d7bc/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-85.mp3"
+  },
+  {
+   "id": "recxHlaEozfu8ngER",
+   "slug": "nuke-hoax",
+   "eid": "69bee2d4007cdcf83f2be3ea",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/69bee2d4007cdcf83f2be3ea.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/nuke-hoax.mp3"
+  },
+  {
+   "id": "recxXxAr0nwaRJrO5",
+   "slug": "rekinection-celebration-laura-lockton",
+   "eid": "5f159c9def847d1dd84be910",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f159c9def847d1dd84be910.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/rekinection-celebration-laura-lockton.mp3"
+  },
+  {
+   "id": "recxZ4wPu6odAJdYn",
+   "slug": "vibe-rant-34",
+   "eid": "624f2fa28a040d001242537b",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/624f2fa28a040d001242537b/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-34.mp3"
+  },
+  {
+   "id": "recxlECqmu2uJE4am",
+   "slug": "paranoid-american-nlp",
+   "eid": "64d12b2947e4930011079dff",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64d12b2947e4930011079dff.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/paranoid-american-nlp.mp3"
+  },
+  {
+   "id": "recxrgMsnG1C22MlH",
+   "slug": "clive-de-carle-health-club-secrets",
+   "eid": "613e1c9a691e5b001a3e8482",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/613e1c9a691e5b001a3e8482.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/clive-de-carle-health-club-secrets.mp3"
+  },
+  {
+   "id": "recxswUbRaTzpuv0u",
+   "slug": "jorge-mesa-music-theory",
+   "eid": "6343022f081c4a001228290c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6343022f081c4a001228290c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jorge-mesa-music-theory.mp3"
+  },
+  {
+   "id": "recxvZar6kQNKjMbh",
+   "slug": "christopher-mcintosh-tetrad",
+   "eid": "663a4dfc85776a0012facd46",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/663a4dfc85776a0012facd46.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/christopher-mcintosh-tetrad.mp3"
+  },
+  {
+   "id": "recxxoi972rC1fpIa",
+   "slug": "vibe-rant-114",
+   "eid": "6591c81e514889001796fa8e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6591c81e514889001796fa8e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-114.mp3"
+  },
+  {
+   "id": "recy2T0eROto3UZqL",
+   "slug": "david-mathisen-star-myths",
+   "eid": "63e30bcdaadc450011137b18",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63e30bcdaadc450011137b18.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/david-mathisen-star-myths.mp3"
+  },
+  {
+   "id": "recy3omBirTVag7em",
+   "slug": "brandy-anderson-afterlife",
+   "eid": "67323ba49395568d278df5a7",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/67323ba49395568d278df5a7.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/brandy-anderson-afterlife.mp3"
+  },
+  {
+   "id": "recy8zAD3W1rBgn00",
+   "slug": "vibe-rant-22",
+   "eid": "61e0fa364fc4740013f44ad9",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61e0fa364fc4740013f44ad9.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-22.mp3"
+  },
+  {
+   "id": "recy9z5KEie28IIwe",
+   "slug": "vibe-rant-84",
+   "eid": "6432dbd2aa32b20011729505",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6432dbd2aa32b20011729505.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-84.mp3"
+  },
+  {
+   "id": "recyJWCO3PO4lIQqd",
+   "slug": "vibe-rant-77",
+   "eid": "63edc6f4abd8bd001113761f",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63edc6f4abd8bd001113761f/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-77.mp3"
+  },
+  {
+   "id": "recyMEq8wSUXVWlhl",
+   "slug": "john-ech-aether-force",
+   "eid": "5ec7ef0840aba97b192f35de",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5ec7ef0840aba97b192f35de.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/john-ech-aether-force.mp3"
+  },
+  {
+   "id": "recyTzktCK9qYO0Jd",
+   "slug": "sophie-fletcher-human-design",
+   "eid": "660af91505ba130016593734",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/660af91505ba130016593734.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/sophie-fletcher-human-design.mp3"
+  },
+  {
+   "id": "recyafTG35Xk2EWYP",
+   "slug": "vibe-rant-31",
+   "eid": "6234ad9a21be6a00141376bf",
+   "old": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6234ad9a21be6a00141376bf/media.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-31.mp3"
+  },
+  {
+   "id": "recyoHyDgn821oD49",
+   "slug": "gematrinator-derek-tikkuri",
+   "eid": "5eea0eaa4605ad22920ff22b",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5eea0eaa4605ad22920ff22b.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/gematrinator-derek-tikkuri.mp3"
+  },
+  {
+   "id": "recz5uB6vltJoE48u",
+   "slug": "michelle-gibson-world-biofield",
+   "eid": "652d7f8508a24800126065a1",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/652d7f8508a24800126065a1.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/michelle-gibson-world-biofield.mp3"
+  },
+  {
+   "id": "recz94zfdfvu9KhCM",
+   "slug": "chance-garton-inquiries-of-our-reality-7-sound-healing-dreams",
+   "eid": "626739c0251657001602f07e",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/626739c0251657001602f07e.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/chance-garton-inquiries-of-our-reality-7-sound-healing-dreams.mp3"
+  },
+  {
+   "id": "reczDz7GqclFJVRmN",
+   "slug": "keith-gladysz-diet-kong",
+   "eid": "5d348f4787abfdf174ced70a",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5d348f4787abfdf174ced70a.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/keith-gladysz-diet-kong.mp3"
+  },
+  {
+   "id": "reczYyaN6I7ecLwp1",
+   "slug": "dave-maybe-auricular-medicine",
+   "eid": "669550e8701d0a7e3e0642a6",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/669550e8701d0a7e3e0642a6.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/dave-maybe-auricular-medicine.mp3"
+  },
+  {
+   "id": "reczZWsvUhG7PukeQ",
+   "slug": "doctor-craig-koniver",
+   "eid": "6835fedd944c948b9a6910e4",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6835fedd944c948b9a6910e4.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/doctor-craig-koniver.mp3"
+  },
+  {
+   "id": "reczbHXRXatvg8Bq8",
+   "slug": "eileen-mckusick-biomagnetism",
+   "eid": "641e4ad8c3bc87001175511d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/641e4ad8c3bc87001175511d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-82.mp3"
+  },
+  {
+   "id": "reczfeMIdGLEk1NuD",
+   "slug": "vibe-rant-17",
+   "eid": "61bce92d2ba7cd0012bfc07c",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61bce92d2ba7cd0012bfc07c.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-17.mp3"
+  },
+  {
+   "id": "recziUF3KAiBjBqtz",
+   "slug": "vibe-rant-149",
+   "eid": "672e466b89045d706449f18d",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/672e466b89045d706449f18d.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/vibe-rant-149.mp3"
+  },
+  {
+   "id": "reczuGopYaFTmp26X",
+   "slug": "jason-quitt-shining-island",
+   "eid": "6a3323b6a43c1651f480be35",
+   "old": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6a3323b6a43c1651f480be35.mp3",
+   "new": "https://audio.innerversepodcast.com/episodes/jason-quitt-shining-island.mp3"
+  }
+ ]
+}
