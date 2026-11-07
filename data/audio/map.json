@@ -1,7 +1,17 @@
 {
- "bytes": 34860824811,
- "count": 506,
+ "bytes": 40497310964,
+ "count": 583,
  "episodes": {
+  "5aec55ea860a5cc529e23e66": {
+   "bytes": 72259621,
+   "date": "2018-05-04",
+   "nopage": true,
+   "slug": "acast-5aec55ea860a5cc529e23e66",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5aec55ea860a5cc529e23e66/media.mp3",
+   "title": "4.13 - Tryptamine Mysterium with Hakan Hisim (Visionary Digital Artist)",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5aec55ea860a5cc529e23e66.mp3"
+  },
   "5bb7f9bcac8922f843285c13": {
    "bytes": 72228680,
    "slug": "laurel-airica-word-magic-secret-spells",
@@ -20,6 +30,46 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5bcb5dcc901d25246f778230.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/david-whitehead-unslaved-truth-warrior.mp3"
   },
+  "5c5d8c4164a223b138f083f6": {
+   "bytes": 75131814,
+   "date": "2019-02-09",
+   "nopage": true,
+   "slug": "acast-5c5d8c4164a223b138f083f6",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5c5d8c4164a223b138f083f6/media.mp3",
+   "title": "121 - Ras Ben | Ancestors, Star Nations & Crystal Technology",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5c5d8c4164a223b138f083f6.mp3"
+  },
+  "5c83c5bdb86dc3804b337868": {
+   "bytes": 69036760,
+   "date": "2019-03-09",
+   "nopage": true,
+   "slug": "acast-5c83c5bdb86dc3804b337868",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5c83c5bdb86dc3804b337868/media.mp3",
+   "title": "Karl Pfeiffer & Connor Randall | Hellier, High Strangeness & Spirit Investigations",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5c83c5bdb86dc3804b337868.mp3"
+  },
+  "5cd8d183209418f977fc5171": {
+   "bytes": 103334030,
+   "date": "2019-05-13",
+   "nopage": true,
+   "slug": "acast-5cd8d183209418f977fc5171",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5cd8d183209418f977fc5171/media.mp3",
+   "title": "Hakan Hisim | Universal Transmissions From The Undivided Self",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5cd8d183209418f977fc5171.mp3"
+  },
+  "5d03d05163796092667f804b": {
+   "bytes": 81562954,
+   "date": "2019-06-14",
+   "nopage": true,
+   "slug": "acast-5d03d05163796092667f804b",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5d03d05163796092667f804b/media.mp3",
+   "title": "Athen Chimenti | The Inner Zodiac And True Sidereal Astrology",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5d03d05163796092667f804b.mp3"
+  },
   "5d1c0fe0da4b4a43125c4d75": {
    "bytes": 80572387,
    "slug": "if-i-only-knew-2-levald-thomas",
@@ -37,6 +87,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5d348f4787abfdf174ced70a.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/keith-gladysz-diet-kong.mp3"
+  },
+  "5d4ac76b833846051f861961": {
+   "bytes": 83430820,
+   "date": "2019-08-07",
+   "nopage": true,
+   "slug": "acast-5d4ac76b833846051f861961",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5d4ac76b833846051f861961/media.mp3",
+   "title": "Emily Ridout | Astro-Yoga, Folklore Wisdom & The Fractal Epiphany",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5d4ac76b833846051f861961.mp3"
   },
   "5d765533aa813df753dcb4b9": {
    "bytes": 75630052,
@@ -82,6 +142,36 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5dc96b65e3abdadf08f876d9.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/bluetech-evan-bartholomew-holotrope.mp3"
+  },
+  "5e2eef689493fe922eb6903f": {
+   "bytes": 75679361,
+   "date": "2020-01-27",
+   "nopage": true,
+   "slug": "acast-5e2eef689493fe922eb6903f",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5e2eef689493fe922eb6903f/media.mp3",
+   "title": "Linda Raedisch | The Lore of Old Elfland & Legends About Little People",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5e2eef689493fe922eb6903f.mp3"
+  },
+  "5e34ae9a4321b095056ae061": {
+   "bytes": 77870715,
+   "date": "2020-01-31",
+   "nopage": true,
+   "slug": "acast-5e34ae9a4321b095056ae061",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5e34ae9a4321b095056ae061/media.mp3",
+   "title": "Brenden Weber | Panpsychism vs. Materialism With The Philosophy Guy",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5e34ae9a4321b095056ae061.mp3"
+  },
+  "5e42090782c665672ed428d8": {
+   "bytes": 68210846,
+   "date": "2020-02-11",
+   "nopage": true,
+   "slug": "acast-5e42090782c665672ed428d8",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5e42090782c665672ed428d8/media.mp3",
+   "title": "Acharya Shunya | Vedika Global, Ayurvedic Wisdom & Dreaming Ourselves",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5e42090782c665672ed428d8.mp3"
   },
   "5e4d4a29fe92dc156f8a076f": {
    "bytes": 116671092,
@@ -253,6 +343,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/5f11e46021245c2a58740a92.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/crrow777-lunar-wave.mp3"
+  },
+  "5f11ed658ed17b65b983cf4f": {
+   "bytes": 13850153,
+   "date": "2020-07-17",
+   "nopage": true,
+   "slug": "acast-5f11ed658ed17b65b983cf4f",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/5f11ed658ed17b65b983cf4f/media.mp3",
+   "title": "Ian Dowell | Introducing Soap Box Hero",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5f11ed658ed17b65b983cf4f.mp3"
   },
   "5f1227928ed17b65b983cf73": {
    "bytes": 42404273,
@@ -516,6 +616,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60046c268c85dd1704ce994d.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/david-weiss.mp3"
   },
+  "60076ca742ab4a7e4dd5aac1": {
+   "bytes": 9636377,
+   "date": "2021-01-19",
+   "nopage": true,
+   "slug": "acast-60076ca742ab4a7e4dd5aac1",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60076ca742ab4a7e4dd5aac1/media.mp3",
+   "title": "(PREVIEW) Dylan Saccoccio | Black Swans VS the Ball Model & Heliohexes",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60076ca742ab4a7e4dd5aac1.mp3"
+  },
   "600774e90a438540e4bfbc11": {
    "bytes": 89815605,
    "slug": "chance-garton-on-cosmic-keys-podcast",
@@ -534,6 +644,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/600777891360e83b7a4bedba.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/my-interview-on-enter-the-mystery-podcast-with-cam-keefe.mp3"
   },
+  "60119485d73873148230ea09": {
+   "bytes": 79793369,
+   "date": "2021-01-27",
+   "nopage": true,
+   "slug": "acast-60119485d73873148230ea09",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60119485d73873148230ea09/media.mp3",
+   "title": "Kerri Hummingbird | Healing With Ancestors, The Second Wave of Lightworkers & White Eagle",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60119485d73873148230ea09.mp3"
+  },
   "6012cb87d24aee1d9728af1b": {
    "bytes": 107453048,
    "slug": "learn-and-discern-the-ring-of-truth-chance-on-the-king-heros-journey-with-beth-martens",
@@ -543,6 +663,66 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6012cb87d24aee1d9728af1b.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/learn-and-discern-the-ring-of-truth-chance-on-the-king-heros-journey-with-beth-martens.mp3"
   },
+  "601c78c8abeef4769863d44c": {
+   "bytes": 85597168,
+   "date": "2021-02-05",
+   "nopage": true,
+   "slug": "acast-601c78c8abeef4769863d44c",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/601c78c8abeef4769863d44c/media.mp3",
+   "title": "Lindsey Scharmyn (Rogue Ways) | Analyzing the Transhuman Tarot & Archetypes of the Artificial Future",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-601c78c8abeef4769863d44c.mp3"
+  },
+  "6029659309d394525c838f98": {
+   "bytes": 78325483,
+   "date": "2021-02-14",
+   "nopage": true,
+   "slug": "acast-6029659309d394525c838f98",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6029659309d394525c838f98/media.mp3",
+   "title": "Kalina Lux | Templ\u012bs Aqu\u00e1ria, Synchronizing With Sovereignty and Inner Transmutation",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6029659309d394525c838f98.mp3"
+  },
+  "603004a5e7abcf644dd7aba5": {
+   "bytes": 67053521,
+   "date": "2021-02-19",
+   "nopage": true,
+   "slug": "acast-603004a5e7abcf644dd7aba5",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/603004a5e7abcf644dd7aba5/media.mp3",
+   "title": "Rogue Ways | Analyzing The Transhuman Tarot (Part 2): Darketypes & The Final Arcana",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-603004a5e7abcf644dd7aba5.mp3"
+  },
+  "603a591f7f426c6e783ce2b7": {
+   "bytes": 80047050,
+   "date": "2021-02-28",
+   "nopage": true,
+   "slug": "acast-603a591f7f426c6e783ce2b7",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/603a591f7f426c6e783ce2b7/media.mp3",
+   "title": "Ryan Kemp | Transcending Transactionality, and Wholeness In The Age of Separation",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-603a591f7f426c6e783ce2b7.mp3"
+  },
+  "6043dd4272d4aa44d8d3c33b": {
+   "bytes": 82580725,
+   "date": "2021-03-06",
+   "nopage": true,
+   "slug": "acast-6043dd4272d4aa44d8d3c33b",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6043dd4272d4aa44d8d3c33b/media.mp3",
+   "title": "Beth Martens | Archetypal Psychology, Self-Gnosis, And The Significance In Emptiness",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6043dd4272d4aa44d8d3c33b.mp3"
+  },
+  "604c1292fa97fa3712a57ff3": {
+   "bytes": 80154898,
+   "date": "2021-03-13",
+   "nopage": true,
+   "slug": "acast-604c1292fa97fa3712a57ff3",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/604c1292fa97fa3712a57ff3/media.mp3",
+   "title": "Loralee Scaife | Return of the King Within, Tolkien, and the Guiding Myth of Our Time",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-604c1292fa97fa3712a57ff3.mp3"
+  },
   "60512a03941ed46c2171e159": {
    "bytes": 127398450,
    "slug": "rogue-ways-god-is-a-verb",
@@ -551,6 +731,26 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60512a03941ed46c2171e159.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/rogue-ways-god-is-a-verb.mp3"
+  },
+  "60538e026bf9ae0a897b8e36": {
+   "bytes": 86681767,
+   "date": "2021-03-18",
+   "nopage": true,
+   "slug": "acast-60538e026bf9ae0a897b8e36",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60538e026bf9ae0a897b8e36/media.mp3",
+   "title": "Lindsey Scharmyn (Rogue Ways) | Psychic Parasites vs. Spiritual Guides, & Walking The Middle Path",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60538e026bf9ae0a897b8e36.mp3"
+  },
+  "605e885ee8c0a7409a31caeb": {
+   "bytes": 78055071,
+   "date": "2021-03-26",
+   "nopage": true,
+   "slug": "acast-605e885ee8c0a7409a31caeb",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/605e885ee8c0a7409a31caeb/media.mp3",
+   "title": "Historical Amnesia and the World's Fair Mystery with Howdie Mickoski and John Coleman",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-605e885ee8c0a7409a31caeb.mp3"
   },
   "6061d38987ba2b50ccbbe23e": {
    "bytes": 65395035,
@@ -569,6 +769,56 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/606235890c3e61512967f31b.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/rogue-ways-i-ching-chance-garton.mp3"
+  },
+  "6069d9a731d3d15b89d569f6": {
+   "bytes": 91828482,
+   "date": "2021-04-04",
+   "nopage": true,
+   "slug": "acast-6069d9a731d3d15b89d569f6",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6069d9a731d3d15b89d569f6/media.mp3",
+   "title": "clint > Richardson | Crimes of the Medical Mafia & The Corruption of Blood",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6069d9a731d3d15b89d569f6.mp3"
+  },
+  "6070a1cffc99d66dacd66d32": {
+   "bytes": 90272402,
+   "date": "2021-04-10",
+   "nopage": true,
+   "slug": "acast-6070a1cffc99d66dacd66d32",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6070a1cffc99d66dacd66d32/media.mp3",
+   "title": "Michael Tsarion | The Self and The Mysterium: Refuting Gnostic Dogma",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6070a1cffc99d66dacd66d32.mp3"
+  },
+  "60745060d7731d0d429c6dd1": {
+   "bytes": 149841205,
+   "date": "2021-04-12",
+   "nopage": true,
+   "slug": "acast-60745060d7731d0d429c6dd1",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60745060d7731d0d429c6dd1/media.mp3",
+   "title": "Dylan Saccoccio | Serious Questions About Money, Wealth, Currency & Crypto",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60745060d7731d0d429c6dd1.mp3"
+  },
+  "607c6d2da131c2504b4571ab": {
+   "bytes": 65874091,
+   "date": "2021-04-18",
+   "nopage": true,
+   "slug": "acast-607c6d2da131c2504b4571ab",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/607c6d2da131c2504b4571ab/media.mp3",
+   "title": "Beth Martens | Psychological Archetypes Within The Legal System - The Corporate Persona Vs. Self",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-607c6d2da131c2504b4571ab.mp3"
+  },
+  "608437d51b51dd29a1c552fd": {
+   "bytes": 70685157,
+   "date": "2021-04-24",
+   "nopage": true,
+   "slug": "acast-608437d51b51dd29a1c552fd",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/608437d51b51dd29a1c552fd/media.mp3",
+   "title": "Sepano Zadeh | The ART of the Fight: Mental Tools For Self Tuning",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-608437d51b51dd29a1c552fd.mp3"
   },
   "60915169cbde607346c0ce85": {
    "bytes": 181098348,
@@ -589,6 +839,76 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6095756da461284864f9bacc.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/santos-bonacci-syncretism-astrology.mp3"
   },
+  "609bd1e7c264b9389a115ae6": {
+   "bytes": 61563657,
+   "date": "2021-05-12",
+   "nopage": true,
+   "slug": "acast-609bd1e7c264b9389a115ae6",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/609bd1e7c264b9389a115ae6/media.mp3",
+   "title": "Derek Tikkuri (Gematrinator) | Gematria, Conceptual Hexes, And Numerical Synchromysticism",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-609bd1e7c264b9389a115ae6.mp3"
+  },
+  "60a2e81fb937707a5971e295": {
+   "bytes": 81682127,
+   "date": "2021-05-17",
+   "nopage": true,
+   "slug": "acast-60a2e81fb937707a5971e295",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60a2e81fb937707a5971e295/media.mp3",
+   "title": "Michael Wann | The Tao of Multidimensional Creativity & Innovating Personal Systems",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60a2e81fb937707a5971e295.mp3"
+  },
+  "60a8f6eb9fb1da0012c81397": {
+   "bytes": 84790843,
+   "date": "2021-05-22",
+   "nopage": true,
+   "slug": "acast-60a8f6eb9fb1da0012c81397",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60a8f6eb9fb1da0012c81397/media.mp3",
+   "title": "Mitch The Orgone Donor | Reich Tech, Orgonite Gifting, & Busting The EMF Smog and Chem Cloud Agenda",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60a8f6eb9fb1da0012c81397.mp3"
+  },
+  "60bcfd03d3cdd0001b29db2a": {
+   "bytes": 64030461,
+   "date": "2021-06-06",
+   "nopage": true,
+   "slug": "acast-60bcfd03d3cdd0001b29db2a",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60bcfd03d3cdd0001b29db2a/media.mp3",
+   "title": "Emily Ridout | Astro-Yoga, Mercury and Mental Energy, & Navigating Powerful Eclipse Cycles",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60bcfd03d3cdd0001b29db2a.mp3"
+  },
+  "60c0c67a24d6f60013f789bb": {
+   "bytes": 76608936,
+   "date": "2021-06-10",
+   "nopage": true,
+   "slug": "acast-60c0c67a24d6f60013f789bb",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60c0c67a24d6f60013f789bb/media.mp3",
+   "title": "Allen Marcus | PODs, Dogefathers, & Neverending Stories - Swimming In Synchromystic Streams",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60c0c67a24d6f60013f789bb.mp3"
+  },
+  "60d1e57546932700145db90f": {
+   "bytes": 76043025,
+   "date": "2021-06-22",
+   "nopage": true,
+   "slug": "acast-60d1e57546932700145db90f",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60d1e57546932700145db90f/media.mp3",
+   "title": "Joakim H\u00e4ggstr\u00f6m | Pagan Roots, the Bock Saga, Dead Languages & Secret Societies of Sweden",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60d1e57546932700145db90f.mp3"
+  },
+  "60e20b29ac95f6001308bf89": {
+   "bytes": 67462331,
+   "date": "2021-07-04",
+   "nopage": true,
+   "slug": "acast-60e20b29ac95f6001308bf89",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60e20b29ac95f6001308bf89/media.mp3",
+   "title": "Peter Conley | Psychedelics & The Integration Station: Turning Altered States Into Altered Traits",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60e20b29ac95f6001308bf89.mp3"
+  },
   "60e453b5209a8b0012743e28": {
    "bytes": 108585274,
    "slug": "king-heros-journey-stealth-grace",
@@ -597,6 +917,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60e453b5209a8b0012743e28.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/king-heros-journey-stealth-grace.mp3"
+  },
+  "60e8889d04c59f001360fdc1": {
+   "bytes": 67689689,
+   "date": "2021-07-09",
+   "nopage": true,
+   "slug": "acast-60e8889d04c59f001360fdc1",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60e8889d04c59f001360fdc1/media.mp3",
+   "title": "Jorge Mesa | The Gamification of Society: Video Games, Simulations & Social Engineering",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60e8889d04c59f001360fdc1.mp3"
   },
   "60eeeb6e1c94860015440c10": {
    "bytes": 70920510,
@@ -607,6 +937,46 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/60eeeb6e1c94860015440c10.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/eileen-mckusick-self-talk-electric-health.mp3"
+  },
+  "60fd83e3f767d70012dbfc2a": {
+   "bytes": 62069390,
+   "date": "2021-07-25",
+   "nopage": true,
+   "slug": "acast-60fd83e3f767d70012dbfc2a",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60fd83e3f767d70012dbfc2a/media.mp3",
+   "title": "Mitch The Orgone Donor | Monsoons In The Desert & Solutions To Controlled Climate Chaos",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60fd83e3f767d70012dbfc2a.mp3"
+  },
+  "60fd867646902b001317d309": {
+   "bytes": 76099848,
+   "date": "2021-07-25",
+   "nopage": true,
+   "slug": "acast-60fd867646902b001317d309",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/60fd867646902b001317d309/media.mp3",
+   "title": "Benjamin Balderson | Esoteric Alchemy, Emasculated Society & The Salts of Salvation",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-60fd867646902b001317d309.mp3"
+  },
+  "610980084ad091001267bac5": {
+   "bytes": 79971396,
+   "date": "2021-08-03",
+   "nopage": true,
+   "slug": "acast-610980084ad091001267bac5",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/610980084ad091001267bac5/media.mp3",
+   "title": "Paul Lenda | Defying Digital Overlords & Decentralizing Electronic Commerce",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-610980084ad091001267bac5.mp3"
+  },
+  "6111372154d00a00130ebaa5": {
+   "bytes": 71458387,
+   "date": "2021-08-10",
+   "nopage": true,
+   "slug": "acast-6111372154d00a00130ebaa5",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6111372154d00a00130ebaa5/media.mp3",
+   "title": "Wayne Mcroy Jr | Transhumanism & The Cybernetic Messiah Control Grid",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6111372154d00a00130ebaa5.mp3"
   },
   "611aece32ce03f0012d13e56": {
    "bytes": 65561821,
@@ -661,6 +1031,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/614893685780800012873737.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/slick-dissident.mp3"
+  },
+  "615216d82a270300128311a5": {
+   "bytes": 85602560,
+   "date": "2021-09-28",
+   "nopage": true,
+   "slug": "acast-615216d82a270300128311a5",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/615216d82a270300128311a5/media.mp3",
+   "title": "Michelle Gibson | Piercing the Veil of Illusion: Mudfloods and Secret Resets",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-615216d82a270300128311a5.mp3"
   },
   "6159b673dadda3001a123f0f": {
    "bytes": 73848704,
@@ -879,6 +1259,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61b4005c48392200132cdf72.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/emily-ridout-astroyoga-2021-2022.mp3"
   },
+  "61b4187adf210c0014b00848": {
+   "bytes": 82599559,
+   "date": "2021-12-12",
+   "nopage": true,
+   "slug": "acast-61b4187adf210c0014b00848",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/61b4187adf210c0014b00848/media.mp3",
+   "title": "Marty Leeds | A Gnostic Christian Revival: The Mathematics of Logos & Gematria of the Christos",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-61b4187adf210c0014b00848.mp3"
+  },
   "61b4dea0df210c0014b380b9": {
    "bytes": 127118034,
    "slug": "vibe-rant-16",
@@ -997,6 +1387,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/61da75ed35501c0012bd19b5.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/false-reality-check-53-with-chance-garton-amp-mitch-the-orgone-donor.mp3"
   },
+  "61da847a8657180013a01a2f": {
+   "bytes": 83469330,
+   "date": "2022-01-10",
+   "nopage": true,
+   "slug": "acast-61da847a8657180013a01a2f",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/61da847a8657180013a01a2f/media.mp3",
+   "title": "George Wiseman | The Magic of Hydrogen: Brown's Gas, Energy Technology, & Life As An Inventor",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-61da847a8657180013a01a2f.mp3"
+  },
   "61e0fa364fc4740013f44ad9": {
    "bytes": 123630448,
    "slug": "vibe-rant-22",
@@ -1105,6 +1505,16 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62059d054750d30012b2994e/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-26.mp3"
+  },
+  "620ec11bac775d0013b33c97": {
+   "bytes": 37782845,
+   "date": "2022-02-18",
+   "nopage": true,
+   "slug": "acast-620ec11bac775d0013b33c97",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/620ec11bac775d0013b33c97/media.mp3",
+   "title": "Mario Garza | Syncretism & Symbolic Studies: The Polar True North Within & Solar-Centric Sorcery",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-620ec11bac775d0013b33c97.mp3"
   },
   "620ec6ef6e69eb0012f7c08e": {
    "bytes": 65960363,
@@ -1504,6 +1914,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62a89d3f6af3920012d78c51.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/healing-vibes-with-chance-garton-on-soul-nectar-show.mp3"
   },
+  "62a89d4b43505000133735cb": {
+   "bytes": 96311122,
+   "date": "2022-06-14",
+   "nopage": true,
+   "slug": "acast-62a89d4b43505000133735cb",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62a89d4b43505000133735cb/media.mp3",
+   "title": "Full Moon in Sagittarius | Moonday Tarot for June 13th with Kayleigh Berkana & Rachel Munoz",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-62a89d4b43505000133735cb.mp3"
+  },
   "62ab6743c0474c00123fe2a1": {
    "bytes": 72531332,
    "slug": "vibe-rant-43",
@@ -1557,6 +1977,16 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62be029e99d33c00125710b2/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-45.mp3"
+  },
+  "62bf24ebad31000013707dc4": {
+   "bytes": 113878707,
+   "date": "2022-07-01",
+   "nopage": true,
+   "slug": "acast-62bf24ebad31000013707dc4",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62bf24ebad31000013707dc4/media.mp3",
+   "title": "Chance Garton on Dig Within Podcast | Deep Dive Into The Innerverse",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-62bf24ebad31000013707dc4.mp3"
   },
   "62bf2defb00d0000129a2803": {
    "bytes": 43893599,
@@ -1640,6 +2070,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62daf505dfa4450013eeec3f.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/dr-greg-l-little-origins-of-the-gods.mp3"
   },
+  "62e145d86e582f0014e2a9fc": {
+   "bytes": 16848059,
+   "date": "2022-07-27",
+   "nopage": true,
+   "slug": "acast-62e145d86e582f0014e2a9fc",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62e145d86e582f0014e2a9fc/media.mp3",
+   "title": "SPEAKEASY Episode 4 with Chance Garton (preview from Cosmic Keys Podcast)",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-62e145d86e582f0014e2a9fc.mp3"
+  },
   "62e2c731bd17c20012f08211": {
    "bytes": 65770389,
    "slug": "vibe-rant-49",
@@ -1667,6 +2107,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/62e9b4b2a6961d0017f9bba1.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-9.mp3"
   },
+  "62ec09f1744caa0013cd4b39": {
+   "bytes": 45624987,
+   "date": "2022-08-05",
+   "nopage": true,
+   "slug": "acast-62ec09f1744caa0013cd4b39",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62ec09f1744caa0013cd4b39/media.mp3",
+   "title": "John Munro | Between Heaven and Earth: Meridians, Movement, & Long White Cloud Qi Gong",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-62ec09f1744caa0013cd4b39.mp3"
+  },
   "62ec0fb8495cb40012a794c2": {
    "bytes": 63438795,
    "slug": "vibe-rant-50",
@@ -1675,6 +2125,16 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62ec0fb8495cb40012a794c2/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-50.mp3"
+  },
+  "62f57121e0eb65001586760b": {
+   "bytes": 37756282,
+   "date": "2022-08-12",
+   "nopage": true,
+   "slug": "acast-62f57121e0eb65001586760b",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62f57121e0eb65001586760b/media.mp3",
+   "title": "Jason Quitt | Egyptian Postures of Power, Mystic Self-Healing, & Shamanic Dream Teachers",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-62f57121e0eb65001586760b.mp3"
   },
   "62f573833268480011fb0381": {
    "bytes": 84181923,
@@ -1685,6 +2145,16 @@
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62f573833268480011fb0381/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-51.mp3"
   },
+  "62f915a3c6fbda00131d3eff": {
+   "bytes": 37176557,
+   "date": "2022-08-14",
+   "nopage": true,
+   "slug": "acast-62f915a3c6fbda00131d3eff",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62f915a3c6fbda00131d3eff/media.mp3",
+   "title": "Aether & The Pleromic Void   Chance Garton on Strange Mosaic with Emily Moyer",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-62f915a3c6fbda00131d3eff.mp3"
+  },
   "62fff7ab8666ed00148e5c37": {
    "bytes": 82939135,
    "slug": "vibe-rant-52",
@@ -1693,6 +2163,16 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62fff7ab8666ed00148e5c37/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-52.mp3"
+  },
+  "62fff93f63861f00133d8f74": {
+   "bytes": 52635179,
+   "date": "2022-08-19",
+   "nopage": true,
+   "slug": "acast-62fff93f63861f00133d8f74",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/62fff93f63861f00133d8f74/media.mp3",
+   "title": "Syncretism And Sound Healing | Chance Garton on Feel The Link Podcast",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-62fff93f63861f00133d8f74.mp3"
   },
   "630130e5cdc26b0013e1bf2a": {
    "bytes": 108539523,
@@ -1766,6 +2246,16 @@
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63235530ac3d0f0013beec7c/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-56.mp3"
   },
+  "63235542a3d94600120bf28c": {
+   "bytes": 100029691,
+   "date": "2022-09-15",
+   "nopage": true,
+   "slug": "acast-63235542a3d94600120bf28c",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63235542a3d94600120bf28c/media.mp3",
+   "title": "Sound And Frequency Healing | Chance Garton on Lighting the Void with Joe Rupe",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-63235542a3d94600120bf28c.mp3"
+  },
   "6327676258412d001298df83": {
    "bytes": 39408465,
    "slug": "benjamin-balderson-laboratory-alchemy",
@@ -1783,6 +2273,16 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/632c8e410b0d520016e930ed/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-57.mp3"
+  },
+  "632c90abb58ea30011e0f227": {
+   "bytes": 52164193,
+   "date": "2022-09-22",
+   "nopage": true,
+   "slug": "acast-632c90abb58ea30011e0f227",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/632c90abb58ea30011e0f227/media.mp3",
+   "title": "Tools, Techniques and Mindsets for Aura Technicians | Chance Garton on Ascension of the Chessmen",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-632c90abb58ea30011e0f227.mp3"
   },
   "6330970386cc7d00115799de": {
    "bytes": 41211756,
@@ -1847,6 +2347,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6346e00a84830f0012f8baa0.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-12.mp3"
   },
+  "6346e12b8f0d4900116badab": {
+   "bytes": 17233219,
+   "date": "2022-10-12",
+   "nopage": true,
+   "slug": "acast-6346e12b8f0d4900116badab",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6346e12b8f0d4900116badab/media.mp3",
+   "title": "PAT Life Ep. 138 | Tuning Your Biofield With Sound (Chance Garton Interviewed)",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6346e12b8f0d4900116badab.mp3"
+  },
   "634700eea23fcd0012cf2448": {
    "bytes": 39721514,
    "slug": "elise-frosch-birth-keeper",
@@ -1864,6 +2374,16 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/634792e7892bfd0011e0c9b7/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-60.mp3"
+  },
+  "6353fbad0769a2001167866f": {
+   "bytes": 56616416,
+   "date": "2022-10-22",
+   "nopage": true,
+   "slug": "acast-6353fbad0769a2001167866f",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6353fbad0769a2001167866f/media.mp3",
+   "title": "Over Sharon 35: Chance Garton - Chatting with Chance",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6353fbad0769a2001167866f.mp3"
   },
   "63555d5322c1ef0012b33429": {
    "bytes": 41487615,
@@ -1928,6 +2448,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/636fb97fef3e200012bd923b.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/eileen-mckusick-sing-the-body-electric.mp3"
   },
+  "6372a067ab61cd001083263a": {
+   "bytes": 138663718,
+   "date": "2022-11-14",
+   "nopage": true,
+   "slug": "acast-6372a067ab61cd001083263a",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6372a067ab61cd001083263a/media.mp3",
+   "title": "The Sun of God with Chance Garton on False Reality Check #104",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6372a067ab61cd001083263a.mp3"
+  },
   "637818293e348f001116593e": {
    "bytes": 80088679,
    "slug": "vibe-rant-64",
@@ -1937,6 +2467,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/637818293e348f001116593e.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-64.mp3"
   },
+  "63781b659b896a00119fe0a6": {
+   "bytes": 30947540,
+   "date": "2022-11-18",
+   "nopage": true,
+   "slug": "acast-63781b659b896a00119fe0a6",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63781b659b896a00119fe0a6/media.mp3",
+   "title": "Music and Sky '22 Campfire Podcast w/ Kelly Brogan, Alec Zeck, Eileen McKusick and Chance Garton",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-63781b659b896a00119fe0a6.mp3"
+  },
   "637bc8627e88c40010964a34": {
    "bytes": 36294251,
    "slug": "dylan-saccoccio-holy-sailors",
@@ -1945,6 +2485,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/637bc8627e88c40010964a34.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-holy-sailors.mp3"
+  },
+  "637c4cd6e48b98001185655f": {
+   "bytes": 111840778,
+   "date": "2022-11-22",
+   "nopage": true,
+   "slug": "acast-637c4cd6e48b98001185655f",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/637c4cd6e48b98001185655f/media.mp3",
+   "title": "This Is Not a Simulation |  Chance Garton on Episode 97 of Here For The Truth Podcast",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-637c4cd6e48b98001185655f.mp3"
   },
   "638028a29e5dcf001196a3a7": {
    "bytes": 62033046,
@@ -2010,6 +2560,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/639f5aa4c7693300129ac154.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-68.mp3"
   },
+  "639fa60bfff9190011b85e69": {
+   "bytes": 36525379,
+   "date": "2022-12-19",
+   "nopage": true,
+   "slug": "acast-639fa60bfff9190011b85e69",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/639fa60bfff9190011b85e69/media.mp3",
+   "title": "Josh & Adam Bigelsen | Images In Holographic Blood & the Wisdom of Fractal Nature",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-639fa60bfff9190011b85e69.mp3"
+  },
   "63a6327482094f00102c688f": {
    "bytes": 68295121,
    "slug": "vibe-rant-69",
@@ -2018,6 +2578,26 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63a6327482094f00102c688f/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-69.mp3"
+  },
+  "63a74308471563001012fb01": {
+   "bytes": 81573272,
+   "date": "2022-12-24",
+   "nopage": true,
+   "slug": "acast-63a74308471563001012fb01",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63a74308471563001012fb01/media.mp3",
+   "title": "The Science of Solfeggio - Resonating Trinities & The Frequency Prism (Chance on RFTA ep. 94)",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-63a74308471563001012fb01.mp3"
+  },
+  "63af304a4722fa0011b50421": {
+   "bytes": 72144865,
+   "date": "2022-12-30",
+   "nopage": true,
+   "slug": "acast-63af304a4722fa0011b50421",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63af304a4722fa0011b50421/media.mp3",
+   "title": "The Healing Home: Chance of The InnerVerse Podcast - Ep 06",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-63af304a4722fa0011b50421.mp3"
   },
   "63b069034722fa0011e993a1": {
    "bytes": 63102782,
@@ -2101,6 +2681,16 @@
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63d2cc6bc539150011bcd398/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-74.mp3"
   },
+  "63d6e56204d213001155b801": {
+   "bytes": 117881184,
+   "date": "2023-01-29",
+   "nopage": true,
+   "slug": "acast-63d6e56204d213001155b801",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63d6e56204d213001155b801/media.mp3",
+   "title": "THIRD EYE EDIFY Ep.21 \"The Technology of Language\" with Chance Garton",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-63d6e56204d213001155b801.mp3"
+  },
   "63daa8b71e96380010c28e3f": {
    "bytes": 33170217,
    "slug": "emily-ridout-astroyoga-aquarian-age",
@@ -2109,6 +2699,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63daa8b71e96380010c28e3f.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/emily-ridout-astroyoga-aquarian-age.mp3"
+  },
+  "63daaa20630e5f0011c10f54": {
+   "bytes": 96668843,
+   "date": "2023-02-01",
+   "nopage": true,
+   "slug": "acast-63daaa20630e5f0011c10f54",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63daaa20630e5f0011c10f54/media.mp3",
+   "title": "Hermetic Harmonics | Chance Garton Interviewed on Loco Listens Podcast ep. 36",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-63daaa20630e5f0011c10f54.mp3"
   },
   "63dc90ee639e350012dc7000": {
    "bytes": 82283168,
@@ -2128,6 +2728,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/63e30bcdaadc450011137b18.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/david-mathisen-star-myths.mp3"
   },
+  "63e3e88b94685400110f62c3": {
+   "bytes": 74383240,
+   "date": "2023-02-08",
+   "nopage": true,
+   "slug": "acast-63e3e88b94685400110f62c3",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63e3e88b94685400110f62c3/media.mp3",
+   "title": "\"We are Whole\" - Chance Garton on the Source Connection Podcast",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-63e3e88b94685400110f62c3.mp3"
+  },
   "63e941a47cc1970011713060": {
    "bytes": 70128079,
    "slug": "vibe-rant-76",
@@ -2136,6 +2746,16 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63e941a47cc1970011713060/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-76.mp3"
+  },
+  "63e94631b4191e001048d639": {
+   "bytes": 102086742,
+   "date": "2023-02-12",
+   "nopage": true,
+   "slug": "acast-63e94631b4191e001048d639",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/63e94631b4191e001048d639/media.mp3",
+   "title": "AstroTheology, the Celestial Codes, Mirrors of Mysticism | Chance Garton on Tin Foil Hat ep. 643",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-63e94631b4191e001048d639.mp3"
   },
   "63eb9aafe7cacc00115f6869": {
    "bytes": 38881021,
@@ -2264,6 +2884,16 @@
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6429abef5f80b2001139db19/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-83.mp3"
   },
+  "6429b023de6a3f0011205380": {
+   "bytes": 37746452,
+   "date": "2023-04-03",
+   "nopage": true,
+   "slug": "acast-6429b023de6a3f0011205380",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6429b023de6a3f0011205380/media.mp3",
+   "title": "George Wiseman | The Aquacure AC50: Intelligent Regeneration With Help From Hydrogen",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6429b023de6a3f0011205380.mp3"
+  },
   "6432db56dd3f7d0011fdb134": {
    "bytes": 39875544,
    "slug": "isabel-friend-water-is-life",
@@ -2301,6 +2931,26 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/643edbb1c9ba5a00112cfbd3.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-norse-phoenicians-te78l.mp3"
   },
+  "64440a9fdcef5900116f18a6": {
+   "bytes": 75837336,
+   "date": "2023-04-22",
+   "nopage": true,
+   "slug": "acast-64440a9fdcef5900116f18a6",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64440a9fdcef5900116f18a6/media.mp3",
+   "title": "The Root of all Religion with Chance Garton on Soul Nectar Show",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-64440a9fdcef5900116f18a6.mp3"
+  },
+  "64440aecf659a800105f8424": {
+   "bytes": 126980871,
+   "date": "2023-04-22",
+   "nopage": true,
+   "slug": "acast-64440aecf659a800105f8424",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64440aecf659a800105f8424/media.mp3",
+   "title": "NATURAL AF PODCAST Episode 7 Deep Downloads with Chance Garton",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-64440aecf659a800105f8424.mp3"
+  },
   "64440bf24561b100119170ac": {
    "bytes": 81464790,
    "slug": "vibe-rant-86",
@@ -2309,6 +2959,26 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64440bf24561b100119170ac/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-86.mp3"
+  },
+  "64440cc0c9ba5a00112605bb": {
+   "bytes": 66952391,
+   "date": "2023-04-22",
+   "nopage": true,
+   "slug": "acast-64440cc0c9ba5a00112605bb",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64440cc0c9ba5a00112605bb/media.mp3",
+   "title": "Parallel Mike Podcast Ep5: Healing Sounds & Hidden Histories with Chance Garton",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-64440cc0c9ba5a00112605bb.mp3"
+  },
+  "64440d2a8aa57e00119d0012": {
+   "bytes": 127855656,
+   "date": "2023-04-22",
+   "nopage": true,
+   "slug": "acast-64440d2a8aa57e00119d0012",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64440d2a8aa57e00119d0012/media.mp3",
+   "title": "ALFA VEDIC - Reclaiming The Narrative w/ Chance Garton",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-64440d2a8aa57e00119d0012.mp3"
   },
   "6445f4c1dcef590011c64ceb": {
    "bytes": 33039623,
@@ -2354,6 +3024,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/645032921fbd8000111e1647.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/marvelous-demystifiers-14.mp3"
+  },
+  "64504575730854001143cae6": {
+   "bytes": 80335058,
+   "date": "2023-05-01",
+   "nopage": true,
+   "slug": "acast-64504575730854001143cae6",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64504575730854001143cae6/media.mp3",
+   "title": "Biofield Tuning & Gnostic Misunderstandings | Chance Garton on Forbidden Knowledge News",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-64504575730854001143cae6.mp3"
   },
   "6457d399eff3730011042480": {
    "bytes": 91713788,
@@ -2445,6 +3125,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6484f3ff1afaa2001143c7e2.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-93.mp3"
   },
+  "6484f4e62b317a0011155e7c": {
+   "bytes": 67376202,
+   "date": "2023-06-10",
+   "nopage": true,
+   "slug": "acast-6484f4e62b317a0011155e7c",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6484f4e62b317a0011155e7c/media.mp3",
+   "title": "Getting a Grip on Gnosticism with Innerverse's Chance Garton | Over Sharon #065",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6484f4e62b317a0011155e7c.mp3"
+  },
   "648763671dba0300116c607f": {
    "bytes": 45194509,
    "slug": "clint-richardson-private-bloodlines",
@@ -2516,6 +3206,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64a86cc1fa3d060011437385.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-97.mp3"
+  },
+  "64a86e9fd626a6001140eb87": {
+   "bytes": 90997983,
+   "date": "2023-07-07",
+   "nopage": true,
+   "slug": "acast-64a86e9fd626a6001140eb87",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64a86e9fd626a6001140eb87/media.mp3",
+   "title": "\"The Obstacle is the Way\" w/Chance Garton & Jared Weiss",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-64a86e9fd626a6001140eb87.mp3"
   },
   "64aaed5a7b60ed001174c747": {
    "bytes": 35431607,
@@ -2635,6 +3335,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/64eba029dec1b000122f2036.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/jan-ott-dylan-saccoccio-oera-linda-book.mp3"
   },
+  "64ef8b505464d50011c02b33": {
+   "bytes": 92872528,
+   "date": "2023-08-30",
+   "nopage": true,
+   "slug": "acast-64ef8b505464d50011c02b33",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/64ef8b505464d50011c02b33/media.mp3",
+   "title": "Paranoid American Podcast 001: Chance Garton of InnerVerse Podcast",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-64ef8b505464d50011c02b33.mp3"
+  },
   "64f61f7dd5566e00106d85e3": {
    "bytes": 64526807,
    "slug": "vibe-rant-103",
@@ -2679,6 +3389,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6505de8dcfc4540011750364.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-105.mp3"
+  },
+  "6505e0777bb4e10012f91c86": {
+   "bytes": 117699363,
+   "date": "2023-09-16",
+   "nopage": true,
+   "slug": "acast-6505e0777bb4e10012f91c86",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6505e0777bb4e10012f91c86/media.mp3",
+   "title": "Conspirituality: The Spiritual Side of Conspiracy with Chance Garton | Alt-ernative Podcast #042",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-6505e0777bb4e10012f91c86.mp3"
   },
   "65072da7ccb27600110f410c": {
    "bytes": 39326149,
@@ -2735,6 +3455,26 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6520431e8e657c00114133af.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-108.mp3"
   },
+  "65231cf3ed688f0011efe122": {
+   "bytes": 42957716,
+   "date": "2023-10-08",
+   "nopage": true,
+   "slug": "acast-65231cf3ed688f0011efe122",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/65231cf3ed688f0011efe122/media.mp3",
+   "title": "Chance Garton on Mystical American Patriots Society",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-65231cf3ed688f0011efe122.mp3"
+  },
+  "652431a6cb3bd40012a945b1": {
+   "bytes": 53943030,
+   "date": "2023-10-09",
+   "nopage": true,
+   "slug": "acast-652431a6cb3bd40012a945b1",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/652431a6cb3bd40012a945b1/media.mp3",
+   "title": "ShaOne & Slick | The Seven Scales of Creation: Universal Harmonic Patterns In Musical Modes",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-652431a6cb3bd40012a945b1.mp3"
+  },
   "652830e1b774f700118c2ff6": {
    "bytes": 97441083,
    "slug": "vibe-rant-109",
@@ -2762,6 +3502,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65315af0a1d9fe00121a55dc.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/owen-benjamin-noble-savage.mp3"
+  },
+  "653816f5bc6f90001228a5d9": {
+   "bytes": 69769850,
+   "date": "2023-10-24",
+   "nopage": true,
+   "slug": "acast-653816f5bc6f90001228a5d9",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/653816f5bc6f90001228a5d9/media.mp3",
+   "title": "Designing The Inner World | w/ Chance From The InnerVerse Podcast! (Reality Designers Podcast)",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-653816f5bc6f90001228a5d9.mp3"
   },
   "65381760ebdabd0012135dcb": {
    "bytes": 120353812,
@@ -3069,6 +3819,16 @@
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65e9f4caf4982e00170a8805.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-121.mp3"
   },
+  "65ea33f8fe108d0016c0b64a": {
+   "bytes": 8442448,
+   "date": "2024-03-07",
+   "nopage": true,
+   "slug": "acast-65ea33f8fe108d0016c0b64a",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/65ea33f8fe108d0016c0b64a/media.mp3",
+   "title": "Alien Italians? | Inner Whirled Episode 1 (with Dylan Saccocio & Chance Garton) - PREVIEW -",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-65ea33f8fe108d0016c0b64a.mp3"
+  },
   "65f47de1da458200167b174c": {
    "bytes": 98893063,
    "slug": "marvelous-demystifiers-28",
@@ -3086,6 +3846,16 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/65f47e28da458200167b20ab.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/vibe-rant-122.mp3"
+  },
+  "65f484a2a062680017181aa6": {
+   "bytes": 12011072,
+   "date": "2024-03-15",
+   "nopage": true,
+   "slug": "acast-65f484a2a062680017181aa6",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/65f484a2a062680017181aa6/media.mp3",
+   "title": "Who Are the Pelasgians? | Inner Whirled Episode 2 (with Chance Garton & Dylan Saccoccio) **PREVIEW**",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-65f484a2a062680017181aa6.mp3"
   },
   "65f86cfa1ca19d0016194842": {
    "bytes": 39694787,
