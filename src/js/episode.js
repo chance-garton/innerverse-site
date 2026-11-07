@@ -3026,6 +3026,7 @@
   window.IV_EPISODE_BUILD = IV_BUILD;
 
   var IV_VIDEO = { player: null, platform: '', ready: false };
+  window.__ivVideo = IV_VIDEO; /* read by my-library.js to mark an episode watched near the end (2026-11-07) */
   var ivYtApiPromise = null, ivVimeoApiPromise = null;
 
   function ivLoadScriptOnce(src, isReady) {

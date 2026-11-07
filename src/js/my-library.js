@@ -17,6 +17,9 @@
   if (top !== 'episodes' && top !== 'plus') return;
   var slug = decodeURIComponent(seg[1]).toLowerCase();
   var isPlus = top === 'plus';
+  /* 2026-11-07 Mark as watched (the same mark the app keeps): this page's own version is the one
+     marked; marking a /plus page also marks its free twin, a free page never marks the /plus one */
+  var CHECK = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>';
   var HEART = function (on) {
     return '<svg viewBox="0 0 24 24" width="18" height="18" fill="' + (on ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>';
   };
@@ -82,7 +85,8 @@
     card.id = 'ivml';
     card.innerHTML =
       '<div class="ivml-top"><div><span class="iv2-eyebrow iv2-gold">Just for you</span><h3 class="iv2-h3">My library</h3></div>' +
-        '<button type="button" class="iv2-btn iv2-btn-secondary ivml-save" aria-pressed="false">' + HEART(false) + '<span>Save episode</span></button></div>' +
+        '<div class="ivml-acts"><button type="button" class="iv2-btn iv2-btn-secondary ivml-watch" aria-pressed="false">' + CHECK + '<span>Mark as watched</span></button>' +
+        '<button type="button" class="iv2-btn iv2-btn-secondary ivml-save" aria-pressed="false">' + HEART(false) + '<span>Save episode</span></button></div></div>' +
       '<label class="ivml-label" for="ivml-note">My notes <span>(private, only you can see them)</span></label>' +
       '<textarea id="ivml-note" class="ivml-note" maxlength="10000" placeholder="Thoughts, sources to look up, moments to come back to."></textarea>' +
       '<div class="ivml-bar"><span class="ivml-msg">Saved to your account, here and in the InnerVerse app.</span><a href="' + APP_LIB + '" target="_blank" rel="noopener">Open My library</a></div>';
@@ -97,8 +101,40 @@
       '<div class="ivml-bar"><span>Share what stood out with fellow members in this episode\'s own room.</span></div>';
     card.parentElement.insertBefore(room, card.nextSibling);
     var btn = card.querySelector('.ivml-save'), ta = card.querySelector('.ivml-note'), msg = card.querySelector('.ivml-msg');
+    var wbtn = card.querySelector('.ivml-watch');
     var base = msg.textContent, key = '', saved = false, last = '', t = null, mt = null;
-    ta.disabled = true; btn.disabled = true;
+    var wkey = '', wtwin = '', watched = false, wbusy = false;
+    ta.disabled = true; btn.disabled = true; wbtn.disabled = true;
+    function paintW() {
+      wbtn.classList.toggle('ivml-seen', watched);
+      wbtn.setAttribute('aria-pressed', watched ? 'true' : 'false');
+      wbtn.innerHTML = CHECK + '<span>' + (watched ? 'Watched' : 'Mark as watched') + '</span>';
+    }
+    function setWatched(on, quiet) {
+      if (!wkey || wbusy) return;
+      wbusy = true; watched = on; paintW();
+      var calls = [api('POST', { key: wkey, watched: on })];
+      if (wtwin) calls.push(api('POST', { key: wtwin, watched: on }));
+      Promise.all(calls).then(function () { if (!quiet) say(on ? 'Marked as watched.' : 'Marked as not watched.', true); })
+        ['catch'](function () { watched = !on; paintW(); say('Not saved. Check your connection.'); })
+        .then(function () { wbusy = false; });
+    }
+    wbtn.addEventListener('click', function () { setWatched(!watched); });
+    /* near the end (the last minute, or the last 3 percent) of the audio or the video marks it watched */
+    function nearEnd(t, d) { return d > 0 && t >= d - Math.max(60, d * 0.03); }
+    setInterval(function () {
+      if (!wkey || watched || wbusy) return;
+      var au = document.getElementById('iv-audio-el');
+      if (au && !au.paused && nearEnd(au.currentTime, au.duration)) { setWatched(true, true); return; }
+      var v = window.__ivVideo, p = v && v.ready && v.player;
+      if (!p) return;
+      try {
+        if (v.platform === 'youtube' && p.getCurrentTime && p.getPlayerState && p.getPlayerState() === 1 && nearEnd(p.getCurrentTime(), p.getDuration())) setWatched(true, true);
+        else if (v.platform === 'vimeo' && p.getPaused) {
+          p.getPaused().then(function (pz) { if (pz) return; return Promise.all([p.getCurrentTime(), p.getDuration()]).then(function (x) { if (nearEnd(x[0], x[1]) && !watched) setWatched(true, true); }); })['catch'](function () {});
+        }
+      } catch (e) {}
+    }, 10000);
     function paint() {
       btn.classList.toggle('ivml-on', saved);
       btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
@@ -107,7 +143,13 @@
     function say(s, back) { msg.textContent = s; clearTimeout(mt); if (back) mt = setTimeout(function () { msg.textContent = base; }, 1800); }
     Promise.all([keys(), api('GET')]).then(function (res) {
       var k = res[0], items = (res[1] && res[1].items) || [];
-      var mine = items.filter(function (x) { return x.key === k.main; })[0] || (k.twin && items.filter(function (x) { return x.key === k.twin; })[0]) || null;
+      /* the row holding a save or a note (a watched-only row on the other version must not hide them) */
+      var has = function (x) { return x && (x.saved || x.note); };
+      var a1 = items.filter(function (x) { return x.key === k.main; })[0], b1 = k.twin && items.filter(function (x) { return x.key === k.twin; })[0];
+      var mine = has(a1) ? a1 : has(b1) ? b1 : null;
+      wkey = (isPlus ? 'p:' : 'e:') + slug; wtwin = isPlus && k.twin ? k.twin : '';
+      var wrow = items.filter(function (x) { return x.key === wkey; })[0];
+      watched = !!(wrow && wrow.watched); paintW(); wbtn.disabled = false;
       key = mine ? mine.key : k.main;
       saved = !!(mine && mine.saved);
       ta.value = last = (mine && mine.note) || '';
