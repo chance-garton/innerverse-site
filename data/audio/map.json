@@ -1,5 +1,33 @@
 {
- "bytes": 0,
- "count": 0,
- "episodes": {}
+ "bytes": 255720558,
+ "count": 3,
+ "episodes": {
+  "6ad8e512f1b125139912089a": {
+   "bytes": 99047871,
+   "slug": "astroherbalism-libra",
+   "slugs": [
+    "astroherbalism-libra"
+   ],
+   "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ad8e512f1b125139912089a.mp3",
+   "url": "https://audio.innerversepodcast.com/episodes/astroherbalism-libra.mp3"
+  },
+  "6ade173faa04895c1fff6ee8": {
+   "bytes": 64157934,
+   "slug": "kyle-denton-herbal-dentistry",
+   "slugs": [
+    "kyle-denton-herbal-dentistry"
+   ],
+   "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ade173faa04895c1fff6ee8.mp3",
+   "url": "https://audio.innerversepodcast.com/episodes/kyle-denton-herbal-dentistry.mp3"
+  },
+  "6ae7523aaa1187db3696975c": {
+   "bytes": 92514753,
+   "slug": "inner-whirled-32",
+   "slugs": [
+    "inner-whirled-32"
+   ],
+   "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ae7523aaa1187db3696975c.mp3",
+   "url": "https://audio.innerversepodcast.com/episodes/inner-whirled-32.mp3"
+  }
+ }
 }
