@@ -20,7 +20,10 @@ data/audio/map.json, and writes a run report in data/audio/runs/.
 
 Usage:
   python tools/audio/copy_audio.py <batch> [--data DIR] [--dry-run]
-    batch: "test" (newest 3), "all", or a number N (next N not yet copied)
+    batch: "test" (newest 3), "all", or a number N (next N not yet copied),
+           all from the episode data; or "feed", "feed-test", "feed-N": every
+           PUBLISHED episode in Acast's public feed not yet copied (episodes
+           with no site page yet), stored as episodes/acast-<episodeId>.mp3
 
 Environment (repository secrets): R2_ACCOUNT_ID, R2_AUDIO_ACCESS_KEY_ID,
 R2_AUDIO_SECRET_ACCESS_KEY. R2_AUDIO_BUCKET and AUDIO_BASE_URL are set in
@@ -79,6 +82,34 @@ def worklist(data_dir):
         rows.sort(key=lambda r: (r["date"], r["slug"]), reverse=True)
         out.append({"id": eid, "slug": rows[0]["slug"], "date": rows[0]["date"],
                     "source": rows[0]["url"], "slugs": sorted(r["slug"] for r in rows)})
+    out.sort(key=lambda e: (e["date"], e["slug"]), reverse=True)
+    return out
+
+
+FEED = "https://feeds.acast.com/public/shows/5a7e6d34b56c94b1216394e3"
+
+
+def feed_worklist():
+    """Every PUBLISHED episode in Acast's public feed (drafts are never in it)."""
+    import xml.etree.ElementTree as ET
+    from email.utils import parsedate_to_datetime
+    req = urllib.request.Request(FEED, headers={"User-Agent": UA})
+    root = ET.fromstring(urllib.request.urlopen(req, timeout=120).read())
+    out = []
+    for it in root.iter("item"):
+        enc = it.find("enclosure")
+        url = enc.get("url") if enc is not None else ""
+        eid = (it.findtext("guid") or "").strip()
+        if not re.fullmatch(r"[0-9a-f]{24}", eid):
+            eid = episode_id(url)
+        if not (eid and url):
+            continue
+        try:
+            date = parsedate_to_datetime(it.findtext("pubDate")).strftime("%Y-%m-%d")
+        except Exception:
+            date = ""
+        out.append({"id": eid, "slug": "acast-" + eid, "date": date, "source": url,
+                    "slugs": [], "title": (it.findtext("title") or "").strip()})
     out.sort(key=lambda e: (e["date"], e["slug"]), reverse=True)
     return out
 
@@ -207,13 +238,18 @@ def main():
 
     amap = json.load(open(MAP)) if os.path.exists(MAP) else {"episodes": {}}
     done = amap.setdefault("episodes", {})
-    todo = [e for e in worklist(data_dir) if e["id"] not in done]
-    if batch == "test":
+    if batch.startswith("feed"):
+        todo = [e for e in feed_worklist() if e["id"] not in done]
+        batch_kind = batch[4:].lstrip("-") or "all"
+    else:
+        todo = [e for e in worklist(data_dir) if e["id"] not in done]
+        batch_kind = batch
+    if batch_kind == "test":
         todo = todo[:3]
-    elif batch.isdigit():
-        todo = todo[:int(batch)]
-    elif batch != "all":
-        sys.exit("batch must be test, all, or a number")
+    elif batch_kind.isdigit():
+        todo = todo[:int(batch_kind)]
+    elif batch_kind != "all":
+        sys.exit("batch must be test, all, a number, or feed / feed-test / feed-N")
     log("%d to copy (%d already done)" % (len(todo), len(done)))
 
     cli = bucket = base = None
@@ -244,6 +280,8 @@ def main():
                 if not dry:
                     done[ep["id"]] = {"slug": ep["slug"], "slugs": ep["slugs"], "url": res["url"],
                                       "bytes": res["bytes"], "source": ep["source"]}
+                    if ep.get("title"):  # an Acast episode with no site page yet
+                        done[ep["id"]].update({"title": ep["title"], "date": ep["date"], "nopage": True})
                     if len(report["copied"]) % 20 == 0:
                         save_map()  # so a run cut short keeps its progress
         except Exception as e:

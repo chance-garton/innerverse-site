@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       batch:
-        description: "test, a number, or all"
+        description: "test, a number, all, or feed / feed-test (published Acast episodes with no page)"
         required: true
         default: "test"
 
