@@ -1,6 +1,6 @@
 {
- "bytes": 40497310964,
- "count": 583,
+ "bytes": 40642802881,
+ "count": 584,
  "episodes": {
   "5aec55ea860a5cc529e23e66": {
    "bytes": 72259621,
@@ -5364,6 +5364,15 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6ae7523aaa1187db3696975c.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/inner-whirled-32.mp3"
+  },
+  "6aef7e2e6adeb85a4f851c33": {
+   "bytes": 145491917,
+   "slug": "does-christianity-need-the-devil",
+   "slugs": [
+    "does-christianity-need-the-devil"
+   ],
+   "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6aef7e2e6adeb85a4f851c33.mp3",
+   "url": "https://audio.innerversepodcast.com/episodes/does-christianity-need-the-devil.mp3"
   }
  }
 }
