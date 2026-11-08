@@ -1,0 +1,25 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "auto",
+ "bytes_added": 0,
+ "copied": [
+  {
+   "bytes_added": 0,
+   "h": 1038,
+   "key": "sq/a784fd99-3e6f-436c-a8f3-c4f913b855ed/profile-pic",
+   "url": "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/a784fd99-3e6f-436c-a8f3-c4f913b855ed/profile-pic.jpg",
+   "w": 1038,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-08T19:34:26+00:00",
+ "skipped": [],
+ "started": "2026-11-08T19:34:23+00:00"
+}

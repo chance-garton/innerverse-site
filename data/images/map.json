@@ -21330,6 +21330,32 @@
    1500
   ]
  },
+ "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/a784fd99-3e6f-436c-a8f3-c4f913b855ed/profile-pic.jpg": {
+  "bytes": {
+   "orig.jpg": 101370,
+   "w1000.webp": 47902,
+   "w300.webp": 6098,
+   "w500.webp": 14566,
+   "w750.webp": 30348
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1038,
+  "key": "sq/a784fd99-3e6f-436c-a8f3-c4f913b855ed/profile-pic",
+  "w": 1038,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
  "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/b066b7c1-50f2-49b3-98a0-3b19382cda34/electric-health.png": {
   "bytes": {
    "orig.png": 12598
