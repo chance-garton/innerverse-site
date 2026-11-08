@@ -21526,6 +21526,61 @@
    1000
   ]
  },
+ "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/does-christianity-need-the-devil/no-devil-no-priests-music-cover.jpg": {
+  "bytes": {
+   "orig.jpg": 108830,
+   "w1000.webp": 19874,
+   "w300.webp": 5006,
+   "w500.webp": 8574,
+   "w750.webp": 13958
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1254,
+  "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-does-christianity-need-the-devil/no-devil-no-priests-music-cover",
+  "w": 1254,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/does-christianity-need-the-devil/no-devil-no-priests-thumbnail.jpg": {
+  "bytes": {
+   "orig.jpg": 518680,
+   "w1000.webp": 20410,
+   "w1500.webp": 32624,
+   "w300.webp": 6108,
+   "w500.webp": 10008,
+   "w750.webp": 15094
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-does-christianity-need-the-devil/no-devil-no-priests-thumbnail",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69729e1c29bb4370bfa7ea72/6a0a806bed3b9e731003bbef/1788965355789/": {
   "bytes": {
    "orig.png": 2102,

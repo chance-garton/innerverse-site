@@ -1,0 +1,39 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "ep-does-christianity-need-the-devil",
+ "bytes_added": 759166,
+ "copied": [
+  {
+   "bytes_added": 602924,
+   "h": 941,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-does-christianity-need-the-devil/no-devil-no-priests-thumbnail",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/does-christianity-need-the-devil/no-devil-no-priests-thumbnail.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 156242,
+   "h": 1254,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-does-christianity-need-the-devil/no-devil-no-priests-music-cover",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/does-christianity-need-the-devil/no-devil-no-priests-music-cover.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-08T14:23:26+00:00",
+ "skipped": [],
+ "started": "2026-11-08T14:23:17+00:00"
+}
