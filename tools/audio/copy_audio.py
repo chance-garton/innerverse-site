@@ -101,7 +101,9 @@ def feed_worklist():
         url = enc.get("url") if enc is not None else ""
         eid = (it.findtext("guid") or "").strip()
         if not re.fullmatch(r"[0-9a-f]{24}", eid):
-            eid = episode_id(url)
+            # Old SoundCloud-era items carry a "tag:soundcloud" guid and a
+            # matching enclosure path; Acast's own episodeId is in its namespace.
+            eid = (it.findtext("{https://schema.acast.com/1.0/}episodeId") or "").strip() or episode_id(url)
         if not (eid and url):
             continue
         try:
