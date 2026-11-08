@@ -1,7 +1,17 @@
 {
- "bytes": 40642802881,
- "count": 584,
+ "bytes": 40711455468,
+ "count": 585,
  "episodes": {
+  "5a7e6d958b69319e0ee89e55": {
+   "bytes": 68652587,
+   "date": "2018-02-08",
+   "nopage": true,
+   "slug": "acast-5a7e6d958b69319e0ee89e55",
+   "slugs": [],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/tag%3Asoundcloud%2C2010%3Atracks%2F396346716/media.mp3",
+   "title": "4.4 - The Source of Inspiration with Matt Presti",
+   "url": "https://audio.innerversepodcast.com/episodes/acast-5a7e6d958b69319e0ee89e55.mp3"
+  },
   "5aec55ea860a5cc529e23e66": {
    "bytes": 72259621,
    "date": "2018-05-04",
