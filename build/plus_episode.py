@@ -172,4 +172,4 @@ def render(slug, file, post, entry):
     h = head(title, description, canonical, image, "article", html_class, "Inner Whirled" in shows and not vr,
              extra='<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abel&display=swap">'
              + '<script type="application/ld+json">' + json_ld(ld) + "</script>")
-    return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js"))
+    return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js", "/assets/super-chat.js"))
