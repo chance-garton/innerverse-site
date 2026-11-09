@@ -1,3 +1,9 @@
 # Redirects Chance has decided, for the stage 4 redirects file (301 unless noted).
 # One per line: old address, new address, date and who decided.
 /oracle-cards  /biofield-tuning  2026-10-30 Chance (page not carried to the new site)
+/season-7/beth-martens-archetypes-law  /episodes/beth-martens-archetypes-law  2026-11-09 Chance (old site address of a site gap import page)
+/season-7/sepano-zadeh-art-of-the-fight  /episodes/sepano-zadeh-art-of-the-fight  2026-11-09 Chance (old site address of a site gap import page)
+/season-7/michael-wann-tao-creativity  /episodes/michael-wann-tao-creativity  2026-11-09 Chance (old site address of a site gap import page)
+/season-7/allen-marcus-neverending-story  /episodes/allen-marcus-neverending-story  2026-11-09 Chance (old site address of a site gap import page)
+/season-7/joakim-haggstrom-pagan-roots-bock-saga  /episodes/joakim-haggstrom-pagan-roots-bock-saga  2026-11-09 Chance (old site address of a site gap import page)
+/season-7/peter-conley-psychedelic-integration-station  /episodes/peter-conley-psychedelic-integration-station  2026-11-09 Chance (old site address of a site gap import page)
