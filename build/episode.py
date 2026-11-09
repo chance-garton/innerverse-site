@@ -289,7 +289,7 @@ def build_media_toggle_full(f):
         '<div class="iv-toggle-btns">'
         '<span class="iv2-seg">'
         '<button type="button" class="iv-tbtn iv-tbtn-active" data-panel="watch">' + SVG["play"] + " Watch</button>"
-        '<button type="button" class="iv-tbtn" data-panel="listen">' + SVG["listen"] + " Listen</button>"
+        + ('<button type="button" class="iv-tbtn" data-panel="listen">' + SVG["listen"] + " Listen</button>" if f["acastAudioUrl"] else "") +
         "</span>" + chip +
         '<button type="button" class="iv-pip-btn" id="iv-pip-btn" aria-label="Play in a floating window" title="Play in a floating window" style="display:none;">'
         '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><rect x="12" y="11" width="7" height="5" rx="1" fill="currentColor" stroke="none"></rect></svg>'

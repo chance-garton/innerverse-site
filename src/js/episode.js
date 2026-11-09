@@ -3258,7 +3258,7 @@
         '<div class="iv-toggle-btns">' +
           '<span class="iv2-seg">' +
           '<button type="button" class="iv-tbtn iv-tbtn-active" data-panel="watch">' + SVG.play + ' Watch</button>' +
-          '<button type="button" class="iv-tbtn" data-panel="listen">' + SVG.listen + ' Listen</button>' +
+          (f.acastAudioUrl ? '<button type="button" class="iv-tbtn" data-panel="listen">' + SVG.listen + ' Listen</button>' : '') +
           '</span>' +
           (f.fullChip || '') +
           '<button type="button" class="iv-pip-btn" id="iv-pip-btn" aria-label="Play in a floating window" title="Play in a floating window" style="display:none;">' +
