@@ -25,6 +25,13 @@ export default {
     let d;
     try { d = await req.json(); } catch (e) { return json({ error: 'bad json' }, 400); }
     if (d.website) return json({ ok: true }); // hidden field filled: a bot, pretend success
+    // At most 5 sends a minute from one address, so a script cannot flood the inbox (2026-11-09).
+    // LIMITER is Cloudflare's built-in rate limit binding (limit 5, period 60 seconds).
+    const ip = req.headers.get('CF-Connecting-IP') || '';
+    if (ip && env.LIMITER) {
+      const { success } = await env.LIMITER.limit({ key: ip });
+      if (!success) return json({ error: 'too many' }, 429);
+    }
     const clean = k => String(d[k] || '').replace(/[\r\n]+/g, k === 'message' ? '\n' : ' ').trim().slice(0, MAX[k]);
     const f = { name: clean('name'), email: clean('email'), subject: clean('subject'), message: clean('message') };
     if (!f.name || !f.message || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) return json({ error: 'missing fields' }, 400);
