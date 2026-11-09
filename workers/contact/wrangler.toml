@@ -8,9 +8,11 @@ FROM_EMAIL = "contact@innerversepodcast.com"
 ALLOWED_ORIGINS = "https://www.innerversepodcast.com,https://innerversepodcast.com,https://chance-garton.github.io"
 # Secret, set in Cloudflare (not here): RESEND_API_KEY
 
-# At most 5 sends a minute from one address (2026-11-09).
-[[unsafe.bindings]]
-name = "LIMITER"
-type = "ratelimit"
-namespace_id = "1001"
-simple = { limit = 5, period = 60 }
+# One message an hour from one address (2026-11-09): a Durable Object per address.
+[[durable_objects.bindings]]
+name = "SEND_LIMIT"
+class_name = "SendLimit"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SendLimit"]

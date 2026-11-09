@@ -15,14 +15,15 @@
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) { say('That email address does not look right.', true); return; }
     btn.disabled = true; say('Sending...', false);
     fetch(f.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
       .then(function () {
         f.reset();
         f.classList.add('is-sent');
         say('Thank you, your message was sent.', false);
       })
-      .catch(function () {
+      .catch(function (err) {
         btn.disabled = false;
+        if (err && err.message === '429') { say('Your earlier message already reached me. To add more within the hour, please email chance@innerversepodcast.com.', true); return; }
         say('That did not go through. Please email chance@innerversepodcast.com instead.', true);
       });
   });
