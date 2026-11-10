@@ -32,7 +32,10 @@
 
   var DATA = 'https://raw.githubusercontent.com/chance-garton/innerverse-data/main/';
   var INDEX_URL = DATA + 'episodes-index.json';
-  var EXTRA_URL = DATA + 'episodes-extra.json';
+  /* The search text is served from the site (hashed file name, cached for a year, compressed by Cloudflare);
+     the GitHub copy is the fallback. */
+  var EXTRA_FALLBACK = DATA + 'episodes-extra.json';
+  var EXTRA_URL = window.IV_EXTRA || EXTRA_FALLBACK;
   var CORPUS_URL = DATA + 'episodes/_corpus.json';
   var PLUS_URL = DATA + 'plus-index.json';
   var SUBJECTS_URL = DATA + 'subjects.json';
@@ -895,7 +898,7 @@
   }
   function loadLater() {
     var go = function () {
-      getJSON(EXTRA_URL).then(function (d) {
+      getJSON(EXTRA_URL)['catch'](function () { return EXTRA_URL === EXTRA_FALLBACK ? Promise.reject() : getJSON(EXTRA_FALLBACK); }).then(function (d) {
         if (d && d.extra) { extra = d.extra; if (termsOf(query).length) render(); }
       })['catch'](function () {});
       var needTopic = !episodes.some(function (e) { return e.topicLine; });

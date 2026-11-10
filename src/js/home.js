@@ -449,7 +449,7 @@
   function loadExtra() {
     if (extra !== null) return;
     extra = {};
-    getJSON('episodes-extra.json').then(function (d) {
+    (window.IV_EXTRA ? fetch(window.IV_EXTRA).then(function (r) { if (!r.ok) throw new Error('extra ' + r.status); return r.json(); }) : Promise.reject())['catch'](function () { return getJSON('episodes-extra.json'); }).then(function (d) {
       extra = (d && d.extra) || {};
       if (input.value.trim().length >= 2) runSearch();
     })['catch'](function () {});

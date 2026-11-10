@@ -119,6 +119,16 @@ def build_assets():
         shutil.copyfile(p, dest)
     for p in glob.glob(os.path.join(ROOT, "src", "img", "*.webp")):
         shutil.copyfile(p, os.path.join(OUT, "assets", os.path.basename(p)))
+    # The search text (episodes-extra.json) is served from the site: a hashed file name so a browser keeps it
+    # until the text really changes, and Cloudflare compresses it (about a quarter smaller than the GitHub copy).
+    src = os.path.join(DATA, "episodes-extra.json")
+    if os.path.exists(src):
+        raw = open(src, "rb").read()
+        name = "episodes-extra." + hashlib.sha1(raw).hexdigest()[:10] + ".json"
+        os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
+        with open(os.path.join(OUT, "assets", name), "wb") as fh:
+            fh.write(raw)
+        common.EXTRA_PATH = common.url("/assets/" + name)
     # The image lookup window.ivImg reads (image move, stage 3): one small
     # cached file instead of the whole map in every page.
     write("assets/img-map.js", "window.IV_IMG_T=" + json.dumps(common.image_table()) + ";\n")

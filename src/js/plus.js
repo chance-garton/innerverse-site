@@ -45,7 +45,8 @@
   var PLUS_URL = DATA + 'plus-index.json';
   var INDEX_URL = DATA + 'episodes-index.json';
   var CORPUS_URL = DATA + 'episodes/_corpus.json';
-  var EXTRA_URL = DATA + 'episodes-extra.json';
+  var EXTRA_FALLBACK = DATA + 'episodes-extra.json';   // the site's own copy (window.IV_EXTRA) comes first
+  var EXTRA_URL = window.IV_EXTRA || EXTRA_FALLBACK;
   var IV_PLUS_ARCHIVE_BUILD = '2026-09-25b-plusgate';
   var CHECKOUT_TRIAL = 'https://innerverseplus.memberful.com/checkout?plan=149343';
 
@@ -825,7 +826,7 @@
         rebuildFilters();
         render();
       });
-      getJSON(EXTRA_URL).then(function (d) {
+      getJSON(EXTRA_URL)['catch'](function () { return EXTRA_URL === EXTRA_FALLBACK ? Promise.reject() : getJSON(EXTRA_FALLBACK); }).then(function (d) {
         if (d && d.extra) { extraRaw = d.extra; applyExtra(); if (termsOf(query).length) render(); }
       })['catch'](function () {});
     };
