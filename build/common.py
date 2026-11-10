@@ -330,12 +330,12 @@ def footer():
 
 
 FONTS = (
-    '<link rel="preconnect" href="https://fonts.googleapis.com">'
-    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
     '<link rel="preconnect" href="' + IMAGE_BASE + '">'
-    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap">'
+    # The two faces used above the fold on every page; the rest load when a page needs them (src/css/00-fonts.css).
+    '<link rel="preload" as="font" type="font/woff2" crossorigin href="' + url("/assets/fonts/fjalla-one-normal-latin.woff2") + '">'
+    '<link rel="preload" as="font" type="font/woff2" crossorigin href="' + url("/assets/fonts/manrope-normal-latin.woff2") + '">'
 )
-FONT_IW = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap">'
+FONT_IW = ""  # IM Fell Great Primer is declared in src/css/00-fonts.css and loads only where the Inner Whirled skin uses it.
 
 # Runs before first paint: the page classes, the cached Plus member answer (so
 # a member's gold nav and member cards paint from the first frame, as

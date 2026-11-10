@@ -112,6 +112,11 @@ def build_assets():
     write("assets/site.css", css)
     for p in glob.glob(os.path.join(ROOT, "src", "js", "*.js")):
         write("assets/" + os.path.basename(p), open(p, encoding="utf-8").read())
+    # Fonts served from the site (src/fonts, declared in src/css/00-fonts.css).
+    for p in glob.glob(os.path.join(ROOT, "src", "fonts", "*.woff2")):
+        dest = os.path.join(OUT, "assets", "fonts", os.path.basename(p))
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        shutil.copyfile(p, dest)
     # The image lookup window.ivImg reads (image move, stage 3): one small
     # cached file instead of the whole map in every page.
     write("assets/img-map.js", "window.IV_IMG_T=" + json.dumps(common.image_table()) + ";\n")

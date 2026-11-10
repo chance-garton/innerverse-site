@@ -170,6 +170,5 @@ def render(slug, file, post, entry):
     # The Inner Whirled skin waits for a member's page, as on the live site.
     html_class = "iv-2026 iv-plus-slug" + (" iv-vr" if vr else "")
     h = head(title, description, canonical, image, "article", html_class, "Inner Whirled" in shows and not vr,
-             extra='<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abel&display=swap">'
-             + '<script type="application/ld+json">' + json_ld(ld) + "</script>")
+             extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
     return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js", "/assets/super-chat.js"))
