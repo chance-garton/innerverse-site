@@ -33,6 +33,13 @@
   var CSS = '' +
     '.ivsc{background:var(--card,#151E33);border:1px solid var(--line,rgba(233,238,246,.12));border-radius:14px;padding:22px 24px;margin:22px 0;color:var(--ink,#E9EEF6);font-family:var(--font-sans,Manrope,"Segoe UI",Helvetica,Arial,sans-serif);box-sizing:border-box}' +
     '.ivsc-wrap{max-width:1200px;margin:0 auto;padding:0 20px}' +
+    '.ivsc.ivsc-slim{max-width:1000px;margin:0 auto 16px;padding:12px 16px;border-radius:12px}' +
+    '.ivsc-slim .ivsc-top{gap:12px}' +
+    '.ivsc-slim .ivsc-top>div{min-width:200px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}' +
+    '.ivsc-slim .ivsc-eb{font-size:11px;letter-spacing:2px}' +
+    '.ivsc-slim p{font-size:14px;line-height:1.4;flex:1;min-width:180px}' +
+    '.ivsc-slim .ivsc-go{height:40px;padding:0 18px;font-size:14px}' +
+    '.ivsc-slim .ivsc-list{margin-top:12px}' +
     '.ivsc-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}' +
     '.ivsc-top>div{flex:1;min-width:220px}' +
     '.ivsc-eb{display:block;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold-text,#D8AA3C)}' +
@@ -92,7 +99,7 @@
   var items = [];
   function drawList() {
     var box = document.getElementById('ivsc-list'); if (!box) return;
-    box.innerHTML = items.slice(0, 6).map(itemHtml).join('');
+    box.innerHTML = items.slice(0, isHome ? 6 : 3).map(itemHtml).join('');
   }
   function loadList() {
     fetch(API + '/api/super/list?page=' + encodeURIComponent(page)).then(function (r) { return r.ok ? r.json() : { items: [] }; })
@@ -101,17 +108,22 @@
 
   function cardHtml() {
     var where = isHome ? 'in the Inner Circle chat' : 'here and in this episode’s Inner Circle room';
-    return '<div class="ivsc-top"><div><span class="ivsc-eb">Super Chat</span><h3>' + (isHome ? 'Support InnerVerse' : 'Support this episode') + '</h3>' +
-      '<p>Send Chance a Super Chat with a message. It shows ' + where + (isHome ? ', and here on the page' : '') + ', and he sees every one.</p></div>' +
-      '<button type="button" class="ivsc-go">' + COIN + '<span>Send a Super Chat</span></button></div><div class="ivsc-list" id="ivsc-list"></div>';
+    var btn = '<button type="button" class="ivsc-go">' + COIN + '<span>Send a Super Chat</span></button>';
+    if (!isHome) {
+      return '<div class="ivsc-top"><div><span class="ivsc-eb">Super Chat</span>' +
+        '<p>Send Chance a Super Chat with a message. It shows ' + where + '.</p></div>' + btn + '</div><div class="ivsc-list" id="ivsc-list"></div>';
+    }
+    return '<div class="ivsc-top"><div><span class="ivsc-eb">Super Chat</span><h3>Support InnerVerse</h3>' +
+      '<p>Send Chance a Super Chat with a message. It shows ' + where + ', and here on the page.</p></div>' + btn + '</div><div class="ivsc-list" id="ivsc-list"></div>';
   }
 
   var mounted = false;
   function mountEpisode() {
-    var after = document.getElementById('ivml') ? document.querySelector('.ivml-room') || document.getElementById('ivml') : null;
+    var also = document.querySelector('.iv-platforms');
+    var after = also || (document.getElementById('ivml') ? document.querySelector('.ivml-room') || document.getElementById('ivml') : null);
     if (!after) after = document.querySelector('#iv-episode-root .iv-intro-text') || document.querySelector('.blog-item-content .iv-plus-intro') || document.querySelector('.blog-item-content .iv-plus-tuned-row');
     if (!after) return false;
-    var card = document.createElement('section'); card.className = 'ivsc'; card.id = 'ivsc'; card.setAttribute('aria-label', 'Super Chat');
+    var card = document.createElement('section'); card.className = 'ivsc ivsc-slim'; card.id = 'ivsc'; card.setAttribute('aria-label', 'Super Chat');
     card.innerHTML = cardHtml();
     after.parentElement.insertBefore(card, after.nextSibling);
     return true;
