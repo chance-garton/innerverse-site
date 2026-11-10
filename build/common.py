@@ -247,12 +247,16 @@ def _login():
     )
 
 
+# The nav mark is shown at 48 px, so the site carries its own 128 px copy (11 KB) instead of the 300 px one (33 KB).
+NAV_LOGO = url("/assets/logo-nav-128.webp")
+
+
 def nav(active="", inner_whirled=False, vibe_rant=False):
     if vibe_rant:
         # 2026-11-05 (Chance): Vibe Rant pages keep the InnerVerse colours and
         # mark, with the Vibe Rant wordmark in place of the word INNERVERSE.
         brand = (
-            '<img class="iv-nav-logo" src="' + esc(LOGO_URL) + '" alt="InnerVerse Podcast" width="48" height="48">'
+            '<img class="iv-nav-logo" src="' + esc(NAV_LOGO) + '" alt="InnerVerse Podcast" width="48" height="48">'
             '<span class="iv-nav-word iv-nav-vr"><img class="iv-nav-vrmark" src="' + esc(iv_img(VR_LOGO, 500)) + '" alt="Vibe Rant" width="992" height="558"></span>'
         )
     elif inner_whirled:
@@ -262,7 +266,7 @@ def nav(active="", inner_whirled=False, vibe_rant=False):
         )
     else:
         brand = (
-            '<img class="iv-nav-logo" src="' + esc(LOGO_URL) + '" alt="InnerVerse Podcast" width="48" height="48">'
+            '<img class="iv-nav-logo" src="' + esc(NAV_LOGO) + '" alt="InnerVerse Podcast" width="48" height="48">'
             '<span class="iv-nav-word">InnerVerse</span>'
         )
     links = "".join(_link(k, l, h, active) for k, l, h in V2_LINKS)

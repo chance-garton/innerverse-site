@@ -117,6 +117,8 @@ def build_assets():
         dest = os.path.join(OUT, "assets", "fonts", os.path.basename(p))
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         shutil.copyfile(p, dest)
+    for p in glob.glob(os.path.join(ROOT, "src", "img", "*.webp")):
+        shutil.copyfile(p, os.path.join(OUT, "assets", os.path.basename(p)))
     # The image lookup window.ivImg reads (image move, stage 3): one small
     # cached file instead of the whole map in every page.
     write("assets/img-map.js", "window.IV_IMG_T=" + json.dumps(common.image_table()) + ";\n")
