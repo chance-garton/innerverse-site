@@ -257,7 +257,9 @@ def main():
     write("_redirects", "\n".join(redirect_lines) + "\n")
     write("redirects-report.json", json.dumps(redirect_report, indent=1))
 
-    report = {"episodePages": len(pages), "plusPages": plus_pages, "postsWithNoData": [p["slug"] for p, _ in no_data], "plusWithNoData": plus_no_data}
+    report = {"episodePages": len(pages), "plusPages": plus_pages, "postsWithNoData": [p["slug"] for p, _ in no_data], "plusWithNoData": plus_no_data,
+              # The commits this build came from; a scheduled run compares them with the live copy and stops early when both are unchanged.
+              "siteCommit": os.environ.get("IV_SITE_SHA", ""), "dataCommit": os.environ.get("IV_DATA_SHA", "")}
     write("build-report.json", json.dumps(report, indent=1))
     print(json.dumps(report))
 

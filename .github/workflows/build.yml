@@ -1,9 +1,11 @@
 name: Build and publish the site
 
 # The pages are generated from the files chance-garton/innerverse-data builds
-# from Airtable every day at 09:00 UTC (or by hand). This runs every hour, so
+# from Airtable every day at 09:00 UTC (or by hand). This checks every hour, so
 # an Airtable change reaches the site within the hour after that build, and
-# on every push here, and by hand from the Actions tab.
+# runs on every push here and by hand from the Actions tab. A scheduled run
+# stops early when neither repo has a new commit since the live copy was built
+# (the live build-report.json carries both commit ids).
 on:
   schedule:
     - cron: "20 * * * *"
@@ -13,65 +15,17 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: site
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Get the episode data
-        uses: actions/checkout@v4
-        with:
-          repository: chance-garton/innerverse-data
-          path: innerverse-data
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      # Until the domain is switched (stage 4 of the plan), the site lives at
-      # the GitHub Pages test address under /innerverse-site and tells search
-      # engines to stay away. At the switch: IV_BASE "" and IV_NOINDEX "0".
-      - name: Build
-        env:
-          IV_DATA_DIR: innerverse-data
-          IV_BASE: /innerverse-site
-          IV_NOINDEX: "1"
-        run: python build/build.py
-      # The homepage and the archive are drawn by their scripts in a headless
-      # browser and saved as finished HTML (tools/prerender.js).
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - name: Draw the homepage and the archive
-        env:
-          IV_DATA_DIR: innerverse-data
-          IV_BASE: /innerverse-site
-        run: |
-          npm install --no-audit --no-fund
-          npx playwright install --with-deps chromium
-          node tools/prerender.js
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
-  # The same site built for the Cloudflare Pages project (stage 4 prep): no
-  # path prefix, so the pages and the _redirects file sit at the root of
-  # https://innerverse-site.pages.dev. Real-domain mode since the 2026-11-04 switch
+  # The site built for the Cloudflare Pages project: no path prefix, so the pages and
+  # the _redirects file sit at the root. Real-domain mode since the 2026-11-04 switch
   # (indexable, visitor counter on); the pages.dev addresses stay noindex through _headers. Needs the
-  # repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+  # repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID. (The old GitHub Pages test copy was
+  # removed 2026-11-10.)
   cloudflare:
     runs-on: ubuntu-latest
     steps:
@@ -81,19 +35,40 @@ jobs:
         with:
           repository: chance-garton/innerverse-data
           path: innerverse-data
-      - uses: actions/setup-python@v5
+      - name: Has anything changed since the live build?
+        id: chk
+        run: |
+          SITE=$(git rev-parse HEAD)
+          DATA=$(git -C innerverse-data rev-parse HEAD)
+          echo "site=$SITE" >> "$GITHUB_OUTPUT"
+          echo "data=$DATA" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            LIVE=$(curl -fsS https://www.innerversepodcast.com/build-report.json || true)
+            if echo "$LIVE" | grep -q "\"siteCommit\": \"$SITE\"" && echo "$LIVE" | grep -q "\"dataCommit\": \"$DATA\""; then
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              echo "Nothing new in either repo since the live build; stopping."
+            fi
+          fi
+      - if: steps.chk.outputs.skip != 'true'
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Build
+        if: steps.chk.outputs.skip != 'true'
         env:
+          IV_SITE_SHA: ${{ steps.chk.outputs.site }}
+          IV_DATA_SHA: ${{ steps.chk.outputs.data }}
           IV_DATA_DIR: innerverse-data
           IV_BASE: ""
           IV_NOINDEX: "0"
         run: python build/build.py
-      - uses: actions/setup-node@v4
+      - if: steps.chk.outputs.skip != 'true'
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
       - name: Draw the homepage and the archive
+        if: steps.chk.outputs.skip != 'true'
         env:
           IV_DATA_DIR: innerverse-data
           IV_BASE: ""
@@ -102,6 +77,7 @@ jobs:
           npx playwright install --with-deps chromium
           node tools/prerender.js
       - name: Publish to Cloudflare Pages
+        if: steps.chk.outputs.skip != 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
