@@ -238,7 +238,14 @@ def main():
     # Cloudflare Pages: keep the pages.dev addresses (production and previews) out of search,
     # so only www.innerversepodcast.com is indexed once the build is in real-domain mode.
     write("_headers", "https://:project.pages.dev/*\n  X-Robots-Tag: noindex\n\n"
-                      "https://:version.:project.pages.dev/*\n  X-Robots-Tag: noindex\n")
+                      "https://:version.:project.pages.dev/*\n  X-Robots-Tag: noindex\n\n"
+                      # Browsers keep to https, other sites cannot frame these pages (the app may), and no page
+                      # asks for camera, microphone or location. Files under /assets carry a version in their
+                      # address, so a browser may keep them for a year.
+                      "/*\n  Strict-Transport-Security: max-age=31536000\n"
+                      "  Content-Security-Policy: frame-ancestors 'self' https://circle.innerversepodcast.com\n"
+                      "  Permissions-Policy: camera=(), microphone=(), geolocation=()\n\n"
+                      "/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n")
     # A real not-found page: Cloudflare Pages serves it with a 404 status for any address
     # that has no page and no redirect.
     write("404.html", hand.not_found())
