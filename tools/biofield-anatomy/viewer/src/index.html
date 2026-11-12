@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biofield Anatomy 3D Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* one dark world: night-indigo ground, brass accent, the body supplies the colour. Layout: full-bleed stage, glass panel right (desktop) or bottom sheet (phone). */
+  --ground:#07080f; --ground-2:#11142a; --ink:#ece6d8; --ink-soft:#a9a7b4; --gold:#c9a55c; --line:rgba(201,165,92,.22); --glass:rgba(12,14,26,.72);
+  --zone:var(--gold);
+  --display:"Cormorant Garamond","Iowan Old Style",Georgia,serif; --body:"Manrope","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:radial-gradient(120% 90% at 50% 38%,var(--ground-2) 0%,var(--ground) 62%) var(--ground);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;overflow:hidden}
+#stage{position:fixed;inset:0;touch-action:none}
+#stage canvas{display:block;width:100%;height:100%;opacity:0;transition:opacity .9s ease}
+.ready #stage canvas{opacity:1}
+#status{position:fixed;left:0;right:0;top:46%;text-align:center;color:var(--ink-soft);letter-spacing:.08em;font-size:13px;pointer-events:none;transition:opacity .5s}
+.ready #status{opacity:0}
+header{position:fixed;left:24px;top:20px;pointer-events:none;max-width:min(60vw,420px)}
+header .eyebrow{color:var(--gold)}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(26px,3.2vw,38px);line-height:1.05;margin:2px 0 0;text-wrap:balance;letter-spacing:.01em}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--zone);margin:0;font-weight:600}
+#panel{position:fixed;right:20px;top:20px;bottom:20px;width:336px;display:flex;flex-direction:column;gap:14px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+#detail{min-height:118px;display:flex;flex-direction:column;gap:8px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+#detail h2{font-family:var(--display);font-weight:600;font-size:25px;line-height:1.12;margin:0;text-wrap:balance}
+.hint,.note{margin:0;color:var(--ink-soft);font-size:13.5px}
+.note{font-size:12px;opacity:.75}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 12.5px var(--body);color:var(--ink);background:rgba(255,255,255,.05);border:1px solid color-mix(in srgb,var(--zone) 55%,transparent);border-radius:999px;padding:5px 11px;cursor:pointer}
+.chip:hover{background:color-mix(in srgb,var(--zone) 22%,transparent)}
+#zones{display:flex;flex-direction:column;gap:4px;overflow:auto;flex:1;min-height:0;margin:0 -6px;padding:0 6px}
+.zone{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:8px 10px;border-radius:12px;border:1px solid transparent;background:none;color:var(--ink);cursor:pointer;font-family:var(--body)}
+.zone:hover{background:rgba(255,255,255,.045)}
+.zone[aria-pressed="true"]{background:rgba(255,255,255,.07);border-color:var(--line)}
+.dot{flex:none;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent),0 0 14px var(--c)}
+.zt{display:flex;flex-direction:column;min-width:0}
+.zc{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.zn{font-size:14px;font-weight:500;line-height:1.3}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{font:600 12px var(--body);letter-spacing:.04em;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer}
+.tool[aria-pressed="true"]{background:var(--gold);color:#15120a;border-color:var(--gold)}
+#fps{margin-left:auto;align-self:center;font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums;opacity:.7}
+.credits{margin:0;font-size:11px;line-height:1.45;color:var(--ink-soft);opacity:.8}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media (max-width:759px){
+  header{left:16px;top:12px;max-width:70vw}
+  h1{font-size:24px}
+  #panel{left:0;right:0;top:auto;bottom:0;width:auto;border-radius:20px 20px 0 0;border-width:1px 0 0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));gap:10px;max-height:44%}
+  #detail{min-height:0;padding-bottom:10px;gap:5px}
+  #detail h2{font-size:20px}
+  .note{display:none}
+  #zones{flex-direction:row;overflow-x:auto;overflow-y:hidden;flex:none;gap:6px;margin:0 -16px;padding:2px 16px;scrollbar-width:none}
+  #zones::-webkit-scrollbar{display:none}
+  .zone{width:auto;flex:none;padding:7px 12px 7px 9px;border-color:var(--line);border-radius:999px;gap:8px}
+  .zn{display:none}
+  .zc{font-size:11px;color:var(--ink);white-space:nowrap}
+  .credits{font-size:10px}
+}
+@media (prefers-reduced-motion:reduce){#stage canvas,#status{transition:none}}
+</style>
+</head>
+<body>
+<div id="stage" aria-label="3D body. Drag to turn, pinch or scroll to zoom, tap a region to select it."></div>
+<p id="status">Loading the body</p>
+<header>
+  <p class="eyebrow">InnerVerse &middot; build step 2 of 4</p>
+  <h1>Biofield Anatomy</h1>
+</header>
+<aside id="panel">
+  <div id="detail" aria-live="polite"><p class="hint">Choose a region, or tap the body where you feel it.</p></div>
+  <div id="zones" role="group" aria-label="Regions"></div>
+  <div class="tools">
+    <button class="tool" id="t-organs" type="button" aria-pressed="false">All organs</button>
+    <button class="tool" id="t-field" type="button" aria-pressed="false">Field</button>
+    <button class="tool" id="t-reset" type="button">Whole body</button>
+    <span id="fps" title="Frames per second on this device"></span>
+  </div>
+  <p class="credits">The Biofield Anatomy is the work of Eileen Day McKusick. Anatomy models: Z-Anatomy, CC BY-SA 4.0. Body: MakeHuman, CC0.</p>
+</aside>
+<script type="module" src="viewer.js"></script>
+</body>
+</html>
