@@ -11,7 +11,9 @@ the site build yet.
   `assemble.py` (zones, mesh reduction, raw GLB), then `gltf-transform weld` and
   `gltf-transform meshopt --level medium`, then `make_data.py` (zones.json).
 - `pipeline/zones.py` is the single place for the eight regions: names, colours,
-  heights, and which organ belongs to which region.
+  heights, which organ belongs to which region, and the leg gradient (`LEGS`).
+- `pipeline/look.py` renders quick close views of the body alone, for checking a
+  shape change before the full rebuild.
 - `viewer/src/` is the viewer: plain Three.js modules, bundled with esbuild.
 - `viewer/model/body.glb` is the finished model (1.6 MB, meshopt compressed).
 - `checks/` holds the Playwright screenshot and interaction checks.
@@ -19,13 +21,27 @@ the site build yet.
 The scripts were written in a scratch workspace and still carry its paths
 (`/home/claude/bfa`, plus clones of `makehumancommunity/makehuman` and
 `LluisV/Z-Anatomy-Sample`). Point those at your own folders before a rebuild.
+
+A fresh session rebuilds like this (about ten minutes, most of it downloads):
+`pip install bpy numpy scipy pillow`; clone the two repos above into
+`/home/claude/bfa/ext/`; copy `pipeline/*.py` to `/home/claude/bfa/src/`; then
+`build_mh.py <makehuman>/makehuman/data work/mh.npz`,
+`extract_za.py "<Z-Anatomy-Sample>/Assets/Models/1.0 Models/" work/za.npz`,
+`fit.py`, `assemble.py work/body_raw.glb`, the two `gltf-transform` steps, and
+`make_data.py viewer/src/zones.json`. The checks take the Chromium path from
+the `PW_CHROME` environment variable when the installed Playwright and the
+installed browser do not match.
 Tools: Blender as the `bpy` Python module (5.3), numpy, scipy,
 `@gltf-transform/cli`, `three`, `esbuild`, `playwright`.
 
 ## Model contents
 
 - `skin`: the body shell. UV x carries the region coordinate (0 feet to 7 crown,
-  divided by 7), UV y carries the arm fade (0 shoulder to 1 fingertips).
+  divided by 7), UV y carries the arm fade (0 shoulder to 1 fingertips). The
+  chest is flat and has no nipples (`flat_chest` in `build_mh.py`).
+- Leg colour is not in the model: the viewer shades the legs by height, from the
+  root colour at `legs.top` to the feet colour at `legs.bottom` (both in
+  `zones.json`). The region coordinate still decides taps and highlights.
 - `organ_*`: one mesh per organ, with `zone` and `label` in the node extras.
 - `axis_spine`: the spine, coloured by height like the skin.
 

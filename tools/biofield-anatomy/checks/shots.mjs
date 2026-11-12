@@ -1,7 +1,7 @@
 // Playwright check: node shots.mjs <outdir> <spec...>   spec = name:width:height:zone[:action]
 import { chromium } from 'playwright';
 const out = process.argv[2]; const specs = process.argv.slice(3);
-const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+const browser = await chromium.launch({ executablePath: process.env.PW_CHROME || undefined, args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
 for (const s of specs) {
   const [name, w, h, zone, action] = s.split(':');
   const ctx = await browser.newContext({ viewport: { width: +w, height: +h }, deviceScaleFactor: 1, reducedMotion: 'reduce' });

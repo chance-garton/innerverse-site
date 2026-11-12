@@ -2,6 +2,7 @@
 Output npz: verts (m, Z up, facing -Y, feet on z=0), quads, masks; json: joints."""
 import numpy as np, sys, os, json, glob, math
 D = sys.argv[1]; out = sys.argv[2]; ARM_DEG = float(sys.argv[3]) if len(sys.argv)>3 else 20.0; ELBOW = float(sys.argv[4]) if len(sys.argv)>4 else 0.7
+CHEST = float(sys.argv[5]) if len(sys.argv)>5 else 1.0; CHEST_GROW = int(sys.argv[6]) if len(sys.argv)>6 else 1; CHEST_RELAX = int(sys.argv[7]) if len(sys.argv)>7 else 8
 V=[]; groups={}; cur=None
 for line in open(os.path.join(D,"3dobjs/base.obj")):
     if line.startswith("v "): V.append([float(x) for x in line.split()[1:4]])
@@ -26,6 +27,30 @@ def tmask(pattern, thr=0.2):
         n=np.linalg.norm(target(p),axis=1)
         if n.max()>0: m|= n>thr*n.max()
     return m
+# flat, neutral chest (Chance, 2026-11-12: "more flat chested, nipples off"):
+# 1) MakeHuman's own smallest-cup shape takes the breast volume off without touching the breastbone or ribs,
+# 2) the nipple area is refilled as a smooth sheet held by the skin around it, 3) the rim is eased in.
+def flat_chest(V, amount=1.0, grow=CHEST_GROW, relax=CHEST_RELAX):
+    from scipy.sparse import coo_matrix, identity
+    from scipy.sparse.linalg import spsolve
+    V=V+amount*0.5*target(f"{T}/breast/female-young-averagemuscle-averageweight-mincup-averagefirmness.target")   # 0.5 = the female share of the blend
+    bf=groups["body"]; e=np.array([[f[i],f[(i+1)%len(f)]] for f in bf for i in range(len(f))]); e=np.concatenate([e,e[:,::-1]])
+    A=coo_matrix((np.ones(len(e)),(e[:,0],e[:,1])),shape=(NV,NV)).tocsr(); A.data[:]=1.0
+    deg=np.asarray(A.sum(1)).ravel(); isb=deg>0
+    Dinv=coo_matrix((1/np.maximum(deg,1),(np.arange(NV),np.arange(NV))),shape=(NV,NV)).tocsr(); Avg=Dinv@A
+    m=tmask("breast/breast-point-incr.target",0.1)&isb
+    for _ in range(grow): m=(m|(A@m.astype(float)>0))&isb
+    L=(identity(NV,format="csr")-Avg).tocsr(); I=np.where(m)[0]; O=np.where(isb&~m)[0]
+    X=spsolve(L[I][:,I].tocsc(), -(L[I][:,O]@V[O]))
+    V=V.copy(); V[I]=V[I]+amount*(X-V[I])
+    w=m.astype(float); m2=m.copy()
+    for _ in range(3): m2=(m2|(A@m2.astype(float)>0))&isb
+    for _ in range(6): w=np.where(isb,0.5*w+0.5*(Avg@w),0)
+    w=np.clip(w*2,0,1)*m2
+    for _ in range(relax): V=V+(amount*0.5*w)[:,None]*(Avg@V-V)
+    return V,m
+V,chest=flat_chest(V,CHEST)
+print("chest verts refilled",int(chest.sum()))
 masks={"ears":tmask("ears/*.target",0.25),"mouth":tmask("mouth/*.target",0.3),"chin":tmask("chin/*.target",0.3),"buttocks":tmask("buttocks/*.target",0.3)}
 # skeleton joints and arm weights (CC0 default rig)
 sk=json.load(open(os.path.join(D,"rigs/default.mhskel"))); wt=json.load(open(os.path.join(D,"rigs/default_weights.mhw")))["weights"]

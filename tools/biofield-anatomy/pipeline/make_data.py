@@ -10,7 +10,7 @@ zones=[]
 for i,(slug,name,chakra,color,h) in enumerate(Z.ZONES):
     cy,fw,fh,tilt=FR[slug]
     organs=[{"id":k.replace("organ_",""),"label":v["label"],"center":g(v["center"]),"size":round(max(b-a for a,b in zip(v["min"],v["max"])),4)} for k,v in st.items() if v["zone"]==i]
-    zones.append({"index":i,"slug":slug,"name":name,"chakra":chakra,"color":color,"frame":{"y":cy,"w":fw,"h":fh,"tilt":tilt,"depth":-0.03},"organs":organs})
-data={"zones":zones,"body":{"height":1.659,"frame":{"y":0.86,"w":0.95,"h":1.86,"tilt":2,"depth":-0.03}},
+    zones.append({"index":i,"slug":slug,"name":name,"chakra":chakra,"color":color,**({"accent":Z.FEET_ACCENT,"dot":Z.FEET_DOT} if slug=="feet" else {}),"frame":{"y":cy,"w":fw,"h":fh,"tilt":tilt,"depth":-0.03},"organs":organs})
+data={"zones":zones,"legs":Z.LEGS,"body":{"height":1.659,"frame":{"y":0.86,"w":0.95,"h":1.86,"tilt":2,"depth":-0.03}},
       "credits":{"anatomy":"Anatomy models: Z-Anatomy, CC BY-SA 4.0","body":"Body: MakeHuman, CC0","map":"The Biofield Anatomy is the work of Eileen Day McKusick"}}
 json.dump(data,open(sys.argv[1],"w"),indent=1); print("zones",len(zones),"organs",sum(len(z["organs"]) for z in zones))

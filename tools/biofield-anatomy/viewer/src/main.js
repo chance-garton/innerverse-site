@@ -32,6 +32,7 @@ const U = {
   uTime: { value: 0 },
   uXray: { value: 0 },        // 1 when every organ is shown
   uOpen: { value: 1 },        // how far the selected zone's skin opens to show what is inside
+  uLegs: { value: new THREE.Vector2(DATA.legs.top, DATA.legs.bottom) },   // heights the leg gradient runs between
 };
 const ZONE_GLSL = /* glsl */`
   uniform vec3 uColors[8]; uniform float uSel; uniform float uSelAmt; uniform float uTime; uniform float uXray; uniform float uOpen;
@@ -55,9 +56,15 @@ const skinMat = new THREE.ShaderMaterial({
   uniforms: U, vertexShader: VERT, transparent: true, depthWrite: false, side: THREE.FrontSide,
   fragmentShader: /* glsl */`
     ${ZONE_GLSL}
+    uniform vec2 uLegs;
     varying vec2 vUv; varying vec3 vN; varying vec3 vV; varying vec3 vW;
     void main(){
       float zc = vUv.x * 7.0; vec3 col = zoneColor(zc);
+      // legs: one even gradient by height, root red at the top of the thighs to the feet colour at the soles
+      // (blended in display space so the darkening looks even from hip to sole)
+      float legT = clamp((uLegs.x - vW.y) / (uLegs.x - uLegs.y), 0.0, 1.0);
+      vec3 legCol = pow(mix(pow(uColors[1], vec3(1.0 / 2.2)), pow(uColors[0], vec3(1.0 / 2.2)), legT), vec3(2.2));
+      col = mix(col, legCol, 1.0 - smoothstep(0.9, 1.0, zc));
       col = mix(col, vec3(0.62, 0.66, 0.80), vUv.y * 0.55);              // hands fade to a pale neutral
       float ndv = clamp(abs(dot(normalize(vN), normalize(vV))), 0.0, 1.0);
       float rim = pow(1.0 - ndv, 2.0);
@@ -221,7 +228,7 @@ function select(index, instant) {
   renderPanel(z);
   const hash = z ? '#' + z.slug : '';
   if (location.hash !== hash) { try { history.replaceState(null, '', hash || location.pathname + location.search); } catch (e) { /* sandboxed */ } }
-  document.documentElement.style.setProperty('--zone', z ? z.color : 'var(--gold)');
+  document.documentElement.style.setProperty('--zone', z ? (z.accent || z.color) : 'var(--gold)');
   const active = document.querySelector('.zone[aria-pressed="true"]'); if (active && isPhone()) active.scrollIntoView({ inline: 'center', block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
 }
 function focusOrgan(zoneIndex, organ) {
@@ -234,7 +241,7 @@ function focusOrgan(zoneIndex, organ) {
 const list = $('#zones');
 [...ZONES].reverse().forEach((z) => {
   const b = document.createElement('button'); b.className = 'zone'; b.type = 'button'; b.dataset.i = z.index; b.setAttribute('aria-pressed', 'false');
-  b.innerHTML = `<span class="dot" style="--c:${z.color}"></span><span class="zt"><span class="zc">${z.chakra}</span><span class="zn">${z.name}</span></span>`;
+  b.innerHTML = `<span class="dot" style="--c:${z.dot || z.color}"></span><span class="zt"><span class="zc">${z.chakra}</span><span class="zn">${z.name}</span></span>`;
   b.addEventListener('click', () => select(selected === z.index ? -1 : z.index));
   list.appendChild(b);
 });

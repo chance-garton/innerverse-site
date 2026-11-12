@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+const browser = await chromium.launch({ executablePath: process.env.PW_CHROME || undefined, args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
 const out = '../work/shots';
 async function open(w, h, hash = '', reduced = 'reduce') {
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: reduced, hasTouch: w < 500 });

@@ -26,3 +26,18 @@ Open for the content step: the stomach mesh sits in the solar plexus band but
 is listed under the sacral region on the site, so it lights with sacral; small
 intestine is assigned to sacral; no sexual organs are modelled; pineal and
 pituitary light with the third eye; the feet colour is a placeholder.
+
+## 2026-11-12, round 2 (Chance's first changes)
+
+- Chest: flat and neutral, nipples gone. `build_mh.py` now applies MakeHuman's
+  own smallest-cup shape, refills the nipple area as a smooth sheet and eases
+  the rim. The breastbone and ribs are untouched (checked: the midline profile
+  did not move). A first try that smoothed the whole breast area was dropped
+  because it sank the breastbone by 4 cm.
+- Organs refitted to the new chest: all still inside the body.
+- Legs: one even gradient from the root red at the top of the thighs to a deep
+  dark red at the soles (feet colour `#5c0b13`, was the placeholder `#c9623a`).
+  Done in the skin shader by height, blended in display space so the darkening
+  looks even. The feet entry in the list uses a lighter dot and text colour so
+  it still reads on the dark panel (`dot` and `accent` in `zones.json`).
+- Model size unchanged at 1.6 MB.

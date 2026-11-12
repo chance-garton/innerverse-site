@@ -1,7 +1,7 @@
 """Single source for the eight zones: names (as on /biofield-tuning), colours, heights, organ assignment."""
 import numpy as np
 ZONES=[  # slug, name on the site, chakra label, colour, centre height on the MakeHuman body (m)
- ("feet",   "Feet, Ankles & Knees",                 "Feet",         "#c9623a", 0.50),
+ ("feet",   "Feet, Ankles & Knees",                 "Feet",         "#5c0b13", 0.50),   # darkest red, reached at the soles (see LEGS)
  ("root",   "Hips, Glutes & Large Intestines",      "Root",         "#e0232f", 0.86),
  ("sacral", "Stomach, Sexual Organs & Bladder",     "Sacral",       "#f57a1e", 0.96),
  ("solar",  "Solar Plexus, Kidneys & Liver",        "Solar Plexus", "#f7cf2a", 1.10),
@@ -10,6 +10,12 @@ ZONES=[  # slug, name on the site, chakra label, colour, centre height on the Ma
  ("mind",   "Mind, Eyes, Brain & Head",             "Third Eye",    "#4a4bd8", 1.56),
  ("crown",  "Crown",                                "Crown",        "#a45cf0", 1.648),
 ]
+# Leg colour (Chance, 2026-11-12): one even gradient from the root red at the top of the thighs down to the
+# feet colour at the soles. The viewer shades the legs by height between these two levels; the region
+# coordinate above still decides which region a tap selects and what lights up.
+LEGS={"top":0.86,"bottom":0.0}
+FEET_ACCENT="#d8434c"   # the feet colour is too dark for small text on the dark panel; the panel text uses this instead
+FEET_DOT="#9a1520"      # and the dot in the region list uses this, so it still shows on the dark panel
 ORGANS={ # mesh -> (zone index, label, target triangles)
  "large_intestine":(1,"Large intestine",14000),"hip_l":(1,"Left hip bone",3000),"hip_r":(1,"Right hip bone",3000),
  "stomach":(2,"Stomach",3000),"small_intestine":(2,"Small intestine",12000),"bladder":(2,"Bladder",1000),
