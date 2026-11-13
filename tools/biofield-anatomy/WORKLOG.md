@@ -84,4 +84,4 @@ pituitary light with the third eye; the feet colour is a placeholder.
   label's text and dot fade for back and dimmed spots.
 - The left rail fits at every desktop width: the four view tabs share the row, the search hint is "Search the map",
   the bottom buttons do not clip. Checked at nine widths from 1000 to 1920.
-- The frame rate readout is gone from the rail (the About panel still has it).
+- The frame rate readout is gone from the rail and from the About panel.

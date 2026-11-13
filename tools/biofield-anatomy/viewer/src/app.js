@@ -36,7 +36,7 @@ let scene; const sceneHooks = {
   onError: () => { $('#status').textContent = 'The 3D model could not load. Reload the page to try again.'; },
   onPick: pick,
   onFrame: layoutLabels,
-  onFps: (f) => { window.__bfaFps = f; const a = $('#fpsline'); if (a) a.textContent = `This device is drawing ${f} frames per second.`; },
+  onFps: (f) => { window.__bfaFps = f; },
 };
 try { scene = createScene($('#stage'), MODEL, sceneHooks); }
 catch (e) {   // no WebGL on this device: every list, panel and search still works, without the model
@@ -423,7 +423,6 @@ function renderInfo(id) {
   const i = C.info[id]; let h = `<p class="eyebrow">${id === 'about' ? 'InnerVerse' : id === 'home' ? 'Interactive map' : 'View'}</p><h2>${esc(i.title)}</h2>`;
   if (i.lede) h += `<p class="lede">${esc(i.lede)}</p>`;
   if (i.points.length) h += `<div class="blk"><div class="bh"><h3>${id === 'about' ? 'Credit and cautions' : 'How to read the map'}</h3></div><div class="txt"><ul>${i.points.map((p) => `<li>${esc(p.t)}</li>`).join('')}</ul></div></div>`;
-  if (id === 'about') h += `<p class="note" id="fpsline"></p>`;
   if (id === 'field' && isPhone()) { let g = ''; FIELD.forEach((f) => { if (f.group !== g) { h += (g ? '</div></div>' : '') + `<div class="blk"><div class="bh"><h3>${esc(f.group)}</h3></div><div class="chips" style="margin:0">`; g = f.group; } h += `<button class="chip gl" type="button" data-go="${f.id}">${esc(f.name)}</button>`; }); h += '</div></div>'; }
   if (id === 'home') h += `<div class="blk"><div class="bh"><h3>Start here</h3></div><div class="chips" style="margin:0">` + CENTERS.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}">${esc(N.get(c).name)}</button>`).join('') + `</div></div><div class="blk"><div class="bh"><h3>Or start from a feeling</h3></div><div class="chips" style="margin:0">` + ['Anxiety', 'Grief and loss', 'Anger', 'Overwhelm', 'Feeling stuck', 'Burnout and exhaustion'].map((f) => `<button class="chip gl" type="button" data-feeling="${f}">${f}</button>`).join('') + `<button class="chip gl" type="button" id="c-feel">All feelings</button></div></div><div class="blk"><div class="chips" style="margin:0"><button class="chip gl" type="button" data-special="atoz">Biofield A to Z</button><button class="chip gl" type="button" data-special="about">About this map</button></div></div>`;
   return h;
