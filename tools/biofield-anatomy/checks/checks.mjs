@@ -111,7 +111,7 @@ await p.context().close();
 p = await open(390, 844);
 ok('phone: no chip strip in the chakra view (the labels on the body do that job)', (await p.locator('#strip .sc').count()) === 0);
 await p.tap('#labels .lab:has-text("Heart")'); await p.waitForTimeout(400); ok('phone: a label on the body opens a center', (await h2(p)) === 'Heart');
-const tabsFit = await p.evaluate(() => { const t = document.querySelector('#tabs'); return t.scrollWidth <= t.clientWidth + 1 && [...t.children].every((b) => b.scrollWidth <= b.clientWidth + 1); }); ok('phone: all five view tabs fit', tabsFit);
+const tabsFit = await p.evaluate(() => { const t = document.querySelector('#tabs'); return t.scrollWidth <= t.clientWidth + 1 && [...t.children].every((b) => b.scrollWidth <= b.clientWidth + 1); }); ok('phone: all four view tabs fit', tabsFit);
 let ov = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, iw: innerWidth })); ok('phone: no sideways scroll', ov.sw <= ov.iw, JSON.stringify(ov));
 await p.tap('#grab'); await p.waitForTimeout(500); let sh = await p.evaluate(() => document.querySelector('#panel').getBoundingClientRect().height); ok('phone: tapping the handle grows the sheet', sh > 844 * 0.8, String(Math.round(sh)));
 await p.tap('#grab'); await p.waitForTimeout(500); sh = await p.evaluate(() => document.querySelector('#panel').getBoundingClientRect().height); ok('phone: tapping again brings it back', sh < 844 * 0.5, String(Math.round(sh)));
@@ -159,7 +159,7 @@ p = await open(1440, 900);
 const ends = await p.evaluate(() => {
   const { C, go, N } = window.__bfa; const bad = []; let pages = 0, links = 0;
   const onward = () => [...document.querySelectorAll('#detail .xp [data-go], #detail .xp [data-feeling]')];
-  const check = (name) => { pages++; const xp = document.querySelector('#detail .xp'); if (!xp) { bad.push(name + ': no Keep exploring block'); return; } const o = onward(); links += o.length; if (o.length < 2) bad.push(name + ': only ' + o.length + ' ways onward');
+  const check = (name) => { pages++; const xp = document.querySelector('#detail .xp'); if (!xp) { bad.push(name + ': no Keep exploring block'); return; } const o = onward(); links += o.length; if (o.length < 3) bad.push(name + ': only ' + o.length + ' ways onward');
     if (!xp.querySelector('[data-copy]')) bad.push(name + ': no copy link');
     document.querySelectorAll('#detail a.ln').forEach((a) => { const h = decodeURIComponent(a.getAttribute('href').slice(1)); const okT = h.startsWith('feeling-') ? C.feelings.some((f) => f.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') === h.slice(8)) : N.has(h); if (!okT) bad.push(name + ': link to nowhere ' + h); if (h === window.__bfa.S.id) bad.push(name + ': links to itself'); }); };
   for (const n of C.nodes) { go({ id: n.id }); check(n.id); for (const pos of n.positions) { go({ id: n.id, pos: pos.key }); check(n.id + '/' + pos.key); } }
@@ -168,7 +168,7 @@ const ends = await p.evaluate(() => {
   const homes = ['chakra', 'feelings', 'field', 'organs', 'zodiac'].map((v) => { go({ view: v }); return v + ':' + document.querySelectorAll('#detail [data-go], #detail [data-feeling], #detail [data-setview]').length; });
   go({ view: 'chakra' }); return { bad, pages, links, about, homes };
 });
-ok('no dead ends: every entry closes with at least two ways onward and a copy link', ends.bad.length === 0, `${ends.pages} entries, ${ends.links} onward links` + (ends.bad.length ? '\n     ' + ends.bad.slice(0, 10).join('\n     ') : ''));
+ok('no dead ends: every entry closes with at least three ways onward and a copy link', ends.bad.length === 0, `${ends.pages} entries, ${ends.links} onward links` + (ends.bad.length ? '\n     ' + ends.bad.slice(0, 10).join('\n     ') : ''));
 ok('About and every view opening offer ways in', ends.about >= 5 && ends.homes.every((x) => Number(x.split(':')[1]) >= 4), ends.homes.join(' ') + ' about:' + ends.about);
 await p.evaluate(() => window.__bfa.go({ id: 'skin' })); await p.waitForTimeout(300);
 { const chips = await p.evaluate(() => [...document.querySelectorAll('#detail .xp .chip')].map((c) => c.textContent)); ok('skin leads on to the liver and digestion', ['Liver', 'Stomach', 'Small intestine', 'Large intestine', 'Solar Plexus', 'Sacral'].every((x) => chips.includes(x)), chips.join(', ')); }
@@ -176,9 +176,9 @@ await p.click('#detail a.ln:has-text("liver")'); await p.waitForTimeout(300); ok
 await p.click('#detail .acc[data-k="anatomy"]>button'); await p.evaluate(() => window.__bfa.go({ id: 'spleen' })); await p.waitForTimeout(200);
 ok('an opened section stays open on the next part', (await p.getAttribute('#detail .acc[data-k="anatomy"]', 'data-open')) === '1');
 await p.evaluate(() => window.__bfa.go({ id: 'heart' })); await p.waitForTimeout(300);
-ok('centers step up and down the body', (await p.textContent('#detail .pn.prev')).includes('Throat') && (await p.textContent('#detail .pn.next')).includes('Solar Plexus'));
-await p.click('#detail .pn.next'); await p.waitForTimeout(300); ok('Next opens the center below', (await h2(p)) === 'Solar Plexus');
-await p.evaluate(() => document.activeElement && document.activeElement.blur()); await p.keyboard.press('ArrowUp'); await p.waitForTimeout(300); ok('arrow keys step through the map', (await h2(p)) === 'Heart', await h2(p));
+ok('Keep exploring is one plain row of pills: no sub-headings, no previous and next buttons', (await p.locator('#detail .xp .chip[data-go], #detail .xp .chip[data-feeling]').count()) >= 3 && (await p.locator('#detail .pn, #detail .xh').count()) === 0);
+await p.evaluate(() => document.activeElement && document.activeElement.blur()); await p.keyboard.press('ArrowDown'); await p.waitForTimeout(300); ok('the down arrow opens the center below', (await h2(p)) === 'Solar Plexus', await h2(p));
+await p.keyboard.press('ArrowUp'); await p.waitForTimeout(300); ok('the up arrow steps back up the body', (await h2(p)) === 'Heart', await h2(p));
 { const before = await p.textContent('#c-face b'); await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(700); const after = await p.textContent('#c-face b'); ok('left and right arrows turn the body', before !== after, before + ' to ' + after); }
 await p.keyboard.press('?'); ok('? shows the keys', await p.isVisible('#keys')); await p.keyboard.press('Escape'); ok('Escape hides them again', !(await p.isVisible('#keys')));
 await p.evaluate(() => window.__bfa.go({ view: 'chakra' })); ok('the search box is the first stop for the Tab key', (await p.evaluate(() => { const f = [...document.querySelectorAll('button,input,a[href],[tabindex]')].find((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden'; }); return f && f.id; })) === 'q');
@@ -187,8 +187,15 @@ ok('focusing the empty search offers places to start', (await p.locator('#result
 await p.fill('#q', 'livr'); await p.waitForTimeout(150); ok('a near miss in search offers the closest entry', (await p.locator('#results .res.sug b').allTextContents()).includes('Liver'));
 await p.fill('#q', 'zzzzqq'); await p.waitForTimeout(150); ok('no match still offers Biofield A to Z', (await p.locator('#results .res.sug b').allTextContents()).includes('Biofield A to Z'));
 await p.fill('#q', ''); await p.keyboard.press('Escape');
-await p.click('.tab[data-view="feelings"]'); await p.waitForTimeout(300); ok('Feelings is a view of its own', (await h2(p)) === 'All feelings' && (await p.getAttribute('.tab[data-view="feelings"]', 'aria-selected')) === 'true' && (await p.locator('#list [data-feeling]').count()) === 50);
-await p.click('#list [data-feeling="Anger"]'); await p.waitForTimeout(300); ok('a feeling keeps the Feelings tab lit and its breadcrumb says Feelings', (await h2(p)) === 'Anger' && (await p.getAttribute('.tab[data-view="feelings"]', 'aria-selected')) === 'true' && (await p.textContent('#detail .crumbs .crumb')) === 'Feelings');
+ok('Feelings sits in the foot row between Biofield A to Z and About, and is not a tab', (await p.evaluate(() => [...document.querySelectorAll('#railfoot button')].map((b) => b.id).join())) === 'b-atoz,b-feelings,b-about' && (await p.locator('.tab').count()) === 4);
+ok('the four tabs sit in one row', (await p.evaluate(() => new Set([...document.querySelectorAll('.tab')].map((t) => Math.round(t.getBoundingClientRect().top))).size)) === 1);
+await p.click('#b-feelings'); await p.waitForTimeout(300); ok('the Feelings button opens the feelings index and one tab stays lit', (await h2(p)) === 'All feelings' && (await p.getAttribute('#b-feelings', 'aria-pressed')) === 'true' && (await p.locator('.tab[aria-selected="true"]').count()) === 1 && (await p.locator('#detail [data-feeling]').count()) === 50);
+await p.click('#detail [data-feeling="Anger"]'); await p.waitForTimeout(300); ok('a feeling keeps the Feelings button lit and its breadcrumb says Feelings', (await h2(p)) === 'Anger' && (await p.getAttribute('#b-feelings', 'aria-pressed')) === 'true' && (await p.textContent('#detail .crumbs .crumb')) === 'Feelings' && (await p.locator('.tab[aria-selected="true"]').count()) === 1);
+await p.click('#back'); await p.waitForTimeout(300); ok('back from a feeling returns to all feelings', (await h2(p)) === 'All feelings');
+await p.evaluate(() => window.__bfa.go({ id: 'legs' })); await p.waitForTimeout(300);
+ok('the Legs open as four labelled pieces on the model and four cards in the panel', (await p.locator('#labels .lab .l1').allTextContents()).join() === 'Thighs,Knees,Ankles,Feet' && (await p.locator('#detail .compass .pos').count()) === 4);
+await p.click('#labels .lab:has-text("Knees")'); await p.waitForTimeout(300); ok('a leg label opens that piece', (await h2(p)) === 'Knees');
+await p.evaluate(() => window.__bfa.go({ id: 'legs' })); await p.waitForTimeout(200); await p.click('#detail .compass .pos:has-text("Ankles")'); await p.waitForTimeout(300); ok('a leg card opens that piece', (await h2(p)) === 'Ankles');
 await p.click('.tab[data-view="zodiac"]'); await p.waitForTimeout(300);
 { const z = await p.evaluate(() => { const { C } = window.__bfa; const s = Object.fromEntries(C.nodes.filter((n) => n.kind === 'sign').map((n) => [n.id, [n.element, n.mode, n.zc]]));
     const hue = (h) => { const r = parseInt(h.slice(1, 3), 16), g = parseInt(h.slice(3, 5), 16), b = parseInt(h.slice(5, 7), 16); return r > g && r > b && g < 0.75 * r ? 'red' : g > r && g > b ? 'green' : b > r && b > g ? 'blue' : 'yellow'; }; const lum = (h) => parseInt(h.slice(1, 3), 16) * 0.3 + parseInt(h.slice(3, 5), 16) * 0.59 + parseInt(h.slice(5, 7), 16) * 0.11;

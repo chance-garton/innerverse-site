@@ -48,11 +48,15 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     uHiMix: { value: 0 },     // 1: light with uHiColor in place of the local chakra colour
     uHiColor: { value: new THREE.Color('#f2d28a') },
     uHov: { value: -1 }, uHovAmt: { value: 0 },   // zone under the pointer
+    uSeg: { value: 0 },       // 0..1: the legs drawn as separate pieces (thighs, knees, shins and ankles, feet)
+    uSegHov: { value: new THREE.Vector3(0, 0, 0) },   // the piece under the pointer: bottom, top, amount
     uLegs: { value: new THREE.Vector2(MODEL.legs.top, MODEL.legs.bottom) },
     uZodAmt: { value: 0 },    // 0..1: the zodiac body, each sign's area in its own colour
     uZodW: { value: new Float32Array(12).fill(1) },
     uZodCol: { value: Array.from({ length: 12 }, (_, i) => new THREE.Color((opts.signs && opts.signs[i] && opts.signs[i].color) || '#888888')) },
   };
+  const REACH = 5.5 * FT;                       // where the field edge is drawn (distances come from the reviewed map)
+  const BODY_A = 0.20, BODY_B = 0.13, CY = 0.83; // body half width and half depth, and its mid height
   const SUN_Y = MODEL.body.height + 8 * IN, EARTH_Y = -0.22;   // the Sun Star and the Earth Star: the two ends of the central channel
   const ZONE_GLSL = /* glsl */`
     uniform vec3 uColors[9]; uniform float uSelAmt; uniform float uTime; uniform float uXray; uniform float uOpen; uniform float uGhost;
@@ -133,7 +137,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     fragmentShader: /* glsl */`
       ${ZONE_GLSL}
       ${REGION_GLSL}
-      uniform vec2 uLegs; uniform float uHov; uniform float uHovAmt;
+      uniform vec2 uLegs; uniform float uHov; uniform float uHovAmt; uniform float uSeg; uniform vec3 uSegHov;
       varying vec2 vUv; varying vec3 vN; varying vec3 vV; varying vec3 vW;
       void main(){
         float zc = vUv.x * 7.0; vec3 col = zoneColor(zc);
@@ -155,7 +159,12 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
         float fill = (0.20 + 0.34 * key + 0.10 * pow(ndv, 3.0)) * mix(1.0, 0.70, legMask * (1.0 - uSelAmt) * (1.0 - uNeutral));   // form light; the legs sit back a little when nothing is chosen
         vec3 c = col * fill + col * rim * 0.92 + mix(col, vec3(1.0, 0.96, 0.9), 0.5) * pow(rim, 3.5) * 0.34;
         float hz = mix(max(zc, 0.0), 4.0, step(0.3, vUv.y)); float hov = uHovAmt * (1.0 - smoothstep(0.42, 0.62, abs(floor(hz + 0.5) - uHov))) * (1.0 - uSelAmt * 0.6);
-        c += col * hov * (0.16 + 0.5 * rim);
+        c += col * hov * (0.16 + 0.5 * rim) * (1.0 - 0.75 * uSeg);
+        if (uSeg > 0.001) {   // a dark seam where one piece of the leg meets the next (the same heights the app uses to tell them apart)
+          float seam = (1.0 - smoothstep(0.004, 0.012, abs(vW.y - 0.095))) + (1.0 - smoothstep(0.004, 0.012, abs(vW.y - 0.39))) + (1.0 - smoothstep(0.004, 0.012, abs(vW.y - 0.57)));
+          c *= 1.0 - 0.86 * min(seam, 1.0) * uSeg * legMask;
+          c += col * uSegHov.z * smoothstep(uSegHov.x, uSegHov.x + 0.012, vW.y) * (1.0 - smoothstep(uSegHov.y - 0.012, uSegHov.y, vW.y)) * legMask * (0.20 + 0.65 * rim);
+        }
         float rest = uSelAmt * (1.0 - w);
         vec3 grey = vec3(dot(c, vec3(0.3, 0.5, 0.2)));
         c = mix(c, mix(grey, c, 0.4) * 0.2 + vec3(0.012, 0.014, 0.03), rest * mix(0.95, 0.84, uZodAmt));                 // the rest of the body goes dark
@@ -200,26 +209,37 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     });
   }
 
-  // ---------- the aura: three smooth shells around the body (meshes aura_1..3 in the model), brightest where they face the eye ----------
-  const shells = [];
-  const SHELL = { aura_1: [0.20, 2.7], aura_2: [0.105, 2.2], aura_3: [0.055, 1.9] };
-  const shellMat = (a, k) => new THREE.ShaderMaterial({
-    uniforms: { ...U, uA: { value: a }, uK: { value: k }, uShow: { value: 0 } }, vertexShader: VERT, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.BackSide,
-    fragmentShader: /* glsl */`
-      ${ZONE_GLSL}
-      uniform float uA; uniform float uK; uniform float uShow; uniform vec2 uLegs; varying vec2 vUv; varying vec3 vN; varying vec3 vV; varying vec3 vW;
-      void main(){ float zc = vUv.x * 7.0; vec3 col = zoneColor(zc);
-        float legT = clamp((uLegs.x - vW.y) / (uLegs.x - uLegs.y), 0.0, 1.0);
-        col = mix(col, mix(uColors[1], uColors[0], legT), 1.0 - smoothstep(0.9, 1.0, zc));
-        col = mix(col, vec3(0.62, 0.70, 0.78), smoothstep(0.45, 1.0, vUv.y) * 0.42);
-        col = mix(col, vec3(0.34, 0.38, 0.56), uNeutral);
-        float ndv = clamp(abs(dot(normalize(vN), normalize(vV))), 0.0, 1.0);
-        float breath = 0.93 + 0.07 * sin(uTime * 0.9 + vW.y * 2.4);
-        float soft = smoothstep(0.0, 0.5, ndv) * (1.0 - 0.55 * smoothstep(0.45, 1.0, vUv.y));   // no hard edge at the silhouette, and the hands stay quiet
-        gl_FragColor = vec4(col * pow(ndv, uK) * soft * uA * breath * uShow * (1.0 - 0.7 * uSelAmt) * (1.0 - 0.8 * uGhost) * (1.0 - 0.6 * uXray), 1.0);
+  // ---------- the aura: the body's own light, spread softly around its outline. The skin is drawn alone into a small buffer,
+  // blurred wide, and laid behind the figure. Because it is one blur of one picture, glow never stacks into a brighter patch where
+  // an arm passes the torso or one leg the other, and each part of the halo carries the colour of the skin beside it. (The three
+  // shell meshes aura_1..3 are still in the model and are simply not drawn; drop them at the next model rebuild.) ----------
+  const AURA_GAIN = 0.62, AURA_STEPS = [1, 2, 3.3];
+  const aur = { rtA: null, rtB: null, show: 0, on: !window.__BFA_NOAURA };   // __BFA_NOAURA: a switch for measuring what the aura costs
+  const fsVert = /* glsl */`varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
+  const blurMat = new THREE.ShaderMaterial({ uniforms: { tex: { value: null }, dir: { value: new THREE.Vector2() } }, vertexShader: fsVert, depthTest: false, depthWrite: false,
+    fragmentShader: /* glsl */`uniform sampler2D tex; uniform vec2 dir; varying vec2 vUv;
+      void main(){ vec4 c = texture2D(tex, vUv) * 0.227027;
+        c += (texture2D(tex, vUv + dir) + texture2D(tex, vUv - dir)) * 0.1945946; c += (texture2D(tex, vUv + dir * 2.0) + texture2D(tex, vUv - dir * 2.0)) * 0.1216216;
+        c += (texture2D(tex, vUv + dir * 3.0) + texture2D(tex, vUv - dir * 3.0)) * 0.054054; c += (texture2D(tex, vUv + dir * 4.0) + texture2D(tex, vUv - dir * 4.0)) * 0.016216;
+        gl_FragColor = c; }` });
+  const fsScene = new THREE.Scene(), fsCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1); { const q = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), blurMat); q.frustumCulled = false; fsScene.add(q); }
+  const auraQuadMat = new THREE.ShaderMaterial({ uniforms: { tex: { value: null }, uAmt: { value: 0 } }, vertexShader: fsVert, transparent: true, depthTest: false, depthWrite: false, blending: THREE.AdditiveBlending,
+    fragmentShader: /* glsl */`uniform sampler2D tex; uniform float uAmt; varying vec2 vUv;
+      void main(){ gl_FragColor = vec4(texture2D(tex, vUv).rgb * uAmt, 1.0);
         #include <colorspace_fragment>
-      }`,
-  });
+      }` });
+  const auraQuad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), auraQuadMat); auraQuad.frustumCulled = false; auraQuad.renderOrder = -0.6; auraQuad.visible = false; scene.add(auraQuad);
+  const _cc = new THREE.Color();
+  function renderAura() {
+    auraQuad.visible = aur.on && !!skin && !!aur.rtA && auraQuadMat.uniforms.uAmt.value > 0.004; if (!auraQuad.visible) return;
+    const bg = scene.background, ca = renderer.getClearAlpha(); renderer.getClearColor(_cc); scene.background = null; renderer.setClearColor(0x000000, 1);
+    camera.layers.set(1); renderer.setRenderTarget(aur.rtA); renderer.clear(); renderer.render(scene, camera); camera.layers.set(0);
+    scene.background = bg; renderer.setClearColor(_cc, ca);
+    const w = aur.rtA.width, h = aur.rtA.height;
+    for (const st of AURA_STEPS) { blurMat.uniforms.tex.value = aur.rtA.texture; blurMat.uniforms.dir.value.set(st / w, 0); renderer.setRenderTarget(aur.rtB); renderer.render(fsScene, fsCam);
+      blurMat.uniforms.tex.value = aur.rtB.texture; blurMat.uniforms.dir.value.set(0, st / h); renderer.setRenderTarget(aur.rtA); renderer.render(fsScene, fsCam); }
+    renderer.setRenderTarget(null); auraQuadMat.uniforms.tex.value = aur.rtA.texture;
+  }
   // thin parts (nerves) get a soft halo so they never shrink to a hairline
   const HALO = { vagus: 0.0034, sciatic_l: 0.0045, sciatic_r: 0.0045 };
   const haloMat = (zoneIndex, d) => new THREE.ShaderMaterial({
@@ -269,38 +289,39 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
     const dust = new THREE.Points(g, new THREE.PointsMaterial({ map: texDot, color: 0xcfd3ee, size: 0.02, sizeAttenuation: true, transparent: true, opacity: 0.3, depthWrite: false, blending: THREE.AdditiveBlending })); dust.renderOrder = -2; scene.add(dust); }
 
-  // ---------- the torus: a faint electric current around the body. It is part of the room, not the screen, so it keeps its place
-  // as the body turns. Every thread runs between the Sun Star above the head and the Earth Star below the feet: half carry the
-  // descending current down the outside, half the ascending current up. ----------
+  // ---------- the torus: a faint current around the body, one shape and one scale with the field. Each family of threads is the
+  // field shell's own apple profile; the outermost family lies on the field's edge, the next one in is the same shape at 54%, where
+  // its two dimples sit exactly on the Sun Star and the Earth Star. Every thread leaves one star through a funnel, rounds the outside
+  // and enters the other. It is part of the room, not the screen, so it keeps its place as the body turns. Half the threads carry
+  // the descending current down the outside, half the ascending current up. ----------
   const flowU = { uFlowT: { value: 0 }, uFlowA: { value: 0 } };
   const flow = new THREE.Group(); scene.add(flow);
-  { const SEG = 120, CYF = (SUN_Y + EARTH_Y) / 2, HF = (SUN_Y - EARTH_Y) / 2; const RINGS = [[0.58, 8, 0.0], [0.88, 9, 0.29], [1.2, 10, 0.11]];
-    const P = [], UU = [], SD = [], DR = [], RD = []; let seed = 11; const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }; let line = 0;
-    RINGS.forEach(([R, count, off]) => { for (let k = 0; k < count; k++, line++) { const phi = (k + off + (rnd() - 0.5) * 0.3) / count * Math.PI * 2; const sd = rnd(), dir = line % 2 ? 1 : -1; const cx = Math.cos(phi), cz = Math.sin(phi);
-      const pt = (i) => { const u = i / SEG, th = u * Math.PI, r = R * Math.pow(Math.sin(th), 1.5); return [cx * r, CYF + HF * Math.cos(th), MID + cz * r, u]; };
-      for (let i = 0; i < SEG; i++) { for (const q of [pt(i), pt(i + 1)]) { P.push(q[0], q[1], q[2]); UU.push(q[3]); SD.push(sd); DR.push(dir); RD.push(cx, cz); } } } });
-    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('aU', new THREE.Float32BufferAttribute(UU, 1)); g.setAttribute('aSeed', new THREE.Float32BufferAttribute(SD, 1));
-    g.setAttribute('aDir', new THREE.Float32BufferAttribute(DR, 1)); g.setAttribute('aRad', new THREE.Float32BufferAttribute(RD, 2));
+  { const SEG = 220, R0 = BODY_A + REACH, H0 = CY + REACH, STAR = (SUN_Y - EARTH_Y) / 2, CYF = (SUN_Y + EARTH_Y) / 2;
+    // [share of the field's size, threads, turn offset, apex stretch]: the inmost family is drawn a little taller so it can still reach the stars
+    const FAMILIES = [[0.38, 8, 0.0, 1.24], [0.541, 9, 0.29, 1], [0.76, 10, 0.11, 1], [1.0, 12, 0.4, 1]];
+    const P = [], LL = [], EE = [], SD = [], DR = [], RD = []; let seed = 11; const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }; let line = 0;
+    FAMILIES.forEach(([sc, count, off, stretch]) => { const R = R0 * sc, A = Math.max(H0 * sc * stretch, STAR * 1.04), d = 1 - STAR / A;   // d: how deep the funnel must be for the thread to meet the star
+      const prof = (i) => { const t = (i / SEG) * Math.PI, sn = Math.sin(t); const g = 1 - Math.pow(1 - Math.exp(-Math.pow(sn / 0.3, 2)), 0.42); return [R * sn, CYF + A * Math.cos(t) * (1 - d * g)]; };
+      const pts = []; for (let i = 0; i <= SEG; i++) pts.push(prof(i)); const len = [0]; for (let i = 1; i <= SEG; i++) len.push(len[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); const total = len[SEG];
+      for (let k = 0; k < count; k++, line++) { const phi = (k + off) / count * Math.PI * 2; const sd = rnd(), dir = line % 2 ? 1 : -1; const cx = Math.cos(phi), cz = Math.sin(phi);
+        for (let i = 0; i < SEG; i++) for (const j of [i, i + 1]) { P.push(cx * pts[j][0], pts[j][1], MID + cz * pts[j][0]); LL.push(dir > 0 ? len[j] : total - len[j]); EE.push(Math.min(len[j], total - len[j])); SD.push(sd); DR.push(dir); RD.push(cx, cz); } } });
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('aLen', new THREE.Float32BufferAttribute(LL, 1)); g.setAttribute('aEnd', new THREE.Float32BufferAttribute(EE, 1));
+    g.setAttribute('aSeed', new THREE.Float32BufferAttribute(SD, 1)); g.setAttribute('aDir', new THREE.Float32BufferAttribute(DR, 1)); g.setAttribute('aRad', new THREE.Float32BufferAttribute(RD, 2));
     const m = new THREE.ShaderMaterial({ uniforms: flowU, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-      vertexShader: /* glsl */`attribute float aU; attribute float aSeed; attribute float aDir; attribute vec2 aRad; uniform float uFlowT; varying float vS; varying float vSeed; varying float vDir; varying float vU; varying float vFade;
-        void main(){ float mid = sin(aU * 3.14159);
-          // a small restless waver, the way a current never quite holds still
-          float j = sin(aU * 31.0 + uFlowT * 1.7 + aSeed * 40.0) * sin(aU * 73.0 - uFlowT * 2.3 + aSeed * 11.0) + 0.5 * sin(aU * 157.0 + uFlowT * 3.1 + aSeed * 23.0);
-          vec3 p = position; p.xz += aRad * j * 0.011 * mid; p.y += j * 0.006 * mid;
-          vS = aDir > 0.0 ? aU : 1.0 - aU; vSeed = aSeed; vDir = aDir; vU = aU;
-          vec4 mv = modelViewMatrix * vec4(p, 1.0);
+      vertexShader: /* glsl */`attribute float aLen; attribute float aEnd; attribute float aSeed; attribute float aDir; attribute vec2 aRad; varying float vS; varying float vSeed; varying float vDir; varying float vEnd; varying float vFade;
+        void main(){ vS = aLen; vSeed = aSeed; vDir = aDir; vEnd = aEnd;
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
           // threads between the eye and the body step back, and so does anything close to the lens: the current surrounds the figure, it never veils it
           vec2 vd = normalize(cameraPosition.xz - vec2(0.0, ${MID.toFixed(3)}) + vec2(0.0001));
           vFade = (1.0 - 0.82 * smoothstep(0.1, 0.8, dot(aRad, vd))) * smoothstep(0.5, 1.7, -mv.z);
           gl_Position = projectionMatrix * mv; }`,
-      fragmentShader: /* glsl */`uniform float uFlowT; uniform float uFlowA; varying float vS; varying float vSeed; varying float vDir; varying float vU; varying float vFade;
+      fragmentShader: /* glsl */`uniform float uFlowT; uniform float uFlowA; varying float vS; varying float vSeed; varying float vDir; varying float vEnd; varying float vFade;
         void main(){
-          float ph = fract(vS * 1.6 - uFlowT * (0.085 + 0.035 * vSeed) + vSeed * 7.0);
-          float pulse = pow(ph, 9.0) + 0.45 * pow(fract(ph + 0.43 + 0.2 * vSeed), 16.0);        // a bright head with a tail behind it, travelling the way the current runs
-          float crackle = 0.72 + 0.28 * sin(vS * 190.0 - uFlowT * 5.0 + vSeed * 60.0);
-          float ends = 0.16 + 0.84 * smoothstep(0.0, 0.2, vU) * smoothstep(1.0, 0.8, vU);       // the threads gather at the two stars without piling into a knot
+          float ph = fract(vS * 0.42 - uFlowT * (0.085 + 0.03 * vSeed) + vSeed * 7.0);         // vS is metres along the thread, so every pulse travels at a walking-slow, even pace
+          float pulse = pow(ph, 9.0) + 0.4 * pow(fract(ph + 0.43 + 0.2 * vSeed), 16.0);       // a bright head with a tail behind it, travelling the way the current runs
+          float ends = 0.14 + 0.86 * smoothstep(0.0, 0.45, vEnd);                              // the threads gather at the two stars without piling into a knot
           vec3 col = vDir > 0.0 ? vec3(0.96, 0.90, 0.78) : vec3(0.72, 0.80, 1.0);              // descending: warm; ascending: cool
-          gl_FragColor = vec4(col * (0.0105 + 0.085 * pulse * crackle) * ends * vFade * uFlowA, 1.0);
+          gl_FragColor = vec4(col * (0.0105 + 0.085 * pulse) * ends * vFade * uFlowA, 1.0);
           #include <colorspace_fragment>
         }` });
     const lines = new THREE.LineSegments(g, m); lines.frustumCulled = false; lines.renderOrder = 3; flow.add(lines);
@@ -333,8 +354,6 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   // ---------- the field: edge, timeline rings, central channel, stars, rivers, parent zones, adrenal field ----------
   const field = new THREE.Group(); field.visible = false; scene.add(field);
   const F = { amt: 0, on: false, focus: null, age: 40, parts: {} };
-  const REACH = 5.5 * FT;                       // where the field edge is drawn (distances come from the reviewed map)
-  const BODY_A = 0.20, BODY_B = 0.13, CY = 0.83; // body half width and half depth, and its mid height
   const fieldMat = (layer) => new THREE.ShaderMaterial({
     uniforms: { ...U, uFade: { value: 0 }, uLayer: { value: layer } }, vertexShader: VERT, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.FrontSide,
     fragmentShader: /* glsl */`
@@ -422,8 +441,8 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     const root = gltf.scene; scene.add(root); const add = [];
     root.traverse((o) => {
       if (!o.isMesh) return;
-      if (SHELL[o.name]) { o.material = shellMat(...SHELL[o.name]); o.renderOrder = -0.5; o.visible = false; shells.push(o); }
-      else if (o.name === 'skin') { skin = o; o.material = skinMat; o.renderOrder = 2; const pre = new THREE.Mesh(o.geometry, prepassMat); pre.renderOrder = 1; add.push([o.parent, pre, o]); }
+      if (/^aura_/.test(o.name)) { o.visible = false; }
+      else if (o.name === 'skin') { skin = o; o.material = skinMat; o.renderOrder = 2; o.layers.enable(1); const pre = new THREE.Mesh(o.geometry, prepassMat); pre.renderOrder = 1; pre.layers.enable(1); add.push([o.parent, pre, o]); }
       else { const id = o.name.replace(/^(organ_|axis_)/, ''); const zone = o.userData.zone ?? 8;
         o.material = organMaterial(zone, TINT[id] ?? 0); o.renderOrder = 0; o.visible = false;
         const rec = { mesh: o, zone, opacity: 0, active: 0, tOp: 0, tAct: 0 }; organs.set(id, rec);
@@ -467,7 +486,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
   // ---------- look: what is lit ----------
-  const look = { regions: new Float32Array(NREG), sel: 0, xray: 0, open: 1, ghost: 0, neutral: 0, himix: 0, glow: 0, side: 0, fb: 0, orbs: 0, orbSel: -1, aura: 0.5, zod: 0, zodW: new Float32Array(12).fill(1), flow: 1 };
+  const look = { regions: new Float32Array(NREG), sel: 0, xray: 0, open: 1, ghost: 0, neutral: 0, himix: 0, glow: 0, side: 0, fb: 0, orbs: 0, orbSel: -1, aura: 0.5, zod: 0, zodW: new Float32Array(12).fill(1), flow: 1, seg: 0, segHov: 0 };
   function setLook(l) {
     wake(2.2);
     look.regions.fill(0);
@@ -488,6 +507,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     look.orbs = l.orbs ?? 0; look.orbSel = l.orbSel ?? -1; look.aura = l.aura ?? 0.5;
     look.zod = l.mode === 'zodiac' ? 1 : 0; for (let i = 0; i < 12; i++) look.zodW[i] = l.zodW ? (l.zodW[i] ?? 0) : 1;
     if (l.hiColor) U.uHiColor.value.set(l.hiColor);
+    look.seg = l.seg ? 1 : 0; if (!l.seg) look.segHov = 0;
     glowMat.uniforms.uCol.value.set(ZONES[2].color);
   }
   function setField(f) { wake(2.2); F.on = !!f.on; F.focus = f.focus || null; if (f.age && f.age !== F.age) { F.age = f.age; buildRings(); } }
@@ -546,7 +566,11 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       const rt = new THREE.WebGLRenderTarget(Math.max(1, w * pr), Math.max(1, h * pr), { type: THREE.HalfFloatType, samples: pr >= 2 ? 0 : 4 });   // dense screens need no extra smoothing, and it is the costly part on a phone
       composer = new EffectComposer(renderer, rt); composer.addPass(new RenderPass(scene, camera)); const bloom = new UnrealBloomPass(new THREE.Vector2(w, h), 0.15, 0.9, 0.42); bloom.highPassUniforms.smoothWidth.value = 0.5; composer.addPass(bloom);   // a low, wide glow that eases in: nothing switches on at a hard brightness line composer.addPass(new OutputPass());
     } catch (e) { composer = null; glowOn = false; } }
-    if (composer) { composer.setPixelRatio(pr); composer.setSize(w, h); } wake(); }
+    if (composer) { composer.setPixelRatio(pr); composer.setSize(w, h); }
+    { const aw = Math.max(8, Math.round(w / 3)), ah = Math.max(8, Math.round(h / 3));   // the aura buffer follows the page size, not the screen's pixel density, so the halo is as wide on a phone as on a desk
+      if (!aur.rtA) { const mk = () => new THREE.WebGLRenderTarget(aw, ah, { type: THREE.HalfFloatType, depthBuffer: true, minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter }); try { aur.rtA = mk(); aur.rtB = mk(); } catch (e) { aur.on = false; } }
+      else { aur.rtA.setSize(aw, ah); aur.rtB.setSize(aw, ah); } }
+    wake(); }
   let resizeT = 0;
   const refit = (instant) => { applyOffset(); if (!tween) flyTo(lastFrame, { ...lastOpts, keepAz: true, instant }); };
   new ResizeObserver(() => { resize(); clearTimeout(resizeT); refit(true); }).observe(stage);
@@ -565,11 +589,12 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     U.uSelAmt.value = lerp(U.uSelAmt.value, look.sel); U.uXray.value = lerp(U.uXray.value, look.xray); U.uOpen.value = lerp(U.uOpen.value, look.open);
     U.uGhost.value = lerp(U.uGhost.value, look.ghost); U.uNeutral.value = lerp(U.uNeutral.value, look.neutral); U.uHiMix.value = lerp(U.uHiMix.value, look.himix);
     const reg = U.uReg.value; for (let i = 0; i < NREG; i++) reg[i] = lerp(reg[i], look.regions[i]);
+    U.uSeg.value = lerp(U.uSeg.value, look.seg); U.uSegHov.value.z = lerp(U.uSegHov.value.z, look.segHov);
     U.uZodAmt.value = lerp(U.uZodAmt.value, look.zod); { const zw = U.uZodW.value; for (let i = 0; i < 12; i++) zw[i] = lerp(zw[i], look.zodW[i]); }
     organs.forEach((o) => { o.opacity = lerp(o.opacity, o.tOp); o.active = lerp(o.active, o.tAct); o.mesh.visible = o.opacity > 0.01; o.mesh.material.uniforms.uOpacity.value = o.opacity; o.mesh.material.uniforms.uActive.value = o.active;
       if (o.halo) { o.halo.visible = o.mesh.visible; o.halo.material.uniforms.uA.value = o.opacity * (0.35 + 0.65 * o.active); } });
     glowMat.uniforms.uGlow.value = lerp(glowMat.uniforms.uGlow.value, look.glow); reproGlow.visible = glowMat.uniforms.uGlow.value > 0.01;
-    auraMat.opacity = lerp(auraMat.opacity, look.aura * 0.22); { const sv = Math.min(1, look.aura * 2) * (1 - 0.75 * F.amt); shells.forEach((m) => { const u = m.material.uniforms.uShow; u.value = lerp(u.value, sv); m.visible = u.value > 0.01; }); }
+    auraMat.opacity = lerp(auraMat.opacity, look.aura * 0.22); { const sv = Math.min(1, look.aura * 2.2) * (1 - 0.6 * F.amt); aur.show = lerp(aur.show, sv); auraQuadMat.uniforms.uAmt.value = aur.show * AURA_GAIN * (0.94 + 0.06 * Math.sin(U.uTime.value * 0.9)); }
     const camDir = _v.copy(camera.position).sub(controls.target).normalize(); const facing = THREE.MathUtils.clamp(camDir.z * 1.6 + 0.55, 0.25, 1);
     orbs.forEach((s, i) => { const u = s.userData; if (i === 0) { u.amt = 0; s.visible = false; return; } u.amt = lerp(u.amt, look.orbs); u.sel = lerp(u.sel, look.orbSel === i ? 1 : 0);
       const dimOthers = look.orbSel >= 0 && look.orbSel !== i ? 0.35 : 1; const pulse = 0.9 + 0.1 * Math.sin(U.uTime.value * 1.6 + i * 0.7);
@@ -588,8 +613,9 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       if (tween.t >= 1) tween = null;
     }
     controls.update(); aura.quaternion.copy(camera.quaternion);
-    { const fa = look.flow * (1 - 0.65 * F.amt) * (1 - 0.45 * U.uSelAmt.value) * (1 - 0.5 * U.uXray.value); flowU.uFlowA.value = lerp(flowU.uFlowA.value, fa);
+    { const fa = look.flow * (1 - 0.25 * F.amt) * (1 - 0.45 * U.uSelAmt.value) * (1 - 0.5 * U.uXray.value); flowU.uFlowA.value = lerp(flowU.uFlowA.value, fa);
       flow.userData.stars.forEach((sp) => { sp.material.opacity = 0.34 * flowU.uFlowA.value * (1 - F.amt); }); flow.userData.axis.material.opacity = 0.035 * flowU.uFlowA.value * (1 - F.amt); }
+    renderAura();
     if (composer && glowOn) composer.render(); else renderer.render(scene, camera);
     hooks.onFrame && hooks.onFrame();
     if (resting) { fpsN = 0; fpsT = 0; }
@@ -597,7 +623,8 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       slow = fps < 26 ? slow + 1 : 0;
       if (slow >= 4 && !navigator.webdriver) {            // a struggling device first loses the glow pass, then sharpness
         if (glowOn && composer) { glowOn = false; slow = 0; }
-        else if (pr > 1) { pr = Math.max(1, pr - 0.5); renderer.setPixelRatio(pr); resize(); slow = 0; } } } }
+        else if (pr > 1) { pr = Math.max(1, pr - 0.5); renderer.setPixelRatio(pr); resize(); slow = 0; }
+        else if (aur.on) { aur.on = false; slow = 0; } } } }
   }
   const focusKeys = (f) => ({ rivers: ['rivers'], parents: ['parents'], channel: ['channel', 'sunstar', 'earthstar'], sunstar: ['sunstar', 'channel'], earthstar: ['earthstar', 'channel'], adrenal: ['adrenal'], lefthip: ['lefthip'], ditch: ['ditch'], sides: [], frontback: [], timeline: [], edge: [] }[f] || []);
   function fadeObj(m, a, key) {
@@ -613,9 +640,10 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   const facing = () => { const a = THREE.MathUtils.euclideanModulo(readCamera().az + Math.PI, Math.PI * 2) - Math.PI; const d = Math.abs(a); return d < Math.PI / 4 ? 'front' : d > Math.PI * 3 / 4 ? 'back' : a > 0 ? 'left' : 'right'; };   // which side of the figure faces the viewer (left: the figure's own left)
   const turnTo = (deg) => { const keep = lastOpts; flyTo(lastFrame, { ...keep, az: deg, keepAz: false, dur: 0.9 }); lastOpts = keep; };   // Reset still returns to the view's own side
   const resetView = () => flyTo(lastFrame, lastOpts);
+  const setSegHover = (band) => { if (band) { U.uSegHov.value.x = band[0]; U.uSegHov.value.y = band[1]; look.segHov = 1; } else look.segHov = 0; wake(0.8); };
   const turnBy = (deg) => { const c = readCamera(); const base = tween ? tween.to : c; const to = { ...base, az: base.az + THREE.MathUtils.degToRad(deg) }; sway = false; wake(1);   // presses add up, even mid-turn
     if (reduceMotion) { setCamera(to); controls.update(); tween = null; } else tween = { from: c, to, t: 0, dur: 0.3 }; };
   const zoomBy = (k) => { const c = readCamera(); tween = { from: c, to: { ...c, dist: THREE.MathUtils.clamp(c.dist * k, controls.minDistance, controls.maxDistance) }, t: 0, dur: 0.35 }; wake(1); };
   const startSway = () => { if (!reduceMotion) { sway = true; swayT = 0; } };
-  return { facing, turnTo, turnBy, resetView, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
+  return { facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
 }

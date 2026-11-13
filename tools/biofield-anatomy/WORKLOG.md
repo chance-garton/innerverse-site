@@ -156,3 +156,37 @@ Branch `biofield-anatomy-polish-r3-2026-11-13`, cut from `930cff4` on `biofield-
   itself, skin leads to the liver and digestion, Feelings view, twelve colours by element and shade, keys, age box, search help,
   the deeper menu, return visit). Frame rate on the software renderer with the glow on: 1 to 2 a second, the same as round 1.
 - Not built from round 3: the phone sheet changes in C6 (they belong with the phone pass in round 4).
+
+## 2026-11-13, round 3 follow-up (Chance's eye on the preview)
+
+His notes: the glow doubles where two zones overlap (the arm glow over the torso glow); the threads waver oddly; their shape is
+an onion, not a torus; the field view has the better shape but at another scale.
+
+- Aura rebuilt. The three shell meshes are no longer drawn. The skin is drawn alone into a small buffer (a third of the page size),
+  blurred wide in three passes, and laid behind the figure (`renderAura` in `scene.js`). One blur of one picture cannot stack, so
+  there is no brighter patch between an arm and the torso or between the legs, and each stretch of halo takes the colour of the skin
+  beside it. It follows whatever is lit: a chosen center glows, the dimmed rest does not, and the zodiac body has a halo in the
+  signs' colours. A struggling device drops the glow pass, then sharpness, then this. `aura_1..3` are still in the model
+  (about 340 KB) and can go at the next model rebuild.
+- Threads: no waver and no crackle; only the pulses move, at an even pace measured in metres along the thread.
+- One torus, one scale. Each family of threads is the field shell's own apple profile. The outermost family lies on the field's
+  edge (5.5 ft out), and the family at 54% of that size is the same shape with its two dimples exactly on the Sun Star and the
+  Earth Star. Larger families reach the stars through a funnel, so every thread leaves one star, rounds the outside and enters the
+  other. Families at 38%, 54%, 76% and 100% of the field (`FAMILIES`); the inmost is stretched a little taller, since a true-shape
+  copy that small would stop short of the stars. In the body views the camera sits inside the torus; the Field view shows all of it
+  with the shell as its skin, and the threads stay lit there.
+- "Keep exploring" is one plain row of pills with no sub-headings and no previous and next buttons (his word). Order: what the
+  wording names, entries that name this one, then feelings. An entry with fewer than three gets its neighbours added, so nothing is a
+  dead end. The arrow keys still step up and down.
+- The view button says only Front view, Back view, Left view or Right view (the figure's own left and right); the "their right is
+  on your left" line is gone.
+- `checks/single_file.py` writes the built preview as one self-contained HTML file that opens straight from disk, so it can be seen
+  full screen with no host page around it. With the real wording inside, that file stays out of this repo.
+- Feelings is no longer a tab (his word). It is a button in the foot row of the rail, between Biofield A to Z and About, and opens
+  the feelings index the way those two open theirs; the tab of the view it was opened from stays lit. The four view tabs are back
+  in one row and wrap to two only when the rail is too narrow for them. Below 1320 wide the first button reads "A to Z". Phones have
+  no foot row, so there the feelings index is reached from the opening panel and from A to Z.
+- The Legs open as four clearly separate pieces (thighs, knees, ankles with the shins, feet): a dark seam on the model where one
+  piece meets the next, a label on each piece with its heading, the piece under the pointer lifting on its own, and four cards in
+  the panel under "Parts of the leg" on every screen size. Tapping a piece, its label or its card opens it. The seam heights are the
+  same breaks the tap already used (`LEG_BAND` in `app.js`, the seam lines in the skin shader).
