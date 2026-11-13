@@ -66,3 +66,15 @@ pituitary light with the third eye; the feet colour is a placeholder.
   tapping orbs, skin and organs works, no sideways scroll on the phone, no console errors. Frame rate on the
   software renderer is the same as the step 2 viewer measured the same way; a real phone test is still open.
 - Not built: the narrated guided tour and the illustrated 2D fallback from the plan.
+
+## 2026-11-13, changes round 1 (from Chance's read-through)
+
+- Phone: the chip strip shows only in the Body Parts view; elsewhere the labels on the body do that job. An
+  "A to Z" button sits beside Search. The four view tabs size to their words so all four fit.
+- "Organs" view renamed "Body Parts". "Feelings A to Z" became "Biofield A to Z": one alphabetical index of
+  every selectable thing (centers, leg parts, body parts, spots, field topics, signs, feelings) with filters.
+- Spots that describe stuck energy read as imbalance: a node with `tone: imbalance` gets "imbalance" in its spot
+  headers, and its compass carries one caption row in place of the their right / their left row.
+- Side notes now include "the front as a whole" and "the back as a whole" (side keys F and B), shown before the
+  left and right notes in a center and after them in a spot.
+- Dots sit behind labels. Zodiac disclaimer lines removed from the panels (it lives in About).

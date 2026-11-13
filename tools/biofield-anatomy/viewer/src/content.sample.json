@@ -228,8 +228,20 @@
 ]
 }
 ],
-"sides": [],
+"sides": [
+{
+"key": "L",
+"title": "Placeholder side",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
 "themes": [],
+"tone": "imbalance",
 "kind": "stop",
 "parent": "legs",
 "name": "Ankles",
@@ -340,8 +352,20 @@
 ]
 }
 ],
-"sides": [],
+"sides": [
+{
+"key": "L",
+"title": "Placeholder side",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
 "themes": [],
+"tone": "imbalance",
 "kind": "stop",
 "parent": "legs",
 "name": "Knees",
@@ -531,8 +555,20 @@
 ]
 }
 ],
-"sides": [],
+"sides": [
+{
+"key": "F",
+"title": "Placeholder side",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
 "themes": [],
+"tone": "imbalance",
 "kind": "center",
 "name": "Root",
 "heading": "Placeholder heading",
@@ -930,8 +966,20 @@
 ]
 }
 ],
-"sides": [],
+"sides": [
+{
+"key": "F",
+"title": "Placeholder side",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
 "themes": [],
+"tone": "imbalance",
 "kind": "center",
 "name": "Sacral",
 "heading": "Placeholder heading",
@@ -1347,8 +1395,20 @@
 ]
 }
 ],
-"sides": [],
+"sides": [
+{
+"key": "F",
+"title": "Placeholder side",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
 "themes": [],
+"tone": "imbalance",
 "kind": "center",
 "name": "Solar Plexus",
 "heading": "Placeholder heading",
@@ -1900,8 +1960,20 @@
 ]
 }
 ],
-"sides": [],
+"sides": [
+{
+"key": "F",
+"title": "Placeholder side",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
 "themes": [],
+"tone": "imbalance",
 "kind": "center",
 "name": "Heart",
 "heading": "Placeholder heading",
@@ -2369,8 +2441,20 @@
 ]
 }
 ],
-"sides": [],
+"sides": [
+{
+"key": "F",
+"title": "Placeholder side",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
 "themes": [],
+"tone": "imbalance",
 "kind": "center",
 "name": "Throat",
 "heading": "Placeholder heading",
@@ -2796,8 +2880,20 @@
 ]
 }
 ],
-"sides": [],
+"sides": [
+{
+"key": "F",
+"title": "Placeholder side",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
 "themes": [],
+"tone": "imbalance",
 "kind": "center",
 "name": "Third Eye",
 "heading": "Placeholder heading",
@@ -3126,6 +3222,7 @@
 ],
 "sides": [],
 "themes": [],
+"tone": "imbalance",
 "kind": "center",
 "name": "Crown",
 "heading": "Placeholder heading",
@@ -4420,8 +4517,7 @@
 "src": []
 }
 ],
-"title": "About this map",
-"lede": null
+"title": "About this map"
 },
 "zodiac": {
 "id": "zodiac",
@@ -4438,7 +4534,7 @@
 "organs": {
 "id": "organs",
 "points": [],
-"title": "Every part",
+"title": "Body parts",
 "lede": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table."
 }
 },
@@ -4454,7 +4550,7 @@
 "C": "Center"
 },
 "cta": {
-"label": "Book a Biofield Tuning session",
+"label": "Placeholder button",
 "url": "https://innerversepodcast.com/biofield-tuning"
 }
 }

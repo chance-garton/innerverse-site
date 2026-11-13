@@ -129,7 +129,7 @@ for path in sorted(glob.glob(os.path.join(SRC, "*.bfa"))):
         elif k == "color": cur["color"] = int(v)
         elif k == "az": cur["az"] = float(v)
         elif k == "marks": cur["marks"] = {x.split("=")[0].strip(): x.split("=")[1].strip().split("|") for x in v.split(";") if x.strip()}
-        elif k in ("kind", "name", "heading", "eyebrow", "parent", "glyph", "rules", "marker", "short", "group"): cur[k] = v
+        elif k in ("kind", "name", "heading", "eyebrow", "parent", "glyph", "rules", "marker", "short", "group", "tone"): cur[k] = v
         else: errors.append(f"{where}: unknown key {k}")
 
 # ---------- the reviewed export
@@ -207,7 +207,7 @@ both = [i for i in EXCLUDE if i in cited]
 os.makedirs(OUT, exist_ok=True)
 for n in nodes: n.pop("src", None)
 content = {"nodes": nodes, "feelings": feelings, "info": infos, "posNames": POS_NAMES,
-           "cta": {"label": "Book a Biofield Tuning session", "url": "https://innerversepodcast.com/biofield-tuning"}}
+           "cta": {"label": "Book a Tuning with Chance", "url": "https://innerversepodcast.com/biofield-tuning"}}
 json.dump(content, open(os.path.join(OUT, "content.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 
 with open(os.path.join(OUT, "coverage.txt"), "w", encoding="utf-8") as f:
@@ -231,7 +231,7 @@ with open(os.path.join(OUT, "copy-sheet.md"), "w", encoding="utf-8") as f:
         if "governs" in n: f.write("Governs: " + n["governs"]["t"] + "\n\n")
         order = {s["key"]: s for s in n["sides"]}
         for p in n["positions"]:
-            f.write(f"**{p['title']}** (label on the model: {p['short']})\n\n" + blocks_md(p["blocks"]))
+            f.write(f"**{p['title']}{' imbalance' if n.get('tone') == 'imbalance' else ''}** (label on the model: {p['short']})\n\n" + blocks_md(p["blocks"]))
         for s in n["sides"]: f.write(f"**{s['title']}**\n\n" + blocks_md(s["blocks"]))
         for s in n["sections"]: f.write(f"**{s['title']}**\n\n" + blocks_md(s["blocks"]))
     f.write("## Feelings index\n\n")

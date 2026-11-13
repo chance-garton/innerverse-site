@@ -55,11 +55,17 @@ ok('organs view shows every mesh; chakra home shows none', lit.all && lit.none);
 // ---- 3. clicking around: list, tabs, labels, back, breadcrumb, search, deep links
 await p.click('#list .it:has-text("Heart")'); await p.waitForTimeout(300); ok('list opens a center', (await h2(p)) === 'Heart');
 ok('center shows its four spots on the model', (await p.locator('#labels .lab').count()) === 4);
-await p.click('#labels .lab:has-text("Left front")'); await p.waitForTimeout(300); ok('a label on the model opens that spot', (await h2(p)) === 'Left front' && /heart-pos-lf/.test(p.url()));
+await p.click('#labels .lab:has-text("Left front")'); await p.waitForTimeout(300); ok('a label on the model opens that spot', (await h2(p)) === 'Left front imbalance' && /heart-pos-lf/.test(p.url()));
 await p.click('#back'); await p.waitForTimeout(200); ok('back goes up one level', (await h2(p)) === 'Heart');
 await p.click('#detail .chip:has-text("Lungs")'); await p.waitForTimeout(300); ok('part chip opens the part', (await h2(p)) === 'Lungs');
 await p.click('.crumb:has-text("Heart")'); await p.waitForTimeout(200); ok('breadcrumb goes back to the center', (await h2(p)) === 'Heart');
-await p.click('#detail .pos:has-text("Right back")'); await p.waitForTimeout(200); ok('compass card opens a spot', (await h2(p)) === 'Right back');
+await p.click('#detail .pos:has-text("Right back")'); await p.waitForTimeout(200); ok('compass card opens a spot', (await h2(p)) === 'Right back imbalance');
+{ const z = await p.evaluate(() => { const pin = getComputedStyle(document.querySelector('#labels .pin')).zIndex, lab = getComputedStyle(document.querySelector('#labels .lab')).zIndex; return Number(pin) < Number(lab); }); ok('dots sit behind labels', z); }
+await p.click('#b-atoz'); await p.waitForTimeout(300);
+{ const az = await p.evaluate(() => { const { C } = window.__bfa; const want = C.nodes.length + C.nodes.reduce((a, n) => a + n.positions.length, 0) + C.feelings.length; return { want, got: document.querySelectorAll('#detail .az .res').length, title: document.querySelector('#detail h2').textContent }; });
+  ok('Biofield A to Z lists every selectable thing', az.title === 'Biofield A to Z' && az.got === az.want, `${az.got} of ${az.want}`); }
+await p.click('#detail .az .res:has-text("Sun Star")'); await p.waitForTimeout(300); ok('A to Z entry opens its screen', (await h2(p)) === 'Sun Star');
+{ const t = await p.evaluate(() => JSON.stringify(window.__bfa.C).toLowerCase() + document.body.innerText.toLowerCase()); ok('wording changes applied', !t.includes('conceptual map') && !t.includes('four stops') && !t.includes('feelings a to z') && !t.includes('book a biofield tuning session') && t.includes('book a tuning with chance')); }
 await p.click('.tab[data-view="zodiac"]'); await p.waitForTimeout(300); ok('zodiac tab', (await h2(p)) === 'The zodiac body' && (await p.locator('#labels .lab').count()) === 12);
 await p.click('#labels .lab:has-text("Leo")'); await p.waitForTimeout(300); ok('sign label opens the sign', (await h2(p)) === 'Leo');
 await p.click('#detail .chip:has-text("Heart")'); await p.waitForTimeout(300); ok('sign links back to its center in the chakra view', (await h2(p)) === 'Heart' && (await p.getAttribute('.tab[data-view="chakra"]', 'aria-selected')) === 'true');
@@ -81,7 +87,7 @@ ok('no cut phrase appears anywhere in the content', phrases.length === 0, phrase
 await p.fill('#q', ''); await p.keyboard.press('Escape');
 ok('no console errors on desktop', p.errs.length === 0, p.errs.slice(0, 3).join(' | '));
 await p.context().close();
-p = await open(1440, 900, '#solar-pos-rb'); ok('deep link to a spot', (await h2(p)) === 'Right back' && (await p.textContent('#detail .eyebrow')) === 'Solar Plexus');
+p = await open(1440, 900, '#solar-pos-rb'); ok('deep link to a spot', (await h2(p)) === 'Right back imbalance' && (await p.textContent('#detail .eyebrow')) === 'Solar Plexus');
 await p.context().close(); p = await open(1440, 900, '#feeling-anger'); ok('deep link to a feeling', (await h2(p)) === 'Anger'); await p.context().close();
 // ---- 4. tapping the body
 p = await open(1440, 900);
@@ -97,10 +103,15 @@ xy = await p.evaluate(() => { const q = window.__bfa.scene.project([-0.06, 1.25,
 ok('no console errors after tapping', p.errs.length === 0, p.errs.slice(0, 3).join(' | '));
 await p.context().close();
 // ---- 5. phone
-p = await open(390, 844); await p.tap('#strip .sc:has-text("Heart")'); await p.waitForTimeout(400); ok('phone: strip opens a center', (await h2(p)) === 'Heart');
+p = await open(390, 844);
+ok('phone: no chip strip in the chakra view (the labels on the body do that job)', (await p.locator('#strip .sc').count()) === 0);
+await p.tap('#labels .lab:has-text("Heart")'); await p.waitForTimeout(400); ok('phone: a label on the body opens a center', (await h2(p)) === 'Heart');
+const tabsFit = await p.evaluate(() => { const t = document.querySelector('#tabs'); return t.scrollWidth <= t.clientWidth + 1 && [...t.children].every((b) => b.scrollWidth <= b.clientWidth + 1); }); ok('phone: all four view tabs fit', tabsFit);
 let ov = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, iw: innerWidth })); ok('phone: no sideways scroll', ov.sw <= ov.iw, JSON.stringify(ov));
 await p.tap('#grab'); await p.waitForTimeout(500); let sh = await p.evaluate(() => document.querySelector('#panel').getBoundingClientRect().height); ok('phone: tapping the handle grows the sheet', sh > 844 * 0.8, String(Math.round(sh)));
 await p.tap('#grab'); await p.waitForTimeout(500); sh = await p.evaluate(() => document.querySelector('#panel').getBoundingClientRect().height); ok('phone: tapping again brings it back', sh < 844 * 0.5, String(Math.round(sh)));
+await p.tap('.tab[data-view="organs"]'); await p.waitForTimeout(300); ok('phone: the body parts view keeps its chip strip', (await p.locator('#strip .sc').count()) > 40);
+await p.tap('#matoz'); await p.waitForTimeout(300); ok('phone: A to Z button opens the index', (await h2(p)) === 'Biofield A to Z');
 await p.tap('#msearch'); await p.fill('#q', 'kidney'); await p.waitForTimeout(200); await p.tap('#results .res'); await p.waitForTimeout(400); ok('phone: search opens a part', (await h2(p)) === 'Kidneys');
 const off = await p.evaluate(() => [...document.querySelectorAll('#labels .lab')].filter((l) => l.style.display !== 'none').map((l) => l.getBoundingClientRect()).filter((r) => r.left < -1 || r.right > innerWidth + 1).length); ok('phone: labels stay on screen', off === 0, String(off));
 ok('no console errors on phone', p.errs.length === 0, p.errs.slice(0, 3).join(' | '));

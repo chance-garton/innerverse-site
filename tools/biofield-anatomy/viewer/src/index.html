@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}
 #leaders line{stroke:var(--gold);stroke-opacity:.5;stroke-width:1}
 #leaders line.far{stroke-opacity:.18}
 #labels{position:fixed;inset:0;pointer-events:none;z-index:3}
-.lab{position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;max-width:176px;padding:6px 10px 6px 8px;border-radius:12px;border:1px solid var(--hair);background:rgba(9,11,22,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:auto;cursor:pointer;text-align:left;transition:opacity .25s,border-color .2s,background .2s;will-change:transform}
+.lab{z-index:2;position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;max-width:176px;padding:6px 10px 6px 8px;border-radius:12px;border:1px solid var(--hair);background:rgba(9,11,22,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:auto;cursor:pointer;text-align:left;transition:opacity .25s,border-color .2s,background .2s;will-change:transform}
 .lab:hover{border-color:var(--c,var(--gold));background:rgba(20,23,42,.9)}
 .lab .ld{flex:none;width:8px;height:8px;border-radius:50%;background:var(--c,var(--gold));box-shadow:0 0 10px var(--c,var(--gold))}
 .lab .lt{display:flex;flex-direction:column;min-width:0}
@@ -51,7 +51,7 @@ a{color:inherit;text-decoration:none}
 .lab.glyph .l1{font-family:"Noto Sans Symbols 2","Noto Sans Symbols","Apple Symbols","Segoe UI Symbol","DejaVu Sans",sans-serif;font-size:17px;letter-spacing:0;color:var(--gold);font-weight:400;line-height:1}
 .lab.glyph{gap:6px;padding:4px 10px 4px 8px}
 .lab.glyph .lt{flex-direction:row;align-items:center;gap:7px}
-.pin{position:absolute;left:0;top:0;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--c,var(--gold));box-shadow:0 0 0 3px color-mix(in srgb,var(--c,var(--gold)) 25%,transparent),0 0 14px var(--c,var(--gold));will-change:transform}
+.pin{z-index:1;position:absolute;left:0;top:0;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--c,var(--gold));box-shadow:0 0 0 3px color-mix(in srgb,var(--c,var(--gold)) 25%,transparent),0 0 14px var(--c,var(--gold));will-change:transform}
 .pin.far{opacity:.35}
 
 /* ---------- left rail ---------- */
@@ -73,8 +73,8 @@ h1{font-family:var(--display);font-weight:600;font-size:31px;line-height:1.05;ma
 .res span{font-size:12px;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .res i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--c,var(--gold));align-self:center;font-style:normal}
 .nores{padding:12px 10px;color:var(--ink-soft);font-size:13px}
-#tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:4px;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:13px}
-.tab{font:600 12px var(--body);letter-spacing:.02em;background:none;border:0;border-radius:9px;padding:8px 2px;cursor:pointer;color:var(--ink-soft);transition:background .2s,color .2s}
+#tabs{display:flex;gap:3px;padding:4px;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:13px}
+.tab{flex:1 1 auto;white-space:nowrap;font:600 12px var(--body);letter-spacing:.01em;background:none;border:0;border-radius:9px;padding:8px 5px;cursor:pointer;color:var(--ink-soft);transition:background .2s,color .2s}
 .tab:hover{color:var(--ink)}
 .tab[aria-selected="true"]{background:var(--gold);color:#15120a}
 #list{display:flex;flex-direction:column;gap:2px;overflow:auto;flex:1;min-height:0;margin:0 -4px;padding:2px 4px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent}
@@ -133,6 +133,9 @@ h2.sm{font-size:30px}
 .compass.one{grid-template-columns:1fr}
 .cap{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;padding:0 4px}
 .cap span:last-child{text-align:right}
+.rowcap.lead{text-align:left;color:var(--zone);padding:0 4px 2px;letter-spacing:.14em}
+.azl{font:600 22px var(--display);color:var(--gold);padding:14px 8px 2px;border-bottom:1px solid var(--hair);margin-bottom:4px}
+.az .res span{margin-left:auto;text-align:right;flex:0 1 46%}
 .rowcap{grid-column:1/-1;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;padding:5px 4px 0;text-align:center}
 .pos{display:flex;flex-direction:column;gap:2px;text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:13px;padding:10px 12px;cursor:pointer;transition:border-color .15s,background .15s;min-height:62px}
 .pos:hover,.pos.on{border-color:var(--zone);background:color-mix(in srgb,var(--zone) 13%,transparent)}
@@ -177,7 +180,7 @@ h2.sm{font-size:30px}
 #back.show{display:flex}
 #back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
 #hint{position:fixed;left:calc(var(--gap)*2 + var(--rail));right:calc(var(--gap)*2 + var(--panel));bottom:var(--gap);text-align:center;font-size:11.5px;color:var(--ink-faint);letter-spacing:.04em;pointer-events:none;z-index:1}
-#strip,#mtop,#msearch{display:none}
+#strip,#mtop,#msearch,#matoz{display:none}
 
 @media (max-width:1320px){:root{--rail:244px;--panel:352px;--gap:12px}h1{font-size:27px}h2{font-size:32px}#detail{padding:18px 18px 8px}#foot .credit{display:none}}
 /* ---------- phone and narrow screens ---------- */
@@ -187,14 +190,15 @@ h2.sm{font-size:30px}
   #brand{display:flex;align-items:baseline;gap:8px;padding:0 2px}
   #brand .eyebrow{display:none}
   h1{font-size:22px;margin:0;flex:1}
-  #msearch{display:inline-flex;align-items:center;gap:6px}
+  #msearch,#matoz{display:inline-flex;align-items:center;gap:6px;padding:6px 11px}
   #searchbox{display:none}
   .searching #searchbox{display:block;position:fixed;left:10px;right:10px;top:8px;z-index:40}
   .searching #results{max-height:70vh}
   .searching #brand{visibility:hidden}
   #tabs{padding:3px}
-  .tab{padding:7px 2px;font-size:12px}
+  .tab{padding:7px 4px;font-size:12px}
   #list,#railfoot{display:none}
+  #strip:empty{display:none}
   #strip{display:flex;position:fixed;left:0;right:0;z-index:6;gap:6px;overflow-x:auto;padding:6px 12px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   #strip::-webkit-scrollbar{display:none}
   .sc{flex:none;display:flex;align-items:center;gap:7px;font:600 12.5px var(--body);background:rgba(9,11,22,.8);border:1px solid var(--hair);border-radius:999px;padding:7px 12px 7px 9px;cursor:pointer;white-space:nowrap;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
@@ -228,6 +232,7 @@ h2.sm{font-size:30px}
 <aside id="rail" class="glass" aria-label="Browse">
   <div id="brand">
     <div style="flex:1"><p class="eyebrow">InnerVerse</p><h1>Biofield Anatomy</h1></div>
+    <button id="matoz" class="quiet" type="button">A to Z</button>
     <button id="msearch" class="quiet" type="button" aria-label="Search">Search</button>
   </div>
   <div id="searchbox" role="search">
@@ -238,12 +243,12 @@ h2.sm{font-size:30px}
   <div id="tabs" role="tablist" aria-label="View">
     <button class="tab" role="tab" data-view="chakra" type="button">Chakras</button>
     <button class="tab" role="tab" data-view="field" type="button">Field</button>
-    <button class="tab" role="tab" data-view="organs" type="button">Organs</button>
+    <button class="tab" role="tab" data-view="organs" type="button">Body Parts</button>
     <button class="tab" role="tab" data-view="zodiac" type="button">Zodiac</button>
   </div>
   <nav id="list" aria-label="In this view"></nav>
   <div id="railfoot">
-    <button class="quiet" id="b-feel" type="button">Feelings A to Z</button>
+    <button class="quiet" id="b-atoz" type="button">Biofield A to Z</button>
     <button class="quiet" id="b-about" type="button">About</button>
     <span id="fps"></span>
   </div>
@@ -257,7 +262,7 @@ h2.sm{font-size:30px}
   <button id="grab" type="button" aria-label="Resize the panel"></button>
   <div id="detail"></div>
   <div id="foot">
-    <a id="cta" href="https://innerversepodcast.com/biofield-tuning" target="_blank" rel="noopener">Book a Biofield Tuning session</a>
+    <a id="cta" href="https://innerversepodcast.com/biofield-tuning" target="_blank" rel="noopener">Book a Tuning with Chance</a>
     <span class="credit">Biofield Anatomy by<br>Eileen Day McKusick</span>
   </div>
 </section>

@@ -106,7 +106,7 @@ function writeHash() { const h = hashOf(); if (location.hash.replace(/^#/, '') !
 function route(instant) {
   let h = decodeURIComponent(location.hash.replace(/^#/, '')); const next = {};
   if (h.startsWith('feeling-')) { const f = C.feelings.find((x) => slug(x.name) === h.slice(8)); if (f) next.feeling = f.name; }
-  else if (h === 'feelings' || h === 'about') next.special = h;
+  else if (h === 'feelings' || h === 'about' || h === 'atoz') next.special = h;
   else if (h.startsWith('view-')) next.view = ['chakra', 'field', 'organs', 'zodiac'].includes(h.slice(5)) ? h.slice(5) : 'chakra';
   else if (h) { if (h.endsWith('-in-organs')) { next.view = 'organs'; h = h.slice(0, -10); } const m = h.match(/^(.*?)(?:-pos-([a-z]+))?$/); if (m && N.has(m[1])) { next.id = m[1]; if (m[2]) next.pos = m[2].toUpperCase(); } }
   if (!next.view && !next.id && !next.feeling && !next.special) next.view = 'chakra';
@@ -122,7 +122,7 @@ function upTarget() {
   const n = S.id && N.get(S.id); if (!n) return null;
   if (n.kind === 'field') return { label: 'The field', to: { view: 'field' } };
   if (n.kind === 'sign') return { label: 'All signs', to: { view: 'zodiac' } };
-  if (S.view === 'organs') return { label: 'All parts', to: { view: 'organs' } };
+  if (S.view === 'organs') return { label: 'All body parts', to: { view: 'organs' } };
   const p = parentOf(n); if (p) return { label: p.name, to: { id: p.id } };
   return { label: 'All centers', to: { view: 'chakra' } };
 }
@@ -289,7 +289,7 @@ function renderList() {
     h += `<div class="gh">Whole body</div>` + WHOLE.map((n) => item(n, 'sub')).join('');
     [...CENTERS.flatMap((id) => N.get(id).parts.filter((p) => p !== 'legs')), ...WHOLE.map((n) => n.id)].forEach((p) => { const n = N.get(p); chips += chip(n, `<i></i>${esc(n.name)}`); });
   } else { SIGNS.forEach((n) => { h += item(n); chips += chip(n, `<em>${n.glyph}</em>${esc(n.name)}`); }); }
-  list.innerHTML = h; strip.innerHTML = chips;
+  list.innerHTML = h; strip.innerHTML = S.view === 'organs' && !S.feeling && !S.special ? chips : '';
   document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', String(t.dataset.view === S.view && !S.feeling && !S.special)));
   const a = list.querySelector('[aria-current="true"]'); if (a) a.scrollIntoView({ block: 'nearest' });
   const b = strip.querySelector('[aria-current="true"]'); if (b) b.scrollIntoView({ inline: 'center', block: 'nearest' });
@@ -300,7 +300,8 @@ document.addEventListener('click', (e) => {
   const v = e.target.closest('[data-setview]'); if (v) { go({ view: v.dataset.setview }); return; }
 });
 document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => go({ view: t.dataset.view })));
-$('#b-feel').addEventListener('click', () => go({ special: 'feelings' }));
+$('#b-atoz').addEventListener('click', () => go({ special: 'atoz' }));
+$('#matoz').addEventListener('click', () => go({ special: 'atoz' }));
 $('#b-about').addEventListener('click', () => go({ special: 'about' }));
 back.addEventListener('click', () => { const u = upTarget(); if (u) go(u.to); });
 
@@ -312,7 +313,7 @@ const OPEN_KEYS = new Set(['biofield', 'more', 'female', 'male', 'authority', 'w
 const SMALL = { anatomy: 'General anatomy', struggle: 'General anatomy' };
 function crumbs(n, extra) {
   const chain = []; let p = n; while (p) { chain.unshift(p); p = parentOf(p); }
-  const root = n.kind === 'field' ? ['The field', 'field'] : n.kind === 'sign' ? ['Zodiac', 'zodiac'] : S.view === 'organs' ? ['Organs', 'organs'] : ['Chakras', 'chakra'];
+  const root = n.kind === 'field' ? ['The field', 'field'] : n.kind === 'sign' ? ['Zodiac', 'zodiac'] : S.view === 'organs' ? ['Body Parts', 'organs'] : ['Chakras', 'chakra'];
   let h = `<div class="crumbs"><button class="crumb" type="button" data-setview="${root[1]}">${root[0]}</button>`;
   chain.forEach((c, i) => { const last = i === chain.length - 1 && !extra; h += `<span class="sep">/</span>` + (last ? `<span class="crumb" style="cursor:default;color:var(--ink)">${esc(c.name)}</span>` : `<button class="crumb" type="button" data-go="${c.id}">${esc(c.name)}</button>`); });
   if (n.parent === 'whole') h = h.replace('<span class="sep">/</span>', '<span class="sep">/</span><span class="crumb" style="cursor:default">Whole body</span><span class="sep">/</span>');
@@ -324,7 +325,8 @@ function compass(n) {
   const card = (k, cls) => `<button class="pos ${cls || ''} ${S.pos === k ? 'on' : ''}" type="button" data-go="${n.id}|${k}"><span class="p1">${esc(P[k].title)}</span><span class="p2">${esc(P[k].short)}</span></button>`;
   const flip = Math.abs(frameOf(n).az || n.az || 0) > 90;   // parts shown from behind: their left is on your left
   let h = '<div class="compass">';
-  h += flip ? '<div class="cap"><span>Their left</span><span>Their right</span></div>' : '<div class="cap"><span>Their right</span><span>Their left</span></div>';
+  if (n.kind !== 'part') h += `<div class="rowcap lead">${n.tone === 'imbalance' ? 'What stuck energy feels like' : 'What each side carries'}</div>`;
+  else h += flip ? '<div class="cap"><span>Their left</span><span>Their right</span></div>' : '<div class="cap"><span>Their right</span><span>Their left</span></div>';
   if (flip) return h + card('L') + card('R') + '</div>';
   if (keys.includes('LF') || keys.includes('RF')) {
     if (keys.includes('LB')) h += '<div class="rowcap">Front</div>';
@@ -334,7 +336,9 @@ function compass(n) {
   } else h += card('R') + card('L');
   return h + '</div>';
 }
-const sideBoxes = (n, key) => n.sides.filter((s) => !key || key.includes(s.key) || (s.key === 'B' && key.endsWith('B'))).map((s) => `<div class="side txt"><h4>${esc(s.title)}</h4>${blocks(s.blocks)}</div>`).join('');
+const SIDE_ORDER = { F: 0, B: 1, L: 2, R: 3 };
+const posTitle = (n, p) => p.title + (n.tone === 'imbalance' ? ' imbalance' : '');
+const sideBoxes = (n, key) => n.sides.filter((s) => !key || key.includes(s.key)).sort((a, b) => (/[LR]/.test(a.key) ? 0 : 1) - (/[LR]/.test(b.key) ? 0 : 1)).map((s) => `<div class="side txt"><h4>${esc(s.title)}</h4>${blocks(s.blocks)}</div>`).join('');
 function renderNode(n) {
   const z = colorOf(n, 1); panel.style.setProperty('--zone', z); document.documentElement.style.setProperty('--zone', z);
   if (S.pos) return renderPos(n, n.positions.find((p) => p.key === S.pos));
@@ -349,13 +353,13 @@ function renderNode(n) {
   h += `<p class="lede">${esc(n.summary.t)}</p>`;
   if (n.themes.length) { const max = 7; h += `<div class="chips" data-themes>` + n.themes.map((t, i) => `<span class="tag" ${i >= max ? 'hidden' : ''}>${esc(t.t)}</span>`).join('') + (n.themes.length > max ? `<button class="tag more" type="button" data-more>+${n.themes.length - max} more</button>` : '') + '</div>'; }
   if (n.governs) h += `<p class="gov"><b>Governs:</b> ${esc(n.governs.t.charAt(0).toLowerCase() + n.governs.t.slice(1))}</p>`;
-  if (n.parts && n.parts.length) h += `<div class="blk"><div class="bh"><h3>${n.id === 'legs' ? 'The four stops' : 'Parts of this center'}</h3></div><div class="chips" style="margin:0">` + n.parts.map((p) => `<button class="chip" type="button" data-go="${p}">${esc(N.get(p).name)}</button>`).join('') + '</div></div>';
+  if (n.parts && n.parts.length) h += `<div class="blk"><div class="bh"><h3>${n.id === 'legs' ? 'Parts of the leg' : 'Parts of this center'}</h3></div><div class="chips" style="margin:0">` + n.parts.map((p) => `<button class="chip" type="button" data-go="${p}">${esc(N.get(p).name)}</button>`).join('') + '</div></div>';
   if (n.marker === 'timeline') h += `<div class="blk"><div class="bh"><h3>Try it with your age</h3></div><div class="age"><input type="range" min="6" max="100" step="1" value="${S.age}" aria-label="Your age"><output>Age ${S.age}</output></div><p class="note">The rings mark where each age sits between the skin and the edge of the field.</p></div>`;
   if (n.positions.length) {
     const kind = n.kind === 'part' ? 'Left and right' : 'Around the body';
     h += `<div class="blk"><div class="bh"><h3>${kind}</h3><span>${n.kind === 'part' ? '' : 'Choose a spot, or a label on the model'}</span></div>${compass(n)}</div>`;
   }
-  if (n.sides.length) h += `<div class="blk" style="margin-top:14px">` + n.sides.map((s) => acc(s.title, blocks(s.blocks), false)).join('') + '</div>';
+  if (n.sides.length) h += `<div class="blk" style="margin-top:14px">` + [...n.sides].sort((a, b) => SIDE_ORDER[a.key] - SIDE_ORDER[b.key]).map((s) => acc(s.title, blocks(s.blocks), false)).join('') + '</div>';
   const sec = Object.fromEntries(n.sections.map((s) => [s.key, s]));
   if (sec.balanced || sec.low) {
     const both = sec.balanced && sec.low; const which = both ? S.balance : sec.balanced ? 'balanced' : 'low';
@@ -363,13 +367,13 @@ function renderNode(n) {
   }
   const rest = n.sections.filter((s) => s.key !== 'balanced' && s.key !== 'low');
   if (rest.length) h += `<div class="blk">` + rest.map((s) => acc(s.title, blocks(s.blocks), OPEN_KEYS.has(s.key) || n.kind === 'field' || n.kind === 'sign', SMALL[s.key])).join('') + '</div>';
-  if (n.signs && n.signs.length) h += `<div class="blk"><div class="bh"><h3>In the zodiac</h3><span>Astrology, not Biofield Anatomy</span></div><div class="chips" style="margin:0">` + n.signs.map((s) => `<button class="chip gl" type="button" data-go="${s}">${N.get(s).glyph} ${esc(N.get(s).name)}</button>`).join('') + '</div></div>';
-  if (n.kind === 'sign') h += `<div class="blk"><div class="bh"><h3>Plays through</h3></div><div class="chips" style="margin:0">` + n.centers.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}" data-view="chakra">${esc(N.get(c).name)}</button>`).join('') + `</div><p class="note">This layer is astrology, added as helpful context. It is not part of the Biofield Anatomy.</p></div>`;
+  if (n.signs && n.signs.length) h += `<div class="blk"><div class="bh"><h3>In the zodiac</h3></div><div class="chips" style="margin:0">` + n.signs.map((s) => `<button class="chip gl" type="button" data-go="${s}">${N.get(s).glyph} ${esc(N.get(s).name)}</button>`).join('') + '</div></div>';
+  if (n.kind === 'sign') h += `<div class="blk"><div class="bh"><h3>Plays through</h3></div><div class="chips" style="margin:0">` + n.centers.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}" data-view="chakra">${esc(N.get(c).name)}</button>`).join('') + `</div></div>`;
   return h;
 }
 function renderPos(n, p) {
-  let h = crumbs(n, p.title);
-  h += `<p class="eyebrow">${esc(n.name)}</p><h2 class="sm">${esc(p.title)}</h2><p class="heading">${esc(p.short)}</p>`;
+  let h = crumbs(n, posTitle(n, p));
+  h += `<p class="eyebrow">${esc(n.name)}</p><h2 class="sm">${esc(posTitle(n, p))}</h2><p class="heading">${esc(p.short)}</p>`;
   h += `<div class="txt lede">${blocks(p.blocks)}</div>` + sideBoxes(n, p.key);
   const others = n.positions.filter((q) => q.key !== p.key);
   h += `<div class="blk"><div class="bh"><h3>Other spots at the ${esc(n.name.toLowerCase())}</h3></div><div class="chips" style="margin:0">` + others.map((q) => `<button class="chip" type="button" data-go="${n.id}|${q.key}">${esc(q.title)}</button>`).join('') + `<button class="chip gl" type="button" data-go="${n.id}">All of the ${esc(n.name.toLowerCase())}</button></div></div>`;
@@ -392,21 +396,41 @@ function renderFeeling(f) {
 }
 function renderFeelings() {
   panel.style.setProperty('--zone', GOLD); document.documentElement.style.setProperty('--zone', GOLD);
-  return `<p class="eyebrow">Index</p><h2 class="sm">Feelings A to Z</h2><p class="lede soft">Start from what you feel, and see where it may live.</p><div class="blk cols">` +
+  return `<p class="eyebrow">Index</p><h2 class="sm">All feelings</h2><p class="lede soft">Start from what you feel, and see where it may live.</p><div class="blk cols">` +
     [...C.feelings].sort((a, b) => a.name.localeCompare(b.name)).map((f) => `<button class="res" type="button" data-feeling="${esc(f.name)}"><b style="font-size:13.5px;font-weight:500">${esc(f.name)}</b></button>`).join('') + '</div>';
+}
+const AZ_TYPES = [['all', 'All'], ['Chakra', 'Chakras'], ['Body part', 'Body parts'], ['Field', 'Field'], ['Zodiac', 'Zodiac'], ['Feeling', 'Feelings']];
+function azItems() {
+  const KIND = { center: 'Chakra', stop: 'Chakra', part: 'Body part', field: 'Field', sign: 'Zodiac' }; const TAG = { center: 'Chakra', stop: 'Part of the leg', part: 'Body part', field: 'Field', sign: 'Zodiac' };
+  const lc = (x) => x.charAt(0).toLowerCase() + x.slice(1); const out = [];
+  C.nodes.forEach((n) => { out.push({ t: n.name, tag: TAG[n.kind], type: KIND[n.kind], go: n.id, c: colorOf(n) });
+    n.positions.forEach((p) => out.push({ t: n.kind === 'part' && !/^(Left|Right) side$/.test(p.title) ? p.title : `${n.name}, ${lc(posTitle(n, p))}`, tag: p.short, type: KIND[n.kind], go: n.id + '|' + p.key, c: colorOf(n) })); });
+  C.feelings.forEach((f) => out.push({ t: f.name, tag: 'Feeling', type: 'Feeling', feeling: f.name, c: GOLD }));
+  const key = (x) => x.t.replace(/^[^A-Za-z]+/, '').replace(/^The /, '').toLowerCase();
+  return out.map((x) => ({ ...x, k: key(x) })).sort((a, b) => a.k.localeCompare(b.k));
+}
+function renderAtoZ() {
+  panel.style.setProperty('--zone', GOLD); document.documentElement.style.setProperty('--zone', GOLD);
+  const f = S.az || 'all'; const items = azItems().filter((x) => f === 'all' || x.type === f);
+  let h = `<p class="eyebrow">Index</p><h2 class="sm">Biofield A to Z</h2><p class="lede soft">Everything on the map in one list: ${items.length} entries.</p><div class="chips">` + AZ_TYPES.map(([k, l]) => `<button class="quiet" type="button" data-az="${k}" aria-pressed="${f === k}">${l}</button>`).join('') + '</div><div class="blk az">';
+  let letter = '';
+  items.forEach((x) => { const L = x.k.charAt(0).toUpperCase(); if (L !== letter) { letter = L; h += `<div class="azl">${L}</div>`; }
+    h += `<button class="res" type="button" ${x.feeling ? `data-feeling="${esc(x.feeling)}"` : `data-go="${x.go}" data-view="chakra"`} style="--c:${x.c}"><i></i><b>${esc(x.t)}</b><span>${esc(x.tag)}</span></button>`; });
+  return h + '</div>';
 }
 function renderInfo(id) {
   panel.style.setProperty('--zone', GOLD); document.documentElement.style.setProperty('--zone', GOLD);
-  const i = C.info[id]; let h = `<p class="eyebrow">${id === 'about' ? 'InnerVerse' : id === 'home' ? 'A conceptual map' : 'View'}</p><h2>${esc(i.title)}</h2>`;
+  const i = C.info[id]; let h = `<p class="eyebrow">${id === 'about' ? 'InnerVerse' : id === 'home' ? 'Interactive map' : 'View'}</p><h2>${esc(i.title)}</h2>`;
   if (i.lede) h += `<p class="lede">${esc(i.lede)}</p>`;
   if (i.points.length) h += `<div class="blk"><div class="bh"><h3>${id === 'about' ? 'Credit and cautions' : 'How to read the map'}</h3></div><div class="txt"><ul>${i.points.map((p) => `<li>${esc(p.t)}</li>`).join('')}</ul></div></div>`;
   if (id === 'about') h += `<p class="note" id="fpsline"></p>`;
-  if (id === 'home') h += `<div class="blk"><div class="bh"><h3>Start here</h3></div><div class="chips" style="margin:0">` + CENTERS.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}">${esc(N.get(c).name)}</button>`).join('') + `</div></div><div class="blk"><div class="bh"><h3>Or start from a feeling</h3></div><div class="chips" style="margin:0">` + ['Anxiety', 'Grief and loss', 'Anger', 'Overwhelm', 'Feeling stuck', 'Burnout and exhaustion'].map((f) => `<button class="chip gl" type="button" data-feeling="${f}">${f}</button>`).join('') + `<button class="chip gl" type="button" id="c-feel">All feelings</button></div></div>`;
+  if (id === 'field' && isPhone()) { let g = ''; FIELD.forEach((f) => { if (f.group !== g) { h += (g ? '</div></div>' : '') + `<div class="blk"><div class="bh"><h3>${esc(f.group)}</h3></div><div class="chips" style="margin:0">`; g = f.group; } h += `<button class="chip gl" type="button" data-go="${f.id}">${esc(f.name)}</button>`; }); h += '</div></div>'; }
+  if (id === 'home') h += `<div class="blk"><div class="bh"><h3>Start here</h3></div><div class="chips" style="margin:0">` + CENTERS.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}">${esc(N.get(c).name)}</button>`).join('') + `</div></div><div class="blk"><div class="bh"><h3>Or start from a feeling</h3></div><div class="chips" style="margin:0">` + ['Anxiety', 'Grief and loss', 'Anger', 'Overwhelm', 'Feeling stuck', 'Burnout and exhaustion'].map((f) => `<button class="chip gl" type="button" data-feeling="${f}">${f}</button>`).join('') + `<button class="chip gl" type="button" id="c-feel">All feelings</button></div></div><div class="blk"><div class="chips" style="margin:0"><button class="chip gl" type="button" data-special="atoz">Biofield A to Z</button><button class="chip gl" type="button" data-special="about">About this map</button></div></div>`;
   return h;
 }
 function renderPanel() {
   const n = S.id && N.get(S.id);
-  detail.innerHTML = S.feeling ? renderFeeling(C.feelings.find((f) => f.name === S.feeling)) : S.special === 'feelings' ? renderFeelings() : S.special === 'about' ? renderInfo('about') : n ? renderNode(n)
+  detail.innerHTML = S.feeling ? renderFeeling(C.feelings.find((f) => f.name === S.feeling)) : S.special === 'feelings' ? renderFeelings() : S.special === 'atoz' ? renderAtoZ() : S.special === 'about' ? renderInfo('about') : n ? renderNode(n)
     : renderInfo(S.view === 'chakra' ? 'home' : S.view);
   const u = upTarget(); back.classList.toggle('show', !!u); if (u) back.querySelector('span').textContent = u.label;
 }
@@ -414,6 +438,8 @@ detail.addEventListener('click', (e) => {
   const a = e.target.closest('.acc>button'); if (a) { const d = a.parentElement; const o = d.dataset.open !== '1'; d.dataset.open = o ? 1 : 0; a.setAttribute('aria-expanded', String(o)); return; }
   const m = e.target.closest('[data-more]'); if (m) { m.parentElement.querySelectorAll('[hidden]').forEach((x) => x.removeAttribute('hidden')); m.remove(); return; }
   const b = e.target.closest('[data-bal]'); if (b) { S.balance = b.dataset.bal; const n = N.get(S.id); const s = n.sections.find((q) => q.key === S.balance); detail.querySelector('[data-balbody]').innerHTML = blocks(s.blocks); detail.querySelectorAll('[data-bal]').forEach((x) => x.setAttribute('aria-selected', String(x === b))); return; }
+  const az = e.target.closest('[data-az]'); if (az) { S.az = az.dataset.az; const top = detail.scrollTop; renderPanel(); detail.scrollTop = Math.min(top, 0); return; }
+  const sp = e.target.closest('[data-special]'); if (sp) { go({ special: sp.dataset.special }); return; }
   if (e.target.closest('#c-feel')) go({ special: 'feelings' });
 });
 detail.addEventListener('input', (e) => { if (e.target.matches('.age input')) { S.age = Number(e.target.value); detail.querySelector('.age output').textContent = 'Age ' + S.age; scene.setField({ on: true, focus: 'timeline', age: S.age }); setLabels(fieldLabels(N.get(S.id)), 'stacked'); } });
