@@ -58,8 +58,31 @@
   "Ascending colon",
   "Transverse colon",
   "Descending colon",
-  "Sigmoid colon",
+  "Sigmoid colon"
+ ],
+ "appendix": [
   "Vermiform appendix"
+ ],
+ "sinuses": [
+  "Mucosa of nasal cavity",
+  "Sinus of frontal bone",
+  "Sinus of sphenoid bone",
+  "Anterior cells of ethmoid bone.l",
+  "Anterior cells of ethmoid bone.r",
+  "Middle cells of ethmoid bone.l",
+  "Middle cells of ethmoid bone.r",
+  "Posterior cells of ethmoid bone.l",
+  "Posterior cells of ethmoid bone.r"
+ ],
+ "larynx": [
+  "Epiglottis",
+  "Thyroid cartilage",
+  "Cricoid cartilage",
+  "Arytenoid cartilage.l",
+  "Arytenoid cartilage.r"
+ ],
+ "diaphragm": [
+  "Diaphragm"
  ],
  "spleen": [
   "Spleen"
@@ -232,38 +255,59 @@
   "Sclera.r",
   "Cornea.r"
  ],
- "spine": [
-  "Atlas (C1)",
-  "Axis (C2)",
-  "Vertebra C3",
-  "Vertebra C4",
-  "Vertebra C5",
-  "Vertebra C6",
-  "Vertebra C7",
-  "Vertebra T1",
-  "Vertebra T2",
-  "Vertebra T3",
-  "Vertebra T4",
-  "Vertebra T5",
-  "Vertebra T6",
-  "Vertebra T7",
-  "Vertebra T8",
-  "Vertebra T9",
-  "Vertebra T10",
-  "Vertebra T11",
-  "Vertebra T12",
-  "Vertebra L1",
-  "Vertebra L2",
-  "Vertebra L3",
-  "Vertebra L4",
-  "Vertebra L5",
-  "Sacrum",
-  "Coccyx"
+ "sciatic_l": [
+  "Sciatic nerve.l"
+ ],
+ "sciatic_r": [
+  "Sciatic nerve.r"
+ ],
+ "vagus": [
+  "Vagus nerve (X).l",
+  "Vagus nerve (X).r"
  ],
  "hip_l": [
   "Hip bone.l"
  ],
  "hip_r": [
   "Hip bone.r"
+ ],
+ "spine_neck": [
+  "Atlas (C1)",
+  "Axis (C2)",
+  "Vertebra C3",
+  "Vertebra C4",
+  "Vertebra C5",
+  "Vertebra C6",
+  "Vertebra C7"
+ ],
+ "spine_upper": [
+  "Vertebra T1",
+  "Vertebra T2",
+  "Vertebra T3",
+  "Vertebra T4",
+  "Vertebra T5",
+  "Vertebra T6"
+ ],
+ "spine_mid": [
+  "Vertebra T7",
+  "Vertebra T8",
+  "Vertebra T9",
+  "Vertebra T10",
+  "Vertebra T11",
+  "Vertebra T12"
+ ],
+ "spine_low": [
+  "Vertebra L1",
+  "Vertebra L2",
+  "Vertebra L3",
+  "Vertebra L4",
+  "Vertebra L5",
+  "Sacrum"
+ ],
+ "spine_tail": [
+  "Coccyx"
+ ],
+ "jaw": [
+  "Mandible"
  ]
 }

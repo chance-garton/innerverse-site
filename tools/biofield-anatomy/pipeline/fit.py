@@ -74,6 +74,19 @@ def warp(P):
     x2=P[:,0]*hwm/hwz
     y2=bm+(P[:,1]-bz)*(fm-bm)/(fz-bz)
     return np.stack([x2,y2,z2],1)
+# ---- legs: points below the hip follow the thigh axis (ZA femur line -> MakeHuman hip-to-knee line)
+SRC=json.load(open(W+"za_sources.json")); LR=SRC["_legrefs"]
+za_hip=np.array(LR["Femur.l"][2]); za_knee=np.array(LR["Femur.l"][3]); mh_hip=np.array(J["l-upper-leg"]); mh_knee=np.array(J["l-knee"])
+print("leg axis ZA",za_hip.round(3),za_knee.round(3),"MH",mh_hip.round(3),mh_knee.round(3))
+def warp_leg(P):
+    P=np.asarray(P,float); sgn=np.where(P[:,0]>=0,1.0,-1.0); Q=P.copy(); Q[:,0]*=sgn      # work on the left leg, mirror back
+    t=(za_hip[2]-Q[:,2])/(za_hip[2]-za_knee[2])
+    a=za_hip[None]+t[:,None]*(za_knee-za_hip)[None]; b=mh_hip[None]+t[:,None]*(mh_knee-mh_hip)[None]
+    R=b+(Q-a); R[:,2]=b[:,2]; R[:,0]*=sgn
+    T=warp(P); w=smoothstep(za_hip[2]-0.03,za_hip[2]+0.07,P[:,2])[:,None]
+    return T*w+R*(1-w)
+def smoothstep(a,b,x):
+    t=np.clip((x-a)/(b-a),0,1); return t*t*(3-2*t)
 # ---- apply
 A=MV[MT[:,0]]; E1=MV[MT[:,1]]-A; E2=MV[MT[:,2]]-A
 def inside_frac(pts):
@@ -83,13 +96,36 @@ def inside_frac(pts):
         s_=p-A; u=f*(s_*h).sum(1); q=np.cross(s_,E1); v=f*(q@d); t=f*(q*E2).sum(1)
         res.append((ok&(u>=0)&(v>=0)&(u+v<=1)&(t>1e-9)).sum()%2==1)
     return np.array(res)
+# ---- keep near-surface parts under the skin: push stray points inward, spread smoothly over the part
+from scipy.spatial import cKDTree
+def vnormals(V,T):
+    n=np.cross(V[T[:,1]]-V[T[:,0]],V[T[:,2]]-V[T[:,0]]); N=np.zeros_like(V)
+    for k in range(3): np.add.at(N,T[:,k],n)
+    return N/np.maximum(np.linalg.norm(N,axis=1,keepdims=True),1e-12)
+SN=vnormals(MV,MT); cen=MV.mean(0)
+if ((MV-cen)*SN).sum(1).mean()<0: SN=-SN
+SK=cKDTree(MV)
+def tuck(v,margin=0.004,rad=0.012,iters=14):
+    v=v.copy(); T=cKDTree(v) if len(v)<60000 else None
+    for it in range(iters):
+        _,i=SK.query(v); d=((v-MV[i])*SN[i]).sum(1); need=np.maximum(d+margin,0)
+        if need.max()<1e-4: break
+        disp=-need[:,None]*SN[i]
+        if it<iters-3:      # smooth passes first, exact passes last
+            tr=cKDTree(v); nb=tr.query_ball_point(v,rad)
+            sm=np.array([disp[j].mean(0) if len(j) else disp[k] for k,j in enumerate(nb)])
+            disp=np.where(need[:,None]>0,0.6*disp+0.4*sm,sm)
+        v=v+disp
+    return v
+TUCK={"jaw","larynx","sinuses","vagus","spine_neck","sciatic_l","sciatic_r","thyroid","trachea"}
 out={}; rep={}
 names=sorted({k[:-3] for k in za.files if not k.startswith("skin")})
 for n in names:
-    v=warp(za[n+"__v"]); t=za[n+"__t"]
+    v=(warp_leg if n.startswith("sciatic_") else warp)(za[n+"__v"]); t=za[n+"__t"]
     if n.startswith("eye_"):
         j=np.array(J["l-eye" if n=="eye_l" else "r-eye"]); c=(v.min(0)+v.max(0))/2
         v=(v-c)+j+np.array([0,0.004,0])
+    if n in TUCK: v=tuck(v)
     out[n+"__v"]=v.astype(np.float32); out[n+"__t"]=t
     s=v[np.random.default_rng(0).choice(len(v),min(len(v),1500),replace=False)]
     inside=inside_frac(s[:400]).mean()

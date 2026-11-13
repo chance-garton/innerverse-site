@@ -1,0 +1,4460 @@
+{
+"nodes": [
+{
+"id": "legs",
+"sections": [
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "low",
+"title": "Out of balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "center",
+"name": "Legs",
+"heading": "Placeholder heading",
+"eyebrow": "Part of the root",
+"color": 0,
+"frame": {
+"y": 0.44,
+"w": 0.8,
+"h": 0.98,
+"az": 0,
+"tilt": 2
+},
+"light": {
+"regions": {
+"feet": 1.0,
+"ankles": 1.0,
+"knees": 1.0,
+"thighs": 1.0,
+"c1": 0.3
+},
+"organs": {},
+"glow": null
+},
+"parts": [
+"thighs",
+"knees",
+"ankles",
+"feet"
+],
+"signs": [
+"sagittarius",
+"capricorn",
+"aquarius",
+"pisces"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "feet",
+"sections": [
+{
+"key": "field",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "body",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "L",
+"title": "Left foot",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right foot",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "stop",
+"parent": "legs",
+"name": "Feet",
+"heading": "Placeholder heading",
+"eyebrow": "Legs, part of the root",
+"color": 0,
+"frame": {
+"y": 0.1,
+"w": 0.62,
+"h": 0.36,
+"az": 0.0,
+"tilt": 14.0
+},
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 0.07,
+"rx": 0.3,
+"rz": 0.1
+},
+"light": {
+"regions": {
+"feet": 1.0
+},
+"organs": {},
+"glow": null
+},
+"signs": [
+"pisces"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "ankles",
+"sections": [
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "links",
+"title": "Placeholder section",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "LF",
+"title": "Left front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "LB",
+"title": "Left back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RF",
+"title": "Right front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RB",
+"title": "Right back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "stop",
+"parent": "legs",
+"name": "Ankles",
+"heading": "Placeholder heading",
+"eyebrow": "Legs, part of the root",
+"color": 0,
+"frame": {
+"y": 0.2,
+"w": 0.62,
+"h": 0.5,
+"az": 0.0,
+"tilt": 8.0
+},
+"config": [
+"LF",
+"LB",
+"RF",
+"RB"
+],
+"anchor": {
+"y": 0.16,
+"rx": 0.31,
+"rz": 0.2
+},
+"light": {
+"regions": {
+"ankles": 1.0
+},
+"organs": {},
+"glow": null
+},
+"signs": [
+"aquarius"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "knees",
+"sections": [
+{
+"key": "authority",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "LF",
+"title": "Left front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "LB",
+"title": "Left back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RF",
+"title": "Right front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RB",
+"title": "Right back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "stop",
+"parent": "legs",
+"name": "Knees",
+"heading": "Placeholder heading",
+"eyebrow": "Legs, part of the root",
+"color": 0,
+"frame": {
+"y": 0.47,
+"w": 0.62,
+"h": 0.46,
+"az": 0.0,
+"tilt": 4.0
+},
+"config": [
+"LF",
+"LB",
+"RF",
+"RB"
+],
+"anchor": {
+"y": 0.475,
+"rx": 0.32,
+"rz": 0.22
+},
+"light": {
+"regions": {
+"knees": 1.0
+},
+"organs": {},
+"glow": null
+},
+"signs": [
+"capricorn"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "thighs",
+"sections": [
+{
+"key": "links",
+"title": "Placeholder section",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "L",
+"title": "Left thigh",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right thigh",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "stop",
+"parent": "legs",
+"name": "Thighs",
+"heading": "Placeholder heading",
+"eyebrow": "Legs, part of the root",
+"color": 0,
+"frame": {
+"y": 0.68,
+"w": 0.62,
+"h": 0.46,
+"az": 0.0,
+"tilt": 3.0
+},
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 0.68,
+"rx": 0.3,
+"rz": 0.1
+},
+"light": {
+"regions": {
+"thighs": 1.0
+},
+"organs": {},
+"glow": null
+},
+"signs": [
+"sagittarius"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "root",
+"sections": [
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "low",
+"title": "Out of balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "LF",
+"title": "Left front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "LB",
+"title": "Left back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RF",
+"title": "Right front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RB",
+"title": "Right back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "center",
+"name": "Root",
+"heading": "Placeholder heading",
+"color": 1,
+"frame": {
+"y": 0.86,
+"w": 0.66,
+"h": 0.54,
+"az": 0,
+"tilt": 2
+},
+"config": [
+"LF",
+"LB",
+"RF",
+"RB"
+],
+"anchor": {
+"y": 0.88,
+"rx": 0.34,
+"rz": 0.27
+},
+"light": {
+"regions": {
+"c1": 1.0,
+"thighs": 0.35,
+"knees": 0.22,
+"ankles": 0.22,
+"feet": 0.22
+},
+"organs": {
+"hip_l": 1.0,
+"hip_r": 1.0,
+"spine_tail": 1.0,
+"sciatic_l": 1.0,
+"sciatic_r": 1.0
+},
+"glow": null
+},
+"parts": [
+"hips",
+"glutes",
+"pelvis",
+"tailbone",
+"sciatic",
+"bones",
+"legs"
+],
+"signs": [
+"sagittarius",
+"scorpio"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+"governs": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "hips",
+"sections": [],
+"positions": [
+{
+"key": "L",
+"title": "Left hip",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right hip",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "root",
+"name": "Hips and hip joints",
+"color": 1,
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 0.9,
+"rx": 0.3,
+"rz": 0.06
+},
+"light": {
+"regions": {
+"hips": 0.7
+},
+"organs": {
+"hip_l": 1.0,
+"hip_r": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "glutes",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "root",
+"name": "Glutes",
+"color": 1,
+"frame": {
+"y": 0.88,
+"w": 0.5,
+"h": 0.4,
+"az": 180.0,
+"tilt": 2
+},
+"light": {
+"regions": {
+"glutes": 1.0
+},
+"organs": {},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "pelvis",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "root",
+"name": "Pelvis",
+"color": 1,
+"light": {
+"regions": {
+"c1": 0.6
+},
+"organs": {
+"hip_l": 1.0,
+"hip_r": 1.0,
+"spine_tail": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 0.9,
+"w": 0.5,
+"h": 0.4,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "tailbone",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "root",
+"name": "Tailbone",
+"color": 1,
+"light": {
+"regions": {},
+"organs": {
+"spine_tail": 1.0
+},
+"glow": null
+},
+"az": 180.0,
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "sciatic",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "L",
+"title": "Left side",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right side",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "root",
+"name": "Sciatic nerve",
+"color": 1,
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 0.78,
+"rx": 0.3,
+"rz": -0.12
+},
+"light": {
+"regions": {},
+"organs": {
+"sciatic_l": 1.0,
+"sciatic_r": 1.0
+},
+"glow": null
+},
+"az": 180.0,
+"frame": {
+"y": 0.76,
+"w": 0.5,
+"h": 0.56,
+"az": 180.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "bones",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "root",
+"name": "Bones, muscles and fascia",
+"color": 1,
+"light": {
+"regions": {
+"whole": 0.35
+},
+"organs": {
+"hip_l": 1.0,
+"hip_r": 1.0,
+"spine_neck": 1.0,
+"spine_upper": 1.0,
+"spine_mid": 1.0,
+"spine_low": 1.0,
+"spine_tail": 1.0,
+"jaw": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 0.86,
+"w": 0.95,
+"h": 1.86,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "sacral",
+"sections": [
+{
+"key": "work",
+"title": "Placeholder section",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "LF",
+"title": "Left front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "LB",
+"title": "Left back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RF",
+"title": "Right front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RB",
+"title": "Right back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "center",
+"name": "Sacral",
+"heading": "Placeholder heading",
+"color": 2,
+"frame": {
+"y": 0.97,
+"w": 0.62,
+"h": 0.5,
+"az": 0,
+"tilt": 2
+},
+"config": [
+"LF",
+"LB",
+"RF",
+"RB"
+],
+"anchor": {
+"y": 0.97,
+"rx": 0.34,
+"rz": 0.27
+},
+"light": {
+"regions": {
+"c2": 1.0,
+"lowpelvis": 0.9
+},
+"organs": {
+"large_intestine": 1.0,
+"small_intestine": 1.0,
+"bladder": 1.0,
+"appendix": 1.0,
+"spine_low": 1.0
+},
+"glow": "repro"
+},
+"parts": [
+"reproductive",
+"bladder",
+"smallintestine",
+"largeintestine",
+"appendix",
+"lowerbelly",
+"lowback"
+],
+"signs": [
+"scorpio",
+"virgo",
+"libra"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+"governs": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "reproductive",
+"sections": [
+{
+"key": "female",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "male",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "sacral",
+"name": "Reproductive organs",
+"color": 2,
+"light": {
+"regions": {
+"lowpelvis": 1.0
+},
+"organs": {},
+"glow": "repro"
+},
+"frame": {
+"y": 0.86,
+"w": 0.46,
+"h": 0.38,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "bladder",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "sacral",
+"name": "Bladder and urinary tract",
+"color": 2,
+"light": {
+"regions": {},
+"organs": {
+"bladder": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "smallintestine",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "sacral",
+"name": "Small intestine",
+"color": 2,
+"light": {
+"regions": {},
+"organs": {
+"small_intestine": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "largeintestine",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "sacral",
+"name": "Large intestine",
+"color": 2,
+"light": {
+"regions": {},
+"organs": {
+"large_intestine": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "appendix",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "sacral",
+"name": "Appendix",
+"color": 2,
+"light": {
+"regions": {},
+"organs": {
+"appendix": 1.0,
+"large_intestine": 0.25
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "lowerbelly",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "sacral",
+"name": "Lower belly",
+"color": 2,
+"light": {
+"regions": {
+"lowbelly": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 0.95,
+"w": 0.5,
+"h": 0.4,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "lowback",
+"sections": [
+{
+"key": "field",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "links",
+"title": "Placeholder section",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "sacral",
+"name": "Lower back and sacrum",
+"color": 2,
+"light": {
+"regions": {
+"lowback": 1.0
+},
+"organs": {
+"spine_low": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 0.99,
+"w": 0.5,
+"h": 0.44,
+"az": 180.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "solar",
+"sections": [
+{
+"key": "sides",
+"title": "Placeholder section",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "LF",
+"title": "Left front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "LB",
+"title": "Left back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RF",
+"title": "Right front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RB",
+"title": "Right back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "center",
+"name": "Solar Plexus",
+"heading": "Placeholder heading",
+"color": 3,
+"frame": {
+"y": 1.1,
+"w": 0.62,
+"h": 0.5,
+"az": 0,
+"tilt": 2
+},
+"config": [
+"LF",
+"LB",
+"RF",
+"RB"
+],
+"anchor": {
+"y": 1.11,
+"rx": 0.34,
+"rz": 0.27
+},
+"light": {
+"regions": {
+"c3": 1.0
+},
+"organs": {
+"stomach": 1.0,
+"liver": 1.0,
+"gallbladder": 1.0,
+"kidney_l": 1.0,
+"kidney_r": 1.0,
+"adrenal_l": 1.0,
+"adrenal_r": 1.0,
+"spleen": 1.0,
+"pancreas": 1.0,
+"spine_mid": 1.0
+},
+"glow": null
+},
+"parts": [
+"stomach",
+"liver",
+"gallbladder",
+"spleen",
+"pancreas",
+"kidneys",
+"adrenals",
+"midback"
+],
+"signs": [
+"libra",
+"cancer",
+"virgo"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+"governs": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "stomach",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "solar",
+"name": "Stomach",
+"color": 3,
+"light": {
+"regions": {},
+"organs": {
+"stomach": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "liver",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "solar",
+"name": "Liver",
+"color": 3,
+"light": {
+"regions": {},
+"organs": {
+"liver": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "gallbladder",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "solar",
+"name": "Gallbladder",
+"color": 3,
+"light": {
+"regions": {},
+"organs": {
+"gallbladder": 1.0,
+"liver": 0.2
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "spleen",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "solar",
+"name": "Spleen",
+"color": 3,
+"light": {
+"regions": {},
+"organs": {
+"spleen": 1.0
+},
+"glow": null
+},
+"az": 40.0,
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "pancreas",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "solar",
+"name": "Pancreas",
+"color": 3,
+"light": {
+"regions": {},
+"organs": {
+"pancreas": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "kidneys",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What they do",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "L",
+"title": "Left kidney",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right kidney",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "solar",
+"name": "Kidneys",
+"color": 3,
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 1.08,
+"rx": 0.3,
+"rz": -0.14
+},
+"light": {
+"regions": {},
+"organs": {
+"kidney_l": 1.0,
+"kidney_r": 1.0
+},
+"glow": null
+},
+"az": 180.0,
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "adrenals",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What they do",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "L",
+"title": "Left adrenal",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right adrenal",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "solar",
+"name": "Adrenal glands",
+"color": 3,
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 1.12,
+"rx": 0.3,
+"rz": -0.14
+},
+"light": {
+"regions": {},
+"organs": {
+"adrenal_l": 1.0,
+"adrenal_r": 1.0,
+"kidney_l": 0.2,
+"kidney_r": 0.2
+},
+"glow": null
+},
+"az": 180.0,
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "midback",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "solar",
+"name": "Mid-back",
+"color": 3,
+"light": {
+"regions": {
+"midback": 1.0
+},
+"organs": {
+"spine_mid": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.13,
+"w": 0.5,
+"h": 0.44,
+"az": 180.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "heart",
+"sections": [
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "low",
+"title": "Out of balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "LF",
+"title": "Left front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "LB",
+"title": "Left back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RF",
+"title": "Right front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RB",
+"title": "Right back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "center",
+"name": "Heart",
+"heading": "Placeholder heading",
+"color": 4,
+"frame": {
+"y": 1.26,
+"w": 0.78,
+"h": 0.54,
+"az": 0,
+"tilt": 2
+},
+"config": [
+"LF",
+"LB",
+"RF",
+"RB"
+],
+"anchor": {
+"y": 1.27,
+"rx": 0.38,
+"rz": 0.28
+},
+"light": {
+"regions": {
+"c4": 1.0,
+"shoulders": 1.0,
+"arms": 0.55
+},
+"organs": {
+"heart": 1.0,
+"lung_l": 1.0,
+"lung_r": 1.0,
+"diaphragm": 1.0,
+"spine_upper": 1.0
+},
+"glow": null
+},
+"parts": [
+"heartorgan",
+"circulation",
+"lungs",
+"diaphragm",
+"shoulders",
+"upperback",
+"arms"
+],
+"signs": [
+"leo",
+"gemini"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+"governs": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "heartorgan",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "heart",
+"name": "Heart (the organ)",
+"color": 4,
+"light": {
+"regions": {},
+"organs": {
+"heart": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "circulation",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "heart",
+"name": "Blood vessels and circulation",
+"color": 4,
+"light": {
+"regions": {
+"whole": 0.25
+},
+"organs": {
+"heart": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 0.86,
+"w": 0.95,
+"h": 1.86,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "lungs",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What they do",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "heart",
+"name": "Lungs",
+"color": 4,
+"light": {
+"regions": {},
+"organs": {
+"lung_l": 1.0,
+"lung_r": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "diaphragm",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "heart",
+"name": "Diaphragm",
+"color": 4,
+"light": {
+"regions": {},
+"organs": {
+"diaphragm": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "shoulders",
+"sections": [],
+"positions": [
+{
+"key": "L",
+"title": "Left shoulder",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right shoulder",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "heart",
+"name": "Shoulders",
+"color": 4,
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 1.33,
+"rx": 0.36,
+"rz": 0.04
+},
+"light": {
+"regions": {
+"shoulders": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 1.32,
+"w": 0.66,
+"h": 0.4,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "upperback",
+"sections": [],
+"positions": [
+{
+"key": "L",
+"title": "Left shoulder blade",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right shoulder blade",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "heart",
+"name": "Upper back and shoulder blades",
+"color": 4,
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 1.29,
+"rx": 0.3,
+"rz": -0.16
+},
+"light": {
+"regions": {
+"upperback": 1.0
+},
+"organs": {
+"spine_upper": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.29,
+"w": 0.62,
+"h": 0.44,
+"az": 180.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "arms",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "heart",
+"name": "Arms, hands and armpits",
+"color": 4,
+"light": {
+"regions": {
+"arms": 1.0,
+"shoulders": 0.4
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 1.1,
+"w": 0.9,
+"h": 0.8,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "throat",
+"sections": [
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "low",
+"title": "Out of balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "LF",
+"title": "Left front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "RF",
+"title": "Right front",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "B",
+"title": "Back",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "center",
+"name": "Throat",
+"heading": "Placeholder heading",
+"color": 5,
+"frame": {
+"y": 1.43,
+"w": 0.46,
+"h": 0.38,
+"az": 0,
+"tilt": 2
+},
+"config": [
+"LF",
+"RF",
+"B"
+],
+"anchor": {
+"y": 1.43,
+"rx": 0.24,
+"rz": 0.2
+},
+"light": {
+"regions": {
+"c5": 1.0,
+"neck": 1.0,
+"lowerface": 1.0
+},
+"organs": {
+"thyroid": 1.0,
+"trachea": 1.0,
+"larynx": 1.0,
+"jaw": 1.0,
+"spine_neck": 1.0
+},
+"glow": null
+},
+"parts": [
+"thyroid",
+"voicebox",
+"windpipe",
+"jaw",
+"mouth",
+"ears",
+"neck"
+],
+"signs": [
+"taurus"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+"governs": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "thyroid",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "L",
+"title": "Left side",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right side",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "throat",
+"name": "Thyroid",
+"color": 5,
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 1.43,
+"rx": 0.2,
+"rz": 0.14
+},
+"light": {
+"regions": {},
+"organs": {
+"thyroid": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "voicebox",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "throat",
+"name": "Throat and voice box",
+"color": 5,
+"light": {
+"regions": {},
+"organs": {
+"larynx": 1.0,
+"trachea": 0.25
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "windpipe",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "throat",
+"name": "Windpipe",
+"color": 5,
+"light": {
+"regions": {},
+"organs": {
+"trachea": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "jaw",
+"sections": [
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "throat",
+"name": "Jaw",
+"color": 5,
+"light": {
+"regions": {},
+"organs": {
+"jaw": 1.0
+},
+"glow": null
+},
+"az": 30.0,
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "mouth",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "throat",
+"name": "Mouth",
+"color": 5,
+"light": {
+"regions": {
+"mouth": 1.0
+},
+"organs": {
+"jaw": 0.3
+},
+"glow": null
+},
+"frame": {
+"y": 1.49,
+"w": 0.26,
+"h": 0.22,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "ears",
+"sections": [
+{
+"key": "anatomy",
+"title": "What they do",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When they struggle",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "throat",
+"name": "Ears and hearing",
+"color": 5,
+"light": {
+"regions": {
+"ears": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 1.54,
+"w": 0.34,
+"h": 0.26,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "neck",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "throat",
+"name": "Neck",
+"color": 5,
+"light": {
+"regions": {
+"neck": 1.0
+},
+"organs": {
+"spine_neck": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.42,
+"w": 0.36,
+"h": 0.3,
+"az": 180.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "thirdeye",
+"sections": [
+{
+"key": "both",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "balanced",
+"title": "In balance",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "L",
+"title": "Left side",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right side",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "center",
+"name": "Third Eye",
+"heading": "Placeholder heading",
+"color": 6,
+"frame": {
+"y": 1.56,
+"w": 0.42,
+"h": 0.36,
+"az": 0,
+"tilt": 2
+},
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 1.57,
+"rx": 0.27,
+"rz": 0.03
+},
+"light": {
+"regions": {
+"c6": 1.0,
+"head": 0.35
+},
+"organs": {
+"brain": 1.0,
+"eye_l": 1.0,
+"eye_r": 1.0,
+"pineal": 1.0,
+"sinuses": 1.0
+},
+"glow": null
+},
+"parts": [
+"brain",
+"pineal",
+"eyes",
+"sinuses",
+"forehead",
+"backofhead"
+],
+"signs": [
+"aries"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+"governs": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "brain",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "thirdeye",
+"name": "Brain",
+"color": 6,
+"light": {
+"regions": {},
+"organs": {
+"brain": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "pineal",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "thirdeye",
+"name": "Pineal gland",
+"color": 6,
+"light": {
+"regions": {},
+"organs": {
+"pineal": 1.0,
+"brain": 0.12
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "eyes",
+"sections": [
+{
+"key": "struggle",
+"title": "When they struggle",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "thirdeye",
+"name": "Eyes",
+"color": 6,
+"light": {
+"regions": {},
+"organs": {
+"eye_l": 1.0,
+"eye_r": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "sinuses",
+"sections": [
+{
+"key": "anatomy",
+"title": "What they do",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When they struggle",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "thirdeye",
+"name": "Sinuses and nose",
+"color": 6,
+"light": {
+"regions": {
+"nose": 1.0
+},
+"organs": {
+"sinuses": 1.0
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "forehead",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "thirdeye",
+"name": "Forehead and temples",
+"color": 6,
+"light": {
+"regions": {
+"forehead": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 1.59,
+"w": 0.3,
+"h": 0.24,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "backofhead",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "thirdeye",
+"name": "Back of the head",
+"color": 6,
+"light": {
+"regions": {
+"backofhead": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 1.57,
+"w": 0.32,
+"h": 0.26,
+"az": 180.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "crown",
+"sections": [
+{
+"key": "sides",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "above",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [
+{
+"key": "L",
+"title": "Left side",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "R",
+"title": "Right side",
+"short": "Placeholder",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"sides": [],
+"themes": [],
+"kind": "center",
+"name": "Crown",
+"heading": "Placeholder heading",
+"color": 7,
+"frame": {
+"y": 1.66,
+"w": 0.46,
+"h": 0.4,
+"az": 0.0,
+"tilt": 14.0
+},
+"config": [
+"L",
+"R"
+],
+"anchor": {
+"y": 1.69,
+"rx": 0.24,
+"rz": 0.03
+},
+"light": {
+"regions": {
+"topofhead": 1.0,
+"c7": 1.0
+},
+"organs": {
+"pituitary": 1.0
+},
+"glow": null
+},
+"parts": [
+"pituitary",
+"topofhead"
+],
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+"governs": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "pituitary",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "crown",
+"name": "Pituitary gland",
+"color": 7,
+"light": {
+"regions": {},
+"organs": {
+"pituitary": 1.0,
+"brain": 0.12
+},
+"glow": null
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "topofhead",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "crown",
+"name": "Top of the head",
+"color": 7,
+"light": {
+"regions": {
+"topofhead": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 1.64,
+"w": 0.34,
+"h": 0.28,
+"az": 0.0,
+"tilt": 30.0
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "spine",
+"sections": [
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "struggle",
+"title": "When it struggles",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "whole",
+"name": "Spine",
+"color": 8,
+"light": {
+"regions": {},
+"organs": {
+"spine_neck": 1.0,
+"spine_upper": 1.0,
+"spine_mid": 1.0,
+"spine_low": 1.0,
+"spine_tail": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.18,
+"w": 0.6,
+"h": 0.86,
+"az": 180.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "vagus",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "whole",
+"name": "Vagus nerve",
+"color": 8,
+"light": {
+"regions": {},
+"organs": {
+"vagus": 1.0,
+"larynx": 0.3
+},
+"glow": null
+},
+"frame": {
+"y": 1.3,
+"w": 0.5,
+"h": 0.62,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "skin",
+"sections": [
+{
+"key": "biofield",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+},
+{
+"key": "anatomy",
+"title": "What it does",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "part",
+"parent": "whole",
+"name": "Skin",
+"color": 8,
+"light": {
+"regions": {
+"whole": 0.55
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 0.86,
+"w": 0.95,
+"h": 1.86,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-edge",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 1",
+"name": "Field topic 1",
+"marker": "edge",
+"marks": {
+"edge": [
+"edge",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-timeline",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 1",
+"name": "Field topic 2",
+"marker": "timeline",
+"marks": {
+"timeline": [
+"timeline",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-sides",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 1",
+"name": "Field topic 3",
+"marker": "sides",
+"marks": {
+"left": [
+"left",
+"Placeholder"
+],
+"right": [
+"right",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-frontback",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 1",
+"name": "Field topic 4",
+"marker": "frontback",
+"marks": {
+"front": [
+"front",
+"Placeholder"
+],
+"back": [
+"back",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-channel",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 1",
+"name": "Field topic 5",
+"marker": "channel",
+"marks": {
+"channel": [
+"channel",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-sunstar",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 2",
+"name": "Field topic 6",
+"marker": "sunstar",
+"marks": {
+"sunstar": [
+"sunstar",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-earthstar",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 2",
+"name": "Field topic 7",
+"marker": "earthstar",
+"marks": {
+"earthstar": [
+"earthstar",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-rivers",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 2",
+"name": "Field topic 8",
+"marker": "rivers",
+"marks": {
+"riverL": [
+"riverL",
+"Placeholder"
+],
+"riverR": [
+"riverR",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-parents",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 2",
+"name": "Field topic 9",
+"marker": "parents",
+"marks": {
+"mother": [
+"mother",
+"Placeholder"
+],
+"father": [
+"father",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-adrenal",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 2",
+"name": "Field topic 10",
+"marker": "adrenal",
+"marks": {
+"adrenal": [
+"adrenal",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-lefthip",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 3",
+"name": "Field topic 11",
+"marker": "lefthip",
+"marks": {
+"lefthip": [
+"lefthip",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-ditch",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 3",
+"name": "Field topic 12",
+"marker": "ditch",
+"marks": {
+"ditch": [
+"ditch",
+"Placeholder"
+]
+},
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-overlaps",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 3",
+"name": "Field topic 13",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-drawers",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 3",
+"name": "Field topic 14",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-fear",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 3",
+"name": "Field topic 15",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-legs",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 4",
+"name": "Field topic 16",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-pain",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 4",
+"name": "Field topic 17",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-inherited",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 4",
+"name": "Field topic 18",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-walls",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 4",
+"name": "Field topic 19",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-mayrelate",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 4",
+"name": "Field topic 20",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "f-links",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"li": 1,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "field",
+"group": "Field group 5",
+"name": "Field topic 21",
+"short": "Placeholder",
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "aries",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Aries",
+"glyph": "♈",
+"rules": "Placeholder",
+"centers": [
+"thirdeye"
+],
+"light": {
+"regions": {
+"head": 1.0
+},
+"organs": {
+"brain": 1.0,
+"eye_l": 1.0,
+"eye_r": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.56,
+"w": 0.42,
+"h": 0.4,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "taurus",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Taurus",
+"glyph": "♉",
+"rules": "Placeholder",
+"centers": [
+"throat"
+],
+"light": {
+"regions": {
+"neck": 1.0
+},
+"organs": {
+"thyroid": 1.0,
+"larynx": 1.0,
+"spine_neck": 1.0,
+"trachea": 0.4
+},
+"glow": null
+},
+"frame": {
+"y": 1.43,
+"w": 0.42,
+"h": 0.36,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "gemini",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Gemini",
+"glyph": "♊",
+"rules": "Placeholder",
+"centers": [
+"heart"
+],
+"light": {
+"regions": {
+"shoulders": 1.0,
+"arms": 1.0
+},
+"organs": {
+"lung_l": 1.0,
+"lung_r": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.14,
+"w": 0.92,
+"h": 0.8,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "cancer",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Cancer",
+"glyph": "♋",
+"rules": "Placeholder",
+"centers": [
+"solar"
+],
+"light": {
+"regions": {
+"torso": 1.0
+},
+"organs": {
+"stomach": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.1,
+"w": 0.7,
+"h": 0.86,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "leo",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Leo",
+"glyph": "♌",
+"rules": "Placeholder",
+"centers": [
+"heart"
+],
+"light": {
+"regions": {
+"upperback": 1.0
+},
+"organs": {
+"heart": 1.0,
+"spine_upper": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.27,
+"w": 0.62,
+"h": 0.48,
+"az": 150.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "virgo",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Virgo",
+"glyph": "♍",
+"rules": "Placeholder",
+"centers": [
+"sacral",
+"solar"
+],
+"light": {
+"regions": {
+"lowbelly": 0.6
+},
+"organs": {
+"small_intestine": 1.0,
+"large_intestine": 1.0,
+"appendix": 1.0,
+"stomach": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.02,
+"w": 0.6,
+"h": 0.56,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "libra",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Libra",
+"glyph": "♎",
+"rules": "Placeholder",
+"centers": [
+"sacral",
+"solar"
+],
+"light": {
+"regions": {
+"lowback": 1.0
+},
+"organs": {
+"kidney_l": 1.0,
+"kidney_r": 1.0,
+"spine_low": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 1.04,
+"w": 0.56,
+"h": 0.5,
+"az": 180.0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "scorpio",
+"sections": [
+{
+"key": "more",
+"title": "Placeholder section",
+"blocks": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Scorpio",
+"glyph": "♏",
+"rules": "Placeholder",
+"centers": [
+"sacral",
+"root"
+],
+"light": {
+"regions": {
+"lowpelvis": 1.0
+},
+"organs": {},
+"glow": "repro"
+},
+"frame": {
+"y": 0.86,
+"w": 0.5,
+"h": 0.42,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "sagittarius",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Sagittarius",
+"glyph": "♐",
+"rules": "Placeholder",
+"centers": [
+"root"
+],
+"light": {
+"regions": {
+"hips": 1.0,
+"thighs": 1.0,
+"c1": 0.5
+},
+"organs": {
+"hip_l": 1.0,
+"hip_r": 1.0
+},
+"glow": null
+},
+"frame": {
+"y": 0.76,
+"w": 0.62,
+"h": 0.62,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "capricorn",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Capricorn",
+"glyph": "♑",
+"rules": "Placeholder",
+"centers": [
+"knees"
+],
+"light": {
+"regions": {
+"knees": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 0.47,
+"w": 0.62,
+"h": 0.46,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "aquarius",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Aquarius",
+"glyph": "♒",
+"rules": "Placeholder",
+"centers": [
+"ankles"
+],
+"light": {
+"regions": {
+"ankles": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 0.22,
+"w": 0.62,
+"h": 0.5,
+"az": 0,
+"tilt": 2
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+},
+{
+"id": "pisces",
+"sections": [],
+"positions": [],
+"sides": [],
+"themes": [],
+"kind": "sign",
+"name": "Pisces",
+"glyph": "♓",
+"rules": "Placeholder",
+"centers": [
+"feet"
+],
+"light": {
+"regions": {
+"feet": 1.0
+},
+"organs": {},
+"glow": null
+},
+"frame": {
+"y": 0.1,
+"w": 0.62,
+"h": 0.36,
+"az": 0.0,
+"tilt": 14.0
+},
+"summary": {
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+}
+],
+"feelings": [
+{
+"name": "Sample feeling",
+"also": [
+"sample"
+],
+"targets": [
+{
+"node": "heart",
+"pos": "LF",
+"label": null,
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+]
+}
+],
+"info": {
+"home": {
+"id": "home",
+"points": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+],
+"title": "Biofield Anatomy",
+"lede": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table."
+},
+"about": {
+"id": "about",
+"points": [
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+},
+{
+"t": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table.",
+"src": []
+}
+],
+"title": "About this map",
+"lede": null
+},
+"zodiac": {
+"id": "zodiac",
+"points": [],
+"title": "The zodiac body",
+"lede": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table."
+},
+"field": {
+"id": "field",
+"points": [],
+"title": "The field",
+"lede": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table."
+},
+"organs": {
+"id": "organs",
+"points": [],
+"title": "Every part",
+"lede": "Placeholder wording. The real wording is loaded from the Biofield Anatomy table."
+}
+},
+"posNames": {
+"LF": "Left front",
+"LB": "Left back",
+"RF": "Right front",
+"RB": "Right back",
+"L": "Left side",
+"R": "Right side",
+"B": "Back",
+"F": "Front",
+"C": "Center"
+},
+"cta": {
+"label": "Book a Biofield Tuning session",
+"url": "https://innerversepodcast.com/biofield-tuning"
+}
+}

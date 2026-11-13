@@ -32,9 +32,14 @@ for g,n in [("liver","Liver"),("gallbladder","Gallbladder"),("stomach","Stomach"
     take(g,d,[n])
 take("pituitary",d,["Adenohypophysis","Neurohypophysis"])
 take("small_intestine",d,["Jejunum","Duodenum"])
-take("large_intestine",d,["Ascending colon","Transverse colon","Descending colon","Sigmoid colon","Vermiform appendix"])
+take("large_intestine",d,["Ascending colon","Transverse colon","Descending colon","Sigmoid colon"])
+take("appendix",d,["Vermiform appendix"])
+take("sinuses",d,["Mucosa of nasal cavity"])
+take("larynx",d,["Epiglottis"])
 print("large intestine children:",[o.name for o in d.values() if "Large intestine.g" in anc(o)])
 print("small intestine children:",[o.name for o in d.values() if "Small intestine.g" in anc(o)])
+# --- diaphragm
+U.reset(); U.import_fbx(M+"MuscularSystem100.fbx"); d=meshes(); take("diaphragm",d,["Diaphragm"])
 # --- lymphoid
 U.reset(); U.import_fbx(M+"LymphoidOrgans100.fbx"); d=meshes(); take("spleen",d,["Spleen"])
 # --- heart
@@ -58,10 +63,24 @@ for o in d.values():
     elif o.name in ("Pons.l","Pons.r","Midbrain.l","Midbrain.r","Medulla oblongata.l","Medulla oblongata.r"): brain.append(o)
 add("brain",brain); print("brain parts",len(brain))
 take("eye_l",d,["Sclera.l","Cornea.l"]); take("eye_r",d,["Sclera.r","Cornea.r"])
+take("sciatic_l",d,["Sciatic nerve.l"]); take("sciatic_r",d,["Sciatic nerve.r"])
+take("vagus",d,["Vagus nerve (X).l","Vagus nerve (X).r"])
 # --- bones
 U.reset(); U.import_fbx(M+"SkeletalSystem100.fbx"); d=meshes()
 sp=["Atlas (C1)","Axis (C2)"]+[f"Vertebra C{i}" for i in range(3,8)]+[f"Vertebra T{i}" for i in range(1,13)]+[f"Vertebra L{i}" for i in range(1,6)]+["Sacrum","Coccyx"]
-take("spine",d,sp); take("hip_l",d,["Hip bone.l"]); take("hip_r",d,["Hip bone.r"])
+take("hip_l",d,["Hip bone.l"]); take("hip_r",d,["Hip bone.r"])
+# spine by level (Chance, Q32): neck throat, upper back heart, mid-back solar plexus, low back and sacrum sacral, tailbone root
+take("spine_neck",d,["Atlas (C1)","Axis (C2)"]+[f"Vertebra C{i}" for i in range(3,8)])
+take("spine_upper",d,[f"Vertebra T{i}" for i in range(1,7)])
+take("spine_mid",d,[f"Vertebra T{i}" for i in range(7,13)])
+take("spine_low",d,[f"Vertebra L{i}" for i in range(1,6)]+["Sacrum"])
+take("spine_tail",d,["Coccyx"])
+take("jaw",d,["Mandible"])
+take("larynx",d,["Thyroid cartilage","Cricoid cartilage","Arytenoid cartilage.l","Arytenoid cartilage.r"])
+take("sinuses",d,["Sinus of frontal bone","Sinus of sphenoid bone"]+[f"{a} cells of ethmoid bone.{s_}" for a in ("Anterior","Middle","Posterior") for s_ in "lr"])
+for n in ["Femur.l","Patella.l","Tibia.l"]:
+    if n in d:
+        v,_=tris(d[n]); save_ref=sources.setdefault("_legrefs",{}); save_ref[n]=[v.min(0).round(4).tolist(),v.max(0).round(4).tolist(),v[v[:,2]>v[:,2].max()-0.03].mean(0).round(4).tolist(),v[v[:,2]<v[:,2].min()+0.03].mean(0).round(4).tolist()]
 for n in ["Femur.l","Hip bone.l","Atlas (C1)","Sacrum","Humerus.l","Clavicle.l","Vertebra L5","Vertebra T1","Vertebra C7"]:
     if n in d:
         v,_=tris(d[n]); print("BONE",n,v.min(0).round(3),v.max(0).round(3))

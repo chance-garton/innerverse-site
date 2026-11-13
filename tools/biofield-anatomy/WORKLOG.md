@@ -41,3 +41,28 @@ pituitary light with the third eye; the feet colour is a placeholder.
   looks even. The feet entry in the list uses a lighter dot and text colour so
   it still reads on the dark panel (`dot` and `accent` in `zones.json`).
 - Model size unchanged at 1.6 MB.
+
+## 2026-11-12, build step 3 (experience build, with the model changes from the review)
+
+- Model: large intestine now lights with the sacral, stomach with the solar plexus, pituitary with the crown.
+  New meshes from the same Z-Anatomy source: diaphragm, sinuses and nasal cavity (frontal and sphenoid sinuses,
+  ethmoid cells, nasal cavity lining), voice box (thyroid, cricoid and arytenoid cartilages, epiglottis), jaw,
+  appendix (split from the colon), both sciatic nerves, the vagus nerve. The spine is five meshes, one per
+  center: neck (C1 to C7), upper back (T1 to T6), mid-back (T7 to T12), low back and sacrum (L1 to L5, sacrum),
+  tailbone. 37 part meshes, 1.8 MB.
+- Fit: parts near the surface (jaw, voice box, sinuses, vagus, neck spine) are tucked under the skin by a smooth
+  inward push (`tuck` in `fit.py`); the sciatic nerves follow the thigh line below the hip (`warp_leg`). Every
+  part tests 100 percent inside the body, apart from the eyes, which sit in the eye openings by design.
+- Reproductive organs: no meshes, by choice. The lower pelvis is a lit zone with a soft glow.
+- Skin regions moved into the shader (33 named regions), each guarded by its weight so unlit regions cost
+  nothing. Quadrants (front, back, left, right) are a filter on top.
+- Viewer rebuilt: Chakras (default), Field, Organs and Zodiac views; chakra orbs on the body; spots placed in 3D
+  around a center with leader lines; part isolation; field markers with a timeline age slider; zodiac view in
+  one gold light on a neutral body; one search box (parts, feelings, signs, field, full text); feelings index;
+  deep links by plain hash; phone bottom sheet with three heights; text-only fallback when WebGL is missing;
+  sharpness steps down by itself on a struggling device.
+- Checks (Playwright, 1440 and 390 wide): every line of wording is on screen in its node (about 660 lines),
+  each node lights exactly its own meshes, list, labels, back, breadcrumbs, tabs, search and deep links work,
+  tapping orbs, skin and organs works, no sideways scroll on the phone, no console errors. Frame rate on the
+  software renderer is the same as the step 2 viewer measured the same way; a real phone test is still open.
+- Not built: the narrated guided tour and the illustrated 2D fallback from the plan.
