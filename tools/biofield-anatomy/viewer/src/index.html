@@ -36,16 +36,20 @@ a{color:inherit;text-decoration:none}
 #leaders line{stroke:var(--gold);stroke-opacity:.5;stroke-width:1}
 #leaders line.far{stroke-opacity:.18}
 #labels{position:fixed;inset:0;pointer-events:none;z-index:3}
-.lab{z-index:2;position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;max-width:176px;padding:6px 10px 6px 8px;border-radius:12px;border:1px solid var(--hair);background:rgba(9,11,22,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:auto;cursor:pointer;text-align:left;transition:opacity .25s,border-color .2s,background .2s;will-change:transform}
-.lab:hover{border-color:var(--c,var(--gold));background:rgba(20,23,42,.9)}
+.lab{z-index:2;position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;max-width:176px;padding:6px 10px 6px 8px;border-radius:12px;border:1px solid var(--hair);background:rgb(11,13,25);pointer-events:auto;cursor:pointer;text-align:left;transition:opacity .25s,border-color .2s,background .2s;will-change:transform}
+.lab:hover{border-color:var(--c,var(--gold));background:rgb(22,25,45)}
+.lab:hover .ld,.lab:hover .lt{opacity:1}
 .lab .ld{flex:none;width:8px;height:8px;border-radius:50%;background:var(--c,var(--gold));box-shadow:0 0 10px var(--c,var(--gold))}
 .lab .lt{display:flex;flex-direction:column;min-width:0}
 .lab .l1{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;line-height:1.3}
 .lab .l2{font-size:12.5px;font-weight:600;line-height:1.25;color:var(--ink)}
-.lab.far{opacity:.42}
-.lab.dim{opacity:.26}
-.lab.on{border-color:var(--c,var(--gold));background:rgba(24,27,48,.94);opacity:1}
-.lab.tick{padding:2px 7px;border-radius:8px;background:rgba(9,11,22,.5);border-color:transparent;cursor:default;pointer-events:none}
+.lab.far{background:rgb(13,15,28);border-color:rgba(255,255,255,.05)}
+.lab.far .ld,.lab.far .lt{opacity:.45}
+.lab.dim{background:rgb(11,13,25);border-color:rgba(255,255,255,.04)}
+.lab.dim .ld,.lab.dim .lt{opacity:.3}
+.lab.on{z-index:3;border-color:var(--c,var(--gold));background:rgb(24,27,48)}
+.lab.on .ld,.lab.on .lt{opacity:1}
+.lab.tick{z-index:1;padding:2px 7px;border-radius:8px;background:rgba(9,11,22,.5);border-color:transparent;cursor:default;pointer-events:none}
 .lab.tick .l2{font-size:11px;font-weight:500;color:var(--ink-soft)}
 .lab.glyph .ld{display:none}
 .lab.glyph .l1{font-family:"Noto Sans Symbols 2","Noto Sans Symbols","Apple Symbols","Segoe UI Symbol","DejaVu Sans",sans-serif;font-size:17px;letter-spacing:0;color:var(--gold);font-weight:400;line-height:1}
@@ -73,8 +77,8 @@ h1{font-family:var(--display);font-weight:600;font-size:31px;line-height:1.05;ma
 .res span{font-size:12px;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .res i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--c,var(--gold));align-self:center;font-style:normal}
 .nores{padding:12px 10px;color:var(--ink-soft);font-size:13px}
-#tabs{display:flex;gap:3px;padding:4px;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:13px}
-.tab{flex:1 1 auto;white-space:nowrap;font:600 12px var(--body);letter-spacing:.01em;background:none;border:0;border-radius:9px;padding:8px 5px;cursor:pointer;color:var(--ink-soft);transition:background .2s,color .2s}
+#tabs{display:flex;gap:2px;padding:3px;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:13px}
+.tab{flex:1 1 auto;min-width:0;white-space:nowrap;font:600 12px var(--body);letter-spacing:0;background:none;border:0;border-radius:9px;padding:8px 4px;cursor:pointer;color:var(--ink-soft);transition:background .2s,color .2s}
 .tab:hover{color:var(--ink)}
 .tab[aria-selected="true"]{background:var(--gold);color:#15120a}
 #list{display:flex;flex-direction:column;gap:2px;overflow:auto;flex:1;min-height:0;margin:0 -4px;padding:2px 4px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent}
@@ -95,11 +99,10 @@ h1{font-family:var(--display);font-weight:600;font-size:31px;line-height:1.05;ma
 .it.plain{padding:7px 10px}
 .it.plain .zn{font-size:14px}
 .it.plain .zs{font-size:12px;color:var(--ink-soft);line-height:1.3}
-#railfoot{display:flex;gap:6px;align-items:center;padding:6px 2px 0;border-top:1px solid var(--hair)}
-.quiet{font:600 12px var(--body);letter-spacing:.03em;background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:999px;padding:7px 12px;cursor:pointer;color:var(--ink)}
+#railfoot{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:6px 2px 0;border-top:1px solid var(--hair)}
+.quiet{white-space:nowrap;font:600 12px var(--body);letter-spacing:.03em;background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:999px;padding:7px 12px;cursor:pointer;color:var(--ink)}
 .quiet:hover{border-color:var(--gold)}
 .quiet[aria-pressed="true"]{background:var(--gold);color:#15120a;border-color:var(--gold)}
-#fps{margin-left:auto;font-size:10.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
 
 /* ---------- detail panel ---------- */
 #panel{position:fixed;right:var(--gap);top:var(--gap);bottom:var(--gap);width:var(--panel);display:flex;flex-direction:column;z-index:5;overflow:hidden}
@@ -182,7 +185,7 @@ h2.sm{font-size:30px}
 #hint{position:fixed;left:calc(var(--gap)*2 + var(--rail));right:calc(var(--gap)*2 + var(--panel));bottom:var(--gap);text-align:center;font-size:11.5px;color:var(--ink-faint);letter-spacing:.04em;pointer-events:none;z-index:1}
 #strip,#mtop,#msearch,#matoz{display:none}
 
-@media (max-width:1320px){:root{--rail:244px;--panel:352px;--gap:12px}h1{font-size:27px}h2{font-size:32px}#detail{padding:18px 18px 8px}#foot .credit{display:none}}
+@media (max-width:1320px){:root{--rail:262px;--panel:348px;--gap:12px}#rail{padding-left:12px;padding-right:12px}.tab{font-size:11.5px;padding:8px 3px}h1{font-size:27px}h2{font-size:32px}#detail{padding:18px 18px 8px}#foot .credit{display:none}}
 /* ---------- phone and narrow screens ---------- */
 @media (max-width:999px){
   body{font-size:14.5px}
@@ -218,7 +221,6 @@ h2.sm{font-size:30px}
   .lab{max-width:132px;padding:5px 8px 5px 7px}
   .lab .l2{font-size:11.5px}
   .lab .l1{font-size:8.5px}
-  #fps{display:none}
 }
 @media (prefers-reduced-motion:reduce){#detail>*{animation:none}#panel{transition:none}}
 </style>
@@ -237,7 +239,7 @@ h2.sm{font-size:30px}
   </div>
   <div id="searchbox" role="search">
     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
-    <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search a part or a feeling" aria-label="Search a body part or a feeling" aria-controls="results">
+    <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search the map" aria-label="Search a body part or a feeling" aria-controls="results">
     <div id="results" class="glass" role="listbox"></div>
   </div>
   <div id="tabs" role="tablist" aria-label="View">
@@ -250,7 +252,6 @@ h2.sm{font-size:30px}
   <div id="railfoot">
     <button class="quiet" id="b-atoz" type="button">Biofield A to Z</button>
     <button class="quiet" id="b-about" type="button">About</button>
-    <span id="fps"></span>
   </div>
 </aside>
 

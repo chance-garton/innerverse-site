@@ -116,6 +116,23 @@ await p.tap('#msearch'); await p.fill('#q', 'kidney'); await p.waitForTimeout(20
 const off = await p.evaluate(() => [...document.querySelectorAll('#labels .lab')].filter((l) => l.style.display !== 'none').map((l) => l.getBoundingClientRect()).filter((r) => r.left < -1 || r.right > innerWidth + 1).length); ok('phone: labels stay on screen', off === 0, String(off));
 ok('no console errors on phone', p.errs.length === 0, p.errs.slice(0, 3).join(' | '));
 await p.context().close();
+// ---- 5b. the left rail fits at every desktop width: tabs, search hint, bottom buttons
+for (const w of [1000, 1024, 1100, 1280, 1320, 1366, 1440, 1680, 1920]) {
+  p = await open(w, 800);
+  const fit = await p.evaluate(() => { const bad = []; const over = (el) => el.scrollWidth > el.clientWidth + 1;
+    const tabs = document.querySelector('#tabs'); if (over(tabs)) bad.push('tabs row'); [...tabs.children].forEach((b) => { if (over(b)) bad.push('tab ' + b.textContent); const r = b.getBoundingClientRect(), t = tabs.getBoundingClientRect(); if (r.right > t.right + 1) bad.push('tab outside ' + b.textContent); });
+    const q = document.querySelector('#q'); const cs = getComputedStyle(q); const cv = document.createElement('canvas').getContext('2d'); cv.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    if (cv.measureText(q.placeholder).width > q.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) bad.push('search hint');
+    const foot = document.querySelector('#railfoot'); const fr = foot.getBoundingClientRect(); [...foot.children].forEach((b) => { const r = b.getBoundingClientRect(); if (r.right > fr.right + 1 || over(b)) bad.push('foot ' + b.textContent); });
+    if (foot.getBoundingClientRect().height > 60) bad.push('foot wraps');
+    if (document.body.innerText.includes(' fps')) bad.push('fps readout');
+    return bad; });
+  ok(`rail fits at ${w} wide`, fit.length === 0, fit.join(', ')); await p.context().close();
+}
+// a dot never shows through a label, front or back
+p = await open(1440, 900, '#solar');
+const solid = await p.evaluate(() => [...document.querySelectorAll('#labels .lab')].every((l) => { const c = getComputedStyle(l); const m = c.backgroundColor.match(/rgba?\(([^)]+)\)/)[1].split(',').map(Number); return (m.length < 4 || m[3] === 1) && Number(c.opacity) === 1; }));
+ok('labels are solid, so dots behind them stay hidden (front and back)', solid); await p.context().close();
 // ---- 6. frame pacing with motion on (software renderer, so this is only a floor; it says nothing about a real phone)
 for (const [w, h, label] of [[1440, 900, 'desktop'], [390, 844, 'phone size']]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h } }); const q = await ctx.newPage(); await q.goto('http://127.0.0.1:8765/index.html#heart'); await q.waitForFunction(() => window.__bfaReady === true, null, { timeout: 90000 });

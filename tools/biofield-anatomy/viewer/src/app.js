@@ -36,7 +36,7 @@ let scene; const sceneHooks = {
   onError: () => { $('#status').textContent = 'The 3D model could not load. Reload the page to try again.'; },
   onPick: pick,
   onFrame: layoutLabels,
-  onFps: (f) => { $('#fps').textContent = f + ' fps'; window.__bfaFps = f; const a = $('#fpsline'); if (a) a.textContent = `This device is drawing ${f} frames per second.`; },
+  onFps: (f) => { window.__bfaFps = f; const a = $('#fpsline'); if (a) a.textContent = `This device is drawing ${f} frames per second.`; },
 };
 try { scene = createScene($('#stage'), MODEL, sceneHooks); }
 catch (e) {   // no WebGL on this device: every list, panel and search still works, without the model

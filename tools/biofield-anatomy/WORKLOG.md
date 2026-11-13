@@ -78,3 +78,10 @@ pituitary light with the third eye; the feet colour is a placeholder.
 - Side notes now include "the front as a whole" and "the back as a whole" (side keys F and B), shown before the
   left and right notes in a center and after them in a spot.
 - Dots sit behind labels. Zodiac disclaimer lines removed from the panels (it lives in About).
+
+## 2026-11-13, changes round 2 (interface only)
+- Labels are solid in every state (front, back, dimmed), so a dot behind a label never shows through. Only the
+  label's text and dot fade for back and dimmed spots.
+- The left rail fits at every desktop width: the four view tabs share the row, the search hint is "Search the map",
+  the bottom buttons do not clip. Checked at nine widths from 1000 to 1920.
+- The frame rate readout is gone from the rail (the About panel still has it).
