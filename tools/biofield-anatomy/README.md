@@ -24,7 +24,7 @@ Nothing here is wired into the site build yet.
   - `app.js`: the page. Five views (Chakras, Feelings, Field, Body Parts, Zodiac), lists, the detail panel, labels placed in
     the scene, search, deep links, the phone sheet, the links in the wording and the "Keep exploring" block that closes
     every entry, the zodiac colours (one spectrum from Aries at the head to Pisces at the feet), one button per feeling, and the
-    powers and governed parts of a center as buttons.
+    powers and governed parts of a center as buttons, each with a page of its own (`powers` and `governs.items` in the content file).
   - `model.json`: zone colours, organ positions, body landmarks (written by `make_data.py`).
   - `content.sample.json`: the full structure of the content with placeholder wording, so the viewer runs here.
 - `viewer/model/body.glb` is the finished model (1.79 MB, meshopt compressed). The aura shells were dropped on 2026-11-13: the aura is a

@@ -164,12 +164,10 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
         if (uSeg > 0.001) {   // each piece of the leg gets a light outline all the way round (the same heights the app uses to tell them apart); the piece under the pointer glows
           float fy = max(fwidth(vW.y), 0.0004);
           float sd = min(min(abs(vW.y - 0.095), abs(vW.y - 0.39)), abs(vW.y - 0.57));
-          float cut = 1.0 - smoothstep(0.7, 1.7, abs(sd - 0.0052) / fy);                                   // a fine line just above and just below each joint
-          float gap = 1.0 - smoothstep(0.0020, 0.0042, sd);                                               // the thin space between two pieces
+          float cut = 1.0 - smoothstep(0.7, 1.7, sd / fy);                                                // one fine line at each joint (Chance, 2026-11-13: single, not double)
           float top = 1.0 - smoothstep(0.7, 1.7, abs(legMask - 0.5) / max(fwidth(legMask), 0.0005));       // the top of the thigh
           float piece = smoothstep(uSegHov.x - 0.004, uSegHov.x + 0.004, vW.y) * (1.0 - smoothstep(uSegHov.y - 0.004, uSegHov.y + 0.004, vW.y)) * uSegHov.z * legMask;
           vec3 lite = mix(col, vec3(1.0, 0.95, 0.88), 0.74);
-          c *= 1.0 - 0.45 * gap * uSeg * legMask;
           c += lite * uSeg * ((cut * legMask + top) * (0.50 + 0.55 * piece) + pow(rim, 2.4) * legMask * (0.30 + 0.45 * piece));
           c += col * piece * (0.42 + 1.15 * rim) + lite * piece * pow(rim, 3.0) * 0.35;
         }

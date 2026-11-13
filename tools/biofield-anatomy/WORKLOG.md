@@ -218,3 +218,20 @@ an onion, not a torus; the field view has the better shape but at another scale.
   single feeling's name work (`#feeling-joy`), and the old joined link still opens its page.
 - Checks: section 5b added for all of the above.
 
+## 2026-11-13, powers and body pages (Chance's notes on the last polish preview)
+
+- Every power and every governed body item is a button with a page of its own. Nothing is greyed out, nothing fills the search box,
+  and no power jumps straight to a zone. The content file carries the pages as `powers` (name, type `power` or `body`, home centers,
+  and targets that are existing reviewed lines grouped as flow, stuck or where) and each center's `governs.items` (label and
+  destination: a part id, or `@Name` for a body page). `content.sample.json` has neither, so the sample build shows plain words.
+- A power page (`renderPower` in `app.js`): its centers, "When it flows", "If it feels stuck or blocked", each line a button to its
+  zone. Power and body pages share the feeling pages' plumbing (`S.feeling` holds the name; `topicOf`, `isPower`); links are
+  `#power-name` and `#body-name`; they are in the search under "Feelings and powers", not in A to Z.
+- A power that is also a feeling (Love, Joy, Gratitude) opens the feeling page.
+- Legs: one fine line at each joint in place of the double line.
+- Removed: `wordDest`, `governsList`, the search-on-click chips.
+- A power page can carry a short note of its own (`note`), shown under the opening line. A power with no line of its own carries its
+  center's reading, in balance and out of balance (`general`), so no page is empty and no page says the map is unfinished.
+- Chance's rule, 2026-11-13: no wording that makes the map feel incomplete ("for now", "carry no meaning" and the like). The content
+  file was swept and a check guards it.
+

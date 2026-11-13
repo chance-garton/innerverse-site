@@ -23,7 +23,12 @@ const FEEL_ONE = C.feelings.flatMap((f) => feelNames(f.name).map((label, i) => (
 const feelOf = (label) => (FEEL_ONE.find((y) => y.label === label) || { feeling: label }).feeling;
 const FEEL_OLD = { 'love-joy-and-gratitude': 'Love and joy' };   // links made before an entry was split
 const feelBySlug = (s) => C.feelings.find((x) => slug(x.name) === s) || C.feelings.find((x) => x.name === FEEL_OLD[s]) || C.feelings.find((x) => x.name === (FEEL_ONE.find((y) => slug(y.label) === s) || {}).feeling);
-const feelChips = (name) => feelNames(name).map((l) => `<button class="chip gl" type="button" data-feeling="${esc(name)}">${esc(l)}</button>`).join('');
+const feelChips = (name) => isPower(name) ? `<button class="chip" style="--zone:${colorOf(N.get(topicOf(name).homes[0]), 1)}" type="button" data-feeling="${esc(name)}">${esc(name)}</button>` : feelNames(name).map((l) => `<button class="chip gl" type="button" data-feeling="${esc(name)}">${esc(l)}</button>`).join('');
+// Power pages and body pages share the feeling pages' plumbing: S.feeling holds the name of whichever is open.
+const POWERS = C.powers || [];
+const topicOf = (name) => C.feelings.find((x) => x.name === name) || POWERS.find((x) => x.name === name);
+const isPower = (name) => POWERS.some((x) => x.name === name);
+const powerSibs = (name) => { const p = topicOf(name); return POWERS.filter((x) => x.type === p.type && x.homes[0] === p.homes[0]).map((x) => x.name); };
 const START_FEELINGS = ['Anxiety', 'Grief', 'Anger', 'Overwhelm', 'Feeling stuck', 'Burnout'];
 const POS = C.posNames;
 const IVORY = '#EFE9DC', WARM = '#E6C98A', PEARL = '#D5D9F2';
@@ -130,7 +135,7 @@ function go(next) {
   if (prev.id !== S.id || prev.pos !== S.pos || prev.feeling !== S.feeling || prev.special !== S.special) detail.scrollTop = 0;
 }
 function hashOf() {
-  if (S.feeling) return 'feeling-' + slug(S.feeling);
+  if (S.feeling) return (isPower(S.feeling) ? (topicOf(S.feeling).type === 'body' ? 'body-' : 'power-') : 'feeling-') + slug(S.feeling);
   if (S.special) return S.special;
   if (S.id) return S.id + (S.pos ? '-pos-' + S.pos.toLowerCase() : '') + (S.view === 'organs' ? '-in-organs' : '');
   return S.view === 'chakra' ? '' : 'view-' + S.view;
@@ -139,6 +144,7 @@ function writeHash() { const h = hashOf(); if (location.hash.replace(/^#/, '') !
 function route(instant) {
   let h = decodeURIComponent(location.hash.replace(/^#/, '')); const next = {};
   if (h.startsWith('feeling-')) { const f = feelBySlug(h.slice(8)); if (f) next.feeling = f.name; }
+  else if (/^(power|body)-/.test(h)) { const p = POWERS.find((x) => slug(x.name) === h.replace(/^(power|body)-/, '')); if (p) next.feeling = p.name; }
   else if (h === 'feelings') next.view = 'feelings';
   else if (h === 'about' || h === 'atoz') next.special = h;
   else if (h.startsWith('view-')) next.view = ['chakra', 'field', 'organs', 'zodiac', 'feelings'].includes(h.slice(5)) ? h.slice(5) : 'chakra';
@@ -152,6 +158,7 @@ addEventListener('popstate', () => { if (location.hash.replace(/^#/, '') !== has
 
 function upTarget() {
   if (S.pos) return { label: N.get(S.id).name, to: { id: S.id, view: S.view } };
+  if (S.feeling && isPower(S.feeling)) { const c = N.get(topicOf(S.feeling).homes[0]); return { label: c.name, to: { id: c.id, view: 'chakra' } }; }
   if (S.feeling) return { label: 'All feelings', to: { view: 'feelings' } };
   if (S.special) return { label: 'Back to the map', to: { view: S.view } };
   const n = S.id && N.get(S.id); if (!n) return null;
@@ -203,8 +210,8 @@ function applyScene() {
   scene.setField({ on: S.view === 'field' && !S.feeling && !S.special, focus: n && n.kind === 'field' ? n.marker : null, age: S.age });
   const fly = (frame, o = {}) => scene.flyTo(frame, { ...o, instant: instantNext });
   if (S.feeling) {
-    const f = C.feelings.find((x) => x.name === S.feeling); const regions = {}, organs = {}; let ys = [];
-    f.targets.forEach((t, i) => { const tn = N.get(t.node); if (!tn || tn.kind === 'field') return;
+    const f = topicOf(S.feeling); const regions = {}, organs = {}; let ys = [];
+    (f.targets.length ? f.targets : (f.homes || []).map((id) => ({ node: id, pos: null, label: N.get(id).name, t: '' }))).forEach((t, i) => { const tn = N.get(t.node); if (!tn || tn.kind === 'field') return;
       for (const [k, w] of Object.entries(tn.light.regions || {})) regions[k] = Math.max(regions[k] || 0, w * 0.9);
       if (tn.kind === 'part') for (const [k, w] of Object.entries(tn.light.organs || {})) organs[k] = Math.max(organs[k] || 0, w);
       const hasPos = t.pos && tn.positions.some((p) => p.key === t.pos); const fr = frameOf(tn);
@@ -350,14 +357,13 @@ function renderList() {
   } else { SIGNS.forEach((n) => { h += item(n); chips += chip(n, `<em>${n.glyph}</em>${esc(n.name)}`); }); }
   list.innerHTML = h; strip.innerHTML = S.view === 'organs' && !S.feeling && !S.special ? chips : '';
   document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', String(t.dataset.view === S.view)));
-  $('#b-atoz').setAttribute('aria-pressed', String(S.special === 'atoz')); $('#b-feelings').setAttribute('aria-pressed', String(S.special === 'feelings' || !!S.feeling)); $('#b-about').setAttribute('aria-pressed', String(S.special === 'about'));
+  $('#b-atoz').setAttribute('aria-pressed', String(S.special === 'atoz')); $('#b-feelings').setAttribute('aria-pressed', String(S.special === 'feelings' || (!!S.feeling && !isPower(S.feeling)))); $('#b-about').setAttribute('aria-pressed', String(S.special === 'about'));
   const a = list.querySelector('[aria-current="true"]'); if (a) a.scrollIntoView({ block: 'nearest' });
   const b = strip.querySelector('[aria-current="true"]'); if (b) b.scrollIntoView({ inline: 'center', block: 'nearest' });
 }
 document.addEventListener('click', (e) => {
   const ln = e.target.closest('a.ln'); if (ln) { e.preventDefault(); const h = decodeURIComponent(ln.getAttribute('href').slice(1));
     if (h.startsWith('feeling-')) { const f = feelBySlug(h.slice(8)); if (f) go({ feeling: f.name }); } else { const n = N.get(h); if (n) go({ id: h, view: n.kind === 'part' && S.view === 'organs' ? 'organs' : undefined }); } return; }
-  const fd = e.target.closest('[data-find]'); if (fd) { const q = $('#q'); if (isPhone()) document.body.classList.add('searching'); q.value = fd.dataset.find; q.focus(); q.dispatchEvent(new Event('input')); return; }
   const g = e.target.closest('[data-go]'); if (g) { const [id, pos] = g.dataset.go.split('|'); go({ id, pos: pos || null, view: g.dataset.view || S.view }); return; }
   const f = e.target.closest('[data-feeling]'); if (f) { go({ feeling: f.dataset.feeling }); return; }
   const v = e.target.closest('[data-setview]'); if (v) { go({ view: v.dataset.setview }); return; }
@@ -407,6 +413,7 @@ const chipFor = (k) => { if (k.startsWith('f:')) return feelChips(k.slice(2));
 // previous and next, for the arrow keys: up and down the body for centers, round the ring for everything else
 function seqOf() {
   const step = (arr, i, mk, wrap) => { if (arr.length < 2 || i < 0) return null; const a = i > 0 ? arr[i - 1] : wrap ? arr[arr.length - 1] : null, b = i < arr.length - 1 ? arr[i + 1] : wrap ? arr[0] : null; return { prev: a ? mk(a) : null, next: b ? mk(b) : null }; };
+  if (S.feeling && isPower(S.feeling)) { const arr = powerSibs(S.feeling); return step(arr, arr.indexOf(S.feeling), (nm) => ({ label: nm, to: { feeling: nm } }), true); }
   if (S.feeling) return step(FEEL_AZ, FEEL_AZ.findIndex((f) => f.name === S.feeling), (f) => ({ label: f.name, to: { feeling: f.name } }), true);
   const n = S.id && N.get(S.id); if (!n) return null;
   if (S.pos) { const ps = n.positions.map((p) => p.key); return step(ps, ps.indexOf(S.pos), (k) => ({ label: n.positions.find((p) => p.key === k).title, to: { id: n.id, pos: k, view: S.view } }), true); }
@@ -424,6 +431,7 @@ function exploreBlock(keys, fallback) {
 // the entries beside this one in its own list, nearest first: the fallback that keeps every page from being a dead end
 const neighbours = () => {
   const near = (arr, i) => { const out = []; for (let d = 1; d < arr.length && i >= 0; d++) { if (arr[i + d] !== undefined) out.push(arr[i + d]); if (arr[i - d] !== undefined) out.push(arr[i - d]); } return out; };
+  if (S.feeling && isPower(S.feeling)) { const arr = powerSibs(S.feeling); return near(arr.map((x) => 'f:' + x), arr.indexOf(S.feeling)); }
   if (S.feeling) return near(FEEL_AZ.map((f) => 'f:' + f.name), FEEL_AZ.findIndex((f) => f.name === S.feeling));
   const n = S.id && N.get(S.id); if (!n) return [];
   const ids = n.kind === 'center' ? CENTERS : n.kind === 'field' ? FIELD.map((f) => f.id) : n.kind === 'sign' ? SIGNS.map((x) => x.id) : n.parent === 'whole' ? WHOLE.map((x) => x.id) : ((parentOf(n) && parentOf(n).parts) || []);
@@ -506,8 +514,8 @@ function renderNode(n) {
   if (n.kind === 'sign') h += `<p class="heading">Rules: ${esc(n.rules.charAt(0).toLowerCase() + n.rules.slice(1))}</p>`;
   if (n.kind === 'field' && n.short) h += `<p class="heading">${esc(n.short)}</p>`;
   h += `<p class="lede">${linkify(n.summary.t)}</p>`;
-  if (n.themes.length) h += `<div class="blk pwb"><div class="bh"><h3 class="zt">Emotional and mental powers</h3></div><div class="chips" style="margin:0">` + n.themes.map((t) => wordChip(t.t, n, false)).join('') + '</div></div>';
-  if (n.governs) { const g = governsList(n); h += `<div class="blk pwb"><div class="bh"><h3 class="zt">Governs in the body</h3></div><div class="chips" style="margin:0">` + g.items.map((t) => wordChip(t, n, true)).join('') + '</div>' + (g.note ? `<p class="note">${linkify(g.note)}</p>` : '') + '</div>'; }
+  if (n.themes.length) h += `<div class="blk pwb"><div class="bh"><h3 class="zt">Emotional and mental powers</h3></div><div class="chips" style="margin:0">` + n.themes.map((t) => wordChip(t.t)).join('') + '</div></div>';
+  if (n.governs) h += `<div class="blk pwb"><div class="bh"><h3 class="zt">Governs in the body</h3></div>` + (n.governs.items ? `<div class="chips" style="margin:0">` + n.governs.items.map(bodyChip).join('') + '</div>' : `<p class="gov" style="margin:0">${esc(n.governs.t)}</p>`) + '</div>';
   if (n.id === 'legs') h += `<div class="blk"><div class="bh"><h3>Parts of the leg</h3><span>Choose one, or tap it on the model</span></div><div class="compass">` + n.parts.map((p) => `<button class="pos" type="button" data-go="${p}"><span class="p1">${esc(N.get(p).name)}</span><span class="p2">${esc(N.get(p).heading || '')}</span></button>`).join('') + '</div></div>';
   else if (n.parts && n.parts.length) h += `<div class="blk ph-only"><div class="bh"><h3>${n.id === 'legs' ? 'Parts of the leg' : 'Parts of this center'}</h3></div><div class="chips" style="margin:0">` + n.parts.map((p) => `<button class="chip" type="button" data-go="${p}">${esc(N.get(p).name)}</button>`).join('') + '</div></div>';
   if (n.marker === 'timeline') h += `<div class="blk"><div class="bh"><h3>Try it with your age</h3></div><div class="age"><input type="range" min="6" max="100" step="1" value="${S.age}" aria-label="Your age, slider"><label>Age <input type="number" inputmode="numeric" min="6" max="100" step="1" value="${S.age}" aria-label="Your age"></label></div><p class="note">The rings mark where each age sits between the skin and the edge of the field.</p></div>`;
@@ -548,6 +556,22 @@ function renderFeeling(f) {
   f.targets.forEach((t) => { const tn = N.get(t.node); const hasPos = t.pos && tn.positions.some((p) => p.key === t.pos);
     h += `<button class="tgt" type="button" data-go="${t.node}${hasPos ? '|' + t.pos : ''}" data-view="chakra" style="--c:${colorOf(tn)}"><i></i><span><b>${esc(targetWhere(t, tn))}</b><span>${esc(t.t)}</span></span></button>`; });
   h += `</div><p class="note">${esc(C.info.home.points[3].t)}</p>`;
+  return h + exploreFeeling(f);
+}
+// A power page or a body page: which centers it belongs to, how it shows when it flows, and where to look when it feels stuck or blocked.
+function renderPower(f) {
+  const homes = f.homes.map((id) => N.get(id)).filter(Boolean); const home = homes[0]; const z = colorOf(home, 1); panel.style.setProperty('--zone', z); document.documentElement.style.setProperty('--zone', z);
+  const and = (a) => (a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]);
+  const row = (t) => { const tn = N.get(t.node); const hasPos = t.pos && tn.positions.some((p) => p.key === t.pos);
+    return `<button class="tgt" type="button" data-go="${t.node}${hasPos ? '|' + t.pos : ''}" data-view="chakra" style="--c:${colorOf(tn)}"><i></i><span><b>${esc(targetWhere(t, tn))}</b><span>${esc(t.t)}</span></span></button>`; };
+  const grp = (title, hint, list) => (list.length ? `<div class="blk"><div class="bh"><h3>${title}</h3><span>${hint}</span></div>${list.map(row).join('')}</div>` : '');
+  let h = `<div class="crumbs"><button class="crumb" type="button" data-setview="chakra">Chakras</button><span class="sep">/</span><button class="crumb" type="button" data-go="${home.id}" data-view="chakra">${esc(home.name)}</button><span class="sep">/</span><span class="crumb" style="cursor:default;color:var(--ink)">${esc(f.name)}</span></div>`;
+  h += `<p class="eyebrow">${f.type === 'body' ? 'In the body' : 'Emotional and mental power'}</p><h2 class="sm">${esc(f.name)}</h2>`;
+  h += `<p class="lede soft">${f.type === 'body' ? 'Governed by' : 'A power of'} the ${esc(and(homes.map((x) => x.name)))}.</p>` + (f.note ? `<p class="lede pnote">${esc(f.note)}</p>` : '');
+  h += `<div class="chips">` + homes.map((x) => `<button class="chip" style="--zone:${colorOf(x, 1)}" type="button" data-go="${x.id}" data-view="chakra">${esc(x.name)}</button>`).join('') + '</div>';
+  if (f.type === 'body') h += grp('Where it lives', 'Choose one to read more', f.targets);
+  else h += grp(f.general ? `When the ${esc(home.name)} flows` : 'When it flows', '', f.targets.filter((t) => t.g === 'flow')) + grp(f.general ? `When the ${esc(home.name)} feels stuck or blocked` : 'If it feels stuck or blocked', f.general ? '' : 'Choose a zone to read more', f.targets.filter((t) => t.g === 'stuck')) + grp('Where it lives', '', f.targets.filter((t) => t.g === 'where'));   // a power with no line of its own carries its center's reading (`general`)
+  h += `<p class="note">${esc(C.info.home.points[3].t)}</p>`;
   return h + exploreFeeling(f);
 }
 function renderFeelings() {
@@ -593,7 +617,7 @@ function renderInfo(id) {
 function renderPanel() {
   const n = S.id && N.get(S.id);
   LCTX = { self: S.feeling ? 'f:' + S.feeling : S.id, seen: new Set() };
-  detail.innerHTML = S.feeling ? renderFeeling(C.feelings.find((f) => f.name === S.feeling)) : S.special === 'atoz' ? renderAtoZ() : S.special === 'about' ? renderInfo('about') : n ? renderNode(n)
+  detail.innerHTML = S.feeling ? (isPower(S.feeling) ? renderPower(topicOf(S.feeling)) : renderFeeling(topicOf(S.feeling))) : S.special === 'atoz' ? renderAtoZ() : S.special === 'about' ? renderInfo('about') : n ? renderNode(n)
     : S.special === 'feelings' ? renderFeelings() : renderInfo(S.view === 'chakra' ? 'home' : S.view);
   const u = upTarget(); back.classList.toggle('show', !!u); if (u) back.querySelector('span').textContent = u.label;
   fitHome();
@@ -663,34 +687,11 @@ function placeChrome() {
 
 // ---------- search ----------
 const INDEX = [];
-// A power or a governed part as a button (Chance, 2026-11-13): it goes to the feeling or the entry it names, else to the places on the map
-// that speak of it. With nowhere to go it stays a plain word. Nothing here adds a meaning: the words are the content's own.
-const FIND_STOP = new Set('a an the of and to in with our for through at is that all as being whole healthy'.split(' '));
-const reEsc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-function wordDest(t, n, parts, only) {
-  const low = t.toLowerCase(); const one = !parts && FEEL_ONE.find((y) => y.label.toLowerCase() === low); if (one) return { feeling: one.feeling };
-  if (parts) { let best = null; for (const id of n.parts || []) { const p = N.get(id); if (!p) continue;
-      for (const w of p.name.toLowerCase().split(/,\s*|\s+and\s+|\s*\(.*?\)\s*/).filter(Boolean).flatMap(wordForms)) { const i = low.search(new RegExp('\\b' + reEsc(w) + '\\b')); if (i >= 0 && (!best || i < best.i)) best = { i, id }; } }
-    if (best) return { id: best.id }; if (only) return null;
-    const head = (low.match(/[a-z-]{4,}/) || [''])[0].replace(/s$/, ''); const fam = head ? (n.parts || []).filter((id) => N.get(id) && N.get(id).name.toLowerCase().includes(head)) : [];   // "intestines, large and small": the parts that share its head word
-    if (fam.length === 1) return { id: fam[0] }; if (fam.length > 1) return { find: head }; }
-  let to = null; eachLink(t, (m, x) => { if (!to && keyOf(x) !== n.id) to = x; }); if (to) return to.feeling ? { feeling: to.feeling } : { id: to.id };
-  const toks = low.split(/[^a-z-]+/).filter((w) => w.length > 1 && !FIND_STOP.has(w)); if (!toks.length) return null;
-  const hits = []; for (const x of TEXTS) { if (x.where === 'Themes' || (x.id === n.id && !x.pos)) continue; if (!toks.every((k) => x.low.includes(k))) continue; if (!hits.some((h) => h.id === x.id && h.pos === x.pos)) hits.push({ id: x.id, pos: x.pos }); }
-  return hits.length === 1 ? hits[0] : hits.length ? { find: toks.join(' ') } : null;
-}
-const wordChip = (t, n, parts) => { const d = wordDest(t, n, parts); if (!d) return `<span class="chip pw off">${esc(t)}</span>`;
-  const a = d.feeling ? `data-feeling="${esc(d.feeling)}"` : d.find ? `data-find="${esc(d.find)}"` : `data-go="${d.id}${d.pos ? '|' + d.pos : ''}" data-view="chakra"`;
-  return `<button class="chip pw" type="button" ${a}>${esc(t)}</button>`; };
-// the "governs" sentence as a list: its own phrases, in its own order; a second sentence stays a note under the list
-function governsList(n) {
-  const t = n.governs.t; const m = t.match(/^(.*?\.)\s+(\S.*)$/); const first = (m ? m[1] : t).replace(/\.$/, '');
-  const tidy = (s) => capFirst(s.trim().replace(/^(?:and|with|along with)\s+/i, '').replace(/^the\s+/i, '')); const items = [];
-  (first.includes(';') ? first.split(/;\s*/) : first.split(/,\s*/)).map(tidy).filter(Boolean).forEach((it) => {
-    const mm = it.match(/^(.+?) and (.+)$/); if (mm) { const a = wordDest(mm[1], n, true, true), b = wordDest(mm[2], n, true, true); if (a && b && a.id !== b.id) { items.push(tidy(mm[1]), tidy(mm[2])); return; } }
-    items.push(it); });
-  return { items, note: m ? m[2] : '' };
-}
+// Every power and every governed body item is a button with a page of its own (Chance, 2026-11-13): a power opens its power page (or the
+// feeling of the same name), a governed item opens its part page or its body page. Nothing is greyed out and nothing fills the search box.
+const wordChip = (t) => { const one = FEEL_ONE.find((y) => y.label.toLowerCase() === t.toLowerCase()); const p = POWERS.find((x) => x.name === t); const to = one ? one.feeling : p ? p.name : null;
+  return to ? `<button class="chip pw" type="button" data-feeling="${esc(to)}">${esc(t)}</button>` : `<span class="chip pw off">${esc(t)}</span>`; };
+const bodyChip = (it) => (it.go.startsWith('@') ? `<button class="chip pw" type="button" data-feeling="${esc(it.go.slice(1))}">${esc(it.t)}</button>` : `<button class="chip pw" type="button" data-go="${esc(it.go)}" data-view="chakra">${esc(it.t)}</button>`);
 
 C.nodes.forEach((n) => {
   const par = parentOf(n); const sub = n.kind === 'center' ? n.heading : n.kind === 'stop' ? 'Legs' : n.kind === 'part' ? (par ? par.name : 'Whole body') : n.kind === 'sign' ? 'Zodiac: ' + n.rules.toLowerCase() : 'The field';
@@ -698,6 +699,7 @@ C.nodes.forEach((n) => {
 });
 FEEL_ONE.forEach((o) => { const f = C.feelings.find((x) => x.name === o.feeling); const mine = f.also.filter((k) => o.label.toLowerCase().includes(k.toLowerCase()) || k.toLowerCase().includes(o.label.toLowerCase()));   // each feeling answers to its own name; the entry's other search words go to its first feeling
   INDEX.push({ type: 'feeling', id: o.feeling, title: o.label, sub: 'Feeling', keys: [o.label, ...(o.first ? f.also : mine)].map((k) => k.toLowerCase()), color: IVORY, rank: 2 }); });
+POWERS.forEach((p) => INDEX.push({ type: 'feeling', id: p.name, title: p.name, sub: p.type === 'body' ? 'In the body' : 'Power', keys: [p.name.toLowerCase()], color: colorOf(N.get(p.homes[0])), rank: 1 }));
 const TEXTS = [];
 C.nodes.forEach((n) => { const add = (t, pos, where) => TEXTS.push({ id: n.id, pos, where, t, low: t.toLowerCase() });
   add(n.summary.t, null, null); n.themes.forEach((t) => add(t.t, null, 'Themes'));
@@ -716,7 +718,7 @@ function search(q) {
 {
   const q = $('#q'), box = $('#results'); let cur = -1, flat = [];
   const close = () => { box.classList.remove('open'); document.body.classList.remove('searching'); cur = -1; };
-  const recent = () => { try { return JSON.parse(store.get('recent') || '[]').filter((r) => (r.type === 'feeling' ? C.feelings.some((f) => f.name === r.id) : N.has(r.id))); } catch (e) { return []; } };
+  const recent = () => { try { return JSON.parse(store.get('recent') || '[]').filter((r) => (r.type === 'feeling' ? !!topicOf(r.id) : N.has(r.id))); } catch (e) { return []; } };
   const lev = (a, b) => { const d = Array.from({ length: a.length + 1 }, (_, i) => [i]); for (let j = 1; j <= b.length; j++) d[0][j] = j;
     for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[a.length][b.length]; };
   const nearest = (v) => { v = v.trim().toLowerCase(); const lim = v.length <= 4 ? 1 : v.length <= 8 ? 2 : 3;
@@ -736,7 +738,7 @@ function search(q) {
       box.innerHTML = '<div class="nores">Nothing on the map matches that yet. Try a body part, an organ or a feeling.</div>' + (near.length ? '<div class="rg">Closest on the map</div>' : '') + flat.map(sug).join(''); box.classList.add('open'); cur = -1; return; }
     const toks = q.value.trim().toLowerCase().split(/\s+/).filter((t) => t.length > 1 && !['amp', 'lt', 'gt', 'quot'].includes(t)).map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); const re = toks.length ? new RegExp('(' + toks.join('|') + ')', 'ig') : null; const hi = (t) => (re ? esc(t).replace(re, '<mark>$1</mark>') : esc(t));
     const row = (e) => `<button class="res" type="button" role="option" data-i="${i++}" style="--c:${e.color}"><i></i><b>${hi(e.title)}</b><span>${hi(e.sub || '')}</span></button>`;
-    box.innerHTML = flat.length ? (r.nodes.length ? '<div class="rg">On the map</div>' + r.nodes.map(row).join('') : '') + (r.feels.length ? '<div class="rg">Feelings</div>' + r.feels.map(row).join('') : '') + (r.ment.length ? '<div class="rg">Mentioned in</div>' + r.ment.map(row).join('') : '')
+    box.innerHTML = flat.length ? (r.nodes.length ? '<div class="rg">On the map</div>' + r.nodes.map(row).join('') : '') + (r.feels.length ? '<div class="rg">Feelings and powers</div>' + r.feels.map(row).join('') : '') + (r.ment.length ? '<div class="rg">Mentioned in</div>' + r.ment.map(row).join('') : '')
       : '<div class="nores">Nothing on the map matches that yet. Try a body part, an organ or a feeling.</div>';
     box.classList.add('open'); cur = -1;
   };
@@ -765,4 +767,4 @@ $('#keys').addEventListener('click', () => toggleKeys(false));
 
 $('#cta').textContent = C.cta.label; $('#cta').href = C.cta.url;
 renderList(); renderPanel(); placeChrome();
-window.__bfa = { go, S, N, C, scene, MODEL, search, labs: () => LABS, OUT, INB, FEEL_AT, TERMS, seqOf, FEEL_ONE, governsList };
+window.__bfa = { go, S, N, C, scene, MODEL, search, labs: () => LABS, OUT, INB, FEEL_AT, TERMS, seqOf, FEEL_ONE, POWERS };
