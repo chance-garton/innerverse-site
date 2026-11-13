@@ -58,7 +58,7 @@ await p.click('#list .it:has-text("Heart")'); await p.waitForTimeout(300); ok('l
 ok('center shows its four spots on the model', (await p.locator('#labels .lab').count()) === 4);
 await p.click('#labels .lab:has-text("Left front")'); await p.waitForTimeout(300); ok('a label on the model opens that spot', (await h2(p)) === 'Left front imbalance' && /heart-pos-lf/.test(p.url()));
 await p.click('#back'); await p.waitForTimeout(200); ok('back goes up one level', (await h2(p)) === 'Heart');
-await p.click('#detail .chip:has-text("Lungs")'); await p.waitForTimeout(300); ok('part chip opens the part', (await h2(p)) === 'Lungs');
+await p.click('#list .it.sub[data-go="lungs"]'); await p.waitForTimeout(300); ok('the rail opens a part of the open center', (await h2(p)) === 'Lungs');
 await p.click('.crumb:has-text("Heart")'); await p.waitForTimeout(200); ok('breadcrumb goes back to the center', (await h2(p)) === 'Heart');
 await p.click('#detail .pos:has-text("Right back")'); await p.waitForTimeout(200); ok('compass card opens a spot', (await h2(p)) === 'Right back imbalance');
 { const z = await p.evaluate(() => { const pin = getComputedStyle(document.querySelector('#labels .pin')).zIndex, lab = getComputedStyle(document.querySelector('#labels .lab')).zIndex; return Number(pin) < Number(lab); }); ok('dots sit behind labels', z); }
@@ -69,9 +69,9 @@ await p.click('#detail .az .res:has-text("Sun Star")'); await p.waitForTimeout(3
 { const t = await p.evaluate(() => JSON.stringify(window.__bfa.C).toLowerCase() + document.body.innerText.toLowerCase()); ok('wording changes applied', !t.includes('conceptual map') && !t.includes('four stops') && !t.includes('feelings a to z') && !t.includes('book a biofield tuning session') && t.includes('book a tuning with chance')); }
 await p.click('.tab[data-view="zodiac"]'); await p.waitForTimeout(300); ok('zodiac tab', (await h2(p)) === 'The zodiac body' && (await p.locator('#labels .lab').count()) === 12);
 await p.click('#labels .lab:has-text("Leo")'); await p.waitForTimeout(300); ok('sign label opens the sign', (await h2(p)) === 'Leo');
-await p.click('#detail .chip:has-text("Heart")'); await p.waitForTimeout(300); ok('sign links back to its center in the chakra view', (await h2(p)) === 'Heart' && (await p.getAttribute('.tab[data-view="chakra"]', 'aria-selected')) === 'true');
+await p.click('#detail .chip:text-is("Heart")'); await p.waitForTimeout(300); ok('sign links back to its center in the chakra view', (await h2(p)) === 'Heart' && (await p.getAttribute('.tab[data-view="chakra"]', 'aria-selected')) === 'true');
 await p.click('.tab[data-view="field"]'); await p.waitForTimeout(300); ok('field tab', (await h2(p)) === 'The field' && (await p.locator('#labels .lab').count()) >= 10);
-await p.click('#list .it:has-text("The timeline")'); await p.waitForTimeout(300); await p.fill('.age input', '60'); await p.waitForTimeout(200);
+await p.click('#list .it:has-text("The timeline")'); await p.waitForTimeout(300); await p.fill('.age input[type=range]', '60'); await p.waitForTimeout(200);
 ok('timeline age slider relabels the rings', (await p.locator('#labels .lab.tick:has-text("Now, age 60")').count()) === 1 && (await p.locator('#labels .lab.tick:has-text("Birth")').count()) === 1);
 await p.click('.tab[data-view="organs"]'); await p.waitForTimeout(300); await p.click('#list .it:has-text("Liver")'); await p.waitForTimeout(300);
 ok('organs view opens a part and stays in the organs view', (await h2(p)) === 'Liver' && (await p.getAttribute('.tab[data-view="organs"]', 'aria-selected')) === 'true');
@@ -82,7 +82,7 @@ for (const [q, want] of [['liver', 'Liver'], ['anxiety', 'Anxiety'], ['grief', '
 await p.fill('#q', 'liver'); await p.keyboard.press('Enter'); await p.waitForTimeout(300); ok('search Enter opens the first result', (await h2(p)) === 'Liver');
 const deep = await p.evaluate(() => window.__bfa.C.nodes.find((n) => n.id === 'f-parents').summary.t.split(' ').slice(-9, -7).join(' '));   // two words from inside a paragraph, read at run time
 await p.fill('#q', deep); await p.waitForTimeout(150); ok('search reads the full text too', (await p.locator('#results .res').count()) >= 1);
-for (const term of ['immune', 'thymus', 'esophagus', 'pelvic floor', 'hypothalamus', 'rectum']) { await p.fill('#q', term); await p.waitForTimeout(100); const n = await p.locator('#results .res').count(); ok(`cut item "${term}" is nowhere on the map`, n === 0, String(n)); }
+for (const term of ['immune', 'thymus', 'esophagus', 'pelvic floor', 'hypothalamus', 'rectum']) { await p.fill('#q', term); await p.waitForTimeout(100); const n = await p.locator('#results .res:not(.sug)').count(); ok(`cut item "${term}" is nowhere on the map`, n === 0, String(n)); }
 const phrases = await p.evaluate(() => { const t = JSON.stringify(window.__bfa.C).toLowerCase(); return ['worry wheel', 'regret wheel', 'busy body', 'busy mind wheel', 'throat filter', 'immun', 'infection', 'lymph', 'tonsil', 'chinese medicine', 'greener pasture', 'lam', 'vam', 'solfeggio', '963'].filter((x) => new RegExp('\\b' + x).test(t)); });
 ok('no cut phrase appears anywhere in the content', phrases.length === 0, phrases.join(', '));
 await p.fill('#q', ''); await p.keyboard.press('Escape');
@@ -101,6 +101,9 @@ for (const [name, y] of [['Root', 0.86], ['Sacral', 0.965], ['Solar Plexus', 1.1
 }
 await p.evaluate(() => window.__bfa.go({ view: 'chakra' })); await p.waitForTimeout(150);
 let xy = await p.evaluate(() => { const q = window.__bfa.scene.project([0.07, 1.22, 0.11]); return [q.x, q.y]; }); await p.mouse.click(xy[0], xy[1]); await p.waitForTimeout(250); ok('tapping the chest opens the heart', (await h2(p)) === 'Heart');
+{ const rows = await p.locator('#pickmenu:not([hidden]) .res').count(); ok('tapping the body offers what lies deeper at that point', rows >= 1, String(rows));
+  const spot = p.locator('#pickmenu .res[data-go*="|"]').first(); const want = await spot.locator('b').textContent(); await spot.click(); await p.waitForTimeout(300); ok('the deeper menu opens the spot on that side', (await h2(p)) === want, want);
+  await p.evaluate(() => window.__bfa.go({ id: 'heart' })); await p.waitForTimeout(400); }
 xy = await p.evaluate(() => { const q = window.__bfa.scene.project([-0.06, 1.25, 0.05]); return [q.x, q.y]; }); await p.mouse.click(xy[0], xy[1]); await p.waitForTimeout(300); ok('tapping an organ inside an open center opens that part', (await h2(p)) === 'Lungs', await h2(p));
 ok('no console errors after tapping', p.errs.length === 0, p.errs.slice(0, 3).join(' | '));
 await p.context().close();
@@ -108,7 +111,7 @@ await p.context().close();
 p = await open(390, 844);
 ok('phone: no chip strip in the chakra view (the labels on the body do that job)', (await p.locator('#strip .sc').count()) === 0);
 await p.tap('#labels .lab:has-text("Heart")'); await p.waitForTimeout(400); ok('phone: a label on the body opens a center', (await h2(p)) === 'Heart');
-const tabsFit = await p.evaluate(() => { const t = document.querySelector('#tabs'); return t.scrollWidth <= t.clientWidth + 1 && [...t.children].every((b) => b.scrollWidth <= b.clientWidth + 1); }); ok('phone: all four view tabs fit', tabsFit);
+const tabsFit = await p.evaluate(() => { const t = document.querySelector('#tabs'); return t.scrollWidth <= t.clientWidth + 1 && [...t.children].every((b) => b.scrollWidth <= b.clientWidth + 1); }); ok('phone: all five view tabs fit', tabsFit);
 let ov = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, iw: innerWidth })); ok('phone: no sideways scroll', ov.sw <= ov.iw, JSON.stringify(ov));
 await p.tap('#grab'); await p.waitForTimeout(500); let sh = await p.evaluate(() => document.querySelector('#panel').getBoundingClientRect().height); ok('phone: tapping the handle grows the sheet', sh > 844 * 0.8, String(Math.round(sh)));
 await p.tap('#grab'); await p.waitForTimeout(500); sh = await p.evaluate(() => document.querySelector('#panel').getBoundingClientRect().height); ok('phone: tapping again brings it back', sh < 844 * 0.5, String(Math.round(sh)));
@@ -149,8 +152,59 @@ ok('one tab stays lit in A to Z', await (async () => { await p.click('#b-atoz');
 const tiny = await p.evaluate(() => { const bad = new Set(); const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let t; while ((t = tw.nextNode())) { if (!t.nodeValue.trim()) continue; const e = t.parentElement; const r = e.getBoundingClientRect(); if (!r.width || getComputedStyle(e).visibility === 'hidden') continue; if (parseFloat(getComputedStyle(e).fontSize) < 12) bad.add((e.className || e.tagName).toString().split(' ')[0]); } return [...bad]; });
 ok('no text below 12px (desktop)', tiny.length === 0, tiny.join(', ')); await p.context().close();
 p = await open(390, 844, '#heart');
-const small = await p.evaluate(() => [...document.querySelectorAll('button,a,[role=tab]')].filter((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.height < 36; }).map((e) => (e.id ? '#' + e.id : '.' + (e.className || e.tagName).toString().split(' ')[0]) + ' ' + Math.round(e.getBoundingClientRect().height)));
+const small = await p.evaluate(() => [...document.querySelectorAll('button,a:not(.ln),[role=tab]')].filter((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.height < 36; }).map((e) => (e.id ? '#' + e.id : '.' + (e.className || e.tagName).toString().split(' ')[0]) + ' ' + Math.round(e.getBoundingClientRect().height)));
 ok('no control under 36px tall on a phone', small.length === 0, [...new Set(small)].join(', ')); await p.context().close();
+// ---- round 3 (2026-11-13): no dead ends, Feelings view, zodiac colours, keys, age box, search help
+p = await open(1440, 900);
+const ends = await p.evaluate(() => {
+  const { C, go, N } = window.__bfa; const bad = []; let pages = 0, links = 0;
+  const onward = () => [...document.querySelectorAll('#detail .xp [data-go], #detail .xp [data-feeling]')];
+  const check = (name) => { pages++; const xp = document.querySelector('#detail .xp'); if (!xp) { bad.push(name + ': no Keep exploring block'); return; } const o = onward(); links += o.length; if (o.length < 2) bad.push(name + ': only ' + o.length + ' ways onward');
+    if (!xp.querySelector('[data-copy]')) bad.push(name + ': no copy link');
+    document.querySelectorAll('#detail a.ln').forEach((a) => { const h = decodeURIComponent(a.getAttribute('href').slice(1)); const okT = h.startsWith('feeling-') ? C.feelings.some((f) => f.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') === h.slice(8)) : N.has(h); if (!okT) bad.push(name + ': link to nowhere ' + h); if (h === window.__bfa.S.id) bad.push(name + ': links to itself'); }); };
+  for (const n of C.nodes) { go({ id: n.id }); check(n.id); for (const pos of n.positions) { go({ id: n.id, pos: pos.key }); check(n.id + '/' + pos.key); } }
+  for (const f of C.feelings) { go({ feeling: f.name }); check('feeling ' + f.name); }
+  go({ special: 'about' }); const about = document.querySelectorAll('#detail [data-setview], #detail [data-special]').length;
+  const homes = ['chakra', 'feelings', 'field', 'organs', 'zodiac'].map((v) => { go({ view: v }); return v + ':' + document.querySelectorAll('#detail [data-go], #detail [data-feeling], #detail [data-setview]').length; });
+  go({ view: 'chakra' }); return { bad, pages, links, about, homes };
+});
+ok('no dead ends: every entry closes with at least two ways onward and a copy link', ends.bad.length === 0, `${ends.pages} entries, ${ends.links} onward links` + (ends.bad.length ? '\n     ' + ends.bad.slice(0, 10).join('\n     ') : ''));
+ok('About and every view opening offer ways in', ends.about >= 5 && ends.homes.every((x) => Number(x.split(':')[1]) >= 4), ends.homes.join(' ') + ' about:' + ends.about);
+await p.evaluate(() => window.__bfa.go({ id: 'skin' })); await p.waitForTimeout(300);
+{ const chips = await p.evaluate(() => [...document.querySelectorAll('#detail .xp .chip')].map((c) => c.textContent)); ok('skin leads on to the liver and digestion', ['Liver', 'Stomach', 'Small intestine', 'Large intestine', 'Solar Plexus', 'Sacral'].every((x) => chips.includes(x)), chips.join(', ')); }
+await p.click('#detail a.ln:has-text("liver")'); await p.waitForTimeout(300); ok('a named part in the text is a link', (await h2(p)) === 'Liver');
+await p.click('#detail .acc[data-k="anatomy"]>button'); await p.evaluate(() => window.__bfa.go({ id: 'spleen' })); await p.waitForTimeout(200);
+ok('an opened section stays open on the next part', (await p.getAttribute('#detail .acc[data-k="anatomy"]', 'data-open')) === '1');
+await p.evaluate(() => window.__bfa.go({ id: 'heart' })); await p.waitForTimeout(300);
+ok('centers step up and down the body', (await p.textContent('#detail .pn.prev')).includes('Throat') && (await p.textContent('#detail .pn.next')).includes('Solar Plexus'));
+await p.click('#detail .pn.next'); await p.waitForTimeout(300); ok('Next opens the center below', (await h2(p)) === 'Solar Plexus');
+await p.evaluate(() => document.activeElement && document.activeElement.blur()); await p.keyboard.press('ArrowUp'); await p.waitForTimeout(300); ok('arrow keys step through the map', (await h2(p)) === 'Heart', await h2(p));
+{ const before = await p.textContent('#c-face b'); await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(700); const after = await p.textContent('#c-face b'); ok('left and right arrows turn the body', before !== after, before + ' to ' + after); }
+await p.keyboard.press('?'); ok('? shows the keys', await p.isVisible('#keys')); await p.keyboard.press('Escape'); ok('Escape hides them again', !(await p.isVisible('#keys')));
+await p.evaluate(() => window.__bfa.go({ view: 'chakra' })); ok('the search box is the first stop for the Tab key', (await p.evaluate(() => { const f = [...document.querySelectorAll('button,input,a[href],[tabindex]')].find((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden'; }); return f && f.id; })) === 'q');
+await p.focus('#q'); await p.waitForTimeout(150);
+ok('focusing the empty search offers places to start', (await p.locator('#results.open .res.sug').count()) >= 6);
+await p.fill('#q', 'livr'); await p.waitForTimeout(150); ok('a near miss in search offers the closest entry', (await p.locator('#results .res.sug b').allTextContents()).includes('Liver'));
+await p.fill('#q', 'zzzzqq'); await p.waitForTimeout(150); ok('no match still offers Biofield A to Z', (await p.locator('#results .res.sug b').allTextContents()).includes('Biofield A to Z'));
+await p.fill('#q', ''); await p.keyboard.press('Escape');
+await p.click('.tab[data-view="feelings"]'); await p.waitForTimeout(300); ok('Feelings is a view of its own', (await h2(p)) === 'All feelings' && (await p.getAttribute('.tab[data-view="feelings"]', 'aria-selected')) === 'true' && (await p.locator('#list [data-feeling]').count()) === 50);
+await p.click('#list [data-feeling="Anger"]'); await p.waitForTimeout(300); ok('a feeling keeps the Feelings tab lit and its breadcrumb says Feelings', (await h2(p)) === 'Anger' && (await p.getAttribute('.tab[data-view="feelings"]', 'aria-selected')) === 'true' && (await p.textContent('#detail .crumbs .crumb')) === 'Feelings');
+await p.click('.tab[data-view="zodiac"]'); await p.waitForTimeout(300);
+{ const z = await p.evaluate(() => { const { C } = window.__bfa; const s = Object.fromEntries(C.nodes.filter((n) => n.kind === 'sign').map((n) => [n.id, [n.element, n.mode, n.zc]]));
+    const hue = (h) => { const r = parseInt(h.slice(1, 3), 16), g = parseInt(h.slice(3, 5), 16), b = parseInt(h.slice(5, 7), 16); return r > g && r > b && g < 0.75 * r ? 'red' : g > r && g > b ? 'green' : b > r && b > g ? 'blue' : 'yellow'; }; const lum = (h) => parseInt(h.slice(1, 3), 16) * 0.3 + parseInt(h.slice(3, 5), 16) * 0.59 + parseInt(h.slice(5, 7), 16) * 0.11;
+    const want = { Fire: 'red', Earth: 'green', Air: 'yellow', Water: 'blue' }; const bad = []; for (const [id, [el, mo, c]] of Object.entries(s)) if (hue(c) !== want[el]) bad.push(id + ' ' + c);
+    for (const el of Object.keys(want)) { const by = Object.fromEntries(Object.values(s).filter((x) => x[0] === el).map((x) => [x[1], lum(x[2])])); if (!(by.Cardinal > by.Mutable && by.Mutable > by.Fixed)) bad.push(el + ' shade order'); }
+    return { bad, n: new Set(Object.values(s).map((x) => x[2])).size, cells: document.querySelectorAll('#detail .zleg .zcell').length }; });
+  ok('zodiac: twelve colours, element by hue, cardinal light, mutable pure, fixed deep', z.bad.length === 0 && z.n === 12 && z.cells === 12, z.bad.join(', ')); }
+await p.click('#detail .zcell:has-text("Leo")'); await p.waitForTimeout(300); ok('the colour legend opens a sign, named by element and mode', (await h2(p)) === 'Leo' && /fixed fire sign/i.test(await p.textContent('#detail .eyebrow')));
+await p.evaluate(() => window.__bfa.go({ id: 'f-timeline' })); await p.waitForTimeout(300); await p.fill('.age input[type=number]', '33'); await p.waitForTimeout(250);
+ok('the age box drives the slider and the rings', (await p.inputValue('.age input[type=range]')) === '33' && (await p.locator('#labels .lab.tick:has-text("Now, age 33")').count()) === 1);
+await p.evaluate(() => window.__bfa.go({ id: 'liver' })); await p.waitForTimeout(200);
+await p.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'domcontentloaded' }); await p.reload(); await p.waitForFunction(() => window.__bfaReady === true, null, { timeout: 90000 }); await p.waitForTimeout(400);
+ok('a return visit offers to pick up where it left off, and remembers the age', (await p.locator('#detail a.ln-chip:has-text("Liver")').count()) === 1 && (await p.evaluate(() => window.__bfa.S.age)) === 33);
+ok('no console errors in round 3 checks', p.errs.length === 0, p.errs.slice(0, 3).join(' | ')); await p.context().close();
+p = await open(390, 844, '#skin'); ok('phone: the parts of a center stay in the panel, where the rail is hidden', await (async () => { await p.evaluate(() => window.__bfa.go({ id: 'heart' })); await p.waitForTimeout(300); return p.isVisible('#detail .ph-only .chip:has-text("Lungs")'); })());
+ov = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, iw: innerWidth })); ok('phone: no sideways scroll with the new blocks', ov.sw <= ov.iw, JSON.stringify(ov)); await p.context().close();
 // ---- 6. frame pacing with motion on (software renderer, so this is only a floor; it says nothing about a real phone)
 for (const [w, h, label] of [[1440, 900, 'desktop'], [390, 844, 'phone size']]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h } }); const q = await ctx.newPage(); await q.goto('http://127.0.0.1:8765/index.html#heart'); await q.waitForFunction(() => window.__bfaReady === true, null, { timeout: 90000 });

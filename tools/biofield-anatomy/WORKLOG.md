@@ -116,3 +116,43 @@ Branch `biofield-anatomy-polish-2026-11-13`, cut from `ae5bd65` on `biofield-ana
   Chakras list. The opening panel leads with the ways in. Timeline age labels alternate above and below their ring.
   Search marks the matched words and keeps each result on one line.
 - Loading shows a ring in the seven colours.
+
+## 2026-11-13, polish round 3 (finding your way) with Chance's four notes
+
+Branch `biofield-anatomy-polish-r3-2026-11-13`, cut from `930cff4` on `biofield-anatomy-polish-2026-11-13`, which is left as it was.
+
+- Glow: lower, wider and with a soft knee (`UnrealBloomPass(0.15, 0.9, 0.42)`, `smoothWidth 0.5`, where before a hard brightness line
+  switched it on). Skin rim and the lit zone are less bright. The aura shells are about 40% quieter, fade out before the silhouette
+  edge and stay quiet at the hands. At rest the scene draws every other frame (was every third), so the slow motion stays even.
+- The astrolabe rings are gone. In their place: a torus of 27 fine threads around the body, all meeting at the Sun Star above the
+  head and the Earth Star below the feet. Half carry a warm pulse down the outside (the descending current), half a cool pulse up
+  (the ascending current), with a small waver. It is built in the room, not on the screen, so it keeps its place as the body turns.
+  Threads between the eye and the body, and anything close to the lens, step back so the figure is never veiled. It dims in the
+  field view, behind a selection and in the all-parts view; still in reduced motion. The dust is in the room too. The whole-body
+  views frame a little wider so both stars show (phones keep the figure larger).
+- Zodiac body: every sign paints its own regions in its own colour. Element by hue (fire red, earth green, air yellow, water blue),
+  mode by shade (cardinal light, mutable pure, fixed deep). The colours live in `app.js` (`ELEMENT`, `ELEMENT_COLOR`, `ELEMENT_INK`);
+  the regions are each sign's `light.regions` from the content. Signs paint in `ZPAINT` order, broad areas first, so a smaller area
+  sits on top of a larger one (Cancer's whole torso under Virgo, Libra, Leo, Scorpio and Gemini). A chosen sign glows in its own
+  colour, the other eleven stay as a faint tint. The region masks are now data (`MASK` in `scene.js`), shared by the selection light
+  and the zodiac layer. Legend grid in the Zodiac panel. Sign frames have a margin (defect 9).
+- No dead ends (D5, D3, D7): the names of parts, centers, field topics, signs and feelings in the wording are links (quiet buttons,
+  one per destination per panel, built only from the entries' own names and their plain singular and plural forms). Every entry,
+  spot and feeling closes with "Keep exploring": Follow the thread (what the wording names), Feelings that may live here, Also
+  mentioned in (entries that name this one), Previous and Next (Above and Below for centers), and Copy a link. One plain anatomy
+  word stands for several parts: digestion offers Stomach, Small intestine and Large intestine (`CONCEPTS`; for Chance to confirm).
+  About, Field, Body Parts and Zodiac openings all carry ways in.
+- Feelings is a fifth view (D1) with its own list; a feeling keeps that tab lit and its breadcrumb says Feelings. The five tabs sit
+  in two rows on desktop and one row on phones. A to Z and About keep the view they were opened from.
+- Tapping the body still opens the center at once, then offers what lies deeper at that point in a small menu: the part under the
+  finger and the spot on that side (C4).
+- Keys (C7): `/` search, up and down for previous and next, left and right to turn, Escape back, `?` for the list (also a button
+  under the figure). The search box is the first Tab stop.
+- Search (C5): recent searches and a few feelings on focus, the closest entry on a near miss, A to Z when nothing fits.
+- Age (C8): a typed box beside a larger slider, remembered on the device. Opened sections stay open from entry to entry (C9).
+  The opening panel offers "Pick up where you left off" on a return visit (D9). On desktop the rail is the map of a center's parts
+  and the panel drops its copy; phones keep it (C3).
+- Checks: 112 pass at 1440 and 390 wide, 26 of them new (every entry has at least two ways onward and no link to nowhere or to
+  itself, skin leads to the liver and digestion, Feelings view, twelve colours by element and shade, keys, age box, search help,
+  the deeper menu, return visit). Frame rate on the software renderer with the glow on: 1 to 2 a second, the same as round 1.
+- Not built from round 3: the phone sheet changes in C6 (they belong with the phone pass in round 4).

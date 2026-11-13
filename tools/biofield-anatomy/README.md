@@ -19,8 +19,11 @@ Nothing here is wired into the site build yet.
 - `viewer/src/` is the viewer: plain Three.js modules, bundled with esbuild.
   - `scene.js`: the 3D scene. Skin regions, organs, orbs, the field (edge, timeline rings, central channel,
     Sun Star, Earth Star, ancestral rivers, mother and father zones, adrenal field), camera moves, picking.
-  - `app.js`: the page. Four views (Chakras, Field, Organs, Zodiac), lists, the detail panel, labels placed in
-    the scene, search, the feelings index, deep links, the phone sheet.
+    Also the torus of fine threads around the body (between the Sun Star and the Earth Star, fixed in the room) and the
+    zodiac colour layer. Region masks are data (`MASK`), one GLSL expression per name in `REGIONS`.
+  - `app.js`: the page. Five views (Chakras, Feelings, Field, Body Parts, Zodiac), lists, the detail panel, labels placed in
+    the scene, search, deep links, the phone sheet, the links in the wording and the "Keep exploring" block that closes
+    every entry, and the zodiac colours (element by hue, mode by shade).
   - `model.json`: zone colours, organ positions, body landmarks (written by `make_data.py`).
   - `content.sample.json`: the full structure of the content with placeholder wording, so the viewer runs here.
 - `viewer/model/body.glb` is the finished model (1.94 MB, meshopt compressed, with the aura shells).
