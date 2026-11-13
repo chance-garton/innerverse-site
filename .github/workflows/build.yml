@@ -27,7 +27,7 @@ jobs:
   # repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID. (The old GitHub Pages test copy was
   # removed 2026-11-10.)
   cloudflare:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Get the episode data
