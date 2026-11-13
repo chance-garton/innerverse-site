@@ -7,14 +7,14 @@
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Marcellus&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   /* the site's Astrolabe language: warm ivory on a near-black ground, hairlines, lapis for focus. Gold is kept for Plus+ and is not used here; the body supplies the colour. */
   --ground:#0B0C13; --ground-2:#13151F; --ink:#EFE9DC; --ink-soft:#A9A498; --ink-faint:#8B877C; --accent:#EFE9DC; --warm:#E6C98A; --lapis:#A9B7FF;
   --line:rgba(239,233,220,.16); --hair:rgba(239,233,220,.09); --btn-line:rgba(239,233,220,.4); --on-ink:#14151C;
   --glass:rgba(13,15,23,.84); --zone:var(--accent);
-  --brand:"Fjalla One","Arial Narrow",Impact,sans-serif; --display:"Libre Caslon Display","Libre Caslon Text",Georgia,serif; --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --brand:"Fjalla One","Arial Narrow",Impact,sans-serif; --display:"Marcellus",Georgia,serif; --label:"Fjalla One","Arial Narrow",sans-serif; --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
   --r-sm:6px; --r-md:10px; --r-lg:14px; --tap:36px;
   --rail:292px; --panel:404px; --gap:18px;
   color-scheme:dark;
@@ -67,7 +67,7 @@ a{color:inherit;text-decoration:none}
 #rail{position:fixed;left:var(--gap);top:var(--gap);bottom:var(--gap);width:var(--rail);display:flex;flex-direction:column;gap:12px;padding:18px 14px 12px;z-index:5}
 #brand{padding:0 6px}
 #brand .eyebrow{font-family:var(--brand);font-weight:400;font-size:13px;letter-spacing:.2em;color:var(--ink)}
-h1{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.08;margin:5px 0 0;letter-spacing:0}
+h1{font-family:var(--display);font-weight:400;font-size:27px;line-height:1.12;margin:6px 0 0;letter-spacing:.01em}
 #searchbox{position:relative;padding:0 2px}
 #q{width:100%;font:500 14px var(--body);color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:var(--r-md);padding:12px 12px 12px 36px;outline:none}
 #q::placeholder{color:var(--ink-faint)}
@@ -121,8 +121,8 @@ h1{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.08;ma
 .crumb{font:600 12.5px var(--body);min-height:var(--tap);display:inline-flex;align-items:center;background:none;border:0;border-radius:var(--r-sm);padding:4px 8px;cursor:pointer;color:var(--ink-soft)}
 .crumb:hover{background:rgba(255,255,255,.07);color:var(--ink)}
 .crumbs .sep{color:var(--ink-faint);font-size:12px}
-h2{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.08;margin:6px 0 0;letter-spacing:0;text-wrap:balance}
-h2.sm{font-size:28px}
+h2{font-family:var(--display);font-weight:400;font-size:32px;line-height:1.12;margin:6px 0 0;letter-spacing:.005em;text-wrap:balance}
+h2.sm{font-size:27px}
 .heading{font-size:14.5px;font-weight:600;color:var(--zone);margin:6px 0 0;letter-spacing:.01em}
 .lede{margin:14px 0 0;font-size:15px;color:var(--ink)}
 .soft{color:var(--ink-soft)}
@@ -196,8 +196,8 @@ h2.sm{font-size:28px}
 .ln:hover{background:color-mix(in srgb,var(--zone) 28%,transparent)}
 a.chip{display:inline-flex;align-items:center}
 .xp{border-top:1px solid var(--hair);padding-top:18px}
-/* zodiac legend: element by color, mode by shade */
-.zleg{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:6px;align-items:center}
+/* zodiac legend: the twelve signs in body order, each in its own color */
+.zleg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:center}
 .zh{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;text-align:center}
 .zh.el{text-align:left;padding-right:6px;color:var(--ink-soft)}
 .zcell{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:58px;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:var(--r-md);padding:8px 2px 7px;cursor:pointer;font:600 12.5px var(--body);transition:border-color .15s}
@@ -212,9 +212,30 @@ a.chip{display:inline-flex;align-items:center}
 #keys dt{font:600 13px var(--body);color:var(--ink);background:rgba(239,233,220,.08);border:1px solid var(--line);border-radius:var(--r-sm);padding:2px 9px;text-align:center;white-space:nowrap}
 #keys dd{margin:0;color:var(--ink-soft)}
 @media (min-width:1000px){.ph-only{display:none}}
+/* the small capital labels are set in the brand face, a little tighter than the INNERVERSE mark (Chance, 2026-11-13) */
+.eyebrow,.lab .l1,.rg,.gh,.it .zc,.bh h3,.cap,.rowcap,.pos .p1,.side h4,.zh,#keys h3{font-family:var(--label);font-weight:400;font-size:13px;letter-spacing:.15em}
+#brand .eyebrow{letter-spacing:.2em}
+/* powers and governed parts: every word its own button, under a small title in the center's color */
+.bh h3.zt{color:var(--zone)}
+.pwb{margin-top:18px}
+.chip.pw{border-radius:18px;text-align:left;line-height:1.3;border-color:color-mix(in srgb,var(--zone) 50%,transparent)}
+.chip.pw:hover{background:color-mix(in srgb,var(--zone) 20%,transparent)}
+.chip.pw.off{display:inline-flex;align-items:center;cursor:default;border-color:transparent;background:rgba(239,233,220,.055);color:var(--ink-soft)}
+.chip.pw.off:hover{background:rgba(239,233,220,.055)}
+.lede.first{margin-top:2px}
+/* the opening panel: reading rules that can fold, and the steps that keep it on one screen */
+details.rules>summary{list-style:none;pointer-events:none}
+details.rules>summary::-webkit-details-marker{display:none}
+.fit1 .blk{margin-top:16px}.fit1 .bh{margin-bottom:7px}.fit1 .lede{line-height:1.5}.fit1 .txt ul{gap:4px}.fit1 details.rules .txt{font-size:13.5px;line-height:1.45;color:var(--ink-soft)}
+.fit2 details.rules>summary{pointer-events:auto;cursor:pointer;margin:0;min-height:var(--tap);align-items:center;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:0 2px}
+.fit2 details.rules>summary::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-soft);border-bottom:1.5px solid var(--ink-soft);transform:rotate(45deg);margin:0 6px 3px 0}
+.fit2 details.rules[open]>summary::after{transform:rotate(-135deg);margin-bottom:-3px}
+.fit2 details.rules[open] .txt{padding:10px 2px 6px}
+.fit3 .lede{font-size:13.5px;line-height:1.45}.fit3 .chip{min-height:30px;padding:4px 11px;font-size:12.5px}.fit3 .chips{gap:5px}.fit3 .blk{margin-top:12px}.fit3 .bh{margin-bottom:5px}
 .bigglyph{font-family:"Noto Sans Symbols 2","Noto Sans Symbols","Apple Symbols","Segoe UI Symbol","DejaVu Sans",sans-serif;font-size:44px;line-height:1;color:var(--zone);margin:0 0 4px}
 .cols{columns:2;column-gap:8px}
 .cols .res{break-inside:avoid;padding:6px 8px}
+.cols .res b{white-space:normal;max-width:none;overflow:visible;text-overflow:clip;line-height:1.3}
 #foot{flex:none;display:flex;align-items:center;gap:10px;padding:11px 16px 13px;border-top:1px solid var(--hair)}
 /* the one filled button on the page: the thing to press */
 #cta{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap;font:600 14px var(--body);letter-spacing:.01em;border:0;border-radius:999px;padding:0 20px;background:var(--accent);color:var(--on-ink);transition:opacity .2s}
@@ -238,8 +259,8 @@ a.chip{display:inline-flex;align-items:center}
 #stage canvas{cursor:grab}
 #strip,#mtop,#msearch,#matoz{display:none}
 
-@media (min-width:1700px){:root{--rail:330px;--panel:468px;--gap:22px}body{font-size:16px}h1{font-size:32px}h2{font-size:40px}.it .zn{font-size:15px}.lede{font-size:16.5px}#detail{padding:28px 28px 8px}}
-@media (max-width:1320px){#railfoot .wd{display:none}:root{--rail:262px;--panel:348px;--gap:12px}#rail{padding-left:12px;padding-right:12px}.tab{font-size:12px;padding:8px 2px}h1{font-size:25px}h2{font-size:30px}#detail{padding:18px 18px 8px}#foot .credit{display:none}}
+@media (min-width:1700px){:root{--rail:330px;--panel:468px;--gap:22px}body{font-size:16px}h1{font-size:30px}h2{font-size:37px}.it .zn{font-size:15px}.lede{font-size:16.5px}#detail{padding:28px 28px 8px}}
+@media (max-width:1320px){#railfoot .wd{display:none}:root{--rail:262px;--panel:348px;--gap:12px}#rail{padding-left:12px;padding-right:12px}.tab{font-size:12px;padding:8px 2px}h1{font-size:24px}h2{font-size:28px}#detail{padding:18px 18px 8px}#foot .credit{display:none}}
 @media (max-width:1180px){:root{--rail:236px;--panel:324px}h1{font-size:23px}}
 /* ---------- phone and narrow screens ---------- */
 @media (max-width:999px){

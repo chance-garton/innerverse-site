@@ -53,6 +53,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     uLegs: { value: new THREE.Vector2(MODEL.legs.top, MODEL.legs.bottom) },
     uZodAmt: { value: 0 },    // 0..1: the zodiac body, each sign's area in its own colour
     uZodW: { value: new Float32Array(12).fill(1) },
+    uZodEdge: { value: opts.zodEdge || 0 },   // 0..1: a fine light line where one sign's area ends
     uZodCol: { value: Array.from({ length: 12 }, (_, i) => new THREE.Color((opts.signs && opts.signs[i] && opts.signs[i].color) || '#888888')) },
   };
   const REACH = 5.5 * FT;                       // where the field edge is drawn (distances come from the reviewed map)
@@ -123,12 +124,12 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       return w * sideW * fbW;
     }
     // the zodiac body: each sign paints its own regions in its own colour, later signs over earlier ones (broad areas first)
-    uniform float uZodAmt; uniform float uZodW[12]; uniform vec3 uZodCol[12];
-    vec4 zodiac(float zc, vec3 p, float arm){
+    uniform float uZodAmt; uniform float uZodW[12]; uniform vec3 uZodCol[12]; uniform float uZodEdge;
+    vec4 zodiac(float zc, vec3 p, float arm, out float edge){
       ${PRE}
-      vec3 c = vec3(0.0); float a = 0.0; float ws = 0.0;
+      vec3 c = vec3(0.0); float a = 0.0; float ws = 0.0; edge = 0.0; float wm = 0.0; float wr = 0.0;
       ${(opts.signs || []).slice(0, 12).map((sg, i) => { const ent = Object.entries(sg.regions || {}).filter(([n]) => REGIONS.includes(n)); const mx = Math.max(0.001, ...ent.map(([, w]) => w));
-        return `ws = 0.0; ${ent.map(([n, w]) => `ws = max(ws, ${(w / mx).toFixed(3)} * ${MASK[REGIONS.indexOf(n)]});`).join(' ')} ws *= uZodW[${i}]; c = c * (1.0 - ws) + uZodCol[${i}] * ws; a = a * (1.0 - ws) + ws;`; }).join('\n      ')}
+        return `ws = 0.0; wm = 0.0; ${ent.map(([n, w]) => `wr = ${MASK[REGIONS.indexOf(n)]}; ws = max(ws, ${(w / mx).toFixed(3)} * wr); wm = max(wm, wr);`).join(' ')} edge = max(edge * (1.0 - step(0.5, wm)), (1.0 - smoothstep(0.6, 1.7, abs(wm - 0.5) / max(fwidth(wm), 0.0005))) * (0.35 + 0.65 * uZodW[${i}])); ws *= uZodW[${i}]; c = c * (1.0 - ws) + uZodCol[${i}] * ws; a = a * (1.0 - ws) + ws;`; }).join('\n      ')}
       return vec4(c, a);
     }`;
 
@@ -147,7 +148,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
         col = mix(col, legCol, 1.0 - smoothstep(0.9, 1.0, zc));
         col = mix(col, vec3(0.62, 0.70, 0.78), smoothstep(0.45, 1.0, vUv.y) * 0.42);   // only the hands ease toward a pale neutral
         col = mix(col, vec3(0.30, 0.34, 0.52), uNeutral);
-        if (uZodAmt > 0.001) { vec4 zo = zodiac(zc, vW, vUv.y); col = col * (1.0 - zo.a * uZodAmt) + zo.rgb * uZodAmt; }
+        float zEdge = 0.0; if (uZodAmt > 0.001) { vec4 zo = zodiac(zc, vW, vUv.y, zEdge); col = col * (1.0 - zo.a * uZodAmt) + zo.rgb * uZodAmt; }
         float ndv = clamp(abs(dot(normalize(vN), normalize(vV))), 0.0, 1.0);
         float rim = pow(1.0 - ndv, 2.0);
         float w = regionWeight(zc, vW, vUv.y);
@@ -160,16 +161,24 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
         vec3 c = col * fill + col * rim * 0.92 + mix(col, vec3(1.0, 0.96, 0.9), 0.5) * pow(rim, 3.5) * 0.34;
         float hz = mix(max(zc, 0.0), 4.0, step(0.3, vUv.y)); float hov = uHovAmt * (1.0 - smoothstep(0.42, 0.62, abs(floor(hz + 0.5) - uHov))) * (1.0 - uSelAmt * 0.6);
         c += col * hov * (0.16 + 0.5 * rim) * (1.0 - 0.75 * uSeg);
-        if (uSeg > 0.001) {   // a dark seam where one piece of the leg meets the next (the same heights the app uses to tell them apart)
-          float seam = (1.0 - smoothstep(0.004, 0.012, abs(vW.y - 0.095))) + (1.0 - smoothstep(0.004, 0.012, abs(vW.y - 0.39))) + (1.0 - smoothstep(0.004, 0.012, abs(vW.y - 0.57)));
-          c *= 1.0 - 0.86 * min(seam, 1.0) * uSeg * legMask;
-          c += col * uSegHov.z * smoothstep(uSegHov.x, uSegHov.x + 0.012, vW.y) * (1.0 - smoothstep(uSegHov.y - 0.012, uSegHov.y, vW.y)) * legMask * (0.20 + 0.65 * rim);
+        if (uSeg > 0.001) {   // each piece of the leg gets a light outline all the way round (the same heights the app uses to tell them apart); the piece under the pointer glows
+          float fy = max(fwidth(vW.y), 0.0004);
+          float sd = min(min(abs(vW.y - 0.095), abs(vW.y - 0.39)), abs(vW.y - 0.57));
+          float cut = 1.0 - smoothstep(0.7, 1.7, abs(sd - 0.0052) / fy);                                   // a fine line just above and just below each joint
+          float gap = 1.0 - smoothstep(0.0020, 0.0042, sd);                                               // the thin space between two pieces
+          float top = 1.0 - smoothstep(0.7, 1.7, abs(legMask - 0.5) / max(fwidth(legMask), 0.0005));       // the top of the thigh
+          float piece = smoothstep(uSegHov.x - 0.004, uSegHov.x + 0.004, vW.y) * (1.0 - smoothstep(uSegHov.y - 0.004, uSegHov.y + 0.004, vW.y)) * uSegHov.z * legMask;
+          vec3 lite = mix(col, vec3(1.0, 0.95, 0.88), 0.74);
+          c *= 1.0 - 0.45 * gap * uSeg * legMask;
+          c += lite * uSeg * ((cut * legMask + top) * (0.50 + 0.55 * piece) + pow(rim, 2.4) * legMask * (0.30 + 0.45 * piece));
+          c += col * piece * (0.42 + 1.15 * rim) + lite * piece * pow(rim, 3.0) * 0.35;
         }
         float rest = uSelAmt * (1.0 - w);
         vec3 grey = vec3(dot(c, vec3(0.3, 0.5, 0.2)));
         c = mix(c, mix(grey, c, 0.4) * 0.2 + vec3(0.012, 0.014, 0.03), rest * mix(0.95, 0.84, uZodAmt));                 // the rest of the body goes dark
         c = mix(c, hi * (0.5 + 1.1 * rim), w * uSelAmt * uHiMix * 0.85);
         c += hi * w * uSelAmt * (0.17 + 0.05 * breath) * (0.45 + rim) * (1.22 - 0.3 * uOpen);
+        c += vec3(1.0, 0.97, 0.90) * zEdge * uZodEdge * uZodAmt * 0.6;
         float a = 0.80 + 0.2 * rim;
         a = mix(a, 0.10 + 0.85 * rim, open);
         a = mix(a, a * 0.78, rest);
@@ -329,11 +338,11 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     const fs = sprite(texDot, new THREE.Color('#fff0c4'), 0.075), fe = sprite(texDot, new THREE.Color('#ffc9a6'), 0.075); fs.position.set(0, SUN_Y, MID); fe.position.set(0, EARTH_Y, MID); fs.renderOrder = fe.renderOrder = 3; flow.add(fs, fe); flow.userData.stars = [fs, fe];
     const ax = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, EARTH_Y, MID), new THREE.Vector3(0, SUN_Y, MID)]), new THREE.LineBasicMaterial({ color: 0xefe9dc, transparent: true, opacity: 0.05, depthWrite: false, blending: THREE.AdditiveBlending })); ax.renderOrder = 3; flow.add(ax); flow.userData.axis = ax; }
 
-  // ---------- chakra orbs along the front of the body: tap one to open its center ----------
-  const ORB_Z = [0.075, 0.115, 0.125, 0.13, 0.135, 0.10, 0.145, 0.03];
+  // ---------- chakra lights: inside the body on the central line (x 0, the mid-plane depth) and drawn over it, so they stay in one
+  // vertical column however the figure is turned (Chance, 2026-11-13). Tap one to open its center. ----------
   const orbs = ZONES.map((z, i) => {
     const s = sprite(texDot, new THREE.Color(i === 0 ? z.dot : z.color), 0.085);
-    s.position.set(0, i === 0 ? 0.47 : i === 7 ? 1.70 : z.y + (i === 6 ? 0.025 : 0), ORB_Z[i]); s.renderOrder = 6; s.userData = { amt: 0, sel: 0 };
+    s.position.set(0, i === 0 ? 0.47 : i === 7 ? 1.70 : z.y + (i === 6 ? 0.025 : 0), MID); s.renderOrder = 6; s.userData = { amt: 0, sel: 0 };
     scene.add(s); return s;
   });
 
@@ -595,10 +604,10 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       if (o.halo) { o.halo.visible = o.mesh.visible; o.halo.material.uniforms.uA.value = o.opacity * (0.35 + 0.65 * o.active); } });
     glowMat.uniforms.uGlow.value = lerp(glowMat.uniforms.uGlow.value, look.glow); reproGlow.visible = glowMat.uniforms.uGlow.value > 0.01;
     auraMat.opacity = lerp(auraMat.opacity, look.aura * 0.22); { const sv = Math.min(1, look.aura * 2.2) * (1 - 0.6 * F.amt); aur.show = lerp(aur.show, sv); auraQuadMat.uniforms.uAmt.value = aur.show * AURA_GAIN * (0.94 + 0.06 * Math.sin(U.uTime.value * 0.9)); }
-    const camDir = _v.copy(camera.position).sub(controls.target).normalize(); const facing = THREE.MathUtils.clamp(camDir.z * 1.6 + 0.55, 0.25, 1);
+    const camDir = _v.copy(camera.position).sub(controls.target).normalize();
     orbs.forEach((s, i) => { const u = s.userData; if (i === 0) { u.amt = 0; s.visible = false; return; } u.amt = lerp(u.amt, look.orbs); u.sel = lerp(u.sel, look.orbSel === i ? 1 : 0);
       const dimOthers = look.orbSel >= 0 && look.orbSel !== i ? 0.35 : 1; const pulse = 0.9 + 0.1 * Math.sin(U.uTime.value * 1.6 + i * 0.7);
-      s.material.opacity = u.amt * facing * dimOthers * (0.75 + 0.25 * u.sel) * pulse; s.scale.setScalar((0.125 + 0.07 * u.sel) * (0.96 + 0.04 * pulse)); s.visible = s.material.opacity > 0.01; });
+      s.material.opacity = u.amt * dimOthers * (0.75 + 0.25 * u.sel) * pulse; s.scale.setScalar((0.125 + 0.07 * u.sel) * (0.96 + 0.04 * pulse)); s.visible = s.material.opacity > 0.01; });
     // field
     F.amt = lerp(F.amt, F.on ? 1 : 0); field.visible = F.amt > 0.01;
     if (field.visible) {
@@ -645,5 +654,5 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     if (reduceMotion) { setCamera(to); controls.update(); tween = null; } else tween = { from: c, to, t: 0, dur: 0.3 }; };
   const zoomBy = (k) => { const c = readCamera(); tween = { from: c, to: { ...c, dist: THREE.MathUtils.clamp(c.dist * k, controls.minDistance, controls.maxDistance) }, t: 0, dur: 0.35 }; wake(1); };
   const startSway = () => { if (!reduceMotion) { sway = true; swayT = 0; } };
-  return { facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
+  return { orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
 }

@@ -190,3 +190,31 @@ an onion, not a torus; the field view has the better shape but at another scale.
   piece meets the next, a label on each piece with its heading, the piece under the pointer lifting on its own, and four cards in
   the panel under "Parts of the leg" on every screen size. Tapping a piece, its label or its card opens it. The seam heights are the
   same breaks the tap already used (`LEG_BAND` in `app.js`, the seam lines in the skin shader).
+
+## 2026-11-13, last polish round (Chance's list of 15:05 and his notes while it was built)
+
+- Chakra lights: the seven sit inside the body on the central line (x 0, the mid-plane depth) and are drawn over it, so they stay in
+  one vertical column however the figure is turned. The fade when seen from behind is gone. Labels lead to the same points.
+- Kidneys: the left sits about 4 mm above the right (it was 16 mm). Each adrenal moved with its kidney. Done with
+  `pipeline/nudge_model.mjs`, which also dropped the unused `aura_1..3` shells (model 1.94 MB to 1.79 MB).
+- Side cards read "Right" and "Left"; no "their" is left anywhere in the interface.
+- Opening panel: no eyebrow and no repeated title; the lede is a definition of the biofield (in the content file); "Pick up where you
+  left off" is gone; the A to Z and About pills show on phones only. On a desktop the panel never scrolls: `fitHome()` tightens it in
+  three steps when it would overflow (spacing, then the reading rules fold to one line that opens on a click, then the type).
+- Legs: the dark seams are gone. Each of the four pieces has a light outline all the way round (a fine line above and below each
+  joint, the top of the thigh, a lit silhouette), and the piece under the pointer glows much more strongly.
+- Zodiac colours (his pick from three stills): one spectrum from head to feet, Aries scarlet to Pisces crimson, with a fine light line
+  where each sign's area ends (`SIGN_COLOR`, `SIGN_INK`, `ZOD_EDGE` in `app.js`; `uZodEdge` in the skin shader). Element and mode stay
+  as words on each sign's page. The legend lists the twelve in body order.
+- Fonts (his pick): Marcellus for the main heading and every panel title; the small capital labels are Fjalla One at 0.15em, a little
+  tighter than the INNERVERSE mark at 0.2em (`--display`, `--label` in `index.html`).
+- Nothing is folded behind "+N more": powers, parts and "Keep exploring" are always shown in full.
+- A center's powers and what it governs sit under small titles in the center's colour, every word its own button. A button goes to
+  the feeling or entry it names, else to the one place that speaks of it, else it opens the search on the places that do. With
+  nowhere to go it shows as a plain word (`wordDest`, `wordChip`, `governsList` in `app.js`). The governs sentence is split into its
+  own phrases; a check proves no word of it is lost.
+- Feelings: one feeling per button everywhere (index, A to Z, search, opening panel, "Keep exploring"). An entry whose name rolls
+  several together is offered as one button per feeling, each opening the same shared page (`FEEL_ONE`, `feelChips`). Links by a
+  single feeling's name work (`#feeling-joy`), and the old joined link still opens its page.
+- Checks: section 5b added for all of the above.
+

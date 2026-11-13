@@ -23,10 +23,14 @@ Nothing here is wired into the site build yet.
     zodiac colour layer. Region masks are data (`MASK`), one GLSL expression per name in `REGIONS`.
   - `app.js`: the page. Five views (Chakras, Feelings, Field, Body Parts, Zodiac), lists, the detail panel, labels placed in
     the scene, search, deep links, the phone sheet, the links in the wording and the "Keep exploring" block that closes
-    every entry, and the zodiac colours (element by hue, mode by shade).
+    every entry, the zodiac colours (one spectrum from Aries at the head to Pisces at the feet), one button per feeling, and the
+    powers and governed parts of a center as buttons.
   - `model.json`: zone colours, organ positions, body landmarks (written by `make_data.py`).
   - `content.sample.json`: the full structure of the content with placeholder wording, so the viewer runs here.
-- `viewer/model/body.glb` is the finished model (1.94 MB, meshopt compressed, with the aura shells).
+- `viewer/model/body.glb` is the finished model (1.79 MB, meshopt compressed). The aura shells were dropped on 2026-11-13: the aura is a
+  blur of the body's own light, drawn by the viewer.
+- `pipeline/nudge_model.mjs` makes small edits to the finished model with no full rebuild (move whole parts, drop meshes) and keeps
+  `viewer/src/model.json` in step. Used on 2026-11-13 to set the kidneys nearly level.
 - `checks/` holds the Playwright checks (`checks.mjs`), a screenshot helper (`shot.mjs`) and the preview build.
 
 ## Wording
