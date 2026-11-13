@@ -85,3 +85,34 @@ pituitary light with the third eye; the feet colour is a placeholder.
 - The left rail fits at every desktop width: the four view tabs share the row, the search hint is "Search the map",
   the bottom buttons do not clip. Checked at nine widths from 1000 to 1920.
 - The frame rate readout is gone from the rail and from the About panel.
+
+## 2026-11-13, polish round (the look, the interface language, first ease-of-use fixes)
+
+Branch `biofield-anatomy-polish-2026-11-13`, cut from `ae5bd65` on `biofield-anatomy-3d-2026-11-12`, which is left as it was.
+
+- Skin: lit for form (soft key light, dimmer core, luminous edge). Zone colours blend across the whole gap between
+  centres. The legs sit back a little when nothing is chosen. Only the hands ease toward a pale neutral.
+- Leg bands fixed: the four leg regions are added and clamped, where before `max` left each border at half strength.
+- Aura: three smooth shells around the body (`aura_1` to `aura_3` in the model, 19k triangles together). Built by
+  `pipeline/aura_shell.py` from the skin (voxel remesh, offset, remesh, smooth, reduce; the chakra coordinate is
+  carried over from the nearest skin points and eased across the shell) and added by `pipeline/add_aura.mjs`.
+  A first try that pushed the skin out along its normals broke up at hands, ears and toes. Model is now 1.94 MB.
+- Parts: shadow side leans deeper in hue, soft highlight, wider tint spread between neighbours; nerves carry a soft
+  halo so they never shrink to a hairline; hip bones sit closer to the root's hue.
+- Glow pass (`EffectComposer`, `UnrealBloomPass`, antialiased half-float target). The canvas is opaque now and the
+  backdrop is drawn in the scene. A struggling device loses the glow pass first, then sharpness.
+- Backdrop: fine dust and one slow, faint astrolabe ring. The old colour card behind the body is nearly off.
+- Orbs: brighter core with a fine ring. The legs orb is gone; the Legs label points at the thigh.
+- At rest the scene draws a third of the frames; any input or movement brings it back to full rate.
+- Camera: zoom follows the pointer, double click resets, a gentle idle turn on the opening view until first touch.
+- View controls under the figure: which side faces the viewer (press to turn around), zoom, reset. The figure keeps
+  clear of them.
+- Pointing at the body lifts that zone and names it beside the cursor (mouse only, Chakras view).
+- Interface language moved to the site's Astrolabe tokens: Libre Caslon Display, Libre Franklin, Fjalla One for the
+  mark, warm ivory ink, hairlines, lapis focus rings. Gold is no longer used in the interface. Nothing is set below
+  12px. Controls are at least 36px with a mouse and 44px on touch screens (labels on the model 36px on phones so
+  eight of them fit beside the figure). Themes run as a quiet line of words; only things that go somewhere are pills.
+- Each selection is a step in the browser's history. One tab is always lit. Whole body parts have a group in the
+  Chakras list. The opening panel leads with the ways in. Timeline age labels alternate above and below their ring.
+  Search marks the matched words and keeps each result on one line.
+- Loading shows a ring in the seven colours.

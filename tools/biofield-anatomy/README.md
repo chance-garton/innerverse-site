@@ -9,6 +9,10 @@ Nothing here is wired into the site build yet.
   `fit.py` (fits them into the body), `assemble.py` (mesh reduction, raw GLB), then `gltf-transform weld` and
   `gltf-transform meshopt --level medium`, then `make_data.py` (writes `viewer/src/model.json`).
 - `pipeline/zones.py` is the single place for the eight colour zones and for which mesh lights with which center.
+- `pipeline/aura_shell.py` and `pipeline/add_aura.mjs` build the three aura shells from the finished model's skin and
+  add them to it: `node extract_skin.mjs body.glb` (writes `skin.json` into the scratch `work/` folder), `python3 aura_shell.py skin.json aura.json`,
+  `node add_aura.mjs body.glb aura.json raw.glb`, then `gltf-transform meshopt --level medium raw.glb body.glb`.
+  Run the node scripts from a folder that holds `node_modules` (they import `@gltf-transform/core`).
 - `pipeline/build_content.py` turns the authoring files into the viewer's `content.json` and checks them
   (every reviewed item accounted for, no cut items, no dashes). The authoring files and the reviewed map are NOT
   in this repo: see "Wording" below.
@@ -19,7 +23,7 @@ Nothing here is wired into the site build yet.
     the scene, search, the feelings index, deep links, the phone sheet.
   - `model.json`: zone colours, organ positions, body landmarks (written by `make_data.py`).
   - `content.sample.json`: the full structure of the content with placeholder wording, so the viewer runs here.
-- `viewer/model/body.glb` is the finished model (1.8 MB, meshopt compressed).
+- `viewer/model/body.glb` is the finished model (1.94 MB, meshopt compressed, with the aura shells).
 - `checks/` holds the Playwright checks (`checks.mjs`), a screenshot helper (`shot.mjs`) and the preview build.
 
 ## Wording

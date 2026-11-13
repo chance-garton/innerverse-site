@@ -15,27 +15,29 @@ const SIGNS = C.nodes.filter((n) => n.kind === 'sign'); SIGNS.forEach((n) => { n
 const FIELD = C.nodes.filter((n) => n.kind === 'field');
 const WHOLE = C.nodes.filter((n) => n.parent === 'whole');
 const POS = C.posNames;
-const GOLD = '#c9a55c';
-const colorOf = (n, text) => { if (!n) return GOLD; if (n.kind === 'sign' || n.kind === 'field') return GOLD; const z = ZONES[n.color]; if (!z) return '#d8cfb8'; return text ? (z.accent || z.color) : (z.dot || z.color); };
+const IVORY = '#EFE9DC', WARM = '#E6C98A', PEARL = '#D5D9F2';
+const colorOf = (n, text) => { if (!n) return IVORY; if (n.kind === 'sign') return WARM; if (n.kind === 'field') return PEARL; const z = ZONES[n.color]; if (!z) return '#d8cfb8'; return text ? (z.accent || z.color) : (z.dot || z.color); };
 const parentOf = (n) => (n.parent && N.get(n.parent)) || null;
 const centerOf = (n) => { let p = n; while (p && p.kind !== 'center') p = parentOf(p); return p; };
 
 // ---------- state ----------
 const S = { view: 'chakra', id: null, pos: null, feeling: null, special: null, age: 40, balance: 'balanced' };
 const detail = $('#detail'), list = $('#list'), strip = $('#strip'), back = $('#back'), panel = $('#panel'), rail = $('#rail');
-let sheet = 'half';
+let sheet = 'half', swayed = false;
 
 // ---------- scene ----------
 let scene; const sceneHooks = {
   freeRect: () => {
     const W = innerWidth, H = innerHeight;
     if (isPhone()) { const top = rail.getBoundingClientRect().bottom; const bottom = Math.min(panel.getBoundingClientRect().top, H) - strip.offsetHeight; return { x0: 0, x1: W, y0: top, y1: Math.max(top + 120, bottom) }; }
-    return { x0: rail.getBoundingClientRect().right + 8, x1: panel.getBoundingClientRect().left - 8, y0: 0, y1: H };
+    return { x0: rail.getBoundingClientRect().right + 8, x1: panel.getBoundingClientRect().left - 8, y0: 0, y1: H - 62 };
   },
   onReady: () => { document.body.classList.add('ready'); route(true); window.__bfaReady = true; },
   onError: () => { $('#status').textContent = 'The 3D model could not load. Reload the page to try again.'; },
   onPick: pick,
-  onFrame: layoutLabels,
+  onFrame: () => { layoutLabels(); showFacing(); },
+  hoverable: () => S.view === 'chakra' && !S.special,
+  onHover: hover,
   onFps: (f) => { window.__bfaFps = f; },
 };
 try { scene = createScene($('#stage'), MODEL, sceneHooks); }
@@ -102,7 +104,7 @@ function hashOf() {
   if (S.id) return S.id + (S.pos ? '-pos-' + S.pos.toLowerCase() : '') + (S.view === 'organs' ? '-in-organs' : '');
   return S.view === 'chakra' ? '' : 'view-' + S.view;
 }
-function writeHash() { const h = hashOf(); if (location.hash.replace(/^#/, '') !== h) { try { history.replaceState(null, '', h ? '#' + h : location.pathname + location.search); } catch (e) { /* sandboxed */ } } }
+function writeHash() { const h = hashOf(); if (location.hash.replace(/^#/, '') !== h) { try { history[instantNext || !window.__bfaReady ? 'replaceState' : 'pushState'](null, '', h ? '#' + h : location.pathname + location.search); } catch (e) { /* sandboxed */ } } }
 function route(instant) {
   let h = decodeURIComponent(location.hash.replace(/^#/, '')); const next = {};
   if (h.startsWith('feeling-')) { const f = C.feelings.find((x) => slug(x.name) === h.slice(8)); if (f) next.feeling = f.name; }
@@ -114,6 +116,7 @@ function route(instant) {
 }
 let instantNext = false;
 addEventListener('hashchange', () => { if (location.hash.replace(/^#/, '') !== hashOf()) route(false); });
+addEventListener('popstate', () => { if (location.hash.replace(/^#/, '') !== hashOf()) route(false); });
 
 function upTarget() {
   if (S.pos) return { label: N.get(S.id).name, to: { id: S.id, view: S.view } };
@@ -167,8 +170,8 @@ function applyScene() {
     if (S.view === 'field') { scene.setLook({ mode: 'chakra', orbs: 0, aura: 0.22 }); fly(FIELD_FRAMES.home, { az: 24 }); labels = fieldLabels(null); layout = 'stacked'; }
     else if (S.view === 'organs') { scene.setLook({ mode: 'organs', orbs: 0, aura: 0.3 }); fly(MODEL.body.frame, { az: 0 }); }
     else if (S.view === 'zodiac') { scene.setLook({ mode: 'zodiac', orbs: 0, aura: 0.12 }); fly(MODEL.body.frame, { az: 0 });
-      labels = SIGNS.map((s) => ({ id: s.id, anchor: SIGN_AT[s.id], cls: 'glyph', l1: s.glyph, l2: s.name, color: GOLD, side: SIGN_SIDE[s.id], go: { id: s.id } })); layout = 'stacked'; }
-    else { scene.setLook({ mode: 'chakra', orbs: 1, aura: 0.5 }); fly(MODEL.body.frame, { az: 0 });
+      labels = SIGNS.map((s) => ({ id: s.id, anchor: SIGN_AT[s.id], cls: 'glyph', l1: s.glyph, l2: s.name, color: WARM, side: SIGN_SIDE[s.id], go: { id: s.id } })); layout = 'stacked'; }
+    else { scene.setLook({ mode: 'chakra', orbs: 1, aura: 0.5 }); fly(MODEL.body.frame, { az: 0 }); if (!swayed && scene.startSway) { swayed = true; scene.startSway(); }
       labels = ZONE_NODE.map((id, i) => ({ id, anchor: orbAt(i), l2: N.get(id).name, color: colorOf(N.get(id)), side: 'R', go: { id } })); layout = 'stacked'; }
     setLabels(labels, layout); return;
   }
@@ -185,7 +188,7 @@ function applyScene() {
   if (n.kind === 'sign') {
     scene.setLook({ mode: 'zodiac', selected: true, regions: L.regions, organs, glow: L.glow, open: hasOrgans ? 0.8 : 0.12, orbs: 0, aura: 0.12 });
     fly(frame, { az });
-    labels = [{ id: n.id, anchor: SIGN_AT[n.id], cls: 'glyph on', l1: n.glyph, l2: n.rules, color: GOLD }];
+    labels = [{ id: n.id, anchor: SIGN_AT[n.id], cls: 'glyph on', l1: n.glyph, l2: n.rules, color: WARM }];
     setLabels(labels, 'stacked'); return;
   }
   const isPart = n.kind === 'part'; const z = n.color;
@@ -196,10 +199,10 @@ function applyScene() {
   if (n.positions.length) labels = n.positions.map((p) => { const a = posAnchor(n, p.key); return { id: p.key, anchor: a, to: [a[0] * 0.42, a[1], MID + (a[2] - MID) * 0.42], l1: p.title, l2: p.short, color: colorOf(n), cls: S.pos === p.key ? 'on' : S.pos ? 'dim' : '', go: { id: n.id, pos: p.key, view: S.view } }; });
   setLabels(labels, 'anchored');
 }
-const orbAt = (i) => [0, i === 0 ? 0.47 : i === 7 ? 1.70 : ZONES[i].y + (i === 6 ? 0.025 : 0), [0.075, 0.115, 0.125, 0.13, 0.135, 0.10, 0.145, 0.03][i]];
+const orbAt = (i) => [i === 0 ? 0.105 : 0, i === 0 ? 0.47 : i === 7 ? 1.70 : ZONES[i].y + (i === 6 ? 0.025 : 0), [0.118, 0.115, 0.125, 0.13, 0.135, 0.10, 0.145, 0.03][i]];
 function fieldLabels(n) {
   const A = scene.fieldAnchors(); const key = n && n.marker; const byMarker = (m) => FIELD.find((f) => f.marker === m);
-  const mk = (id, anchor, l1, l2, marker, side) => ({ id, anchor, l1: isPhone() ? null : l1, l2: isPhone() ? l1 : l2, color: GOLD, side, cls: key ? (marker === key || (key === 'channel' && /star/.test(marker)) ? 'on' : 'dim') : '', go: marker !== key && byMarker(marker) ? { id: byMarker(marker).id } : null });
+  const mk = (id, anchor, l1, l2, marker, side) => ({ id, anchor, l1: isPhone() ? null : l1, l2: isPhone() ? l1 : l2, color: PEARL, side, cls: key ? (marker === key || (key === 'channel' && /star/.test(marker)) ? 'on' : 'dim') : '', go: marker !== key && byMarker(marker) ? { id: byMarker(marker).id } : null });
   // label wording comes from the content file (each field topic lists its own marks)
   const MARK = {}; FIELD.forEach((f) => { for (const [k, v] of Object.entries(f.marks || {})) MARK[k] = { marker: f.marker, l1: v[0], l2: v[1] || '' }; });
   const SIDE = { edge: 'L', timeline: 'R', sunstar: 'R', earthstar: 'R', channel: 'L', riverL: 'R', riverR: 'L', mother: 'R', father: 'L', adrenal: 'R', lefthip: 'R', ditch: 'R', left: 'R', right: 'L', front: 'R', back: 'L' };
@@ -214,12 +217,12 @@ const labBox = $('#labels'), leaders = $('#leaders'); let LABS = [], labLayout =
 function setLabels(defs, layout) {
   labBox.innerHTML = ''; leaders.innerHTML = ''; labLayout = layout;
   LABS = defs.map((d) => {
-    const el = document.createElement(d.go ? 'button' : 'div'); el.className = 'lab ' + (d.cls || ''); if (d.go) el.type = 'button'; el.style.setProperty('--c', d.color || GOLD);
+    const el = document.createElement(d.go ? 'button' : 'div'); el.className = 'lab ' + (d.cls || ''); if (d.go) el.type = 'button'; el.style.setProperty('--c', d.color || IVORY);
     el.innerHTML = `<span class="ld"></span><span class="lt">${d.l1 ? `<span class="l1">${esc(d.l1)}</span>` : ''}${d.l2 ? `<span class="l2">${esc(d.l2)}</span>` : ''}</span>`;
     if (d.go) el.addEventListener('click', () => go(d.go));
     labBox.appendChild(el);
     let pin = null, line = null;
-    if (!d.nopin) { pin = document.createElement('span'); pin.className = 'pin'; pin.style.setProperty('--c', d.color || GOLD); labBox.appendChild(pin);
+    if (!d.nopin) { pin = document.createElement('span'); pin.className = 'pin'; pin.style.setProperty('--c', d.color || IVORY); labBox.appendChild(pin);
       line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); leaders.appendChild(line); }
     return { d, el, pin, line, w: 0, h: 0 };
   });
@@ -231,16 +234,16 @@ function layoutLabels() {
   const cam = scene.camera; const sig = cam.matrixWorld.elements.map((v) => v.toFixed(4)).join() + cam.projectionMatrix.elements[0].toFixed(4) + cam.projectionMatrix.elements[8].toFixed(4) + innerWidth + 'x' + innerHeight + sheet;
   if (!labDirty && sig === lastCam) return; lastCam = sig; labDirty = false;
   const W = innerWidth, H = innerHeight; const phone = isPhone();
-  const fr = phone ? { x0: 4, x1: W - 4, y0: rail.getBoundingClientRect().bottom + 4, y1: Math.min(panel.getBoundingClientRect().top, H) - strip.offsetHeight - 4 }
-    : { x0: rail.getBoundingClientRect().right + 10, x1: panel.getBoundingClientRect().left - 10, y0: 10, y1: H - 26 };
+  const fr = phone ? { x0: 4, x1: W - 4, y0: rail.getBoundingClientRect().bottom + 4, y1: Math.min(panel.getBoundingClientRect().top, H) - strip.offsetHeight - 4 - (labLayout === 'stacked' ? 54 : 0) }
+    : { x0: rail.getBoundingClientRect().right + 10, x1: panel.getBoundingClientRect().left - 10, y0: 10, y1: H - 70 };
   const td = scene.targetDepth(); const cx = (fr.x0 + fr.x1) / 2;
   const hideAll = phone && sheet === 'full';
   LABS.forEach((l) => { l.p = scene.project(l.d.anchor); l.far = labLayout === 'anchored' && l.p.depth > td + 0.06; l.hidden = hideAll || l.p.behind || l.p.x < fr.x0 - 40 || l.p.x > fr.x1 + 40 || l.p.y < fr.y0 - 40 || l.p.y > fr.y1 + 40; });
   if (labLayout === 'stacked') {
-    const cols = { L: [], R: [] };
-    LABS.forEach((l) => { if (l.hidden) return; if (l.d.cls === 'tick') { l.bx = l.p.x + 6; l.by = l.p.y - l.h / 2; return; } cols[l.d.side || (l.p.x < cx ? 'L' : 'R')].push(l); });
+    const cols = { L: [], R: [] }; let tickFlip = false;
+    LABS.forEach((l) => { if (l.hidden) return; if (l.d.cls === 'tick') { l.bx = l.p.x - l.w / 2; l.by = (l.tickUp = !tickFlip) ? l.p.y - l.h - 7 : l.p.y + 7; tickFlip = !tickFlip; return; } cols[l.d.side || (l.p.x < cx ? 'L' : 'R')].push(l); });
     for (const side of ['L', 'R']) {
-      const a = cols[side].sort((p, q) => p.p.y - q.p.y); const gap = 6; let y = fr.y0;
+      const a = cols[side].sort((p, q) => p.p.y - q.p.y); const gap = phone ? 4 : 6; let y = fr.y0;
       a.forEach((l) => { l.by = Math.max(l.p.y - l.h / 2, y); y = l.by + l.h + gap; });
       let over = a.length ? a[a.length - 1].by + a[a.length - 1].h - fr.y1 : 0;
       for (let i = a.length - 1; i >= 0 && over > 0; i--) { const l = a[i]; const maxY = (i === a.length - 1 ? fr.y1 : a[i + 1].by - gap) - l.h; if (l.by > maxY) l.by = maxY; }
@@ -282,6 +285,7 @@ function renderList() {
   if (S.view === 'chakra') {
     const open = cur && cur.kind !== 'field' && cur.kind !== 'sign' ? (centerOf(cur) || cur).id : null;
     CENTERS.forEach((id) => { const n = N.get(id); h += item(n); if (open === id && n.parts) h += n.parts.map((p) => item(N.get(p), 'sub')).join(''); chips += chip(n, `<i></i>${esc(n.name)}`); });
+    h += `<div class="gh">Whole body</div>` + WHOLE.map((n) => item(n, 'sub')).join('');
   } else if (S.view === 'field') {
     let g = ''; FIELD.forEach((n) => { if (n.group !== g) { g = n.group; h += `<div class="gh">${esc(g)}</div>`; } h += item(n, 'plain'); chips += chip(n, esc(n.name)); });
   } else if (S.view === 'organs') {
@@ -290,7 +294,7 @@ function renderList() {
     [...CENTERS.flatMap((id) => N.get(id).parts.filter((p) => p !== 'legs')), ...WHOLE.map((n) => n.id)].forEach((p) => { const n = N.get(p); chips += chip(n, `<i></i>${esc(n.name)}`); });
   } else { SIGNS.forEach((n) => { h += item(n); chips += chip(n, `<em>${n.glyph}</em>${esc(n.name)}`); }); }
   list.innerHTML = h; strip.innerHTML = S.view === 'organs' && !S.feeling && !S.special ? chips : '';
-  document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', String(t.dataset.view === S.view && !S.feeling && !S.special)));
+  document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', String(t.dataset.view === S.view)));
   const a = list.querySelector('[aria-current="true"]'); if (a) a.scrollIntoView({ block: 'nearest' });
   const b = strip.querySelector('[aria-current="true"]'); if (b) b.scrollIntoView({ inline: 'center', block: 'nearest' });
 }
@@ -386,7 +390,7 @@ function targetWhere(t, tn, short) {
   return short ? w : `${tn.name}: ${w.charAt(0).toLowerCase() + w.slice(1)}`;
 }
 function renderFeeling(f) {
-  panel.style.setProperty('--zone', GOLD); document.documentElement.style.setProperty('--zone', GOLD);
+  panel.style.setProperty('--zone', IVORY); document.documentElement.style.setProperty('--zone', IVORY);
   let h = `<div class="crumbs"><button class="crumb" type="button" data-setview="chakra">Chakras</button><span class="sep">/</span><button class="crumb" type="button" id="c-feel">Feelings</button></div>`;
   h += `<p class="eyebrow">Feeling</p><h2 class="sm">${esc(f.name)}</h2><p class="lede soft">Where this may live in the body and the field. Choose a spot to read more.</p><div class="blk">`;
   f.targets.forEach((t) => { const tn = N.get(t.node); const hasPos = t.pos && tn.positions.some((p) => p.key === t.pos);
@@ -395,7 +399,7 @@ function renderFeeling(f) {
   return h;
 }
 function renderFeelings() {
-  panel.style.setProperty('--zone', GOLD); document.documentElement.style.setProperty('--zone', GOLD);
+  panel.style.setProperty('--zone', IVORY); document.documentElement.style.setProperty('--zone', IVORY);
   return `<p class="eyebrow">Index</p><h2 class="sm">All feelings</h2><p class="lede soft">Start from what you feel, and see where it may live.</p><div class="blk cols">` +
     [...C.feelings].sort((a, b) => a.name.localeCompare(b.name)).map((f) => `<button class="res" type="button" data-feeling="${esc(f.name)}"><b style="font-size:13.5px;font-weight:500">${esc(f.name)}</b></button>`).join('') + '</div>';
 }
@@ -405,12 +409,12 @@ function azItems() {
   const lc = (x) => x.charAt(0).toLowerCase() + x.slice(1); const out = [];
   C.nodes.forEach((n) => { out.push({ t: n.name, tag: TAG[n.kind], type: KIND[n.kind], go: n.id, c: colorOf(n) });
     n.positions.forEach((p) => out.push({ t: n.kind === 'part' && !/^(Left|Right) side$/.test(p.title) ? p.title : `${n.name}, ${lc(posTitle(n, p))}`, tag: p.short, type: KIND[n.kind], go: n.id + '|' + p.key, c: colorOf(n) })); });
-  C.feelings.forEach((f) => out.push({ t: f.name, tag: 'Feeling', type: 'Feeling', feeling: f.name, c: GOLD }));
+  C.feelings.forEach((f) => out.push({ t: f.name, tag: 'Feeling', type: 'Feeling', feeling: f.name, c: IVORY }));
   const key = (x) => x.t.replace(/^[^A-Za-z]+/, '').replace(/^The /, '').toLowerCase();
   return out.map((x) => ({ ...x, k: key(x) })).sort((a, b) => a.k.localeCompare(b.k));
 }
 function renderAtoZ() {
-  panel.style.setProperty('--zone', GOLD); document.documentElement.style.setProperty('--zone', GOLD);
+  panel.style.setProperty('--zone', IVORY); document.documentElement.style.setProperty('--zone', IVORY);
   const f = S.az || 'all'; const items = azItems().filter((x) => f === 'all' || x.type === f);
   let h = `<p class="eyebrow">Index</p><h2 class="sm">Biofield A to Z</h2><p class="lede soft">Everything on the map in one list: ${items.length} entries.</p><div class="chips">` + AZ_TYPES.map(([k, l]) => `<button class="quiet" type="button" data-az="${k}" aria-pressed="${f === k}">${l}</button>`).join('') + '</div><div class="blk az">';
   let letter = '';
@@ -419,12 +423,13 @@ function renderAtoZ() {
   return h + '</div>';
 }
 function renderInfo(id) {
-  panel.style.setProperty('--zone', GOLD); document.documentElement.style.setProperty('--zone', GOLD);
+  panel.style.setProperty('--zone', IVORY); document.documentElement.style.setProperty('--zone', IVORY);
   const i = C.info[id]; let h = `<p class="eyebrow">${id === 'about' ? 'InnerVerse' : id === 'home' ? 'Interactive map' : 'View'}</p><h2>${esc(i.title)}</h2>`;
   if (i.lede) h += `<p class="lede">${esc(i.lede)}</p>`;
-  if (i.points.length) h += `<div class="blk"><div class="bh"><h3>${id === 'about' ? 'Credit and cautions' : 'How to read the map'}</h3></div><div class="txt"><ul>${i.points.map((p) => `<li>${esc(p.t)}</li>`).join('')}</ul></div></div>`;
+  const pts = i.points.length ? `<div class="blk"><div class="bh"><h3>${id === 'about' ? 'Credit and cautions' : 'How to read the map'}</h3></div><div class="txt"><ul>${i.points.map((p) => `<li>${esc(p.t)}</li>`).join('')}</ul></div></div>` : '';
+  if (id !== 'home') h += pts;
   if (id === 'field' && isPhone()) { let g = ''; FIELD.forEach((f) => { if (f.group !== g) { h += (g ? '</div></div>' : '') + `<div class="blk"><div class="bh"><h3>${esc(f.group)}</h3></div><div class="chips" style="margin:0">`; g = f.group; } h += `<button class="chip gl" type="button" data-go="${f.id}">${esc(f.name)}</button>`; }); h += '</div></div>'; }
-  if (id === 'home') h += `<div class="blk"><div class="bh"><h3>Start here</h3></div><div class="chips" style="margin:0">` + CENTERS.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}">${esc(N.get(c).name)}</button>`).join('') + `</div></div><div class="blk"><div class="bh"><h3>Or start from a feeling</h3></div><div class="chips" style="margin:0">` + ['Anxiety', 'Grief and loss', 'Anger', 'Overwhelm', 'Feeling stuck', 'Burnout and exhaustion'].map((f) => `<button class="chip gl" type="button" data-feeling="${f}">${f}</button>`).join('') + `<button class="chip gl" type="button" id="c-feel">All feelings</button></div></div><div class="blk"><div class="chips" style="margin:0"><button class="chip gl" type="button" data-special="atoz">Biofield A to Z</button><button class="chip gl" type="button" data-special="about">About this map</button></div></div>`;
+  if (id === 'home') h += `<div class="blk"><div class="bh"><h3>Start here</h3></div><div class="chips" style="margin:0">` + CENTERS.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}">${esc(N.get(c).name)}</button>`).join('') + `</div></div><div class="blk"><div class="bh"><h3>Or start from a feeling</h3></div><div class="chips" style="margin:0">` + ['Anxiety', 'Grief and loss', 'Anger', 'Overwhelm', 'Feeling stuck', 'Burnout and exhaustion'].map((f) => `<button class="chip gl" type="button" data-feeling="${f}">${f}</button>`).join('') + `<button class="chip gl" type="button" id="c-feel">All feelings</button></div></div><div class="blk"><div class="bh"><h3>Or explore the field</h3></div><div class="chips" style="margin:0"><button class="chip gl" type="button" data-go="f-timeline">Find an age in your field</button><button class="chip gl" type="button" data-setview="field">The field around the body</button></div></div>` + pts + `<div class="blk"><div class="chips" style="margin:0"><button class="chip gl" type="button" data-special="atoz">Biofield A to Z</button><button class="chip gl" type="button" data-special="about">About this map</button></div></div>`;
   return h;
 }
 function renderPanel() {
@@ -445,12 +450,34 @@ detail.addEventListener('input', (e) => { if (e.target.matches('.age input')) { 
 
 function render() { renderList(); renderPanel(); placeChrome(); applyScene(); }
 
+// ---------- pointing at the body, and the view controls under it ----------
+const tip = $('#tip'), stageEl = $('#stage');
+function hover(h) {
+  const cv = stageEl.querySelector('canvas'); if (cv) cv.style.cursor = h ? 'pointer' : 'grab';
+  if (!h) { tip.style.display = 'none'; stageEl.classList.remove('hot'); return; }
+  let n = N.get(ZONE_NODE[h.zone]); if (!n) return;
+  if (n.id === 'legs' && h.point) { const cur = S.id && N.get(S.id); if (cur && (cur.id === 'legs' || cur.parent === 'legs')) { const y = h.point[1]; n = N.get(y < 0.095 ? 'feet' : y < 0.39 ? 'ankles' : y < 0.57 ? 'knees' : 'thighs') || n; } }
+  tip.style.setProperty('--c', colorOf(n)); tip.querySelector('b').textContent = n.name; tip.querySelector('span').textContent = n.heading || '';
+  tip.style.display = 'flex'; const w = tip.offsetWidth; tip.style.transform = `translate3d(${Math.round(Math.min(innerWidth - w - 8, h.x + 16))}px,${Math.round(Math.max(8, h.y - 44))}px,0)`;
+  stageEl.classList.add('hot');
+}
+const FACE = { front: ['Front view', 'their right is on your left'], back: ['Back view', 'their left is on your left'], left: ['Their left side', ''], right: ['Their right side', ''] };
+let faceNow = '';
+function showFacing() { if (!scene.facing) return; const f = scene.facing(); if (f === faceNow) return; faceNow = f; const b = $('#c-face'); b.querySelector('b').textContent = isPhone() ? FACE[f][0].replace(' view', '') : FACE[f][0]; b.querySelector('small').textContent = FACE[f][1]; }
+$('#c-face').addEventListener('click', () => { scene.turnTo && scene.turnTo(faceNow === 'front' ? 180 : 0); });
+$('#c-reset').addEventListener('click', () => { scene.resetView && scene.resetView(); });
+$('#c-in').addEventListener('click', () => { scene.zoomBy && scene.zoomBy(0.78); });
+$('#c-out').addEventListener('click', () => { scene.zoomBy && scene.zoomBy(1.28); });
+['pointerdown', 'wheel'].forEach((ev) => stageEl.addEventListener(ev, () => document.body.classList.add('touched'), { passive: true }));
+setTimeout(() => document.body.classList.add('touched'), 14000);
+
 // ---------- phone sheet ----------
 const SHEETS = { peek: () => 132, half: () => Math.round(innerHeight * 0.42), full: () => Math.round(innerHeight * 0.86) };
-function setSheet(s, noRefit) { sheet = s; panel.style.setProperty('--sheet', SHEETS[s]() + 'px'); placeChrome(); if (!noRefit) setTimeout(() => { scene.refit(false); labDirty = true; }, 340); }
+function setSheet(s, noRefit) { sheet = s; document.body.classList.toggle('sheet-full', s === 'full'); panel.style.setProperty('--sheet', SHEETS[s]() + 'px'); placeChrome(); if (!noRefit) setTimeout(() => { scene.refit(false); labDirty = true; }, 340); }
 function placeChrome() {
-  if (!isPhone()) { strip.style.bottom = ''; back.style.bottom = ''; return; }
-  const h = SHEETS[sheet](); strip.style.bottom = h + 'px'; back.style.bottom = (h + strip.offsetHeight + 6) + 'px'; back.style.top = 'auto';
+  const ctl = $('#ctl');
+  if (!isPhone()) { strip.style.bottom = ''; back.style.bottom = ''; ctl.style.bottom = ''; return; }
+  const h = SHEETS[sheet](); strip.style.bottom = h + 'px'; back.style.bottom = (h + strip.offsetHeight + 6) + 'px'; back.style.top = 'auto'; ctl.style.bottom = (h + strip.offsetHeight + 6) + 'px';
 }
 {
   const grab = $('#grab'); let drag = null;
@@ -471,7 +498,7 @@ C.nodes.forEach((n) => {
   const par = parentOf(n); const sub = n.kind === 'center' ? n.heading : n.kind === 'stop' ? 'Legs' : n.kind === 'part' ? (par ? par.name : 'Whole body') : n.kind === 'sign' ? 'Zodiac: ' + n.rules.toLowerCase() : 'The field';
   INDEX.push({ type: 'node', id: n.id, title: n.name, sub, keys: [n.name, ...(n.search || []), ...(n.heading ? [n.heading] : [])].map((k) => k.toLowerCase()), color: colorOf(n), rank: n.kind === 'center' ? 3 : n.kind === 'stop' ? 2 : 1 });
 });
-C.feelings.forEach((f) => INDEX.push({ type: 'feeling', id: f.name, title: f.name, sub: 'Feeling', keys: [f.name, ...f.also].map((k) => k.toLowerCase()), color: GOLD, rank: 2 }));
+C.feelings.forEach((f) => INDEX.push({ type: 'feeling', id: f.name, title: f.name, sub: 'Feeling', keys: [f.name, ...f.also].map((k) => k.toLowerCase()), color: IVORY, rank: 2 }));
 const TEXTS = [];
 C.nodes.forEach((n) => { const add = (t, pos, where) => TEXTS.push({ id: n.id, pos, where, t, low: t.toLowerCase() });
   add(n.summary.t, null, null); n.themes.forEach((t) => add(t.t, null, 'Themes'));
@@ -494,7 +521,8 @@ function search(q) {
   const draw = () => {
     const r = search(q.value); if (!r) { box.classList.remove('open'); return; }
     flat = [...r.nodes, ...r.feels, ...r.ment]; let i = 0;
-    const row = (e) => `<button class="res" type="button" role="option" data-i="${i++}" style="--c:${e.color}"><i></i><b>${esc(e.title)}</b><span>${esc(e.sub || '')}</span></button>`;
+    const toks = q.value.trim().toLowerCase().split(/\s+/).filter((t) => t.length > 1 && !['amp', 'lt', 'gt', 'quot'].includes(t)).map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); const re = toks.length ? new RegExp('(' + toks.join('|') + ')', 'ig') : null; const hi = (t) => (re ? esc(t).replace(re, '<mark>$1</mark>') : esc(t));
+    const row = (e) => `<button class="res" type="button" role="option" data-i="${i++}" style="--c:${e.color}"><i></i><b>${hi(e.title)}</b><span>${hi(e.sub || '')}</span></button>`;
     box.innerHTML = flat.length ? (r.nodes.length ? '<div class="rg">On the map</div>' + r.nodes.map(row).join('') : '') + (r.feels.length ? '<div class="rg">Feelings</div>' + r.feels.map(row).join('') : '') + (r.ment.length ? '<div class="rg">Mentioned in</div>' + r.ment.map(row).join('') : '')
       : '<div class="nores">Nothing on the map matches that yet. Try a body part, an organ or a feeling.</div>';
     box.classList.add('open'); cur = -1;

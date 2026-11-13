@@ -4,6 +4,7 @@ const browser = await chromium.launch({ executablePath: process.env.PW_CHROME ||
 let fails = 0; const ok = (name, cond, extra = '') => { if (!cond) fails++; console.log((cond ? 'ok   ' : 'FAIL ') + name + (extra ? '  ' + extra : '')); };
 async function open(w, h, hash = '') {
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: 'reduce', hasTouch: w < 500 });
+  if (!process.env.GLOW) await ctx.addInitScript(() => { window.__BFA_NOGLOW = true; });   // the glow pass is slow on the software renderer; GLOW=1 runs the checks with it on
   const page = await ctx.newPage(); page.errs = [];
   page.on('console', (m) => { if (m.type() === 'error') page.errs.push(m.text()); }); page.on('pageerror', (e) => page.errs.push(String(e)));
   await page.goto('http://127.0.0.1:8765/index.html' + hash, { waitUntil: 'domcontentloaded' }); await page.waitForFunction(() => window.__bfaReady === true, null, { timeout: 90000 }); await page.waitForTimeout(500);
@@ -94,8 +95,9 @@ p = await open(1440, 900);
 for (const [name, y] of [['Root', 0.86], ['Sacral', 0.965], ['Solar Plexus', 1.10], ['Heart', 1.25], ['Throat', 1.42], ['Third Eye', 1.585], ['Crown', 1.70], ['Legs', 0.47]]) {
   await p.evaluate(() => window.__bfa.go({ view: 'chakra' })); await p.waitForTimeout(150);
   const z = { Root: 0.115, Sacral: 0.125, 'Solar Plexus': 0.13, Heart: 0.135, Throat: 0.10, 'Third Eye': 0.145, Crown: 0.03, Legs: 0.075 }[name];
-  const xy = await p.evaluate(([yy, zz]) => { const q = window.__bfa.scene.project([0, yy, zz]); return [q.x, q.y]; }, [y, z]);
-  await p.mouse.click(xy[0], xy[1]); await p.waitForTimeout(200); ok(`tapping the ${name} orb opens it`, (await h2(p)) === name, await h2(p));
+  // the legs have no orb since the polish round: tapping a thigh opens them
+  const xy = await p.evaluate(([yy, zz, xx]) => { const q = window.__bfa.scene.project([xx, yy, zz]); return [q.x, q.y]; }, [y, name === 'Legs' ? 0.118 : z, name === 'Legs' ? 0.105 : 0]);
+  await p.mouse.click(xy[0], xy[1]); await p.waitForTimeout(200); ok(name === 'Legs' ? 'tapping a thigh opens the Legs' : `tapping the ${name} orb opens it`, (await h2(p)) === name, await h2(p));
 }
 await p.evaluate(() => window.__bfa.go({ view: 'chakra' })); await p.waitForTimeout(150);
 let xy = await p.evaluate(() => { const q = window.__bfa.scene.project([0.07, 1.22, 0.11]); return [q.x, q.y]; }); await p.mouse.click(xy[0], xy[1]); await p.waitForTimeout(250); ok('tapping the chest opens the heart', (await h2(p)) === 'Heart');
@@ -133,6 +135,22 @@ for (const w of [1000, 1024, 1100, 1280, 1320, 1366, 1440, 1680, 1920]) {
 p = await open(1440, 900, '#solar');
 const solid = await p.evaluate(() => [...document.querySelectorAll('#labels .lab')].every((l) => { const c = getComputedStyle(l); const m = c.backgroundColor.match(/rgba?\(([^)]+)\)/)[1].split(',').map(Number); return (m.length < 4 || m[3] === 1) && Number(c.opacity) === 1; }));
 ok('labels are solid, so dots behind them stay hidden (front and back)', solid); await p.context().close();
+// ---- polish round (2026-11-13): pointing, view controls, history, sizes
+p = await open(1440, 900);
+ok('view controls show which side faces the viewer', (await p.textContent('#c-face b')) === 'Front view');
+await p.click('#c-face'); await p.waitForTimeout(400); ok('turn around flips to the back', (await p.textContent('#c-face b')) === 'Back view');
+await p.click('#c-reset'); await p.waitForTimeout(400); ok('reset returns to the front', (await p.textContent('#c-face b')) === 'Front view');
+{ const box = await p.locator('#stage').boundingBox(); const f = await p.evaluate(() => { const r = document.querySelector('#rail').getBoundingClientRect(), q = document.querySelector('#panel').getBoundingClientRect(); return (r.right + q.left) / 2; });
+  let named = ''; for (const y of [0.30, 0.34, 0.38, 0.26]) { await p.mouse.move(f, box.height * y); await p.waitForTimeout(160); await p.mouse.move(f + 2, box.height * y + 1); await p.waitForTimeout(260); named = await p.evaluate(() => { const t = document.querySelector('#tip'); return getComputedStyle(t).display !== 'none' ? t.querySelector('b').textContent : ''; }); if (named) break; }
+  ok('pointing at the body names the center under the pointer', !!named, named); }
+await p.click('.it[data-go="heart"]'); await p.waitForTimeout(300); await p.click('.it.sub[data-go="lungs"]'); await p.waitForTimeout(300);
+await p.goBack(); await p.waitForTimeout(500); ok('browser Back steps back through the map', (await h2(p)) === 'Heart', await h2(p));
+ok('one tab stays lit in A to Z', await (async () => { await p.click('#b-atoz'); await p.waitForTimeout(200); return (await p.locator('.tab[aria-selected="true"]').count()) === 1; })());
+const tiny = await p.evaluate(() => { const bad = new Set(); const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let t; while ((t = tw.nextNode())) { if (!t.nodeValue.trim()) continue; const e = t.parentElement; const r = e.getBoundingClientRect(); if (!r.width || getComputedStyle(e).visibility === 'hidden') continue; if (parseFloat(getComputedStyle(e).fontSize) < 12) bad.add((e.className || e.tagName).toString().split(' ')[0]); } return [...bad]; });
+ok('no text below 12px (desktop)', tiny.length === 0, tiny.join(', ')); await p.context().close();
+p = await open(390, 844, '#heart');
+const small = await p.evaluate(() => [...document.querySelectorAll('button,a,[role=tab]')].filter((e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.height < 36; }).map((e) => (e.id ? '#' + e.id : '.' + (e.className || e.tagName).toString().split(' ')[0]) + ' ' + Math.round(e.getBoundingClientRect().height)));
+ok('no control under 36px tall on a phone', small.length === 0, [...new Set(small)].join(', ')); await p.context().close();
 // ---- 6. frame pacing with motion on (software renderer, so this is only a floor; it says nothing about a real phone)
 for (const [w, h, label] of [[1440, 900, 'desktop'], [390, 844, 'phone size']]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h } }); const q = await ctx.newPage(); await q.goto('http://127.0.0.1:8765/index.html#heart'); await q.waitForFunction(() => window.__bfaReady === true, null, { timeout: 90000 });
