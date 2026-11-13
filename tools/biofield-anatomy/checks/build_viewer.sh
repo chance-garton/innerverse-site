@@ -5,7 +5,7 @@ set -e
 B=${BFA:-/home/claude/bfa}; HERE=$(cd "$(dirname "$0")/.." && pwd); V=$HERE/viewer
 CONTENT=${CONTENT:-$V/src/content.sample.json}
 mkdir -p $V/dist
-(cd $B && node_modules/.bin/esbuild $V/src/app.js --bundle --format=esm --minify --target=es2020 --outfile=$V/dist/viewer.js --log-level=warning)
+(cd $B && NODE_PATH=$B/node_modules node_modules/.bin/esbuild $V/src/app.js --bundle --format=esm --minify --target=es2020 --outfile=$V/dist/viewer.js --log-level=warning)
 cp $V/src/index.html $V/dist/index.html
 python3 - "$V" "$CONTENT" <<'PY'
 import base64, json, sys
