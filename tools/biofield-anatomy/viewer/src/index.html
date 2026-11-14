@@ -38,8 +38,13 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- labels in the scene ---------- */
 #leaders{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-#leaders line{stroke:var(--accent);stroke-opacity:.42;stroke-width:1}
-#leaders line.far{stroke-opacity:.18}
+#leaders line,#leadersTop line{stroke:var(--accent);stroke-opacity:.42;stroke-width:1}
+#leaders line.far,#leadersTop line.far{stroke-opacity:.18}
+#leaders line.bh{stroke-opacity:.34}
+/* Labels and lines on the far side of a center go behind the body (Chance, 2026-11-14). Inside #labels, from the back: far dots and far labels,
+   then #occ, a copy of the body laid over them where it overlaps them, then the near lines, dots and labels. Far lines sit in #leaders, under all of it. */
+#occ{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#leadersTop{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
 #labels{position:fixed;inset:0;pointer-events:none;z-index:3}
 .lab{z-index:2;position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;max-width:204px;padding:7px 11px 7px 9px;border-radius:var(--r-md);min-height:var(--tap);border:1px solid var(--hair);background:rgb(11,13,25);pointer-events:auto;cursor:pointer;text-align:left;transition:opacity .25s,border-color .2s,background .2s;will-change:transform}
 .lab:hover{border-color:var(--c,var(--accent));background:rgb(22,25,45)}
@@ -62,6 +67,9 @@ a{color:inherit;text-decoration:none}
 .lab.glyph .lt{flex-direction:row;align-items:center;gap:7px}
 .pin{z-index:1;position:absolute;left:0;top:0;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--c,var(--accent));box-shadow:0 0 0 3px color-mix(in srgb,var(--c,var(--accent)) 25%,transparent),0 0 14px var(--c,var(--accent));will-change:transform}
 .pin.far{opacity:.35}
+.lab.bh,.lab.bh.on{z-index:-1}
+.pin.bh{z-index:-2;opacity:.6}
+.lab.bh .ld,.lab.bh .lt{opacity:.62}
 
 /* ---------- left rail ---------- */
 #rail{position:fixed;left:var(--gap);top:var(--gap);bottom:var(--gap);width:var(--rail);display:flex;flex-direction:column;gap:12px;padding:18px 14px 12px;z-index:5}
@@ -113,7 +121,7 @@ h1{font-family:var(--display);font-weight:400;font-size:27px;line-height:1.12;ma
 
 /* ---------- detail panel ---------- */
 #panel{position:fixed;right:var(--gap);top:var(--gap);bottom:var(--gap);width:var(--panel);display:flex;flex-direction:column;z-index:5;overflow:hidden}
-#grab{display:none}
+#grab,#sheethead{display:none}
 #detail{flex:1;min-height:0;overflow:auto;padding:22px 22px 8px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent;overscroll-behavior:contain}
 #detail>*{animation:rise .35s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -204,6 +212,19 @@ a.chip{display:inline-flex;align-items:center}
 .zcell:hover{border-color:var(--c)}
 .zcell i{flex:none;width:16px;height:16px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px rgba(239,233,220,.35),0 0 10px var(--c)}
 .zcell span{max-width:100%;white-space:nowrap}
+/* drawn zodiac glyphs: one size with the text around them */
+.zg{width:1em;height:1em;flex:none;stroke:currentColor;fill:none;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em;overflow:visible}
+.bigglyph .zg{stroke-width:1.2}
+.chip .zg{margin-right:5px;font-size:15px}
+/* years to each foot of field, under the age slider */
+.ypf{margin:10px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.ypf b{color:var(--ink);font-weight:600;font-size:16px}
+.fr{white-space:nowrap}.fr sup,.fr sub{font-size:.66em;line-height:0}.fr sup{vertical-align:.5em}.fr sub{vertical-align:-.1em}
+.tgt.inv{margin:16px 0 0}
+.tgt.inv b{font-family:var(--display);font-weight:400;font-size:18px;line-height:1.25;margin-bottom:3px}
+/* a soft ripple where the body is pressed on a touch screen */
+.rip{position:fixed;z-index:4;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;pointer-events:none;border:1.5px solid var(--c,var(--accent));box-shadow:0 0 18px var(--c,var(--accent));opacity:.75;animation:rip .65s ease-out forwards}
+@keyframes rip{to{transform:scale(6);opacity:0}}
 #pickmenu{position:fixed;left:0;top:0;z-index:7;min-width:210px;max-width:280px;padding:6px;background:rgba(12,14,27,.97);box-shadow:0 14px 40px rgba(0,0,0,.5)}
 #pickmenu[hidden],#keys[hidden]{display:none}
 #keys{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:30;padding:20px 24px;background:rgba(12,14,27,.97);box-shadow:0 18px 60px rgba(0,0,0,.6);cursor:pointer}
@@ -245,12 +266,10 @@ details.rules>summary::-webkit-details-marker{display:none}
 #back{position:fixed;left:calc(var(--gap)*2 + var(--rail));top:var(--gap);z-index:4;display:none;align-items:center;gap:7px;font:600 13px var(--body);min-height:var(--tap);background:var(--glass);border:1.5px solid var(--btn-line);border-radius:999px;padding:8px 14px 8px 10px;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 #back.show{display:flex}
 #back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
-#hint{position:fixed;left:calc(var(--gap)*2 + var(--rail));right:calc(var(--gap)*2 + var(--panel));bottom:calc(var(--gap) + 50px);text-align:center;font-size:12.5px;color:var(--ink-soft);letter-spacing:.02em;pointer-events:none;z-index:1;transition:opacity .8s}
-.touched #hint{opacity:0}
 /* view controls under the figure: which side faces you (tap to turn around), zoom, reset */
 #ctl{position:fixed;left:calc(var(--gap)*2 + var(--rail));right:calc(var(--gap)*2 + var(--panel));bottom:var(--gap);display:flex;justify-content:center;align-items:center;gap:6px;z-index:4;pointer-events:none;opacity:0;transition:opacity .6s}
 .ready #ctl{opacity:1}
-.nogl #ctl,.nogl #hint{display:none}
+.nogl #ctl{display:none}
 #ctl button{pointer-events:auto;display:inline-flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 #ctl svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 #ctl .sq{width:var(--tap);padding:0;justify-content:center}
@@ -293,18 +312,25 @@ details.rules>summary::-webkit-details-marker{display:none}
   .sc em{font-style:normal;color:var(--accent);font-size:15px;line-height:1}
   .sc[aria-current="true"]{border-color:var(--c,var(--accent));background:rgba(26,29,52,.95)}
   #panel{left:0;right:0;top:auto;bottom:0;width:auto;height:var(--sheet,42vh);border-radius:20px 20px 0 0;border-width:1px 0 0;transition:height .32s cubic-bezier(.3,.8,.3,1);background:rgba(10,12,23,.93)}
-  #grab{display:flex;justify-content:center;align-items:center;flex:none;height:36px;cursor:grab;touch-action:none;background:none;border:0;width:100%}
+  /* the sheet header: the whole strip drags the sheet, the handle stays centred, and the way back sits inside it at the left */
+  #sheethead{display:flex;position:relative;align-items:center;flex:none;min-height:36px}
+  #grab{display:flex;position:absolute;inset:0;justify-content:center;align-items:center;cursor:grab;touch-action:none;background:none;border:0;width:100%}
+  #sheethead #back{position:relative;z-index:1;left:auto;top:auto;bottom:auto;margin:5px 0 3px 10px;max-width:calc(50% - 40px);min-height:36px;padding:5px 12px 5px 8px;background:rgba(239,233,220,.06);backdrop-filter:none;-webkit-backdrop-filter:none}
+  #sheethead #back span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   #grab::before{content:"";width:42px;height:4px;border-radius:2px;background:rgba(255,255,255,.28)}
   #detail{padding:2px 18px 30px;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 30px),transparent)}
   h2{font-size:27px}
   h2.sm{font-size:23px}
-  #foot{padding:8px 14px calc(10px + env(safe-area-inset-bottom,0px))}
+  /* the booking bar is a slim line while reading and grows into the full button at the end of an entry */
+  #foot{padding:4px 14px calc(5px + env(safe-area-inset-bottom,0px));transition:padding .25s}
+  #cta{min-height:36px;font-size:13px;padding:0 15px;background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--btn-line);transition:min-height .25s,background .25s,color .25s,padding .25s}
+  #panel.at-end #foot{padding:9px 14px calc(11px + env(safe-area-inset-bottom,0px))}
+  #panel.at-end #cta{min-height:44px;font-size:14px;padding:0 20px;background:var(--accent);color:var(--on-ink);box-shadow:none}
   #foot .credit{display:none}
-  #back{left:10px;top:auto;padding:7px 14px 7px 10px;font-size:13px}
-  #hint{display:none}
+  #back{font-size:13px}
   #ctl{left:auto;right:10px;justify-content:flex-end}
   #ctl .zoom{display:none}
-  .sheet-full #ctl,.sheet-full #back{display:none}
+  .sheet-full #ctl{display:none}
   .lab{max-width:150px;min-height:36px;padding:4px 9px 4px 8px}
   @media (max-height:800px){.lab{min-height:30px;padding-top:2px;padding-bottom:2px}}   /* a short phone screen: the eight labels close up so none slides under the tabs */
   .lab .l2{font-size:12.5px}
@@ -312,7 +338,7 @@ details.rules>summary::-webkit-details-marker{display:none}
   .sc{min-height:44px;font-size:13px}
 }
 @media (pointer:coarse){:root{--tap:44px}}
-@media (prefers-reduced-motion:reduce){#detail>*{animation:none}#panel{transition:none}#status::before{animation:none}}
+@media (prefers-reduced-motion:reduce){#detail>*{animation:none}#panel,#cta,#foot{transition:none}#status::before{animation:none}}
 </style>
 </head>
 <body>
@@ -344,7 +370,6 @@ details.rules>summary::-webkit-details-marker{display:none}
 
 <div id="strip" aria-label="In this view"></div>
 <button id="back" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span></span></button>
-<p id="hint">Drag to turn the body. Scroll or pinch to zoom. Point at it to see what is there.</p>
 <div id="ctl">
   <button class="quiet" id="c-face" type="button" aria-label="Turn the body around"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><b>Front view</b></button>
   <button class="quiet sq zoom" id="c-out" type="button" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg></button>
@@ -355,7 +380,7 @@ details.rules>summary::-webkit-details-marker{display:none}
 <div id="tip" role="status"><i></i><b></b><span></span></div>
 
 <section id="panel" class="glass" aria-live="polite">
-  <button id="grab" type="button" aria-label="Resize the panel"></button>
+  <div id="sheethead"><button id="grab" type="button" aria-label="Resize the panel"></button></div>
   <div id="detail"></div>
   <div id="foot">
     <a id="cta" href="https://innerversepodcast.com/biofield-tuning" target="_blank" rel="noopener">Book a Tuning with Chance</a>
@@ -364,7 +389,7 @@ details.rules>summary::-webkit-details-marker{display:none}
 </section>
 
 <svg id="leaders" aria-hidden="true"></svg>
-<div id="labels"></div>
+<div id="labels"><canvas id="occ" aria-hidden="true"></canvas><svg id="leadersTop" aria-hidden="true"></svg></div>
 <div id="pickmenu" class="glass" hidden></div>
 <div id="keys" class="glass" role="dialog" aria-label="Keyboard shortcuts" hidden>
   <h3>Keys</h3>

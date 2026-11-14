@@ -32,13 +32,17 @@ Nothing here is wired into the site build yet.
 - `pipeline/nudge_model.mjs` makes small edits to the finished model with no full rebuild (move whole parts, drop meshes) and keeps
   `viewer/src/model.json` in step. Used on 2026-11-13 to set the kidneys nearly level.
 - `checks/` holds the Playwright checks (`checks.mjs`), a screenshot helper (`shot.mjs`) and the preview build.
+- The small version for the `/biofield-tuning` page: `viewer/src/embed.js` (the turning figure with its seven lights; choosing a
+  center shows its name and one line; one button opens the full map) and `viewer/src/mini.html` (the section's markup and styles
+  between the `BFA-MINI` marks, on a stand-in page). The page shows `viewer/model/mini-poster.jpg` first and loads `mini.js` and the
+  model only when the visitor reaches the section. `checks/build_viewer.sh` builds it beside the full viewer.
 
 ## Wording
 
 All wording on the page comes from one content file, `content.json`, which the viewer reads as
 `window.__BFA_CONTENT`. That file is built from the reviewed biofield map and paraphrases copyrighted books, so
-neither it nor its authoring files live in this public repo. They are kept in the project docs, and the live page
-will get its wording from the Airtable table `Biofield Anatomy`. Build a real preview with
+neither it nor its authoring files live in this public repo. They are kept in the project docs. The Airtable table once
+planned for the wording is out (Chance, 2026-11-14): the live page loads the content file as it is. Build a real preview with
 `CONTENT=/path/to/content.json checks/build_viewer.sh`; without `CONTENT` the placeholder sample is used.
 
 A content node carries its own display settings beside its wording: `light` (which skin regions and meshes it

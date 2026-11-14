@@ -7,11 +7,28 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const isPhone = () => innerWidth < 1000;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const ZONES = MODEL.zones, MID = MODEL.body.mid;
 const N = new Map(C.nodes.map((n) => [n.id, n]));
 const CENTERS = ['crown', 'thirdeye', 'throat', 'heart', 'solar', 'sacral', 'root', 'legs'];
 const ZONE_NODE = ['legs', 'root', 'sacral', 'solar', 'heart', 'throat', 'thirdeye', 'crown'];
-const SIGNS = C.nodes.filter((n) => n.kind === 'sign'); SIGNS.forEach((n) => { n.glyph = n.glyph.replace(/\uFE0F/g, '') + '\uFE0E'; });
+const SIGNS = C.nodes.filter((n) => n.kind === 'sign');
+// The twelve glyphs are drawn here, so they look the same on every device (Chance, 2026-11-14).
+const GLYPH = {
+  aries: '<path d="M12 21V9.5"/><path d="M12 9.5C12 5.5 10 3 7.3 3 5.3 3 3.8 4.5 3.8 6.5c0 1.8 1.2 3.2 2.9 3.2"/><path d="M12 9.5C12 5.5 14 3 16.7 3c2 0 3.5 1.5 3.5 3.5 0 1.8-1.2 3.2-2.9 3.2"/>',
+  taurus: '<circle cx="12" cy="15" r="5.6"/><path d="M4.2 3c1.2 4.2 4.1 6.4 7.8 6.4S18.6 7.2 19.8 3"/>',
+  gemini: '<path d="M4.5 4c4.8 2.1 10.2 2.1 15 0"/><path d="M4.5 20c4.8-2.1 10.2-2.1 15 0"/><path d="M9 5.4v13.2"/><path d="M15 5.4v13.2"/>',
+  cancer: '<circle cx="6.6" cy="9.4" r="3"/><path d="M4.4 6.4C6.6 4.8 9.4 4 12.3 4c3.6 0 6.8 1.5 8.7 4"/><circle cx="17.4" cy="14.6" r="3"/><path d="M19.6 17.6C17.4 19.2 14.6 20 11.7 20 8.1 20 4.9 18.5 3 16"/>',
+  leo: '<circle cx="6.8" cy="15.2" r="2.9"/><path d="M9.2 13.6C8.6 11.5 6.6 9.6 6.6 7.2 6.6 4.8 8.6 3 11.2 3s4.7 1.9 4.7 4.4c0 3.6-2.5 6.4-2.5 9.8 0 2.1 1.3 3.6 3.1 3.6 1.5 0 2.6-1 2.9-2.4"/>',
+  virgo: '<path d="M3.5 5c1.4 0 2.4 1.1 2.4 2.9V19"/><path d="M5.9 8c0-1.9 1.1-3 2.4-3s2.4 1.1 2.4 3v11"/><path d="M10.7 8c0-1.9 1.1-3 2.4-3s2.4 1.1 2.4 3v8.4c0 2.7 1.3 4.3 3.6 4.6"/><path d="M15.5 11.8c1.9-1.9 4.9-1.4 4.9 1.2 0 2.8-2.9 5.3-6.6 7.3"/>',
+  libra: '<path d="M3 20h18"/><path d="M3 15.6h5.4c-1.3-1.1-2-2.7-2-4.4A5.6 5.6 0 0 1 12 5.6a5.6 5.6 0 0 1 5.6 5.6c0 1.7-.7 3.3-2 4.4H21"/>',
+  scorpio: '<path d="M3 5c1.4 0 2.4 1.1 2.4 2.9V19"/><path d="M5.4 8c0-1.9 1.1-3 2.4-3s2.4 1.1 2.4 3v11"/><path d="M10.2 8c0-1.9 1.1-3 2.4-3S15 6.1 15 8v9c0 1.9 1 3 2.6 3H21"/><path d="M18.6 17.5 21 20l-2.4 2.5"/>',
+  sagittarius: '<path d="M4 20 20 4"/><path d="M11.5 4H20v8.5"/><path d="M6.2 10.2l7.6 7.6"/>',
+  capricorn: '<path d="M3.5 5c1.7 0 2.9 1.4 3.4 3.8L9 18.5c.3-5.5 1.2-12.3 4.2-12.3 2.3 0 3 2.6 3 5.4v3.6"/><circle cx="17.2" cy="17.4" r="2.9"/><path d="M14.3 17.6c-.1 2.3-1.6 3.9-4 3.9"/>',
+  aquarius: '<path d="M3 10.2l3-2.6 3 2.6 3-2.6 3 2.6 3-2.6 3 2.6"/><path d="M3 16.4l3-2.6 3 2.6 3-2.6 3 2.6 3-2.6 3 2.6"/>',
+  pisces: '<path d="M6 3c3.6 3.2 3.6 14.8 0 18"/><path d="M18 3c-3.6 3.2-3.6 14.8 0 18"/><path d="M4.5 12h15"/>',
+};
+SIGNS.forEach((n) => { n.glyph = `<svg class="zg" viewBox="0 0 24 24" aria-hidden="true">${GLYPH[n.id]}</svg>`; });
 const FIELD = C.nodes.filter((n) => n.kind === 'field');
 const WHOLE = C.nodes.filter((n) => n.parent === 'whole');
 const FEEL_AZ = [...C.feelings].sort((a, b) => a.name.localeCompare(b.name));
@@ -65,6 +82,7 @@ let scene; const sceneHooks = {
   onError: () => { $('#status').textContent = 'The 3D model could not load. Reload the page to try again.'; },
   onPick: pick,
   onFrame: () => { layoutLabels(); showFacing(); },
+  beforeRender: () => occBefore(), onMask: (gl) => occMask(gl), afterRender: (gl) => occAfter(gl),
   hoverable: () => S.view === 'chakra' && !S.special,
   onHover: hover,
   onFps: (f) => { window.__bfaFps = f; },
@@ -130,6 +148,7 @@ function go(next) {
     if (S.pos && !(n && n.positions.some((p) => p.key === S.pos))) S.pos = null;
   } else if (S.feeling || S.special) S.view = next.view || prev.view;   // the tab of the view they were opened from stays lit
   if (isPhone() && (S.id || S.feeling || S.special) && sheet === 'peek') setSheet('half');
+  if (isPhone() && S.special === 'feelings' && sheet !== 'full') setSheet('full'); else if (isPhone() && prev.special === 'feelings' && S.special !== 'feelings' && sheet === 'full') setSheet('half');
   if (prev.id !== S.id) S.balance = 'balanced';
   hideMenu(); render(); writeHash(); if (S.id || S.feeling) store.set('last', hashOf());
   if (prev.id !== S.id || prev.pos !== S.pos || prev.feeling !== S.feeling || prev.special !== S.special) detail.scrollTop = 0;
@@ -162,7 +181,7 @@ function upTarget() {
   if (S.feeling) return { label: 'All feelings', to: { view: 'feelings' } };
   if (S.special) return { label: 'Back to the map', to: { view: S.view } };
   const n = S.id && N.get(S.id); if (!n) return null;
-  if (n.kind === 'field') return { label: 'The field', to: { view: 'field' } };
+  if (n.kind === 'field') return { label: C.info.field.title, to: { view: 'field' } };
   if (n.kind === 'sign') return { label: 'All signs', to: { view: 'zodiac' } };
   if (S.view === 'organs') return { label: 'All body parts', to: { view: 'organs' } };
   const p = parentOf(n); if (p) return { label: p.name, to: { id: p.id } };
@@ -170,8 +189,10 @@ function upTarget() {
 }
 
 // ---------- picking on the model ----------
+function ripple(x, y, c) { if (REDUCED) return; const r = document.createElement('span'); r.className = 'rip'; r.style.left = x + 'px'; r.style.top = y + 'px'; r.style.setProperty('--c', c); document.body.appendChild(r); r.addEventListener('animationend', () => r.remove()); }
 function pick(p) {
   if (S.view === 'field') return;
+  if (p.pt && p.pt !== 'mouse' && p.x != null && p.type !== 'none') ripple(p.x, p.y, p.type === 'orb' || p.zone >= 0 ? colorOf(N.get(ZONE_NODE[p.type === 'orb' ? p.index : p.zone])) : IVORY);   // a touch shows where it landed
   if (p.type === 'orb') { go({ id: ZONE_NODE[p.index] }); return; }
   if (p.type === 'organ') { const part = partOfOrgan(p.id); if (part && part.id !== S.id) go({ id: part.id, view: S.view }); return; }
   if (p.type !== 'skin') return;
@@ -210,25 +231,28 @@ function applyScene() {
   scene.setField({ on: S.view === 'field' && !S.feeling && !S.special, focus: n && n.kind === 'field' ? n.marker : null, age: S.age });
   const fly = (frame, o = {}) => scene.flyTo(frame, { ...o, instant: instantNext });
   if (S.feeling) {
-    const f = topicOf(S.feeling); const regions = {}, organs = {}; let ys = [];
+    const f = topicOf(S.feeling); const regions = {}, organs = {}; let ys = []; const placed = new Map();   // a place gets one label however many lines point to it (Chance, 2026-11-14)
     (f.targets.length ? f.targets : (f.homes || []).map((id) => ({ node: id, pos: null, label: N.get(id).name, t: '' }))).forEach((t, i) => { const tn = N.get(t.node); if (!tn || tn.kind === 'field') return;
       for (const [k, w] of Object.entries(tn.light.regions || {})) regions[k] = Math.max(regions[k] || 0, w * 0.9);
       if (tn.kind === 'part') for (const [k, w] of Object.entries(tn.light.organs || {})) organs[k] = Math.max(organs[k] || 0, w);
       const hasPos = t.pos && tn.positions.some((p) => p.key === t.pos); const fr = frameOf(tn);
       const anchor = hasPos ? posAnchor(tn, t.pos) : t.pos && /^[LRB]$/.test(t.pos) ? posAnchor(tn, t.pos) : [(fr.x || 0) + (i % 2 ? -0.02 : 0.02), fr.y, (fr.z ?? MID) + 0.17];
-      ys.push(anchor[1]);
-      labels.push({ id: 'ft' + i, anchor, to: [anchor[0] * 0.4, anchor[1], MID + (anchor[2] - MID) * 0.4], l1: tn.name, l2: t.label || (hasPos ? tn.positions.find((p) => p.key === t.pos).title : targetWhere(t, tn, true)), color: colorOf(tn), go: { id: t.node, pos: hasPos ? t.pos : null } }); });
+      const spot = hasPos || (t.pos && /^[LRB]$/.test(t.pos)) ? t.pos : ''; const pk = t.node + '|' + spot; const l2 = t.label || (hasPos ? tn.positions.find((p) => p.key === t.pos).title : targetWhere(t, tn, true));
+      const had = placed.get(pk); if (had) { if (had.l2 !== l2) had.l2 = ''; return; }   // lines that differ only in balance share the center's one label, with no second line
+      const g = spot ? anchor : [(fr.x || 0) + (placed.size % 2 ? -0.02 : 0.02), anchor[1], anchor[2]];
+      ys.push(g[1]);
+      const lab = { id: 'ft' + i, anchor: g, to: [g[0] * 0.4, g[1], MID + (g[2] - MID) * 0.4], l1: tn.name, l2, color: colorOf(tn), go: { id: t.node, pos: hasPos ? t.pos : null } }; placed.set(pk, lab); labels.push(lab); });
     const lo = Math.min(...ys, 0.9), hi = Math.max(...ys, 1.3);
     scene.setLook({ mode: 'chakra', selected: true, regions, organs, open: Object.keys(organs).length ? 0.9 : 0.12, orbs: 0, aura: 0.3 });
     fly({ y: (lo + hi) / 2, w: 1.05, h: Math.max(0.9, hi - lo + 0.55), tilt: 3 }, { az: 0 });
-    setLabels(labels, 'anchored'); return;
+    setLabels(labels, 'anchored', true); return;
   }
   if (S.special) { scene.setLook({ mode: 'chakra', orbs: 1, aura: 0.5 }); fly(homeFrame(), { az: 0 }); setLabels([], 'anchored'); return; }
   if (!n) {
     if (S.view === 'field') { scene.setLook({ mode: 'chakra', orbs: 0, aura: 0.22 }); fly(FIELD_FRAMES.home, { az: 24 }); labels = fieldLabels(null); layout = 'stacked'; }
     else if (S.view === 'organs') { scene.setLook({ mode: 'organs', orbs: 0, aura: 0.3 }); fly(homeFrame(), { az: 0 }); }
     else if (S.view === 'zodiac') { scene.setLook({ mode: 'zodiac', orbs: 0, aura: 0.34, zodW: zodWeights(null) }); fly(homeFrame(), { az: 0 });
-      labels = SIGNS.map((s) => ({ id: s.id, anchor: SIGN_AT[s.id], cls: 'glyph', l1: s.glyph, l2: s.name, color: s.zc, ink: s.za, side: SIGN_SIDE[s.id], go: { id: s.id } })); layout = 'stacked'; }
+      labels = SIGNS.map((s) => ({ id: s.id, anchor: SIGN_AT[s.id], cls: 'glyph', l1: s.glyph, raw1: true, l2: s.name, color: s.zc, ink: s.za, side: SIGN_SIDE[s.id], go: { id: s.id } })); layout = 'stacked'; }
     else { scene.setLook({ mode: 'chakra', orbs: 1, aura: 0.5 }); fly(homeFrame(), { az: 0 }); if (!swayed && scene.startSway) { swayed = true; scene.startSway(); }
       labels = ZONE_NODE.map((id, i) => ({ id, anchor: orbAt(i), l2: N.get(id).name, color: colorOf(N.get(id)), side: 'R', go: { id } })); layout = 'stacked'; }
     setLabels(labels, layout); return;
@@ -246,7 +270,7 @@ function applyScene() {
   if (n.kind === 'sign') {
     scene.setLook({ mode: 'zodiac', selected: true, regions: L.regions, organs, glow: L.glow, open: hasOrgans ? 0.8 : 0.12, orbs: 0, aura: 0.3, zodW: zodWeights(n.id), hiColor: n.zc });
     fly(frame, { az });
-    labels = [{ id: n.id, anchor: SIGN_AT[n.id], cls: 'glyph on', l1: n.glyph, l2: n.rules, color: n.zc, ink: n.za }];
+    labels = [{ id: n.id, anchor: SIGN_AT[n.id], cls: 'glyph on', l1: n.glyph, raw1: true, l2: n.rules, color: n.zc, ink: n.za }];
     setLabels(labels, 'stacked'); return;
   }
   const isPart = n.kind === 'part'; const z = n.color;
@@ -259,34 +283,49 @@ function applyScene() {
   if (n.id === 'legs') {   // the Legs open as four separate pieces, each with its own label to go deeper
     labels = n.parts.filter((id) => N.has(id) && LEG_AT[id]).map((id) => { const q = N.get(id); return { id, anchor: LEG_AT[id], l1: isPhone() ? null : q.name, l2: isPhone() ? q.name : (q.heading || ''), color: colorOf(q), side: 'R', go: { id, view: S.view } }; });
     setLabels(labels, 'stacked'); return; }
-  setLabels(labels, 'anchored');
+  setLabels(labels, 'anchored', !(isPart && primaryOrgans));
 }
 const orbAt = (i) => [i === 0 ? 0.105 : 0, i === 0 ? 0.47 : i === 7 ? 1.70 : ZONES[i].y + (i === 6 ? 0.025 : 0), i === 0 ? 0.118 : MODEL.body.mid];   // the seven lights sit on the central line, inside the body
 function fieldLabels(n) {
   const A = scene.fieldAnchors(); const key = n && n.marker; const byMarker = (m) => FIELD.find((f) => f.marker === m);
-  const mk = (id, anchor, l1, l2, marker, side) => ({ id, anchor, l1: isPhone() ? null : l1, l2: isPhone() ? l1 : l2, color: PEARL, side, cls: key ? (marker === key || (key === 'channel' && /star/.test(marker)) ? 'on' : 'dim') : '', go: marker !== key && byMarker(marker) ? { id: byMarker(marker).id } : null });
+  const mk = (id, anchor, l1, l2, marker) => ({ id, anchor, l1: isPhone() ? null : l1, l2: isPhone() ? l1 : l2, color: PEARL, side: 'auto', cls: key ? (marker === key || (key === 'channel' && /star/.test(marker)) ? 'on' : 'dim') : '', go: marker !== key && byMarker(marker) ? { id: byMarker(marker).id } : null });
   // label wording comes from the content file (each field topic lists its own marks)
   const MARK = {}; FIELD.forEach((f) => { for (const [k, v] of Object.entries(f.marks || {})) MARK[k] = { marker: f.marker, l1: v[0], l2: v[1] || '' }; });
   const SIDE = { edge: 'L', timeline: 'R', sunstar: 'R', earthstar: 'R', channel: 'L', riverL: 'R', riverR: 'L', mother: 'R', father: 'L', adrenal: 'R', lefthip: 'R', ditch: 'R', left: 'R', right: 'L', front: 'R', back: 'L' };
   const QUIET = { lefthip: 1, ditch: 1, left: 1, right: 1, front: 1, back: 1 };
-  const out = Object.keys(SIDE).filter((k) => MARK[k] && (!QUIET[k] || MARK[k].marker === key)).map((k) => mk(k, A[k], MARK[k].l1, MARK[k].l2, MARK[k].marker, SIDE[k]));
+  const out = Object.keys(SIDE).filter((k) => MARK[k] && (!QUIET[k] || MARK[k].marker === key)).map((k) => mk(k, A[k], MARK[k].l1, MARK[k].l2, MARK[k].marker));
   if (key === 'timeline') scene.ticks().forEach((t, i) => out.push({ id: 'tick' + i, anchor: t.pos, cls: 'tick', l2: t.now ? `Now, age ${t.age}` : t.age === 0 ? 'Birth' : `Age ${t.age}`, nopin: true }));
   return key ? out.filter((l) => l.cls !== 'dim' || ['edge', 'timeline', 'sunstar', 'earthstar'].includes(l.id)).filter((l) => !(key === 'timeline' && l.cls === 'dim')) : out;
 }
 
 // ---------- labels in the scene ----------
-const labBox = $('#labels'), leaders = $('#leaders'); let LABS = [], labLayout = 'anchored', labDirty = true, lastCam = '';
-function setLabels(defs, layout) {
-  labBox.innerHTML = ''; leaders.innerHTML = ''; labLayout = layout;
+const labBox = $('#labels'), leaders = $('#leaders'), leadersTop = $('#leadersTop'), occ = $('#occ'), octx = occ.getContext('2d'); let LABS = [], labLayout = 'anchored', labDirty = true, lastCam = '', labOcc = false;
+// Labels and lines on the far side of a center go behind the body where the body overlaps them, so front and back read at a glance
+// (Chance, 2026-11-14). The labels stay ordinary buttons: each frame the scene hands over the body's outline and then the finished
+// frame, and the body is copied from them onto #occ, a canvas that lies over the far labels and under the near ones. Only the small
+// boxes around the far labels, dots and lines are copied. A device that cannot keep up drops back to plain dimmed labels.
+const OCC = { rects: [], px: [], drawn: false, cost: 0, n: 0, off: false };
+const occCovered = (x, y) => { if (!OCC.drawn) return false; try { const k = occ.width / (occ.clientWidth || innerWidth); return octx.getImageData(Math.round(x * k), Math.round(y * k), 1, 1).data[3] > 127; } catch (e) { return false; } };
+function occBefore() { layoutLabels(); if (OCC.off || !OCC.rects.length) { if (OCC.drawn) { octx.clearRect(0, 0, occ.width, occ.height); OCC.drawn = false; } return false; } return true; }
+function occMask(gl) { const t0 = performance.now(); if (occ.width !== gl.width || occ.height !== gl.height) { occ.width = gl.width; occ.height = gl.height; }
+  const k = gl.width / (gl.clientWidth || innerWidth); octx.globalCompositeOperation = 'source-over'; octx.clearRect(0, 0, occ.width, occ.height);
+  OCC.px = OCC.rects.map(([x0, y0, x1, y1]) => { const x = Math.max(0, Math.round(x0 * k)), y = Math.max(0, Math.round(y0 * k)); return [x, y, Math.min(gl.width, Math.round(x1 * k)) - x, Math.min(gl.height, Math.round(y1 * k)) - y]; }).filter((r) => r[2] > 0 && r[3] > 0);
+  OCC.px.forEach(([x, y, w, h]) => octx.drawImage(gl, x, y, w, h, x, y, w, h)); OCC.t = performance.now() - t0; }
+function occAfter(gl) { const t0 = performance.now(); octx.globalCompositeOperation = 'source-in';
+  OCC.px.forEach(([x, y, w, h]) => { octx.save(); octx.beginPath(); octx.rect(x, y, w, h); octx.clip(); octx.drawImage(gl, x, y, w, h, x, y, w, h); octx.restore(); }); octx.globalCompositeOperation = 'source-over'; OCC.drawn = true;
+  OCC.cost = OCC.cost * 0.9 + (OCC.t + performance.now() - t0) * 0.1; if (++OCC.n > 40 && OCC.cost > 7 && !navigator.webdriver) { OCC.off = true; labDirty = true; } }
+function setLabels(defs, layout, occlude) {
+  labBox.querySelectorAll('.lab,.pin').forEach((e) => e.remove()); leaders.innerHTML = ''; leadersTop.innerHTML = ''; labLayout = layout; labOcc = !!occlude && layout === 'anchored';
   LABS = defs.map((d) => {
     const el = document.createElement(d.go ? 'button' : 'div'); el.className = 'lab ' + (d.cls || ''); if (d.go) el.type = 'button'; el.style.setProperty('--c', d.color || IVORY); if (d.ink) el.style.setProperty('--ink-c', d.ink);
-    el.innerHTML = `<span class="ld"></span><span class="lt">${d.l1 ? `<span class="l1">${esc(d.l1)}</span>` : ''}${d.l2 ? `<span class="l2">${esc(d.l2)}</span>` : ''}</span>`;
-    if (d.go) el.addEventListener('click', () => go(d.go));
+    el.innerHTML = `<span class="ld"></span><span class="lt">${d.l1 ? `<span class="l1">${d.raw1 ? d.l1 : esc(d.l1)}</span>` : ''}${d.l2 ? `<span class="l2">${esc(d.l2)}</span>` : ''}</span>`;
+    const rec = { d, el, pin: null, line: null, w: 0, h: 0, behind: false };
+    if (d.go) el.addEventListener('click', (e) => { if (rec.behind && e.detail && occCovered(e.clientX, e.clientY) && scene.pickAt) { scene.pickAt(e.clientX, e.clientY, e.pointerType); return; } go(d.go); });   // a press that lands on the body, where it covers a far label, is a press on the body
     labBox.appendChild(el);
     let pin = null, line = null;
     if (!d.nopin) { pin = document.createElement('span'); pin.className = 'pin'; pin.style.setProperty('--c', d.color || IVORY); labBox.appendChild(pin);
-      line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); leaders.appendChild(line); }
-    return { d, el, pin, line, w: 0, h: 0 };
+      line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); leadersTop.appendChild(line); }
+    rec.pin = pin; rec.line = line; return rec;
   });
   LABS.forEach((l) => { l.w = l.el.offsetWidth; l.h = l.el.offsetHeight; });
   labDirty = true;
@@ -302,8 +341,11 @@ function layoutLabels() {
   const hideAll = phone && sheet === 'full';
   LABS.forEach((l) => { l.p = scene.project(l.d.anchor); l.far = labLayout === 'anchored' && l.p.depth > td + 0.06; l.hidden = hideAll || l.p.behind || l.p.x < fr.x0 - 40 || l.p.x > fr.x1 + 40 || l.p.y < fr.y0 - 40 || l.p.y > fr.y1 + 40; });
   if (labLayout === 'stacked') {
-    const cols = { L: [], R: [] }; let tickFlip = false;
-    LABS.forEach((l) => { if (l.hidden) return; if (l.d.cls === 'tick') { l.bx = l.p.x - l.w / 2; l.by = (l.tickUp = !tickFlip) ? l.p.y - l.h - 7 : l.p.y + 7; tickFlip = !tickFlip; return; } cols[l.d.side || (l.p.x < cx ? 'L' : 'R')].push(l); });
+    const cols = { L: [], R: [] }; let tickFlip = false; const mid = [];
+    LABS.forEach((l) => { if (l.hidden) return; if (l.d.cls === 'tick') { l.bx = l.p.x - l.w / 2; l.by = (l.tickUp = !tickFlip) ? l.p.y - l.h - 7 : l.p.y + 7; tickFlip = !tickFlip; return; }
+      if (l.d.side === 'auto') { const dx = l.p.x - cx; if (Math.abs(dx) < 26) { mid.push(l); return; } cols[dx < 0 ? 'L' : 'R'].push(l); return; }
+      cols[l.d.side || (l.p.x < cx ? 'L' : 'R')].push(l); });
+    mid.sort((p, q) => p.p.y - q.p.y).forEach((l) => { const s = cols.L.length < cols.R.length ? 'L' : cols.R.length < cols.L.length ? 'R' : (l.sd || 'L'); l.sd = s; cols[s].push(l); });   // spread on both sides, never five in one stack
     for (const side of ['L', 'R']) {
       const a = cols[side].sort((p, q) => p.p.y - q.p.y); const gap = phone ? 4 : 6; let y = fr.y0;
       a.forEach((l) => { l.by = Math.max(l.p.y - l.h / 2, y); y = l.by + l.h + gap; });
@@ -323,15 +365,18 @@ function layoutLabels() {
   LABS.forEach((l) => {
     l.el.style.display = l.hidden ? 'none' : ''; if (l.pin) l.pin.style.display = l.hidden ? 'none' : ''; if (l.line) l.line.style.display = l.hidden ? 'none' : '';
     if (l.hidden) return;
-    l.el.style.transform = `translate3d(${Math.round(l.bx)}px,${Math.round(l.by)}px,0)`; l.el.classList.toggle('far', l.far);
-    if (l.pin) { l.pin.style.transform = `translate3d(${l.p.x.toFixed(1)}px,${l.p.y.toFixed(1)}px,0)`; l.pin.classList.toggle('far', l.far); }
+    const behind = l.far && labOcc && !OCC.off; if (behind !== l.behind) { l.behind = behind; l.el.classList.toggle('bh', behind); if (l.pin) l.pin.classList.toggle('bh', behind); if (l.line) { l.line.classList.toggle('bh', behind); (behind ? leaders : leadersTop).appendChild(l.line); } }
+    l.el.style.transform = `translate3d(${Math.round(l.bx)}px,${Math.round(l.by)}px,0)`; l.el.classList.toggle('far', l.far && !behind);
+    if (l.pin) { l.pin.style.transform = `translate3d(${l.p.x.toFixed(1)}px,${l.p.y.toFixed(1)}px,0)`; l.pin.classList.toggle('far', l.far && !behind); }
     if (l.line) {
       let x1, y1, x2, y2;
       if (labLayout === 'stacked') { x1 = l.edge; y1 = l.by + l.h / 2; x2 = l.p.x; y2 = l.p.y; }
       else if (l.d.to) { const t = scene.project(l.d.to); x1 = l.p.x; y1 = l.p.y; x2 = t.x; y2 = t.y; } else { x1 = x2 = l.p.x; y1 = y2 = l.p.y; }
-      l.line.setAttribute('x1', x1); l.line.setAttribute('y1', y1); l.line.setAttribute('x2', x2); l.line.setAttribute('y2', y2); l.line.classList.toggle('far', l.far);
+      l.line.setAttribute('x1', x1); l.line.setAttribute('y1', y1); l.line.setAttribute('x2', x2); l.line.setAttribute('y2', y2); l.line.classList.toggle('far', l.far && !behind); l.lx = [x1, y1, x2, y2];
     }
   });
+  OCC.rects = []; const box = (x0, y0, x1, y1) => OCC.rects.push([Math.floor(Math.min(x0, x1)) - 3, Math.floor(Math.min(y0, y1)) - 3, Math.ceil(Math.max(x0, x1)) + 3, Math.ceil(Math.max(y0, y1)) + 3]);
+  LABS.forEach((l) => { if (!l.behind || l.hidden) return; box(l.bx, l.by, l.bx + l.w, l.by + l.h); box(l.p.x - 10, l.p.y - 10, l.p.x + 10, l.p.y + 10); if (l.line && l.lx) box(l.lx[0], l.lx[1], l.lx[2], l.lx[3]); });
 }
 
 // ---------- lists (left rail on desktop, chip strip on phones) ----------
@@ -421,7 +466,7 @@ function seqOf() {
   return step(ids, ids.indexOf(n.id), (id) => ({ label: N.get(id).name, to: { id, view: S.view } }), n.kind !== 'center' && n.kind !== 'stop');
 }
 // "Keep exploring" closes every entry: one plain row of pills (Chance, 2026-11-13: no sub-headings, no previous and next buttons).
-// Order: what the wording names, then entries that name this one, then the feelings that may live here.
+// Order: what the wording names, then entries that name this one, then the feelings that tend to show up here.
 function exploreBlock(keys, fallback) {
   keys = keys.filter((k, i, a) => a.indexOf(k) === i && (k.startsWith('f:') || N.has(k)));
   for (const k of fallback) { if (keys.length >= 3) break; if (!keys.includes(k) && (k.startsWith('f:') || N.has(k))) keys.push(k); }   // never fewer than three ways onward
@@ -456,6 +501,11 @@ function zodiacLegend() {
   return `<div class="blk"><div class="bh"><h3>The colors</h3><span>Head to feet</span></div><div class="zleg">` + SIGNS.map((g) => `<button class="zcell" type="button" data-go="${g.id}" style="--c:${g.zc}"><i></i><span>${esc(g.name)}</span></button>`).join('') +
     `</div><p class="note">Leo and Libra sit on the back of the body: turn the figure to see them.</p></div>`;
 }
+// Years to each foot of field (Chance, 2026-11-14): the age over a field counted as 6 feet deep, as a whole number and a simple fraction.
+const FIELD_FEET = 6;
+function perFoot(age) { const w = Math.floor(age / FIELD_FEET), r = age % FIELD_FEET; const fr = { 1: [1, 6], 2: [1, 3], 3: [1, 2], 4: [2, 3], 5: [5, 6] }[r];
+  const num = (w || !fr ? String(w) : '') + (fr ? `${w ? ' ' : ''}<span class="fr"><sup>${fr[0]}</sup>&frasl;<sub>${fr[1]}</sub></span>` : '');
+  return `About <b>${num}</b> ${age === FIELD_FEET ? 'year' : 'years'} to each foot of the field, counting the field as ${FIELD_FEET} feet deep.`; }
 function resumeTitle() {
   let h = RESUME || ''; if (h.startsWith('feeling-')) { const f = feelBySlug(h.slice(8)); return f ? f.name : ''; }
   h = h.replace(/-in-organs$/, ''); const m = h.match(/^(.*?)(?:-pos-([a-z]+))?$/); const n = m && N.get(m[1]); if (!n) return '';
@@ -476,7 +526,7 @@ const OPEN_KEYS = new Set(['biofield', 'more', 'female', 'male', 'authority', 'w
 const SMALL = { anatomy: 'General anatomy', struggle: 'General anatomy' };
 function crumbs(n, extra) {
   const chain = []; let p = n; while (p) { chain.unshift(p); p = parentOf(p); }
-  const root = n.kind === 'field' ? ['The field', 'field'] : n.kind === 'sign' ? ['Zodiac', 'zodiac'] : S.view === 'organs' ? ['Body Parts', 'organs'] : ['Chakras', 'chakra'];
+  const root = n.kind === 'field' ? [C.info.field.title, 'field'] : n.kind === 'sign' ? ['Zodiac', 'zodiac'] : S.view === 'organs' ? ['Body Parts', 'organs'] : ['Chakras', 'chakra'];
   let h = `<div class="crumbs"><button class="crumb" type="button" data-setview="${root[1]}">${root[0]}</button>`;
   chain.forEach((c, i) => { const last = i === chain.length - 1 && !extra; h += `<span class="sep">/</span>` + (last ? `<span class="crumb" style="cursor:default;color:var(--ink)">${esc(c.name)}</span>` : `<button class="crumb" type="button" data-go="${c.id}">${esc(c.name)}</button>`); });
   if (n.parent === 'whole') h = h.replace('<span class="sep">/</span>', '<span class="sep">/</span><span class="crumb" style="cursor:default">Whole body</span><span class="sep">/</span>');
@@ -518,10 +568,10 @@ function renderNode(n) {
   if (n.governs) h += `<div class="blk pwb"><div class="bh"><h3 class="zt">Governs in the body</h3></div>` + (n.governs.items ? `<div class="chips" style="margin:0">` + n.governs.items.map(bodyChip).join('') + '</div>' : `<p class="gov" style="margin:0">${esc(n.governs.t)}</p>`) + '</div>';
   if (n.id === 'legs') h += `<div class="blk"><div class="bh"><h3>Parts of the leg</h3><span>Choose one, or tap it on the model</span></div><div class="compass">` + n.parts.map((p) => `<button class="pos" type="button" data-go="${p}"><span class="p1">${esc(N.get(p).name)}</span><span class="p2">${esc(N.get(p).heading || '')}</span></button>`).join('') + '</div></div>';
   else if (n.parts && n.parts.length) h += `<div class="blk ph-only"><div class="bh"><h3>${n.id === 'legs' ? 'Parts of the leg' : 'Parts of this center'}</h3></div><div class="chips" style="margin:0">` + n.parts.map((p) => `<button class="chip" type="button" data-go="${p}">${esc(N.get(p).name)}</button>`).join('') + '</div></div>';
-  if (n.marker === 'timeline') h += `<div class="blk"><div class="bh"><h3>Try it with your age</h3></div><div class="age"><input type="range" min="6" max="100" step="1" value="${S.age}" aria-label="Your age, slider"><label>Age <input type="number" inputmode="numeric" min="6" max="100" step="1" value="${S.age}" aria-label="Your age"></label></div><p class="note">The rings mark where each age sits between the skin and the edge of the field.</p></div>`;
+  if (n.marker === 'timeline') h += `<div class="blk"><div class="bh"><h3>Try it with your age</h3></div><div class="age"><input type="range" min="6" max="100" step="1" value="${S.age}" aria-label="Your age, slider"><label>Age <input type="number" inputmode="numeric" min="6" max="100" step="1" value="${S.age}" aria-label="Your age"></label></div><p class="ypf" data-ypf>${perFoot(S.age)}</p><p class="note">The rings mark where each age sits between the skin and the edge of the field.</p></div>`;
   if (n.positions.length) {
     const kind = n.kind === 'part' ? 'Left and right' : 'Around the body';
-    h += `<div class="blk"><div class="bh"><h3>${kind}</h3><span>${n.kind === 'part' ? '' : 'Choose a spot, or a label on the model'}</span></div>${compass(n)}</div>`;
+    h += `<div class="blk"><div class="bh"><h3>${kind}</h3></div>${compass(n)}</div>`;
   }
   if (n.sides.length) h += `<div class="blk" style="margin-top:14px">` + [...n.sides].sort((a, b) => SIDE_ORDER[a.key] - SIDE_ORDER[b.key]).map((s) => acc(s.title, blocks(s.blocks), false, null, 'side-' + s.key)).join('') + '</div>';
   const sec = Object.fromEntries(n.sections.map((s) => [s.key, s]));
@@ -552,7 +602,7 @@ function targetWhere(t, tn, short) {
 function renderFeeling(f) {
   panel.style.setProperty('--zone', IVORY); document.documentElement.style.setProperty('--zone', IVORY);
   let h = `<div class="crumbs"><button class="crumb" type="button" data-setview="feelings">Feelings</button><span class="sep">/</span><span class="crumb" style="cursor:default;color:var(--ink)">${esc(f.name)}</span></div>`;
-  h += `<p class="eyebrow">Feeling</p><h2 class="sm">${esc(f.name)}</h2><p class="lede soft">Where this may live in the body and the field. Choose a spot to read more.</p><div class="blk">`;
+  h += `<p class="eyebrow">Feeling</p><h2 class="sm">${esc(f.name)}</h2><p class="lede soft">${feelNames(f.name).length > 1 ? 'Where these emotions tend' : 'Where this emotion tends'} to show up in the body and biofield. Choose a spot to learn more.</p><div class="blk">`;
   f.targets.forEach((t) => { const tn = N.get(t.node); const hasPos = t.pos && tn.positions.some((p) => p.key === t.pos);
     h += `<button class="tgt" type="button" data-go="${t.node}${hasPos ? '|' + t.pos : ''}" data-view="chakra" style="--c:${colorOf(tn)}"><i></i><span><b>${esc(targetWhere(t, tn))}</b><span>${esc(t.t)}</span></span></button>`; });
   h += `</div><p class="note">${esc(C.info.home.points[3].t)}</p>`;
@@ -579,13 +629,14 @@ function renderFeelings() {
   return `<p class="eyebrow">Index</p><h2 class="sm">All feelings</h2><div class="blk cols">` +
     FEEL_ONE.map((o) => `<button class="res" type="button" data-feeling="${esc(o.feeling)}"><b style="font-size:13.5px;font-weight:500">${esc(o.label)}</b></button>`).join('') + '</div>';
 }
-const AZ_TYPES = [['all', 'All'], ['Chakra', 'Chakras'], ['Body part', 'Body parts'], ['Field', 'Field'], ['Zodiac', 'Zodiac'], ['Feeling', 'Feelings']];
+const AZ_TYPES = [['all', 'All'], ['Chakra', 'Chakras'], ['Power', 'Powers'], ['Body part', 'Body parts'], ['Field', 'Field'], ['Zodiac', 'Zodiac'], ['Feeling', 'Feelings']];
 function azItems() {
   const KIND = { center: 'Chakra', stop: 'Chakra', part: 'Body part', field: 'Field', sign: 'Zodiac' }; const TAG = { center: 'Chakra', stop: 'Part of the leg', part: 'Body part', field: 'Field', sign: 'Zodiac' };
   const lc = (x) => x.charAt(0).toLowerCase() + x.slice(1); const out = [];
   C.nodes.forEach((n) => { out.push({ t: n.name, tag: TAG[n.kind], type: KIND[n.kind], go: n.id, c: colorOf(n) });
     n.positions.forEach((p) => out.push({ t: n.kind === 'part' && !/^(Left|Right) side$/.test(p.title) ? p.title : `${n.name}, ${lc(posTitle(n, p))}`, tag: p.short, type: KIND[n.kind], go: n.id + '|' + p.key, c: colorOf(n) })); });
   FEEL_ONE.forEach((o) => out.push({ t: o.label, tag: 'Feeling', type: 'Feeling', feeling: o.feeling, c: IVORY }));
+  POWERS.forEach((p) => { const home = N.get(p.homes[0]); out.push({ t: p.name, tag: (p.type === 'body' ? 'In the body: ' : 'Power: ') + p.homes.map((id) => N.get(id).name).join(', '), type: p.type === 'body' ? 'Body part' : 'Power', feeling: p.name, c: colorOf(home) }); });   // every power and body page has its place in the list (Chance, 2026-11-14)
   const key = (x) => x.t.replace(/^[^A-Za-z]+/, '').replace(/^The /, '').toLowerCase();
   return out.map((x) => ({ ...x, k: key(x) })).sort((a, b) => a.k.localeCompare(b.k));
 }
@@ -602,6 +653,7 @@ function renderInfo(id) {
   panel.style.setProperty('--zone', IVORY); document.documentElement.style.setProperty('--zone', IVORY);
   const i = C.info[id]; let h = id === 'home' ? '' : `<p class="eyebrow">${id === 'about' ? 'InnerVerse' : 'View'}</p><h2>${esc(i.title)}</h2>`;   // the opening panel has no title of its own: the rail carries it (Chance, 2026-11-13)
   if (i.lede) h += `<p class="lede${id === 'home' ? ' first' : ''}">${esc(i.lede)}</p>`;
+  if (i.invite) { const [a, ...b] = i.invite.t.split(/(?<=\.)\s+/); h += `<button class="tgt inv" type="button" data-go="${esc(i.invite.go)}" style="--c:${PEARL}"><i></i><span><b>${esc(a)}</b><span>${esc(b.join(' '))}</span></span></button>`; }
   const pts = i.points.length ? `<div class="blk"><div class="bh"><h3>${id === 'about' ? 'Credit and cautions' : 'How to read the map'}</h3></div><div class="txt"><ul>${i.points.map((p) => `<li>${esc(p.t)}</li>`).join('')}</ul></div></div>` : '';
   if (id !== 'home') h += pts;
   const rules = i.points.length ? `<details class="blk rules" open><summary class="bh"><h3>How to read the map</h3></summary><div class="txt"><ul>${i.points.map((p) => `<li>${esc(p.t)}</li>`).join('')}</ul></div></details>` : '';
@@ -620,7 +672,7 @@ function renderPanel() {
   detail.innerHTML = S.feeling ? (isPower(S.feeling) ? renderPower(topicOf(S.feeling)) : renderFeeling(topicOf(S.feeling))) : S.special === 'atoz' ? renderAtoZ() : S.special === 'about' ? renderInfo('about') : n ? renderNode(n)
     : S.special === 'feelings' ? renderFeelings() : renderInfo(S.view === 'chakra' ? 'home' : S.view);
   const u = upTarget(); back.classList.toggle('show', !!u); if (u) back.querySelector('span').textContent = u.label;
-  fitHome();
+  fitHome(); panel.classList.remove('at-end'); atEnd();
 }
 // The opening panel sits on the screen with no scrolling (Chance, 2026-11-13): when it would overflow on a desktop it tightens in steps,
 // first the spacing, then the reading rules fold to one line that opens on a click, then the type comes down a little.
@@ -638,7 +690,7 @@ detail.addEventListener('click', (e) => {
   if (e.target.closest('#c-feel')) go({ special: 'feelings' });
 });
 detail.addEventListener('input', (e) => { if (!e.target.matches('.age input')) return; const v = Math.round(Number(e.target.value)); if (!(v >= 6 && v <= 100)) return;
-  S.age = v; store.set('age', String(v)); detail.querySelectorAll('.age input').forEach((i) => { if (i !== e.target) i.value = v; }); scene.setField({ on: true, focus: 'timeline', age: S.age }); setLabels(fieldLabels(N.get(S.id)), 'stacked'); });
+  S.age = v; store.set('age', String(v)); detail.querySelectorAll('.age input').forEach((i) => { if (i !== e.target) i.value = v; }); { const y = detail.querySelector('[data-ypf]'); if (y) y.innerHTML = perFoot(v); } scene.setField({ on: true, focus: 'timeline', age: S.age }); setLabels(fieldLabels(N.get(S.id)), 'stacked'); });
 
 function render() { renderList(); renderPanel(); placeChrome(); applyScene(); }
 
@@ -668,17 +720,25 @@ setTimeout(() => document.body.classList.add('touched'), 14000);
 const SHEETS = { peek: () => 132, half: () => { const want = Math.round(innerHeight * 0.42); return isPhone() ? Math.max(150, Math.min(want, Math.round(innerHeight - rail.getBoundingClientRect().bottom - 330))) : want; } /* a short phone screen keeps room for the figure and its eight labels */, full: () => Math.round(innerHeight * 0.86) };
 function setSheet(s, noRefit) { sheet = s; document.body.classList.toggle('sheet-full', s === 'full'); panel.style.setProperty('--sheet', SHEETS[s]() + 'px'); placeChrome(); if (!noRefit) setTimeout(() => { scene.refit(false); labDirty = true; }, 340); }
 function placeChrome() {
-  const ctl = $('#ctl');
-  if (!isPhone()) { strip.style.bottom = ''; back.style.bottom = ''; ctl.style.bottom = ''; return; }
-  const h = SHEETS[sheet](); strip.style.bottom = h + 'px'; back.style.bottom = (h + strip.offsetHeight + 6) + 'px'; back.style.top = 'auto'; ctl.style.bottom = (h + strip.offsetHeight + 6) + 'px';
+  const ctl = $('#ctl'), head = $('#sheethead');
+  if (!isPhone()) { if (back.parentElement !== document.body) document.body.insertBefore(back, ctl); strip.style.bottom = ''; ctl.style.bottom = ''; return; }
+  if (back.parentElement !== head) head.appendChild(back);   // phones: back sits inside the sheet header, so it never slides under anything
+  const h = SHEETS[sheet](); strip.style.bottom = h + 'px'; ctl.style.bottom = (h + strip.offsetHeight + 6) + 'px'; atEnd();
 }
+// the booking bar grows into the full button once the reader reaches the end of an entry (two thresholds, so it never flickers at the line)
+function atEnd() { const left = detail.scrollHeight - detail.clientHeight - detail.scrollTop; const on = panel.classList.contains('at-end'); if (!on && left < 14) panel.classList.add('at-end'); else if (on && left > 64) panel.classList.remove('at-end'); }
+detail.addEventListener('scroll', atEnd, { passive: true });
 {
   const grab = $('#grab'); let drag = null;
-  grab.addEventListener('pointerdown', (e) => { drag = { y: e.clientY, h: panel.getBoundingClientRect().height, moved: false }; grab.setPointerCapture(e.pointerId); panel.style.transition = 'none'; });
-  grab.addEventListener('pointermove', (e) => { if (!drag) return; const dy = drag.y - e.clientY; if (Math.abs(dy) > 5) drag.moved = true; if (drag.moved) panel.style.setProperty('--sheet', Math.max(96, Math.min(innerHeight * 0.9, drag.h + dy)) + 'px'); });
-  const end = () => { if (!drag) return; panel.style.transition = ''; const h = panel.getBoundingClientRect().height;
+  grab.addEventListener('pointerdown', (e) => { drag = { y: e.clientY, h: panel.getBoundingClientRect().height, moved: false, pts: [[e.timeStamp, e.clientY]] }; try { grab.setPointerCapture(e.pointerId); } catch (err) { /* a pointer the browser no longer tracks */ } panel.style.transition = 'none'; });
+  grab.addEventListener('pointermove', (e) => { if (!drag) return; const dy = drag.y - e.clientY; if (Math.abs(dy) > 5) drag.moved = true; drag.pts.push([e.timeStamp, e.clientY]); if (drag.pts.length > 5) drag.pts.shift();
+    if (drag.moved) panel.style.setProperty('--sheet', Math.max(96, Math.min(innerHeight * 0.9, drag.h + dy)) + 'px'); });
+  const end = (e) => { if (!drag) return; panel.style.transition = ''; const h = panel.getBoundingClientRect().height;
+    const a = drag.pts[0], b = drag.pts[drag.pts.length - 1]; const v = b[0] > a[0] && e && e.timeStamp - b[0] < 120 ? (a[1] - b[1]) / (b[0] - a[0]) : 0;   // px per ms, upward is positive; a finger that stopped before lifting has no momentum
+    const stops = Object.keys(SHEETS).map((k) => [k, SHEETS[k]()]).sort((p, q) => p[1] - q[1]);
     if (!drag.moved) setSheet(sheet === 'peek' ? 'half' : sheet === 'half' ? 'full' : 'half');
-    else { const opts = Object.keys(SHEETS).map((k) => [k, Math.abs(SHEETS[k]() - h)]).sort((a, b) => a[1] - b[1]); setSheet(opts[0][0]); }
+    else if (Math.abs(v) > 0.4) { const next = v > 0 ? stops.find((s) => s[1] > h - 8) || stops[stops.length - 1] : [...stops].reverse().find((s) => s[1] < h + 8) || stops[0]; setSheet(next[0]); }
+    else setSheet(stops.map((s) => [s[0], Math.abs(s[1] - h)]).sort((p, q) => p[1] - q[1])[0][0]);
     drag = null; };
   grab.addEventListener('pointerup', end); grab.addEventListener('pointercancel', end);
   addEventListener('resize', () => { if (isPhone()) setSheet(sheet, true); else panel.style.removeProperty('--sheet'); placeChrome(); labDirty = true; fitHome(); });
@@ -767,4 +827,4 @@ $('#keys').addEventListener('click', () => toggleKeys(false));
 
 $('#cta').textContent = C.cta.label; $('#cta').href = C.cta.url;
 renderList(); renderPanel(); placeChrome();
-window.__bfa = { go, S, N, C, scene, MODEL, search, labs: () => LABS, OUT, INB, FEEL_AT, TERMS, seqOf, FEEL_ONE, POWERS };
+window.__bfa = { go, S, N, C, scene, MODEL, search, labs: () => LABS, occ: () => ({ ...OCC, covered: occCovered }), OUT, INB, FEEL_AT, TERMS, seqOf, FEEL_ONE, POWERS };

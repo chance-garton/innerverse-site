@@ -248,3 +248,35 @@ an onion, not a torus; the field view has the better shape but at another scale.
 - The sheet text fades at its bottom edge.
 - Narrating lines cut (his word): the A to Z count line, the feelings index tagline, the zodiac legend's spectrum sentence.
 
+## 2026-11-14: the review sitting (every open item put to Chance and ruled; this is the build of what he ruled in)
+
+- One label per place on the figure for feeling, power and body pages (`applyScene` in `app.js`): lines that point to the same
+  place share one label, and lines that differ only in balance share the center's label with no second line. A power with no line of
+  its own showed ten labels on its center; it shows one.
+- A to Z lists every power and body page, with a Powers filter.
+- The timeline: under the age slider, the years to each foot of the field, the age over a field counted as 6 feet deep, as a whole
+  number and a simple fraction (`perFoot`). The Field view's opening panel takes its title and an invitation to the timeline from
+  the content file (`info.field.title`, `info.field.invite`); the breadcrumb and the back button follow that title.
+- Zodiac glyphs are drawn (`GLYPH` in `app.js`, twelve small stroke drawings), so they look the same on every device.
+- Lines cut on his word: the drag hint under the figure, the "choose a spot" caption on center panels, the Body Parts opening line.
+  The feeling page opens with his own line, singular or plural as the page needs.
+- Field view: the shell fades when the view is too close to hold it, so no arcs of its rim cross the corners; its rim is a cool
+  pearl; the ancestral rivers and the left-hand ditch are soft ribbons that taper at both ends and face the viewer (`ribbon` in
+  `scene.js`); field labels take the side their mark is on, and the ones on the central line go to the side with room.
+- Phone sheet: the way back sits in the sheet header (`#sheethead`; `placeChrome` moves the button in and out); the booking bar is a
+  slim line while reading and grows into the full button at the end of an entry (`atEnd`); a quick flick carries the sheet to the
+  next stop; the feelings index opens at full height; a soft ripple shows where the body was pressed (touch only, off in reduced
+  motion). Every pick from the scene now carries its screen point and pointer type.
+- The small version for `/biofield-tuning` (`embed.js`, `mini.html`). The scene takes `opts.embed` (no zoom, a fixed tilt, the page
+  still scrolls under a finger, `setPaused` while off screen) and `opts.turn` (a slow turn that waits five seconds after a touch).
+- Ruled out and not built: the guided tour, the Airtable table, the "where in the body" inset, the label line changes, legends on
+  the opening panels. The zoom buttons beside Front and Reset were already on the desktop layout and were left as they are.
+- Labels behind the body (his word, the same morning): in a center, a leg stop, and on feeling, power and body pages, the labels,
+  dots and lines on the far side go behind the body where it overlaps them, so front and back read at a glance. The labels stay
+  ordinary buttons. Each frame the scene draws the body's outline to the screen buffer (`renderMask`), the page copies the small
+  boxes around the far labels from it, the real frame is drawn over it, and the page copies the same boxes again through the outline
+  (`occMask`, `occAfter` in `app.js`) onto `#occ`, a canvas that lies over the far labels and under the near ones. Far lines move to
+  `#leaders`, near lines live in `#leadersTop`. A press that lands on the body where it covers a far label goes to the body
+  (`scene.pickAt`). A device where the copying costs more than 7 ms a frame drops back to plain dimmed labels. A single part shown
+  alone is left as it was, because the body is only a ghost there.
+- Checks: section 5c in `checks/checks.mjs`.

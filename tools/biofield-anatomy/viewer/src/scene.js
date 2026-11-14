@@ -31,6 +31,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   controls.enableDamping = true; controls.dampingFactor = 0.08; controls.enablePan = false;
   controls.minDistance = 0.35; controls.maxDistance = 22; controls.minPolarAngle = 0.2; controls.maxPolarAngle = 2.3;
   controls.rotateSpeed = 0.7; controls.zoomSpeed = 0.8; controls.zoomToCursor = true; controls.cursorStyle = 'grab';
+  if (opts.embed) { controls.enableZoom = false; controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2 - THREE.MathUtils.degToRad(2); renderer.domElement.style.touchAction = 'pan-y'; }
 
   // ---------- shared uniforms ----------
   const colors = ZONES.map((z) => new THREE.Color(z.color)); colors.push(new THREE.Color(MODEL.neutral));
@@ -249,6 +250,14 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   }
   // thin parts (nerves) get a soft halo so they never shrink to a hairline
   const HALO = { vagus: 0.0034, sciatic_l: 0.0045, sciatic_r: 0.0045 };
+  // The body's outline alone, drawn to the screen buffer before the real frame. The page copies it and uses it to lay the body over
+  // the labels that belong behind it (Chance, 2026-11-14). The real frame then overwrites every pixel of it.
+  const maskMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  function renderMask() {
+    const bg = scene.background, om = scene.overrideMaterial, ca = renderer.getClearAlpha(); renderer.getClearColor(_cc); scene.background = null; scene.overrideMaterial = maskMat; renderer.setClearColor(0x000000, 0);
+    camera.layers.set(1); renderer.setRenderTarget(null); renderer.clear(); renderer.render(scene, camera); camera.layers.set(0);
+    scene.overrideMaterial = om; scene.background = bg; renderer.setClearColor(_cc, ca);
+  }
   const haloMat = (zoneIndex, d) => new THREE.ShaderMaterial({
     uniforms: { ...U, uD: { value: d }, uA: { value: 0 }, uZone: { value: zoneIndex } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     vertexShader: /* glsl */`uniform float uD; varying vec3 vN; varying vec3 vV;
@@ -367,7 +376,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       ${ZONE_GLSL}
       uniform float uFade; uniform float uLayer; varying vec3 vN; varying vec3 vV; varying vec3 vW;
       void main(){
-        float zc = clamp((vW.y + 0.9) / 3.5, 0.0, 1.0) * 7.0; vec3 col = mix(zoneColor(zc), vec3(0.92, 0.86, 0.70), 0.55);
+        float zc = clamp((vW.y + 0.9) / 3.5, 0.0, 1.0) * 7.0; vec3 col = mix(zoneColor(zc), vec3(0.80, 0.85, 1.0), 0.86);   // a cool pearl with a breath of the body's colours
         float rim = pow(1.0 - clamp(abs(dot(normalize(vN), normalize(vV))), 0.0, 1.0), 3.0);
         float shimmer = 0.85 + 0.15 * sin(uTime * 0.6 + vW.y * 2.2 + uLayer * 2.1);
         gl_FragColor = vec4(col * rim * shimmer * (0.30 - 0.10 * uLayer) * uFade, 1.0);
@@ -388,16 +397,27 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     ch.scale.y = F.sunY - F.earthY; ch.position.set(0, (F.sunY + F.earthY) / 2, MID); ch.renderOrder = 5; field.add(ch); F.parts.channel = [ch];
     const sun = sprite(texStar, new THREE.Color('#fff0c4'), 0.26); sun.position.set(0, F.sunY, MID); sun.renderOrder = 7; field.add(sun); F.parts.sunstar = [sun];
     const earth = sprite(texStar, new THREE.Color('#ffb38a'), 0.24); earth.position.set(0, F.earthY, MID); earth.renderOrder = 7; field.add(earth); F.parts.earthstar = [earth];
-    // ancestral rivers, one each side
-    const riverMat = (tint) => new THREE.ShaderMaterial({ uniforms: { ...U, uFade: { value: 0 }, uTintC: { value: new THREE.Color(tint) } }, vertexShader: VERT, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide,
-      fragmentShader: /* glsl */`uniform float uFade; uniform vec3 uTintC; uniform float uTime; varying vec2 vUv; varying vec3 vN; varying vec3 vV;
-        void main(){ float ndv = clamp(abs(dot(normalize(vN), normalize(vV))), 0.0, 1.0);
-          float flow = 0.6 + 0.4 * sin(vUv.y * 30.0 - uTime * 1.4); float ends = smoothstep(0.0, 0.16, vUv.y) * smoothstep(1.0, 0.84, vUv.y);
-          gl_FragColor = vec4(uTintC * pow(ndv, 2.0) * flow * ends * 0.2 * uFade, 1.0);
+    // ancestral rivers, one each side: soft ribbons that taper to nothing at both ends and always face the viewer (Chance, 2026-11-14)
+    const ribbon = (tint, x, y, w, h, phase) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 1, 56), new THREE.ShaderMaterial({
+      uniforms: { uTime: U.uTime, uFade: { value: 0 }, uTintC: { value: new THREE.Color(tint) }, uBase: { value: new THREE.Vector3(x, y, MID) }, uW: { value: w }, uH: { value: h }, uPhase: { value: phase } },
+      transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide,
+      vertexShader: /* glsl */`uniform float uTime; uniform float uW; uniform float uH; uniform float uPhase; uniform vec3 uBase; varying vec2 vUv;
+        void main(){ vUv = uv;
+          float sway = 0.020 * sin(uv.y * 5.5 + uTime * 0.45 + uPhase) + 0.008 * sin(uv.y * 13.0 - uTime * 0.6 + uPhase * 2.0);   // a slow drift along its length
+          vec3 c = uBase + vec3(sway, (uv.y - 0.5) * uH, sway * 0.6);
+          vec3 toCam = cameraPosition - c; vec3 right = normalize(vec3(toCam.z, 0.0, -toCam.x) + vec3(0.00001, 0.0, 0.0));
+          float taper = pow(sin(3.14159265 * clamp(uv.y, 0.0, 1.0)), 0.55);
+          gl_Position = projectionMatrix * viewMatrix * vec4(c + right * (uv.x - 0.5) * uW * (0.3 + 0.7 * taper), 1.0); }`,
+      fragmentShader: /* glsl */`uniform float uFade; uniform vec3 uTintC; uniform float uTime; uniform float uPhase; varying vec2 vUv;
+        void main(){ float x = abs(vUv.x - 0.5) * 2.0;
+          float across = pow(1.0 - x, 1.7);                                                       // brightest along the middle, nothing at the edges
+          float ends = smoothstep(0.0, 0.22, vUv.y) * smoothstep(1.0, 0.78, vUv.y);
+          float flow = 0.62 + 0.24 * sin(vUv.y * 11.0 - uTime * 0.8 + uPhase) + 0.14 * sin(vUv.y * 23.0 - uTime * 1.3 + x * 3.0);
+          gl_FragColor = vec4(uTintC * across * ends * flow * 0.2 * uFade, 1.0);
           #include <colorspace_fragment>
-        }` });
+        }` })); m.frustumCulled = false; m.renderOrder = 5; field.add(m); return m; };
     F.riverX = BODY_A + 10 * IN;
-    F.parts.rivers = [[1, '#d9d4ff'], [-1, '#ffe2a8']].map(([sgn, tint]) => { const m = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.5, 20, 1, true), riverMat(tint)); m.position.set(sgn * F.riverX, 0.9, MID); m.renderOrder = 5; field.add(m); return m; });
+    F.parts.rivers = [[1, '#d9d4ff', 0.0], [-1, '#ffe2a8', 1.7]].map(([sgn, tint, ph]) => ribbon(tint, sgn * F.riverX, 0.9, 0.15, 2.7, ph));
     // mother and father zones: two small fixed discs
     F.zoneX = 0.15 + 10 * IN;
     F.parts.parents = [[1, '#d9d4ff'], [-1, '#ffe2a8']].map(([sgn, tint]) => { const g = new THREE.Group();
@@ -411,7 +431,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     ad.computeLineDistances(); ad.position.set(0, 1.10, MID); field.add(ad); F.parts.adrenal = [ad];
     // quiet extras that only show when their topic is open
     const hip = sprite(texDot, new THREE.Color('#ff9a7a'), 0.34); hip.position.set(0.36, 0.80, MID); field.add(hip); F.parts.lefthip = [hip];
-    const ditch = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 1.0, 20, 1, true), riverMat('#8fb4ff')); ditch.position.set(0.30, 1.02, MID); field.add(ditch); F.parts.ditch = [ditch];
+    const ditch = ribbon('#8fb4ff', 0.30, 1.02, 0.2, 1.15, 0.9); F.parts.ditch = [ditch];
     F.always = ['channel', 'sunstar', 'earthstar', 'rivers', 'parents', 'adrenal']; F.quiet = ['lefthip', 'ditch'];
   }
   function buildRings() {
@@ -465,14 +485,14 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   } else loader.load(window.__BFA_MODEL_URL || 'body.glb', onModel, undefined, onModelError);
 
   // ---------- camera choreography ----------
-  let tween = null, lastFrame = MODEL.body.frame, lastOpts = {};
+  let tween = null, lastFrame = MODEL.body.frame, lastOpts = {}, lastFa = null, paused = false, lastTouch = -1e9;
   const freeArea = () => { const W = renderer.domElement.clientWidth || 1, H = renderer.domElement.clientHeight || 1; const r = hooks.freeRect ? hooks.freeRect() : { x0: 0, y0: 0, x1: W, y1: H };
     return { ...r, W, H, w: Math.max(0.2, (r.x1 - r.x0) / W), h: Math.max(0.2, (r.y1 - r.y0) / H), cx: (r.x0 + r.x1) / 2, cy: (r.y0 + r.y1) / 2 }; };
   function fitDistance(fw, fh) {
     const fa = freeArea(); const t = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
     return Math.max((fh / 2) / t / fa.h, (fw / 2) / (t * camera.aspect) / fa.w) * 1.1;
   }
-  function applyOffset() { const fa = freeArea(); camera.setViewOffset(fa.W, fa.H, fa.W / 2 - fa.cx, fa.H / 2 - fa.cy, fa.W, fa.H); camera.updateProjectionMatrix(); }
+  function applyOffset() { const fa = freeArea(); lastFa = fa; camera.setViewOffset(fa.W, fa.H, fa.W / 2 - fa.cx, fa.H / 2 - fa.cy, fa.W, fa.H); camera.updateProjectionMatrix(); }
   function setCamera(v) {
     const sp = Math.sin(v.pol);
     camera.position.set(v.target.x + v.dist * sp * Math.sin(v.az), v.target.y + v.dist * Math.cos(v.pol), v.target.z + v.dist * sp * Math.cos(v.az));
@@ -522,7 +542,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   // ---------- picking ----------
   const ray = new THREE.Raycaster(); let down = null; let hovZone = -1, hovT = 0, sway = false, swayT = 0;
   const endSway = () => { sway = false; };
-  ['pointerdown', 'wheel', 'touchstart'].forEach((ev) => renderer.domElement.addEventListener(ev, () => { endSway(); wake(2.5); }, { passive: true }));
+  ['pointerdown', 'wheel', 'touchstart'].forEach((ev) => renderer.domElement.addEventListener(ev, () => { endSway(); lastTouch = performance.now(); wake(2.5); }, { passive: true }));
   controls.addEventListener('change', () => wake(1.2));
   renderer.domElement.addEventListener('dblclick', () => { flyTo(lastFrame, lastOpts); });
   renderer.domElement.addEventListener('pointerleave', () => { if (hovZone !== -1) { hovZone = -1; hooks.onHover && hooks.onHover(null); } });
@@ -541,22 +561,27 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   renderer.domElement.addEventListener('pointerup', (e) => {
     if (!down || !skin) return; const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y); const dt = performance.now() - down.t; down = null;
     if (moved > 6 || dt > 500) return;
+    pickAt(e);
+  });
+  function pickAt(e) {
+    if (!skin) return;
     const r = renderer.domElement.getBoundingClientRect();
     // orbs first: a generous target around each one
     let best = null;
     orbs.forEach((s, i) => { if (i === 0 || s.userData.amt < 0.3) return; const p = project(s.position.toArray()); const d = Math.hypot(p.x - e.clientX, p.y - e.clientY); if (d < 22 && (!best || d < best.d)) best = { d, i }; });
-    if (best) { hooks.onPick && hooks.onPick({ type: 'orb', index: best.i }); return; }
+    const at = { x: e.clientX, y: e.clientY, pt: e.pointerType };
+    if (best) { hooks.onPick && hooks.onPick({ type: 'orb', index: best.i, ...at }); return; }
     const nx = ((e.clientX - r.left) / r.width) * 2 - 1, ny = -(((e.clientY - r.top) / r.height) * 2 - 1);
     ray.setFromCamera(new THREE.Vector2(nx, ny), camera);
     const vis = []; organs.forEach((o, id) => { if (o.opacity > 0.6) { o.mesh.userData.id = id; vis.push(o.mesh); } });
     const oh = vis.length ? ray.intersectObjects(vis, false)[0] : null;
     const sh = ray.intersectObject(skin, false)[0];
-    if (oh && sh && (look.xray > 0.5 || look.sel > 0.5)) { hooks.onPick && hooks.onPick({ type: 'organ', id: oh.object.userData.id, zone: sh.uv ? Math.max(0, Math.min(7, Math.round(sh.uv.x * 7))) : -1 }); return; }
+    if (oh && sh && (look.xray > 0.5 || look.sel > 0.5)) { hooks.onPick && hooks.onPick({ type: 'organ', id: oh.object.userData.id, zone: sh.uv ? Math.max(0, Math.min(7, Math.round(sh.uv.x * 7))) : -1, ...at }); return; }
     if (sh && sh.uv) { const under = []; const all = []; organs.forEach((o, id) => { o.mesh.userData.id = id; all.push(o.mesh); });
       for (const h of ray.intersectObjects(all, false)) { const id = h.object.userData.id; if (!under.includes(id)) under.push(id); if (under.length >= 4) break; }
-      hooks.onPick && hooks.onPick({ type: 'skin', zone: Math.max(0, Math.min(7, Math.round(sh.uv.x * 7))), point: sh.point.toArray(), arm: sh.uv.y, under, x: e.clientX, y: e.clientY }); return; }
+      hooks.onPick && hooks.onPick({ type: 'skin', zone: Math.max(0, Math.min(7, Math.round(sh.uv.x * 7))), point: sh.point.toArray(), arm: sh.uv.y, under, ...at }); return; }
     hooks.onPick && hooks.onPick({ type: 'none' });
-  });
+  }
 
   // ---------- projection for the labels ----------
   const _v = new THREE.Vector3(), _c = new THREE.Vector3();
@@ -585,11 +610,12 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   const clock = new THREE.Clock(); let fpsT = 0, fpsN = 0, fps = 0; const fieldMats = () => [...F.shells.map((m) => m.material)];
   let skip = 0;
   function frame() {
-    requestAnimationFrame(frame);
+    requestAnimationFrame(frame); if (paused) return;
     if (tween) wake(0.6); const resting = hold <= 0 && !reduceMotion;
     if (resting && (skip = (skip + 1) % 2) !== 0) return;     // at rest only the breathing and the slow current are left: half the frames keeps them smooth
     const dt = Math.min(clock.getDelta(), resting ? 0.12 : 0.05); U.uTime.value += dt; hold -= dt; if (!reduceMotion) flowU.uFlowT.value += dt;
     U.uHovAmt.value += ((hovZone >= 0 ? 1 : 0) - U.uHovAmt.value) * Math.min(1, dt * 10);
+    if (opts.embed && opts.turn && !tween && !reduceMotion && !down && performance.now() - lastTouch > 5000) { wake(0.3); const c = readCamera(); setCamera({ target: c.target, az: c.az + dt * opts.turn, pol: c.pol, dist: c.dist }); }
     if (sway && !tween && !reduceMotion) { wake(0.3); swayT += dt; const az = 0.16 * Math.sin(swayT * 0.32); const c = readCamera(); setCamera({ target: c.target, az, pol: c.pol, dist: c.dist }); }
     const k = reduceMotion ? 1 : 1 - Math.exp(-dt * 6);
     const lerp = (a, b) => a + (b - a) * k;
@@ -609,7 +635,10 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     // field
     F.amt = lerp(F.amt, F.on ? 1 : 0); field.visible = F.amt > 0.01;
     if (field.visible) {
-      F.shells.forEach((m) => { m.material.uniforms.uFade.value = F.amt * (F.focus && F.focus !== 'edge' ? 0.45 : 1); });
+      const dist = camera.position.distanceTo(controls.target), th = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2), fa = lastFa || { w: 1, h: 1 };
+      const fit = Math.min(dist * th * fa.h / (CY + REACH), dist * th * camera.aspect * fa.w / (BODY_A + REACH));   // 1: the whole shell just fits the free part of the screen
+      const whole = THREE.MathUtils.smoothstep(fit, 0.8, 0.98);
+      F.shells.forEach((m) => { m.material.uniforms.uFade.value = F.amt * (F.focus && F.focus !== 'edge' ? 0.45 : 1) * whole; });
       const show = (key) => F.always.includes(key) ? (F.focus && !focusKeys(F.focus).includes(key) ? 0.35 : 1) : (F.focus && focusKeys(F.focus).includes(key) ? 1 : 0);
       for (const [key, list] of Object.entries(F.parts)) { const a = show(key) * F.amt; list.forEach((m) => fadeObj(m, a, key)); }
       const ra = F.amt * (F.focus && F.focus !== 'timeline' ? 0.3 : 1); F.rings.children.forEach((l, i) => { l.material.opacity = (i === 0 ? 0.75 : 0.42) * ra; });
@@ -622,8 +651,11 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     controls.update(); aura.quaternion.copy(camera.quaternion);
     { const fa = look.flow * (1 - 0.25 * F.amt) * (1 - 0.45 * U.uSelAmt.value) * (1 - 0.5 * U.uXray.value); flowU.uFlowA.value = lerp(flowU.uFlowA.value, fa);
       flow.userData.stars.forEach((sp) => { sp.material.opacity = 0.34 * flowU.uFlowA.value * (1 - F.amt); }); flow.userData.axis.material.opacity = 0.035 * flowU.uFlowA.value * (1 - F.amt); }
+    const occ = !!(skin && hooks.beforeRender && hooks.beforeRender());   // true when the page wants the body's outline this frame
+    if (occ) { renderMask(); hooks.onMask && hooks.onMask(renderer.domElement); }
     renderAura();
     if (composer && glowOn) composer.render(); else renderer.render(scene, camera);
+    if (occ && hooks.afterRender) hooks.afterRender(renderer.domElement);
     hooks.onFrame && hooks.onFrame();
     if (resting) { fpsN = 0; fpsT = 0; }
     else { fpsN++; fpsT += dt; if (fpsT >= 0.5) { fps = Math.round(fpsN / fpsT); fpsN = 0; fpsT = 0; hooks.onFps && hooks.onFps(fps);
@@ -653,5 +685,6 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     if (reduceMotion) { setCamera(to); controls.update(); tween = null; } else tween = { from: c, to, t: 0, dur: 0.3 }; };
   const zoomBy = (k) => { const c = readCamera(); tween = { from: c, to: { ...c, dist: THREE.MathUtils.clamp(c.dist * k, controls.minDistance, controls.maxDistance) }, t: 0, dur: 0.35 }; wake(1); };
   const startSway = () => { if (!reduceMotion) { sway = true; swayT = 0; } };
-  return { orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
+  const setPaused = (p) => { paused = !!p; if (!paused) { clock.getDelta(); wake(1); } };
+  return { pickAt: (x, y, pt) => pickAt({ clientX: x, clientY: y, pointerType: pt || 'mouse' }), setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
 }
