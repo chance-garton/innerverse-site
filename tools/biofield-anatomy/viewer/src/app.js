@@ -367,8 +367,13 @@ function layoutLabels() {
         l.bx = side === 'L' ? Math.min(want, l.p.x - l.w - 18) : Math.max(want, l.p.x + 18); l.bx = Math.max(fr.x0, Math.min(fr.x1 - l.w, l.bx)); l.edge = side === 'L' ? l.bx + l.w : l.bx; });
     }
   } else {
-    LABS.forEach((l) => { if (l.hidden) return; const right = l.p.x >= cx; l.bx = right ? l.p.x + 13 : l.p.x - 13 - l.w; l.by = l.p.y - l.h / 2;
-      l.bx = Math.max(fr.x0, Math.min(fr.x1 - l.w, l.bx)); l.by = Math.max(fr.y0, Math.min(fr.y1 - l.h, l.by)); });
+    LABS.forEach((l) => { if (l.hidden) return; let right = l.p.x >= cx; l.by = Math.max(fr.y0, Math.min(fr.y1 - l.h, l.p.y - l.h / 2)); l.out = false; let edge = null;
+      if (l.far && labOcc && scene.bodyEdge && Math.abs(l.d.anchor[0]) < 0.03) {   // a spot straight behind the body: its label waits at the body's edge, where it can be read, and its line runs behind
+        const dx = l.p.x - scene.project([0, l.d.anchor[1], MID]).x; if (dx > 8) l.sd = 'R'; else if (dx < -8) l.sd = 'L'; else if (!l.sd) l.sd = 'R'; right = l.sd === 'R';
+        edge = scene.bodyEdge(l.by - 6, l.by + l.h + 6, right ? 1 : -1); }
+      l.bx = right ? l.p.x + 13 : l.p.x - 13 - l.w;
+      if (edge != null) { const want = right ? edge + 12 : edge - 12 - l.w; if (right ? want > l.bx : want < l.bx) { l.bx = want; l.out = true; } }
+      l.bx = Math.max(fr.x0, Math.min(fr.x1 - l.w, l.bx)); });
     // keep anchored labels from sitting on top of each other
     const vis = LABS.filter((l) => !l.hidden).sort((a, b) => a.by - b.by);
     for (let i = 1; i < vis.length; i++) for (let j = 0; j < i; j++) { const a = vis[j], b = vis[i]; if (b.bx < a.bx + a.w + 4 && a.bx < b.bx + b.w + 4 && b.by < a.by + a.h + 4) b.by = Math.min(fr.y1 - b.h, a.by + a.h + 4); }
@@ -376,13 +381,13 @@ function layoutLabels() {
   LABS.forEach((l) => {
     l.el.style.display = l.hidden ? 'none' : ''; if (l.pin) l.pin.style.display = l.hidden ? 'none' : ''; if (l.line) l.line.style.display = l.hidden ? 'none' : '';
     if (l.hidden) return;
-    const behind = l.far && labOcc && !!scene.setBackLabels; if (behind !== l.behind) { l.behind = behind; l.el.classList.toggle('bh', behind); if (l.pin) l.pin.classList.toggle('bh', behind); if (l.line) l.line.classList.toggle('bh', behind); }
+    const behind = l.far && labOcc && !!scene.setBackLabels; if (behind !== l.behind) { l.behind = behind; l.el.classList.toggle('under', behind); if (l.pin) l.pin.classList.toggle('under', behind); if (l.line) l.line.classList.toggle('under', behind); }
     l.el.style.transform = `translate3d(${Math.round(l.bx)}px,${Math.round(l.by)}px,0)`; l.el.classList.toggle('far', l.far);
     if (l.pin) { l.pin.style.transform = `translate3d(${l.p.x.toFixed(1)}px,${l.p.y.toFixed(1)}px,0)`; l.pin.classList.toggle('far', l.far); }
     if (l.line) {
       let x1, y1, x2, y2;
       if (labLayout === 'stacked') { x1 = l.edge; y1 = l.by + l.h / 2; x2 = l.p.x; y2 = l.p.y; }
-      else if (l.d.to) { const t = scene.project(l.d.to); x1 = l.p.x; y1 = l.p.y; x2 = t.x; y2 = t.y; } else { x1 = x2 = l.p.x; y1 = y2 = l.p.y; }
+      else if (l.d.to) { const t = scene.project(l.d.to); x1 = l.p.x; y1 = l.p.y; x2 = t.x; y2 = t.y; if (l.out) { x1 = l.sd === 'L' ? l.bx + l.w : l.bx; y1 = l.by + l.h / 2; } } else { x1 = x2 = l.p.x; y1 = y2 = l.p.y; }
       l.line.setAttribute('x1', x1); l.line.setAttribute('y1', y1); l.line.setAttribute('x2', x2); l.line.setAttribute('y2', y2); l.line.classList.toggle('far', l.far); l.lx = [x1, y1, x2, y2];
     }
   });

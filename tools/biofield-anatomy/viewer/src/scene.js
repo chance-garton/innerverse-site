@@ -321,6 +321,25 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   }
   const dropBackLabels = () => { backTex.forEach((t) => t.dispose()); backTex.clear(); backPool.forEach((o) => { o.quad.visible = o.pin.visible = o.line.visible = false; }); backN = 0; };
 
+  // ---------- the body's outline by height. A label whose spot is straight behind the body would be wholly covered; the page asks here
+  // where the body ends at the label's height, seen from where the camera stands, and sets the label just outside it. Worked out once from
+  // the skin: for each 2 cm slice of height, how far the body reaches in 32 directions around. ----------
+  let prof = null; const PB = 0.02, PK = 32;
+  const buildProf = () => { if (!skin) return null; skin.updateWorldMatrix(true, false); const a = skin.geometry.attributes.position, v = new THREE.Vector3(); const pts = new Float32Array(a.count * 3); let y0 = Infinity, y1 = -Infinity;
+    for (let i = 0; i < a.count; i++) { v.fromBufferAttribute(a, i).applyMatrix4(skin.matrixWorld); pts[i * 3] = v.x; pts[i * 3 + 1] = v.y; pts[i * 3 + 2] = v.z; if (v.y < y0) y0 = v.y; if (v.y > y1) y1 = v.y; }
+    const n = Math.floor((y1 - y0) / PB) + 1; const sup = new Float32Array(n * PK).fill(-Infinity); const cs = []; for (let k = 0; k < PK; k++) cs.push(Math.cos(k / PK * Math.PI * 2), Math.sin(k / PK * Math.PI * 2));
+    for (let i = 0; i < a.count; i++) { const b = Math.floor((pts[i * 3 + 1] - y0) / PB) * PK, x = pts[i * 3], z = pts[i * 3 + 2]; for (let k = 0; k < PK; k++) { const e = x * cs[k * 2] + z * cs[k * 2 + 1]; if (e > sup[b + k]) sup[b + k] = e; } }
+    return (prof = { y0, n, sup }); };
+  function bodyEdge(yTop, yBot, side) {   // the screen x where the body ends, on the right (side 1) or left (side -1), between two screen heights; null when the body is not in that band
+    const p = prof || buildProf(); if (!p) return null; const e = camera.matrixWorld.elements; let rx = e[0], rz = e[2]; const m = Math.hypot(rx, rz) || 1; rx = rx / m * side; rz = rz / m * side;
+    const f = ((Math.atan2(rz, rx) / (Math.PI * 2)) % 1 + 1) % 1 * PK; const k0 = Math.floor(f) % PK, k1 = (k0 + 1) % PK; const d = -rz * controls.target.x + rx * controls.target.z;   // the body's depth along the line of sight
+    const r = renderer.domElement.getBoundingClientRect(); let best = null;
+    for (let b = 0; b < p.n; b++) { const ext = Math.max(p.sup[b * PK + k0], p.sup[b * PK + k1]); if (!(ext > -Infinity)) continue;
+      _v.set(rx * ext - rz * d, p.y0 + (b + 0.5) * PB, rz * ext + rx * d).project(camera); const sy = r.top + (1 - _v.y) / 2 * r.height; if (sy < yTop || sy > yBot) continue;
+      const sx = r.left + (_v.x + 1) / 2 * r.width; if (best == null || (side > 0 ? sx > best : sx < best)) best = sx; }
+    return best;
+  }
+
   // ---------- backdrop depth: fine dust all around the figure, fixed in the room so it turns with the body ----------
   { const N_DUST = 420; const pos = new Float32Array(N_DUST * 3); let seed = 7; const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
     for (let i = 0; i < N_DUST; i++) { const a = rnd() * Math.PI * 2, u = rnd() * 2 - 1, r = 1.5 + Math.pow(rnd(), 0.7) * 3.6, q = Math.sqrt(1 - u * u); pos[i * 3] = Math.cos(a) * q * r; pos[i * 3 + 1] = 0.9 + u * r * 0.8; pos[i * 3 + 2] = MID + Math.sin(a) * q * r; }
@@ -703,5 +722,5 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   const zoomBy = (k) => { const c = readCamera(); tween = { from: c, to: { ...c, dist: THREE.MathUtils.clamp(c.dist * k, controls.minDistance, controls.maxDistance) }, t: 0, dur: 0.35 }; wake(1); };
   const startSway = () => { if (!reduceMotion) { sway = true; swayT = 0; } };
   const setPaused = (p) => { paused = !!p; if (!paused) { clock.getDelta(); wake(1); } };
-  return { setBackLabels, dropBackLabels, backCount: () => backPool.filter((o) => o.quad.visible).length, pixelRatio: () => renderer.domElement.width / (renderer.domElement.clientWidth || 1), setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
+  return { bodyEdge, setBackLabels, dropBackLabels, backCount: () => backPool.filter((o) => o.quad.visible).length, pixelRatio: () => renderer.domElement.width / (renderer.domElement.clientWidth || 1), setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
 }

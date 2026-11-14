@@ -284,8 +284,10 @@ an onion, not a torus; the field view has the better shape but at another scale.
 - Labels behind the body, second method, at his ask (10:25): the far labels of a center are drawn inside the 3D picture, before the
   body's glow, inner parts and skin (`setBackLabels` in `scene.js`, render order -0.8, no depth test). The body is simply painted
   over them, so its halo passes in front and they show faintly through see-through skin; nothing is cut out, so nothing clips. The
-  page label stays in place, unseen (`.bh`), to hold position and size; its picture is made from the page's own layout, letter by
+  page label stays in place, unseen (`.under`), to hold position and size; its picture is made from the page's own layout, letter by
   letter (`labelPicture` in `app.js`). The dot and line are drawn with it. A press on empty space over such a label opens it
   (`backAt`); a press on the body where it covers the label goes to the body. The page lays labels out before each frame is drawn
   (`beforeRender`), so they move with the body in the same frame. Not used for a single part shown alone.
+  A spot straight behind the body (the throat's Back) would be wholly covered, so its label waits just outside the body's outline at
+  its height and its line runs behind (`bodyEdge` in `scene.js`, an outline table worked out once from the skin; `l.out` in `app.js`).
 - Checks: section 5c in `checks/checks.mjs`.

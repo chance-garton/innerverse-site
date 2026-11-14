@@ -369,6 +369,11 @@ await p.context().close();
   const back = await st(); ok('turned to the back, the roles swap: the front spots go behind the body', back.behind === 'LF,RF' && back.near === 'LB,RB' && back.back === 2, JSON.stringify(back));
   const rest = await q.evaluate(async () => { const { go, scene, labs } = window.__bfa; const wait = (ms) => new Promise((x) => setTimeout(x, ms)); go({ id: 'kidneys' }); await wait(1200); const part = { back: scene.backCount(), behind: labs().filter((l) => l.behind).length }; go({ view: 'chakra' }); await wait(900); return { part, home: scene.backCount() }; });
   ok('a part shown alone keeps its labels on the page (the body is only a ghost there), and the home view has none in the picture', rest.part.back === 0 && rest.part.behind === 0 && rest.home === 0, JSON.stringify(rest));
+  { // a spot straight behind the body (the throat's Back) would be wholly covered: its label waits at the body's edge instead, and can be read and pressed
+    await q.evaluate(() => { window.__bfa.scene.turnTo(0); window.__bfa.go({ id: 'throat' }); }); await q.waitForFunction(() => { const l = window.__bfa.labs().find((l) => l.d.id === 'B'); return l && l.behind && l.out && window.__bfa.scene.backCount() === 1; }, null, { timeout: 30000 }).catch(() => {}); await q.waitForTimeout(1500);
+    const t = await q.evaluate(() => { const l = window.__bfa.labs().find((l) => l.d.id === 'B'); const cs = getComputedStyle(l.el); return { out: !!l.out, behind: !!l.behind, bx: l.bx, by: l.by, w: l.w, h: l.h, px: l.p.x, edge: window.__bfa.scene.bodyEdge(l.by, l.by + l.h, 1), wrap: cs.flexWrap, al: cs.alignItems, mb: cs.marginBottom }; });
+    ok('the throat\'s Back label, straight behind the head, waits just outside the body\'s outline; laid out like every other label', t.out && t.behind && t.bx >= t.edge + 8 && t.bx > t.px + 40 && t.wrap === 'nowrap' && t.al === 'center' && t.mb === '0px', JSON.stringify(t));
+    await q.mouse.click(t.bx + t.w / 2, t.by + t.h / 2); await q.waitForTimeout(500); ok('and a press on it opens the Back of the throat (the body does not cover it)', /throat-pos-b/.test(q.url()), q.url()); }
   await q.context().close(); }
 // ---- 6. frame pacing with motion on (software renderer, so this is only a floor; it says nothing about a real phone)
 for (const [w, h, label] of [[1440, 900, 'desktop'], [390, 844, 'phone size']]) {
