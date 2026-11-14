@@ -322,6 +322,12 @@
      ?t=SECONDS, which is what chapter seeking needs. Checked BEFORE
      YouTube: an Odysee embed URL contains the literal "embed/", which
      youtubeId() would otherwise match. */
+  function vimeoHash(url) {
+    if (!url) return '';
+    var m = String(url).match(/vimeo\.com\/(?:video\/)?\d{6,}\/([0-9a-f]{6,})/i) || String(url).match(/[?&]h=([0-9a-f]{6,})/i);
+    return m ? m[1] : '';
+  }
+
   function odyseePath(url) {
     if (!url) return '';
     var m = String(url).match(/odysee\.com\/(?:\$\/embed\/)?([^?#\s]+)/i);
@@ -334,7 +340,7 @@
     var yt = youtubeId(url);
     if (yt) return { platform: 'youtube', id: yt, src: 'https://www.youtube.com/embed/' + yt + '?autoplay=1&rel=0' };
     var vm = vimeoId(url);
-    if (vm) return { platform: 'vimeo', id: vm, src: 'https://player.vimeo.com/video/' + vm + '?autoplay=1' };
+    if (vm) { var vh = vimeoHash(url); return { platform: 'vimeo', id: vm, hash: vh, src: 'https://player.vimeo.com/video/' + vm + '?autoplay=1' + (vh ? '&h=' + vh : '') }; }
     return { platform: '', id: '', src: '' };
   }
 
@@ -3164,7 +3170,8 @@
             '&origin=' + encodeURIComponent(window.location.origin) +
             (at ? '&start=' + at : '');
     } else if (platform === 'vimeo') {
-      src = 'https://player.vimeo.com/video/' + id + '?autoplay=1' + (at ? '#t=' + at + 's' : '');
+      var vhash = ratio.getAttribute('data-video-hash');
+      src = 'https://player.vimeo.com/video/' + id + '?autoplay=1' + (vhash ? '&h=' + vhash : '') + (at ? '#t=' + at + 's' : '');
     } else if (platform === 'odysee') {
       src = 'https://odysee.com/$/embed/' + id + '?autoplay=1' + (at ? '&t=' + at : '');
     } else {
@@ -3267,7 +3274,7 @@
           '</button>' +
         '</div>' +
         '<div class="iv-toggle-panel iv-panel-watch" data-panel="watch">' +
-          '<div class="iv-ratio" id="iv-video-ratio" data-yt-id="' + esc(v.platform === 'youtube' ? v.id : '') + '" data-video-id="' + esc(v.id) + '" data-video-src="' + esc(v.src) + '" data-video-platform="' + esc(v.platform) + '">' +
+          '<div class="iv-ratio" id="iv-video-ratio" data-yt-id="' + esc(v.platform === 'youtube' ? v.id : '') + '" data-video-id="' + esc(v.id) + '" data-video-src="' + esc(v.src) + '" data-video-hash="' + esc(v.hash || '') + '" data-video-platform="' + esc(v.platform) + '">' +
             '<div class="iv-video-cover" id="iv-video-cover" style="background-image:url(&#39;' + esc(ivImg(f.thumbnail, 1000)) + '&#39;);">' +
               '<button type="button" class="iv-video-play" id="iv-video-play-btn" aria-label="Play video">' + SVG.bigPlay + '</button>' +
             '</div>' +

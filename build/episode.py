@@ -110,6 +110,13 @@ def vimeo_id(u):
     return m.group(1) if m else ""
 
 
+def vimeo_hash(u):
+    """Privacy hash of an unlisted Vimeo link (vimeo.com/<id>/<hash> or ?h=<hash>);
+    the player refuses an unlisted video without it."""
+    m = re.search(r"vimeo\.com/(?:video/)?\d{6,}/([0-9a-f]{6,})", u or "", re.I) or re.search(r"[?&]h=([0-9a-f]{6,})", u or "", re.I)
+    return m.group(1) if m else ""
+
+
 def odysee_path(u):
     m = re.search(r"odysee\.com/(?:\$/embed/)?([^?#\s]+)", u or "", re.I)
     return m.group(1).rstrip("/") if m else ""
@@ -124,7 +131,8 @@ def video_embed(u):
         return {"platform": "youtube", "id": yt, "src": "https://www.youtube.com/embed/" + yt + "?autoplay=1&rel=0"}
     vm = vimeo_id(u)
     if vm:
-        return {"platform": "vimeo", "id": vm, "src": "https://player.vimeo.com/video/" + vm + "?autoplay=1"}
+        h = vimeo_hash(u)
+        return {"platform": "vimeo", "id": vm, "hash": h, "src": "https://player.vimeo.com/video/" + vm + "?autoplay=1" + ("&h=" + h if h else "")}
     return {"platform": "", "id": "", "src": ""}
 
 
@@ -296,7 +304,7 @@ def build_media_toggle_full(f):
         "<span>Window</span></button>"
         "</div>"
         '<div class="iv-toggle-panel iv-panel-watch" data-panel="watch">'
-        '<div class="iv-ratio" id="iv-video-ratio" data-yt-id="' + esc(v["id"] if v["platform"] == "youtube" else "") + '" data-video-id="' + esc(v["id"]) + '" data-video-src="' + esc(v["src"]) + '" data-video-platform="' + esc(v["platform"]) + '">'
+        '<div class="iv-ratio" id="iv-video-ratio" data-yt-id="' + esc(v["id"] if v["platform"] == "youtube" else "") + '" data-video-id="' + esc(v["id"]) + '" data-video-src="' + esc(v["src"]) + '" data-video-hash="' + esc(v.get("hash", "")) + '" data-video-platform="' + esc(v["platform"]) + '">'
         '<div class="iv-video-cover" id="iv-video-cover" style="background-image:url(&#39;' + esc(iv_img(f["thumbnail"], 1000)) + '&#39;);">'
         '<button type="button" class="iv-video-play" id="iv-video-play-btn" aria-label="Play video">' + SVG["bigPlay"] + "</button>"
         "</div></div></div>"
@@ -818,7 +826,7 @@ def structured_data(f, r, guests, canonical, description, image, post):
     if v["platform"] and date:
         vid = {
             "@type": "VideoObject", "@id": canonical + "#video", "name": plain(f["title"].replace("*", "")),
-            "description": description, "uploadDate": date, "embedUrl": v["src"].replace("?autoplay=1&rel=0", "").replace("?autoplay=1", ""),
+            "description": description, "uploadDate": date, "embedUrl": v["src"].replace("?autoplay=1&rel=0", "").replace("?autoplay=1&", "?").replace("?autoplay=1", ""),
             "thumbnailUrl": [iv_img(f["thumbnail"] or image, 1500)],
         }
         if v["platform"] == "youtube":
