@@ -139,7 +139,9 @@ for (const w of [1000, 1024, 1100, 1280, 1320, 1366, 1440, 1680, 1920]) {
 p = await open(1440, 900, '#solar'); await p.waitForFunction(() => document.querySelectorAll('#labels .lab.far').length === 2, null, { timeout: 30000 }).catch(() => {});
 const solid = await p.evaluate(() => { const L = [...document.querySelectorAll('#labels .lab')]; const all = L.every((l) => { const c = getComputedStyle(l); const m = c.backgroundColor.match(/rgba?\(([^)]+)\)/)[1].split(',').map(Number); return (m.length < 4 || m[3] === 1) && Number(c.opacity) === 1; });
   const far = L.filter((l) => l.classList.contains('far')).map((l) => getComputedStyle(l.querySelector('.lt')).opacity); return { all, far }; });
-ok('labels are solid, so dots behind them stay hidden (front and back); the far ones are dimmed to .36', solid.all && solid.far.length === 2 && solid.far.every((o) => o === '0.36'), JSON.stringify(solid)); await p.context().close();
+ok('labels are solid, so dots behind them stay hidden (front and back); the far ones are dimmed to .36', solid.all && solid.far.length === 2 && solid.far.every((o) => o === '0.36'), JSON.stringify(solid)); 
+{ const z = await p.evaluate(() => { const zi = (e) => Number(getComputedStyle(e).zIndex); const L = [...document.querySelectorAll('#labels .lab')]; return { near: L.filter((l) => !l.classList.contains('far')).map(zi), far: L.filter((l) => l.classList.contains('far')).map(zi), pin: [...document.querySelectorAll('#labels .pin')].map(zi) }; });
+  ok('a dim label never lies on a bright one: bright labels stack above dim ones, and dots below both', Math.min(...z.near) > Math.max(...z.far) && Math.min(...z.far) > Math.max(...z.pin), JSON.stringify(z)); } await p.context().close();
 // ---- polish round (2026-11-13): pointing, view controls, history, sizes
 p = await open(1440, 900);
 ok('view controls show which side faces the viewer', (await p.textContent('#c-face b')) === 'Front view');

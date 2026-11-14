@@ -279,4 +279,6 @@ an onion, not a torus; the field view has the better shape but at another scale.
   "choose one" caption.
 - See-through far labels were tried next (his idea) and taken out within minutes (his word). Far labels are solid as at first, with
   their dot and words a fifth dimmer (`.lab.far` in `index.html`, .45 to .36).
+- A dim label could lie on a bright one when two collided, because all labels stacked in page order. Bright labels now always
+  stack above dim ones, and dots below both (`.lab.far` z-index 1, `.pin` 0).
 - Checks: section 5c in `checks/checks.mjs`.
