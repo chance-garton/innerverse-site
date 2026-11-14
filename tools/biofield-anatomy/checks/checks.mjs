@@ -135,10 +135,11 @@ for (const w of [1000, 1024, 1100, 1280, 1320, 1366, 1440, 1680, 1920]) {
     return bad; });
   ok(`rail fits at ${w} wide`, fit.length === 0, fit.join(', ')); await p.context().close();
 }
-// a dot never shows through a label, front or back
+// a dot never shows through a near label; the far ones are see-through on purpose (Chance, 2026-11-14)
 p = await open(1440, 900, '#solar');
-const solid = await p.evaluate(() => [...document.querySelectorAll('#labels .lab')].every((l) => { const c = getComputedStyle(l); const m = c.backgroundColor.match(/rgba?\(([^)]+)\)/)[1].split(',').map(Number); return (m.length < 4 || m[3] === 1) && Number(c.opacity) === 1; }));
-ok('labels are solid, so dots behind them stay hidden (front and back)', solid); await p.context().close();
+const solid = await p.evaluate(() => { const al = (l) => { const c = getComputedStyle(l); const m = c.backgroundColor.match(/rgba?\(([^)]+)\)/)[1].split(',').map(Number); return Number(c.opacity) === 1 ? (m.length < 4 ? 1 : m[3]) : 0; }; const L = [...document.querySelectorAll('#labels .lab')]; const near = L.filter((l) => !l.classList.contains('far')), far = L.filter((l) => l.classList.contains('far'));
+  return { near: near.length > 0 && near.every((l) => al(l) === 1), far: far.length > 0 && far.every((l) => al(l) > 0.2 && al(l) < 0.7) }; });
+ok('near labels are solid, so dots behind them stay hidden; far labels are partly see-through', solid.near && solid.far, JSON.stringify(solid)); await p.context().close();
 // ---- polish round (2026-11-13): pointing, view controls, history, sizes
 p = await open(1440, 900);
 ok('view controls show which side faces the viewer', (await p.textContent('#c-face b')) === 'Front view');

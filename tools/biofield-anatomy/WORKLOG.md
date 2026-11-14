@@ -277,4 +277,6 @@ an onion, not a torus; the field view has the better shape but at another scale.
   The trial is commit `d63ad84`; do not bring it back without a different method.
 - The zodiac legend is "The signs": each cell is the sign's drawn glyph in its own colour with its name. The Legs panel lost its
   "choose one" caption.
+- In its place (his idea): the dimmed far labels are also partly see-through (`.lab.far` in `index.html`), so the body shows through
+  them and they read as behind it. A far label turns solid under the pointer. Near labels stay solid.
 - Checks: section 5c in `checks/checks.mjs`.
