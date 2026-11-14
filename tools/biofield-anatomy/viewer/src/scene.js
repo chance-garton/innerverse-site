@@ -570,7 +570,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   // ---------- frame loop ----------
   function resize() { const w = stage.clientWidth, h = stage.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; applyOffset();
     if (!composer && glowOn) { try {
-      const rt = new THREE.WebGLRenderTarget(Math.max(1, w * pr), Math.max(1, h * pr), { type: THREE.HalfFloatType, samples: pr >= 2 ? 0 : 4 });   // dense screens need no extra smoothing, and it is the costly part on a phone
+      const rt = new THREE.WebGLRenderTarget(Math.max(1, w * pr), Math.max(1, h * pr), { type: THREE.HalfFloatType, samples: pr >= 2 && pr >= (devicePixelRatio || 1) ? 0 : 4 });   // a screen drawn at its full density needs no extra smoothing; a 3x phone drawn at 2x does, or edges stair-step (seen on Chance's phone, 2026-11-13)
       composer = new EffectComposer(renderer, rt); composer.addPass(new RenderPass(scene, camera)); const bloom = new UnrealBloomPass(new THREE.Vector2(w, h), 0.15, 0.9, 0.42); bloom.highPassUniforms.smoothWidth.value = 0.5; composer.addPass(bloom);   // a low, wide glow that eases in: nothing switches on at a hard brightness line composer.addPass(new OutputPass());
     } catch (e) { composer = null; glowOn = false; } }
     if (composer) { composer.setPixelRatio(pr); composer.setSize(w, h); }
@@ -630,8 +630,9 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       slow = fps < 26 ? slow + 1 : 0;
       if (slow >= 4 && !navigator.webdriver) {            // a struggling device first loses the glow pass, then sharpness
         if (glowOn && composer) { glowOn = false; slow = 0; }
-        else if (pr > 1) { pr = Math.max(1, pr - 0.5); renderer.setPixelRatio(pr); resize(); slow = 0; }
-        else if (aur.on) { aur.on = false; slow = 0; } } } }
+        else if (pr > 1.5) { pr = 1.5; renderer.setPixelRatio(pr); resize(); slow = 0; }
+        else if (aur.on) { aur.on = false; slow = 0; }                                   // the aura goes before the last step of sharpness: a soft halo is missed less than a jagged body
+        else if (pr > 1 && (devicePixelRatio || 1) < 2.5) { pr = 1; renderer.setPixelRatio(pr); resize(); slow = 0; } } } }   // a 3x phone never drops below 1.5: at 1 its edges stair-step
   }
   const focusKeys = (f) => ({ rivers: ['rivers'], parents: ['parents'], channel: ['channel', 'sunstar', 'earthstar'], sunstar: ['sunstar', 'channel'], earthstar: ['earthstar', 'channel'], adrenal: ['adrenal'], lefthip: ['lefthip'], ditch: ['ditch'], sides: [], frontback: [], timeline: [], edge: [] }[f] || []);
   function fadeObj(m, a, key) {

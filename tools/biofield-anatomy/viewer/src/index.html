@@ -258,7 +258,7 @@ details.rules>summary::-webkit-details-marker{display:none}
 #tip i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
 #tip span{font-weight:500;color:var(--ink-soft)}
 #stage canvas{cursor:grab}
-#strip,#mtop,#msearch,#matoz{display:none}
+#strip,#mtop,#msearch{display:none}
 
 @media (min-width:1700px){:root{--rail:330px;--panel:468px;--gap:22px}body{font-size:16px}h1{font-size:30px}h2{font-size:37px}.it .zn{font-size:15px}.lede{font-size:16.5px}#detail{padding:28px 28px 8px}}
 @media (max-width:1320px){#railfoot .wd{display:none}:root{--rail:262px;--panel:348px;--gap:12px}#rail{padding-left:12px;padding-right:12px}.tab{font-size:12px;padding:8px 2px}h1{font-size:24px}h2{font-size:28px}#detail{padding:18px 18px 8px}#foot .credit{display:none}}
@@ -270,7 +270,12 @@ details.rules>summary::-webkit-details-marker{display:none}
   #brand{display:flex;align-items:baseline;gap:8px;padding:0 2px}
   #brand .eyebrow{display:none}
   h1{font-size:21px;margin:0;flex:1}
-  #msearch,#matoz{display:inline-flex;align-items:center;gap:6px;padding:6px 13px}
+  /* phones: no A to Z (Chance, 2026-11-13); search is one roomy bubble that reads as a place to type */
+  #brand h1{white-space:nowrap}
+  #msearch{display:flex;flex:1 1 0;min-width:112px;max-width:210px;align-items:center;gap:9px;min-height:44px;padding:0 16px 0 14px;border-radius:999px;border:1.5px solid var(--btn-line);background:rgba(239,233,220,.07);color:var(--ink-soft);font:500 14px var(--body);letter-spacing:0;text-align:left;white-space:nowrap;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+  #msearch svg{flex:none;width:16px;height:16px;stroke:var(--ink);opacity:.85}
+  #msearch:active{background:rgba(239,233,220,.12)}
+  .dk-only{display:none !important}
   #searchbox{display:none}
   .searching #searchbox{display:block;position:fixed;left:10px;right:10px;top:8px;z-index:40}
   .searching #results{max-height:70vh}
@@ -290,7 +295,7 @@ details.rules>summary::-webkit-details-marker{display:none}
   #panel{left:0;right:0;top:auto;bottom:0;width:auto;height:var(--sheet,42vh);border-radius:20px 20px 0 0;border-width:1px 0 0;transition:height .32s cubic-bezier(.3,.8,.3,1);background:rgba(10,12,23,.93)}
   #grab{display:flex;justify-content:center;align-items:center;flex:none;height:36px;cursor:grab;touch-action:none;background:none;border:0;width:100%}
   #grab::before{content:"";width:42px;height:4px;border-radius:2px;background:rgba(255,255,255,.28)}
-  #detail{padding:2px 18px 8px}
+  #detail{padding:2px 18px 30px;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 30px),transparent)}
   h2{font-size:27px}
   h2.sm{font-size:23px}
   #foot{padding:8px 14px calc(10px + env(safe-area-inset-bottom,0px))}
@@ -301,6 +306,7 @@ details.rules>summary::-webkit-details-marker{display:none}
   #ctl .zoom{display:none}
   .sheet-full #ctl,.sheet-full #back{display:none}
   .lab{max-width:150px;min-height:36px;padding:4px 9px 4px 8px}
+  @media (max-height:800px){.lab{min-height:30px;padding-top:2px;padding-bottom:2px}}   /* a short phone screen: the eight labels close up so none slides under the tabs */
   .lab .l2{font-size:12.5px}
   .lab .l1{font-size:12px;letter-spacing:.04em}
   .sc{min-height:44px;font-size:13px}
@@ -315,8 +321,7 @@ details.rules>summary::-webkit-details-marker{display:none}
 <aside id="rail" class="glass" aria-label="Browse">
   <div id="brand">
     <div style="flex:1"><p class="eyebrow">INNERVERSE</p><h1>Biofield Anatomy</h1></div>
-    <button id="matoz" class="quiet" type="button">A to Z</button>
-    <button id="msearch" class="quiet" type="button" aria-label="Search">Search</button>
+    <button id="msearch" type="button" aria-label="Search the map"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg><span>Search the map</span></button>
   </div>
   <div id="searchbox" role="search">
     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>

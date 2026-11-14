@@ -235,3 +235,16 @@ an onion, not a torus; the field view has the better shape but at another scale.
 - Chance's rule, 2026-11-13: no wording that makes the map feel incomplete ("for now", "carry no meaning" and the like). The content
   file was swept and a check guards it.
 
+## 2026-11-13, evening: first look on a real phone (Chance's screenshot from the Claude iOS app, about 395 by 745)
+
+- Center labels slid under the tabs: the label column had no upper bound when eight labels were taller than the stage. Now it closes
+  up evenly inside the stage (`place` in `app.js`), labels are 30px tall on screens under 800 tall, and the half sheet leaves the
+  stage at least 330px (`SHEETS.half`).
+- Stair-stepped body edge: the glow pass drew a 3x phone at 2x with no smoothing, and the slow-device ladder could fall to 1x. Now
+  the glow target is multisampled whenever it is drawn below the screen's density, the aura goes before the last step of
+  sharpness, and a 3x phone never drops below 1.5x. Not verifiable on the software renderer: needs his eye.
+- No A to Z on phones (his word): the top bar is the title and one search bubble that opens the search ready to type. The opening
+  panel and the search's no-match row do not offer A to Z on phones.
+- The sheet text fades at its bottom edge.
+- Narrating lines cut (his word): the A to Z count line, the feelings index tagline, the zodiac legend's spectrum sentence.
+

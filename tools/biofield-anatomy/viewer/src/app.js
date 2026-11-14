@@ -309,6 +309,7 @@ function layoutLabels() {
       a.forEach((l) => { l.by = Math.max(l.p.y - l.h / 2, y); y = l.by + l.h + gap; });
       let over = a.length ? a[a.length - 1].by + a[a.length - 1].h - fr.y1 : 0;
       for (let i = a.length - 1; i >= 0 && over > 0; i--) { const l = a[i]; const maxY = (i === a.length - 1 ? fr.y1 : a[i + 1].by - gap) - l.h; if (l.by > maxY) l.by = maxY; }
+      if (a.length > 1 && a[0].by < fr.y0) { const hh = a[0].h; const pitch = Math.max(hh * 0.8, (fr.y1 - fr.y0 - hh) / (a.length - 1)); a.forEach((l, i) => { l.by = fr.y0 + i * pitch; }); }   // never under the tabs: on a short screen the column closes up
       a.forEach((l) => { const reach = phone ? 0.36 : 0.30; const want = side === 'L' ? Math.max(fr.x0, cx - (fr.x1 - fr.x0) * reach - l.w) : Math.min(fr.x1 - l.w, cx + (fr.x1 - fr.x0) * reach);
         l.bx = side === 'L' ? Math.min(want, l.p.x - l.w - 18) : Math.max(want, l.p.x + 18); l.bx = Math.max(fr.x0, Math.min(fr.x1 - l.w, l.bx)); l.edge = side === 'L' ? l.bx + l.w : l.bx; });
     }
@@ -370,7 +371,6 @@ document.addEventListener('click', (e) => {
 });
 document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => go({ view: t.dataset.view })));
 $('#b-atoz').addEventListener('click', () => go({ special: 'atoz' }));
-$('#matoz').addEventListener('click', () => go({ special: 'atoz' }));
 $('#b-about').addEventListener('click', () => go({ special: 'about' }));
 $('#b-feelings').addEventListener('click', () => go({ special: 'feelings' }));
 $('#b-keys').addEventListener('click', () => toggleKeys());
@@ -454,7 +454,7 @@ function exploreFeeling(f) {
 }
 function zodiacLegend() {
   return `<div class="blk"><div class="bh"><h3>The colors</h3><span>Head to feet</span></div><div class="zleg">` + SIGNS.map((g) => `<button class="zcell" type="button" data-go="${g.id}" style="--c:${g.zc}"><i></i><span>${esc(g.name)}</span></button>`).join('') +
-    `</div><p class="note">The twelve signs run in one spectrum, from Aries at the head to Pisces at the feet. Leo and Libra sit on the back of the body: turn the figure to see them.</p></div>`;
+    `</div><p class="note">Leo and Libra sit on the back of the body: turn the figure to see them.</p></div>`;
 }
 function resumeTitle() {
   let h = RESUME || ''; if (h.startsWith('feeling-')) { const f = feelBySlug(h.slice(8)); return f ? f.name : ''; }
@@ -576,7 +576,7 @@ function renderPower(f) {
 }
 function renderFeelings() {
   panel.style.setProperty('--zone', IVORY); document.documentElement.style.setProperty('--zone', IVORY);
-  return `<p class="eyebrow">Index</p><h2 class="sm">All feelings</h2><p class="lede soft">Start from what you feel, and see where it may live.</p><div class="blk cols">` +
+  return `<p class="eyebrow">Index</p><h2 class="sm">All feelings</h2><div class="blk cols">` +
     FEEL_ONE.map((o) => `<button class="res" type="button" data-feeling="${esc(o.feeling)}"><b style="font-size:13.5px;font-weight:500">${esc(o.label)}</b></button>`).join('') + '</div>';
 }
 const AZ_TYPES = [['all', 'All'], ['Chakra', 'Chakras'], ['Body part', 'Body parts'], ['Field', 'Field'], ['Zodiac', 'Zodiac'], ['Feeling', 'Feelings']];
@@ -592,7 +592,7 @@ function azItems() {
 function renderAtoZ() {
   panel.style.setProperty('--zone', IVORY); document.documentElement.style.setProperty('--zone', IVORY);
   const f = S.az || 'all'; const items = azItems().filter((x) => f === 'all' || x.type === f);
-  let h = `<p class="eyebrow">Index</p><h2 class="sm">Biofield A to Z</h2><p class="lede soft">Everything on the map in one list: ${items.length} entries.</p><div class="chips">` + AZ_TYPES.map(([k, l]) => `<button class="quiet" type="button" data-az="${k}" aria-pressed="${f === k}">${l}</button>`).join('') + '</div><div class="blk az">';
+  let h = `<p class="eyebrow">Index</p><h2 class="sm">Biofield A to Z</h2><div class="chips">` + AZ_TYPES.map(([k, l]) => `<button class="quiet" type="button" data-az="${k}" aria-pressed="${f === k}">${l}</button>`).join('') + '</div><div class="blk az">';
   let letter = '';
   items.forEach((x) => { const L = x.k.charAt(0).toUpperCase(); if (L !== letter) { letter = L; h += `<div class="azl">${L}</div>`; }
     h += `<button class="res" type="button" ${x.feeling ? `data-feeling="${esc(x.feeling)}"` : `data-go="${x.go}" data-view="chakra"`} style="--c:${x.c}"><i></i><b>${esc(x.t)}</b><span>${esc(x.tag)}</span></button>`; });
@@ -609,9 +609,9 @@ function renderInfo(id) {
   if (id === 'field' && !isPhone()) h += startRow('Start with', ['f-edge', 'f-timeline', 'f-channel', 'f-sides', 'f-rivers', 'f-parents']);
   if (id === 'organs') h += startRow('Start with', ['liver', 'heartorgan', 'lungs', 'kidneys', 'adrenals', 'brain', 'spine', 'vagus', 'skin']);
   if (id === 'zodiac') h += zodiacLegend();
-  if (id === 'about') h += `<div class="blk"><div class="bh"><h3>Explore the map</h3></div><div class="chips" style="margin:0">` + [['chakra', 'Energy centers'], ['feelings', 'Feelings'], ['field', 'The field'], ['organs', 'Body parts'], ['zodiac', 'The zodiac body']].map(([v, l]) => `<button class="chip gl" type="button" data-setview="${v}">${l}</button>`).join('') + `<button class="chip gl" type="button" data-special="atoz">Biofield A to Z</button></div></div>`;
+  if (id === 'about') h += `<div class="blk"><div class="bh"><h3>Explore the map</h3></div><div class="chips" style="margin:0">` + [['chakra', 'Energy centers'], ['feelings', 'Feelings'], ['field', 'The field'], ['organs', 'Body parts'], ['zodiac', 'The zodiac body']].map(([v, l]) => `<button class="chip gl" type="button" data-setview="${v}">${l}</button>`).join('') + `<button class="chip gl dk-only" type="button" data-special="atoz">Biofield A to Z</button></div></div>`;
   if (id === 'field' && isPhone()) { let g = ''; FIELD.forEach((f) => { if (f.group !== g) { h += (g ? '</div></div>' : '') + `<div class="blk"><div class="bh"><h3>${esc(f.group)}</h3></div><div class="chips" style="margin:0">`; g = f.group; } h += `<button class="chip gl" type="button" data-go="${f.id}">${esc(f.name)}</button>`; }); h += '</div></div>'; }
-  if (id === 'home') h += `<div class="blk"><div class="bh"><h3>Start here</h3></div><div class="chips" style="margin:0">` + CENTERS.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}">${esc(N.get(c).name)}</button>`).join('') + `</div></div><div class="blk"><div class="bh"><h3>Or start from a feeling</h3></div><div class="chips" style="margin:0">` + START_FEELINGS.map((f) => `<button class="chip gl" type="button" data-feeling="${esc(feelOf(f))}">${f}</button>`).join('') + `<button class="chip gl" type="button" id="c-feel">All feelings</button></div></div><div class="blk"><div class="bh"><h3>Or explore the field</h3></div><div class="chips" style="margin:0"><button class="chip gl" type="button" data-go="f-timeline">Find an age in your field</button><button class="chip gl" type="button" data-setview="field">The field around the body</button></div></div>` + rules + `<div class="blk ph-only"><div class="chips" style="margin:0"><button class="chip gl" type="button" data-special="atoz">Biofield A to Z</button><button class="chip gl" type="button" data-special="about">About this map</button></div></div>`;
+  if (id === 'home') h += `<div class="blk"><div class="bh"><h3>Start here</h3></div><div class="chips" style="margin:0">` + CENTERS.map((c) => `<button class="chip" style="--zone:${colorOf(N.get(c), 1)}" type="button" data-go="${c}">${esc(N.get(c).name)}</button>`).join('') + `</div></div><div class="blk"><div class="bh"><h3>Or start from a feeling</h3></div><div class="chips" style="margin:0">` + START_FEELINGS.map((f) => `<button class="chip gl" type="button" data-feeling="${esc(feelOf(f))}">${f}</button>`).join('') + `<button class="chip gl" type="button" id="c-feel">All feelings</button></div></div><div class="blk"><div class="bh"><h3>Or explore the field</h3></div><div class="chips" style="margin:0"><button class="chip gl" type="button" data-go="f-timeline">Find an age in your field</button><button class="chip gl" type="button" data-setview="field">The field around the body</button></div></div>` + rules + `<div class="blk ph-only"><div class="chips" style="margin:0"><button class="chip gl" type="button" data-special="about">About this map</button></div></div>`;
   return h;
 }
 function renderPanel() {
@@ -665,7 +665,7 @@ $('#c-out').addEventListener('click', () => { scene.zoomBy && scene.zoomBy(1.28)
 setTimeout(() => document.body.classList.add('touched'), 14000);
 
 // ---------- phone sheet ----------
-const SHEETS = { peek: () => 132, half: () => Math.round(innerHeight * 0.42), full: () => Math.round(innerHeight * 0.86) };
+const SHEETS = { peek: () => 132, half: () => { const want = Math.round(innerHeight * 0.42); return isPhone() ? Math.max(150, Math.min(want, Math.round(innerHeight - rail.getBoundingClientRect().bottom - 330))) : want; } /* a short phone screen keeps room for the figure and its eight labels */, full: () => Math.round(innerHeight * 0.86) };
 function setSheet(s, noRefit) { sheet = s; document.body.classList.toggle('sheet-full', s === 'full'); panel.style.setProperty('--sheet', SHEETS[s]() + 'px'); placeChrome(); if (!noRefit) setTimeout(() => { scene.refit(false); labDirty = true; }, 340); }
 function placeChrome() {
   const ctl = $('#ctl');
@@ -734,7 +734,7 @@ function search(q) {
       const rec = recent(); const pop = START_FEELINGS.filter((f) => C.feelings.some((x) => x.name === feelOf(f))).map((f) => ({ type: 'feeling', id: feelOf(f), title: f, sub: 'Feeling', color: IVORY }));
       flat = [...rec, ...pop]; box.innerHTML = (rec.length ? '<div class="rg">Recent</div>' + rec.map(sug).join('') : '') + '<div class="rg">Try a feeling</div>' + pop.map(sug).join(''); box.classList.add('open'); cur = -1; return; }
     flat = [...r.nodes, ...r.feels, ...r.ment];
-    if (!flat.length) { const near = nearest(q.value); flat = [...near, { type: 'atoz', title: 'Biofield A to Z', sub: 'Browse everything on the map' }];
+    if (!flat.length) { const near = nearest(q.value); flat = [...near, ...(isPhone() ? [] : [{ type: 'atoz', title: 'Biofield A to Z', sub: 'Browse everything on the map' }])];
       box.innerHTML = '<div class="nores">Nothing on the map matches that yet. Try a body part, an organ or a feeling.</div>' + (near.length ? '<div class="rg">Closest on the map</div>' : '') + flat.map(sug).join(''); box.classList.add('open'); cur = -1; return; }
     const toks = q.value.trim().toLowerCase().split(/\s+/).filter((t) => t.length > 1 && !['amp', 'lt', 'gt', 'quot'].includes(t)).map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); const re = toks.length ? new RegExp('(' + toks.join('|') + ')', 'ig') : null; const hi = (t) => (re ? esc(t).replace(re, '<mark>$1</mark>') : esc(t));
     const row = (e) => `<button class="res" type="button" role="option" data-i="${i++}" style="--c:${e.color}"><i></i><b>${hi(e.title)}</b><span>${hi(e.sub || '')}</span></button>`;
