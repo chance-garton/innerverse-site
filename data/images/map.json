@@ -21607,6 +21607,26 @@
    1500
   ]
  },
+ "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/soul-nectar-contemplating-the-innerverse/contemplating-the-innerverse-thumbnail.jpg": {
+  "bytes": {
+   "orig.jpg": 60651,
+   "w300.webp": 10984,
+   "w500.webp": 21092
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp"
+  ],
+  "h": 416,
+  "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-soul-nectar-contemplating-the-innerverse/contemplating-the-innerverse-thumbnail",
+  "w": 640,
+  "widths": [
+   300,
+   500
+  ]
+ },
  "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69729e1c29bb4370bfa7ea72/6a0a806bed3b9e731003bbef/1788965355789/": {
   "bytes": {
    "orig.png": 2102,

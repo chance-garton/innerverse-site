@@ -1,0 +1,23 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "ep-soul-nectar-contemplating-the-innerverse",
+ "bytes_added": 92727,
+ "copied": [
+  {
+   "bytes_added": 92727,
+   "h": 416,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-soul-nectar-contemplating-the-innerverse/contemplating-the-innerverse-thumbnail",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/soul-nectar-contemplating-the-innerverse/contemplating-the-innerverse-thumbnail.jpg",
+   "w": 640,
+   "widths": [
+    300,
+    500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-14T14:49:46+00:00",
+ "skipped": [],
+ "started": "2026-11-14T14:49:44+00:00"
+}
