@@ -49,6 +49,20 @@ A content node carries its own display settings beside its wording: `light` (whi
 lights), `frame` (camera), `config` and `anchor` (which spots sit around the body and where), `parts`, `signs`.
 Region names are listed at the top of `scene.js`.
 
+## On the site
+
+The map is the page `/biofield-anatomy`, built by `build/biofield_anatomy.py` (called from `build/build.py`): a full-screen page
+of its own, with no site header or footer. It takes `viewer/src/index.html` and swaps the three preview script tags for:
+the wording from the image bucket (`CONTENT_URL`, a dated file such as
+`https://images.innerversepodcast.com/biofield-anatomy/content-2026-11-14.js`), the model as a plain file
+(`/biofield-anatomy/body.glb`, copied from `viewer/model/body.glb`) and the code (`/biofield-anatomy/viewer.js`, copied from
+`site/viewer.js`). While `HIDDEN` is on, the page carries `noindex` (a meta tag and a header) and is left out of the sitemap.
+
+- After a change to the viewer's code: run `checks/build_viewer.sh`, run the checks, then copy `viewer/dist/viewer.js` to
+  `site/viewer.js` and commit it. The site build does not run esbuild.
+- After a wording change: upload the new content file to the bucket's `biofield-anatomy/` folder under a new dated name,
+  check it byte for byte, then change `CONTENT_URL`. Never commit the content file here.
+
 ## Rebuild
 
 The scripts still carry the scratch workspace paths (`/home/claude/bfa`, with clones of

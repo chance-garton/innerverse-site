@@ -98,6 +98,7 @@ import episode  # noqa: E402
 import pages as hand  # noqa: E402
 import plus_episode  # noqa: E402
 import redirects  # noqa: E402
+import biofield_anatomy  # noqa: E402
 
 
 def write(rel, text):
@@ -235,6 +236,10 @@ def main():
     bt = hand.biofield_tuning()
     write("biofield-tuning.html", bt)
     write("biofield-tuning/index.html", bt)
+    # The Biofield Anatomy map: a full-screen page of its own, hidden from search until its launch (build/biofield_anatomy.py).
+    ba = biofield_anatomy.build(OUT)
+    write("biofield-anatomy.html", ba)
+    write("biofield-anatomy/index.html", ba)
     # The home page and the two archives change when a new episode lands, so they carry the newest
     # episode date. The hand-made pages carry no date rather than a false one.
     newest_date = max([d for d in [s[1] for s in sitemap] if d] or [today])
@@ -262,7 +267,8 @@ def main():
                       "/*\n  Strict-Transport-Security: max-age=31536000\n"
                       "  Content-Security-Policy: frame-ancestors 'self' https://circle.innerversepodcast.com\n"
                       "  Permissions-Policy: camera=(), microphone=(), geolocation=()\n\n"
-                      "/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n")
+                      "/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n\n"
+                      + biofield_anatomy.headers())
     # A real not-found page: Cloudflare Pages serves it with a 404 status for any address
     # that has no page and no redirect.
     write("404.html", hand.not_found())
