@@ -343,17 +343,15 @@ await p.context().close();
   ok('small version: the words, the seven centers, the still image and the button are there before any 3D loads', early.pills === 7 && early.intro > 60 && early.poster && early.open === 'index.html', JSON.stringify(early));
   ok('small version: choosing a center shows its name and one line, and the button opens the full map at that center', r.live && r.canvas && r.name === 'Heart' && r.line.length > 5 && !r.hidden && r.open === 'index.html#heart' && r.pressed === 'true', JSON.stringify(r));
   ok('small version: it never zooms and a finger can still scroll the page over it; no console errors', r.zoom === false && r.touch === 'pan-y' && errs.length === 0, errs.slice(0, 3).join(' | ')); await ctx.close(); }
-{ // labels and lines on the far side of a center go behind the body where it overlaps them (Chance, 2026-11-14)
-  const q = await open(1440, 900, '#heart'); await q.waitForTimeout(1500);
-  const r = await q.evaluate(async () => { const { go, labs, occ, scene } = window.__bfa; const wait = (ms) => new Promise((x) => setTimeout(x, ms)); const z = (e) => getComputedStyle(e).zIndex;
-    const state = () => { const L = labs().filter((l) => !l.hidden); const far = L.filter((l) => l.behind), near = L.filter((l) => !l.behind); const o = occ(); const cv = document.querySelector('#occ'); const cx = cv.getContext('2d'); const k = cv.width / cv.clientWidth; let lit = 0;
-        for (const l of far) { const [x1, y1, x2, y2] = l.lx; for (let i = 0; i <= 24; i++) { const x = x1 + (x2 - x1) * i / 24, y = y1 + (y2 - y1) * i / 24; if (cx.getImageData(Math.round(x * k), Math.round(y * k), 1, 1).data[3] > 127) lit++; } }
-        return { far: far.map((l) => l.d.id).sort().join(), near: near.map((l) => l.d.id).sort().join(), zFar: far.map((l) => z(l.el) + '/' + z(l.pin) + '/' + l.line.parentElement.id).join(' '), zNear: near.map((l) => z(l.el) + '/' + z(l.pin) + '/' + l.line.parentElement.id).join(' '), rects: o.rects.length, lit, drawn: o.drawn }; };
-    const out = { front: state() }; scene.turnTo(180); await wait(1600); out.back = state();
-    go({ id: 'kidneys' }); await wait(900); out.part = state(); go({ view: 'chakra' }); await wait(700); out.home = { drawn: occ().drawn, rects: occ().rects.length }; return out; });
-  ok('far labels go behind the body: from the front the two back spots, with their dots and lines, sit under the body copy; the front ones stay on top', r.front.far === 'LB,RB' && r.front.near === 'LF,RF' && /^(-1\/-2\/leaders ?)+$/.test(r.front.zFar + ' ') && /^(2\/1\/leadersTop ?)+$/.test(r.front.zNear + ' ') && r.front.drawn && r.front.lit > 0, JSON.stringify(r.front));
-  ok('turned to the back, the roles swap: the front spots go behind the body', r.back.far === 'LF,RF' && r.back.near === 'LB,RB' && r.back.lit > 0, JSON.stringify(r.back));
-  ok('a part shown alone keeps its labels in front (the body is only a ghost there), and the home view draws no body copy', r.part.far === '' && !r.home.drawn && r.home.rects === 0, JSON.stringify([r.part, r.home]));
+{ // later the same morning (Chance, 2026-11-14): the legend is "The signs" with each sign's glyph and name; the Legs panel has no "choose one" caption; far labels are plain dimmed labels again (the behind-the-body trial was reverted)
+  const q = await open(1440, 900, '#view-zodiac'); await q.waitForTimeout(400);
+  const r = await q.evaluate(async () => { const { go } = window.__bfa; const wait = (ms) => new Promise((x) => setTimeout(x, ms)); const out = {};
+    out.title = document.querySelector('#detail .zleg').previousElementSibling.querySelector('h3').textContent; out.cells = [...document.querySelectorAll('#detail .zleg .zcell')].map((c) => !!c.querySelector('em svg.zg') && c.querySelector('span').textContent.length > 2 && !c.querySelector('i')).filter(Boolean).length; out.colors = document.querySelector('#detail').innerText.includes('THE COLORS') || document.querySelector('#detail').innerText.includes('The colors');
+    go({ id: 'legs' }); await wait(200); out.legs = document.querySelector('#detail').innerText.includes('Choose one');
+    go({ id: 'heart' }); await wait(900); out.occ = !!document.querySelector('#occ'); out.far = document.querySelectorAll('#labels .lab.far').length; out.labs = document.querySelectorAll('#labels .lab').length; return out; });
+  ok('the zodiac legend is "The signs": twelve cells, each with its drawn glyph and its name', r.title === 'The signs' && r.cells === 12 && !r.colors, JSON.stringify(r));
+  ok('the Legs panel has no "choose one" caption', !r.legs);
+  ok('far labels are plain dimmed labels, in front of the body as before', !r.occ && r.labs === 4 && r.far === 2, JSON.stringify(r));
   await q.context().close(); }
 // ---- 6. frame pacing with motion on (software renderer, so this is only a floor; it says nothing about a real phone)
 for (const [w, h, label] of [[1440, 900, 'desktop'], [390, 844, 'phone size']]) {

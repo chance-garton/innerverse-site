@@ -271,12 +271,10 @@ an onion, not a torus; the field view has the better shape but at another scale.
   still scrolls under a finger, `setPaused` while off screen) and `opts.turn` (a slow turn that waits five seconds after a touch).
 - Ruled out and not built: the guided tour, the Airtable table, the "where in the body" inset, the label line changes, legends on
   the opening panels. The zoom buttons beside Front and Reset were already on the desktop layout and were left as they are.
-- Labels behind the body (his word, the same morning): in a center, a leg stop, and on feeling, power and body pages, the labels,
-  dots and lines on the far side go behind the body where it overlaps them, so front and back read at a glance. The labels stay
-  ordinary buttons. Each frame the scene draws the body's outline to the screen buffer (`renderMask`), the page copies the small
-  boxes around the far labels from it, the real frame is drawn over it, and the page copies the same boxes again through the outline
-  (`occMask`, `occAfter` in `app.js`) onto `#occ`, a canvas that lies over the far labels and under the near ones. Far lines move to
-  `#leaders`, near lines live in `#leadersTop`. A press that lands on the body where it covers a far label goes to the body
-  (`scene.pickAt`). A device where the copying costs more than 7 ms a frame drops back to plain dimmed labels. A single part shown
-  alone is left as it was, because the body is only a ghost there.
+- Labels behind the body: tried the same morning on his word and taken out again on his word. Far labels, dots and lines were
+  laid under a copy of the body (the body's outline drawn before the real frame, small boxes copied to a canvas between far and near
+  labels). On his screen the clipping was rough and not smooth, so far labels are plain dimmed labels in front of the body again.
+  The trial is commit `d63ad84`; do not bring it back without a different method.
+- The zodiac legend is "The signs": each cell is the sign's drawn glyph in its own colour with its name. The Legs panel lost its
+  "choose one" caption.
 - Checks: section 5c in `checks/checks.mjs`.

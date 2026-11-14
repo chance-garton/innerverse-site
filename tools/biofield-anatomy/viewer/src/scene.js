@@ -250,14 +250,6 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   }
   // thin parts (nerves) get a soft halo so they never shrink to a hairline
   const HALO = { vagus: 0.0034, sciatic_l: 0.0045, sciatic_r: 0.0045 };
-  // The body's outline alone, drawn to the screen buffer before the real frame. The page copies it and uses it to lay the body over
-  // the labels that belong behind it (Chance, 2026-11-14). The real frame then overwrites every pixel of it.
-  const maskMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-  function renderMask() {
-    const bg = scene.background, om = scene.overrideMaterial, ca = renderer.getClearAlpha(); renderer.getClearColor(_cc); scene.background = null; scene.overrideMaterial = maskMat; renderer.setClearColor(0x000000, 0);
-    camera.layers.set(1); renderer.setRenderTarget(null); renderer.clear(); renderer.render(scene, camera); camera.layers.set(0);
-    scene.overrideMaterial = om; scene.background = bg; renderer.setClearColor(_cc, ca);
-  }
   const haloMat = (zoneIndex, d) => new THREE.ShaderMaterial({
     uniforms: { ...U, uD: { value: d }, uA: { value: 0 }, uZone: { value: zoneIndex } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     vertexShader: /* glsl */`uniform float uD; varying vec3 vN; varying vec3 vV;
@@ -561,10 +553,6 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   renderer.domElement.addEventListener('pointerup', (e) => {
     if (!down || !skin) return; const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y); const dt = performance.now() - down.t; down = null;
     if (moved > 6 || dt > 500) return;
-    pickAt(e);
-  });
-  function pickAt(e) {
-    if (!skin) return;
     const r = renderer.domElement.getBoundingClientRect();
     // orbs first: a generous target around each one
     let best = null;
@@ -581,7 +569,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       for (const h of ray.intersectObjects(all, false)) { const id = h.object.userData.id; if (!under.includes(id)) under.push(id); if (under.length >= 4) break; }
       hooks.onPick && hooks.onPick({ type: 'skin', zone: Math.max(0, Math.min(7, Math.round(sh.uv.x * 7))), point: sh.point.toArray(), arm: sh.uv.y, under, ...at }); return; }
     hooks.onPick && hooks.onPick({ type: 'none' });
-  }
+  });
 
   // ---------- projection for the labels ----------
   const _v = new THREE.Vector3(), _c = new THREE.Vector3();
@@ -651,11 +639,8 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     controls.update(); aura.quaternion.copy(camera.quaternion);
     { const fa = look.flow * (1 - 0.25 * F.amt) * (1 - 0.45 * U.uSelAmt.value) * (1 - 0.5 * U.uXray.value); flowU.uFlowA.value = lerp(flowU.uFlowA.value, fa);
       flow.userData.stars.forEach((sp) => { sp.material.opacity = 0.34 * flowU.uFlowA.value * (1 - F.amt); }); flow.userData.axis.material.opacity = 0.035 * flowU.uFlowA.value * (1 - F.amt); }
-    const occ = !!(skin && hooks.beforeRender && hooks.beforeRender());   // true when the page wants the body's outline this frame
-    if (occ) { renderMask(); hooks.onMask && hooks.onMask(renderer.domElement); }
     renderAura();
     if (composer && glowOn) composer.render(); else renderer.render(scene, camera);
-    if (occ && hooks.afterRender) hooks.afterRender(renderer.domElement);
     hooks.onFrame && hooks.onFrame();
     if (resting) { fpsN = 0; fpsT = 0; }
     else { fpsN++; fpsT += dt; if (fpsT >= 0.5) { fps = Math.round(fpsN / fpsT); fpsN = 0; fpsT = 0; hooks.onFps && hooks.onFps(fps);
@@ -686,5 +671,5 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   const zoomBy = (k) => { const c = readCamera(); tween = { from: c, to: { ...c, dist: THREE.MathUtils.clamp(c.dist * k, controls.minDistance, controls.maxDistance) }, t: 0, dur: 0.35 }; wake(1); };
   const startSway = () => { if (!reduceMotion) { sway = true; swayT = 0; } };
   const setPaused = (p) => { paused = !!p; if (!paused) { clock.getDelta(); wake(1); } };
-  return { pickAt: (x, y, pt) => pickAt({ clientX: x, clientY: y, pointerType: pt || 'mouse' }), setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
+  return { setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
 }

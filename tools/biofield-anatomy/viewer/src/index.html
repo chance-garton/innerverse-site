@@ -38,13 +38,8 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- labels in the scene ---------- */
 #leaders{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-#leaders line,#leadersTop line{stroke:var(--accent);stroke-opacity:.42;stroke-width:1}
-#leaders line.far,#leadersTop line.far{stroke-opacity:.18}
-#leaders line.bh{stroke-opacity:.34}
-/* Labels and lines on the far side of a center go behind the body (Chance, 2026-11-14). Inside #labels, from the back: far dots and far labels,
-   then #occ, a copy of the body laid over them where it overlaps them, then the near lines, dots and labels. Far lines sit in #leaders, under all of it. */
-#occ{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-#leadersTop{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+#leaders line{stroke:var(--accent);stroke-opacity:.42;stroke-width:1}
+#leaders line.far{stroke-opacity:.18}
 #labels{position:fixed;inset:0;pointer-events:none;z-index:3}
 .lab{z-index:2;position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;max-width:204px;padding:7px 11px 7px 9px;border-radius:var(--r-md);min-height:var(--tap);border:1px solid var(--hair);background:rgb(11,13,25);pointer-events:auto;cursor:pointer;text-align:left;transition:opacity .25s,border-color .2s,background .2s;will-change:transform}
 .lab:hover{border-color:var(--c,var(--accent));background:rgb(22,25,45)}
@@ -67,9 +62,6 @@ a{color:inherit;text-decoration:none}
 .lab.glyph .lt{flex-direction:row;align-items:center;gap:7px}
 .pin{z-index:1;position:absolute;left:0;top:0;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--c,var(--accent));box-shadow:0 0 0 3px color-mix(in srgb,var(--c,var(--accent)) 25%,transparent),0 0 14px var(--c,var(--accent));will-change:transform}
 .pin.far{opacity:.35}
-.lab.bh,.lab.bh.on{z-index:-1}
-.pin.bh{z-index:-2;opacity:.6}
-.lab.bh .ld,.lab.bh .lt{opacity:.62}
 
 /* ---------- left rail ---------- */
 #rail{position:fixed;left:var(--gap);top:var(--gap);bottom:var(--gap);width:var(--rail);display:flex;flex-direction:column;gap:12px;padding:18px 14px 12px;z-index:5}
@@ -210,7 +202,8 @@ a.chip{display:inline-flex;align-items:center}
 .zh.el{text-align:left;padding-right:6px;color:var(--ink-soft)}
 .zcell{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:58px;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:var(--r-md);padding:8px 2px 7px;cursor:pointer;font:600 12.5px var(--body);transition:border-color .15s}
 .zcell:hover{border-color:var(--c)}
-.zcell i{flex:none;width:16px;height:16px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px rgba(239,233,220,.35),0 0 10px var(--c)}
+.zcell em{flex:none;display:flex;font-style:normal;font-size:23px;line-height:1;color:var(--ink-c,var(--c));filter:drop-shadow(0 0 5px color-mix(in srgb,var(--c) 55%,transparent))}
+.zcell .zg{stroke-width:1.5}
 .zcell span{max-width:100%;white-space:nowrap}
 /* drawn zodiac glyphs: one size with the text around them */
 .zg{width:1em;height:1em;flex:none;stroke:currentColor;fill:none;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em;overflow:visible}
@@ -389,7 +382,7 @@ details.rules>summary::-webkit-details-marker{display:none}
 </section>
 
 <svg id="leaders" aria-hidden="true"></svg>
-<div id="labels"><canvas id="occ" aria-hidden="true"></canvas><svg id="leadersTop" aria-hidden="true"></svg></div>
+<div id="labels"></div>
 <div id="pickmenu" class="glass" hidden></div>
 <div id="keys" class="glass" role="dialog" aria-label="Keyboard shortcuts" hidden>
   <h3>Keys</h3>

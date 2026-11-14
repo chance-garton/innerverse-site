@@ -82,7 +82,6 @@ let scene; const sceneHooks = {
   onError: () => { $('#status').textContent = 'The 3D model could not load. Reload the page to try again.'; },
   onPick: pick,
   onFrame: () => { layoutLabels(); showFacing(); },
-  beforeRender: () => occBefore(), onMask: (gl) => occMask(gl), afterRender: (gl) => occAfter(gl),
   hoverable: () => S.view === 'chakra' && !S.special,
   onHover: hover,
   onFps: (f) => { window.__bfaFps = f; },
@@ -245,7 +244,7 @@ function applyScene() {
     const lo = Math.min(...ys, 0.9), hi = Math.max(...ys, 1.3);
     scene.setLook({ mode: 'chakra', selected: true, regions, organs, open: Object.keys(organs).length ? 0.9 : 0.12, orbs: 0, aura: 0.3 });
     fly({ y: (lo + hi) / 2, w: 1.05, h: Math.max(0.9, hi - lo + 0.55), tilt: 3 }, { az: 0 });
-    setLabels(labels, 'anchored', true); return;
+    setLabels(labels, 'anchored'); return;
   }
   if (S.special) { scene.setLook({ mode: 'chakra', orbs: 1, aura: 0.5 }); fly(homeFrame(), { az: 0 }); setLabels([], 'anchored'); return; }
   if (!n) {
@@ -283,7 +282,7 @@ function applyScene() {
   if (n.id === 'legs') {   // the Legs open as four separate pieces, each with its own label to go deeper
     labels = n.parts.filter((id) => N.has(id) && LEG_AT[id]).map((id) => { const q = N.get(id); return { id, anchor: LEG_AT[id], l1: isPhone() ? null : q.name, l2: isPhone() ? q.name : (q.heading || ''), color: colorOf(q), side: 'R', go: { id, view: S.view } }; });
     setLabels(labels, 'stacked'); return; }
-  setLabels(labels, 'anchored', !(isPart && primaryOrgans));
+  setLabels(labels, 'anchored');
 }
 const orbAt = (i) => [i === 0 ? 0.105 : 0, i === 0 ? 0.47 : i === 7 ? 1.70 : ZONES[i].y + (i === 6 ? 0.025 : 0), i === 0 ? 0.118 : MODEL.body.mid];   // the seven lights sit on the central line, inside the body
 function fieldLabels(n) {
@@ -299,33 +298,18 @@ function fieldLabels(n) {
 }
 
 // ---------- labels in the scene ----------
-const labBox = $('#labels'), leaders = $('#leaders'), leadersTop = $('#leadersTop'), occ = $('#occ'), octx = occ.getContext('2d'); let LABS = [], labLayout = 'anchored', labDirty = true, lastCam = '', labOcc = false;
-// Labels and lines on the far side of a center go behind the body where the body overlaps them, so front and back read at a glance
-// (Chance, 2026-11-14). The labels stay ordinary buttons: each frame the scene hands over the body's outline and then the finished
-// frame, and the body is copied from them onto #occ, a canvas that lies over the far labels and under the near ones. Only the small
-// boxes around the far labels, dots and lines are copied. A device that cannot keep up drops back to plain dimmed labels.
-const OCC = { rects: [], px: [], drawn: false, cost: 0, n: 0, off: false };
-const occCovered = (x, y) => { if (!OCC.drawn) return false; try { const k = occ.width / (occ.clientWidth || innerWidth); return octx.getImageData(Math.round(x * k), Math.round(y * k), 1, 1).data[3] > 127; } catch (e) { return false; } };
-function occBefore() { layoutLabels(); if (OCC.off || !OCC.rects.length) { if (OCC.drawn) { octx.clearRect(0, 0, occ.width, occ.height); OCC.drawn = false; } return false; } return true; }
-function occMask(gl) { const t0 = performance.now(); if (occ.width !== gl.width || occ.height !== gl.height) { occ.width = gl.width; occ.height = gl.height; }
-  const k = gl.width / (gl.clientWidth || innerWidth); octx.globalCompositeOperation = 'source-over'; octx.clearRect(0, 0, occ.width, occ.height);
-  OCC.px = OCC.rects.map(([x0, y0, x1, y1]) => { const x = Math.max(0, Math.round(x0 * k)), y = Math.max(0, Math.round(y0 * k)); return [x, y, Math.min(gl.width, Math.round(x1 * k)) - x, Math.min(gl.height, Math.round(y1 * k)) - y]; }).filter((r) => r[2] > 0 && r[3] > 0);
-  OCC.px.forEach(([x, y, w, h]) => octx.drawImage(gl, x, y, w, h, x, y, w, h)); OCC.t = performance.now() - t0; }
-function occAfter(gl) { const t0 = performance.now(); octx.globalCompositeOperation = 'source-in';
-  OCC.px.forEach(([x, y, w, h]) => { octx.save(); octx.beginPath(); octx.rect(x, y, w, h); octx.clip(); octx.drawImage(gl, x, y, w, h, x, y, w, h); octx.restore(); }); octx.globalCompositeOperation = 'source-over'; OCC.drawn = true;
-  OCC.cost = OCC.cost * 0.9 + (OCC.t + performance.now() - t0) * 0.1; if (++OCC.n > 40 && OCC.cost > 7 && !navigator.webdriver) { OCC.off = true; labDirty = true; } }
-function setLabels(defs, layout, occlude) {
-  labBox.querySelectorAll('.lab,.pin').forEach((e) => e.remove()); leaders.innerHTML = ''; leadersTop.innerHTML = ''; labLayout = layout; labOcc = !!occlude && layout === 'anchored';
+const labBox = $('#labels'), leaders = $('#leaders'); let LABS = [], labLayout = 'anchored', labDirty = true, lastCam = '';
+function setLabels(defs, layout) {
+  labBox.innerHTML = ''; leaders.innerHTML = ''; labLayout = layout;
   LABS = defs.map((d) => {
     const el = document.createElement(d.go ? 'button' : 'div'); el.className = 'lab ' + (d.cls || ''); if (d.go) el.type = 'button'; el.style.setProperty('--c', d.color || IVORY); if (d.ink) el.style.setProperty('--ink-c', d.ink);
     el.innerHTML = `<span class="ld"></span><span class="lt">${d.l1 ? `<span class="l1">${d.raw1 ? d.l1 : esc(d.l1)}</span>` : ''}${d.l2 ? `<span class="l2">${esc(d.l2)}</span>` : ''}</span>`;
-    const rec = { d, el, pin: null, line: null, w: 0, h: 0, behind: false };
-    if (d.go) el.addEventListener('click', (e) => { if (rec.behind && e.detail && occCovered(e.clientX, e.clientY) && scene.pickAt) { scene.pickAt(e.clientX, e.clientY, e.pointerType); return; } go(d.go); });   // a press that lands on the body, where it covers a far label, is a press on the body
+    if (d.go) el.addEventListener('click', () => go(d.go));
     labBox.appendChild(el);
     let pin = null, line = null;
     if (!d.nopin) { pin = document.createElement('span'); pin.className = 'pin'; pin.style.setProperty('--c', d.color || IVORY); labBox.appendChild(pin);
-      line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); leadersTop.appendChild(line); }
-    rec.pin = pin; rec.line = line; return rec;
+      line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); leaders.appendChild(line); }
+    return { d, el, pin, line, w: 0, h: 0 };
   });
   LABS.forEach((l) => { l.w = l.el.offsetWidth; l.h = l.el.offsetHeight; });
   labDirty = true;
@@ -365,18 +349,15 @@ function layoutLabels() {
   LABS.forEach((l) => {
     l.el.style.display = l.hidden ? 'none' : ''; if (l.pin) l.pin.style.display = l.hidden ? 'none' : ''; if (l.line) l.line.style.display = l.hidden ? 'none' : '';
     if (l.hidden) return;
-    const behind = l.far && labOcc && !OCC.off; if (behind !== l.behind) { l.behind = behind; l.el.classList.toggle('bh', behind); if (l.pin) l.pin.classList.toggle('bh', behind); if (l.line) { l.line.classList.toggle('bh', behind); (behind ? leaders : leadersTop).appendChild(l.line); } }
-    l.el.style.transform = `translate3d(${Math.round(l.bx)}px,${Math.round(l.by)}px,0)`; l.el.classList.toggle('far', l.far && !behind);
-    if (l.pin) { l.pin.style.transform = `translate3d(${l.p.x.toFixed(1)}px,${l.p.y.toFixed(1)}px,0)`; l.pin.classList.toggle('far', l.far && !behind); }
+    l.el.style.transform = `translate3d(${Math.round(l.bx)}px,${Math.round(l.by)}px,0)`; l.el.classList.toggle('far', l.far);
+    if (l.pin) { l.pin.style.transform = `translate3d(${l.p.x.toFixed(1)}px,${l.p.y.toFixed(1)}px,0)`; l.pin.classList.toggle('far', l.far); }
     if (l.line) {
       let x1, y1, x2, y2;
       if (labLayout === 'stacked') { x1 = l.edge; y1 = l.by + l.h / 2; x2 = l.p.x; y2 = l.p.y; }
       else if (l.d.to) { const t = scene.project(l.d.to); x1 = l.p.x; y1 = l.p.y; x2 = t.x; y2 = t.y; } else { x1 = x2 = l.p.x; y1 = y2 = l.p.y; }
-      l.line.setAttribute('x1', x1); l.line.setAttribute('y1', y1); l.line.setAttribute('x2', x2); l.line.setAttribute('y2', y2); l.line.classList.toggle('far', l.far && !behind); l.lx = [x1, y1, x2, y2];
+      l.line.setAttribute('x1', x1); l.line.setAttribute('y1', y1); l.line.setAttribute('x2', x2); l.line.setAttribute('y2', y2); l.line.classList.toggle('far', l.far);
     }
   });
-  OCC.rects = []; const box = (x0, y0, x1, y1) => OCC.rects.push([Math.floor(Math.min(x0, x1)) - 3, Math.floor(Math.min(y0, y1)) - 3, Math.ceil(Math.max(x0, x1)) + 3, Math.ceil(Math.max(y0, y1)) + 3]);
-  LABS.forEach((l) => { if (!l.behind || l.hidden) return; box(l.bx, l.by, l.bx + l.w, l.by + l.h); box(l.p.x - 10, l.p.y - 10, l.p.x + 10, l.p.y + 10); if (l.line && l.lx) box(l.lx[0], l.lx[1], l.lx[2], l.lx[3]); });
 }
 
 // ---------- lists (left rail on desktop, chip strip on phones) ----------
@@ -498,7 +479,7 @@ function exploreFeeling(f) {
   return exploreBlock([...named, ...also, ...near].filter((k) => k !== self && !at.has(k)), neighbours());
 }
 function zodiacLegend() {
-  return `<div class="blk"><div class="bh"><h3>The colors</h3><span>Head to feet</span></div><div class="zleg">` + SIGNS.map((g) => `<button class="zcell" type="button" data-go="${g.id}" style="--c:${g.zc}"><i></i><span>${esc(g.name)}</span></button>`).join('') +
+  return `<div class="blk"><div class="bh"><h3>The signs</h3><span>Head to feet</span></div><div class="zleg">` + SIGNS.map((g) => `<button class="zcell" type="button" data-go="${g.id}" style="--c:${g.zc};--ink-c:${g.za}"><em>${g.glyph}</em><span>${esc(g.name)}</span></button>`).join('') +
     `</div><p class="note">Leo and Libra sit on the back of the body: turn the figure to see them.</p></div>`;
 }
 // Years to each foot of field (Chance, 2026-11-14): the age over a field counted as 6 feet deep, as a whole number and a simple fraction.
@@ -566,7 +547,7 @@ function renderNode(n) {
   h += `<p class="lede">${linkify(n.summary.t)}</p>`;
   if (n.themes.length) h += `<div class="blk pwb"><div class="bh"><h3 class="zt">Emotional and mental powers</h3></div><div class="chips" style="margin:0">` + n.themes.map((t) => wordChip(t.t)).join('') + '</div></div>';
   if (n.governs) h += `<div class="blk pwb"><div class="bh"><h3 class="zt">Governs in the body</h3></div>` + (n.governs.items ? `<div class="chips" style="margin:0">` + n.governs.items.map(bodyChip).join('') + '</div>' : `<p class="gov" style="margin:0">${esc(n.governs.t)}</p>`) + '</div>';
-  if (n.id === 'legs') h += `<div class="blk"><div class="bh"><h3>Parts of the leg</h3><span>Choose one, or tap it on the model</span></div><div class="compass">` + n.parts.map((p) => `<button class="pos" type="button" data-go="${p}"><span class="p1">${esc(N.get(p).name)}</span><span class="p2">${esc(N.get(p).heading || '')}</span></button>`).join('') + '</div></div>';
+  if (n.id === 'legs') h += `<div class="blk"><div class="bh"><h3>Parts of the leg</h3></div><div class="compass">` + n.parts.map((p) => `<button class="pos" type="button" data-go="${p}"><span class="p1">${esc(N.get(p).name)}</span><span class="p2">${esc(N.get(p).heading || '')}</span></button>`).join('') + '</div></div>';
   else if (n.parts && n.parts.length) h += `<div class="blk ph-only"><div class="bh"><h3>${n.id === 'legs' ? 'Parts of the leg' : 'Parts of this center'}</h3></div><div class="chips" style="margin:0">` + n.parts.map((p) => `<button class="chip" type="button" data-go="${p}">${esc(N.get(p).name)}</button>`).join('') + '</div></div>';
   if (n.marker === 'timeline') h += `<div class="blk"><div class="bh"><h3>Try it with your age</h3></div><div class="age"><input type="range" min="6" max="100" step="1" value="${S.age}" aria-label="Your age, slider"><label>Age <input type="number" inputmode="numeric" min="6" max="100" step="1" value="${S.age}" aria-label="Your age"></label></div><p class="ypf" data-ypf>${perFoot(S.age)}</p><p class="note">The rings mark where each age sits between the skin and the edge of the field.</p></div>`;
   if (n.positions.length) {
@@ -827,4 +808,4 @@ $('#keys').addEventListener('click', () => toggleKeys(false));
 
 $('#cta').textContent = C.cta.label; $('#cta').href = C.cta.url;
 renderList(); renderPanel(); placeChrome();
-window.__bfa = { go, S, N, C, scene, MODEL, search, labs: () => LABS, occ: () => ({ ...OCC, covered: occCovered }), OUT, INB, FEEL_AT, TERMS, seqOf, FEEL_ONE, POWERS };
+window.__bfa = { go, S, N, C, scene, MODEL, search, labs: () => LABS, OUT, INB, FEEL_AT, TERMS, seqOf, FEEL_ONE, POWERS };
