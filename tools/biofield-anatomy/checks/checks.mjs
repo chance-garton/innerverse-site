@@ -346,15 +346,29 @@ await p.context().close();
   ok('small version: the words, the seven centers, the still image and the button are there before any 3D loads', early.pills === 7 && early.intro > 60 && early.poster && early.open === 'index.html', JSON.stringify(early));
   ok('small version: choosing a center shows its name and one line, and the button opens the full map at that center', r.live && r.canvas && r.name === 'Heart' && r.line.length > 5 && !r.hidden && r.open === 'index.html#heart' && r.pressed === 'true', JSON.stringify(r));
   ok('small version: it never zooms and a finger can still scroll the page over it; no console errors', r.zoom === false && r.touch === 'pan-y' && errs.length === 0, errs.slice(0, 3).join(' | ')); await ctx.close(); }
-{ // later the same morning (Chance, 2026-11-14): the legend is "The signs" with each sign's glyph and name; the Legs panel has no "choose one" caption; far labels are plain dimmed labels again (the behind-the-body trial was reverted)
+{ // later the same morning (Chance, 2026-11-14): the legend is "The signs" with each sign's glyph and name; the Legs panel has no "choose one" caption
   const q = await open(1440, 900, '#view-zodiac'); await q.waitForTimeout(400);
   const r = await q.evaluate(async () => { const { go } = window.__bfa; const wait = (ms) => new Promise((x) => setTimeout(x, ms)); const out = {};
     out.title = document.querySelector('#detail .zleg').previousElementSibling.querySelector('h3').textContent; out.cells = [...document.querySelectorAll('#detail .zleg .zcell')].map((c) => !!c.querySelector('em svg.zg') && c.querySelector('span').textContent.length > 2 && !c.querySelector('i')).filter(Boolean).length; out.colors = document.querySelector('#detail').innerText.includes('THE COLORS') || document.querySelector('#detail').innerText.includes('The colors');
     go({ id: 'legs' }); await wait(200); out.legs = document.querySelector('#detail').innerText.includes('Choose one');
-    go({ id: 'heart' }); await wait(900); out.occ = !!document.querySelector('#occ'); out.far = document.querySelectorAll('#labels .lab.far').length; out.labs = document.querySelectorAll('#labels .lab').length; return out; });
+    return out; });
   ok('the zodiac legend is "The signs": twelve cells, each with its drawn glyph and its name', r.title === 'The signs' && r.cells === 12 && !r.colors, JSON.stringify(r));
   ok('the Legs panel has no "choose one" caption', !r.legs);
-  ok('far labels are plain dimmed labels, in front of the body as before', !r.occ && r.labs === 4 && r.far === 2, JSON.stringify(r));
+  await q.context().close(); }
+{ // labels behind the body (Chance, 2026-11-14): the far labels of a center are drawn inside the 3D picture, under the body; nothing is cut out of anything
+  const q = await open(1440, 900, '#heart'); await q.waitForFunction(() => window.__bfa.scene.backCount() === 2, null, { timeout: 30000 }).catch(() => {});
+  const st = () => q.evaluate(() => { const { labs, scene } = window.__bfa; const L = labs().filter((l) => !l.hidden); const vis = (e) => getComputedStyle(e).visibility;
+    return { behind: L.filter((l) => l.behind).map((l) => l.d.id).sort().join(), near: L.filter((l) => !l.behind).map((l) => l.d.id).sort().join(), hid: L.filter((l) => l.behind).every((l) => vis(l.el) === 'hidden' && vis(l.pin) === 'hidden' && vis(l.line) === 'hidden'), shown: L.filter((l) => !l.behind).every((l) => vis(l.el) === 'visible'),
+      back: scene.backCount(), pics: L.filter((l) => l.behind).map((l) => l.cv ? [l.cv.width, l.cv.height, Math.round(l.w * scene.pixelRatio()), Math.round(l.h * scene.pixelRatio())] : null), box: L.filter((l) => l.behind).map((l) => [l.d.id, l.bx, l.by, l.w, l.h]) }; });
+  const front = await st();
+  ok('far labels go behind the body: from the front the two back spots are drawn inside the 3D picture and the page keeps only their place; the front ones stay page labels', front.behind === 'LB,RB' && front.near === 'LF,RF' && front.hid && front.shown && front.back === 2 && front.pics.every((p) => p && Math.abs(p[0] - p[2]) <= 1 && Math.abs(p[1] - p[3]) <= 1), JSON.stringify(front));
+  const ink = await q.evaluate(() => { const { labs } = window.__bfa; return labs().filter((l) => l.behind).map((l) => { const g = l.cv.getContext('2d'); const d = g.getImageData(0, 0, l.cv.width, l.cv.height).data; let lit = 0; for (let i = 0; i < d.length; i += 4) if (d[i] + d[i + 1] + d[i + 2] > 150) lit++; return lit; }); });
+  ok('each label picture carries its words (letters drawn where the page laid them out)', ink.length === 2 && ink.every((n) => n > 120), JSON.stringify(ink));
+  { const rb = front.box.find((b) => b[0] === 'RB'); await q.mouse.click(rb[1] + 8, rb[2] + rb[4] / 2); await q.waitForTimeout(500); ok('a press on a label behind the body, where the body does not cover it, opens that spot', /heart-pos-rb/.test(q.url()), q.url()); }
+  await q.evaluate(() => { window.__bfa.go({ id: 'heart' }); window.__bfa.scene.turnTo(180); }); await q.waitForFunction(() => { const L = window.__bfa.labs().filter((l) => l.behind).map((l) => l.d.id).sort().join(); return L === 'LF,RF'; }, null, { timeout: 30000 }).catch(() => {});
+  const back = await st(); ok('turned to the back, the roles swap: the front spots go behind the body', back.behind === 'LF,RF' && back.near === 'LB,RB' && back.back === 2, JSON.stringify(back));
+  const rest = await q.evaluate(async () => { const { go, scene, labs } = window.__bfa; const wait = (ms) => new Promise((x) => setTimeout(x, ms)); go({ id: 'kidneys' }); await wait(1200); const part = { back: scene.backCount(), behind: labs().filter((l) => l.behind).length }; go({ view: 'chakra' }); await wait(900); return { part, home: scene.backCount() }; });
+  ok('a part shown alone keeps its labels on the page (the body is only a ghost there), and the home view has none in the picture', rest.part.back === 0 && rest.part.behind === 0 && rest.home === 0, JSON.stringify(rest));
   await q.context().close(); }
 // ---- 6. frame pacing with motion on (software renderer, so this is only a floor; it says nothing about a real phone)
 for (const [w, h, label] of [[1440, 900, 'desktop'], [390, 844, 'phone size']]) {

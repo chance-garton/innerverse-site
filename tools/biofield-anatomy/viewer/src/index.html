@@ -16,6 +16,7 @@
   --glass:rgba(13,15,23,.84); --zone:var(--accent);
   --brand:"Fjalla One","Arial Narrow",Impact,sans-serif; --display:"Marcellus",Georgia,serif; --label:"Fjalla One","Arial Narrow",sans-serif; --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
   --r-sm:6px; --r-md:10px; --r-lg:14px; --tap:36px;
+  --lab-far:rgb(13,15,28); --lab-far-line:rgba(255,255,255,.05); --lab-far-dim:.36;   /* a label on the far side of the body; the 3D picture reads these too */
   --rail:292px; --panel:404px; --gap:18px;
   color-scheme:dark;
 }
@@ -49,8 +50,10 @@ a{color:inherit;text-decoration:none}
 .lab .l1{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;line-height:1.3}
 .lab .l2{font-size:13px;font-weight:600;line-height:1.25;color:var(--ink)}
 /* labels on the far side of the body: solid, with their dot and words dimmed. A fifth dimmer than at first (.45 to .36; Chance, 2026-11-14) */
-.lab.far{z-index:1;background:rgb(13,15,28);border-color:rgba(255,255,255,.05)}   /* a dim label never lies on a bright one: bright labels are always on top (Chance, 2026-11-14) */
-.lab.far .ld,.lab.far .lt{opacity:.36}
+.lab.far{z-index:1;background:var(--lab-far);border-color:var(--lab-far-line)}   /* a dim label never lies on a bright one: bright labels are always on top (Chance, 2026-11-14) */
+.lab.far .ld,.lab.far .lt{opacity:var(--lab-far-dim)}
+/* behind the body: the label, its dot and its line are drawn inside the 3D picture, under the body; the page's own copies only keep their place */
+.lab.bh,.pin.bh,#leaders line.bh{visibility:hidden}
 .lab.dim{background:rgb(11,13,25);border-color:rgba(255,255,255,.04)}
 .lab.dim .ld,.lab.dim .lt{opacity:.3}
 .lab.on{z-index:3;border-color:var(--c,var(--accent));background:rgb(24,27,48)}

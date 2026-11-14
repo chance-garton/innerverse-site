@@ -82,6 +82,8 @@ let scene; const sceneHooks = {
   onError: () => { $('#status').textContent = 'The 3D model could not load. Reload the page to try again.'; },
   onPick: pick,
   onFrame: () => { layoutLabels(); showFacing(); },
+  beforeRender: () => layoutLabels(),
+  onPointer: (x, y, onBody) => { if (onBody) return; const cv = stageEl.querySelector('canvas'); if (cv) cv.style.cursor = backAt(x, y) ? 'pointer' : 'grab'; },
   hoverable: () => S.view === 'chakra' && !S.special,
   onHover: hover,
   onFps: (f) => { window.__bfaFps = f; },
@@ -190,6 +192,7 @@ function upTarget() {
 // ---------- picking on the model ----------
 function ripple(x, y, c) { if (REDUCED) return; const r = document.createElement('span'); r.className = 'rip'; r.style.left = x + 'px'; r.style.top = y + 'px'; r.style.setProperty('--c', c); document.body.appendChild(r); r.addEventListener('animationend', () => r.remove()); }
 function pick(p) {
+  if (p.type === 'none' && p.x != null) { const l = backAt(p.x, p.y); if (l) { go(l.d.go); return; } }   // a press on a label behind the body, where the body does not cover it
   if (S.view === 'field') return;
   if (p.pt && p.pt !== 'mouse' && p.x != null && p.type !== 'none') ripple(p.x, p.y, p.type === 'orb' || p.zone >= 0 ? colorOf(N.get(ZONE_NODE[p.type === 'orb' ? p.index : p.zone])) : IVORY);   // a touch shows where it landed
   if (p.type === 'orb') { go({ id: ZONE_NODE[p.index] }); return; }
@@ -244,7 +247,7 @@ function applyScene() {
     const lo = Math.min(...ys, 0.9), hi = Math.max(...ys, 1.3);
     scene.setLook({ mode: 'chakra', selected: true, regions, organs, open: Object.keys(organs).length ? 0.9 : 0.12, orbs: 0, aura: 0.3 });
     fly({ y: (lo + hi) / 2, w: 1.05, h: Math.max(0.9, hi - lo + 0.55), tilt: 3 }, { az: 0 });
-    setLabels(labels, 'anchored'); return;
+    setLabels(labels, 'anchored', true); return;
   }
   if (S.special) { scene.setLook({ mode: 'chakra', orbs: 1, aura: 0.5 }); fly(homeFrame(), { az: 0 }); setLabels([], 'anchored'); return; }
   if (!n) {
@@ -282,7 +285,7 @@ function applyScene() {
   if (n.id === 'legs') {   // the Legs open as four separate pieces, each with its own label to go deeper
     labels = n.parts.filter((id) => N.has(id) && LEG_AT[id]).map((id) => { const q = N.get(id); return { id, anchor: LEG_AT[id], l1: isPhone() ? null : q.name, l2: isPhone() ? q.name : (q.heading || ''), color: colorOf(q), side: 'R', go: { id, view: S.view } }; });
     setLabels(labels, 'stacked'); return; }
-  setLabels(labels, 'anchored');
+  setLabels(labels, 'anchored', !(isPart && primaryOrgans));   // not for a single part shown alone: the body is only a ghost there
 }
 const orbAt = (i) => [i === 0 ? 0.105 : 0, i === 0 ? 0.47 : i === 7 ? 1.70 : ZONES[i].y + (i === 6 ? 0.025 : 0), i === 0 ? 0.118 : MODEL.body.mid];   // the seven lights sit on the central line, inside the body
 function fieldLabels(n) {
@@ -299,8 +302,32 @@ function fieldLabels(n) {
 
 // ---------- labels in the scene ----------
 const labBox = $('#labels'), leaders = $('#leaders'); let LABS = [], labLayout = 'anchored', labDirty = true, lastCam = '';
-function setLabels(defs, layout) {
-  labBox.innerHTML = ''; leaders.innerHTML = ''; labLayout = layout;
+// ---------- labels behind the body (Chance, 2026-11-14) ----------
+// A label on the far side of a center is drawn inside the 3D picture, under the body, where the body's own light and skin pass over it.
+// The page's label stays where it is, unseen, to hold the place and the size. Its picture is made here from the page's own layout:
+// every letter is drawn where the browser put it, so the picture and the page label are the same to the pixel.
+let labOcc = false;
+function labelPicture(l) {
+  const k = Math.max(1, Math.min(3, scene.pixelRatio ? scene.pixelRatio() : 1)); const el = l.el, box = el.getBoundingClientRect(); const W = box.width, H = box.height;
+  const cv = document.createElement('canvas'); cv.width = Math.max(2, Math.round(W * k)); cv.height = Math.max(2, Math.round(H * k)); const g = cv.getContext('2d'); g.scale(cv.width / W, cv.height / H);
+  const root = getComputedStyle(document.documentElement), cs = getComputedStyle(el); const rad = Math.min(parseFloat(cs.borderTopLeftRadius) || 10, H / 2);
+  const dim = el.classList.contains('dim') ? 0.3 : (parseFloat(root.getPropertyValue('--lab-far-dim')) || 0.36);
+  const rr = (x, y, w, h, r) => { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); };
+  rr(0, 0, W, H, rad); g.fillStyle = root.getPropertyValue('--lab-far').trim() || 'rgb(13,15,28)'; g.fill();
+  rr(0.5, 0.5, W - 1, H - 1, Math.max(0, rad - 0.5)); g.strokeStyle = root.getPropertyValue('--lab-far-line').trim() || 'rgba(255,255,255,.05)'; g.lineWidth = 1; g.stroke();
+  g.globalAlpha = dim;
+  const dot = el.querySelector('.ld'); if (dot && dot.getClientRects().length) { const b = dot.getBoundingClientRect(); const c = getComputedStyle(dot).backgroundColor; g.save(); g.shadowColor = c; g.shadowBlur = 10 * k; g.fillStyle = c; g.beginPath(); g.arc(b.left - box.left + b.width / 2, b.top - box.top + b.height / 2, b.width / 2, 0, Math.PI * 2); g.fill(); g.restore(); }
+  const rng = document.createRange();
+  el.querySelectorAll('.l1,.l2').forEach((sp) => { const st = getComputedStyle(sp); g.font = `${st.fontStyle} ${st.fontWeight} ${st.fontSize} ${st.fontFamily}`; g.fillStyle = st.color; g.textBaseline = 'alphabetic'; const up = st.textTransform === 'uppercase';
+    const m = g.measureText('Hg'); const asc = m.fontBoundingBoxAscent || parseFloat(st.fontSize) * 0.93;
+    const tw = document.createTreeWalker(sp, NodeFilter.SHOW_TEXT); let nd;
+    while ((nd = tw.nextNode())) { const t = nd.nodeValue; for (let i = 0; i < t.length; i++) { const ch = t[i]; if (/\s/.test(ch)) continue; rng.setStart(nd, i); rng.setEnd(nd, i + 1); const b = rng.getBoundingClientRect(); if (!b.width) continue; g.fillText(up ? ch.toUpperCase() : ch, b.left - box.left, b.top - box.top + asc); } } });
+  cv.cssW = W; cv.cssH = H; return cv;   // the picture is laid at its own measured size, so it is never stretched
+}
+const backAt = (x, y) => LABS.find((l) => l.behind && !l.hidden && l.d.go && x >= l.bx && x <= l.bx + l.w && y >= l.by && y <= l.by + l.h);
+if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', () => { LABS.forEach((l) => { l.w = l.el.offsetWidth; l.h = l.el.offsetHeight; l.cv = null; }); if (scene && scene.dropBackLabels) scene.dropBackLabels(); labDirty = true; if (scene && scene.wake) scene.wake(0.5); });   // a label drawn before its typeface arrived is drawn again
+function setLabels(defs, layout, occlude) {
+  labBox.innerHTML = ''; leaders.innerHTML = ''; labLayout = layout; labOcc = !!occlude && layout === 'anchored'; if (scene.dropBackLabels) scene.dropBackLabels();
   LABS = defs.map((d) => {
     const el = document.createElement(d.go ? 'button' : 'div'); el.className = 'lab ' + (d.cls || ''); if (d.go) el.type = 'button'; el.style.setProperty('--c', d.color || IVORY); if (d.ink) el.style.setProperty('--ink-c', d.ink);
     el.innerHTML = `<span class="ld"></span><span class="lt">${d.l1 ? `<span class="l1">${d.raw1 ? d.l1 : esc(d.l1)}</span>` : ''}${d.l2 ? `<span class="l2">${esc(d.l2)}</span>` : ''}</span>`;
@@ -309,7 +336,7 @@ function setLabels(defs, layout) {
     let pin = null, line = null;
     if (!d.nopin) { pin = document.createElement('span'); pin.className = 'pin'; pin.style.setProperty('--c', d.color || IVORY); labBox.appendChild(pin);
       line = document.createElementNS('http://www.w3.org/2000/svg', 'line'); leaders.appendChild(line); }
-    return { d, el, pin, line, w: 0, h: 0 };
+    return { d, el, pin, line, w: 0, h: 0, behind: false, cv: null };
   });
   LABS.forEach((l) => { l.w = l.el.offsetWidth; l.h = l.el.offsetHeight; });
   labDirty = true;
@@ -349,15 +376,17 @@ function layoutLabels() {
   LABS.forEach((l) => {
     l.el.style.display = l.hidden ? 'none' : ''; if (l.pin) l.pin.style.display = l.hidden ? 'none' : ''; if (l.line) l.line.style.display = l.hidden ? 'none' : '';
     if (l.hidden) return;
+    const behind = l.far && labOcc && !!scene.setBackLabels; if (behind !== l.behind) { l.behind = behind; l.el.classList.toggle('bh', behind); if (l.pin) l.pin.classList.toggle('bh', behind); if (l.line) l.line.classList.toggle('bh', behind); }
     l.el.style.transform = `translate3d(${Math.round(l.bx)}px,${Math.round(l.by)}px,0)`; l.el.classList.toggle('far', l.far);
     if (l.pin) { l.pin.style.transform = `translate3d(${l.p.x.toFixed(1)}px,${l.p.y.toFixed(1)}px,0)`; l.pin.classList.toggle('far', l.far); }
     if (l.line) {
       let x1, y1, x2, y2;
       if (labLayout === 'stacked') { x1 = l.edge; y1 = l.by + l.h / 2; x2 = l.p.x; y2 = l.p.y; }
       else if (l.d.to) { const t = scene.project(l.d.to); x1 = l.p.x; y1 = l.p.y; x2 = t.x; y2 = t.y; } else { x1 = x2 = l.p.x; y1 = y2 = l.p.y; }
-      l.line.setAttribute('x1', x1); l.line.setAttribute('y1', y1); l.line.setAttribute('x2', x2); l.line.setAttribute('y2', y2); l.line.classList.toggle('far', l.far);
+      l.line.setAttribute('x1', x1); l.line.setAttribute('y1', y1); l.line.setAttribute('x2', x2); l.line.setAttribute('y2', y2); l.line.classList.toggle('far', l.far); l.lx = [x1, y1, x2, y2];
     }
   });
+  if (scene.setBackLabels) scene.setBackLabels(LABS.filter((l) => l.behind && !l.hidden).map((l) => ({ canvas: l.cv || (l.cv = labelPicture(l)), x: Math.round(l.bx), y: Math.round(l.by), w: l.cv.cssW, h: l.cv.cssH, px: l.p.x, py: l.p.y, color: l.d.color || IVORY, line: l.line ? l.lx : null })));
 }
 
 // ---------- lists (left rail on desktop, chip strip on phones) ----------

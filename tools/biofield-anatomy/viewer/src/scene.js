@@ -291,6 +291,36 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   const texDot = dotTexture(false), texStar = dotTexture(true);
   const sprite = (tex, color, size) => { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, color, transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending })); s.scale.setScalar(size); return s; };
 
+  // ---------- labels behind the body (Chance, 2026-11-14). The labels on the far side of a center are drawn inside the picture,
+  // before the body's glow, its inner parts and its skin, so the body is simply painted over them: its soft halo passes in front of
+  // them, and they show faintly through the skin wherever the skin itself is see-through. Nothing is cut out, so nothing can look
+  // clipped. The page hands over each label as a small picture with its place on the screen; the dot and the line come with it. ----------
+  const backG = new THREE.Group(); scene.add(backG); const backPool = [], backTex = new Map(); let backN = 0;
+  const backGeo = new THREE.PlaneGeometry(1, 1);
+  const backQuad = () => { const m = new THREE.Mesh(backGeo, new THREE.ShaderMaterial({ uniforms: { map: { value: null }, uRect: { value: new THREE.Vector4() }, uTint: { value: new THREE.Color(1, 1, 1) }, uA: { value: 1 } },
+    vertexShader: /* glsl */`uniform vec4 uRect; varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(mix(uRect.xy, uRect.zw, uv), 0.0, 1.0); }`,
+    fragmentShader: /* glsl */`uniform sampler2D map; uniform vec3 uTint; uniform float uA; varying vec2 vUv;
+      void main(){ vec4 t = texture2D(map, vUv); gl_FragColor = vec4(t.rgb * uTint, t.a * uA);
+        #include <colorspace_fragment>
+      }`, transparent: true, depthTest: false, depthWrite: false })); m.frustumCulled = false; m.renderOrder = -0.8; return m; };
+  const backLine = () => { const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(6), 3));
+    const m = new THREE.Line(g, new THREE.ShaderMaterial({ uniforms: { uCol: { value: new THREE.Color(0xefe9dc) }, uA: { value: 0.3 } }, vertexShader: /* glsl */`void main(){ gl_Position = vec4(position.xy, 0.0, 1.0); }`,
+      fragmentShader: /* glsl */`uniform vec3 uCol; uniform float uA; void main(){ gl_FragColor = vec4(uCol, uA);
+        #include <colorspace_fragment>
+      }`, transparent: true, depthTest: false, depthWrite: false })); m.frustumCulled = false; m.renderOrder = -0.82; return m; };
+  function setBackLabels(items) {
+    const cv = renderer.domElement, r = cv.getBoundingClientRect(); if (!r.width || !r.height) return; const kx = cv.width / r.width, ky = cv.height / r.height;
+    const nx = (x) => Math.round((x - r.left) * kx) / cv.width * 2 - 1, ny = (y) => 1 - Math.round((y - r.top) * ky) / cv.height * 2;   // whole device pixels, so the words stay crisp
+    while (backPool.length < items.length) { const o = { quad: backQuad(), pin: backQuad(), line: backLine() }; o.pin.material.uniforms.map.value = texDot; o.pin.renderOrder = -0.81; backG.add(o.line, o.pin, o.quad); backPool.push(o); }
+    backPool.forEach((o, i) => { const it = items[i]; o.quad.visible = o.pin.visible = !!it; o.line.visible = !!(it && it.line); if (!it) return;
+      let t = backTex.get(it.canvas); if (!t) { t = new THREE.CanvasTexture(it.canvas); t.colorSpace = THREE.SRGBColorSpace; t.generateMipmaps = false; t.minFilter = t.magFilter = THREE.LinearFilter; backTex.set(it.canvas, t); }
+      o.quad.material.uniforms.map.value = t; o.quad.material.uniforms.uRect.value.set(nx(it.x), ny(it.y + it.h), nx(it.x + it.w), ny(it.y));
+      o.pin.material.uniforms.uRect.value.set(nx(it.px - 13), ny(it.py + 13), nx(it.px + 13), ny(it.py - 13)); o.pin.material.uniforms.uTint.value.set(it.color); o.pin.material.uniforms.uA.value = 0.55;
+      if (it.line) { const a = o.line.geometry.attributes.position; a.setXYZ(0, (it.line[0] - r.left) / r.width * 2 - 1, 1 - (it.line[1] - r.top) / r.height * 2, 0); a.setXYZ(1, (it.line[2] - r.left) / r.width * 2 - 1, 1 - (it.line[3] - r.top) / r.height * 2, 0); a.needsUpdate = true; } });
+    if (items.length || backN) wake(0.3); backN = items.length;
+  }
+  const dropBackLabels = () => { backTex.forEach((t) => t.dispose()); backTex.clear(); backPool.forEach((o) => { o.quad.visible = o.pin.visible = o.line.visible = false; }); backN = 0; };
+
   // ---------- backdrop depth: fine dust all around the figure, fixed in the room so it turns with the body ----------
   { const N_DUST = 420; const pos = new Float32Array(N_DUST * 3); let seed = 7; const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
     for (let i = 0; i < N_DUST; i++) { const a = rnd() * Math.PI * 2, u = rnd() * 2 - 1, r = 1.5 + Math.pow(rnd(), 0.7) * 3.6, q = Math.sqrt(1 - u * u); pos[i * 3] = Math.cos(a) * q * r; pos[i * 3 + 1] = 0.9 + u * r * 0.8; pos[i * 3 + 2] = MID + Math.sin(a) * q * r; }
@@ -548,6 +578,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     if (hooks.hoverable && !hooks.hoverable()) z = -1;
     if (z >= 0) U.uHov.value = z;
     if (z !== hovZone || z >= 0) { hovZone = z; hooks.onHover && hooks.onHover(z >= 0 ? { zone: z, x: e.clientX, y: e.clientY, point: hit ? hit.point.toArray() : null } : null); }
+    hooks.onPointer && hooks.onPointer(e.clientX, e.clientY, orb > 0 || !!hit);
   });
   renderer.domElement.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
   renderer.domElement.addEventListener('pointerup', (e) => {
@@ -568,7 +599,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     if (sh && sh.uv) { const under = []; const all = []; organs.forEach((o, id) => { o.mesh.userData.id = id; all.push(o.mesh); });
       for (const h of ray.intersectObjects(all, false)) { const id = h.object.userData.id; if (!under.includes(id)) under.push(id); if (under.length >= 4) break; }
       hooks.onPick && hooks.onPick({ type: 'skin', zone: Math.max(0, Math.min(7, Math.round(sh.uv.x * 7))), point: sh.point.toArray(), arm: sh.uv.y, under, ...at }); return; }
-    hooks.onPick && hooks.onPick({ type: 'none' });
+    hooks.onPick && hooks.onPick({ type: 'none', ...at });
   });
 
   // ---------- projection for the labels ----------
@@ -639,6 +670,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     controls.update(); aura.quaternion.copy(camera.quaternion);
     { const fa = look.flow * (1 - 0.25 * F.amt) * (1 - 0.45 * U.uSelAmt.value) * (1 - 0.5 * U.uXray.value); flowU.uFlowA.value = lerp(flowU.uFlowA.value, fa);
       flow.userData.stars.forEach((sp) => { sp.material.opacity = 0.34 * flowU.uFlowA.value * (1 - F.amt); }); flow.userData.axis.material.opacity = 0.035 * flowU.uFlowA.value * (1 - F.amt); }
+    hooks.beforeRender && hooks.beforeRender();
     renderAura();
     if (composer && glowOn) composer.render(); else renderer.render(scene, camera);
     hooks.onFrame && hooks.onFrame();
@@ -671,5 +703,5 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   const zoomBy = (k) => { const c = readCamera(); tween = { from: c, to: { ...c, dist: THREE.MathUtils.clamp(c.dist * k, controls.minDistance, controls.maxDistance) }, t: 0, dur: 0.35 }; wake(1); };
   const startSway = () => { if (!reduceMotion) { sway = true; swayT = 0; } };
   const setPaused = (p) => { paused = !!p; if (!paused) { clock.getDelta(); wake(1); } };
-  return { setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
+  return { setBackLabels, dropBackLabels, backCount: () => backPool.filter((o) => o.quad.visible).length, pixelRatio: () => renderer.domElement.width / (renderer.domElement.clientWidth || 1), setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
 }

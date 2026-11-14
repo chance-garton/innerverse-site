@@ -281,4 +281,11 @@ an onion, not a torus; the field view has the better shape but at another scale.
   their dot and words a fifth dimmer (`.lab.far` in `index.html`, .45 to .36).
 - A dim label could lie on a bright one when two collided, because all labels stacked in page order. Bright labels now always
   stack above dim ones, and dots below both (`.lab.far` z-index 1, `.pin` 0).
+- Labels behind the body, second method, at his ask (10:25): the far labels of a center are drawn inside the 3D picture, before the
+  body's glow, inner parts and skin (`setBackLabels` in `scene.js`, render order -0.8, no depth test). The body is simply painted
+  over them, so its halo passes in front and they show faintly through see-through skin; nothing is cut out, so nothing clips. The
+  page label stays in place, unseen (`.bh`), to hold position and size; its picture is made from the page's own layout, letter by
+  letter (`labelPicture` in `app.js`). The dot and line are drawn with it. A press on empty space over such a label opens it
+  (`backAt`); a press on the body where it covers the label goes to the body. The page lays labels out before each frame is drawn
+  (`beforeRender`), so they move with the body in the same frame. Not used for a single part shown alone.
 - Checks: section 5c in `checks/checks.mjs`.
