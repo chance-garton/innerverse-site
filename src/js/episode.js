@@ -3743,3 +3743,12 @@
   else hydrate();
   /* ===== END iv-hydrate ===== */
 })();
+
+/* Premiere banner: hide it once its time has passed (2026-11-15). */
+(function () {
+  var b = document.querySelector('.iv-premiere[data-premiere-at]');
+  if (!b) return;
+  var at = Date.parse(b.getAttribute('data-premiere-at'));
+  function check() { if (!isNaN(at) && Date.now() >= at) { b.remove(); return true; } return false; }
+  if (!check()) setInterval(check, 30000);
+})();

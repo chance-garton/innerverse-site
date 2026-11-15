@@ -13,6 +13,7 @@ markup without redrawing it.
 """
 
 import json
+import os
 import math
 import re
 import time
@@ -897,6 +898,24 @@ def seo_description(f, post, r=None):
     return plain(f["intro1"] or f["topicLine"] or f["title"], 160)
 
 
+def build_premiere(slug):
+    """A banner for a page that goes up before its premiere (data/premieres.json),
+    2026-11-15 (Chance). Rendered only while the time is still ahead at build;
+    the page script hides it once the time passes in the reader's browser."""
+    import datetime as _dt, json as _json
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "premieres.json")
+    try:
+        p = _json.load(open(path, encoding="utf-8")).get(slug)
+        at = _dt.datetime.fromisoformat(p["at"])
+    except Exception:
+        return ""
+    if at <= _dt.datetime.now(_dt.timezone.utc):
+        return ""
+    return ('<div class="iv-premiere" data-premiere-at="' + esc(p["at"]) + '">'
+            '<span class="iv-premiere-dot"></span>'
+            '<span class="iv-premiere-text">' + esc(p.get("text") or "Premieres soon") + "</span></div>")
+
+
 def render(slug, file, post, related, tags):
     r = file["fields"]
     f = build_f(r)
@@ -919,6 +938,7 @@ def render(slug, file, post, related, tags):
 
     root = (
         build_header(f)
+        + build_premiere(slug)
         + build_media_toggle(f)
         + build_platforms_row()
         + build_share_modal(f)
