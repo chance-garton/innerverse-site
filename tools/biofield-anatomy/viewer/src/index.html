@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biofield Anatomy</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Marcellus&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* the site's Astrolabe language: warm ivory on a near-black ground, hairlines, lapis for focus. Gold is kept for Plus+ and is not used here; the body supplies the colour. */
+  --ground:#0B0C13; --ground-2:#13151F; --ink:#EFE9DC; --ink-soft:#A9A498; --ink-faint:#8B877C; --accent:#EFE9DC; --warm:#E6C98A; --lapis:#A9B7FF;
+  --line:rgba(239,233,220,.16); --hair:rgba(239,233,220,.09); --btn-line:rgba(239,233,220,.4); --on-ink:#14151C;
+  --glass:rgba(13,15,23,.84); --zone:var(--accent);
+  --brand:"Fjalla One","Arial Narrow",Impact,sans-serif; --display:"Marcellus",Georgia,serif; --label:"Fjalla One","Arial Narrow",sans-serif; --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --r-sm:6px; --r-md:10px; --r-lg:14px; --tap:36px;
+  --lab-far:rgb(13,15,28); --lab-far-line:rgba(255,255,255,.05); --lab-far-dim:.36;   /* a label on the far side of the body; the 3D picture reads these too */
+  --rail:292px; --panel:404px; --gap:18px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lapis);outline-offset:2px;border-radius:var(--r-sm)}
+#stage{position:fixed;inset:0;touch-action:none}
+#stage canvas{display:block;width:100%;height:100%;opacity:0;transition:opacity .9s ease}
+.ready #stage canvas{opacity:1}
+#status{position:fixed;left:0;right:0;top:calc(50% - 70px);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;color:var(--ink-soft);letter-spacing:.06em;font-size:13px;pointer-events:none;transition:opacity .5s}
+#status::before{content:"";width:64px;height:64px;border-radius:50%;background:conic-gradient(from 180deg,#e0232f,#f57a1e,#f7cf2a,#33c26b,#2f8fe8,#4a4fd6,#a05cf0,#e0232f);-webkit-mask:radial-gradient(circle,transparent 27px,#000 28px);mask:radial-gradient(circle,transparent 27px,#000 28px);animation:turn 2.4s linear infinite;opacity:.9}
+.nogl #status::before{display:none}
+@keyframes turn{to{transform:rotate(360deg)}}
+.ready #status{opacity:0}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--zone);margin:0;font-weight:700}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--r-lg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+
+/* ---------- labels in the scene ---------- */
+#leaders{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+#leaders line{stroke:var(--accent);stroke-opacity:.42;stroke-width:1}
+#leaders line.far{stroke-opacity:.18}
+#labels{position:fixed;inset:0;pointer-events:none;z-index:3}
+.lab{z-index:2;position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;max-width:204px;padding:7px 11px 7px 9px;border-radius:var(--r-md);min-height:var(--tap);border:1px solid var(--hair);background:rgb(11,13,25);pointer-events:auto;cursor:pointer;text-align:left;transition:opacity .25s,border-color .2s,background .2s;will-change:transform}
+.lab:hover{border-color:var(--c,var(--accent));background:rgb(22,25,45)}
+.lab:hover .ld,.lab:hover .lt{opacity:1}
+.lab .ld{flex:none;width:8px;height:8px;border-radius:50%;background:var(--c,var(--accent));box-shadow:0 0 10px var(--c,var(--accent))}
+.lab .lt{display:flex;flex-direction:column;min-width:0}
+.lab .l1{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;line-height:1.3}
+.lab .l2{font-size:13px;font-weight:600;line-height:1.25;color:var(--ink)}
+/* labels on the far side of the body: solid, with their dot and words dimmed. A fifth dimmer than at first (.45 to .36; Chance, 2026-11-14) */
+.lab.far{z-index:1;background:var(--lab-far);border-color:var(--lab-far-line)}   /* a dim label never lies on a bright one: bright labels are always on top (Chance, 2026-11-14) */
+.lab.far .ld,.lab.far .lt{opacity:var(--lab-far-dim)}
+/* behind the body: the label, its dot and its line are drawn inside the 3D picture, under the body; the page's own copies only keep their place */
+.lab.under,.pin.under,#leaders line.under{visibility:hidden}
+.lab.dim{background:rgb(11,13,25);border-color:rgba(255,255,255,.04)}
+.lab.dim .ld,.lab.dim .lt{opacity:.3}
+.lab.on{z-index:3;border-color:var(--c,var(--accent));background:rgb(24,27,48)}
+.lab.on .ld,.lab.on .lt{opacity:1}
+.lab.tick{z-index:1;min-height:0;padding:2px 7px;border-radius:var(--r-sm);background:rgba(9,11,22,.5);border-color:transparent;cursor:default;pointer-events:none}
+.lab.tick .l2{font-size:12px;font-weight:500;color:var(--ink-soft)}
+.lab.glyph .ld{display:none}
+.lab.glyph .l1{font-family:"Noto Sans Symbols 2","Noto Sans Symbols","Apple Symbols","Segoe UI Symbol","DejaVu Sans",sans-serif;font-size:17px;letter-spacing:0;color:var(--ink-c,var(--warm));font-weight:400;line-height:1}
+.lab.glyph{gap:6px;padding:4px 10px 4px 8px}
+.lab.glyph .lt{flex-direction:row;align-items:center;gap:7px}
+.pin{z-index:0;position:absolute;left:0;top:0;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--c,var(--accent));box-shadow:0 0 0 3px color-mix(in srgb,var(--c,var(--accent)) 25%,transparent),0 0 14px var(--c,var(--accent));will-change:transform}
+.pin.far{opacity:.35}
+
+/* ---------- left rail ---------- */
+#rail{position:fixed;left:var(--gap);top:var(--gap);bottom:var(--gap);width:var(--rail);display:flex;flex-direction:column;gap:12px;padding:18px 14px 12px;z-index:5}
+#brand{padding:0 6px}
+#brand .eyebrow{font-family:var(--brand);font-weight:400;font-size:13px;letter-spacing:.2em;color:var(--ink)}
+h1{font-family:var(--display);font-weight:400;font-size:27px;line-height:1.12;margin:6px 0 0;letter-spacing:.01em}
+#searchbox{position:relative;padding:0 2px}
+#q{width:100%;font:500 14px var(--body);color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:var(--r-md);padding:12px 12px 12px 36px;outline:none}
+#q::placeholder{color:var(--ink-faint)}
+#q:focus{border-color:var(--lapis);background:rgba(255,255,255,.07)}
+#searchbox svg{position:absolute;left:13px;top:50%;width:16px;height:16px;transform:translateY(-50%);stroke:var(--ink-soft);fill:none;stroke-width:1.8;pointer-events:none}
+#results{position:absolute;left:0;right:0;top:calc(100% + 6px);max-height:min(62vh,520px);overflow:auto;padding:6px;z-index:20;display:none;box-shadow:0 18px 50px rgba(0,0,0,.55);background:rgba(12,14,27,.97)}
+#results.open{display:block}
+.rg{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;padding:8px 8px 3px}
+.res{display:flex;gap:10px;align-items:center;width:100%;min-height:var(--tap);text-align:left;background:none;border:0;border-radius:var(--r-md);padding:7px 8px;cursor:pointer}
+.res:hover,.res.cur{background:rgba(255,255,255,.07)}
+.res b{font-weight:600;font-size:14px;flex:0 1 auto;min-width:0;max-width:62%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.res mark{background:none;color:inherit;box-shadow:inset 0 -2px 0 var(--lapis)}
+.res span{flex:1 1 0;font-size:12.5px;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.res i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--c,var(--accent));align-self:center;font-style:normal}
+.nores{padding:12px 10px;color:var(--ink-soft);font-size:13px}
+#tabs{display:flex;flex-wrap:wrap;gap:2px;padding:3px;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:12px}
+.tab{flex:1 1 auto;min-height:var(--tap);white-space:nowrap;font:600 12.5px var(--body);letter-spacing:0;background:none;border:0;border-radius:8px;padding:8px 4px;cursor:pointer;color:var(--ink-soft);transition:background .2s,color .2s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--on-ink)}
+#list{display:flex;flex-direction:column;gap:2px;overflow:auto;flex:1;min-height:0;margin:0 -4px;padding:2px 4px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent}
+.gh{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;padding:12px 10px 4px}
+.gh:first-child{padding-top:4px}
+.it{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:8px 10px;border-radius:var(--r-md);border:1px solid transparent;background:none;cursor:pointer;transition:background .15s}
+.it:hover{background:rgba(255,255,255,.045)}
+.it[aria-current="true"]{background:rgba(255,255,255,.075);border-color:var(--line)}
+.it .dot{flex:none;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent),0 0 14px var(--c)}
+.it .gl{flex:none;width:22px;text-align:center;font-size:19px;color:var(--c,var(--warm));line-height:1;font-family:"Noto Sans Symbols 2","Noto Sans Symbols","Apple Symbols","Segoe UI Symbol","DejaVu Sans",sans-serif}
+.it .zt{display:flex;flex-direction:column;min-width:0}
+.it .zc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+.it .zn{font-size:14px;font-weight:500;line-height:1.3}
+.it.sub{padding:5px 10px 5px 34px;gap:9px;min-height:var(--tap)}
+.it.sub .zn{font-size:13.5px;color:var(--ink-soft)}
+.it.sub[aria-current="true"] .zn,.it.sub:hover .zn{color:var(--ink)}
+.it.sub .dot{width:6px;height:6px;box-shadow:none;opacity:.8}
+.it.plain{padding:7px 10px}
+.it.plain .zn{font-size:14px}
+.it.plain .zs{font-size:12px;color:var(--ink-soft);line-height:1.3}
+#railfoot{display:flex;flex-wrap:wrap;gap:5px;align-items:center;padding:6px 0 0;border-top:1px solid var(--hair)}
+#railfoot .quiet{flex:1 1 auto;padding:7px 9px;font-size:12px;letter-spacing:0}
+.quiet{white-space:nowrap;min-height:var(--tap);font:600 12.5px var(--body);letter-spacing:.02em;background:rgba(239,233,220,.04);border:1.5px solid var(--btn-line);border-radius:999px;padding:7px 14px;cursor:pointer;color:var(--ink);transition:border-color .2s,background .2s}
+.quiet:hover{border-color:var(--accent);background:rgba(239,233,220,.1)}
+.quiet[aria-pressed="true"]{background:var(--accent);color:var(--on-ink);border-color:var(--accent)}
+
+/* ---------- detail panel ---------- */
+#panel{position:fixed;right:var(--gap);top:var(--gap);bottom:var(--gap);width:var(--panel);display:flex;flex-direction:column;z-index:5;overflow:hidden}
+#grab,#sheethead{display:none}
+#detail{flex:1;min-height:0;overflow:auto;padding:22px 22px 8px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent;overscroll-behavior:contain}
+#detail>*{animation:rise .35s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:-4px 0 10px -8px}
+.crumb{font:600 12.5px var(--body);min-height:var(--tap);display:inline-flex;align-items:center;background:none;border:0;border-radius:var(--r-sm);padding:4px 8px;cursor:pointer;color:var(--ink-soft)}
+.crumb:hover{background:rgba(255,255,255,.07);color:var(--ink)}
+.crumbs .sep{color:var(--ink-faint);font-size:12px}
+h2{font-family:var(--display);font-weight:400;font-size:32px;line-height:1.12;margin:6px 0 0;letter-spacing:.005em;text-wrap:balance}
+h2.sm{font-size:27px}
+.heading{font-size:14.5px;font-weight:600;color:var(--zone);margin:6px 0 0;letter-spacing:.01em}
+.lede{margin:14px 0 0;font-size:15px;color:var(--ink)}
+.soft{color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0}
+/* themes are words, not buttons: they run as a quiet line; only things that go somewhere get a pill */
+.chips:has(.tag){gap:3px 0;align-items:center}
+.tag{font-size:13.5px;font-weight:500;color:var(--ink-soft);border:0;padding:0;background:none}
+.tag:not(:last-child)::after{content:"\00B7";margin:0 9px;color:var(--ink-faint)}
+.tag:has(+.tag.more)::after{display:none}
+.tag.more{cursor:pointer;color:var(--ink);font:600 12.5px var(--body);min-height:var(--tap);padding:0 12px;margin-left:10px;border:1.5px solid var(--btn-line);border-radius:999px}
+.tag.more::after{display:none}
+.gov{margin:14px 0 0;font-size:13.5px;color:var(--ink-soft)}
+.gov b{color:var(--ink);font-weight:600}
+.blk{margin:22px 0 0}
+.bh{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 10px;margin:0 0 9px}
+.bh h3{white-space:nowrap;font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.bh span{font-size:12px;color:var(--ink-faint)}
+.chip{font:600 13px var(--body);min-height:var(--tap);background:rgba(239,233,220,.04);border:1.5px solid color-mix(in srgb,var(--zone) 58%,transparent);border-radius:999px;padding:6px 14px;cursor:pointer;transition:background .15s}
+.chip:hover{background:color-mix(in srgb,var(--zone) 24%,transparent)}
+.chip.gl{border-color:var(--btn-line)}
+.chip.gl:hover{background:rgba(239,233,220,.12)}
+.compass{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.compass.one{grid-template-columns:1fr}
+.cap{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;padding:0 4px}
+.cap span:last-child{text-align:right}
+.rowcap.lead{text-align:left;color:var(--zone);padding:0 4px 2px;letter-spacing:.1em}
+.azl{font:400 24px var(--display);color:var(--ink);padding:14px 8px 2px;border-bottom:1px solid var(--hair);margin-bottom:4px}
+.az .res b{white-space:normal;max-width:none;flex:1 1 auto}
+.az .res span{margin-left:auto;text-align:right;flex:0 1 44%}
+.rowcap{grid-column:1/-1;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;padding:5px 4px 0;text-align:center}
+.pos{display:flex;flex-direction:column;gap:2px;text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:var(--r-md);padding:10px 12px;cursor:pointer;transition:border-color .15s,background .15s;min-height:62px}
+.pos:hover,.pos.on{border-color:var(--zone);background:color-mix(in srgb,var(--zone) 13%,transparent)}
+.pos.wide{grid-column:1/-1}
+.pos .p1{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+.pos .p2{font-size:14px;font-weight:600;line-height:1.25}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:12px;margin:0 0 10px}
+.seg button{font:600 13px var(--body);min-height:var(--tap);background:none;border:0;border-radius:8px;padding:7px 4px;cursor:pointer;color:var(--ink-soft)}
+.seg button[aria-selected="true"]{background:var(--accent);color:var(--on-ink)}
+.txt p{margin:0 0 10px}
+.txt p:last-child{margin-bottom:0}
+.txt ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.txt li{position:relative;padding-left:16px}
+.txt li::before{content:"";position:absolute;left:2px;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--zone);opacity:.85}
+.acc{border-top:1px solid var(--hair)}
+.acc:last-of-type{border-bottom:1px solid var(--hair)}
+.acc>button{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:0;padding:13px 2px;cursor:pointer;text-align:left;font:600 14.5px var(--body)}
+.acc>button small{font-weight:500;font-size:12px;color:var(--ink-faint);margin-left:8px}
+.acc>button svg{flex:none;width:14px;height:14px;stroke:var(--ink-soft);fill:none;stroke-width:2;transition:transform .25s}
+.acc[data-open="1"]>button svg{transform:rotate(180deg)}
+.acc .in{display:none;padding:0 2px 16px;font-size:14.5px}
+.acc[data-open="1"] .in{display:block}
+.note{font-size:12px;color:var(--ink-faint);margin:10px 0 0}
+.side{background:rgba(239,233,220,.035);border-left:2px solid var(--zone);border-radius:0 var(--r-md) var(--r-md) 0;padding:11px 13px;margin:16px 0 0;font-size:14px}
+.side h4{margin:0 0 6px;font:700 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.tgt{display:flex;gap:11px;align-items:flex-start;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:var(--r-md);padding:11px 12px;cursor:pointer;margin:0 0 7px}
+.tgt:hover{border-color:var(--c,var(--accent))}
+.tgt i{flex:none;width:10px;height:10px;border-radius:50%;margin-top:6px;background:var(--c,var(--accent));box-shadow:0 0 10px var(--c,var(--accent))}
+.tgt b{display:block;font-size:13.5px;font-weight:700}
+.tgt span{display:block;font-size:13.5px;color:var(--ink-soft);line-height:1.4}
+.age{display:flex;align-items:center;gap:10px;margin:4px 0 0}
+.age input[type=range]{flex:1;height:44px;accent-color:var(--accent);cursor:pointer}
+.age input[type=range]{-webkit-appearance:none;appearance:none;background:transparent}
+.age input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:rgba(239,233,220,.28)}
+.age input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:rgba(239,233,220,.28)}
+.age input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-11px;border-radius:50%;background:var(--accent);border:0;box-shadow:0 0 0 5px rgba(239,233,220,.14)}
+.age input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--accent);border:0;box-shadow:0 0 0 5px rgba(239,233,220,.14)}
+.age label{display:flex;align-items:center;gap:7px;font:600 13px var(--body);color:var(--ink-soft)}
+.age input[type=number]{width:62px;min-height:var(--tap);font:600 15px var(--body);color:var(--ink);background:rgba(255,255,255,.05);border:1.5px solid var(--btn-line);border-radius:var(--r-md);padding:4px 6px;text-align:center;font-variant-numeric:tabular-nums}
+/* a word in the text that leads somewhere: a quiet button, never an underline */
+.ln{color:var(--ink);background:rgba(239,233,220,.085);border-radius:5px;padding:1px 5px;margin:0 -1px;box-shadow:inset 0 0 0 1px var(--hair);cursor:pointer;transition:background .15s;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.ln:hover{background:color-mix(in srgb,var(--zone) 28%,transparent)}
+a.chip{display:inline-flex;align-items:center}
+.xp{border-top:1px solid var(--hair);padding-top:18px}
+/* zodiac legend: the twelve signs in body order, each in its own color */
+.zleg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:center}
+.zh{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;text-align:center}
+.zh.el{text-align:left;padding-right:6px;color:var(--ink-soft)}
+.zcell{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:58px;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:var(--r-md);padding:8px 2px 7px;cursor:pointer;font:600 12.5px var(--body);transition:border-color .15s}
+.zcell:hover{border-color:var(--c)}
+.zcell em{flex:none;display:flex;font-style:normal;font-size:23px;line-height:1;color:var(--ink-c,var(--c));filter:drop-shadow(0 0 5px color-mix(in srgb,var(--c) 55%,transparent))}
+.zcell .zg{stroke-width:1.5}
+.zcell span{max-width:100%;white-space:nowrap}
+/* drawn zodiac glyphs: one size with the text around them */
+.zg{width:1em;height:1em;flex:none;stroke:currentColor;fill:none;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em;overflow:visible}
+.bigglyph .zg{stroke-width:1.2}
+.chip .zg{margin-right:5px;font-size:15px}
+/* years to each foot of field, under the age slider */
+.ypf{margin:10px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.ypf b{color:var(--ink);font-weight:600;font-size:16px}
+.fr{white-space:nowrap}.fr sup,.fr sub{font-size:.66em;line-height:0}.fr sup{vertical-align:.5em}.fr sub{vertical-align:-.1em}
+.tgt.inv{margin:16px 0 0}
+.tgt.inv b{font-family:var(--display);font-weight:400;font-size:18px;line-height:1.25;margin-bottom:3px}
+/* a soft ripple where the body is pressed on a touch screen */
+.rip{position:fixed;z-index:4;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;pointer-events:none;border:1.5px solid var(--c,var(--accent));box-shadow:0 0 18px var(--c,var(--accent));opacity:.75;animation:rip .65s ease-out forwards}
+@keyframes rip{to{transform:scale(6);opacity:0}}
+#pickmenu{position:fixed;left:0;top:0;z-index:7;min-width:210px;max-width:280px;padding:6px;background:rgba(12,14,27,.97);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+#pickmenu[hidden],#keys[hidden]{display:none}
+#keys{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:30;padding:20px 24px;background:rgba(12,14,27,.97);box-shadow:0 18px 60px rgba(0,0,0,.6);cursor:pointer}
+#keys h3{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px}
+#keys dl{display:grid;grid-template-columns:auto 1fr;gap:9px 18px;margin:0;font-size:14px}
+#keys dt{font:600 13px var(--body);color:var(--ink);background:rgba(239,233,220,.08);border:1px solid var(--line);border-radius:var(--r-sm);padding:2px 9px;text-align:center;white-space:nowrap}
+#keys dd{margin:0;color:var(--ink-soft)}
+@media (min-width:1000px){.ph-only{display:none}}
+/* the small capital labels are set in the brand face, a little tighter than the INNERVERSE mark (Chance, 2026-11-13) */
+.eyebrow,.lab .l1,.rg,.gh,.it .zc,.bh h3,.cap,.rowcap,.pos .p1,.side h4,.zh,#keys h3{font-family:var(--label);font-weight:400;font-size:13px;letter-spacing:.15em}
+#brand .eyebrow{letter-spacing:.2em}
+/* powers and governed parts: every word its own button, under a small title in the center's color */
+.bh h3.zt{color:var(--zone)}
+.pwb{margin-top:18px}
+.chip.pw{border-radius:18px;text-align:left;line-height:1.3;border-color:color-mix(in srgb,var(--zone) 50%,transparent)}
+.chip.pw:hover{background:color-mix(in srgb,var(--zone) 20%,transparent)}
+.chip.pw.off{display:inline-flex;align-items:center;cursor:default;border-color:transparent;background:rgba(239,233,220,.055);color:var(--ink-soft)}
+.chip.pw.off:hover{background:rgba(239,233,220,.055)}
+.lede.first{margin-top:2px}
+.lede.pnote{font-size:14.5px;line-height:1.55;margin-top:10px}
+/* the opening panel: reading rules that can fold, and the steps that keep it on one screen */
+details.rules>summary{list-style:none;pointer-events:none}
+details.rules>summary::-webkit-details-marker{display:none}
+.fit1 .blk{margin-top:16px}.fit1 .bh{margin-bottom:7px}.fit1 .lede{line-height:1.5}.fit1 .txt ul{gap:4px}.fit1 details.rules .txt{font-size:13.5px;line-height:1.45;color:var(--ink-soft)}
+.fit2 details.rules>summary{pointer-events:auto;cursor:pointer;margin:0;min-height:var(--tap);align-items:center;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:0 2px}
+.fit2 details.rules>summary::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-soft);border-bottom:1.5px solid var(--ink-soft);transform:rotate(45deg);margin:0 6px 3px 0}
+.fit2 details.rules[open]>summary::after{transform:rotate(-135deg);margin-bottom:-3px}
+.fit2 details.rules[open] .txt{padding:10px 2px 6px}
+.fit3 .lede{font-size:13.5px;line-height:1.45}.fit3 .chip{min-height:30px;padding:4px 11px;font-size:12.5px}.fit3 .chips{gap:5px}.fit3 .blk{margin-top:12px}.fit3 .bh{margin-bottom:5px}
+.bigglyph{font-family:"Noto Sans Symbols 2","Noto Sans Symbols","Apple Symbols","Segoe UI Symbol","DejaVu Sans",sans-serif;font-size:44px;line-height:1;color:var(--zone);margin:0 0 4px}
+.cols{columns:2;column-gap:8px}
+.cols .res{break-inside:avoid;padding:6px 8px}
+.cols .res b{white-space:normal;max-width:none;overflow:visible;text-overflow:clip;line-height:1.3}
+#foot{flex:none;display:flex;align-items:center;gap:10px;padding:11px 16px 13px;border-top:1px solid var(--hair)}
+/* the one filled button on the page: the thing to press */
+#cta{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap;font:600 14px var(--body);letter-spacing:.01em;border:0;border-radius:999px;padding:0 20px;background:var(--accent);color:var(--on-ink);transition:opacity .2s}
+#cta:hover{opacity:.88}
+#foot .credit{font-size:12px;color:var(--ink-faint);line-height:1.35;margin-left:auto;text-align:right}
+#back{position:fixed;left:calc(var(--gap)*2 + var(--rail));top:var(--gap);z-index:4;display:none;align-items:center;gap:7px;font:600 13px var(--body);min-height:var(--tap);background:var(--glass);border:1.5px solid var(--btn-line);border-radius:999px;padding:8px 14px 8px 10px;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#back.show{display:flex}
+#back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+/* view controls under the figure: which side faces you (tap to turn around), zoom, reset */
+#ctl{position:fixed;left:calc(var(--gap)*2 + var(--rail));right:calc(var(--gap)*2 + var(--panel));bottom:var(--gap);display:flex;justify-content:center;align-items:center;gap:6px;z-index:4;pointer-events:none;opacity:0;transition:opacity .6s}
+.ready #ctl{opacity:1}
+.nogl #ctl{display:none}
+#ctl button{pointer-events:auto;display:inline-flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#ctl svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#ctl .sq{width:var(--tap);padding:0;justify-content:center}
+#tip{position:fixed;left:0;top:0;z-index:6;pointer-events:none;display:none;align-items:center;gap:8px;padding:7px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:rgb(17,19,29);font:600 13px var(--body);white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+#tip i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+#tip span{font-weight:500;color:var(--ink-soft)}
+#stage canvas{cursor:grab}
+#strip,#mtop,#msearch{display:none}
+
+@media (min-width:1700px){:root{--rail:330px;--panel:468px;--gap:22px}body{font-size:16px}h1{font-size:30px}h2{font-size:37px}.it .zn{font-size:15px}.lede{font-size:16.5px}#detail{padding:28px 28px 8px}}
+@media (max-width:1320px){#railfoot .wd{display:none}:root{--rail:262px;--panel:348px;--gap:12px}#rail{padding-left:12px;padding-right:12px}.tab{font-size:12px;padding:8px 2px}h1{font-size:24px}h2{font-size:28px}#detail{padding:18px 18px 8px}#foot .credit{display:none}}
+@media (max-width:1180px){:root{--rail:236px;--panel:324px}h1{font-size:23px}}
+/* ---------- phone and narrow screens ---------- */
+@media (max-width:999px){
+  body{font-size:14.5px}
+  #rail{left:0;right:0;top:0;bottom:auto;width:auto;border-radius:0;border-width:0 0 1px;padding:9px 12px 9px;gap:8px;background:rgba(8,9,18,.82)}
+  #brand{display:flex;align-items:baseline;gap:8px;padding:0 2px}
+  #brand .eyebrow{display:none}
+  h1{font-size:21px;margin:0;flex:1}
+  /* phones: no A to Z (Chance, 2026-11-13); search is one roomy bubble that reads as a place to type */
+  #brand h1{white-space:nowrap}
+  #msearch{display:flex;flex:1 1 0;min-width:112px;max-width:210px;align-items:center;gap:9px;min-height:44px;padding:0 16px 0 14px;border-radius:999px;border:1.5px solid var(--btn-line);background:rgba(239,233,220,.07);color:var(--ink-soft);font:500 14px var(--body);letter-spacing:0;text-align:left;white-space:nowrap;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+  #msearch svg{flex:none;width:16px;height:16px;stroke:var(--ink);opacity:.85}
+  #msearch:active{background:rgba(239,233,220,.12)}
+  .dk-only{display:none !important}
+  #searchbox{display:none}
+  .searching #searchbox{display:block;position:fixed;left:10px;right:10px;top:8px;z-index:40}
+  .searching #results{max-height:70vh}
+  .searching #brand{visibility:hidden}
+  :root{--tap:44px}
+  #tabs{padding:3px}
+  .tab{padding:7px 4px;font-size:13px}
+  .zcell{font-size:12px}
+  #list,#railfoot{display:none}
+  #strip:empty{display:none}
+  #strip{display:flex;position:fixed;left:0;right:0;z-index:6;gap:6px;overflow-x:auto;padding:6px 12px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  #strip::-webkit-scrollbar{display:none}
+  .sc{flex:none;display:flex;align-items:center;gap:7px;font:600 12.5px var(--body);background:rgba(9,11,22,.8);border:1px solid var(--hair);border-radius:999px;padding:7px 12px 7px 9px;cursor:pointer;white-space:nowrap;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .sc i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--accent));box-shadow:0 0 8px var(--c,var(--accent))}
+  .sc em{font-style:normal;color:var(--accent);font-size:15px;line-height:1}
+  .sc[aria-current="true"]{border-color:var(--c,var(--accent));background:rgba(26,29,52,.95)}
+  #panel{left:0;right:0;top:auto;bottom:0;width:auto;height:var(--sheet,42vh);border-radius:20px 20px 0 0;border-width:1px 0 0;transition:height .32s cubic-bezier(.3,.8,.3,1);background:rgba(10,12,23,.93)}
+  /* the sheet header: the whole strip drags the sheet, the handle stays centred, and the way back sits inside it at the left */
+  #sheethead{display:flex;position:relative;align-items:center;flex:none;min-height:36px}
+  #grab{display:flex;position:absolute;inset:0;justify-content:center;align-items:center;cursor:grab;touch-action:none;background:none;border:0;width:100%}
+  #sheethead #back{position:relative;z-index:1;left:auto;top:auto;bottom:auto;margin:5px 0 3px 10px;max-width:calc(50% - 40px);min-height:36px;padding:5px 12px 5px 8px;background:rgba(239,233,220,.06);backdrop-filter:none;-webkit-backdrop-filter:none}
+  #sheethead #back span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #grab::before{content:"";width:42px;height:4px;border-radius:2px;background:rgba(255,255,255,.28)}
+  #detail{padding:2px 18px 30px;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 30px),transparent)}
+  h2{font-size:27px}
+  h2.sm{font-size:23px}
+  /* the booking bar is a slim line while reading and grows into the full button at the end of an entry */
+  #foot{padding:4px 14px calc(5px + env(safe-area-inset-bottom,0px));transition:padding .25s}
+  #cta{min-height:36px;font-size:13px;padding:0 15px;background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--btn-line);transition:min-height .25s,background .25s,color .25s,padding .25s}
+  #panel.at-end #foot{padding:9px 14px calc(11px + env(safe-area-inset-bottom,0px))}
+  #panel.at-end #cta{min-height:44px;font-size:14px;padding:0 20px;background:var(--accent);color:var(--on-ink);box-shadow:none}
+  #foot .credit{display:none}
+  #back{font-size:13px}
+  #ctl{left:auto;right:10px;justify-content:flex-end}
+  #ctl .zoom{display:none}
+  .sheet-full #ctl{display:none}
+  .lab{max-width:150px;min-height:36px;padding:4px 9px 4px 8px}
+  @media (max-height:800px){.lab{min-height:30px;padding-top:2px;padding-bottom:2px}}   /* a short phone screen: the eight labels close up so none slides under the tabs */
+  .lab .l2{font-size:12.5px}
+  .lab .l1{font-size:12px;letter-spacing:.04em}
+  .sc{min-height:44px;font-size:13px}
+}
+@media (pointer:coarse){:root{--tap:44px}}
+@media (prefers-reduced-motion:reduce){#detail>*{animation:none}#panel,#cta,#foot,.lab{transition:none}#status::before{animation:none}}
+</style>
+</head>
+<body>
+<div id="stage" aria-label="3D model of the body and its biofield" role="img"></div>
+<p id="status">Preparing the body</p>
+<aside id="rail" class="glass" aria-label="Browse">
+  <div id="brand">
+    <div style="flex:1"><p class="eyebrow">INNERVERSE</p><h1>Biofield Anatomy</h1></div>
+    <button id="msearch" type="button" aria-label="Search the map"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg><span>Search the map</span></button>
+  </div>
+  <div id="searchbox" role="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+    <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search the map" aria-label="Search a body part or a feeling" aria-controls="results">
+    <div id="results" class="glass" role="listbox"></div>
+  </div>
+  <div id="tabs" role="tablist" aria-label="View">
+    <button class="tab" role="tab" data-view="chakra" type="button">Chakras</button>
+    <button class="tab" role="tab" data-view="field" type="button">Field</button>
+    <button class="tab" role="tab" data-view="organs" type="button">Body Parts</button>
+    <button class="tab" role="tab" data-view="zodiac" type="button">Zodiac</button>
+  </div>
+  <nav id="list" aria-label="In this view"></nav>
+  <div id="railfoot">
+    <button class="quiet" id="b-atoz" type="button"><span class="wd">Biofield </span>A to Z</button>
+    <button class="quiet" id="b-feelings" type="button">Feelings</button>
+    <button class="quiet" id="b-about" type="button">About</button>
+  </div>
+</aside>
+
+<div id="strip" aria-label="In this view"></div>
+<button id="back" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span></span></button>
+<div id="ctl">
+  <button class="quiet" id="c-face" type="button" aria-label="Turn the body around"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><b>Front view</b></button>
+  <button class="quiet sq zoom" id="c-out" type="button" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg></button>
+  <button class="quiet sq zoom" id="c-in" type="button" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12M12 6v12"/></svg></button>
+  <button class="quiet" id="c-reset" type="button">Reset</button>
+  <button class="quiet sq zoom" id="b-keys" type="button" aria-label="Keyboard shortcuts"><b>?</b></button>
+</div>
+<div id="tip" role="status"><i></i><b></b><span></span></div>
+
+<section id="panel" class="glass" aria-live="polite">
+  <div id="sheethead"><button id="grab" type="button" aria-label="Resize the panel"></button></div>
+  <div id="detail"></div>
+  <div id="foot">
+    <a id="cta" href="https://innerversepodcast.com/biofield-tuning" target="_blank" rel="noopener">Book a Tuning with Chance</a>
+    <span class="credit">Biofield Anatomy by<br>Eileen Day McKusick</span>
+  </div>
+</section>
+
+<svg id="leaders" aria-hidden="true"></svg>
+<div id="labels"></div>
+<div id="pickmenu" class="glass" hidden></div>
+<div id="keys" class="glass" role="dialog" aria-label="Keyboard shortcuts" hidden>
+  <h3>Keys</h3>
+  <dl><dt>/</dt><dd>Search the map</dd><dt>&uarr; &darr;</dt><dd>Previous and next</dd><dt>&larr; &rarr;</dt><dd>Turn the body</dd><dt>Esc</dt><dd>Go back</dd><dt>?</dt><dd>Show or hide this list</dd></dl>
+</div>
+
+<script src="content.js"></script>
+<script src="model.js"></script>
+<script type="module" src="viewer.js"></script>
+</body>
+</html>

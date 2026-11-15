@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biofield Anatomy, small version</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Marcellus&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* the page around the section stands in for /biofield-tuning; only what is between the BFA-MINI marks goes into the site */
+body{margin:0;background:#0B0C13;color:#EFE9DC;font-family:"Libre Franklin","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.standin{max-width:1080px;margin:0 auto;padding:26px 22px 0;color:#8B877C;font-size:13px}
+/* BFA-MINI styles: start */
+.bfa-mini{--ink:#EFE9DC;--soft:#A9A498;--line:rgba(239,233,220,.16);--btn:rgba(239,233,220,.4);max-width:1080px;margin:0 auto;padding:28px 22px 56px;display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:44px;align-items:center;color:var(--ink)}
+.bfa-mini .bm-stage{position:relative;aspect-ratio:400/580;border-radius:14px;overflow:hidden;background:#0B0C13;border:1px solid var(--line)}
+.bfa-mini .bm-poster,.bfa-mini .bm-canvas{position:absolute;inset:0;width:100%;height:100%}
+.bfa-mini .bm-poster{object-fit:cover;transition:opacity .9s ease .35s}
+.bfa-mini .bm-canvas canvas{display:block;width:100%;height:100%;opacity:0;transition:opacity .9s ease;cursor:grab}
+.bfa-mini.bm-live .bm-canvas canvas{opacity:1}
+.bfa-mini.bm-live .bm-poster{opacity:0}
+.bfa-mini h2{font-family:"Marcellus",Georgia,serif;font-weight:400;font-size:40px;line-height:1.1;margin:0;letter-spacing:.005em}
+.bfa-mini .bm-intro{margin:16px 0 0;font-size:17px;color:var(--ink);max-width:34em}
+.bfa-mini .bm-pills{display:flex;flex-wrap:wrap;gap:7px;margin:24px 0 0}
+.bfa-mini .bm-pills button{font:600 13.5px "Libre Franklin","Helvetica Neue",Arial,sans-serif;color:var(--ink);min-height:44px;padding:0 15px 0 12px;display:inline-flex;align-items:center;gap:9px;background:rgba(239,233,220,.04);border:1.5px solid color-mix(in srgb,var(--c) 58%,transparent);border-radius:999px;cursor:pointer;transition:background .15s}
+.bfa-mini .bm-pills button i{width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.bfa-mini .bm-pills button:hover,.bfa-mini .bm-pills button[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 24%,transparent)}
+.bfa-mini .bm-pills button:focus-visible,.bfa-mini .bm-open:focus-visible{outline:2px solid #A9B7FF;outline-offset:2px}
+.bfa-mini .bm-card{margin:18px 0 0;padding:13px 16px;border-left:2px solid var(--c,var(--ink));background:rgba(239,233,220,.04);border-radius:0 10px 10px 0;min-height:66px;box-sizing:border-box}
+.bfa-mini .bm-card[hidden]{display:block;visibility:hidden}
+.bfa-mini .bm-card b{display:block;font-family:"Fjalla One","Arial Narrow",sans-serif;font-weight:400;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--c,var(--ink))}
+.bfa-mini .bm-card span{display:block;font-size:17px;font-weight:600;margin-top:2px}
+.bfa-mini .bm-open{display:inline-flex;align-items:center;min-height:48px;margin:22px 0 0;padding:0 24px;border-radius:999px;background:var(--ink);color:#14151C;font:600 15px "Libre Franklin","Helvetica Neue",Arial,sans-serif;text-decoration:none;transition:opacity .2s}
+.bfa-mini .bm-open:hover{opacity:.88}
+@media (max-width:820px){.bfa-mini{grid-template-columns:1fr;gap:22px;padding:20px 16px 40px}.bfa-mini .bm-stage{aspect-ratio:auto;height:min(64vh,460px)}.bfa-mini h2{font-size:31px}.bfa-mini .bm-intro{font-size:16px}}
+@media (prefers-reduced-motion:reduce){.bfa-mini .bm-poster,.bfa-mini .bm-canvas canvas{transition:none}}
+/* BFA-MINI styles: end */
+</style>
+</head>
+<body>
+<p class="standin">Preview of the small version as it would sit on the Biofield Tuning page. The full page's own heading, booking section and footer are not shown.</p>
+<!-- BFA-MINI: start -->
+<section class="bfa-mini" id="bfa-mini" data-viewer="mini.js" __BFA_MODEL_ATTR__>
+  <div class="bm-stage">
+    <img class="bm-poster" src="mini-poster.jpg" width="800" height="1160" alt="A human figure lit in seven colors, red at the root rising to violet at the crown, with a light at each energy center" loading="lazy">
+    <div class="bm-canvas" role="img" aria-label="3D model of the body with its seven energy centers. Drag to turn it."></div>
+  </div>
+  <div class="bm-text">
+    <h2>Biofield Anatomy</h2>
+    <p class="bm-intro">__BFA_INTRO__</p>
+    <div class="bm-pills" role="group" aria-label="Energy centers">__BFA_PILLS__</div>
+    <p class="bm-card" aria-live="polite" hidden><b></b><span></span></p>
+    <a class="bm-open" href="__BFA_FULL__">Open the full map</a>
+  </div>
+</section>
+<script>window.__BFA_MINI=__BFA_MINI_JSON__;</script>
+<script>
+/* the 3D loads only when the visitor reaches the section */
+(function(){var el=document.getElementById('bfa-mini');if(!el)return;var done=false;
+function viewer(){var s=document.createElement('script');s.type='module';s.src=el.dataset.viewer;document.head.appendChild(s);}
+function load(){if(done)return;done=true;if(el.dataset.modelUrl){window.__BFA_MODEL_URL=el.dataset.modelUrl;viewer();}else{var m=document.createElement('script');m.src=el.dataset.modelJs;m.onload=viewer;document.head.appendChild(m);}}
+if(!('IntersectionObserver' in window)){load();return;}
+new IntersectionObserver(function(en,o){if(en[0].isIntersecting){o.disconnect();load();}},{rootMargin:'240px'}).observe(el);})();
+</script>
+<!-- BFA-MINI: end -->
+</body>
+</html>
