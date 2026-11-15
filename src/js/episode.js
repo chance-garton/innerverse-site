@@ -2193,6 +2193,22 @@
      switching away from Watch tears it down and rebuilds the original
      cover instead of just hiding it; switching away from Listen just
      pauses the audio element. */
+  /* The Listen half of buildMediaToggle alone, for a members' episode
+     whose Plus cut is audio only. */
+  function buildPlusAudioOnly(f) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = buildMediaToggle(f);
+    ['.iv-tbtn[data-panel="watch"]', '.iv-panel-watch', '#iv-pip-btn'].forEach(function (sel) {
+      var el = tmp.querySelector(sel);
+      if (el) el.parentNode.removeChild(el);
+    });
+    var lb = tmp.querySelector('.iv-tbtn[data-panel="listen"]');
+    if (lb) lb.classList.add('iv-tbtn-active');
+    var lp = tmp.querySelector('.iv-panel-listen');
+    if (lp) lp.style.display = '';
+    return tmp.innerHTML;
+  }
+
   function wirePlusMediaTabs(container) {
     var btns = container.querySelectorAll('.iv-tbtn');
     var panels = container.querySelectorAll('.iv-toggle-panel');
@@ -2758,6 +2774,17 @@
             box.innerHTML = '';
             box.appendChild(frame);
           });
+        } else if (plusAudioUrl && vblock) {
+          /* Audio-only members' episodes (the Plus cut exists only as
+             audio, no Vimeo upload): the same Listen player the toggle
+             uses, on its own. With no Watch tab and no .iv-ratio, a
+             chapter row falls through to __ivAudioSeekPlay. */
+          vblock.innerHTML = buildPlusAudioOnly({
+            thumbnail: f.thumbnail,
+            title: f.title,
+            acastAudioUrl: plusAudioUrl
+          });
+          wireAudioPlayer(vblock);
         }
 
         /* ---------------- description ----------------
