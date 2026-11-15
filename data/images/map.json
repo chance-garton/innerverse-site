@@ -21552,6 +21552,61 @@
    1000
   ]
  },
+ "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/astroherbalism-scorpio/scorpio-herbs-music-cover.jpg": {
+  "bytes": {
+   "orig.jpg": 1497052,
+   "w1000.webp": 204828,
+   "w300.webp": 25148,
+   "w500.webp": 62508,
+   "w750.webp": 125660
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 1254,
+  "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-astroherbalism-scorpio/scorpio-herbs-music-cover",
+  "w": 1254,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
+ "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/astroherbalism-scorpio/scorpio-herbs-thumbnail.jpg": {
+  "bytes": {
+   "orig.jpg": 1219792,
+   "w1000.webp": 115454,
+   "w1500.webp": 199192,
+   "w300.webp": 16822,
+   "w500.webp": 38284,
+   "w750.webp": 73942
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 941,
+  "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-astroherbalism-scorpio/scorpio-herbs-thumbnail",
+  "w": 1672,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
  "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/does-christianity-need-the-devil/no-devil-no-priests-music-cover.jpg": {
   "bytes": {
    "orig.jpg": 108830,
