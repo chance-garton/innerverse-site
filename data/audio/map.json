@@ -1,6 +1,6 @@
 {
- "bytes": 40711455468,
- "count": 585,
+ "bytes": 40805904972,
+ "count": 586,
  "episodes": {
   "5a7e6d958b69319e0ee89e55": {
    "bytes": 68652587,
@@ -5383,6 +5383,15 @@
    ],
    "source": "https://open.acast.com/public/streams/5a7e6d34b56c94b1216394e3/episodes/6aef7e2e6adeb85a4f851c33.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/does-christianity-need-the-devil.mp3"
+  },
+  "6af9c190b0ee910aa130aef7": {
+   "bytes": 94449504,
+   "slug": "astroherbalism-scorpio",
+   "slugs": [
+    "astroherbalism-scorpio"
+   ],
+   "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6af9c190b0ee910aa130aef7/media.mp3",
+   "url": "https://audio.innerversepodcast.com/episodes/astroherbalism-scorpio.mp3"
   }
  }
 }
