@@ -1,6 +1,6 @@
 {
- "bytes": 40805904972,
- "count": 586,
+ "bytes": 41447647020,
+ "count": 590,
  "episodes": {
   "5a7e6d958b69319e0ee89e55": {
    "bytes": 68652587,
@@ -5392,6 +5392,42 @@
    ],
    "source": "https://sphinx.acast.com/p/open/s/5a7e6d34b56c94b1216394e3/e/6af9c190b0ee910aa130aef7/media.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/astroherbalism-scorpio.mp3"
+  },
+  "src:cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast": {
+   "bytes": 222124494,
+   "slug": "cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast",
+   "slugs": [
+    "cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast"
+   ],
+   "source": "https://audio4.redcircle.com/episodes/507f5373-14c4-4429-8f9f-9801ca2335ba/stream.mp3",
+   "url": "https://audio.innerversepodcast.com/episodes/cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast.mp3"
+  },
+  "src:here-for-the-truth-with-chance-garton": {
+   "bytes": 193936580,
+   "slug": "here-for-the-truth-with-chance-garton",
+   "slugs": [
+    "here-for-the-truth-with-chance-garton"
+   ],
+   "source": "https://episodes.captivate.fm/episode/09dba288-3db6-4d4b-ad3b-dc9e29e7225f.mp3",
+   "url": "https://audio.innerversepodcast.com/episodes/here-for-the-truth-with-chance-garton.mp3"
+  },
+  "src:simulation-freezone-freeman-fly": {
+   "bytes": 92412974,
+   "slug": "simulation-freezone-freeman-fly",
+   "slugs": [
+    "simulation-freezone-freeman-fly"
+   ],
+   "source": "https://content.blubrry.com/freemantv/Chance_Garton_Simulation_Is_Hypocrisy.mp3",
+   "url": "https://audio.innerversepodcast.com/episodes/simulation-freezone-freeman-fly.mp3"
+  },
+  "src:virtual-unreality-gnostic-artificial-archons": {
+   "bytes": 133268000,
+   "slug": "virtual-unreality-gnostic-artificial-archons",
+   "slugs": [
+    "virtual-unreality-gnostic-artificial-archons"
+   ],
+   "source": "https://anchor.fm/s/7e20d7c/podcast/play/34617838/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-5-1%2F192272547-44100-2-a4486a03875ca.m4a",
+   "url": "https://audio.innerversepodcast.com/episodes/virtual-unreality-gnostic-artificial-archons.mp3"
   }
  }
 }

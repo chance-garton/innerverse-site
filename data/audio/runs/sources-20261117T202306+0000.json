@@ -1,0 +1,19 @@
+{
+ "batch": "sources",
+ "started": "2026-11-17T20:22:07+00:00",
+ "copied": [
+  "simulation-freezone-freeman-fly",
+  "here-for-the-truth-with-chance-garton",
+  "cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast",
+  "virtual-unreality-gnostic-artificial-archons"
+ ],
+ "failed": [
+  {
+   "slug": "breaking-reality-episode-34-astrotheology-with-chance-garton",
+   "id": "src:breaking-reality-episode-34-astrotheology-with-chance-garton",
+   "reason": "Command '['yt-dlp', '-q', '-f', 'bestaudio', '-o', '/tmp/tmpp1rdemvx/a.mp3.src', 'https://www.youtube.com/watch?v=md8TWkytvIs']' returned non-zero exit status 1."
+  }
+ ],
+ "bytes": 641742048,
+ "finished": "2026-11-17T20:23:06+00:00"
+}
