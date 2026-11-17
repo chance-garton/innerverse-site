@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       batch:
-        description: "test, a number, all, or feed / feed-test (published Acast episodes with no page)"
+        description: "test, a number, all, sources (data/audio/sources.json), or feed / feed-test (published Acast episodes with no page)"
         required: true
         default: "test"
 
@@ -37,6 +37,13 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install boto3
+      - name: Tools for audio from outside Acast (sources batch only)
+        if: ${{ inputs.batch == 'sources' }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install "yt-dlp[default]"
+      - uses: denoland/setup-deno@v2
+        if: ${{ inputs.batch == 'sources' }}
       - name: Copy the batch
         env:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}

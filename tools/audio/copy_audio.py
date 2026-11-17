@@ -23,7 +23,12 @@ Usage:
     batch: "test" (newest 3), "all", or a number N (next N not yet copied),
            all from the episode data; or "feed", "feed-test", "feed-N": every
            PUBLISHED episode in Acast's public feed not yet copied (episodes
-           with no site page yet), stored as episodes/acast-<episodeId>.mp3
+           with no site page yet), stored as episodes/acast-<episodeId>.mp3;
+           or "sources": every entry in data/audio/sources.json not yet copied
+           (audio that was never on Acast, such as Chance's guest spots on
+           other shows: a host's mp3 or m4a, or a YouTube address). A non-mp3
+           file is converted to a 128k constant bitrate mp3; YouTube needs
+           yt-dlp and ffmpeg on the runner. Stored as episodes/<slug>.mp3.
 
 Environment (repository secrets): R2_ACCOUNT_ID, R2_AUDIO_ACCESS_KEY_ID,
 R2_AUDIO_SECRET_ACCESS_KEY. R2_AUDIO_BUCKET and AUDIO_BASE_URL are set in
@@ -135,6 +140,43 @@ def stored_size(cli, bucket, key):
         return None
 
 
+SOURCES = os.path.join(AUDIO_DIR, "sources.json")
+
+
+def sources_worklist():
+    """Audio from outside Acast, one entry per slug in data/audio/sources.json."""
+    out = []
+    for e in json.load(open(SOURCES)).get("sources", []):
+        out.append({"id": "src:" + e["slug"], "slug": e["slug"], "date": e.get("date", ""),
+                    "source": e["url"], "slugs": [e["slug"]], "title": ""})
+    return out
+
+
+def fetch_any(url, dest):
+    """A source from outside Acast: keep an mp3 byte for byte, convert anything else."""
+    import subprocess
+    tmp = dest + ".src"
+    if re.search(r"(youtube\.com|youtu\.be)/", url):
+        subprocess.run(["yt-dlp", "-q", "-f", "bestaudio", "-o", tmp, url], check=True)
+    else:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=120) as r, open(tmp, "wb") as out:
+            while True:
+                chunk = r.read(1 << 20)
+                if not chunk:
+                    break
+                out.write(chunk)
+    with open(tmp, "rb") as fh:
+        head = fh.read(4)
+    if looks_like_mp3(head):
+        os.replace(tmp, dest)
+    else:
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-vn", "-map_metadata", "-1",
+                        "-c:a", "libmp3lame", "-b:a", "128k", dest], check=True)
+        os.remove(tmp)
+    return os.path.getsize(dest)
+
+
 def looks_like_mp3(head):
     return head[:3] == b"ID3" or (len(head) > 1 and head[0] == 0xFF and (head[1] & 0xE0) == 0xE0)
 
@@ -214,7 +256,7 @@ def run_one(ep, cli, bucket, base, dry):
     t0 = time.time()
     with tempfile.TemporaryDirectory() as tmp:
         path = os.path.join(tmp, "a.mp3")
-        size = download(ep["source"], path)
+        size = fetch_any(ep["source"], path) if ep["id"].startswith("src:") else download(ep["source"], path)
         if dry:
             return {"key": key, "url": public, "bytes": size, "dry": True}
         have = stored_size(cli, bucket, key)
@@ -243,6 +285,9 @@ def main():
     if batch.startswith("feed"):
         todo = [e for e in feed_worklist() if e["id"] not in done]
         batch_kind = batch[4:].lstrip("-") or "all"
+    elif batch == "sources":
+        todo = [e for e in sources_worklist() if e["id"] not in done]
+        batch_kind = "all"
     else:
         todo = [e for e in worklist(data_dir) if e["id"] not in done]
         batch_kind = batch
@@ -251,7 +296,7 @@ def main():
     elif batch_kind.isdigit():
         todo = todo[:int(batch_kind)]
     elif batch_kind != "all":
-        sys.exit("batch must be test, all, a number, or feed / feed-test / feed-N")
+        sys.exit("batch must be test, all, a number, sources, or feed / feed-test / feed-N")
     log("%d to copy (%d already done)" % (len(todo), len(done)))
 
     cli = bucket = base = None

@@ -1,0 +1,35 @@
+{
+ "note": "Audio that was never on Acast (Chance's guest spots on other shows). Copied by: copy_audio.py sources. Found 2026-11-17 in each host's own podcast feed or site.",
+ "sources": [
+  {
+   "slug": "virtual-unreality-gnostic-artificial-archons",
+   "date": "2021-04-22",
+   "url": "https://anchor.fm/s/7e20d7c/podcast/play/34617838/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-5-1%2F192272547-44100-2-a4486a03875ca.m4a",
+   "from": "King Hero's Journey feed"
+  },
+  {
+   "slug": "simulation-freezone-freeman-fly",
+   "date": "2021-07-16",
+   "url": "https://content.blubrry.com/freemantv/Chance_Garton_Simulation_Is_Hypocrisy.mp3",
+   "from": "freemantv.com post (Blubrry)"
+  },
+  {
+   "slug": "here-for-the-truth-with-chance-garton",
+   "date": "2021-08-03",
+   "url": "https://episodes.captivate.fm/episode/09dba288-3db6-4d4b-ad3b-dc9e29e7225f.mp3",
+   "from": "Here For The Truth feed, Ep 15"
+  },
+  {
+   "slug": "cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast",
+   "date": "2021-12-07",
+   "url": "https://audio4.redcircle.com/episodes/507f5373-14c4-4429-8f9f-9801ca2335ba/stream.mp3",
+   "from": "Legit Bat feed, 4.19"
+  },
+  {
+   "slug": "breaking-reality-episode-34-astrotheology-with-chance-garton",
+   "date": "2021-07-16",
+   "url": "https://www.youtube.com/watch?v=md8TWkytvIs",
+   "from": "YouTube (no podcast feed found)"
+  }
+ ]
+}
