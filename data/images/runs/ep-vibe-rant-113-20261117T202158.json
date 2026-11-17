@@ -1,0 +1,25 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "ep-vibe-rant-113",
+ "bytes_added": 379759,
+ "copied": [
+  {
+   "bytes_added": 379759,
+   "h": 720,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-vibe-rant-113/vibe-rant-113-thumbnail",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/vibe-rant-113/vibe-rant-113-thumbnail.jpg",
+   "w": 1280,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-17T20:22:05+00:00",
+ "skipped": [],
+ "started": "2026-11-17T20:21:58+00:00"
+}

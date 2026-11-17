@@ -21682,6 +21682,32 @@
    500
   ]
  },
+ "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/vibe-rant-113/vibe-rant-113-thumbnail.jpg": {
+  "bytes": {
+   "orig.jpg": 188069,
+   "w1000.webp": 80848,
+   "w300.webp": 17140,
+   "w500.webp": 34840,
+   "w750.webp": 58862
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-vibe-rant-113/vibe-rant-113-thumbnail",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
  "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/69729e1c29bb4370bfa7ea72/6a0a806bed3b9e731003bbef/1788965355789/": {
   "bytes": {
    "orig.png": 2102,
