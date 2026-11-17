@@ -41,7 +41,7 @@ jobs:
         if: ${{ inputs.batch == 'sources' }}
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-          pip install "yt-dlp[default]"
+          pip install "yt-dlp[default]" yt-dlp-ejs
       - uses: denoland/setup-deno@v2
         if: ${{ inputs.batch == 'sources' }}
       - name: Copy the batch

@@ -157,7 +157,10 @@ def fetch_any(url, dest):
     import subprocess
     tmp = dest + ".src"
     if re.search(r"(youtube\.com|youtu\.be)/", url):
-        subprocess.run(["yt-dlp", "-q", "-f", "bestaudio", "-o", tmp, url], check=True)
+        # web_embedded is the client YouTube still serves to data-centre addresses
+        # (2026-11-17); yt-dlp-ejs plus deno solve its JS challenge.
+        subprocess.run(["yt-dlp", "-q", "--extractor-args", "youtube:player_client=web_embedded",
+                        "-f", "bestaudio[ext=m4a]/bestaudio", "-o", tmp, url], check=True)
     else:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=120) as r, open(tmp, "wb") as out:
