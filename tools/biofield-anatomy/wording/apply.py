@@ -49,7 +49,13 @@ def main():
     except ClientError as err:
         if err.response["Error"]["Code"] not in ("404", "NoSuchKey", "NotFound"): raise
     s3.put_object(Bucket=bucket, Key=key, Body=out, ContentType="text/javascript")
-    back = get(change["to"]).read()
+    # read it back through the public address; a fresh query string each time, because the address may still be answering
+    # "not found" from before the upload for a few minutes (that false alarm failed the first run, 2026-11-17, after a good upload)
+    import time
+    url = base + "/" + FOLDER + change["to"]; back = None
+    for i in range(6):
+        try: back = urllib.request.urlopen(urllib.request.Request(url + "?check=%d" % time.time(), headers={"User-Agent": "innerverse-wording"}), timeout=60).read(); break
+        except Exception: time.sleep(10)
     assert back == out, "the file in the bucket does not read back the same"
     print("uploaded and read back the same from %s/%s%s" % (base, FOLDER, change["to"]))
 

@@ -60,8 +60,10 @@ the wording from the image bucket (`CONTENT_URL`, a dated file such as
 
 - After a change to the viewer's code: run `checks/build_viewer.sh`, run the checks, then copy `viewer/dist/viewer.js` to
   `site/viewer.js` and commit it. The site build does not run esbuild.
-- After a wording change: upload the new content file to the bucket's `biofield-anatomy/` folder under a new dated name,
-  check it byte for byte, then change `CONTENT_URL`. Never commit the content file here.
+- After a wording change: the new dated content file is made and uploaded by the job `.github/workflows/biofield-wording.yml`
+  (`wording/apply.py` with a change file in `wording/changes/`; it starts from the file in the bucket and runs when a branch named
+  `wording/...` is pushed). Check the uploaded file byte for byte, then change `CONTENT_URL`. Never commit the content file here,
+  and put only new words in a change file, never a line of the existing wording.
 
 ## Rebuild
 
