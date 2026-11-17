@@ -1,0 +1,44 @@
+name: Biofield Anatomy wording file
+
+# Makes a new dated wording file for the /biofield-anatomy page and puts it in the image bucket
+# (tools/biofield-anatomy/wording/apply.py). The wording itself is never in this repo: the run starts from the
+# file already in the bucket, changes the lines a change file names, and uploads the result only if it has
+# exactly the SHA-256 the change file gives. It never overwrites a file. The page does not use the new file
+# until CONTENT_URL in build/biofield_anatomy.py points at it.
+# Runs when a branch named wording/... is pushed, or by hand from the Actions tab with a change file's name.
+on:
+  push:
+    branches: ["wording/**"]
+  workflow_dispatch:
+    inputs:
+      change:
+        description: "Change file in tools/biofield-anatomy/wording/changes (for example 2026-11-17.json)"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: biofield-wording
+  cancel-in-progress: false
+
+jobs:
+  wording:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install boto3
+      - name: Build, check and upload
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          IMAGE_BASE_URL: ${{ secrets.IMAGE_BASE_URL }}
+          CHANGE: ${{ inputs.change }}
+        run: |
+          cd tools/biofield-anatomy/wording
+          if [ -n "$CHANGE" ]; then python apply.py "changes/$CHANGE"; else for f in $(ls changes/*.json | sort | tail -1); do python apply.py "$f"; done; fi

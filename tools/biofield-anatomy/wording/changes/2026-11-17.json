@@ -1,0 +1,14 @@
+{
+  "from": "content-2026-11-14.js",
+  "to": "content-2026-11-17.js",
+  "sha256": "498d89c9f5887b271f96f59b2d52064520d2aa5a91a3e07c3d9a1d51f88b23aa",
+  "edits": [
+    {
+      "node": "heartorgan",
+      "section": "anatomy",
+      "block": 0,
+      "first_sentence": "Gathers the blood into a vortex and sends it spiraling on to every cell. The heart is a spiral band of muscle that twists as it beats, drawing blood in and wringing it onward.",
+      "src_add": "rule:Chance 2026-11-17"
+    }
+  ]
+}
