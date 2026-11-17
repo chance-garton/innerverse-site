@@ -62,3 +62,9 @@ jobs:
           git commit -m "Audio: batch $BATCH copied to R2"
           for i in 1 2 3; do git pull --rebase origin main && git push && exit 0; sleep 5; done
           exit 1
+      - name: Remove temporary audio-import branches (sources batch, after a clean run)
+        if: ${{ success() && inputs.batch == 'sources' }}
+        run: |
+          for b in $(grep -o 'innerverse-site/audio-import-[A-Za-z0-9-]*' data/audio/sources.json | cut -d/ -f2 | sort -u); do
+            git push origin --delete "$b" || true
+          done
