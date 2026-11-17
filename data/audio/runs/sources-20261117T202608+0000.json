@@ -1,0 +1,19 @@
+{
+ "batch": "sources",
+ "started": "2026-11-17T20:26:06+00:00",
+ "copied": [],
+ "failed": [
+  {
+   "slug": "breaking-reality-episode-34-astrotheology-with-chance-garton",
+   "id": "src:breaking-reality-episode-34-astrotheology-with-chance-garton",
+   "reason": "Command '['yt-dlp', '-q', '--extractor-args', 'youtube:player_client=web_embedded', '-f', 'bestaudio[ext=m4a]/bestaudio', '-o', '/tmp/tmp85exfjx_/a.mp3.src', 'https://www.youtube.com/watch?v=md8TWkytvIs']' returned non-zero exit status 1."
+  },
+  {
+   "slug": "vibe-rant-113",
+   "id": "src:vibe-rant-113",
+   "reason": "Command '['yt-dlp', '-q', '--extractor-args', 'youtube:player_client=web_embedded', '-f', 'bestaudio[ext=m4a]/bestaudio', '-o', '/tmp/tmp2wfe9ijf/a.mp3.src', 'https://www.youtube.com/watch?v=xduTKWpuvJo']' returned non-zero exit status 1."
+  }
+ ],
+ "bytes": 0,
+ "finished": "2026-11-17T20:26:08+00:00"
+}
