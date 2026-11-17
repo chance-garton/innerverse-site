@@ -69,16 +69,17 @@ const store = { get: (k) => { try { return localStorage.getItem('bfa.' + k); } c
 const S = { view: 'chakra', id: null, pos: null, feeling: null, special: null, age: Math.max(6, Math.min(100, Number(store.get('age')) || 40)), balance: 'balanced' };
 const RESUME = location.hash.length > 1 ? null : store.get('last');   // where the last visit ended, offered on the opening panel
 const detail = $('#detail'), list = $('#list'), strip = $('#strip'), back = $('#back'), panel = $('#panel'), rail = $('#rail');
-let sheet = 'half', swayed = false;
+let sheet = 'half', sheetPx = 0, swayed = false;   // sheetPx: the height the phone sheet is set to, which it reaches a third of a second later
 
 // ---------- scene ----------
 let scene; const sceneHooks = {
   freeRect: () => {
+    // on phones: the room above the sheet where it is going to rest, not where it is in mid-move
     const W = innerWidth, H = innerHeight;
-    if (isPhone()) { const top = rail.getBoundingClientRect().bottom; const bottom = Math.min(panel.getBoundingClientRect().top, H) - strip.offsetHeight; return { x0: 0, x1: W, y0: top, y1: Math.max(top + 120, bottom) }; }
+    if (isPhone()) { const top = rail.getBoundingClientRect().bottom; const bottom = Math.min(sheetPx ? H - sheetPx : panel.getBoundingClientRect().top, H) - strip.offsetHeight; return { x0: 0, x1: W, y0: top, y1: Math.max(top + 120, bottom) }; }
     return { x0: rail.getBoundingClientRect().right + 8, x1: panel.getBoundingClientRect().left - 8, y0: 0, y1: H - 62 };
   },
-  onReady: () => { document.body.classList.add('ready'); route(true); window.__bfaReady = true; },
+  onReady: () => { document.body.classList.add('ready'); route(true); window.__bfaReady = true; if (isPhone()) settleFit(); },
   onError: () => { $('#status').textContent = 'The 3D model could not load. Reload the page to try again.'; },
   onPick: pick,
   onFrame: () => { layoutLabels(); showFacing(); },
@@ -127,7 +128,7 @@ function viewFrame(n, pos) {
   return { frame: f, az };
 }
 const HOME_FRAME = { y: 0.82, w: 0.95, h: 2.1, tilt: 2 };   // the whole figure with room for the two ends of the current, above the head and below the feet
-const homeFrame = () => (isPhone() ? { ...HOME_FRAME, y: 0.83, h: 1.96 } : HOME_FRAME);   // phones keep the figure larger; the two stars sit at the edges of the stage
+const homeFrame = () => (isPhone() ? { ...HOME_FRAME, h: 2.16 } : HOME_FRAME);   // phones too: the Sun Star and the Earth Star are both in the picture, with room for their names, and the figure sits midway between them (Chance, 2026-11-17)
 const FIELD_FRAMES = { home: { y: 0.83, w: 4.5, h: 5.5, tilt: 7 }, edge: { y: 0.83, w: 4.5, h: 5.5, tilt: 7 }, timeline: { y: 0.9, w: 4.5, h: 3.4, tilt: 24 }, adrenal: { y: 1.0, w: 2.7, h: 2.6, tilt: 16 },
   near: { y: 0.86, w: 1.7, h: 2.5, tilt: 4 }, sides: { y: 0.9, w: 2.4, h: 2.9, tilt: 4 }, frontback: { y: 0.9, w: 2.4, h: 2.9, tilt: 6 } };
 // the four pieces of the leg: where each one's label points, and the heights between which it lies (the same breaks the tap uses)
@@ -256,7 +257,7 @@ function applyScene() {
     else if (S.view === 'zodiac') { scene.setLook({ mode: 'zodiac', orbs: 0, aura: 0.34, zodW: zodWeights(null) }); fly(homeFrame(), { az: 0 });
       labels = SIGNS.map((s) => ({ id: s.id, anchor: SIGN_AT[s.id], cls: 'glyph', l1: s.glyph, raw1: true, l2: s.name, color: s.zc, ink: s.za, side: SIGN_SIDE[s.id], go: { id: s.id } })); layout = 'stacked'; }
     else { scene.setLook({ mode: 'chakra', orbs: 1, aura: 0.5 }); fly(homeFrame(), { az: 0 }); if (!swayed && scene.startSway) { swayed = true; scene.startSway(); }
-      labels = ZONE_NODE.map((id, i) => ({ id, anchor: orbAt(i), l2: N.get(id).name, color: colorOf(N.get(id)), side: 'R', go: { id } })); layout = 'stacked'; }
+      labels = [...ZONE_NODE.map((id, i) => ({ id, anchor: orbAt(i), l2: N.get(id).name, color: colorOf(N.get(id)), side: 'R', go: { id } })), ...starLabels()]; layout = 'stacked'; }
     setLabels(labels, layout); return;
   }
   if (n.kind === 'field') {
@@ -287,7 +288,10 @@ function applyScene() {
     setLabels(labels, 'stacked'); return; }
   setLabels(labels, 'anchored', !(isPart && primaryOrgans));   // not for a single part shown alone: the body is only a ghost there
 }
-const orbAt = (i) => [i === 0 ? 0.105 : 0, i === 0 ? 0.47 : i === 7 ? 1.70 : ZONES[i].y + (i === 6 ? 0.025 : 0), i === 0 ? 0.118 : MODEL.body.mid];   // the seven lights sit on the central line, inside the body
+const orbAt = (i) => [0, i === 0 ? 0.47 : i === 7 ? 1.70 : ZONES[i].y + (i === 6 ? 0.025 : 0), MODEL.body.mid];   // every light sits on the central line: seven inside the body, the legs' one between the knees (Chance, 2026-11-17)
+const STAR_COLOR = { sunstar: '#fff0c4', earthstar: '#ffc9a6' };
+// the two stars are named on the opening view, each name close beside its star on the left, outside the stack of centers (Chance, 2026-11-17)
+const starLabels = () => { const A = scene.fieldAnchors(); return ['sunstar', 'earthstar'].filter((k) => N.has('f-' + k)).map((k) => ({ id: k, anchor: A[k], l2: N.get('f-' + k).name, color: STAR_COLOR[k], cls: 'star', near: true, go: { id: 'f-' + k } })); };
 function fieldLabels(n) {
   const A = scene.fieldAnchors(); const key = n && n.marker; const byMarker = (m) => FIELD.find((f) => f.marker === m);
   const mk = (id, anchor, l1, l2, marker) => ({ id, anchor, l1: isPhone() ? null : l1, l2: isPhone() ? l1 : l2, color: PEARL, side: 'auto', cls: key ? (marker === key || (key === 'channel' && /star/.test(marker)) ? 'on' : 'dim') : '', go: marker !== key && byMarker(marker) ? { id: byMarker(marker).id } : null });
@@ -350,10 +354,13 @@ function layoutLabels() {
     : { x0: rail.getBoundingClientRect().right + 10, x1: panel.getBoundingClientRect().left - 10, y0: 10, y1: H - 70 };
   const td = scene.targetDepth(); const cx = (fr.x0 + fr.x1) / 2;
   const hideAll = phone && sheet === 'full';
-  LABS.forEach((l) => { l.p = scene.project(l.d.anchor); l.far = labLayout === 'anchored' && l.p.depth > td + 0.06; l.hidden = hideAll || l.p.behind || l.p.x < fr.x0 - 40 || l.p.x > fr.x1 + 40 || l.p.y < fr.y0 - 40 || l.p.y > fr.y1 + 40; });
+  const yEnd = fr.y1 + (phone && labLayout === 'stacked' ? 54 : 0);   // a label beside its own point may sit level with the view buttons: it is on the other side of the figure
+  LABS.forEach((l) => { l.p = scene.project(l.d.anchor); l.far = labLayout === 'anchored' && l.p.depth > td + 0.06; l.hidden = hideAll || l.p.behind || l.p.x < fr.x0 - 40 || l.p.x > fr.x1 + 40 || l.p.y < fr.y0 - 40 || l.p.y > (l.d.near ? yEnd : fr.y1) + 40; });
   if (labLayout === 'stacked') {
     const cols = { L: [], R: [] }; let tickFlip = false; const mid = [];
-    LABS.forEach((l) => { if (l.hidden) return; if (l.d.cls === 'tick') { l.bx = l.p.x - l.w / 2; l.by = (l.tickUp = !tickFlip) ? l.p.y - l.h - 7 : l.p.y + 7; tickFlip = !tickFlip; return; }
+    LABS.forEach((l) => { if (l.hidden) return;
+      if (l.d.near) { l.bx = Math.max(fr.x0, l.p.x - l.w - 16); l.by = Math.max(fr.y0, Math.min(yEnd - l.h, l.p.y - l.h / 2)); l.edge = l.bx + l.w; return; }
+      if (l.d.cls === 'tick') { l.bx = l.p.x - l.w / 2; l.by = (l.tickUp = !tickFlip) ? l.p.y - l.h - 7 : l.p.y + 7; tickFlip = !tickFlip; return; }
       if (l.d.side === 'auto') { const dx = l.p.x - cx; if (Math.abs(dx) < 26) { mid.push(l); return; } cols[dx < 0 ? 'L' : 'R'].push(l); return; }
       cols[l.d.side || (l.p.x < cx ? 'L' : 'R')].push(l); });
     mid.sort((p, q) => p.p.y - q.p.y).forEach((l) => { const s = cols.L.length < cols.R.length ? 'L' : cols.R.length < cols.L.length ? 'R' : (l.sd || 'L'); l.sd = s; cols[s].push(l); });   // spread on both sides, never five in one stack
@@ -725,7 +732,7 @@ const FACE = { front: 'Front view', back: 'Back view', left: 'Left view', right:
 let faceNow = '';
 function showFacing() { if (!scene.facing) return; const f = scene.facing(); if (f === faceNow) return; faceNow = f; const b = $('#c-face'); b.querySelector('b').textContent = isPhone() ? FACE[f].replace(' view', '') : FACE[f]; }
 $('#c-face').addEventListener('click', () => { scene.turnTo && scene.turnTo(faceNow === 'front' ? 180 : 0); });
-$('#c-reset').addEventListener('click', () => { scene.resetView && scene.resetView(); });
+$('#c-reset').addEventListener('click', () => { go({ view: S.view }); detail.scrollTop = 0; });   // a full reset: the opening of the tab the visitor is on, at its own facing and distance (Chance, 2026-11-17)
 $('#c-in').addEventListener('click', () => { scene.zoomBy && scene.zoomBy(0.78); });
 $('#c-out').addEventListener('click', () => { scene.zoomBy && scene.zoomBy(1.28); });
 ['pointerdown', 'wheel'].forEach((ev) => stageEl.addEventListener(ev, () => document.body.classList.add('touched'), { passive: true }));
@@ -733,7 +740,15 @@ setTimeout(() => document.body.classList.add('touched'), 14000);
 
 // ---------- phone sheet ----------
 const SHEETS = { peek: () => 132, half: () => { const want = Math.round(innerHeight * 0.42); return isPhone() ? Math.max(150, Math.min(want, Math.round(innerHeight - rail.getBoundingClientRect().bottom - 330))) : want; } /* a short phone screen keeps room for the figure and its eight labels */, full: () => Math.round(innerHeight * 0.86) };
-function setSheet(s, noRefit) { sheet = s; document.body.classList.toggle('sheet-full', s === 'full'); panel.style.setProperty('--sheet', SHEETS[s]() + 'px'); placeChrome(); if (!noRefit) setTimeout(() => { scene.refit(false); labDirty = true; }, 340); }
+function setSheet(s, noRefit) { sheet = s; document.body.classList.toggle('sheet-full', s === 'full'); sheetPx = SHEETS[s](); panel.style.setProperty('--sheet', sheetPx + 'px'); placeChrome(); if (!noRefit) setTimeout(() => { scene.refit(false); labDirty = true; }, 340); }
+// The sheet takes a third of a second to reach a new height. The figure is fitted to where the sheet is going to rest (freeRect), and
+// after the page opens or the screen changes size the labels and the fit are gone over once more when the sheet has arrived
+// (seen on Chance's phone, 2026-11-17: the figure sat high, fitted to a sheet in mid-move, and the Sun Star was cut off).
+let settleT = 0;
+function settleFit() { cancelAnimationFrame(settleT); const t0 = performance.now();
+  const tick = () => { const there = Math.abs(panel.getBoundingClientRect().top - (innerHeight - sheetPx)) < 1.5;
+    if (there || performance.now() - t0 > 1500) { if (scene && scene.refit) scene.refit(true); labDirty = true; } else settleT = requestAnimationFrame(tick); };
+  settleT = requestAnimationFrame(tick); }
 function placeChrome() {
   const ctl = $('#ctl'), head = $('#sheethead');
   if (!isPhone()) { if (back.parentElement !== document.body) document.body.insertBefore(back, ctl); strip.style.bottom = ''; ctl.style.bottom = ''; return; }
@@ -756,7 +771,7 @@ detail.addEventListener('scroll', atEnd, { passive: true });
     else setSheet(stops.map((s) => [s[0], Math.abs(s[1] - h)]).sort((p, q) => p[1] - q[1])[0][0]);
     drag = null; };
   grab.addEventListener('pointerup', end); grab.addEventListener('pointercancel', end);
-  addEventListener('resize', () => { if (isPhone()) setSheet(sheet, true); else panel.style.removeProperty('--sheet'); placeChrome(); labDirty = true; fitHome(); });
+  addEventListener('resize', () => { if (isPhone()) { setSheet(sheet, true); settleFit(); } else panel.style.removeProperty('--sheet'); placeChrome(); labDirty = true; fitHome(); });
   if (isPhone()) setSheet('half', true);
 }
 

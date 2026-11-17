@@ -387,7 +387,8 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     const ax = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, EARTH_Y, MID), new THREE.Vector3(0, SUN_Y, MID)]), new THREE.LineBasicMaterial({ color: 0xefe9dc, transparent: true, opacity: 0.05, depthWrite: false, blending: THREE.AdditiveBlending })); ax.renderOrder = 3; flow.add(ax); flow.userData.axis = ax; }
 
   // ---------- chakra lights: inside the body on the central line (x 0, the mid-plane depth) and drawn over it, so they stay in one
-  // vertical column however the figure is turned (Chance, 2026-11-13). Tap one to open its center. ----------
+  // vertical column however the figure is turned (Chance, 2026-11-13). Tap one to open its center. The legs' light sits on the same
+  // line, between the knees, and shows on the opening view only (Chance, 2026-11-17). ----------
   const orbs = ZONES.map((z, i) => {
     const s = sprite(texDot, new THREE.Color(i === 0 ? z.dot : z.color), 0.085);
     s.position.set(0, i === 0 ? 0.47 : i === 7 ? 1.70 : z.y + (i === 6 ? 0.025 : 0), MID); s.renderOrder = 6; s.userData = { amt: 0, sel: 0 };
@@ -592,12 +593,12 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     if (e.buttons) { if (hovZone !== -1) { hovZone = -1; hooks.onHover && hooks.onHover(null); } return; }
     const now = performance.now(); if (now - hovT < 70) return; hovT = now;
     const r = renderer.domElement.getBoundingClientRect(); ray.setFromCamera(new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -(((e.clientY - r.top) / r.height) * 2 - 1)), camera);
-    let z = -1, hit = null; const orb = orbs.findIndex((s, i) => { if (i === 0 || s.userData.amt < 0.3) return false; const p = project(s.position.toArray()); return Math.hypot(p.x - e.clientX, p.y - e.clientY) < 22; });
-    if (orb > 0) z = orb; else { hit = ray.intersectObject(skin, false)[0]; if (hit && hit.uv) z = hit.uv.y > 0.3 ? 4 : Math.max(0, Math.min(7, Math.round(hit.uv.x * 7))); }
+    let z = -1, hit = null; const orb = orbs.findIndex((s) => { if (s.userData.amt < 0.3) return false; const p = project(s.position.toArray()); return Math.hypot(p.x - e.clientX, p.y - e.clientY) < 22; });
+    if (orb >= 0) z = orb; else { hit = ray.intersectObject(skin, false)[0]; if (hit && hit.uv) z = hit.uv.y > 0.3 ? 4 : Math.max(0, Math.min(7, Math.round(hit.uv.x * 7))); }
     if (hooks.hoverable && !hooks.hoverable()) z = -1;
     if (z >= 0) U.uHov.value = z;
     if (z !== hovZone || z >= 0) { hovZone = z; hooks.onHover && hooks.onHover(z >= 0 ? { zone: z, x: e.clientX, y: e.clientY, point: hit ? hit.point.toArray() : null } : null); }
-    hooks.onPointer && hooks.onPointer(e.clientX, e.clientY, orb > 0 || !!hit);
+    hooks.onPointer && hooks.onPointer(e.clientX, e.clientY, orb >= 0 || !!hit);
   });
   renderer.domElement.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
   renderer.domElement.addEventListener('pointerup', (e) => {
@@ -606,7 +607,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     const r = renderer.domElement.getBoundingClientRect();
     // orbs first: a generous target around each one
     let best = null;
-    orbs.forEach((s, i) => { if (i === 0 || s.userData.amt < 0.3) return; const p = project(s.position.toArray()); const d = Math.hypot(p.x - e.clientX, p.y - e.clientY); if (d < 22 && (!best || d < best.d)) best = { d, i }; });
+    orbs.forEach((s, i) => { if (s.userData.amt < 0.3) return; const p = project(s.position.toArray()); const d = Math.hypot(p.x - e.clientX, p.y - e.clientY); if (d < 22 && (!best || d < best.d)) best = { d, i }; });
     const at = { x: e.clientX, y: e.clientY, pt: e.pointerType };
     if (best) { hooks.onPick && hooks.onPick({ type: 'orb', index: best.i, ...at }); return; }
     const nx = ((e.clientX - r.left) / r.width) * 2 - 1, ny = -(((e.clientY - r.top) / r.height) * 2 - 1);
@@ -642,7 +643,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
       else { aur.rtA.setSize(aw, ah); aur.rtB.setSize(aw, ah); } }
     wake(); }
   let resizeT = 0;
-  const refit = (instant) => { applyOffset(); if (!tween) flyTo(lastFrame, { ...lastOpts, keepAz: true, instant }); };
+  const refit = (instant) => { applyOffset(); if (!tween) { const s = sway; flyTo(lastFrame, { ...lastOpts, keepAz: true, instant }); sway = s; } };   // the opening sway carries on through a refit
   new ResizeObserver(() => { resize(); clearTimeout(resizeT); refit(true); }).observe(stage);
   resize(); setCamera({ target: new THREE.Vector3(0, 0.86, MID), az: 0, pol: Math.PI / 2 - 0.035, dist: 4.4 });
   const clock = new THREE.Clock(); let fpsT = 0, fpsN = 0, fps = 0; const fieldMats = () => [...F.shells.map((m) => m.material)];
@@ -667,7 +668,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
     glowMat.uniforms.uGlow.value = lerp(glowMat.uniforms.uGlow.value, look.glow); reproGlow.visible = glowMat.uniforms.uGlow.value > 0.01;
     auraMat.opacity = lerp(auraMat.opacity, look.aura * 0.22); { const sv = Math.min(1, look.aura * 2.2) * (1 - 0.6 * F.amt); aur.show = lerp(aur.show, sv); auraQuadMat.uniforms.uAmt.value = aur.show * AURA_GAIN * (0.94 + 0.06 * Math.sin(U.uTime.value * 0.9)); }
     const camDir = _v.copy(camera.position).sub(controls.target).normalize();
-    orbs.forEach((s, i) => { const u = s.userData; if (i === 0) { u.amt = 0; s.visible = false; return; } u.amt = lerp(u.amt, look.orbs); u.sel = lerp(u.sel, look.orbSel === i ? 1 : 0);
+    orbs.forEach((s, i) => { const u = s.userData; u.amt = lerp(u.amt, i === 0 && (look.sel || look.orbSel >= 0) ? 0 : look.orbs); u.sel = lerp(u.sel, look.orbSel === i ? 1 : 0);
       const dimOthers = look.orbSel >= 0 && look.orbSel !== i ? 0.35 : 1; const pulse = 0.9 + 0.1 * Math.sin(U.uTime.value * 1.6 + i * 0.7);
       s.material.opacity = u.amt * dimOthers * (0.75 + 0.25 * u.sel) * pulse; s.scale.setScalar((0.125 + 0.07 * u.sel) * (0.96 + 0.04 * pulse)); s.visible = s.material.opacity > 0.01; });
     // field
@@ -714,7 +715,7 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   requestAnimationFrame(frame);
 
   const facing = () => { const a = THREE.MathUtils.euclideanModulo(readCamera().az + Math.PI, Math.PI * 2) - Math.PI; const d = Math.abs(a); return d < Math.PI / 4 ? 'front' : d > Math.PI * 3 / 4 ? 'back' : a > 0 ? 'left' : 'right'; };   // which side of the figure faces the viewer (left: the figure's own left)
-  const turnTo = (deg) => { const keep = lastOpts; flyTo(lastFrame, { ...keep, az: deg, keepAz: false, dur: 0.9 }); lastOpts = keep; };   // Reset still returns to the view's own side
+  const turnTo = (deg) => { const keep = lastOpts; flyTo(lastFrame, { ...keep, az: deg, keepAz: false, dur: 0.9 }); lastOpts = keep; };
   const resetView = () => flyTo(lastFrame, lastOpts);
   const setSegHover = (band) => { if (band) { U.uSegHov.value.x = band[0]; U.uSegHov.value.y = band[1]; look.segHov = 1; } else look.segHov = 0; wake(0.8); };
   const turnBy = (deg) => { const c = readCamera(); const base = tween ? tween.to : c; const to = { ...base, az: base.az + THREE.MathUtils.degToRad(deg) }; sway = false; wake(1);   // presses add up, even mid-turn
@@ -722,5 +723,5 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
   const zoomBy = (k) => { const c = readCamera(); tween = { from: c, to: { ...c, dist: THREE.MathUtils.clamp(c.dist * k, controls.minDistance, controls.maxDistance) }, t: 0, dur: 0.35 }; wake(1); };
   const startSway = () => { if (!reduceMotion) { sway = true; swayT = 0; } };
   const setPaused = (p) => { paused = !!p; if (!paused) { clock.getDelta(); wake(1); } };
-  return { bodyEdge, setBackLabels, dropBackLabels, backCount: () => backPool.filter((o) => o.quad.visible).length, pixelRatio: () => renderer.domElement.width / (renderer.domElement.clientWidth || 1), setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
+  return { bodyEdge, setBackLabels, dropBackLabels, backCount: () => backPool.filter((o) => o.quad.visible).length, pixelRatio: () => renderer.domElement.width / (renderer.domElement.clientWidth || 1), setPaused, orbPos: () => orbs.map((s) => s.position.toArray()), orbShown: () => orbs.map((s) => s.userData.amt), facing, turnTo, turnBy, resetView, setSegHover, zoomBy, startSway, wake, setLook, setField, flyTo, refit, project, targetDepth, fieldAnchors, ticks: () => F.ticks, organs, camera, controls, renderer, isReady: () => ready, fps: () => fps, MID };
 }

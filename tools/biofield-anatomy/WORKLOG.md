@@ -291,3 +291,23 @@ an onion, not a torus; the field view has the better shape but at another scale.
   A spot straight behind the body (the throat's Back) would be wholly covered, so its label waits just outside the body's outline at
   its height and its line runs behind (`bodyEdge` in `scene.js`, an outline table worked out once from the skin; `l.out` in `app.js`).
 - Checks: section 5c in `checks/checks.mjs`.
+
+## 2026-11-17: the opening view (Chance's five asks from his phone)
+
+Branch `biofield-anatomy-opening-view-2026-11-17`. All in the viewer; the model is untouched.
+
+- Opening view on phones: the frame now holds the Sun Star and the Earth Star with room for their names (`homeFrame` in `app.js`,
+  height 2.16 around 0.82), so the figure sits midway between them. The Body Parts and Zodiac openings share the frame.
+- Why his phone showed the figure high with the Sun Star cut off: the figure was fitted to the room above the sheet while the sheet
+  was still moving to its height (it takes a third of a second), and nothing fitted it again. Two repairs: `freeRect` now reads the
+  height the sheet is set to (`sheetPx`), not where the sheet is in mid-move; and after the page opens or the screen changes size,
+  `settleFit` lays the labels out and fits once more when the sheet has arrived. A refit no longer stops the opening sway.
+- The two stars are named on the Chakras opening: one label each, close beside its star on the left, level with it, outside the
+  stack of centers (`starLabels`, the `near` flag in `layoutLabels`, class `star`). The names come from the content file
+  (`f-sunstar`, `f-earthstar`); a press opens that star in the Field view.
+- The legs' light is on the central line, between the knees, straight under the other seven (`orbAt`, and orb 0 in `scene.js`).
+  It shows on the opening view only, with its dot and line; a press on it opens the Legs. On a center's page it stays off.
+- Reset is a full reset: it goes to the opening of the tab the visitor is on (`go({ view: S.view })`), which brings back that
+  view's own panel, facing and distance. It used to return only the camera to the current page's framing.
+- Checks: section 5d in `checks/checks.mjs` (stars in the picture at four screen sizes, their labels, the legs' light, Reset from
+  every tab, a phone whose screen changes height).
