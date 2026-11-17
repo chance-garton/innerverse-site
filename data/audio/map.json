@@ -1,6 +1,6 @@
 {
- "bytes": 41447647020,
- "count": 590,
+ "bytes": 41572682896,
+ "count": 591,
  "episodes": {
   "5a7e6d958b69319e0ee89e55": {
    "bytes": 68652587,
@@ -5410,6 +5410,15 @@
    ],
    "source": "https://episodes.captivate.fm/episode/09dba288-3db6-4d4b-ad3b-dc9e29e7225f.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/here-for-the-truth-with-chance-garton.mp3"
+  },
+  "src:king-heros-journey-devil-in-the-data": {
+   "bytes": 125035876,
+   "slug": "king-heros-journey-devil-in-the-data",
+   "slugs": [
+    "king-heros-journey-devil-in-the-data"
+   ],
+   "source": "https://anchor.fm/s/7e20d7c/podcast/play/38644488/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-7-12%2F211881686-44100-2-eaf519ed324ac.m4a",
+   "url": "https://audio.innerversepodcast.com/episodes/king-heros-journey-devil-in-the-data.mp3"
   },
   "src:simulation-freezone-freeman-fly": {
    "bytes": 92412974,
