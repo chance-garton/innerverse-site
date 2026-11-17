@@ -10,10 +10,15 @@ most of all on a phone. It is the built viewer from tools/biofield-anatomy:
 - the wording:   NOT in this repo (it paraphrases copyrighted books and the repo is public). It loads from the image
                  bucket at CONTENT_URL. A wording change is a new dated file in the bucket and a new CONTENT_URL here.
 
-HIDDEN keeps the page out of search engines and the sitemap until the public launch.
+- the share picture: tools/biofield-anatomy/site/share.jpg, 1200 by 630, shown when the page's link is sent in a text or
+                 posted (the og: and twitter: tags below). It is drawn from the real viewer by tools/biofield-anatomy/checks/share.mjs;
+                 draw it again when the opening view changes.
+
+HIDDEN keeps the page out of search engines and the sitemap until the public launch. Link previews do not depend on it.
 """
 
 import hashlib
+import html as html_lib
 import os
 import shutil
 
@@ -23,6 +28,12 @@ TOOL = os.path.join(ROOT, "tools", "biofield-anatomy")
 CONTENT_URL = "https://images.innerversepodcast.com/biofield-anatomy/content-2026-11-17.js"
 HIDDEN = True
 PATH = "/biofield-anatomy"
+ORIGIN = "https://www.innerversepodcast.com"
+# What a text message or a social post shows for the page's link: the picture, this title and this line.
+SHARE_TITLE = "Biofield Anatomy: Interactive 3D Map"
+SHARE_TEXT = ("Explore the body, the chakras, the zodiac and the field around you in 3D, "
+              "with the emotions and patterns Biofield Tuning reads in each place.")
+SHARE_ALT = "A glowing human figure in the colors of the chakras, each center labeled, with the Sun Star above and the Earth Star below."
 
 PREVIEW_TAGS = ('<script src="content.js"></script>\n<script src="model.js"></script>\n'
                 '<script type="module" src="viewer.js"></script>')
@@ -45,12 +56,35 @@ def build(out):
                         '<script src="' + CONTENT_URL + '"></script>\n'
                         '<script>window.__BFA_MODEL_URL="' + base + 'body.glb?v=' + _ver(model) + '";</script>\n'
                         '<script type="module" src="' + base + 'viewer.js?v=' + _ver(viewer) + '"></script>')
+    meta = '<meta name="viewport" content="width=device-width, initial-scale=1">'
+    assert html.count(meta) == 1
+    share = os.path.join(TOOL, "site", "share.jpg")
+    e = lambda t: html_lib.escape(t, quote=True)
+    url, img = ORIGIN + PATH, ORIGIN + base + "share.jpg?v=" + _ver(share)
+    tags = [
+        '<meta name="description" content="' + e(SHARE_TEXT) + '">',
+        '<meta property="og:site_name" content="InnerVerse">',
+        '<meta property="og:type" content="website">',
+        '<meta property="og:title" content="' + e(SHARE_TITLE) + '">',
+        '<meta property="og:description" content="' + e(SHARE_TEXT) + '">',
+        '<meta property="og:url" content="' + url + '">',
+        '<meta property="og:image" content="' + img + '">',
+        '<meta property="og:image:type" content="image/jpeg">',
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        '<meta property="og:image:alt" content="' + e(SHARE_ALT) + '">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        '<meta name="twitter:title" content="' + e(SHARE_TITLE) + '">',
+        '<meta name="twitter:description" content="' + e(SHARE_TEXT) + '">',
+        '<meta name="twitter:image" content="' + img + '">',
+        '<meta name="twitter:image:alt" content="' + e(SHARE_ALT) + '">',
+    ]
     if HIDDEN:
-        meta = '<meta name="viewport" content="width=device-width, initial-scale=1">'
-        assert html.count(meta) == 1
-        html = html.replace(meta, meta + '\n<meta name="robots" content="noindex, nofollow">')
+        tags.insert(0, '<meta name="robots" content="noindex, nofollow">')
+    html = html.replace(meta, meta + "\n" + "\n".join(tags))
     dest = os.path.join(out, PATH.strip("/"))
     os.makedirs(dest, exist_ok=True)
+    shutil.copyfile(share, os.path.join(dest, "share.jpg"))
     shutil.copyfile(viewer, os.path.join(dest, "viewer.js"))
     shutil.copyfile(model, os.path.join(dest, "body.glb"))
     return html
