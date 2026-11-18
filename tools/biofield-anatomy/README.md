@@ -64,6 +64,9 @@ the wording from the image bucket (`CONTENT_URL`, a dated file such as
   (`wording/apply.py` with a change file in `wording/changes/`; it starts from the file in the bucket and runs when a branch named
   `wording/...` is pushed). Check the uploaded file byte for byte, then change `CONTENT_URL`. Never commit the content file here,
   and put only new words in a change file, never a line of the existing wording.
+  A change file can also carry `ops` (new lines, sections, entries, search words, a power page note, additions to the end of a
+  line); each op checks the line it touches by a short fingerprint (`was`), never by its words. `apply.py --dry --out <file>` saves
+  the built file for a preview build, outside this repo. Example: `changes/2026-11-18.json`.
 
 ## Rebuild
 

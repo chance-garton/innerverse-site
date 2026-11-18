@@ -1,0 +1,287 @@
+{
+ "from": "content-2026-11-17.js",
+ "to": "content-2026-11-18.js",
+ "rule": "rule:Chance 2026-11-18",
+ "sha256": "05caad1bbb9942b74aaefe36ee679e0f303f888af1558adb315bd002bbc4c2ea",
+ "note": "Terrain medicine additions approved by Chance on 2026-11-18 (project doc PROPOSAL-terrain-copy-biofield-anatomy-2026-11-17): a new field topic, the lymph entry, and new or extended lines on the skin, liver, kidneys, lungs, large intestine, appendix, sacral, spleen, sinuses, vagus nerve, feet, inherited patterns, sleep and rest, crown and voice box pages. Only new words appear here.",
+ "ops": [
+  {
+   "op": "add_node",
+   "after": "f-pain",
+   "entry": {
+    "id": "f-terrain",
+    "sections": [
+     {
+      "key": "clearing",
+      "title": "The routes of clearing",
+      "blocks": [
+       "The body clears through the large intestine, the kidneys and bladder, the lungs and the skin, with the liver filtering and the lymph draining every tissue toward them. When the quiet routes are slowed or overloaded, the body opens louder ones: a runny nose, a cough, a rash, a fever. Like pain, each of these carries a message about what that environment needs."
+      ]
+     },
+     {
+      "key": "inflammation",
+      "title": "Inflammation",
+      "blocks": [
+       "Inflammation is the body's repair response, bringing blood, lymph and warmth to where work is needed. It wears us down only when it is kept running."
+      ]
+     },
+     {
+      "key": "burdens",
+      "title": "What feeds and burdens the inner environment",
+      "blocks": [
+       "Three things wear the terrain down: what we take in that the body cannot use, what we need and do not get, and what hurts us, in body or in feeling. Stress belongs on that list. The emotions this map places in the field are part of that environment too."
+      ]
+     },
+     {
+      "key": "microbes",
+      "title": "The microbes we live with",
+      "blocks": [
+       "The body carries about as many microbes as it has cells of its own, most of them in the gut and on the skin, working with us: breaking down food, making nutrients and helping clear what the body sheds. Their balance follows the balance of the terrain, which is why the gut's microbial life shifts as the sacral shifts."
+      ]
+     }
+    ],
+    "positions": [],
+    "sides": [],
+    "themes": [],
+    "kind": "field",
+    "group": "How to read the field",
+    "name": "The body as a terrain",
+    "short": "The body tends its own inner environment",
+    "search": [
+     "terrain",
+     "inner environment",
+     "detox",
+     "detoxing",
+     "cleanse",
+     "clearing",
+     "elimination",
+     "drainage",
+     "fever",
+     "runny nose",
+     "cold",
+     "inflammation",
+     "microbiome",
+     "gut flora",
+     "germs",
+     "bacteria"
+    ],
+    "summary": {
+     "t": "The body keeps its own inner environment in balance, the way healthy soil keeps a garden. It takes in what it can use, turns it into itself, and clears out what it cannot use. How the body meets anything, from a meal to a microbe, depends on the state of that environment: what feeds it, what burdens it, and what it carries from the past."
+    }
+   }
+  },
+  {
+   "op": "add_node",
+   "after": "skin",
+   "entry": {
+    "id": "lymph",
+    "sections": [
+     {
+      "key": "anatomy",
+      "title": "What it does",
+      "blocks": [
+       "A network of vessels and nodes that drains fluid from every tissue, filters it and returns it to the blood. It is the body's drainage, serving every route of clearing."
+      ]
+     },
+     {
+      "key": "struggle",
+      "title": "When it struggles",
+      "blocks": [
+       "Puffiness, swollen nodes, heavy or achy limbs, sluggishness."
+      ]
+     }
+    ],
+    "positions": [],
+    "sides": [],
+    "themes": [],
+    "kind": "part",
+    "parent": "whole",
+    "name": "Lymph and lymph nodes",
+    "color": 8,
+    "light": {
+     "regions": {
+      "whole": 0.35
+     },
+     "organs": {},
+     "glow": null
+    },
+    "frame": {
+     "y": 0.86,
+     "w": 0.95,
+     "h": 1.86,
+     "az": 0,
+     "tilt": 2
+    },
+    "search": [
+     "lymph",
+     "lymphatic",
+     "lymphatic system",
+     "lymph nodes",
+     "lymph node",
+     "swollen glands",
+     "swollen lymph nodes",
+     "drainage",
+     "lymphatic drainage",
+     "puffiness",
+     "lymph massage"
+    ],
+    "summary": {
+     "t": "The lymph runs through the whole body. It drains every tissue and carries what the tissue lets go back toward the blood, to be cleared by the liver and the kidneys. The spleen is its largest organ."
+    }
+   }
+  },
+  {
+   "op": "set_text",
+   "node": "skin",
+   "section": "anatomy",
+   "block": 0,
+   "was": "a30e57e96a33",
+   "text": "A living boundary that breathes and exchanges with the world: it keeps temperature, carries touch, and clears waste through sweat and oil."
+  },
+  {
+   "op": "add_block",
+   "node": "skin",
+   "section": "biofield",
+   "count_before": 1,
+   "text": "When the inner routes of clearing are overloaded, the skin takes up the work, which is why rashes and breakouts so often follow the liver and the gut."
+  },
+  {
+   "op": "replace_phrase",
+   "node": "liver",
+   "section": "biofield",
+   "block": 3,
+   "was": "07381d6bb685",
+   "old": "detox signs",
+   "new": "signs of clearing"
+  },
+  {
+   "op": "end_with",
+   "node": "liver",
+   "section": "biofield",
+   "block": 3,
+   "was": "e6937949cfce",
+   "text": ": the body moving out what the tuning loosened."
+  },
+  {
+   "op": "set_text",
+   "node": "liver",
+   "section": "anatomy",
+   "block": 0,
+   "was": "f33a9266fffe",
+   "text": "The body's chief filter and converter: it cleans the blood, turns nutrients and spent hormones into forms the body can use or let go, makes bile to carry waste out, and stores energy."
+  },
+  {
+   "op": "set_text",
+   "node": "kidneys",
+   "section": "anatomy",
+   "block": 0,
+   "was": "4f8a06112509",
+   "text": "Keep the body's inner waters in balance: they filter the blood, hold water, salts and acidity in proportion, and help set blood pressure."
+  },
+  {
+   "op": "end_with",
+   "node": "lungs",
+   "section": "anatomy",
+   "block": 0,
+   "was": "55bb29c8e7b5",
+   "text": ", and a route of clearing too: every breath out carries waste away, and a cough clears what the airways need gone."
+  },
+  {
+   "op": "set_text",
+   "node": "largeintestine",
+   "section": "anatomy",
+   "block": 0,
+   "was": "e65abca1f66c",
+   "text": "Absorbs water and salts and carries waste out of the body. It is home to most of the gut's microbial life, an inner garden that breaks down what we cannot digest on our own and makes nutrients we use."
+  },
+  {
+   "op": "append_sentence",
+   "node": "appendix",
+   "was": "a8958fb2849b",
+   "text": "Researchers describe it as a safe house for the gut's helpful microbes: when the bowels are flushed out, they repopulate the gut from here."
+  },
+  {
+   "op": "end_with",
+   "node": "sacral",
+   "section": "body",
+   "block": 1,
+   "was": "d3664a76dc61",
+   "text": ": the microbes there change their form and behavior as the environment around them changes."
+  },
+  {
+   "op": "append_sentence",
+   "node": "spleen",
+   "section": "anatomy",
+   "block": 0,
+   "was": "0bb2516e13f9",
+   "text": "It is the largest organ of the lymph system, part of the body's cleanup crew."
+  },
+  {
+   "op": "add_section",
+   "node": "sinuses",
+   "key": "biofield",
+   "title": "In Biofield Anatomy",
+   "at": 0,
+   "blocks": [
+    "A runny nose and congestion are the head's routes of clearing at work."
+   ]
+  },
+  {
+   "op": "append_sentence",
+   "node": "vagus",
+   "section": "anatomy",
+   "block": 0,
+   "was": "39431a171ed9",
+   "text": "Rest and digest is the state in which the body builds, digests and clears. A nervous system stuck in stress puts all three on hold."
+  },
+  {
+   "op": "add_block",
+   "node": "feet",
+   "section": "field",
+   "count_before": 1,
+   "text": "Grounding is the field's route of clearing, the way the bowels, kidneys, lungs and skin are the body's."
+  },
+  {
+   "op": "append_sentence",
+   "node": "f-inherited",
+   "was": "c8aaad0cb8a2",
+   "text": "The body inherits a terrain the same way: a baby's first microbes come from the mother, and the habits of a household shape a child's inner environment."
+  },
+  {
+   "op": "set_power_note",
+   "power": "Sleep and rest",
+   "text": "Rest is when the body repairs and clears what the day left behind."
+  },
+  {
+   "op": "add_block",
+   "node": "crown",
+   "section": "body",
+   "count_before": 3,
+   "text": "Time outdoors feeds the body's terrain as well as the spirit: sunlight, fresh air and living ground."
+  },
+  {
+   "op": "add_block",
+   "node": "voicebox",
+   "section": "biofield",
+   "count_before": 1,
+   "text": "A sore throat often follows words or feelings we swallowed instead of saying."
+  },
+  {
+   "op": "add_search",
+   "node": "liver",
+   "words": [
+    "fever",
+    "inflammation"
+   ]
+  },
+  {
+   "op": "add_search",
+   "node": "largeintestine",
+   "words": [
+    "microbiome",
+    "gut flora",
+    "gut bacteria"
+   ]
+  }
+ ]
+}
