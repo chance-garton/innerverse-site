@@ -1127,7 +1127,12 @@
     return fetch(PLUS_INDEX_URL)
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) {
-        var eps = (d && d.episodes) || [];
+        /* Only episodes with a members' page count: plus-index also lists free
+           shows cross-listed into /plus browsing, which live under /episodes
+           and have no /plus page (the hero linked to a missing page, 2026-11-18). */
+        var eps = ((d && d.episodes) || []).filter(function (e) {
+          return /\/plus\//.test(e.url || '');
+        });
         if (!eps.length) return null;
         var newest = eps.slice().sort(function (a, b) {
           return String(b.date || '').localeCompare(String(a.date || ''));
