@@ -1,0 +1,37 @@
+{
+ "batch": "feed",
+ "started": "2026-11-18T20:04:57+00:00",
+ "copied": [
+  "acast-6afdf12e1ba3676f7e2152bb",
+  "acast-6afdf12c79c948cc5b8d40c1",
+  "acast-6afdf13134d535245ff0c23a",
+  "acast-6afdf1328ccf07e5141d66d0",
+  "acast-6afdf12a45433e5baa75800a",
+  "acast-6afdf134d95e85c50dc1b4c9",
+  "acast-6afdf133911728e8d495fd81"
+ ],
+ "failed": [
+  {
+   "slug": "acast-6afdf123d19a28111796f24a",
+   "id": "6afdf123d19a28111796f24a",
+   "reason": "HTTP Error 404: Not Found"
+  },
+  {
+   "slug": "acast-6afdf12646277fec8bcc4b12",
+   "id": "6afdf12646277fec8bcc4b12",
+   "reason": "HTTP Error 404: Not Found"
+  },
+  {
+   "slug": "acast-6afdf1100ad1d1e0c2ce81c6",
+   "id": "6afdf1100ad1d1e0c2ce81c6",
+   "reason": "HTTP Error 404: Not Found"
+  },
+  {
+   "slug": "acast-6afdf105d644044ff35a65ea",
+   "id": "6afdf105d644044ff35a65ea",
+   "reason": "HTTP Error 404: Not Found"
+  }
+ ],
+ "bytes": 931563973,
+ "finished": "2026-11-18T20:05:06+00:00"
+}
