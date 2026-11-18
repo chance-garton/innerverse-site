@@ -143,7 +143,7 @@
   function showOf(e) {
     var shows = e.shows || [];
     if (shows.indexOf('Astro-Herbalism') >= 0) return 'Astro-Herbalism';
-    if (shows.indexOf('Vibe Rant') >= 0) return 'Vibe Rant' + (e.num ? ' \u00b7 Episode ' + e.num : '');
+    if (shows.indexOf('Vibe Rant') >= 0) return 'Vibe Rant' + (e.num != null && e.num !== '' ? ' \u00b7 Episode ' + e.num : '');
     return shows[0] || 'InnerVerse';
   }
   function whenOf(e) {

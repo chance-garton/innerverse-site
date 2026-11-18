@@ -225,7 +225,7 @@ def build_f(r):
         "topicLine": r.get("Topic Line") or "",
         "showCategory": shows[0] if shows else "",
         "year": r.get("Year") or "",
-        "episodeNumber": r.get("Episode Number") or "",
+        "episodeNumber": "" if r.get("Episode Number") in (None, "") else r.get("Episode Number"),
         "publishDate": r.get("Publish Date") or "",
         "duration": r.get("Duration") or "",
         "thumbnail": r.get("Thumbnail URL") or "",
@@ -261,7 +261,7 @@ def build_header(f, root_label="Podcast"):
     if f["showCategory"]:
         path.append(esc(f["showCategory"].upper()))
     bits = []
-    if f["episodeNumber"]:
+    if f["episodeNumber"] != "":
         bits.append("EPISODE " + esc(f["episodeNumber"]))
     if f["publishDate"]:
         bits.append(esc(format_date(f["publishDate"])))
@@ -812,7 +812,7 @@ def structured_data(f, r, guests, canonical, description, image, post):
     }
     if date:
         ep["datePublished"] = date
-    if f["episodeNumber"]:
+    if f["episodeNumber"] != "":
         ep["episodeNumber"] = str(f["episodeNumber"])
     if iso_duration(f["duration"]):
         ep["timeRequired"] = iso_duration(f["duration"])

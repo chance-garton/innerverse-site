@@ -142,7 +142,7 @@
   function showOf(e) {
     var shows = e.shows || [];
     if (shows.indexOf('Astro-Herbalism') >= 0) return 'Astro-Herbalism';
-    if (shows.indexOf('Vibe Rant') >= 0) return labelFor('shows', 'Vibe Rant') + (e.num ? ' \u00b7 Episode ' + e.num : '');
+    if (shows.indexOf('Vibe Rant') >= 0) return labelFor('shows', 'Vibe Rant') + (e.num != null && e.num !== '' ? ' \u00b7 Episode ' + e.num : '');
     return labelFor('shows', shows[0] || 'InnerVerse');
   }
   function whenOf(e) {
@@ -1040,9 +1040,9 @@
     var thumb = f['Thumbnail URL'] || e.thumb;
     var vid = ytId(f['Video URL']);
     var shows = e.shows || [];
-    var vrNum = f['Episode Number'] || e.num;
+    var vrNum = f['Episode Number'] != null && f['Episode Number'] !== '' ? f['Episode Number'] : e.num;
     var show = shows.indexOf('Astro-Herbalism') >= 0 ? 'Astro-Herbalism'
-      : shows.indexOf('Vibe Rant') >= 0 ? (SHOW_LABEL['Vibe Rant'] || 'Vibe Rant') + (vrNum ? ' \u00b7 Episode ' + vrNum : '')
+      : shows.indexOf('Vibe Rant') >= 0 ? (SHOW_LABEL['Vibe Rant'] || 'Vibe Rant') + (vrNum != null && vrNum !== '' ? ' \u00b7 Episode ' + vrNum : '')
       : (SHOW_LABEL[shows[0]] || shows[0] || 'InnerVerse');
     var meta = [show, f.Duration || e.duration, niceDate(e.date)].filter(Boolean).join(' · ');
     var blurb = clean(f['Intro Paragraph 1'] || '');

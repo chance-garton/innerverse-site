@@ -388,7 +388,7 @@
     /* Joined rather than concatenated with trailing separators: the rows
        added for /plus-only episodes carry no duration. */
     var bits = [];
-    if (f.episodeNumber) bits.push('EPISODE ' + esc(f.episodeNumber));
+    if (f.episodeNumber != null && f.episodeNumber !== '') bits.push('EPISODE ' + esc(f.episodeNumber));
     if (f.publishDate) bits.push(esc(formatDate(f.publishDate)));
     else if (f.year) bits.push(esc(f.year));
     if (f.duration) bits.push(esc(f.duration));
@@ -1150,7 +1150,7 @@
     }
     /* Episode Number is set on only a handful of rows, so the curated
        Topic Line leads when it exists and the number is the fallback. */
-    var lead = d.topicLine ? d.topicLine : (d.num ? ('EP ' + d.num) : '');
+    var lead = d.topicLine ? d.topicLine : (d.num != null && d.num !== '' ? ('EP ' + d.num) : '');
     return [lead, when].filter(Boolean).join(' · ');
   }
 
@@ -2666,7 +2666,7 @@
           topicLine: r['Topic Line'] || '',
           showCategory: (r['Show Categories'] || [])[0] ? (r['Show Categories'][0].name || r['Show Categories'][0]) : '',
           year: r['Year'] || '',
-          episodeNumber: r['Episode Number'] || '',
+          episodeNumber: r['Episode Number'] != null ? r['Episode Number'] : '',
           publishDate: r['Publish Date'] || '',
           /* Duration is the FREE cut's runtime. Showing it in the members'
              header understated the episode on every /plus page, by an hour
