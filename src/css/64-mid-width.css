@@ -1,0 +1,18 @@
+/* 64-mid-width.css
+   Episode and Plus+ episode pages between the phone layout and full desktop (added 2026-11-18).
+   The side column is a fixed 384px with a 48px gap from 820px up, so from about 1240px down
+   the main column was squeezed (down to about 270px) and its cards broke: My library, the
+   Inner Circle card, the Plus+ card and the Get Tuned card.
+   1100 to 1239px: slimmer side column, smaller card artwork.
+   820 to 1099px: one column, the side cards two across underneath. */
+@media (min-width:1100px) and (max-width:1239px){
+  html.iv-2026 .iv-sticky-layout{gap:32px;}
+  html.iv-2026 .iv-sticky-sidebar{width:320px;}
+  html.iv-2026 .iv-sticky-main .iv2-hcard{grid-template-columns:240px minmax(0,1fr);gap:24px;}
+  html.iv-2026 .iv-sticky-main .iv2-media{height:auto;aspect-ratio:16/9;}
+}
+@media (min-width:820px) and (max-width:1099px){
+  html.iv-2026 .iv-sticky-layout{display:block;}
+  html.iv-2026 .iv-sticky-sidebar{position:static;width:auto;margin-top:56px;display:flex;flex-wrap:wrap;align-items:flex-start;gap:24px;}
+  html.iv-2026 .iv-sticky-sidebar > *{flex:1 1 320px;min-width:0;margin-bottom:0;}
+}
