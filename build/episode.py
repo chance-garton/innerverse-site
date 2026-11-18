@@ -233,6 +233,8 @@ def build_f(r):
         "videoPlusUrl": r.get("YouTube Plus URL") or "",
         "acastAudioUrl": r.get("Acast Audio URL") or "",
         "audioOffset": float(r.get("Audio Offset Seconds") or 0),
+        # 2026-11-18: first play starts here (video clock); blank or 0 = 0:00.
+        "introSkip": float(r.get("Intro Skip Seconds") or 0),
         "intro1": r.get("Intro Paragraph 1") or "",
         "intro2": r.get("Intro Paragraph 2") or "",
         "directPlusUrl": r.get("Direct Plus URL") or "",
