@@ -21662,6 +21662,32 @@
    1500
   ]
  },
+ "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/king-heros-journey-devil-in-the-data/devil-in-the-data-thumbnail.jpg": {
+  "bytes": {
+   "orig.jpg": 178612,
+   "w1000.webp": 64016,
+   "w300.webp": 7960,
+   "w500.webp": 18890,
+   "w750.webp": 38868
+  },
+  "ext": "jpg",
+  "files": [
+   "orig.jpg",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp"
+  ],
+  "h": 720,
+  "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-king-heros-journey-devil-in-the-data/devil-in-the-data-thumbnail",
+  "w": 1280,
+  "widths": [
+   300,
+   500,
+   750,
+   1000
+  ]
+ },
  "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/soul-nectar-contemplating-the-innerverse/contemplating-the-innerverse-thumbnail.jpg": {
   "bytes": {
    "orig.jpg": 60651,
