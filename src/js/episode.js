@@ -58,7 +58,7 @@
 (function () {
   'use strict';
 
-  var IV_BUILD = '2026-10-04a-shownotes';
+  var IV_BUILD = '2026-11-18a-introskip';
   window.IV_EPISODE_BUILD = IV_BUILD;
   if (window.__ivEpisodeStarted) return;
   window.__ivEpisodeStarted = true;
@@ -2226,6 +2226,7 @@
           if (which === 'listen') {
             if (hadVideo) box.innerHTML = coverHtml;
             if (resumeAt != null && audio) {
+              ivMarkAudioStarted(audio);
               audio.currentTime = resumeAt;
               audio.play()['catch'](function () { });
             }
@@ -2715,6 +2716,7 @@
 
            The eager iframe is REPLACED rather than covered: left in place
            it loads the whole player before the visitor asks for it. */
+        ivSetIntroSkip(r['Plus Intro Skip Seconds']);   /* iv-intro-skip: members' clock */
         var vimeo = vimeoId(r['Plus Video URL'] || '') || plusPageVimeoId();
         var plusAudioUrl = r['Plus Audio URL'] || '';
         var vblock = host.querySelector('.sqs-block-video');
@@ -2762,9 +2764,10 @@
                iframe on every jump. The raw build below stays as the fallback
                for a page whose row has no id, where the id came off the page
                itself. */
-            if (box.getAttribute('data-video-id') && ivMountVideo(box, 0)) return;
+            if (box.getAttribute('data-video-id') && ivMountVideo(box, ivIntroSkip())) return;
             var src = box.getAttribute('data-video-src');
             if (!src) return;
+            if (ivIntroSkip() > 0 && src.indexOf('#') < 0) src += '#t=' + Math.floor(ivIntroSkip()) + 's';
             var frame = document.createElement('iframe');
             frame.src = src;
             frame.title = 'Episode video player';
@@ -3135,6 +3138,45 @@
   function ivVideoToAudio(audio, t) { return Math.max(0, (Number(t) || 0) + ivAudioOffset(audio)); }
   function ivAudioToVideo(audio, t) { return Math.max(0, (Number(t) || 0) - ivAudioOffset(audio)); }
 
+  /* ===== BEGIN iv-intro-skip (2026-11-18) =====
+     A long intro (a live stream's waiting music, a bumper) is skipped on the
+     FIRST play of each player on the page. The value comes from Airtable:
+     Intro Skip Seconds on a free page (free video clock) and Plus Intro Skip
+     Seconds on /plus (the members' clock, which its video and audio share).
+     It already carries about 3 s of lead-in, and is only set when speech
+     starts more than 20 s in. Chapter clicks, ?t=, scrubbing and the
+     Watch/Listen hand-off carry their own time and always win. Only the
+     site's players change: the files, podcast apps and YouTube.com still
+     start at 0:00. Rollback: make ivIntroSkip() and ivAudioIntroTarget()
+     return 0. */
+  var IV_INTRO_SKIP = 0;
+  function ivSetIntroSkip(v) { v = parseFloat(v); IV_INTRO_SKIP = (isFinite(v) && v > 0) ? v : 0; }
+  function ivIntroSkip() { return IV_INTRO_SKIP; }
+  /* Where the audio's first play lands. The skip is on the video clock, so
+     it goes through ivVideoToAudio. With no skip set, an audio file that
+     opens with a bumper the video lacks (an offset over 20 s) starts where
+     the video's 0:00 sits, less the same lead-in. */
+  function ivAudioIntroTarget(audio) {
+    var s = ivIntroSkip();
+    if (s > 0) return ivVideoToAudio(audio, s);
+    var bumper = ivVideoToAudio(audio, 0);
+    return bumper > 20 ? bumper - 3 : 0;
+  }
+  function ivMarkAudioStarted(audio) { if (audio) audio.__ivStarted = true; }
+  /* Call straight after audio.play(), inside the tap: Safari only allows
+     play() close to a real gesture, so it goes first and the seek follows. */
+  function ivAudioFirstSeek(audio) {
+    if (!audio || audio.__ivStarted) return;
+    audio.__ivStarted = true;
+    if (audio.currentTime >= 1) return;          /* scrubbed by hand first */
+    var at = ivAudioIntroTarget(audio);
+    if (!(at > 0)) return;
+    function seek() { try { if (audio.currentTime < at) audio.currentTime = at; } catch (e) { } }
+    if (audio.readyState >= 1) seek();
+    else audio.addEventListener('loadedmetadata', seek, { once: true });
+  }
+  /* ===== END iv-intro-skip ===== */
+
   function ivPauseVideo() {
     try {
       if (IV_VIDEO.platform === 'youtube' && IV_VIDEO.player && IV_VIDEO.player.pauseVideo) {
@@ -3434,6 +3476,7 @@
           } else {
             ivPauseVideo();
             if (resumeAt != null && audio) {
+              ivMarkAudioStarted(audio);
               audio.currentTime = ivVideoToAudio(audio, resumeAt);
               audio.play()['catch'](function () { });
             }
@@ -3455,7 +3498,7 @@
     if (cover && ratio) {
       cover.addEventListener('click', function () {
         ivPauseAudio(container);
-        ivMountVideo(ratio, 0);
+        ivMountVideo(ratio, ivIntroSkip());   /* iv-intro-skip */
       });
     }
 
@@ -3479,9 +3522,10 @@
     }
 
     playBtn.addEventListener('click', function () {
-      if (audio.paused) { ivPauseVideo(); audio.play(); } else { audio.pause(); }
+      if (audio.paused) { ivPauseVideo(); audio.play(); ivAudioFirstSeek(audio); } else { audio.pause(); }
     });
-    audio.addEventListener('play', function () { setPlayingUI(true); });
+    /* iv-intro-skip: also covers a start from the lock screen or media keys. */
+    audio.addEventListener('play', function () { setPlayingUI(true); ivAudioFirstSeek(audio); });
     audio.addEventListener('pause', function () { setPlayingUI(false); });
     /* fmtTime turns an unknown duration into 0:00, which made the player
        advertise a zero length track until someone pressed play. Show a
@@ -3531,7 +3575,7 @@
       var listenBtn = container.querySelector('.iv-tbtn[data-panel="listen"]');
       if (listenBtn && !listenBtn.classList.contains('iv-tbtn-active')) listenBtn.click();
       /* Chapter seeks arrive on the video clock. */
-      function go() { audio.currentTime = ivVideoToAudio(audio, seconds); audio.play(); }
+      function go() { ivMarkAudioStarted(audio); audio.currentTime = ivVideoToAudio(audio, seconds); audio.play(); }
       if (audio.readyState >= 1) { go(); }
       else { audio.addEventListener('loadedmetadata', go, { once: true }); audio.load(); }
     };
@@ -3728,6 +3772,7 @@
     if (st && st.kind === 'plus') { ivPlusPage(st); return; }   /* iv-plus-page (2026-10-28) */
     if (!root) return;
     var f = st.f || {};
+    ivSetIntroSkip(f.introSkip);   /* iv-intro-skip: free video clock */
     /* The generator wrote the chip as a flag; the builders want markup. */
     if (f.fullChip === true) f.fullChip = '';
 
