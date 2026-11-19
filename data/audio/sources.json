@@ -1,46 +1,55 @@
 {
- "note": "Audio that was never on Acast (Chance's guest spots on other shows). Copied by: copy_audio.py sources. Found 2026-11-17 in each host's own podcast feed or site.",
- "sources": [
-  {
-   "slug": "virtual-unreality-gnostic-artificial-archons",
-   "date": "2021-04-22",
-   "url": "https://anchor.fm/s/7e20d7c/podcast/play/34617838/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-5-1%2F192272547-44100-2-a4486a03875ca.m4a",
-   "from": "King Hero's Journey feed"
-  },
-  {
-   "slug": "simulation-freezone-freeman-fly",
-   "date": "2021-07-16",
-   "url": "https://content.blubrry.com/freemantv/Chance_Garton_Simulation_Is_Hypocrisy.mp3",
-   "from": "freemantv.com post (Blubrry)"
-  },
-  {
-   "slug": "here-for-the-truth-with-chance-garton",
-   "date": "2021-08-03",
-   "url": "https://episodes.captivate.fm/episode/09dba288-3db6-4d4b-ad3b-dc9e29e7225f.mp3",
-   "from": "Here For The Truth feed, Ep 15"
-  },
-  {
-   "slug": "cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast",
-   "date": "2021-12-07",
-   "url": "https://audio4.redcircle.com/episodes/507f5373-14c4-4429-8f9f-9801ca2335ba/stream.mp3",
-   "from": "Legit Bat feed, 4.19"
-  },
-  {
-   "slug": "king-heros-journey-devil-in-the-data",
-   "date": "2021-08-12",
-   "url": "https://anchor.fm/s/7e20d7c/podcast/play/38644488/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-7-12%2F211881686-44100-2-eaf519ed324ac.m4a",
-   "from": "King Hero's Journey feed"
-  },
-  {
-   "slug": "vibe-rant-113",
-   "date": "2023-12-13",
-   "url": [
-    "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-20261117/vr113.part0",
-    "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-20261117/vr113.part1",
-    "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-20261117/vr113.part2"
-   ],
-   "from": "Chance's own mp3 (2026-11-17), split into parts on a temporary branch"
-  }
- ],
- "youtube_blocked": "2026-11-17: YouTube refuses both the Actions runner and the sandbox for media. Breaking Reality 34 (md8TWkytvIs) has no audio (Chance: let it go). Vibe Rant 113 came from Chance's own mp3."
+  "note": "Audio that was never on Acast (Chance's guest spots on other shows). Copied by: copy_audio.py sources. Found 2026-11-17 in each host's own podcast feed or site.",
+  "sources": [
+    {
+      "slug": "virtual-unreality-gnostic-artificial-archons",
+      "date": "2021-04-22",
+      "url": "https://anchor.fm/s/7e20d7c/podcast/play/34617838/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-5-1%2F192272547-44100-2-a4486a03875ca.m4a",
+      "from": "King Hero's Journey feed"
+    },
+    {
+      "slug": "simulation-freezone-freeman-fly",
+      "date": "2021-07-16",
+      "url": "https://content.blubrry.com/freemantv/Chance_Garton_Simulation_Is_Hypocrisy.mp3",
+      "from": "freemantv.com post (Blubrry)"
+    },
+    {
+      "slug": "here-for-the-truth-with-chance-garton",
+      "date": "2021-08-03",
+      "url": "https://episodes.captivate.fm/episode/09dba288-3db6-4d4b-ad3b-dc9e29e7225f.mp3",
+      "from": "Here For The Truth feed, Ep 15"
+    },
+    {
+      "slug": "cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast",
+      "date": "2021-12-07",
+      "url": "https://audio4.redcircle.com/episodes/507f5373-14c4-4429-8f9f-9801ca2335ba/stream.mp3",
+      "from": "Legit Bat feed, 4.19"
+    },
+    {
+      "slug": "king-heros-journey-devil-in-the-data",
+      "date": "2021-08-12",
+      "url": "https://anchor.fm/s/7e20d7c/podcast/play/38644488/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-7-12%2F211881686-44100-2-eaf519ed324ac.m4a",
+      "from": "King Hero's Journey feed"
+    },
+    {
+      "slug": "vibe-rant-113",
+      "date": "2023-12-13",
+      "url": [
+        "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-20261117/vr113.part0",
+        "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-20261117/vr113.part1",
+        "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-20261117/vr113.part2"
+      ],
+      "from": "Chance's own mp3 (2026-11-17), split into parts on a temporary branch"
+    },
+    {
+      "slug": "dylan-saccoccio-black-swan",
+      "date": "2021-01-19",
+      "url": [
+        "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-2026-11-19/dylan-saccoccio-black-swan.mp3.part0",
+        "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-2026-11-19/dylan-saccoccio-black-swan.mp3.part1"
+      ],
+      "from": "Chance's own mp3 (full episode, replaces the Acast preview), 2026-11-19"
+    }
+  ],
+  "youtube_blocked": "2026-11-17: YouTube refuses both the Actions runner and the sandbox for media. Breaking Reality 34 (md8TWkytvIs) has no audio (Chance: let it go). Vibe Rant 113 came from Chance's own mp3."
 }
