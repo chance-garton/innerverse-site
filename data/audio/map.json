@@ -1,6 +1,6 @@
 {
- "bytes": 43183631192,
- "count": 603,
+ "bytes": 43298279016,
+ "count": 604,
  "episodes": {
   "5a7e6d958b69319e0ee89e55": {
    "bytes": 68652587,
@@ -5511,6 +5511,18 @@
    ],
    "source": "https://audio4.redcircle.com/episodes/507f5373-14c4-4429-8f9f-9801ca2335ba/stream.mp3",
    "url": "https://audio.innerversepodcast.com/episodes/cosmic-keys-to-the-innerverse-chance-on-legit-bat-podcast.mp3"
+  },
+  "src:dylan-saccoccio-black-swan": {
+   "bytes": 114647824,
+   "slug": "dylan-saccoccio-black-swan",
+   "slugs": [
+    "dylan-saccoccio-black-swan"
+   ],
+   "source": [
+    "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-2026-11-19/dylan-saccoccio-black-swan.mp3.part0",
+    "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-2026-11-19/dylan-saccoccio-black-swan.mp3.part1"
+   ],
+   "url": "https://audio.innerversepodcast.com/episodes/dylan-saccoccio-black-swan.mp3"
   },
   "src:here-for-the-truth-with-chance-garton": {
    "bytes": 193936580,
