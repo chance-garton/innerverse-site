@@ -1,18 +1,37 @@
 {
- "prose": ["Michelle Gibson returns for more Piercing the Veil of Illusion. Who are the Great Philanthropists and how & why are they said to be responsible for so many of the wonders of the old world in the North American historical narrative? What do the mysterious men of the Independent Order of Odd Fellows have to do with shaping our national myths? And you've heard of World's Fairs, but have you heard about Sanitary Fairs? Join us for a reconstruction of our true timeline as we explore post Civil War era US and the glaring inconsistencies in the mainstream dogma about our past."],
+ "prose": [
+  "Michelle Gibson returns for more Piercing the Veil of Illusion. Who are the Great Philanthropists and how & why are they said to be responsible for so many of the wonders of the old world? What do the mysterious men of the Independent Order of Odd Fellows have to do with shaping our national myths? And you've heard of World's Fairs, but have you heard about Sanitary Fairs? Join us for a reconstruction of our true timeline as we explore post Civil War era US and the glaring inconsistencies in the mainstream dogma about our past."
+ ],
  "topics": [],
  "ext": null,
  "quotes": [],
  "links": [
-  ["Watch on YouTube", "https://www.youtube.com/watch?v=2DVp8Ayfi-M"],
-  ["Michelle Gibson on YouTube", "https://www.youtube.com/channel/UCadBL43irIsBzL6-tIunFtA"],
-  ["Piercing the Veil of Illusion, Michelle's website", "https://piercingtheveilofillusion.com"]
+  [
+   "Watch on YouTube",
+   "https://www.youtube.com/watch?v=2DVp8Ayfi-M"
+  ],
+  [
+   "Michelle Gibson on YouTube",
+   "https://www.youtube.com/channel/UCadBL43irIsBzL6-tIunFtA"
+  ],
+  [
+   "Piercing the Veil of Illusion",
+   "https://piercingtheveilofillusion.com"
+  ]
  ],
  "music": [
-  ["\"432 Decoded\" by Norbz", "https://open.spotify.com/artist/2OXrjcnQwqvsrIiufc0Ci7"]
+  [
+   "\"432 Decoded\" by Norbz",
+   "https://open.spotify.com/artist/2OXrjcnQwqvsrIiufc0Ci7"
+  ]
  ],
  "patreon": "https://www.patreon.com/posts/58943930",
  "substack": "https://innerversepodcast.substack.com/p/the-fake-frontier-how-secret-societies",
  "ytmembers": null,
- "dropped": [["https://soundcloud.com/break-science/5-break-science-guiding-light", "mismatched link behind the Norbz credit (points to a Break Science track); the visible Spotify link for Norbz is kept"]]
+ "dropped": [
+  [
+   "https://soundcloud.com/break-science/5-break-science-guiding-light",
+   "mismatched link behind the Norbz credit (points to a Break Science track); the visible Spotify link for Norbz is kept"
+  ]
+ ]
 }

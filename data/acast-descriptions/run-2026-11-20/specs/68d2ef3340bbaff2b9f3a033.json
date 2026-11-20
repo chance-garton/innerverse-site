@@ -7,15 +7,27 @@
  "ext": null,
  "quotes": [],
  "links": [
-  ["Watch on YouTube", "https://www.youtube.com/watch?v=zR0ZTQ-MSXw"],
-  ["Melissa Kupsch, RMDY Collective homeopathic remedies (code 'innerverse')", "https://rmdycollective.com/chancegarton"]
+  [
+   "Watch on YouTube",
+   "https://www.youtube.com/watch?v=zR0ZTQ-MSXw"
+  ]
  ],
  "music": [],
  "patreon": "https://www.patreon.com/posts/139125089",
  "substack": "https://innerversepodcast.substack.com/p/resonant-remedies-melissa-kupsch",
  "ytmembers": "https://youtu.be/YGNABVDOVzQ",
  "dropped": [
-  ["https://www.tippecanoeherbs.com", "in the block (Kyle Denton, Tippecanoe Herbs)"],
-  ["https://open.spotify.com/artist/7lfhUjiXbmUB10PXOCP1LC", "InnerVerse channel list"]
+  [
+   "https://www.tippecanoeherbs.com",
+   "in the block (Kyle Denton, Tippecanoe Herbs)"
+  ],
+  [
+   "https://open.spotify.com/artist/7lfhUjiXbmUB10PXOCP1LC",
+   "InnerVerse channel list"
+  ],
+  [
+   "https://rmdycollective.com/chancegarton",
+   "in the block"
+  ]
  ]
 }

@@ -29,6 +29,7 @@ def block(free=None, plus=None, patreon=None, substack=None, ytm=None):
             P('LotusWei Flower Elixirs → ' + A('https://lotuswei.com/innerverse')),
             P('Clive de Carle → ' + A('https://clivedecarle.com/?sld=204')),
             P('AquaCure AC50: discount with code "innerverse" → ' + A('https://eagle-research.com/product/ac50/')),
+            P('RMDY Collective remedies: 10% off with code "INNERVERSE" → ' + A('https://rmdycollective.com/chancegarton')),
             GAP, P('🌐 Chapters, quotes &amp; more: ' + A(free or 'https://www.innerversepodcast.com')), P(RULE)]
     return ''.join(out)
 def assemble(prose, topics=None, ext=None, quotes=None, links=None, music=None, **blk):

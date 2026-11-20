@@ -1,21 +1,41 @@
 {
  "prose": [
-  "John Munro is the master teacher behind Long White Cloud Qi Gong, a website with training materials to get you started on movement practices for a lifetime. John talks about \"sharpening the ax\" for more efficiency, the benefits of Qi Gong, the dantien and meridians of the body, a demonstration of a movement for the heart, and much more!"
+  "John Munro is the master teacher behind Long White Cloud Qi Gong, a website with training materials to get you started on movement practices. John talks about \"sharpening the ax\" for more efficiency, the dantien and meridians of the body, a demonstration of a movement for the heart."
  ],
  "topics": [],
  "ext": "Some topics include the extraordinary meridians, Qi Gong energy healing, peak organ function mapped to hours of the day, and where different emotions live in the body.",
  "quotes": [],
  "links": [
-  ["Watch on YouTube", "https://youtu.be/lYnNH2IlC2E"],
-  ["John Munro, Long White Cloud Qi Gong", "https://www.longwhitecloudqigong.com/"],
-  ["Matt Powers on InnerVerse, The Permaculture Student", "https://www.innerversepodcast.com/episodes/matt-powers-permaculture-student"]
+  [
+   "Watch on YouTube",
+   "https://youtu.be/lYnNH2IlC2E"
+  ],
+  [
+   "John Munro, Long White Cloud Qi Gong",
+   "https://www.longwhitecloudqigong.com/"
+  ],
+  [
+   "Matt Powers on InnerVerse, The Permaculture Student",
+   "https://www.innerversepodcast.com/episodes/matt-powers-permaculture-student"
+  ]
  ],
  "music": [
-  ["Outro, \"The Birds\" by Drumspyder", "https://soundcloud.com/drumspyder/the-birds"],
-  ["InnerVerse intro theme by Conspiracy Music Guru", "https://www.conspiracymusicguru.com"]
+  [
+   "Outro, \"The Birds\" by Drumspyder",
+   "https://soundcloud.com/drumspyder/the-birds"
+  ],
+  [
+   "InnerVerse intro theme by Conspiracy Music Guru",
+   "https://www.conspiracymusicguru.com"
+  ]
  ],
  "patreon": "https://www.patreon.com/posts/70060173",
  "substack": "https://innerversepodcast.substack.com/p/john-munro",
  "ytmembers": null,
- "dropped": [["https://musicandsky.com/?rfsn=6759380.d3c262", "expired promo"]]
+ "dropped": [
+  [
+   "https://musicandsky.com/?rfsn=6759380.d3c262",
+   "expired promo"
+  ]
+ ]
 }
