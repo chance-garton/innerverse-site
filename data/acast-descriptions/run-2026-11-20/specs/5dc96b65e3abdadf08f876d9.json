@@ -1,0 +1,70 @@
+{
+ "prose": [
+  "Evan Bartholomew is a music producer known online and at festivals nationwide as Bluetech. We talk about his new album Holotrope and how it reflects the stages of enlightenment, along with astral adventures, turning away from overthinking, and the dilemma of desire."
+ ],
+ "topics": [],
+ "ext": null,
+ "quotes": [],
+ "links": [
+  [
+   "Bluetech website",
+   "http://www.bluetechonline.com/"
+  ],
+  [
+   "Bluetech on SoundCloud",
+   "http://soundcloud.com/bluetech"
+  ],
+  [
+   "Bluetech on Bandcamp",
+   "https://bluetech.bandcamp.com/"
+  ],
+  [
+   "Bluetech Dreamers Facebook group",
+   "https://www.facebook.com/groups/bluetechdreamers/"
+  ],
+  [
+   "Fire Kasina with Daniel Ingram, Deconstructing Yourself",
+   "https://deconstructingyourself.com/dy-008-meditation-magick-fire-kasina-guest-daniel-ingram.html"
+  ],
+  [
+   "Advanced Magick for Beginners (book)",
+   "https://www.amazon.com/Advanced-Magick-Beginners-Alan-Chapman/dp/1904658415"
+  ],
+  [
+   "The Arising and Passing Away",
+   "https://www.mctb.org/mctb2/table-of-contents/part-iv-insight/30-the-progress-of-insight/4-the-arising-and-passing-away/"
+  ]
+ ],
+ "music": [
+  [
+   "Intro, \"Foggy Dreams\" by Wisdom Traders",
+   "https://soundcloud.com/gotups43/foggy-dreams-1"
+  ],
+  [
+   "Outro, \"Eyes Within Wheels\" by Bluetech",
+   "https://soundcloud.com/bluetech/eyes-within-wheels"
+  ]
+ ],
+ "patreon": null,
+ "substack": null,
+ "ytmembers": null,
+ "dropped": [
+  [
+   "https://www.mctb.org/mctb2/table-of-contents/part-iv-insight/30-the-progress-of-insight/4-the-arising-and-passing-away/?fbclid=IwAR1zVaylqTfqG5QyzMon1tQPkzW1PoRp9UgD1CfpG5BEnUHvSGeYdsXBG24",
+   "kept without the Facebook tracking tag"
+  ],
+  [
+   "https://soundcloud.com/bluetech/eyes-within-wheels?in=bluetech/sets/holotrope",
+   "kept without the playlist tag, for length"
+  ],
+  [
+   "https://deconstructingyourself.com/deconstructing-yourself-podcast",
+   "podcast home page, the two episode links already point there; cut for length"
+  ],
+  [
+   "https://deconstructingyourself.com/the-liberating-practice-of-the-fire-kasina-with-daniel-ingram.html",
+   "second Fire Kasina piece from the same site; cut to fit the length limit"
+  ]
+ ],
+ "flag": "No free YouTube video known, and the original's links ran over the length limit even with the prose trimmed: dropped the Deconstructing Yourself home page and its second Fire Kasina article."
+}
