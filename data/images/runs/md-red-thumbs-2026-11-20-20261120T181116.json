@@ -1,0 +1,404 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "md-red-thumbs-2026-11-20",
+ "bytes_added": 15207498,
+ "copied": [
+  {
+   "bytes_added": 565868,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvel-eternals/marvel-eternals-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvel-eternals/marvel-eternals-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 642819,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvel-shang-chi/marvel-shang-chi-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvel-shang-chi/marvel-shang-chi-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 550167,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvel-spider-man-no-way-home/marvel-spider-man-no-way-home-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvel-spider-man-no-way-home/marvel-spider-man-no-way-home-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 565545,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-dr-strange-mr-crowley-marvelous-demystifiers/dr-strange-mr-crowley-marvelous-demystifiers-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/dr-strange-mr-crowley-marvelous-demystifiers/dr-strange-mr-crowley-marvelous-demystifiers-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 488163,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-moon-knight-1/marvelous-demystifiers-moon-knight-1-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-moon-knight-1/marvelous-demystifiers-moon-knight-1-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 524615,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-moon-knight-2/moon-knight-2-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/moon-knight-2/moon-knight-2-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 654766,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-7/marvelous-demystifiers-7-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-7/marvelous-demystifiers-7-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 617106,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-8/marvelous-demystifiers-8-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-8/marvelous-demystifiers-8-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 642317,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-9/marvelous-demystifiers-9-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-9/marvelous-demystifiers-9-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 586784,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-10/marvelous-demystifiers-10-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-10/marvelous-demystifiers-10-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 608255,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-11/marvelous-demystifiers-11-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-11/marvelous-demystifiers-11-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 600640,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-12/marvelous-demystifiers-12-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-12/marvelous-demystifiers-12-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 754474,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-13/marvelous-demystifiers-13-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-13/marvelous-demystifiers-13-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 375859,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-14/marvelous-demystifiers-14-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-14/marvelous-demystifiers-14-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 368530,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-15/marvelous-demystifiers-15-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-15/marvelous-demystifiers-15-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 499592,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-16/marvelous-demystifiers-16-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-16/marvelous-demystifiers-16-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 705052,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-17/marvelous-demystifiers-17-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-17/marvelous-demystifiers-17-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 437837,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-18/marvelous-demystifiers-18-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-18/marvelous-demystifiers-18-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 498561,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-19/marvelous-demystifiers-19-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-19/marvelous-demystifiers-19-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 412606,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-20/marvelous-demystifiers-20-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-20/marvelous-demystifiers-20-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 672873,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-21/marvelous-demystifiers-21-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-21/marvelous-demystifiers-21-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 558315,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-22/marvelous-demystifiers-22-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-22/marvelous-demystifiers-22-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 457675,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-23/marvelous-demystifiers-23-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-23/marvelous-demystifiers-23-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 464132,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-24/marvelous-demystifiers-24-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-24/marvelous-demystifiers-24-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 389883,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-25/marvelous-demystifiers-25-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-25/marvelous-demystifiers-25-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 523323,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-26/marvelous-demystifiers-26-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-26/marvelous-demystifiers-26-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 482886,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-27/marvelous-demystifiers-27-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-27/marvelous-demystifiers-27-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 558855,
+   "h": 1080,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-marvelous-demystifiers-28/marvelous-demystifiers-28-thumbnail-2026-11-20",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/marvelous-demystifiers-28/marvelous-demystifiers-28-thumbnail-2026-11-20.jpg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-20T18:13:47+00:00",
+ "skipped": [],
+ "started": "2026-11-20T18:11:16+00:00"
+}
