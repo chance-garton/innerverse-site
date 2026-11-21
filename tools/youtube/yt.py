@@ -108,6 +108,7 @@ def main():
             print(vid, "ERROR", e)
         time.sleep(1)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
+    os.makedirs(os.path.join(ROOT, "data/youtube/runs"), exist_ok=True)
     path = os.path.join(ROOT, "data/youtube/runs", "%s-%s-%s.json" % (mode, name, stamp))
     json.dump(report, open(path, "w"), indent=1, ensure_ascii=False)
     print("report:", path)
