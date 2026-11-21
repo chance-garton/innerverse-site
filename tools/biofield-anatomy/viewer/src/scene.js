@@ -448,11 +448,11 @@ export function createScene(stage, MODEL, hooks, opts = {}) {
           float sway = 0.020 * sin(uv.y * 5.5 + uTime * 0.45 + uPhase) + 0.008 * sin(uv.y * 13.0 - uTime * 0.6 + uPhase * 2.0);   // a slow drift along its length
           vec3 c = uBase + vec3(sway, (uv.y - 0.5) * uH, sway * 0.6);
           vec3 toCam = cameraPosition - c; vec3 right = normalize(vec3(toCam.z, 0.0, -toCam.x) + vec3(0.00001, 0.0, 0.0));
-          float taper = pow(sin(3.14159265 * clamp(uv.y, 0.0, 1.0)), 0.55);
+          float taper = pow(max(sin(3.14159265 * clamp(uv.y, 0.0, 1.0)), 0.0), 0.55);
           gl_Position = projectionMatrix * viewMatrix * vec4(c + right * (uv.x - 0.5) * uW * (0.3 + 0.7 * taper), 1.0); }`,
       fragmentShader: /* glsl */`uniform float uFade; uniform vec3 uTintC; uniform float uTime; uniform float uPhase; varying vec2 vUv;
-        void main(){ float x = abs(vUv.x - 0.5) * 2.0;
-          float across = pow(1.0 - x, 1.7);                                                       // brightest along the middle, nothing at the edges
+        void main(){ float x = min(abs(vUv.x - 0.5) * 2.0, 1.0);   // clamped: a hair past the edge made pow() of a negative, drawn as black dashes on phones
+          float across = pow(max(1.0 - x, 0.0), 1.7);                                                       // brightest along the middle, nothing at the edges
           float ends = smoothstep(0.0, 0.22, vUv.y) * smoothstep(1.0, 0.78, vUv.y);
           float flow = 0.62 + 0.24 * sin(vUv.y * 11.0 - uTime * 0.8 + uPhase) + 0.14 * sin(vUv.y * 23.0 - uTime * 1.3 + x * 3.0);
           gl_FragColor = vec4(uTintC * across * ends * flow * 0.2 * uFade, 1.0);
