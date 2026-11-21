@@ -1,0 +1,47 @@
+name: YouTube edits
+
+# Edits titles, descriptions and thumbnails on the InnerVerse YouTube channel
+# through the YouTube Data API (tools/youtube/yt.py). Run by hand only.
+# mode "test" is read only; mode "apply" changes the videos in the batch.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "test (read only) or apply"
+        required: true
+        default: test
+      batch:
+        description: "batch name in data/youtube/batches (without .json)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: python tools/youtube/yt.py "${{ inputs.mode }}" "${{ inputs.batch }}"
+      - name: Save the report
+        if: always()
+        run: |
+          git config user.name "innerverse-youtube"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/youtube/runs || true
+          if git diff --cached --quiet; then echo "Nothing to save"; exit 0; fi
+          git commit -m "YouTube: run report (${{ inputs.mode }} ${{ inputs.batch }})"
+          for i in 1 2 3; do git pull --rebase origin main && git push && exit 0; sleep 5; done
+          exit 1
