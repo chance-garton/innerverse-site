@@ -151,7 +151,9 @@ def render(slug, file, post, entry):
     info = ""
     main = ep.build_intro(f) if (f["intro1"] or f["intro2"]) else ""
     main += build_public_chapters(f, chapter_list(r), canonical)
-    side = ep.build_guest_card(guests)
+    # Affiliates card on the public Plus+ page too (2026-11-22, Chance: RMDY "everywhere"),
+    # the same Affiliates Shown set the free page and the member view show.
+    side = ep.build_guest_card(guests) + ep.build_affiliates_card(ep.affiliates_for(r, file))
     if main or side:
         info = ('<div class="iv-sticky-layout iv-plus-pubinfo"><div class="iv-sticky-main">' + main + "</div>"
                 '<div class="iv-sticky-sidebar">' + side + "</div></div>")

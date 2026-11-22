@@ -3615,6 +3615,7 @@
     }
     wireTabs(pub, '.iv-guest-card', ['.iv-guest-tab-unit', '.iv-guest-tab-name'], '.iv-guest-panel', 'iv-guest-tab-active', 'iv-guest-panel-active');
     wireGuestNameFit(pub);
+    wireTabs(pub, '.iv-affiliates-card', ['.iv-aff-tab'], '.iv-affiliates-panel', 'iv-aff-tab-active', 'iv-affiliates-panel-active');
 
     var state = 'public';
     function signedIn() { return !!(m && m.getToken && m.getToken()); }

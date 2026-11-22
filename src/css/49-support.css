@@ -72,6 +72,7 @@ html.iv-support-page body { background: var(--ground); }
 .iv-sup-grid { display: grid; gap: 20px; }
 .iv-sup-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .iv-sup-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.iv-sup-grid-aff { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .iv-sup-card {
   display: flex; flex-direction: column; min-width: 0; overflow: hidden;
   border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--card);
@@ -136,6 +137,7 @@ html.iv-support-page body { background: var(--ground); }
 
 @media (max-width: 1060px) {
   .iv-sup-grid-3 { grid-template-columns: 1fr; }
+  .iv-sup-grid-aff { grid-template-columns: 1fr; }
   .iv-sup-grid-3 .iv-sup-card { display: grid; grid-template-columns: 280px minmax(0, 1fr); }
   .iv-sup-grid-3 .iv-sup-card-img { height: 100%; aspect-ratio: auto; }
 }

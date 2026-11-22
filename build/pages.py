@@ -12,7 +12,7 @@ work exactly as on Squarespace.
 import os
 import re
 
-from common import LIVE_ORIGIN, esc, footer, head, img_file, img_key, iv_img, json_ld, nav, page, url
+from common import IMAGE_BASE, LIVE_ORIGIN, esc, footer, head, img_file, img_key, iv_img, json_ld, nav, page, url
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -453,6 +453,17 @@ def support_plus_card():
     )
 
 
+RMDY_URL = "https://rmdycollective.com/chancegarton"
+RMDY_LOGO = IMAGE_BASE + "/sq/cdn-shop-files/2-f95df2b1-5818-4af3-be04-adc1c1708679/orig.png"
+RMDY_BLURB = (
+    "Melissa Kupsch is the Australian homeopath behind RMDY Collective and RMDY Academy of Homeopathy, and one of "
+    "the clearest voices I know for homeopathy as true energy medicine. Her remedies work on the resonance principle, "
+    "like cures like, where a matching frequency from nature is shown to the body so the vital force can recognize the "
+    "distortion and resolve it. When Melissa joined Kyle Denton and me on InnerVerse, we explored the premise that "
+    "spirit precedes form, and homeopathy demonstrates that principle as plainly as anything I know. RMDY makes quality "
+    "remedies and first aid kits accessible, prepared with real care for who makes the medicine and how.")
+
+
 def support():
     title = "Support InnerVerse | Plus+ Membership, Sessions and Trusted Affiliates"
     desc = ("Support InnerVerse: join Plus+ for full episodes on this site, Patreon, Substack or YouTube, book a "
@@ -517,7 +528,7 @@ def support():
 
     affiliates = _sup_section(
         "affiliates", "Trusted affiliates", "Products Chance actually uses", "",
-        '<div class="iv-sup-grid iv-sup-grid-2">'
+        '<div class="iv-sup-grid iv-sup-grid-aff">'
         '<article class="iv-sup-card iv-sup-aff">'
         '<a class="iv-sup-aff-logo" href="https://tippecanoeherbs.com/" target="_blank" rel="noopener">'
         '<img src="' + esc(iv_img(SQ + "b9ecc671-b201-40f9-95ce-f9ff0c004f08/tippecanoe+logo.webp", 700)) + '" alt="Tippecanoe Herbs" width="640" height="342" loading="lazy"></a>'
@@ -542,6 +553,17 @@ def support():
         "Elixirs help me be a better podcaster and Biofield Tuner. Benefits accumulate over long term use!</p>"
         '<div class="iv-sup-buttons">' + _ext("https://lotuswei.com/innerverse", "Shop LotusWei", "iv-sup-btn iv-sup-btn-gold")
         + '<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(url("/episodes/katie-hess-lotuswei")) + '">Watch Katie Hess on InnerVerse</a></div>'
+        "</div></article>"
+        # RMDY Collective, added 2026-11-22 (affiliate since 2026-11-20). Logo copied to R2
+        # by images batch aff-rmdy-logo.
+        '<article class="iv-sup-card iv-sup-aff">'
+        '<a class="iv-sup-aff-logo" href="' + esc(RMDY_URL) + '" target="_blank" rel="noopener">'
+        '<img src="' + esc(iv_img(RMDY_LOGO, 750)) + '" alt="RMDY Collective" width="640" height="360" loading="lazy"></a>'
+        '<div class="iv-sup-card-body"><h3>RMDY Collective</h3>'
+        '<div class="iv-sup-code">Use coupon code <b>INNERVERSE</b> at checkout for a 10% discount</div>'
+        "<p>" + RMDY_BLURB + "</p>"
+        '<div class="iv-sup-buttons">' + _ext(RMDY_URL, "Shop RMDY", "iv-sup-btn iv-sup-btn-gold")
+        + '<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(url("/episodes/melissa-kupsch-rmdy-homeopathy-kyle-denton-tippecanoe-herbs")) + '">Watch Melissa Kupsch on InnerVerse</a></div>'
         "</div></article></div>")
 
     books = "".join(
