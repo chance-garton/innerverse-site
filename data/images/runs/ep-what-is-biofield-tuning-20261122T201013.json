@@ -1,0 +1,546 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "ep-what-is-biofield-tuning",
+ "bytes_added": 12761893,
+ "copied": [
+  {
+   "bytes_added": 1239384,
+   "h": 941,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/how-do-you-tune-a-human-thumbnail",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/how-do-you-tune-a-human-thumbnail.jpg",
+   "w": 1672,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1530526,
+   "h": 1254,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/biofield-tuning-song-cover",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/biofield-tuning-song-cover.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 146284,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-01-what-is-tuning",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-01-what-is-tuning.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 212509,
+   "h": 820,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-02-listening-on-the-body-and-around-the-body",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-02-listening-on-the-body-and-around-the-body.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 304433,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-03-eileen-day-mckusick-and-her-two-books",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-03-eileen-day-mckusick-and-her-two-books.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 217501,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-04-the-electric-body",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-04-the-electric-body.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 258382,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-05-sound-and-electrical-response",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-05-sound-and-electrical-response.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 186193,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-06-biofeedback",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-06-biofeedback.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 177610,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-07-body-and-field",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-07-body-and-field.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 201239,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-08-corresponding-patterns",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-08-corresponding-patterns.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 197073,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-09-the-fork-responds",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-09-the-fork-responds.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 209730,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-10-sound-and-attention",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-10-sound-and-attention.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 261817,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-11-changing-the-feedback",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-11-changing-the-feedback.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 226589,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-12-which-frequency",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-12-which-frequency.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 212592,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-13-bodies-of-light",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-13-bodies-of-light.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 161386,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-14-unobstructed-flow",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-14-unobstructed-flow.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 198857,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-15-obstructed-flow",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-15-obstructed-flow.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 149766,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-16-where-is-my-mind-where-is-my-memory",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-16-where-is-my-mind-where-is-my-memory.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 185809,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-17-near-death-experiences",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-17-near-death-experiences.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 240970,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-18-body-within-mind",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-18-body-within-mind.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 454949,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-19-universes-in-miniature",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-19-universes-in-miniature.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 220795,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-20-a-discovery-outside-the-body",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-20-a-discovery-outside-the-body.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 493993,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-21-rings-on-a-tree",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-21-rings-on-a-tree.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 131708,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-22-the-shape-of-the-field",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-22-the-shape-of-the-field.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 137227,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-23-a-30-year-old-example",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-23-a-30-year-old-example.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 150548,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-24-a-36-year-old-example",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-24-a-36-year-old-example.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 369059,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-25-the-human-energy-field",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-25-the-human-energy-field.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 157179,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-26-the-biofield-anatomy",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-26-the-biofield-anatomy.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 126642,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-27-orienting-the-map",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-27-orienting-the-map.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 198107,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-28-reading-the-field",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-28-reading-the-field.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 447238,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-29-memory-and-emotional-charge",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-29-memory-and-emotional-charge.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 265161,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-30-observation-and-intuition",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-30-observation-and-intuition.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 259664,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-31-talking-about-memories",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-31-talking-about-memories.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 288257,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-32-what-a-client-may-notice",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-32-what-a-client-may-notice.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 460261,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-33-integration-after-a-session",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-33-integration-after-a-session.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 343684,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-34-the-cost-of-repression",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-34-the-cost-of-repression.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 346029,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-35-reclaiming-available-energy",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-35-reclaiming-available-energy.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 318724,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-36-youre-still-going-to-be-emotional",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-36-youre-still-going-to-be-emotional.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 404852,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-37-a-one-degree-course-adjustment",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-37-a-one-degree-course-adjustment.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 388002,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-38-energy-and-awareness",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-38-energy-and-awareness.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 281164,
+   "h": 819,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/slide-39-a-clearer-personal-signal",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/what-is-biofield-tuning/slide-39-a-clearer-personal-signal.jpg",
+   "w": 1456,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-22T20:13:54+00:00",
+ "skipped": [],
+ "started": "2026-11-22T20:10:13+00:00"
+}
