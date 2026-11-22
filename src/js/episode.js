@@ -1007,16 +1007,12 @@
     '</div>';
   }
 
-  /* Contract taken from the hand-built reference page, which was read
-     element by element rather than guessed at:
-       div.iv-aff-name.iv-aff-name-solo   <- solo class ALWAYS, it carries the
-                                             12px gap under the name, tabbed
-                                             or not
+  /* What opens under an affiliate's row (the name and the offer line are in
+     the row itself, see buildAffiliatesCard):
        p.iv-aff-body                      <- supports *emphasis*
-       div.iv-aff-offer
        div.iv-aff-links                   <- omitted entirely when empty
-       p.iv-aff-note                      <- a p, not a div
        div.iv-aff-books > a.iv-aff-book > img + span
+       p.iv-aff-note                      <- a p, not a div
      The books row is a flex row of a 40px cover and a title span. Emitting a
      bare text node instead drops the cover and leaves the title unstyled. */
   function affPanelInner(a) {
@@ -1027,18 +1023,16 @@
       (a.primaryUrl ? '<a class="iv-aff-link-primary" href="' + esc(a.primaryUrl) + '" target="_blank" rel="noopener">' + esc(a.primaryLabel || 'Learn More') + ' &rarr;</a>' : '') +
       (a.secondaryUrl ? '<a class="iv-aff-link" href="' + esc(a.secondaryUrl) + '" target="_blank" rel="noopener">' + esc(a.secondaryLabel || 'Learn More') + ' &rarr;</a>' : '');
     return '' +
-      '<div class="iv-aff-name iv-aff-name-solo">' + esc(a.name) + '</div>' +
       '<p class="iv-aff-body">' + escEm(a.body) + '</p>' +
-      (a.offerLine ? '<div class="iv-aff-offer">' + esc(a.offerLine) + '</div>' : '') +
       (linkHtml ? '<div class="iv-aff-links">' + linkHtml + '</div>' : '') +
-      (a.note ? '<p class="iv-aff-note">' + esc(a.note) + '</p>' : '') +
       (books.length ? '<div class="iv-aff-books">' + books.map(function (b) {
         if (!b || !b.title) return '';
         return '<a class="iv-aff-book" href="' + esc(b.url || '#') + '" target="_blank" rel="noopener">' +
           (b.image ? '<img src="' + esc(b.image) + '" alt="' + esc(b.title) + '" loading="lazy">' : '') +
           '<span>' + esc(b.title) + '</span>' +
         '</a>';
-      }).join('') + '</div>' : '');
+      }).join('') + '</div>' : '') +
+      (a.note ? '<p class="iv-aff-note">' + esc(a.note) + '</p>' : '');
   }
 
   /* ================================================================
@@ -1349,21 +1343,49 @@
     });
   }
 
-  function buildAffiliatesCard(affiliates) {
+  /* Support the show (2026-11-22): one row per affiliate (name and offer
+     line always in view) that opens to his words and the buttons; one open
+     at a time, all closed at first; a lone affiliate is shown open. Twin of
+     build_affiliates_card() in build/episode.py: keep the two in step.
+     wireAffList() below gives the rows their behaviour. */
+  var AFF_CHEVRON = '<svg class="iv-aff-chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>';
+  function buildAffiliatesCard(affiliates, pid) {
     if (!affiliates.length) return '';
+    pid = pid || 'iv-aff-m';
     var solo = affiliates.length === 1;
-    var tabs = affiliates.map(function (a, i) {
-      return '<button type="button" class="iv-aff-tab' + (i === 0 ? ' iv-aff-tab-active' : '') + '" data-i="' + i + '">' + esc(a.name) + '</button>';
-    }).join('');
-    var panels = affiliates.map(function (a, i) {
-      return '<div class="iv-affiliates-panel' + (i === 0 ? ' iv-affiliates-panel-active' : '') + '" data-i="' + i + '"' +
-        (i === 0 ? '' : ' style="display:none"') + '>' + affPanelInner(a) + '</div>';
+    function head(a) {
+      return '<span class="iv-aff-row-text"><span class="iv-aff-name">' + esc(a.name) + '</span>' +
+        (a.offerLine ? '<span class="iv-aff-offer">' + esc(a.offerLine) + '</span>' : '') + '</span>';
+    }
+    var items = affiliates.map(function (a, i) {
+      var panel = '<div class="iv-affiliates-panel" id="' + pid + i + '"><div class="iv-aff-panel-in">' + affPanelInner(a) + '</div></div>';
+      if (solo) return '<div class="iv-aff-item iv-aff-open"><div class="iv-aff-row iv-aff-row-solo">' + head(a) + '</div>' + panel + '</div>';
+      return '<div class="iv-aff-item"><button type="button" class="iv-aff-row" aria-expanded="false" aria-controls="' + pid + i + '">' +
+        head(a) + AFF_CHEVRON + '</button>' + panel + '</div>';
     }).join('');
     return '<div class="iv-affiliates-card" id="iv-affiliates-card">' +
       '<div class="iv-affiliates-heading">Support the show</div>' +
-      (solo ? '' : '<div class="iv-affiliates-tabs">' + tabs + '</div>') +
-      panels +
+      '<div class="iv-aff-list">' + items + '</div>' +
     '</div>';
+  }
+
+  function wireAffList(container) {
+    var card = container.querySelector('.iv-affiliates-card');
+    if (!card) return;
+    var items = Array.prototype.slice.call(card.querySelectorAll('.iv-aff-item'));
+    items.forEach(function (item) {
+      var row = item.querySelector('button.iv-aff-row');
+      if (!row) return;
+      row.addEventListener('click', function () {
+        var open = !item.classList.contains('iv-aff-open');
+        items.forEach(function (other) {
+          var on = other === item && open;
+          other.classList.toggle('iv-aff-open', on);
+          var r = other.querySelector('button.iv-aff-row');
+          if (r) r.setAttribute('aria-expanded', on ? 'true' : 'false');
+        });
+      });
+    });
   }
 
   /* Pills come from the post's own Squarespace tags, so there is no
@@ -2442,20 +2464,54 @@
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   }
 
-  /* A sidebar taller than the window cannot usefully pin to the top: it
-     freezes with its lower half permanently below the fold, so it reads as
-     not moving at all until the column finally runs out. Giving it a
-     NEGATIVE sticky top instead lets it scroll with the page from the
-     first pixel and pin only once its bottom edge has arrived, so the
-     whole column is readable and the movement starts immediately. A
-     sidebar shorter than the window keeps the normal 100px offset. Below
-     900px the column is static and the inline top is cleared. */
-  function fitPlusSide() {
-    var side = document.querySelector('.iv-plus-side');
-    if (!side) return;
-    if (window.innerWidth <= 900) { side.style.top = ''; return; }
-    var h = side.offsetHeight, vh = window.innerHeight, pad = 24, navGap = 100;
-    side.style.top = (h + pad > vh - navGap ? Math.round(vh - h - pad) : navGap) + 'px';
+  /* The side column (guest card, Support the show, tags) is sticky. One
+     taller than the window cannot usefully pin to the top: it freezes with
+     its lower half below the fold, so the Support the show card stayed out
+     of sight until the main column ran out (Chance, 2026-11-22: it should
+     appear sooner). So a tall column travels with the page in both
+     directions and pins only at its ends: scrolling down, once its bottom
+     edge has arrived; scrolling back up, once its top is back under the
+     nav. That is done by walking the sticky top by the scroll distance,
+     clamped between those two ends. A column shorter than the window keeps
+     the plain 100px offset. Where the column is not sticky (one-column
+     widths) the inline top is cleared. Used by the free page, the public
+     Plus+ page and the members' page alike. */
+  var ivSide = { last: 0, raf: 0, wired: false };
+  function fitSide(dy) {
+    var vh = window.innerHeight, pad = 24, navGap = 100;
+    document.querySelectorAll('.iv-sticky-sidebar').forEach(function (side) {
+      var h = side.offsetHeight;
+      if (!h) return;
+      if (window.getComputedStyle(side).position !== 'sticky') { side.style.top = ''; return; }
+      if (h + pad <= vh - navGap) { side.style.top = navGap + 'px'; return; }
+      var min = Math.round(vh - h - pad);
+      var cur = parseFloat(side.style.top);
+      if (isNaN(cur)) cur = navGap;
+      side.style.top = Math.max(min, Math.min(navGap, cur - (dy || 0))) + 'px';
+    });
+  }
+  function fitPlusSide() { fitSide(0); }
+  function wireSide() {
+    fitSide(0);
+    if (ivSide.wired) return;
+    ivSide.wired = true;
+    ivSide.last = window.pageYOffset;
+    window.addEventListener('scroll', function () {
+      if (ivSide.raf) return;
+      ivSide.raf = window.requestAnimationFrame(function () {
+        ivSide.raf = 0;
+        var y = window.pageYOffset, dy = y - ivSide.last;
+        ivSide.last = y;
+        if (dy) fitSide(dy);
+      });
+    }, { passive: true });
+    window.addEventListener('resize', fitPlusSide);
+    window.addEventListener('load', fitPlusSide);
+    if (window.ResizeObserver) {
+      /* Kept on window: an unreferenced ResizeObserver is not reliably retained. */
+      window.__ivSideRO = new window.ResizeObserver(fitPlusSide);
+      document.querySelectorAll('.iv-sticky-sidebar').forEach(function (side) { window.__ivSideRO.observe(side); });
+    }
   }
 
   /* ===== END iv-plus-dual ===== */
@@ -2923,20 +2979,11 @@
            affiliates card; Get Tuned sits in the main column since the
            afternoon save). */
 
-        /* Re-fit on every height change, because the guest and affiliate
-           cards arrive from a later request and their portraits load later
-           still, and each one changes how far the column can travel. */
-        fitPlusSide();
-        window.addEventListener('resize', fitPlusSide);
-        window.addEventListener('load', fitPlusSide);
-        /* The observer is kept on window rather than dropped on the floor:
-           an unreferenced ResizeObserver is not reliably retained, which is
-           why the first version of this silently never re-fired and left a
-           1788px column pinned at the 100px offset meant for a short one. */
-        if (window.ResizeObserver) {
-          window.__ivSideRO = new window.ResizeObserver(fitPlusSide);
-          window.__ivSideRO.observe(side);
-        }
+        /* The guest and affiliate cards arrive from a later request and their
+           portraits load later still; each changes how far the column can
+           travel, so the observer in wireSide() re-fits on every change. */
+        wireSide();
+        if (window.__ivSideRO) window.__ivSideRO.observe(side);
 
         fillPlusRelated(wrap, plusSlug);
 
@@ -3004,7 +3051,7 @@
                   };
                 });
                 document.getElementById('iv-aff-slot').outerHTML = buildAffiliatesCard(affiliates);
-                wireTabs(wrap, '.iv-affiliates-card', ['.iv-aff-tab'], '.iv-affiliates-panel', 'iv-aff-tab-active', 'iv-affiliates-panel-active');
+                wireAffList(wrap);
               })
           );
         }
@@ -3615,7 +3662,8 @@
     }
     wireTabs(pub, '.iv-guest-card', ['.iv-guest-tab-unit', '.iv-guest-tab-name'], '.iv-guest-panel', 'iv-guest-tab-active', 'iv-guest-panel-active');
     wireGuestNameFit(pub);
-    wireTabs(pub, '.iv-affiliates-card', ['.iv-aff-tab'], '.iv-affiliates-panel', 'iv-aff-tab-active', 'iv-affiliates-panel-active');
+    wireAffList(pub);
+    wireSide();
 
     var state = 'public';
     function signedIn() { return !!(m && m.getToken && m.getToken()); }
@@ -3801,7 +3849,8 @@
     backfillQuotePortraits(root, st.guests || []);
     wireTabs(root, '.iv-guest-card', ['.iv-guest-tab-unit', '.iv-guest-tab-name'], '.iv-guest-panel', 'iv-guest-tab-active', 'iv-guest-panel-active');
     wireGuestNameFit(root);
-    wireTabs(root, '.iv-affiliates-card', ['.iv-aff-tab'], '.iv-affiliates-panel', 'iv-aff-tab-active', 'iv-affiliates-panel-active');
+    wireAffList(root);
+    wireSide();
     if (window.ivInnerWhirled) window.ivInnerWhirled();
 
     /* ?t=SECONDS opens the video at that moment. The chapter links and the

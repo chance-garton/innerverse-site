@@ -606,7 +606,13 @@ def build_guest_card(guests):
             '<div class="iv-guest-name-row">' + name_row + "</div>" + panels + "</div>")
 
 
+AFF_CHEVRON = ('<svg class="iv-aff-chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" '
+               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>')
+
+
 def aff_panel_inner(a):
+    """What opens under an affiliate's row: his words, the buttons, any note
+    and books. The name and the offer line are in the row itself."""
     try:
         books = json.loads(a["booksJson"]) if a["booksJson"] else []
     except Exception:
@@ -626,25 +632,36 @@ def aff_panel_inner(a):
                        + ('<img src="' + esc(iv_img(b["image"], 500)) + '" alt="' + esc(b["title"]) + '" loading="lazy">' if b.get("image") else "")
                        + "<span>" + esc(b["title"]) + "</span></a>")
     return (
-        '<div class="iv-aff-name iv-aff-name-solo">' + esc(a["name"]) + "</div>"
         '<p class="iv-aff-body">' + esc_em(a["body"]) + "</p>"
-        + ('<div class="iv-aff-offer">' + esc(a["offerLine"]) + "</div>" if a["offerLine"] else "")
         + ('<div class="iv-aff-links">' + link_html + "</div>" if link_html else "")
-        + ('<p class="iv-aff-note">' + esc(a["note"]) + "</p>" if a["note"] else "")
         + ('<div class="iv-aff-books">' + books_html + "</div>" if books_html else "")
+        + ('<p class="iv-aff-note">' + esc(a["note"]) + "</p>" if a["note"] else "")
     )
 
 
-def build_affiliates_card(affs):
+def build_affiliates_card(affs, pid="iv-aff-p"):
+    """Support the show (2026-11-22, Chance: more compact, easier to scan):
+    one row per affiliate, its name and offer line always in view, and the
+    row opens to his words and the buttons. One open at a time, all closed
+    at first. A lone affiliate is shown open with no row to press.
+    Twin: buildAffiliatesCard() in src/js/episode.js; keep the two in step."""
     if not affs:
         return ""
     solo = len(affs) == 1
-    tabs = "".join('<button type="button" class="iv-aff-tab' + (" iv-aff-tab-active" if i == 0 else "") + '" data-i="' + str(i) + '">' + esc(a["name"]) + "</button>" for i, a in enumerate(affs))
-    panels = "".join(
-        '<div class="iv-affiliates-panel' + (" iv-affiliates-panel-active" if i == 0 else "") + '" data-i="' + str(i) + '"' + ("" if i == 0 else ' style="display:none"') + ">"
-        + aff_panel_inner(a) + "</div>" for i, a in enumerate(affs))
+
+    def head(a):
+        return ('<span class="iv-aff-row-text"><span class="iv-aff-name">' + esc(a["name"]) + "</span>"
+                + ('<span class="iv-aff-offer">' + esc(a["offerLine"]) + "</span>" if a["offerLine"] else "") + "</span>")
+    items = ""
+    for i, a in enumerate(affs):
+        panel = '<div class="iv-affiliates-panel" id="' + pid + str(i) + '"><div class="iv-aff-panel-in">' + aff_panel_inner(a) + "</div></div>"
+        if solo:
+            items += '<div class="iv-aff-item iv-aff-open"><div class="iv-aff-row iv-aff-row-solo">' + head(a) + "</div>" + panel + "</div>"
+        else:
+            items += ('<div class="iv-aff-item"><button type="button" class="iv-aff-row" aria-expanded="false" aria-controls="' + pid + str(i) + '">'
+                      + head(a) + AFF_CHEVRON + "</button>" + panel + "</div>")
     return ('<div class="iv-affiliates-card" id="iv-affiliates-card"><div class="iv-affiliates-heading">Support the show</div>'
-            + ("" if solo else '<div class="iv-affiliates-tabs">' + tabs + "</div>") + panels + "</div>")
+            '<div class="iv-aff-list">' + items + "</div></div>")
 
 
 def build_tags_cloud(tags):

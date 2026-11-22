@@ -480,20 +480,35 @@ a.iv-booksession-link-primary:hover, a.iv-booksession-link-primary:focus { backg
   border-radius: 8px; padding: 22px 24px; box-sizing: border-box; margin-bottom: 24px;
 }
 .iv-affiliates-heading { font-weight: 500; letter-spacing: 0.3px; font-size: 16px; color: #fff; margin-bottom: 16px; }
-.iv-affiliates-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.iv-aff-tab {
-  background: none; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.6); padding: 6px 14px;
-  border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;
+/* Support the show as a list (2026-11-22): one row per affiliate, name and
+   offer line in view, the row opens to the body and buttons. The panel
+   animates open on a 0fr to 1fr grid row; closed panels are hidden from
+   the keyboard and from screen readers by visibility. */
+.iv-aff-item + .iv-aff-item { border-top: 1px solid rgba(255,255,255,0.1); }
+.iv-aff-row {
+  display: flex; align-items: center; gap: 14px; width: 100%; box-sizing: border-box; padding: 14px 0; margin: 0;
+  background: none; border: 0; border-radius: 0; text-align: left; cursor: pointer; color: #fff; font: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
-.iv-aff-tab.iv-aff-tab-active { background: rgb(0,137,255); border-color: rgb(0,137,255); color: #fff; }
-.iv-aff-tab:hover:not(.iv-aff-tab-active) { border-color: rgba(255,255,255,0.4); color: #fff; }
-.iv-aff-name { font-weight: 800; font-size: 18px; color: #fff; text-transform: uppercase; letter-spacing: 0.4px; }
-.iv-aff-name-solo { margin-bottom: 12px; }
-.iv-aff-offer { color: rgb(0,137,255); font-weight: 700; font-size: 15px; margin-bottom: 14px; line-height: 1.4; }
+.iv-aff-row-solo { cursor: default; }
+.iv-aff-row-text { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+.iv-aff-name { font-weight: 700; font-size: 16px; line-height: 1.3; color: #fff; }
+.iv-aff-offer { color: rgba(255,255,255,0.6); font-weight: 500; font-size: 13px; line-height: 1.4; }
+.iv-aff-chev { flex-shrink: 0; color: rgba(255,255,255,0.55); transition: transform 0.25s ease, color 0.2s ease; }
+.iv-aff-open .iv-aff-chev { transform: rotate(180deg); }
+.iv-affiliates-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
+.iv-aff-open > .iv-affiliates-panel { grid-template-rows: 1fr; }
+.iv-aff-panel-in { min-height: 0; overflow: hidden; visibility: hidden; transition: visibility 0s linear 0.28s; }
+.iv-aff-open .iv-aff-panel-in { visibility: visible; transition-delay: 0s; }
+.iv-aff-panel-in > :last-child { margin-bottom: 18px; }
+@media (prefers-reduced-motion: reduce) {
+  .iv-affiliates-panel, .iv-aff-chev { transition: none; }
+  .iv-aff-panel-in { transition: none; }
+}
 .iv-aff-body { font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.8); margin: 0 0 14px; }
 .iv-aff-body em { font-style: italic; }
 .iv-aff-note { font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.5); margin: 0 0 14px; font-style: italic; }
-.iv-aff-links { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.iv-aff-links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
 a.iv-aff-link-primary {
   display: inline-block; padding: 10px 22px; background: rgb(0,137,255); color: #fff !important;
   font-weight: 500; font-size: 13px; letter-spacing: 0.3px; text-decoration: none; border-radius: 5px;
@@ -502,7 +517,7 @@ a.iv-aff-link-primary {
 a.iv-aff-link-primary:hover, a.iv-aff-link-primary:focus { background: rgb(30,155,255); color: #fff !important; }
 .iv-aff-link { color: rgba(255,255,255,0.75); font-weight: 500; font-size: 13px; text-decoration: none; }
 .iv-aff-link:hover { color: rgb(0,137,255); }
-.iv-aff-books { display: flex; flex-direction: column; gap: 6px; }
+.iv-aff-books { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
 .iv-aff-book { display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 8px; border-radius: 6px; transition: background 0.2s ease; }
 .iv-aff-book:hover { background: rgba(255,255,255,0.06); }
 .iv-aff-book img { width: 40px; height: auto; border-radius: 4px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }

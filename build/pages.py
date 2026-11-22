@@ -530,16 +530,22 @@ def support():
         "</div></div>")
 
     def aff_card(name, href, logo_html, code, body, shop_label, ghost_href, ghost_label, logo_cls="", shop_ext=True):
+        """One affiliate row (2026-11-22, Chance: a better layout than the wall
+        of tall cards): a logo tile, the name and offer, his words held to a
+        few lines with a Read more button (support.js shows the button only
+        where the text is really cut), and the buttons in their own column."""
+        aid = "aff-" + re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
         shop = (_ext(href, shop_label, "iv-sup-btn iv-sup-btn-gold") if shop_ext
                 else '<a class="iv-sup-btn iv-sup-btn-gold" href="' + esc(href) + '">' + shop_label + "</a>")
         ghost = ('<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(ghost_href) + '">' + ghost_label + "</a>") if ghost_href else ""
         logo_attrs = ' target="_blank" rel="noopener"' if shop_ext else ""
-        return ('<article class="iv-sup-card iv-sup-aff">'
-                '<a class="iv-sup-aff-logo' + logo_cls + '" href="' + esc(href) + '"' + logo_attrs + ">" + logo_html + "</a>"
-                '<div class="iv-sup-card-body"><h3>' + name + "</h3>"
-                '<div class="iv-sup-code">' + code + "</div>"
-                "<p>" + body + "</p>"
-                '<div class="iv-sup-buttons">' + shop + ghost + "</div></div></article>")
+        return ('<article class="iv-sup-aff" id="' + aid + '">'
+                '<a class="iv-sup-aff-logo' + logo_cls + '" href="' + esc(href) + '"' + logo_attrs + ' aria-label="' + esc(name) + '">' + logo_html + "</a>"
+                '<div class="iv-sup-aff-head"><h3>' + name + "</h3>"
+                '<div class="iv-sup-code">' + code + "</div></div>"
+                '<div class="iv-sup-aff-copy"><p class="iv-sup-aff-text" id="' + aid + '-text">' + body + "</p>"
+                '<button type="button" class="iv-sup-more" aria-expanded="false" aria-controls="' + aid + '-text" hidden>Read more</button></div>'
+                '<div class="iv-sup-aff-actions">' + shop + ghost + "</div></article>")
 
     def logo(src, alt, w, h, width=700):
         return '<img src="' + esc(iv_img(src, width)) + '" alt="' + alt + '" width="' + str(w) + '" height="' + str(h) + '" loading="lazy">'
@@ -576,7 +582,7 @@ def support():
                  "books, by Dylan Saccoccio. If you want to keep up with us on our show Inner Whirled, you’ll need to do the same "
                  "work. These books are a value and treasure greater than a college education in comparative mythology and "
                  "religious studies ever could be. Give yourself the keys of discernment. Listen to Spirit Whirled.",
-                 "See the audiobooks", None, "", logo_cls=" iv-sup-aff-logo-tall", shop_ext=False),
+                 "See the audiobooks", None, "", logo_cls=" iv-sup-aff-logo-dark", shop_ext=False),
         aff_card("LotusWei Flower Essence Elixirs", "https://lotuswei.com/innerverse",
                  logo(SQ + "025478ea-ef40-443c-bd06-554aba0a9bcf/lotuswei.png", "LotusWei flower essence elixirs", 402, 505),
                  "Use my affiliate link to support InnerVerse",
@@ -585,7 +591,7 @@ def support():
                  "products that operate on homeopathic principles and energetic resonances. I use LotusWei Elixirs to give me an "
                  "edge with psychic &amp; energetic sensitivity, discernment, and life force coherence. In other words, LotusWei "
                  "Elixirs help me be a better podcaster and Biofield Tuner. Benefits accumulate over long term use!",
-                 "Shop LotusWei", ep_url("katie-hess-lotuswei"), "Watch Katie Hess on InnerVerse", logo_cls=" iv-sup-aff-logo-tall"),
+                 "Shop LotusWei", ep_url("katie-hess-lotuswei"), "Watch Katie Hess on InnerVerse", logo_cls=" iv-sup-aff-logo-dark"),
         aff_card("Clive de Carle", "https://clivedecarle.com/?sld=204",
                  logo(CLIVE_LOGO, "Clive de Carle nutritional supplements", 153, 172),
                  "Support InnerVerse with every purchase",
@@ -609,7 +615,8 @@ def support():
     ]
     affiliates = _sup_section(
         "affiliates", "Trusted affiliates", "Products Chance actually uses", "",
-        '<div class="iv-sup-grid iv-sup-grid-aff">' + "".join(cards) + "</div>")
+        '<div class="iv-sup-affs">' + "".join(cards) + "</div>"
+        "<noscript><style>.iv-sup .iv-sup-aff-text{display:block;overflow:visible;-webkit-line-clamp:unset;}</style></noscript>")
 
     books = "".join(
         '<a class="iv-sup-book" href="' + esc(h) + '" target="_blank" rel="noopener">'
@@ -647,4 +654,4 @@ def support():
     h = head(title, desc, canonical, SUPPORT_OG, "website", cls, extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
     body = (nav("") + '<main id="iv-main"><article class="iv-sup">' + hero
             + join + work + affiliates + spirit + dylan + "</article></main>" + footer())
-    return page(h, body, cls, scripts=("/assets/site.js", "/assets/plus.js"))
+    return page(h, body, cls, scripts=("/assets/site.js", "/assets/plus.js", "/assets/support.js"))

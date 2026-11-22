@@ -72,7 +72,6 @@ html.iv-support-page body { background: var(--ground); }
 .iv-sup-grid { display: grid; gap: 20px; }
 .iv-sup-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .iv-sup-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.iv-sup-grid-aff { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .iv-sup-card {
   display: flex; flex-direction: column; min-width: 0; overflow: hidden;
   border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--card);
@@ -115,15 +114,48 @@ html.iv-support-page body { background: var(--ground); }
 .iv-sup-feature-small .iv-sup-feature-img { aspect-ratio: 1; border-radius: 50%; }
 .iv-sup-feature-body { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 
-/* Affiliates */
-.iv-sup-aff-logo { display: flex; align-items: center; justify-content: center; height: 220px; background: #fff; }
-.iv-sup-aff-logo img { max-width: 80%; max-height: 180px; width: auto; height: auto; object-fit: contain; display: block; }
-.iv-sup-aff-logo-tall { background: var(--surface); }
-.iv-sup-aff-logo-tall img { max-height: 200px; border-radius: var(--radius-sm); }
-.iv-sup-aff-covers { display: grid; grid-template-columns: repeat(2, 76px); gap: 8px; }
-.iv-sup-aff-covers img { width: 76px; height: 76px; object-fit: cover; border-radius: var(--radius-sm); display: block; max-width: none; max-height: none; }
-.iv-sup-code { font-size: 14px; color: var(--gold); font-weight: 600; }
+/* Affiliates: one row each (2026-11-22). Logo tile, name and offer, his
+   words held to three lines until Read more, buttons in their own column. */
+.iv-sup-affs { display: flex; flex-direction: column; gap: 14px; }
+.iv-sup-aff {
+  display: grid; grid-template-columns: 196px minmax(0, 1fr) 236px; column-gap: 32px; row-gap: 10px;
+  grid-template-areas: "logo head actions" "logo copy actions"; align-items: start;
+  padding: 22px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--card);
+  scroll-margin-top: 100px; transition: border-color .2s ease;
+}
+.iv-sup-aff:hover { border-color: rgba(143,181,240,0.32); }
+.iv-sup-aff-logo {
+  grid-area: logo; align-self: center; display: flex; align-items: center; justify-content: center;
+  height: 132px; border-radius: var(--radius-md); background: #fff; overflow: hidden;
+}
+.iv-sup-aff-logo img { max-width: 78%; max-height: 74%; width: auto; height: auto; object-fit: contain; display: block; }
+.iv-sup-aff-logo-dark { background: var(--surface); border: 1px solid var(--line); }
+.iv-sup-aff-logo-dark img { max-height: 84%; }
+.iv-sup-aff-covers { display: grid; grid-template-columns: repeat(2, 52px); gap: 6px; }
+.iv-sup-aff-covers img { width: 52px; height: 52px; object-fit: cover; border-radius: 6px; display: block; max-width: none; max-height: none; }
+.iv-sup-aff-head { grid-area: head; display: flex; flex-direction: column; gap: 6px; min-width: 0; align-self: end; }
+.iv-sup-code { font-size: 14px; color: var(--gold); font-weight: 600; line-height: 1.45; }
 .iv-sup-code b { color: var(--gold); letter-spacing: .5px; }
+.iv-sup-aff-copy { grid-area: copy; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-width: 0; }
+.iv-sup .iv-sup-aff-text {
+  font-size: 15px; line-height: 1.65; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
+}
+.iv-sup .iv-sup-aff-open .iv-sup-aff-text { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.iv-sup-more {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 5px 13px; margin: 0;
+  border: 1px solid var(--line); border-radius: var(--radius-pill); background: transparent; color: var(--ink);
+  font-family: var(--font-sans); font-size: 12.5px; font-weight: 700; letter-spacing: .2px; line-height: 1.2; cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+.iv-sup-more[hidden] { display: none; }
+.iv-sup-more:hover { border-color: var(--lapis); color: var(--lapis-lit); }
+.iv-sup-more::after {
+  content: ""; width: 6px; height: 6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg); transition: transform .2s ease;
+}
+.iv-sup-aff-open .iv-sup-more::after { transform: translateY(1px) rotate(-135deg); }
+.iv-sup-aff-actions { grid-area: actions; align-self: center; display: flex; flex-direction: column; gap: 10px; }
+.iv-sup-aff-actions .iv-sup-btn { width: 100%; box-sizing: border-box; }
 
 /* Spirit Whirled */
 .iv-sup-books { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
@@ -139,7 +171,10 @@ html.iv-support-page body { background: var(--ground); }
 
 @media (max-width: 1060px) {
   .iv-sup-grid-3 { grid-template-columns: 1fr; }
-  .iv-sup-grid-aff { grid-template-columns: 1fr; }
+  .iv-sup-aff { grid-template-columns: 160px minmax(0, 1fr); grid-template-areas: "logo head" "logo copy" "actions actions"; column-gap: 24px; }
+  .iv-sup-aff-logo { height: 116px; align-self: start; }
+  .iv-sup-aff-actions { flex-direction: row; flex-wrap: wrap; margin-top: 8px; }
+  .iv-sup-aff-actions .iv-sup-btn { width: auto; flex: 1 1 220px; }
   .iv-sup-grid-3 .iv-sup-card { display: grid; grid-template-columns: 280px minmax(0, 1fr); }
   .iv-sup-grid-3 .iv-sup-card-img { height: 100%; aspect-ratio: auto; }
 }
@@ -163,5 +198,13 @@ html.iv-support-page body { background: var(--ground); }
   .iv-sup-feature { padding: 14px; }
   .iv-sup-feature-small { grid-template-columns: 1fr; }
   .iv-sup-feature-small .iv-sup-feature-img { width: 120px; }
-  .iv-sup-aff-logo { height: 180px; }
+  .iv-sup-aff { grid-template-columns: 92px minmax(0, 1fr); grid-template-areas: "logo head" "copy copy" "actions actions"; column-gap: 16px; row-gap: 14px; padding: 16px; }
+  .iv-sup-aff-logo { height: 92px; align-self: center; }
+  .iv-sup-aff-logo img { max-width: 82%; max-height: 78%; }
+  .iv-sup-aff-covers { grid-template-columns: repeat(2, 36px); gap: 4px; }
+  .iv-sup-aff-covers img { width: 36px; height: 36px; border-radius: 4px; }
+  .iv-sup-aff-head { align-self: center; }
+  .iv-sup h3 { font-size: 21px; }
+  .iv-sup .iv-sup-aff-text { -webkit-line-clamp: 4; }
+  .iv-sup-aff-actions { margin-top: 0; }
 }
