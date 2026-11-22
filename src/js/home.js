@@ -305,10 +305,12 @@
   setTimeout(scheduleFit, 1500);
 
   function fillPhoneLatest(top) {
+    var prem = top.__premiere;
     mlatest.setAttribute('href', epHref(top));
-    mlatest.setAttribute('aria-label', 'Watch the latest episode: ' + clean(top.title));
+    mlatest.setAttribute('aria-label', (prem ? prem.text + ': ' : 'Watch the latest episode: ') + clean(top.title));
     $('.ivh-mlatest-thumb', mlatest).innerHTML = top.thumb ? '<img src="' + esc(sized(top.thumb, 500)) + '" alt="" loading="eager" fetchpriority="high" decoding="async">' : '';
-    $('.ivh-mlatest-meta', mlatest).innerHTML = 'Latest &middot; ' + esc(showOf(top)) + (top.duration ? ' &middot; ' + esc(top.duration) : '');
+    $('.ivh-mlatest-meta', mlatest).innerHTML = prem ? '<span class="ivh-prem">' + esc(prem.text) + '</span>'
+      : 'Latest &middot; ' + esc(showOf(top)) + (top.duration ? ' &middot; ' + esc(top.duration) : '');
     $('.ivh-mlatest-guest', mlatest).textContent = guestLine(top);
     $('.ivh-mlatest-title', mlatest).textContent = trimTitle(top.title, top);
     scheduleFit();
@@ -389,15 +391,28 @@
   }
 
   getJSON('episodes-index.json').then(function (d) {
-    episodes = byDateDesc((d && d.episodes) || []);
+    /* 2026-11-22 (Chance): an episode whose page is up before its premiere is
+       labelled as coming, dated to its premiere day, and "Watch the latest"
+       goes to the newest episode that is already out. */
+    var all = (d && d.episodes) || [];
+    all.forEach(function (e) {
+      var p = window.ivPremiere && window.ivPremiere(e.slug);
+      if (p) { e.__premiere = p; if (p.date) e.date = p.date; }
+    });
+    episodes = byDateDesc(all);
     if (!episodes.length) return;
     var top = episodes[0];
+    var prem = top.__premiere;
+    var out = episodes.filter(function (e) { return !e.__premiere; })[0] || top;
     var latest = document.getElementById('ivh-latest');
     latest.setAttribute('href', epHref(top));
     latest.innerHTML = thumbHtml(sized(top.thumb, 500), '', 'none', true) +
-      '<div class="ivh-latest-body"><div class="ivh-label-sm">Latest &middot; ' + esc(showOf(top)) + (top.duration ? ' &middot; ' + esc(top.duration) : '') + '</div>' +
+      '<div class="ivh-latest-body"><div class="ivh-label-sm' + (prem ? ' ivh-prem' : '') + '">' +
+        (prem ? esc(prem.text) : 'Latest &middot; ' + esc(showOf(top)) + (top.duration ? ' &middot; ' + esc(top.duration) : '')) + '</div>' +
       '<div class="ivh-latest-title">' + esc(clean(top.title)) + '</div></div>';
-    document.getElementById('ivh-watch-latest').setAttribute('href', epHref(top));
+    var eyebrow = document.querySelector('.ivh-latest-eyebrow');
+    if (eyebrow) eyebrow.textContent = prem ? 'Coming up' : 'New episode';
+    document.getElementById('ivh-watch-latest').setAttribute('href', epHref(out));
     fillPhoneLatest(top);
     document.getElementById('ivh-grid').innerHTML = episodes.slice(1, 7).map(cardHtml).join('');
     if (pendingQuery) runSearch();

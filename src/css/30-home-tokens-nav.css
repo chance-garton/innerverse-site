@@ -364,3 +364,6 @@ html.iv-plus-member #iv-nav.iv-nav-v2 .iv-nav-join{display:none!important;}
 @media (max-width:420px){
   #iv-nav.iv-nav-v2 .iv-nav-word{display:inline;font-size:18px;letter-spacing:4px;}
 }
+
+/* Home: the latest card when its episode has not premiered yet (2026-11-22) */
+.ivh-label-sm.ivh-prem,.ivh-mlatest-meta .ivh-prem{color:#f2c95c;}

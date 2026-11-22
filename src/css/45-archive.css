@@ -313,3 +313,7 @@ html.iv-plus-archive section.iva-first{display:none!important;}
 .iv-every-list{columns:2 320px;column-gap:40px;margin:18px 0 0;padding-left:22px;font-size:14px;line-height:1.7;}
 .iv-every-list a{color:var(--ink-2,#B8C2D3);text-decoration:none;}
 .iv-every-list a:hover{color:var(--ink,#E9EEF6);text-decoration:underline;}
+
+/* Newest episode block: a page up before its premiere (2026-11-22) */
+.ivx-prem{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;padding:7px 14px;border-radius:999px;background:rgba(232,180,60,.12);border:1px solid rgba(232,180,60,.55);color:#f2c95c;font-family:var(--font-sans);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
+.ivx-prem-dot{width:8px;height:8px;border-radius:50%;background:#f2c95c;flex:none;}

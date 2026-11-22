@@ -986,17 +986,9 @@ def build_transcript(slug, page_url):
 
 def premiere_info(slug):
     """The data/premieres.json entry for a page whose premiere is still ahead
-    at build time, else None."""
-    import datetime as _dt, json as _json
-    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "premieres.json")
-    try:
-        p = _json.load(open(path, encoding="utf-8")).get(slug)
-        at = _dt.datetime.fromisoformat(p["at"])
-    except Exception:
-        return None
-    if at <= _dt.datetime.now(_dt.timezone.utc):
-        return None
-    return p
+    at build time ({at, text, date}), else None."""
+    from common import pending_premieres
+    return pending_premieres().get(slug)
 
 
 def build_premiere(slug):
@@ -1051,7 +1043,8 @@ def render(slug, file, post, related, tags):
     upcoming = premiere_info(slug) is not None
     if upcoming:
         chapters, themes, quotes = [], [], []
-        f = dict(f, plusChapters=[])
+        # The premiere day is the page's date (header, structured data).
+        f = dict(f, plusChapters=[], publishDate=premiere_info(slug)["date"])
         r = {k: v for k, v in r.items() if k not in ("Chapters JSON", "Core Themes JSON", "Quotes JSON")}
 
     root = (

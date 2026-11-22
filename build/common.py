@@ -362,8 +362,29 @@ if(!w){var f=/[?&]format=(\d+)w/.exec(u)||/\/w(\d+)\.webp/.exec(u);w=f?+f[1]:500
 if(!ws.length)return IB+'/'+k+'/orig.'+IE[e.charAt(0)];var x=ws[ws.length-1];for(i=0;i<ws.length;i++){if(ws[i]>=w){x=ws[i];break;}}return IB+'/'+k+'/w'+x+'.webp';};
 window.ivImgSq=function(u,w){if(!u)return'';u=String(u);if(u.indexOf('images.squarespace-cdn.com')===-1)return u;var x=S[S.length-1];for(var i=0;i<S.length;i++){if(S[i]>=(w||500)){x=S[i];break;}}var p=u.split('?');var rest=(p[1]||'').split('&').filter(function(kv){return kv&&kv.indexOf('format=')!==0;});return p[0]+'?format='+x+'w'+(rest.length?'&'+rest.join('&'):'');};
 window.ivImg=function(u,w){if(!u)return'';return window.ivImgR2(String(u),w)||window.ivImgSq(u,w);};
-window.IV_BASE=%s;window.IV_EXTRA=%s;window.ivPath=function(){var b=window.IV_BASE,p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);p=p.replace(/\/index\.html$/,'/').replace(/\.html$/,'');return p||'/';};if(window.IV_BASE)document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="/"]');if(!a)return;var h=a.getAttribute('href');if(h.indexOf('//')===0||h.indexOf(window.IV_BASE+'/')===0||h===window.IV_BASE)return;a.setAttribute('href',window.IV_BASE+h);},true);})();
+window.IV_BASE=%s;window.IV_EXTRA=%s;window.IV_PREMIERES=%s;window.ivPremiere=function(s){var p=(window.IV_PREMIERES||{})[s];return p&&Date.now()<Date.parse(p.at)?p:null;};window.ivPath=function(){var b=window.IV_BASE,p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);p=p.replace(/\/index\.html$/,'/').replace(/\.html$/,'');return p||'/';};if(window.IV_BASE)document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="/"]');if(!a)return;var h=a.getAttribute('href');if(h.indexOf('//')===0||h.indexOf(window.IV_BASE+'/')===0||h===window.IV_BASE)return;a.setAttribute('href',window.IV_BASE+h);},true);})();
 </script>"""
+
+
+def pending_premieres():
+    """data/premieres.json entries whose time is still ahead at build:
+    {slug: {at, text, date}}. The page scripts (home, archive) label such an
+    episode as coming, and show its premiere day as its date (2026-11-22, Chance)."""
+    import datetime as _dt
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "premieres.json")
+    out = {}
+    try:
+        raw = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return out
+    for slug, p in raw.items():
+        try:
+            at = _dt.datetime.fromisoformat(p["at"])
+        except Exception:
+            continue
+        if at > _dt.datetime.now(_dt.timezone.utc):
+            out[slug] = {"at": p["at"], "text": p.get("text") or "Premieres soon", "date": at.date().isoformat()}
+    return out
 
 
 # Visitor counter (2026-11-03): Cloudflare Web Analytics for www.innerversepodcast.com, no cookies.
@@ -403,7 +424,7 @@ def head(title, description, canonical, image="", og_type="website", html_class=
         FONTS,
         FONT_IW if inner_whirled else "",
         '<link rel="stylesheet" href="' + url("/assets/site.css") + "?v=" + ASSET_VERSION + '">',
-        HEAD_SCRIPT % (json.dumps(IMAGE_BASE), json.dumps(BASE), json.dumps(EXTRA_PATH)),
+        HEAD_SCRIPT % (json.dumps(IMAGE_BASE), json.dumps(BASE), json.dumps(EXTRA_PATH), json.dumps(pending_premieres())),
         ANALYTICS if not NOINDEX else "",
         extra,
     ]

@@ -949,6 +949,8 @@
     getJSON(INDEX_URL).then(function (d) {
       episodes = (d && d.episodes) || [];
       if (!episodes.length) throw new Error('empty index');
+      /* 2026-11-22: a page that is up before its premiere carries its premiere day as its date */
+      episodes.forEach(function (e) { var p = window.ivPremiere && window.ivPremiere(e.slug); if (p && p.date) e.date = p.date; });
       episodes.forEach(function (e) { bySlug[e.slug] = e; });
       if (!mount()) {
         var tries = 0;
@@ -1044,24 +1046,27 @@
     var show = shows.indexOf('Astro-Herbalism') >= 0 ? 'Astro-Herbalism'
       : shows.indexOf('Vibe Rant') >= 0 ? (SHOW_LABEL['Vibe Rant'] || 'Vibe Rant') + (vrNum != null && vrNum !== '' ? ' \u00b7 Episode ' + vrNum : '')
       : (SHOW_LABEL[shows[0]] || shows[0] || 'InnerVerse');
-    var meta = [show, f.Duration || e.duration, niceDate(e.date)].filter(Boolean).join(' · ');
+    /* 2026-11-22 (Chance): up before its premiere, so say when it premieres */
+    var prem = window.ivPremiere && window.ivPremiere(e.slug);
+    var meta = [show, f.Duration || e.duration, niceDate(prem && prem.date ? prem.date : e.date)].filter(Boolean).join(' · ');
     var blurb = clean(f['Intro Paragraph 1'] || '');
 
     var sec = el('section', 'ivx-new');
     sec.setAttribute('aria-label', 'Newest episode');
     sec.innerHTML = '<div class="iva-wrap">' +
-      '<div class="iva-eyebrow">Newest episode</div>' +
+      '<div class="iva-eyebrow">' + (prem ? 'Coming up' : 'Newest episode') + '</div>' +
       '<div class="ivx-new-grid">' +
         '<div class="ivx-player">' + (thumb ? '<img src="' + esc(img(thumb, 1000)) + '" alt="" loading="lazy">' : '') +
           (vid ? '<button type="button" class="ivx-play" aria-label="Play ' + esc(title) + '"><span class="ivx-play-disc">' + PLAY + '</span></button>'
                : '<a class="ivx-play" href="' + esc(href) + '" aria-label="Open ' + esc(title) + '"><span class="ivx-play-disc">' + PLAY + '</span></a>') +
         '</div>' +
         '<div class="ivx-copy">' +
+          (prem ? '<div class="ivx-prem"><span class="ivx-prem-dot"></span>' + esc(prem.text) + '</div>' : '') +
           '<div class="iva-meta">' + esc(meta) + '</div>' +
           '<h2 class="ivx-title"><a href="' + esc(href) + '">' + esc(title) + '</a></h2>' +
           (blurb ? '<p class="ivx-blurb">' + esc(blurb) + '</p>' : '') +
           guestHtml(guests) +
-          '<div class="ivx-btns"><a class="iva-btn ivx-btn-lapis" href="' + esc(href) + '">Open the episode</a></div>' +
+          '<div class="ivx-btns"><a class="iva-btn ivx-btn-lapis" href="' + esc(href) + '">' + (prem ? 'See the episode page' : 'Open the episode') + '</a></div>' +
         '</div>' +
       '</div></div>';
 
@@ -1092,7 +1097,9 @@
       getJSON(DATA + 'episodes-index.json').then(function (d) {
         var list = ((d && d.episodes) || []).filter(function (e) {
           return !(e.shows || []).some(function (s) { return SKIP_SHOWS.indexOf(s) >= 0; });
-        }).sort(function (a, b) { return String(b.date || '').localeCompare(String(a.date || '')); });
+        });
+        list.forEach(function (e) { var p = window.ivPremiere && window.ivPremiere(e.slug); if (p && p.date) e.date = p.date; });
+        list.sort(function (a, b) { return String(b.date || '').localeCompare(String(a.date || '')); });
         var top = list[0];
         if (!top) return;
         return getJSON(DATA + 'episodes/' + encodeURIComponent(top.slug) + '.json')
