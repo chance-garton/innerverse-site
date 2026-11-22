@@ -900,6 +900,73 @@ def seo_description(f, post, r=None):
     return plain(f["intro1"] or f["topicLine"] or f["title"], 160)
 
 
+_SITE_DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
+
+
+def build_notes(slug):
+    """The episode's own notes, read on the page (2026-11-22, Chance): the
+    free half of the episode is already public, so its notes sit in the page
+    for readers and for search, closed until opened. The fragment lives in
+    data/episode-notes/<slug>.html (made from his .docx by
+    tools/episode-notes/convert_notes.py); its slides are on the image host,
+    and each one opens full screen from episode-reading.js."""
+    path = os.path.join(_SITE_DATA, "episode-notes", slug + ".html")
+    if not os.path.exists(path):
+        return ""
+    body = open(path, encoding="utf-8").read()
+
+    def img(m):
+        tag = m.group(0)
+        src = re.search(r'src="([^"]+)"', tag).group(1)
+        alt = re.search(r'alt="([^"]*)"', tag)
+        alt = alt.group(1) if alt else ""
+        sizes = " ".join(iv_img(src, w) + " " + str(w) + "w" for w in (500, 750, 1000))
+        return ('<img src="' + esc(iv_img(src, 1000)) + '" srcset="' + esc(sizes) + '" sizes="(max-width: 760px) 100vw, 720px"'
+                ' alt="' + alt + '" data-full="' + esc(src) + '" width="1456" height="819" loading="lazy" decoding="async">')
+    body = re.sub(r"<img [^>]*/?>", img, body)
+    slides = body.count("<img ")
+    words = len(re.sub(r"<[^>]+>", " ", body).split())
+    count = str(max(1, round(words / 230))) + " min read" + (" · " + str(slides) + " slides" if slides else "")
+    return (
+        '<div class="iv-notes-section iv-accordion" id="iv-notes-acc">'
+        + section_head("iv-section-label", "iv-section-title", "Read along", "Episode notes", "Toggle episode notes", count)
+        + '<div class="iv-section-rule"></div>'
+        '<div class="iv-section-body"><article class="ivn-body">' + body + "</article></div></div>"
+    )
+
+
+def build_transcript(slug, page_url):
+    """The transcript of the free cut (2026-11-22, Chance), closed until
+    opened: every paragraph starts with its moment in the episode (a real ?t=
+    link, played in place by the page script like a chapter), and a search
+    box finds words in it. Data: data/transcripts/<slug>.json, [{seek, text}]."""
+    path = os.path.join(_SITE_DATA, "transcripts", slug + ".json")
+    if not os.path.exists(path):
+        return ""
+    paras = json.load(open(path, encoding="utf-8"))
+
+    def stamp(s):
+        s = int(s)
+        h, m, sec = s // 3600, s % 3600 // 60, s % 60
+        return "%d:%02d:%02d" % (h, m, sec) if h else "%d:%02d" % (m, sec)
+    rows = "".join(
+        '<p class="ivt-p"><a href="' + esc(page_url + "?t=" + str(int(p["seek"]))) + '" class="iv-tx-time" data-seek="'
+        + str(int(p["seek"])) + '">' + stamp(p["seek"]) + "</a> " + esc(p["text"]) + "</p>"
+        for p in paras)
+    words = sum(len(p["text"].split()) for p in paras)
+    return (
+        '<div class="iv-transcript-section iv-accordion" id="iv-transcript-acc">'
+        + section_head("iv-section-label", "iv-section-title", "Word for word", "Transcript", "Toggle transcript", "{:,} words".format(words))
+        + '<div class="iv-section-rule"></div>'
+        '<div class="iv-section-body">'
+        '<div class="ivt-tools"><input type="search" class="ivt-search" placeholder="Search the transcript" aria-label="Search the transcript">'
+        '<span class="ivt-count" aria-live="polite"></span>'
+        '<button type="button" class="ivt-step" data-step="-1" aria-label="Previous match">&#8249;</button>'
+        '<button type="button" class="ivt-step" data-step="1" aria-label="Next match">&#8250;</button></div>'
+        '<div class="ivt-body">' + rows + "</div></div></div>"
+    )
+
+
 def build_premiere(slug):
     """A banner for a page that goes up before its premiere (data/premieres.json),
     2026-11-15 (Chance). Rendered only while the time is still ahead at build;
@@ -950,6 +1017,8 @@ def render(slug, file, post, related, tags):
         + build_chapters(chapters, build_locked_chapters(f), page_url)
         + build_themes(themes)
         + build_quotes(quotes, f["title"], guests)
+        + build_notes(slug)
+        + build_transcript(slug, page_url)
         + '</div><div class="iv-sticky-sidebar">'
         + build_guest_card(guests)
         + build_affiliates_card(affs)
@@ -975,4 +1044,7 @@ def render(slug, file, post, related, tags):
     html_class = "iv-2026 iv-newtpl" + (" iv-iw" if iw else "") + (" iv-vr" if vr else "")
     h = head(title, description, canonical, image, "article", html_class, iw,
              extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
-    return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js", "/assets/super-chat.js"))
+    scripts = ("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js", "/assets/super-chat.js")
+    if 'id="iv-notes-acc"' in root or 'id="iv-transcript-acc"' in root:
+        scripts += ("/assets/episode-reading.js",)
+    return page(h, body, html_class, scripts=scripts)

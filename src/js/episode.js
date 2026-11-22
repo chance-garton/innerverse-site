@@ -3376,7 +3376,9 @@
 
   function wireChapters(container) {
     var ratio = container.querySelector('.iv-ratio');
-    container.querySelectorAll('.iv-chapter-row').forEach(function (row) {
+    /* .iv-tx-time: the transcript's paragraph times (2026-11-22) play the
+       same way a chapter does. */
+    container.querySelectorAll('.iv-chapter-row, .iv-tx-time').forEach(function (row) {
       if (row.__ivWired) return;
       row.__ivWired = true;
       row.addEventListener('click', function (e) {
