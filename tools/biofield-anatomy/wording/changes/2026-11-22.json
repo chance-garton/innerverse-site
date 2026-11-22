@@ -1,0 +1,559 @@
+{
+ "from": "content-2026-11-18.js",
+ "to": "content-2026-11-22.js",
+ "rule": "rule:Chance 2026-11-22",
+ "sha256": "faf9d6a797f91a45fff8eed309cd32162dd22a24d659e92d6901460965a3c3ad",
+ "note": "Lines from Chance's own walk through the map for Plus+ members, approved by him on 2026-11-22 (project doc PROPOSAL-biofield-anatomy-talk-gaps-2026-11-22, items 1 to 39, without the generations line of item 20): irritation and the liver, three field topics, the Earth Star and Sun Star, and new lines on the feet, ankles, knees, root, hips, sacral, lower back, solar plexus, kidneys, adrenals, heart and crown pages, with search words. Only new words appear here.",
+ "ops": [
+  {
+   "op": "add_block",
+   "node": "liver",
+   "section": "biofield",
+   "count_before": 4,
+   "text": "Irritation counts here as much as anger. When anger or irritation is repressed, the liver has to clear through a different channel what it should be able to process itself: mucus, or the skin. Hay fever, reactions to dogs, cats and plants, and food reactions such as dairy are often more a sign of a liver stuck in repressed anger or irritation than of a true allergy."
+  },
+  {
+   "op": "add_search",
+   "node": "liver",
+   "words": [
+    "irritation",
+    "irritable",
+    "allergies",
+    "allergy",
+    "hay fever",
+    "mucus"
+   ]
+  },
+  {
+   "op": "add_feeling",
+   "after": "Rage",
+   "entry": {
+    "name": "Irritation",
+    "also": [
+     "irritated",
+     "irritable",
+     "annoyed",
+     "annoyance",
+     "bothered",
+     "fed up"
+    ],
+    "targets": [
+     {
+      "node": "solar",
+      "pos": "RF",
+      "label": null,
+      "t": "What bothers us and goes unsaid."
+     },
+     {
+      "node": "liver",
+      "pos": null,
+      "label": null,
+      "t": "Held in, it leaves through mucus or the skin, as allergies and rashes."
+     },
+     {
+      "node": "kidneys",
+      "pos": null,
+      "label": null,
+      "t": "Held in, it can also show up in the kidneys and adrenals."
+     }
+    ]
+   }
+  },
+  {
+   "op": "set_label",
+   "node": "solar",
+   "pos": "RF",
+   "was": "0988f0dc0243",
+   "text": "Anger and irritation"
+  },
+  {
+   "op": "set_label",
+   "node": "solar",
+   "side": "R",
+   "was": "2494e6bef1eb",
+   "text": "Right side imbalance: unprocessed anger and irritation"
+  },
+  {
+   "op": "add_block",
+   "node": "solar",
+   "side": "R",
+   "count_before": 2,
+   "text": "Anger is the same energy that allows us to be assertive and confident. Seeing it that way makes it easier to express anger and irritation as they come up."
+  },
+  {
+   "op": "add_node",
+   "after": "f-drawers",
+   "entry": {
+    "id": "f-whole",
+    "sections": [],
+    "positions": [],
+    "sides": [],
+    "themes": [],
+    "kind": "field",
+    "group": "How to read the field",
+    "name": "Each center works as a whole",
+    "short": "One quadrant, the whole center's symptoms",
+    "search": [
+     "quadrants",
+     "whole center",
+     "epicenter",
+     "symptoms"
+    ],
+    "summary": {
+     "t": "An energy center and all four of its quadrants operate as a whole. Stuck energy may sit in one quadrant, yet any symptom of that center being low or out of balance can show up with it. The place where the stuck energy is found is the epicenter: the point the pattern radiates out from. It can still relate to other parts of the field."
+    }
+   }
+  },
+  {
+   "op": "add_node",
+   "after": "f-whole",
+   "entry": {
+    "id": "f-lowerfirst",
+    "sections": [],
+    "positions": [],
+    "sides": [],
+    "themes": [],
+    "kind": "field",
+    "group": "How to read the field",
+    "name": "The lower centers come first",
+    "short": "They power everything above",
+    "search": [
+     "priority",
+     "lower centers",
+     "where to start"
+    ],
+    "summary": {
+     "t": "Most of the work in a tuning happens from the sacral down. These are the energy centers that power everything above them, so an issue there tends to be a higher priority than one that is stuck higher up."
+    }
+   }
+  },
+  {
+   "op": "add_node",
+   "after": "f-walls",
+   "entry": {
+    "id": "f-mirror",
+    "sections": [
+     {
+      "key": "more",
+      "title": "Why it feels worse",
+      "blocks": [
+       "An emotion is repressed because it has been labeled bad. Coming at us from outside, it is far less comfortable than it would have been moving through us. It is like hating the color yellow and never wearing it: the dandelions and the sun are still there, and every one of them is a trigger."
+      ]
+     }
+    ],
+    "positions": [],
+    "sides": [],
+    "themes": [],
+    "kind": "field",
+    "group": "How to read the field",
+    "name": "What we repress comes back",
+    "short": "Held in, it shows up outside",
+    "search": [
+     "repression",
+     "repressed",
+     "repress",
+     "mirror",
+     "projection",
+     "triggered",
+     "trigger"
+    ],
+    "summary": {
+     "t": "Every part of human emotion exists in our world at all times, and none of it can be removed. What is not allowed to express inside has to show up outside. The more anger we repress, the more other people get angry at us. The more sadness we repress, the more sad people show up in our life needing our help."
+    }
+   }
+  },
+  {
+   "op": "add_block",
+   "node": "heart",
+   "pos": "LB",
+   "count_before": 3,
+   "text": "Feeling hurt by other people's sadness or anger can be a clue that the same energy in ourselves is not being allowed to be felt, processed and expressed."
+  },
+  {
+   "op": "append_sentence",
+   "node": "f-mayrelate",
+   "was": "46aeefcb90d5",
+   "text": "The lower in the field, the more solid, consistent and physical the patterns are. The further up, the more they differ from person to person."
+  },
+  {
+   "op": "replace_phrase",
+   "node": "f-earthstar",
+   "was": "e210ee6033f3",
+   "old": "below the feet",
+   "new": "about 10 inches below the feet"
+  },
+  {
+   "op": "set_label",
+   "node": "f-earthstar",
+   "was": "64e7dff466b5",
+   "text": "About 10 inches below the feet"
+  },
+  {
+   "op": "set_label",
+   "node": "f-earthstar",
+   "mark": "earthstar",
+   "was": "64e7dff466b5",
+   "text": "About 10 inches below the feet"
+  },
+  {
+   "op": "add_section",
+   "node": "f-earthstar",
+   "key": "stars",
+   "title": "The two stars",
+   "blocks": [
+    "The Sun Star and the Earth Star are our connection to Father Sky and Mother Earth. In the torus shape of the field, they are the points of the vortex: the two holes of the donut."
+   ]
+  },
+  {
+   "op": "add_section",
+   "node": "f-earthstar",
+   "key": "more",
+   "title": "Grounding through it",
+   "blocks": [
+    "It is also the point where we release energy to the earth, to come back up as fresh, vital energy.",
+    "It can sit a little off center, and bringing it back into position helps with grounding.",
+    "To work with it, picture a point of light below the feet. Breathe energy up through that point into the feet, and breathe out back down the same channel."
+   ]
+  },
+  {
+   "op": "add_section",
+   "node": "f-sunstar",
+   "key": "stars",
+   "title": "The two stars",
+   "blocks": [
+    "The Sun Star and the Earth Star are our connection to Father Sky and Mother Earth. In the torus shape of the field, they are the points of the vortex: the two holes of the donut."
+   ]
+  },
+  {
+   "op": "add_block",
+   "node": "feet",
+   "section": "field",
+   "count_before": 2,
+   "text": "Bare feet on grass, dirt or water make a real difference, even when it is cold and snowy outside."
+  },
+  {
+   "op": "add_block",
+   "node": "feet",
+   "section": "body",
+   "count_before": 2,
+   "text": "For an issue with the lungs or the liver, a weighted fork on the matching point of the foot reaches the organ without working over the rib cage. The same points can be massaged by hand."
+  },
+  {
+   "op": "add_block",
+   "node": "ankles",
+   "pos": "RF",
+   "count_before": 1,
+   "text": "Perfectionism and procrastination tend to be the same thing: perfecting details that don't really matter gives the feeling of doing something, while the thing that would get us somewhere waits."
+  },
+  {
+   "op": "add_block",
+   "node": "ankles",
+   "pos": "RB",
+   "count_before": 1,
+   "text": "This is the Achilles heel, which is really the Achilles ankle. A warrior has to be decisive and ready for action, and indecision is what leaves him exposed on the battlefield."
+  },
+  {
+   "op": "add_block",
+   "node": "ankles",
+   "side": "L",
+   "count_before": 3,
+   "text": "Stuck energy in the left ankle, the left knee and the left leg in general slows our ability to ground: less old energy is released into the earth to come back fresh. It ties to a route of clearing elsewhere in the body that is not working as well as it could, and the nature of what we feel stuck to points to where."
+  },
+  {
+   "op": "add_block",
+   "node": "knees",
+   "section": "authority",
+   "count_before": 1,
+   "text": "On the right, authority is outer and structural: the authority figures at work, or the big picture, the government. On the left it is emotional: someone we give authority over our emotions, a person we don't stand up to or hold a healthy boundary with."
+  },
+  {
+   "op": "add_block",
+   "node": "knees",
+   "pos": "LB",
+   "count_before": 2,
+   "text": "Repressed emotions we don't know we are holding on to."
+  },
+  {
+   "op": "add_block",
+   "node": "root",
+   "pos": "RF",
+   "count_before": 2,
+   "text": "The body hears the belief \"I'm only good enough when I'm exhausted\" in a stripped down form: it's good to be tired. That shows up as poor sleep: waking before we need to, trouble falling asleep, or light, restless nights."
+  },
+  {
+   "op": "add_block",
+   "node": "root",
+   "pos": "RB",
+   "count_before": 2,
+   "text": "When the to-do list starts looping, let it go: \"I trust myself to do what I need to do when it's time to do it.\""
+  },
+  {
+   "op": "add_block",
+   "node": "root",
+   "side": "R",
+   "count_before": 1,
+   "text": "To heal the right side, take the value off overachieving and busyness and take on a new belief: I am at my best when I am well rested and my battery is full. A phone at 2 percent does not work like one at 100, and the body is the same."
+  },
+  {
+   "op": "add_block",
+   "node": "hips",
+   "pos": "R",
+   "count_before": 1,
+   "text": "It explains where so many of the hip replacements and broken hips of later life come from."
+  },
+  {
+   "op": "add_block",
+   "node": "root",
+   "pos": "LF",
+   "count_before": 3,
+   "text": "The fear of being seen often traces to a household where a parent, frequently an alcoholic one, came down on anyone who seemed to be doing better or having a better time than them."
+  },
+  {
+   "op": "add_block",
+   "node": "root",
+   "pos": "LB",
+   "count_before": 3,
+   "text": "Trouble with moving and with finding a home can show up at the back of the left side as well as the front."
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "pos": "LF",
+   "count_before": 3,
+   "text": "Resentment toward whoever is not meeting our needs, yet seems like they should be responsible for it."
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "pos": "LF",
+   "count_before": 4,
+   "text": "Often tied to the mother, the first person to meet our needs and our first source of nurture and nutrition. Not being breastfed, or a quick switch to formula, can leave lingering issues here."
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "pos": "LF",
+   "count_before": 5,
+   "text": "Never feeling fully satisfied sends us seeking that feeling through food or drugs. When we feel addicted to consuming something, this quadrant has a lot to do with why the pattern is so attractive."
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "side": "L",
+   "count_before": 1,
+   "text": "The left side runs a cycle: wanting, filling, digesting, emptying, then filling again. With stuck energy here we never feel fully satisfied or fulfilled."
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "pos": "LB",
+   "count_before": 2,
+   "text": "Our ability to finish what we start, creative work most of all. One sign is regularly getting disrupted right when we are about to complete something."
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "pos": "LB",
+   "count_before": 3,
+   "text": "Money that leaves as fast as it arrives, trouble saving, or not receiving enough for our effort: when we struggle to empty, there is no capacity left to fill."
+  },
+  {
+   "op": "add_feeling_target",
+   "feeling": "Addiction and compulsion",
+   "count_before": 3,
+   "target": {
+    "node": "sacral",
+    "pos": "LF",
+    "label": null,
+    "t": "A temporary feeling of satisfaction, sought through food or drugs."
+   }
+  },
+  {
+   "op": "add_feeling_target",
+   "feeling": "Money stress and lack",
+   "count_before": 2,
+   "target": {
+    "node": "sacral",
+    "pos": "LB",
+    "label": null,
+    "t": "Money that goes out as fast as it comes in."
+   }
+  },
+  {
+   "op": "add_section",
+   "node": "lowback",
+   "key": "strength",
+   "title": "Strengthening it",
+   "blocks": [
+    "Strengthening the lower back and the whole chain of muscles that supports it (the glutes, the hamstrings, the thighs, the upper back) helps us out of the cycle of feeling unpaid and unsupported. A good sign: sitting on the floor with a straight posture for more than a minute without getting uncomfortable."
+   ],
+   "at": 1
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "pos": "RF",
+   "count_before": 2,
+   "text": "Often set by a religious upbringing that made us very guilt driven."
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "pos": "RF",
+   "count_before": 3,
+   "text": "Embarrassment feeds itself here: a rash on the face or sexual impotence brings more of the same feeling."
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "section": "body",
+   "count_before": 3,
+   "text": "Healthy digestion needs a sense of worthiness: feeling worthy, and not telling ourselves that we are bad or should be embarrassed."
+  },
+  {
+   "op": "add_search",
+   "node": "bladder",
+   "words": [
+    "bedwetting",
+    "bed wetting",
+    "painful urination"
+   ]
+  },
+  {
+   "op": "add_block",
+   "node": "solar",
+   "pos": "LF",
+   "count_before": 3,
+   "text": "Our sense of personal power comes largely from Mom: whether we were raised to think we could do anything, or to believe we had to be very careful."
+  },
+  {
+   "op": "add_block",
+   "node": "kidneys",
+   "section": "biofield",
+   "count_before": 4,
+   "text": "Having to summon the energy to take care of the people who were supposed to take care of us shows up most commonly in the kidneys. Carried into adult life as caretaking everybody, it puts a lot of strain on the kidneys and adrenals."
+  },
+  {
+   "op": "add_block",
+   "node": "adrenals",
+   "section": "biofield",
+   "count_before": 3,
+   "text": "Becoming the caretaker of everybody, a pattern that often begins with parenting our own parents, puts a lot of strain on the adrenals and kidneys."
+  },
+  {
+   "op": "add_block",
+   "node": "solar",
+   "side": "B",
+   "count_before": 2,
+   "text": "A child who had to parent their parents can carry it in the organs of this center, most commonly the kidneys."
+  },
+  {
+   "op": "add_block",
+   "node": "solar",
+   "side": "B",
+   "count_before": 3,
+   "text": "Later in life the closest female or male figure, a wife or a husband, takes on some of the mother or father imprint. Grief or anger over a parent's lack of support can be projected onto a partner without our knowing it, and come back as problems in the relationship."
+  },
+  {
+   "op": "add_block",
+   "node": "solar",
+   "section": "links",
+   "count_before": 4,
+   "text": "Powerlessness and being taken advantage of, at the left front of the solar plexus, tend to come with the posture of victimhood at the left hip.",
+   "li": true
+  },
+  {
+   "op": "add_block",
+   "node": "solar",
+   "section": "links",
+   "count_before": 5,
+   "text": "When a father could not show approval or affection, the lack sits at the right back of the solar plexus and shows up downstream: as guilt at the sacral, and as trying so hard to be noticed at the right hip.",
+   "li": true
+  },
+  {
+   "op": "add_block",
+   "node": "root",
+   "section": "links",
+   "count_before": 6,
+   "text": "Powerlessness and being taken advantage of, at the left front of the solar plexus, tend to come with the posture of victimhood at the left hip.",
+   "li": true
+  },
+  {
+   "op": "add_block",
+   "node": "root",
+   "section": "links",
+   "count_before": 7,
+   "text": "When a father could not show approval or affection, the lack sits at the right back of the solar plexus and shows up downstream: as guilt at the sacral, and as trying so hard to be noticed at the right hip.",
+   "li": true
+  },
+  {
+   "op": "add_block",
+   "node": "f-links",
+   "section": "more",
+   "count_before": 10,
+   "text": "Powerlessness and being taken advantage of, at the left front of the solar plexus, tend to come with the posture of victimhood at the left hip.",
+   "li": true
+  },
+  {
+   "op": "add_block",
+   "node": "f-links",
+   "section": "more",
+   "count_before": 11,
+   "text": "When a father could not show approval or affection, the lack sits at the right back of the solar plexus and shows up downstream: as guilt at the sacral, and as trying so hard to be noticed at the right hip.",
+   "li": true
+  },
+  {
+   "op": "add_block",
+   "node": "sacral",
+   "section": "links",
+   "count_before": 3,
+   "text": "When a father could not show approval or affection, the lack sits at the right back of the solar plexus and shows up downstream: as guilt at the sacral, and as trying so hard to be noticed at the right hip.",
+   "li": true
+  },
+  {
+   "op": "add_block",
+   "node": "heart",
+   "side": "R",
+   "count_before": 1,
+   "text": "The right side comes into balance when we say no when we mean no and yes when we mean yes: yes to our calling, our desire and what we love, without saying no out of fear. It takes courage to let our yes mean yes and our no mean no."
+  },
+  {
+   "op": "add_block",
+   "node": "heart",
+   "side": "L",
+   "count_before": 3,
+   "text": "The cure on the left is acceptance: of our own grief and sadness, and of other people's grief, sadness and behavior."
+  },
+  {
+   "op": "add_block",
+   "node": "heart",
+   "pos": "LF",
+   "count_before": 1,
+   "text": "Sadness and grief get stuck when they feel too heavy to feel, and we hold them back."
+  },
+  {
+   "op": "add_block",
+   "node": "heart",
+   "pos": "LB",
+   "count_before": 4,
+   "text": "This vulnerability sits at the back of the left shoulder and the back left armpit."
+  },
+  {
+   "op": "add_block",
+   "node": "crown",
+   "pos": "R",
+   "count_before": 3,
+   "text": "The need to be master of others is born out of fear. Out of balance, this side says \"I am the higher power.\""
+  },
+  {
+   "op": "add_search",
+   "node": "thirdeye",
+   "words": [
+    "hypersensitive",
+    "hypersensitivity",
+    "overstimulated",
+    "sensory overload"
+   ]
+  }
+ ]
+}

@@ -4,7 +4,7 @@ The wording never lives in this public repo. A change file (changes/<date>.json)
 file's name, the lines to change (by node, section and block; "first_sentence" replaces a line's first sentence and keeps the rest, so neither the old line nor
 any line of the existing wording is written down here) and the SHA-256 the new file
 must have. Larger changes use "ops" (see apply_op): new lines, sections, entries and search words, and additions to the end of a line,
-each checked against a short fingerprint ("was": the first 12 hex digits of the SHA-256 of the line as it stands) instead of the old words. This script fetches the starting file from the bucket's public address, makes the changes, stops unless the result has
+each checked against a short fingerprint ("was": the first 12 hex digits of the SHA-256 of the line as it stands) instead of the old words. Since 2026-11-22 a new line can also go on a spot ("pos") or a side box ("side") of an entry, a label can be reworded ("set_label"), and the feelings index can gain an entry or a place ("add_feeling", "add_feeling_target"). This script fetches the starting file from the bucket's public address, makes the changes, stops unless the result has
 exactly that SHA-256, and uploads it under the new name. It never overwrites a file that is already there.
 
 usage: python apply.py changes/2026-11-17.json [--dry] [--out file]     (--dry: build and check only, no upload; --out: also save the built file, never inside this repo)
@@ -31,9 +31,24 @@ def apply_op(c, nodes, o, rule):
         else: assert b["t"].count(o["old"]) == 1; b["t"] = b["t"].replace(o["old"], o["new"])
         tag(b); return
     if k == "add_block":
-        sec = [s for s in nodes[o["node"]]["sections"] if s["key"] == o["section"]]; assert len(sec) == 1, (o["node"], o["section"])
-        assert len(sec[0]["blocks"]) == o["count_before"], "block count changed: %s %s" % (o["node"], o["section"])
-        sec[0]["blocks"].append({"t": o["text"], "src": [rule]}); return
+        kind = "section" if "section" in o else "pos" if "pos" in o else "side"; where = {"section": "sections", "pos": "positions", "side": "sides"}[kind]
+        sec = [s for s in nodes[o["node"]][where] if s["key"] == o[kind]]; assert len(sec) == 1, (o["node"], o[kind])
+        assert len(sec[0]["blocks"]) == o["count_before"], "block count changed: %s %s" % (o["node"], o[kind])
+        sec[0]["blocks"].append(dict({"t": o["text"], "src": [rule]}, **({"li": 1} if o.get("li") else {}))); return
+    if k == "set_label":   # the short line of a spot or an entry, the title of a side box, or the second line of a field marker
+        n = nodes[o["node"]]
+        if "pos" in o: box = [p for p in n["positions"] if p["key"] == o["pos"]]; assert len(box) == 1; box, key = box[0], "short"
+        elif "side" in o: box = [p for p in n["sides"] if p["key"] == o["side"]]; assert len(box) == 1; box, key = box[0], "title"
+        elif "mark" in o: box, key = n["marks"][o["mark"]], 1
+        else: box, key = n, "short"
+        assert fp(box[key]) == o["was"], "not the expected label: %s" % o["node"]; box[key] = o["text"]; return
+    if k == "add_feeling":
+        new = o["entry"]; names = [f["name"] for f in c["feelings"]]; assert new["name"] not in names, new["name"]
+        for t in new["targets"]: assert t["node"] in nodes, t["node"]; t["src"] = [rule]
+        c["feelings"].insert(names.index(o["after"]) + 1, new); return
+    if k == "add_feeling_target":
+        f = [x for x in c["feelings"] if x["name"] == o["feeling"]]; assert len(f) == 1 and len(f[0]["targets"]) == o["count_before"], o["feeling"]
+        t = o["target"]; assert t["node"] in nodes, t["node"]; t["src"] = [rule]; f[0]["targets"].append(t); return
     if k == "add_section":
         n = nodes[o["node"]]; assert all(s["key"] != o["key"] for s in n["sections"]), (o["node"], o["key"])
         n["sections"].insert(o.get("at", len(n["sections"])), {"key": o["key"], "title": o["title"], "blocks": [{"t": t, "src": [rule]} for t in o["blocks"]]}); return
