@@ -998,9 +998,10 @@ def build_premiere(slug):
     p = premiere_info(slug)
     if not p:
         return ""
-    return ('<div class="iv-premiere" data-premiere-at="' + esc(p["at"]) + '">'
+    # The outer row lines up with the title; the pill inside is only as wide as its words.
+    return ('<div class="iv-premiere" data-premiere-at="' + esc(p["at"]) + '"><span class="iv-premiere-pill">'
             '<span class="iv-premiere-dot"></span>'
-            '<span class="iv-premiere-text">' + esc(p.get("text") or "Premieres soon") + "</span></div>")
+            '<span class="iv-premiere-text">' + esc(p.get("text") or "Premieres soon") + "</span></span></div>")
 
 
 def build_premiere_early(f):
