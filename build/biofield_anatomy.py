@@ -25,7 +25,7 @@ import shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOOL = os.path.join(ROOT, "tools", "biofield-anatomy")
 
-CONTENT_URL = "https://images.innerversepodcast.com/biofield-anatomy/content-2026-11-18.js"
+CONTENT_URL = "https://images.innerversepodcast.com/biofield-anatomy/content-2026-11-22.js"
 HIDDEN = True
 PATH = "/biofield-anatomy"
 ORIGIN = "https://www.innerversepodcast.com"
