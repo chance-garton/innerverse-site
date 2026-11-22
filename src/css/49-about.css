@@ -20,9 +20,12 @@ html.iv-about-page body { background: var(--ground); }
 }
 .iv-about p { margin: 0; font-size: 17px; line-height: 1.7; color: var(--ink-muted); max-width: 68ch; }
 .iv-about p.iv-about-lede { font-size: 19px; }
+/* 2026-11-22: the square tuning fork photo in a soft lapis frame */
 .iv-about-photo {
-  width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: top;
-  border-radius: 20px; display: block; background: var(--card);
+  width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: cover;
+  border-radius: 22px; display: block; background: #000;
+  border: 1px solid rgba(91,143,224,.45);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45), 0 0 56px rgba(59,116,204,.22);
 }
 .iv-about-row {
   display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 48px; padding: 48px 0;
@@ -69,7 +72,7 @@ html.iv-about-page body { background: var(--ground); }
 
 @media (max-width: 960px) {
   .iv-about-hero { grid-template-columns: 1fr; gap: 32px; }
-  .iv-about-photo { max-width: 560px; }
+  .iv-about-photo { max-width: 440px; }
   .iv-about-row { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
 }
 @media (max-width: 700px) {

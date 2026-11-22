@@ -808,7 +808,7 @@
   /* 2026-09-24: the Get Tuned card, two tabs (Biofield Tuning first,
      Consultations second) beside the tuning-fork portrait from the homepage
      host section, using the homepage's own Get Tuned copy. */
-  var IV2_FORKS = 'https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7a926674-e13c-4827-ac2a-8d4cf8964ab0/CHANCE+GARTON+ABOUT+PAGE+INNERVERSE.png';
+  var IV2_FORKS = 'https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg';
   function buildBookSession() {
     return '' +
       '<div class="iv-booksession iv2-card iv2-hcard" id="iv2-tuned">' +

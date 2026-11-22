@@ -65,7 +65,8 @@ HOST_GUEST_ID = "rec7Vm5QNrDbc9sdb"
 HOST_PORTRAIT = CDN + "aa717e55-9487-4255-a7df-3f8ef10940c4/Chance+Garton+Patreon+Portrait.png?format=500w&content-type=image%2Fpng"
 FREE_SHOWS = ["vibe rant", "astro-herbalism", "chance guest spots", "marvelous demystifiers"]
 IV_NOTES_TEASE = "Members also get the full research notes for this episode."
-IV2_FORKS = "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7a926674-e13c-4827-ac2a-8d4cf8964ab0/CHANCE+GARTON+ABOUT+PAGE+INNERVERSE.png"
+# 2026-11-22 (Chance): the new square tuning fork photo replaces the old cutout everywhere.
+IV2_FORKS = "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg"
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 

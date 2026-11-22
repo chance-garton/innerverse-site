@@ -97,7 +97,7 @@ def plus(plus_index):
 # Facts checked 2026-10-30: start year 2015 (Chance), show list and playlists
 # from the live site's header, every channel link answered.
 
-ABOUT_PHOTO = "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7a926674-e13c-4827-ac2a-8d4cf8964ab0/CHANCE+GARTON+ABOUT+PAGE+INNERVERSE.png"
+ABOUT_PHOTO = "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg"
 ABOUT_OG = "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69f7320df691fe20c1392d7c/1777807885424/ChatGPT+Image+Apr+30%2C+2026%2C+09_03_08+AM.png"
 RSS = "https://feeds.acast.com/public/shows/5a7e6d34b56c94b1216394e3"
 
@@ -173,8 +173,8 @@ def about():
         "free episodes for everyone and full, extended editions for InnerVerse Plus+ members. The earliest "
         "recordings are no longer in the public feed, so the archive on this site begins with the episodes that are.</p>"
         "</div>"
-        '<img class="iv-about-photo" src="' + esc(iv_img(ABOUT_PHOTO, 1000)) + '" alt="Chance Garton, host of InnerVerse" '
-        'width="840" height="630" fetchpriority="high">'
+        '<img class="iv-about-photo" src="' + esc(iv_img(ABOUT_PHOTO, 1000)) + '" alt="Chance Garton, host of InnerVerse, holding a tuning fork" '
+        'width="1254" height="1254" fetchpriority="high">'
         "</header>"
     )
 

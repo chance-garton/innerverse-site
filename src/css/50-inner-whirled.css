@@ -56,7 +56,7 @@ html.iv-2026.iv-iw .iv-video-play{animation-name:iw-pulse;}
 html.iv-2026.iv-iw .iv-video-play:hover{box-shadow:0 0 0 14px rgba(109,63,240,0.35);}
 @keyframes iw-pulse{0%{box-shadow:0 0 0 0 rgba(109,63,240,0.55)}100%{box-shadow:0 0 0 26px rgba(109,63,240,0)}}
 html.iv-2026.iv-iw .iv2-p,html.iv-2026.iv-iw .iv-theme-text,html.iv-2026.iv-iw .iv-aff-body{color:var(--iw-body);}
-html.iv-2026.iv-iw .iv2-media-forks{background:radial-gradient(ellipse at 50% 75%,rgba(109,63,240,0.42),rgba(24,18,47,0) 68%),var(--surface);}
+html.iv-2026.iv-iw .iv2-media-forks{background:#000;}
 html.iv-2026.iv-iw .iv-quote-avatar{border-color:rgba(165,150,245,0.5);}
 html.iv-2026.iv-iw .iv-tag-pill{color:#C8C3DD;}
 html.iv-iw .iv-banner{background:#150F28;border-top-color:rgba(109,63,240,0.5);}

@@ -25,7 +25,7 @@
   var ivR2 = function (u) { return (window.ivImgR2 && window.ivImgR2(u)) || u; }
   var PORTRAIT_DESKTOP = ivR2(CDN + '9c1dfacf-dd4d-4987-95d7-3a2a1a57d65d/Chance-Garton-hero-circular-feather-Portrait.png?format=750w');
   var PORTRAIT_PHONE = ivR2(CDN + '0d1c6b4a-baa8-46a6-8e7a-7b5ad8f90fd5/Chance-Garton-hero-Portrait.png?format=500w');
-  var HOST_IMG = ivR2('https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/7a926674-e13c-4827-ac2a-8d4cf8964ab0/CHANCE+GARTON+ABOUT+PAGE+INNERVERSE.png?format=750w');
+  var HOST_IMG = (window.ivImg ? window.ivImg('https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg', 750) : '') || 'https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg';
   var PLUS_LOGO = ivR2(CDN + 'c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng');
   var CHECKOUT_TRIAL = 'https://innerverseplus.memberful.com/checkout?plan=149343';
   var ABOUT_URL = '/about';
@@ -197,7 +197,7 @@
 
     /* Host */
     '<section class="ivh-sec ivh-host" aria-labelledby="ivh-host-h"><div class="ivh-wrap">' +
-      '<img class="ivh-host-img" src="' + HOST_IMG + '" alt="Chance Garton" loading="lazy" decoding="async">' +
+      '<img class="ivh-host-img" src="' + HOST_IMG + '" alt="Chance Garton holding a tuning fork" width="1254" height="1254" loading="lazy" decoding="async">' +
       '<div class="ivh-host-text">' +
         '<div class="ivh-label">The host</div>' +
         '<h2 class="ivh-h2" id="ivh-host-h">Chance Garton</h2>' +

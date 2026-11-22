@@ -298,6 +298,19 @@
 
 /* Approved portrait framing; photograph remains unchanged. */
 #ivbt .bio .photo{border-color:rgba(143,181,240,.25);box-shadow:0 18px 50px rgba(0,0,0,.24),0 0 40px rgba(59,116,204,.10);}
+/* 2026-11-22: the tall tuning fork portrait. Shown whole beside the text on a wide screen, with its
+   caption laid over the foot of the photo; framed to the face and the fork's waves on a phone. */
+#ivbt .bio{grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:64px;}
+#ivbt .bio .photo{position:relative;background:#0b1220;border-color:rgba(91,143,224,.45);box-shadow:0 22px 60px rgba(0,0,0,.45),0 0 56px rgba(59,116,204,.22);}
+#ivbt .bio .photo img{display:block;width:100%;height:auto;}
+#ivbt .bio .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 14px;font-size:11.5px;letter-spacing:.02em;color:#dfe7f5;background:linear-gradient(180deg,rgba(8,12,22,0),rgba(8,12,22,.82) 62%);}
+#ivbt .bio:has(.origin-story[open])>div:first-child{position:sticky;top:104px;}
+@media(max-width:1000px){#ivbt .bio{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:36px;}}
+@media(max-width:760px){
+#ivbt .bio{grid-template-columns:1fr;gap:26px;}
+#ivbt .bio>div:first-child{order:0;max-width:340px;position:static!important;}
+#ivbt .bio .photo img{aspect-ratio:1/1;object-fit:cover;object-position:50% 8%;}
+}
 #ivbt .hero-art img{display:block;background:transparent;border-radius:0;}
 
 /* Feather the aura itself, beyond the image's existing background removal. */
@@ -518,7 +531,7 @@ mask-image:radial-gradient(ellipse 49% 50% at 50% 51%,#000 72%,rgba(0,0,0,.94) 8
       <div class="bio">
         <div>
           <div class="photo">
-            <img src="https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/24214aeb-ad89-47e5-8b38-d41286992292/Chance+Garton+Portrait.png?content-type=image%2Fpng" alt="Chance Garton, Biofield Tuning practitioner and host of InnerVerse" loading="lazy" decoding="async" width="1086" height="1448">
+            <img src="https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-biofield-tuning-portrait/w750.webp" srcset="https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-biofield-tuning-portrait/w300.webp 300w, https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-biofield-tuning-portrait/w500.webp 500w, https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-biofield-tuning-portrait/w750.webp 750w" sizes="(max-width: 760px) 340px, 380px" alt="Chance Garton, Biofield Tuning practitioner and host of InnerVerse, holding a tuning fork" loading="lazy" decoding="async" width="941" height="1672">
             <div class="cap">Chance Garton, host of InnerVerse since 2015</div>
           </div>
         </div>
