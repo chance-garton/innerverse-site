@@ -389,3 +389,7 @@ html.iv-2026 .iv-premiere-pill{display:inline-flex;align-items:center;gap:10px;m
 @media (max-width:700px){html.iv-2026 .iv-premiere{margin:14px auto 20px;}html.iv-2026 .iv-premiere-pill{font-size:11.5px;padding:8px 14px;border-radius:14px;}}
 html.iv-2026 .iv-premiere-dot{width:8px;height:8px;border-radius:50%;background:#f2c95c;box-shadow:0 0 0 0 rgba(242,201,92,.7);animation:ivPremPulse 1.8s infinite;flex:none;}
 @keyframes ivPremPulse{0%{box-shadow:0 0 0 0 rgba(242,201,92,.7);}70%{box-shadow:0 0 0 9px rgba(242,201,92,0);}100%{box-shadow:0 0 0 0 rgba(242,201,92,0);}}
+
+/* Members' page: More episodes sits apart from the last section, as on the free page (2026-11-22) */
+html.iv-2026 #iv-plus-related.iv-related{max-width:1200px;margin:64px auto 0;padding-top:56px;border-top:1px solid var(--line);}
+@media (max-width:700px){html.iv-2026 #iv-plus-related.iv-related{margin-top:40px;padding-top:36px;}}

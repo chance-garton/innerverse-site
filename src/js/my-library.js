@@ -75,34 +75,63 @@
     return it ? { el: it, after: true } : null;
   }
 
+  /* 2026-11-22 (Chance): one compact "Plus+ features" card in place of the My library card and the
+     Inner Circle card. Four small buttons; the notes box stays folded away until the member opens
+     it (or already has a note here). It shows on every /plus page, and on a free page only when
+     that episode has no members' version: a member reading the free page of an extended episode
+     gets neither this nor the Inner Circle invite there, both live on its /plus page. */
+  var NOTE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"></path><path d="M13.5 6.5l4 4"></path></svg>';
+  var TALK = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"></path></svg>';
+  function hasMembersVersion() {
+    if (isPlus) return false;
+    try {
+      var st = JSON.parse(document.getElementById('iv-page-data').textContent || '{}');
+      return !!(st.f && st.f.directPlusUrl);
+    } catch (e) { return false; }
+  }
+
   var mounted = false;
   function mount() {
     if (mounted || !member()) return;
     var a = anchor(); if (!a) return;
     mounted = true;
+    if (hasMembersVersion()) return;
+    keys().then(function (k) { if (!isPlus && k.twin) return; build(a, k); });
+  }
+  function build(a, k) {
     var card = document.createElement('div');
-    card.className = 'iv2-card ivml-card';
+    card.className = 'iv2-card ivml-card ivml-compact';
     card.id = 'ivml';
     card.innerHTML =
-      '<div class="ivml-top"><div><span class="iv2-eyebrow iv2-gold">Just for you</span><h3 class="iv2-h3">My library</h3></div>' +
-        '<div class="ivml-acts"><button type="button" class="iv2-btn iv2-btn-secondary ivml-watch" aria-pressed="false">' + CHECK + '<span>Mark as watched</span></button>' +
-        '<button type="button" class="iv2-btn iv2-btn-secondary ivml-save" aria-pressed="false">' + HEART(false) + '<span>Save episode</span></button></div></div>' +
-      '<label class="ivml-label" for="ivml-note">My notes <span>(private, only you can see them)</span></label>' +
-      '<textarea id="ivml-note" class="ivml-note" maxlength="10000" placeholder="Thoughts, sources to look up, moments to come back to."></textarea>' +
-      '<div class="ivml-bar"><span class="ivml-msg">Saved to your account, here and in the InnerVerse app.</span><a href="' + APP_LIB + '" target="_blank" rel="noopener">Open My library</a></div>';
+      '<div class="ivml-top"><span class="iv2-eyebrow iv2-gold">Plus+ features</span>' +
+        '<a class="ivml-lib" href="' + APP_LIB + '" target="_blank" rel="noopener">Open My library</a></div>' +
+      '<div class="ivml-acts">' +
+        '<button type="button" class="iv2-btn iv2-btn-secondary ivml-watch" aria-pressed="false">' + CHECK + '<span>Mark as watched</span></button>' +
+        '<button type="button" class="iv2-btn iv2-btn-secondary ivml-save" aria-pressed="false">' + HEART(false) + '<span>Save episode</span></button>' +
+        '<button type="button" class="iv2-btn iv2-btn-secondary ivml-notebtn" aria-expanded="false" aria-controls="ivml-notes">' + NOTE + '<span>Add a note</span></button>' +
+        '<a class="iv2-btn iv2-btn-secondary ivml-go" href="' + CIRCLE_ROOM + encodeURIComponent(slug) + '" target="_blank" rel="noopener">' + TALK + '<span>Talk about it</span></a>' +
+      '</div>' +
+      '<div class="ivml-notes" id="ivml-notes" hidden>' +
+        '<label class="ivml-label" for="ivml-note">My notes <span>(private, only you can see them)</span></label>' +
+        '<textarea id="ivml-note" class="ivml-note" maxlength="10000" placeholder="Thoughts, sources to look up, moments to come back to."></textarea>' +
+      '</div>' +
+      '<div class="ivml-bar"><span class="ivml-msg"></span></div>';
     if (a.after) a.el.parentElement.insertBefore(card, a.el.nextSibling);
     else a.el.parentElement.insertBefore(card, a.el);
-    var room = document.createElement('div');
-    room.className = 'iv2-card ivml-card ivml-room';
-    room.innerHTML =
-      '<div class="ivml-top"><div><span class="iv2-eyebrow iv2-gold">Inner Circle</span><h3 class="iv2-h3">Talk about this episode</h3></div>' +
-        '<a class="iv2-btn iv2-btn-secondary ivml-go" href="' + CIRCLE_ROOM + encodeURIComponent(slug) + '" target="_blank" rel="noopener">' +
-        '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"></path></svg><span>Join the conversation</span></a></div>' +
-      '<div class="ivml-bar"><span>Share what stood out with fellow members in this episode\'s own room.</span></div>';
-    card.parentElement.insertBefore(room, card.nextSibling);
+    var nbtn = card.querySelector('.ivml-notebtn'), nbox = card.querySelector('.ivml-notes');
+    function paintN(open) {
+      nbox.hidden = !open;
+      nbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nbtn.classList.toggle('ivml-on', open);
+      nbtn.querySelector('span').textContent = card.querySelector('.ivml-note').value ? 'My note' : 'Add a note';
+    }
+    nbtn.addEventListener('click', function () {
+      var open = nbox.hidden; paintN(open);
+      if (open) { try { card.querySelector('.ivml-note').focus(); } catch (e) {} }
+    });
     var btn = card.querySelector('.ivml-save'), ta = card.querySelector('.ivml-note'), msg = card.querySelector('.ivml-msg');
     var wbtn = card.querySelector('.ivml-watch');
-    var base = msg.textContent, key = '', saved = false, last = '', t = null, mt = null;
+    var base = '', key = '', saved = false, last = '', t = null, mt = null;
     var wkey = '', wtwin = '', watched = false, wbusy = false;
     ta.disabled = true; btn.disabled = true; wbtn.disabled = true;
     function paintW() {
@@ -141,8 +170,8 @@
       btn.innerHTML = HEART(saved) + '<span>' + (saved ? 'Saved' : 'Save episode') + '</span>';
     }
     function say(s, back) { msg.textContent = s; clearTimeout(mt); if (back) mt = setTimeout(function () { msg.textContent = base; }, 1800); }
-    Promise.all([keys(), api('GET')]).then(function (res) {
-      var k = res[0], items = (res[1] && res[1].items) || [];
+    api('GET').then(function (res) {
+      var items = (res && res.items) || [];
       /* the row holding a save or a note (a watched-only row on the other version must not hide them) */
       var has = function (x) { return x && (x.saved || x.note); };
       var a1 = items.filter(function (x) { return x.key === k.main; })[0], b1 = k.twin && items.filter(function (x) { return x.key === k.twin; })[0];
@@ -154,8 +183,9 @@
       saved = !!(mine && mine.saved);
       ta.value = last = (mine && mine.note) || '';
       paint(); ta.disabled = false; btn.disabled = false;
+      paintN(!!ta.value);   /* a note already written shows; otherwise the box stays folded */
     })['catch'](function (e) {
-      if (String(e && e.message) === '401') { card.parentElement && card.parentElement.removeChild(card); room.parentElement && room.parentElement.removeChild(room); return; }
+      if (String(e && e.message) === '401') { card.parentElement && card.parentElement.removeChild(card); return; }
       say('Your library could not load. Refresh the page to try again.');
     });
     btn.addEventListener('click', function () {
@@ -167,7 +197,7 @@
       clearTimeout(t); t = null;
       if (!key || ta.value === last) return;
       var v = ta.value; last = v; say('Saving...');
-      api('POST', { key: key, note: v }).then(function () { say('Saved', true); })['catch'](function () { last = ''; say('Not saved yet. Check your connection.'); });
+      api('POST', { key: key, note: v }).then(function () { say('Saved', true); nbtn.querySelector('span').textContent = v ? 'My note' : 'Add a note'; })['catch'](function () { last = ''; say('Not saved yet. Check your connection.'); });
     }
     ta.addEventListener('input', function () { clearTimeout(t); t = setTimeout(saveNote, 900); });
     ta.addEventListener('blur', saveNote);

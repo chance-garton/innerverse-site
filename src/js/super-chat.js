@@ -33,19 +33,24 @@
   var CSS = '' +
     '.ivsc{background:var(--card,#151E33);border:1px solid var(--line,rgba(233,238,246,.12));border-radius:14px;padding:22px 24px;margin:22px 0;color:var(--ink,#E9EEF6);font-family:var(--font-sans,Manrope,"Segoe UI",Helvetica,Arial,sans-serif);box-sizing:border-box}' +
     '.ivsc-wrap{max-width:1200px;margin:0 auto;padding:0 20px}' +
-    '.ivsc.ivsc-slim{max-width:1000px;margin:0 auto 16px;padding:12px 16px;border-radius:12px}' +
-    '.ivsc-slim .ivsc-top{gap:12px}' +
-    '.ivsc-slim .ivsc-top>div{min-width:200px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}' +
-    '.ivsc-slim .ivsc-eb{font-size:11px;letter-spacing:2px}' +
-    '.ivsc-slim p{font-size:14px;line-height:1.4;flex:1;min-width:180px}' +
-    '.ivsc-slim .ivsc-go{height:40px;padding:0 18px;font-size:14px}' +
-    '.ivsc-slim .ivsc-list{margin-top:12px}' +
+    /* The slim card under an episode's player (reworked 2026-11-22): a coin, two short lines, the button. */
+    '.ivsc.ivsc-slim{max-width:1000px;margin:18px auto 20px;padding:14px 18px;border-radius:14px}' +
+    '.ivsc-slim .ivsc-top{flex-wrap:nowrap;gap:14px}' +
+    '.ivsc-coin{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(216,170,60,.14);border:1px solid rgba(216,170,60,.5);color:var(--gold-text,#D8AA3C)}' +
+    '.ivsc-slim .ivsc-top>.ivsc-words{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}' +
+    '.ivsc-slim .ivsc-eb{font-size:11px;letter-spacing:2px;line-height:1.2}' +
+    '.ivsc-slim p{font-size:14px;line-height:1.4}' +
+    '.ivsc-slim .ivsc-go{flex:none;height:42px;padding:0 18px;font-size:14px}' +
+    '.ivsc-slim .ivsc-go svg{width:18px;height:18px}' +
+    '.ivsc-slim .ivsc-list{margin-top:14px}' +
+    '.ivsc-slim .ivsc-list:empty{display:none}' +
+    '@media(max-width:700px){.ivsc.ivsc-slim{margin:14px 0 18px;padding:14px}.ivsc-slim .ivsc-top{flex-wrap:wrap}.ivsc-slim .ivsc-go{width:100%;justify-content:center;height:44px}}' +
     '.ivsc-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}' +
     '.ivsc-top>div{flex:1;min-width:220px}' +
     '.ivsc-eb{display:block;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold-text,#D8AA3C)}' +
     '.ivsc h3{font-family:var(--font-display,Fraunces,Georgia,serif);font-size:24px;font-weight:600;margin:4px 0 6px;color:var(--ink,#E9EEF6);letter-spacing:-.3px}' +
     '.ivsc p{margin:0;color:var(--ink-muted,#9AA6BA);font-size:15px;line-height:1.5}' +
-    '.ivsc-go{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:10px;border:0;background:var(--gold,#D8AA3C);color:var(--on-gold,#0A0F1C);font:700 15px/1 var(--font-sans,Manrope,sans-serif);cursor:pointer;white-space:nowrap}' +
+    '.ivsc-go{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:10px;border:0;background:var(--gold,#D8AA3C);color:#0A0F1C!important;font:700 15px/1 var(--font-sans,Manrope,sans-serif);cursor:pointer;white-space:nowrap}' +
     '.ivsc-list{display:flex;flex-direction:column;gap:8px;margin-top:18px}' +
     '.ivsc-item{--sc:#5B8FE0;border-radius:12px;overflow:hidden;border:1px solid color-mix(in srgb,var(--sc) 55%,transparent);background:color-mix(in srgb,var(--sc) 12%,transparent)}' +
     '.ivsc-band{display:flex;align-items:center;gap:8px;padding:7px 12px;background:var(--sc);color:#0A0F1C;font-weight:800;font-size:14px}' +
@@ -110,22 +115,39 @@
     var where = isHome ? 'in the Inner Circle chat' : 'here and in this episode’s Inner Circle room';
     var btn = '<button type="button" class="ivsc-go">' + COIN + '<span>Send a Super Chat</span></button>';
     if (!isHome) {
-      return '<div class="ivsc-top"><div><span class="ivsc-eb">Super Chat</span>' +
-        '<p>Send Chance a Super Chat with a message. It shows ' + where + '.</p></div>' + btn + '</div><div class="ivsc-list" id="ivsc-list"></div>';
+      return '<div class="ivsc-top"><span class="ivsc-coin" aria-hidden="true">' + COIN + '</span>' +
+        '<div class="ivsc-words"><span class="ivsc-eb">Super Chat</span>' +
+        '<p>Send Chance a message with a tip. It shows ' + where + '.</p></div>' + btn + '</div><div class="ivsc-list" id="ivsc-list"></div>';
     }
     return '<div class="ivsc-top"><div><span class="ivsc-eb">Super Chat</span><h3>Support InnerVerse</h3>' +
       '<p>Send Chance a Super Chat with a message. It shows ' + where + ', and here on the page.</p></div>' + btn + '</div><div class="ivsc-list" id="ivsc-list"></div>';
   }
 
   var mounted = false;
+  var isPlusPage = /^plus$/i.test(seg[0] || '');
+  /* Under the player on both kinds of page (2026-11-22, Chance): after the "Also on" row on a free
+     page, straight after the video on a member's /plus page (which is drawn once the member check
+     passes; a signed-out /plus page has no player and gets no card). */
   function mountEpisode() {
-    var also = document.querySelector('.iv-platforms');
-    var after = also || (document.getElementById('ivml') ? document.querySelector('.ivml-room') || document.getElementById('ivml') : null);
-    if (!after) after = document.querySelector('#iv-episode-root .iv-intro-text') || document.querySelector('.blog-item-content .iv-plus-intro') || document.querySelector('.blog-item-content .iv-plus-tuned-row');
+    var after;
+    if (isPlusPage) {
+      if (!document.documentElement.classList.contains('iv-plus-ep')) return false;
+      after = document.querySelector('.blog-item-content > .sqs-block-video');
+      if (!after || !after.querySelector('.iv-ratio, iframe, .iv-media-toggle')) return false;
+    } else {
+      after = document.querySelector('#iv-episode-root .iv-platforms') || document.querySelector('#iv-episode-root > .iv-media-toggle');
+    }
     if (!after) return false;
     var card = document.createElement('section'); card.className = 'ivsc ivsc-slim'; card.id = 'ivsc'; card.setAttribute('aria-label', 'Super Chat');
     card.innerHTML = cardHtml();
     after.parentElement.insertBefore(card, after.nextSibling);
+    /* as wide as the player above it */
+    function fit() {
+      var box = isPlusPage ? after.querySelector('.iv-media-toggle, .iv-ratio') : document.querySelector('#iv-episode-root > .iv-media-toggle');
+      var w = box && box.offsetWidth;
+      card.style.maxWidth = w && window.innerWidth > 700 ? w + 'px' : '';
+    }
+    fit(); window.addEventListener('resize', fit); setTimeout(fit, 600); setTimeout(fit, 2000);
     return true;
   }
   function mountHome() {

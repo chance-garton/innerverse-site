@@ -123,7 +123,7 @@ def structured_data(f, guests, canonical, description, image, date):
         {"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(crumbs)]}]}
 
 
-def render(slug, file, post, entry):
+def render(slug, file, post, entry, noindex=False):
     r = file["fields"]
     shows = ep.names(r.get("Show Categories"))
     vr = "Vibe Rant" in shows   # 2026-11-05: InnerVerse colours, Vibe Rant wordmark, never the Inner Whirled skin
@@ -173,4 +173,9 @@ def render(slug, file, post, entry):
     html_class = "iv-2026 iv-plus-slug" + (" iv-vr" if vr else "")
     h = head(title, description, canonical, image, "article", html_class, "Inner Whirled" in shows and not vr,
              extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
+    if noindex:
+        # 2026-11-22 (Chance): a members' page whose episode has a free page stays out of search.
+        # What a search engine can read here (the join screen, the same description, chapter
+        # titles) only repeats the free page and competes with it; its links are still followed.
+        h = h.replace('content="index, follow, max-image-preview:large"', 'content="noindex, follow"')
     return page(h, body, html_class, scripts=("/assets/site.js", "/assets/episode.js", "/assets/promo.js", "/assets/my-library.js", "/assets/super-chat.js"))

@@ -20,3 +20,20 @@ html.iv-2026 .ivml-bar a{color:var(--gold-text,#E6C46A)!important;font-weight:70
 html.iv-2026 .ivml-room{margin-top:16px!important;}
 html.iv-2026 .ivml-room .ivml-go{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;text-decoration:none!important;}
 @media (max-width:700px){html.iv-2026 .ivml-room .ivml-go{justify-content:center;}html.iv-2026 .ivml-card{padding:20px;margin:28px 0 0!important;}html.iv-2026 .ivml-top{flex-direction:column;align-items:stretch;}html.iv-2026 .ivml-save{justify-content:center;}html.iv-2026 .ivml-acts{display:grid;grid-template-columns:1fr 1fr;}html.iv-2026 .ivml-watch{justify-content:center;}}
+
+/* Plus+ features (2026-11-22): the compact card that replaces My library and the Inner Circle card. */
+html.iv-2026 .ivml-compact{gap:12px;padding:16px 18px;margin:28px 0 0!important;}
+html.iv-2026 .ivml-compact .ivml-top{align-items:center;flex-direction:row;}
+html.iv-2026 .ivml-lib{font-family:Manrope,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;color:var(--gold-text,#E6C46A)!important;text-decoration:none!important;white-space:nowrap;}
+html.iv-2026 .ivml-compact .ivml-acts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;justify-content:stretch;}
+html.iv-2026 .ivml-compact .ivml-acts .iv2-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:0;height:40px;padding:0 10px;font-size:13px;white-space:nowrap;cursor:pointer;text-decoration:none!important;box-sizing:border-box;}
+html.iv-2026 .ivml-compact .ivml-acts .iv2-btn svg{flex:0 0 auto;width:16px;height:16px;}
+html.iv-2026 .ivml-notebtn.ivml-on{color:var(--gold-text,#E6C46A)!important;border-color:var(--gold,#D8AA3C)!important;}
+html.iv-2026 .ivml-notes{display:flex;flex-direction:column;gap:8px;}
+html.iv-2026 .ivml-notes[hidden]{display:none;}
+html.iv-2026 .ivml-compact .ivml-note{min-height:96px;}
+html.iv-2026 .ivml-compact .ivml-bar{min-height:0;}
+html.iv-2026 .ivml-compact .ivml-msg:empty{display:none;}
+html.iv-2026 .ivml-compact .ivml-bar:has(.ivml-msg:empty){display:none;}
+@media (max-width:1100px){html.iv-2026 .ivml-compact .ivml-acts{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:700px){html.iv-2026 .ivml-compact{padding:14px;margin:22px 0 0!important;}html.iv-2026 .ivml-compact .ivml-top{flex-direction:row;align-items:center;}}

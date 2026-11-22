@@ -2964,11 +2964,7 @@
           main.appendChild(dualRoot);
           wirePlusDual(dualRoot);
           wireAccordions(dualRoot);
-          if (window.innerWidth > 700) {
-            /* 2026-09-24e: chapters open, themes and quotes closed until clicked, as on the free page. */
-            var plusChapAcc = dualRoot.querySelector('#iv-plus-chapters-acc');
-            if (plusChapAcc) plusChapAcc.classList.add('iv-open');
-          }
+          /* 2026-11-22 (Chance): chapters start closed at every width, like the sections under them. */
           wirePlusChapters(dualRoot);
           wireQuoteShare(dualRoot, window.location.href);
           backfillQuotePortraits(dualRoot, []);

@@ -186,8 +186,10 @@ def main():
     related = episode.Related(corpus, live)
 
     sitemap = []
+    built_free = set()
     for post, file in pages:
         slug = post["slug"]
+        built_free.add(slug)
         data_slug = file["fields"].get("Slug") or slug
         tags = (index.get(data_slug) or {}).get("tags") or post.get("tags") or []
         html = episode.render(slug, file, post, related.rank(data_slug), tags)
@@ -208,7 +210,7 @@ def main():
     # with an episode file. Entries whose url is a free page are the free-only
     # rows with no members' cut, and have no /plus page to build.
     plus_posts = {p["slug"]: p for p in snap.get("plus", [])}
-    plus_pages, plus_no_data = 0, []
+    plus_pages, plus_no_data, plus_noindex = 0, [], 0
     for e in plus_eps:
         if "/plus/" not in (e.get("url") or ""):
             continue
@@ -216,8 +218,14 @@ def main():
         if not file:
             plus_no_data.append(e["slug"])
             continue
-        write("plus/" + e["slug"] + ".html", plus_episode.render(e["slug"], file, plus_posts.get(e["slug"]), e))
+        # A members' page with a free twin is kept out of search and out of the sitemap; a
+        # members-only episode has no other page, so its /plus page stays searchable.
+        twin = bool(e.get("freeSlug") and e["freeSlug"] in built_free)
+        write("plus/" + e["slug"] + ".html", plus_episode.render(e["slug"], file, plus_posts.get(e["slug"]), e, noindex=twin))
         plus_pages += 1
+        if twin:
+            plus_noindex += 1
+            continue
         lastmod = (e.get("date") or file["fields"].get("Publish Date") or "")[:10]
         sitemap.append((common.LIVE_ORIGIN + "/plus/" + e["slug"], lastmod))
     plus_page = hand.plus(plus_eps)
@@ -280,7 +288,7 @@ def main():
     write("_redirects", "\n".join(redirect_lines) + "\n")
     write("redirects-report.json", json.dumps(redirect_report, indent=1))
 
-    report = {"episodePages": len(pages), "plusPages": plus_pages, "postsWithNoData": [p["slug"] for p, _ in no_data], "plusWithNoData": plus_no_data,
+    report = {"episodePages": len(pages), "plusPages": plus_pages, "plusPagesNoindex": plus_noindex, "postsWithNoData": [p["slug"] for p, _ in no_data], "plusWithNoData": plus_no_data,
               # The commits this build came from; a scheduled run compares them with the live copy and stops early when both are unchanged.
               "siteCommit": os.environ.get("IV_SITE_SHA", ""), "dataCommit": os.environ.get("IV_DATA_SHA", "")}
     write("build-report.json", json.dumps(report, indent=1))

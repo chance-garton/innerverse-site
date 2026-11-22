@@ -510,9 +510,7 @@ def build_chapters(chapters, extra_html, page_url):
         + '<div class="iv-chapters-rule"></div>'
         '<div class="iv-section-body"><div class="iv-chapters-list" id="iv-chapters-list">' + rows + "</div>" + (extra_html or "") + "</div>"
         "</div>"
-        # Chapters open on a wide screen, closed on a phone, decided before
-        # the first paint so nothing jumps.
-        "<script>if(window.innerWidth>700)document.getElementById('iv-chapters-acc').classList.add('iv-open');</script>"
+        # 2026-11-22 (Chance): chapters start closed at every width, like the sections under them.
     )
 
 
