@@ -1,3 +1,7 @@
 {
- "_note": "Episode pages that go up before their premiere: a banner under the title until 'at' (ISO time with offset). The page script hides it once that time passes; remove the entry after the premiere."
+ "_note": "Episode pages that go up before their premiere: a banner under the title until 'at' (ISO time with offset). The page script hides it once that time passes; remove the entry after the premiere.",
+ "what-is-biofield-tuning": {
+  "at": "2026-11-25T19:00:00-06:00",
+  "text": "Premieres Wednesday at 7:00 PM CST"
+ }
 }
