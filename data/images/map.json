@@ -1,4 +1,59 @@
 {
+ "https://biofieldtuningstore.com/cdn/shop/collections/Sonic_Slider_1_transparent.png": {
+  "bytes": {
+   "orig.png": 1266175,
+   "w1000.webp": 12748,
+   "w1500.webp": 21760,
+   "w300.webp": 3286,
+   "w500.webp": 5350,
+   "w750.webp": 8694
+  },
+  "ext": "png",
+  "files": [
+   "orig.png",
+   "w300.webp",
+   "w500.webp",
+   "w750.webp",
+   "w1000.webp",
+   "w1500.webp"
+  ],
+  "h": 856,
+  "key": "sq/cdn-shop-collections/sonic-slider-1-transparent",
+  "w": 4914,
+  "widths": [
+   300,
+   500,
+   750,
+   1000,
+   1500
+  ]
+ },
+ "https://clivedecarle.com/wp-content/uploads/2025/07/logo-clive-de-carle-nutritional-supplements.svg": {
+  "bytes": {
+   "orig.svg": 22915
+  },
+  "ext": "svg",
+  "files": [
+   "orig.svg"
+  ],
+  "h": null,
+  "key": "sq/wp-content-uploads-2025-07/logo-clive-de-carle-nutritional-supplements",
+  "w": null,
+  "widths": []
+ },
+ "https://eagle-research.com/wp-content/uploads/2024/10/er-logo-1.png": {
+  "bytes": {
+   "orig.webp": 29958
+  },
+  "ext": "webp",
+  "files": [
+   "orig.webp"
+  ],
+  "h": 213,
+  "key": "sq/wp-content-uploads-2024-10/er-logo-1",
+  "w": 200,
+  "widths": []
+ },
  "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/0028ef45-5d69-4f69-9338-6a6682a7150c/CHRIS-CRUTCHFIELD.jpg": {
   "bytes": {
    "orig.jpg": 27124,

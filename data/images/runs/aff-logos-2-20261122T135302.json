@@ -1,0 +1,42 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "aff-logos-2",
+ "bytes_added": 1370886,
+ "copied": [
+  {
+   "bytes_added": 1318013,
+   "h": 856,
+   "key": "sq/cdn-shop-collections/sonic-slider-1-transparent",
+   "url": "https://biofieldtuningstore.com/cdn/shop/collections/Sonic_Slider_1_transparent.png",
+   "w": 4914,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 22915,
+   "h": null,
+   "key": "sq/wp-content-uploads-2025-07/logo-clive-de-carle-nutritional-supplements",
+   "url": "https://clivedecarle.com/wp-content/uploads/2025/07/logo-clive-de-carle-nutritional-supplements.svg",
+   "w": null,
+   "widths": []
+  },
+  {
+   "bytes_added": 29958,
+   "h": 213,
+   "key": "sq/wp-content-uploads-2024-10/er-logo-1",
+   "url": "https://eagle-research.com/wp-content/uploads/2024/10/er-logo-1.png",
+   "w": 200,
+   "widths": []
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-22T13:53:13+00:00",
+ "skipped": [],
+ "started": "2026-11-22T13:53:02+00:00"
+}
