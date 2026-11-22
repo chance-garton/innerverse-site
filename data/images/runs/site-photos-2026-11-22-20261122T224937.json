@@ -1,0 +1,37 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "site-photos-2026-11-22",
+ "bytes_added": 1804648,
+ "copied": [
+  {
+   "bytes_added": 784744,
+   "h": 1672,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-biofield-tuning-portrait",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/site-photos-2026-11-22/chance-garton-biofield-tuning-portrait.jpg",
+   "w": 941,
+   "widths": [
+    300,
+    500,
+    750
+   ]
+  },
+  {
+   "bytes_added": 1019904,
+   "h": 1254,
+   "key": "sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork",
+   "url": "https://raw.githubusercontent.com/chance-garton/innerverse-site/main/data/images/incoming/site-photos-2026-11-22/chance-garton-tuning-fork.jpg",
+   "w": 1254,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-22T22:49:45+00:00",
+ "skipped": [],
+ "started": "2026-11-22T22:49:37+00:00"
+}
