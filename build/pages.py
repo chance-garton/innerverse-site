@@ -32,7 +32,7 @@ def home():
     desc = "InnerVerse is an independent podcast hosted by Chance Garton since 2015, exploring astrology, mythology, lost history, natural health, and symbolism."
     h = head(title, desc, LIVE_ORIGIN + "/", DEFAULT_IMAGE, "website", "iv-home-page")
     body = nav("home") + '<main id="iv-main">' + mount(shell) + "</main>" + footer()
-    return page(h, body, "iv-home-page", scripts=("/assets/site.js", "/assets/archive.js", "/assets/home.js", "/assets/promo.js", "/assets/super-chat.js"))
+    return page(h, body, "iv-home-page", scripts=("/assets/site.js", "/assets/archive.js", "/assets/home.js", "/assets/promo.js"))  # 2026-11-22 (Chance): no Super Chat on the home page
 
 
 def episodes(pages):

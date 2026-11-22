@@ -14,8 +14,10 @@
 
   var path = (window.ivPath ? window.ivPath() : window.location.pathname).replace(/\/+$/, '') || '/';
   var seg = path.split('/').filter(Boolean);
-  var page = '', isHome = path === '/' || path === '/home';
-  if (isHome) page = 'home';
+  /* 2026-11-22 (Chance): Super Chat is for episode pages only; the home page no longer loads this file,
+     and this guard keeps it off there even if it is ever loaded again. */
+  var page = '', isHome = false;
+  if (path === '/' || path === '/home') return;
   else if (seg.length === 2 && /^(episodes|plus)$/i.test(seg[0])) page = 'ep:' + decodeURIComponent(seg[1]).toLowerCase();
   if (!page || !/^(home|ep:[a-z0-9-]{1,140})$/.test(page)) return;
 
