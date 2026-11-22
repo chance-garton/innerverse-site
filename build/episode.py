@@ -917,6 +917,7 @@ def seo_description(f, post, r=None):
 
 
 _SITE_DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
+_IV_DATA = os.environ.get("IV_DATA_DIR", os.path.join(os.path.dirname(_SITE_DATA), "..", "innerverse-data"))
 
 
 def build_notes(slug):
@@ -955,9 +956,13 @@ def build_transcript(slug, page_url):
     """The transcript of the free cut (2026-11-22, Chance), closed until
     opened: every paragraph starts with its moment in the episode (a real ?t=
     link, played in place by the page script like a chapter), and a search
-    box finds words in it. Data: data/transcripts/<slug>.json, [{seek, text}]."""
-    path = os.path.join(_SITE_DATA, "transcripts", slug + ".json")
-    if not os.path.exists(path):
+    box finds words in it. Data, [{seek, text}]: data/transcripts/<slug>.json here
+    (new episodes) first, then transcripts/<slug>.json in the innerverse-data
+    checkout (the backfill of older pages, 2026-11-22)."""
+    path = next((p for p in (os.path.join(_SITE_DATA, "transcripts", slug + ".json"),
+                             os.path.join(_IV_DATA, "transcripts", slug + ".json"))
+                 if os.path.exists(p)), None)
+    if not path:
         return ""
     paras = json.load(open(path, encoding="utf-8"))
 
