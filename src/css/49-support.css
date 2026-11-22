@@ -120,6 +120,8 @@ html.iv-support-page body { background: var(--ground); }
 .iv-sup-aff-logo img { max-width: 80%; max-height: 180px; width: auto; height: auto; object-fit: contain; display: block; }
 .iv-sup-aff-logo-tall { background: var(--surface); }
 .iv-sup-aff-logo-tall img { max-height: 200px; border-radius: var(--radius-sm); }
+.iv-sup-aff-covers { display: grid; grid-template-columns: repeat(2, 76px); gap: 8px; }
+.iv-sup-aff-covers img { width: 76px; height: 76px; object-fit: cover; border-radius: var(--radius-sm); display: block; max-width: none; max-height: none; }
 .iv-sup-code { font-size: 14px; color: var(--gold); font-weight: 600; }
 .iv-sup-code b { color: var(--gold); letter-spacing: .5px; }
 

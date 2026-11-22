@@ -454,6 +454,9 @@ def support_plus_card():
 
 
 RMDY_URL = "https://rmdycollective.com/chancegarton"
+SONIC_LOGO = IMAGE_BASE + "/sq/cdn-shop-collections/sonic-slider-1-transparent/orig.png"
+CLIVE_LOGO = IMAGE_BASE + "/sq/wp-content-uploads-2025-07/logo-clive-de-carle-nutritional-supplements/orig.svg"
+EAGLE_LOGO = IMAGE_BASE + "/sq/wp-content-uploads-2024-10/er-logo-1/orig.png"
 RMDY_LOGO = IMAGE_BASE + "/sq/cdn-shop-files/2-f95df2b1-5818-4af3-be04-adc1c1708679/orig.png"
 RMDY_BLURB = (
     "Melissa Kupsch is the Australian homeopath behind RMDY Collective and RMDY Academy of Homeopathy, and one of "
@@ -526,45 +529,87 @@ def support():
         '<div class="iv-sup-buttons"><a class="iv-sup-btn iv-sup-btn-lapis" href="' + esc(url("/biofield-tuning")) + '">Book a session</a></div>'
         "</div></div>")
 
+    def aff_card(name, href, logo_html, code, body, shop_label, ghost_href, ghost_label, logo_cls="", shop_ext=True):
+        shop = (_ext(href, shop_label, "iv-sup-btn iv-sup-btn-gold") if shop_ext
+                else '<a class="iv-sup-btn iv-sup-btn-gold" href="' + esc(href) + '">' + shop_label + "</a>")
+        ghost = ('<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(ghost_href) + '">' + ghost_label + "</a>") if ghost_href else ""
+        logo_attrs = ' target="_blank" rel="noopener"' if shop_ext else ""
+        return ('<article class="iv-sup-card iv-sup-aff">'
+                '<a class="iv-sup-aff-logo' + logo_cls + '" href="' + esc(href) + '"' + logo_attrs + ">" + logo_html + "</a>"
+                '<div class="iv-sup-card-body"><h3>' + name + "</h3>"
+                '<div class="iv-sup-code">' + code + "</div>"
+                "<p>" + body + "</p>"
+                '<div class="iv-sup-buttons">' + shop + ghost + "</div></div></article>")
+
+    def logo(src, alt, w, h, width=700):
+        return '<img src="' + esc(iv_img(src, width)) + '" alt="' + alt + '" width="' + str(w) + '" height="' + str(h) + '" loading="lazy">'
+
+    def ep_url(slug):
+        return url("/episodes/" + slug)
+
+    covers = "".join('<img src="' + esc(iv_img(i, 300)) + '" alt="" width="250" height="250" loading="lazy">' for t, i, h in SUP_BOOKS)
+
+    # Order set by Chance 2026-11-22: Tippecanoe, Sonic Slider, Spirit Whirled, LotusWei, Clive, RMDY, AquaCure.
+    # Card text is each affiliate's Body from the Airtable Affiliates table (the copy on the episode cards).
+    cards = [
+        aff_card("Tippecanoe Herbs", "https://tippecanoeherbs.com/",
+                 logo(SQ + "b9ecc671-b201-40f9-95ce-f9ff0c004f08/tippecanoe+logo.webp", "Tippecanoe Herbs", 640, 342),
+                 "Use coupon code <b>innerverse</b> at checkout for a 10% discount",
+                 "Kyle and Serena Denton are community herbalists creating wild-crafted and organic plant medicines out of "
+                 "Milwaukee since 2015. I have used their teas and tinctures on an almost daily basis for years now. Kyle is a great "
+                 "friend of InnerVerse and has appeared on the channel more times than I can count. These products work, not in the "
+                 "allopathic “pharma-medicine” way, but in a terrain-support, consciousness bolstering <i>plant-teacher</i> sort of way.",
+                 "Shop Tippecanoe", url("/episodes?show=Astro-Herbalism"), "Watch the Astro-Herbalism series"),
+        aff_card("The Sonic Slider", "https://biofieldtuningstore.com/collections/the-sonic-slider-collection?ref=innerverse",
+                 logo(SONIC_LOGO, "The Sonic Slider tuning fork", 640, 112),
+                 "Support InnerVerse with every purchase",
+                 "The Sonic Slider is the flagship tool behind Biofield Tuning itself, a weighted tuning fork hand-tuned to 93.96 Hz, "
+                 "the twelfth harmonic of the Schumann Resonance, Earth’s own natural electromagnetic pulse. Its extended handle lets "
+                 "you glide it smoothly across the face, neck, and body, and practitioners and users regularly report support for "
+                 "relaxation, circulation, and nervous system regulation. It’s the same fork Chance uses in his own sessions, and a "
+                 "great entry point if you want to bring this work into your own daily routine.",
+                 "Shop the Sonic Slider", url("/biofield-tuning"), "Book a session with Chance"),
+        aff_card("Spirit Whirled", "#spiritwhirled",
+                 '<span class="iv-sup-aff-covers">' + covers + "</span>",
+                 "Audiobooks narrated by Chance Garton",
+                 "If you ever wondered where I gained my symbolic and linguistic chops, it was the <i>Spirit Whirled</i> series of "
+                 "books, by Dylan Saccoccio. If you want to keep up with us on our show Inner Whirled, you’ll need to do the same "
+                 "work. These books are a value and treasure greater than a college education in comparative mythology and "
+                 "religious studies ever could be. Give yourself the keys of discernment. Listen to Spirit Whirled.",
+                 "See the audiobooks", None, "", logo_cls=" iv-sup-aff-logo-tall", shop_ext=False),
+        aff_card("LotusWei Flower Essence Elixirs", "https://lotuswei.com/innerverse",
+                 logo(SQ + "025478ea-ef40-443c-bd06-554aba0a9bcf/lotuswei.png", "LotusWei flower essence elixirs", 402, 505),
+                 "Use my affiliate link to support InnerVerse",
+                 "LotusWei provides amazing and transformative plant essence elixirs, using one of nature’s most gentle and "
+                 "beautiful elements: the flowers themselves. Led by founder Katie Hess, LotusWei supports customers with diverse "
+                 "products that operate on homeopathic principles and energetic resonances. I use LotusWei Elixirs to give me an "
+                 "edge with psychic &amp; energetic sensitivity, discernment, and life force coherence. In other words, LotusWei "
+                 "Elixirs help me be a better podcaster and Biofield Tuner. Benefits accumulate over long term use!",
+                 "Shop LotusWei", ep_url("katie-hess-lotuswei"), "Watch Katie Hess on InnerVerse", logo_cls=" iv-sup-aff-logo-tall"),
+        aff_card("Clive de Carle", "https://clivedecarle.com/?sld=204",
+                 logo(CLIVE_LOGO, "Clive de Carle nutritional supplements", 153, 172),
+                 "Support InnerVerse with every purchase",
+                 "Clive de Carle has spent decades researching high-quality natural health essentials, from magnesium and fulvic "
+                 "minerals to iodine, selenium, and vegan-sourced vitamin D. His supplements are formulated with a focus on "
+                 "bioavailability, so the body can actually absorb and use what you’re taking rather than letting it pass through "
+                 "unused. It’s a simple, no-nonsense approach to filling the nutritional gaps most modern diets leave behind.",
+                 "Shop Clive de Carle", ep_url("clive-de-carle-nutritional-gnosis"), "Watch Clive de Carle on InnerVerse"),
+        aff_card("RMDY Collective", RMDY_URL,
+                 logo(RMDY_LOGO, "RMDY Collective", 640, 360, 750),
+                 "Use coupon code <b>INNERVERSE</b> at checkout for a 10% discount",
+                 RMDY_BLURB, "Shop RMDY",
+                 ep_url("melissa-kupsch-rmdy-homeopathy-kyle-denton-tippecanoe-herbs"), "Watch Melissa Kupsch on InnerVerse"),
+        aff_card("AquaCure AC50", "https://eagle-research.com/product/ac50/",
+                 logo(EAGLE_LOGO, "Eagle Research", 200, 213),
+                 "Use coupon code <b>innerverse</b> for a discount",
+                 "George Wiseman is the inventor of the AquaCure AC50 and founder of Eagle Research, where he has spent decades "
+                 "developing hydrogen and oxygen (Brown’s gas) technology for health and home use. He has appeared on InnerVerse "
+                 "multiple times to talk about hydrogen as a macronutrient and EZ water.",
+                 "Shop AquaCure", ep_url("george-wiseman-eagle-research-browns-gas"), "Watch George Wiseman on InnerVerse"),
+    ]
     affiliates = _sup_section(
         "affiliates", "Trusted affiliates", "Products Chance actually uses", "",
-        '<div class="iv-sup-grid iv-sup-grid-aff">'
-        '<article class="iv-sup-card iv-sup-aff">'
-        '<a class="iv-sup-aff-logo" href="https://tippecanoeherbs.com/" target="_blank" rel="noopener">'
-        '<img src="' + esc(iv_img(SQ + "b9ecc671-b201-40f9-95ce-f9ff0c004f08/tippecanoe+logo.webp", 700)) + '" alt="Tippecanoe Herbs" width="640" height="342" loading="lazy"></a>'
-        '<div class="iv-sup-card-body"><h3>Tippecanoe Herbs</h3>'
-        '<div class="iv-sup-code">Use coupon code <b>innerverse</b> at checkout for a 10% discount</div>'
-        "<p>Kyle and Serena Denton are community herbalists creating wild-crafted and organic plant medicines out of "
-        "Milwaukee since 2015. I have used their teas and tinctures on an almost daily basis for years now. Kyle is a great "
-        "friend of InnerVerse and has appeared on the channel more times than I can count. These products work, not in the "
-        "allopathic “pharma-medicine” way, but in a terrain-support, consciousness bolstering <i>plant-teacher</i> sort of way.</p>"
-        '<div class="iv-sup-buttons">' + _ext("https://tippecanoeherbs.com/", "Shop Tippecanoe", "iv-sup-btn iv-sup-btn-gold")
-        + '<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(url("/episodes?show=Astro-Herbalism")) + '">Watch the Astro-Herbalism series</a></div>'
-        "</div></article>"
-        '<article class="iv-sup-card iv-sup-aff">'
-        '<a class="iv-sup-aff-logo iv-sup-aff-logo-tall" href="https://lotuswei.com/innerverse" target="_blank" rel="noopener">'
-        '<img src="' + esc(iv_img(SQ + "025478ea-ef40-443c-bd06-554aba0a9bcf/lotuswei.png", 700)) + '" alt="LotusWei flower essence elixirs" width="402" height="505" loading="lazy"></a>'
-        '<div class="iv-sup-card-body"><h3>LotusWei Flower Essence Elixirs</h3>'
-        '<div class="iv-sup-code">Use my affiliate link to support InnerVerse</div>'
-        "<p>LotusWei provides amazing and transformative plant essence elixirs, using one of nature’s most gentle and "
-        "beautiful elements: the flowers themselves. Led by founder Katie Hess, LotusWei supports customers with diverse "
-        "products that operate on homeopathic principles and energetic resonances. I use LotusWei Elixirs to give me an "
-        "edge with psychic &amp; energetic sensitivity, discernment, and life force coherence. In other words, LotusWei "
-        "Elixirs help me be a better podcaster and Biofield Tuner. Benefits accumulate over long term use!</p>"
-        '<div class="iv-sup-buttons">' + _ext("https://lotuswei.com/innerverse", "Shop LotusWei", "iv-sup-btn iv-sup-btn-gold")
-        + '<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(url("/episodes/katie-hess-lotuswei")) + '">Watch Katie Hess on InnerVerse</a></div>'
-        "</div></article>"
-        # RMDY Collective, added 2026-11-22 (affiliate since 2026-11-20). Logo copied to R2
-        # by images batch aff-rmdy-logo.
-        '<article class="iv-sup-card iv-sup-aff">'
-        '<a class="iv-sup-aff-logo" href="' + esc(RMDY_URL) + '" target="_blank" rel="noopener">'
-        '<img src="' + esc(iv_img(RMDY_LOGO, 750)) + '" alt="RMDY Collective" width="640" height="360" loading="lazy"></a>'
-        '<div class="iv-sup-card-body"><h3>RMDY Collective</h3>'
-        '<div class="iv-sup-code">Use coupon code <b>INNERVERSE</b> at checkout for a 10% discount</div>'
-        "<p>" + RMDY_BLURB + "</p>"
-        '<div class="iv-sup-buttons">' + _ext(RMDY_URL, "Shop RMDY", "iv-sup-btn iv-sup-btn-gold")
-        + '<a class="iv-sup-btn iv-sup-btn-ghost" href="' + esc(url("/episodes/melissa-kupsch-rmdy-homeopathy-kyle-denton-tippecanoe-herbs")) + '">Watch Melissa Kupsch on InnerVerse</a></div>'
-        "</div></article></div>")
+        '<div class="iv-sup-grid iv-sup-grid-aff">' + "".join(cards) + "</div>")
 
     books = "".join(
         '<a class="iv-sup-book" href="' + esc(h) + '" target="_blank" rel="noopener">'
@@ -573,10 +618,7 @@ def support():
         for t, i, h in SUP_BOOKS)
     spirit = _sup_section(
         "spiritwhirled", "Audiobooks narrated by Chance Garton", "Spirit Whirled by Dylan Saccoccio",
-        "If you ever wondered where I gained my symbolic and linguistic chops, it was the <i>Spirit Whirled</i> series of "
-        "books, by Dylan Saccoccio. If you want to keep up with us on our show Inner Whirled, you’ll need to do the same "
-        "work. These books are a value and treasure greater than a college education in comparative mythology and "
-        "religious studies ever could be. Give yourself the keys of discernment. Listen to Spirit Whirled.",
+        "",
         '<div class="iv-sup-books">' + books + "</div>"
         '<p class="iv-sup-fine">New to Audible? Activate your <b>Free Trial</b> and use it to listen to one of my audiobooks. '
         "Amazon Prime members get <b>2 free audiobooks</b> during trial. Use your free trial to try <i>Spirit Whirled</i>.</p>")
