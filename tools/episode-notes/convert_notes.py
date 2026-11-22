@@ -9,22 +9,8 @@ from bs4 import BeautifulSoup, NavigableString
 docx, names_path, base, out = sys.argv[1:5]
 html = subprocess.run(["pandoc", docx, "-t", "html", "--wrap=none"], capture_output=True, text=True, check=True).stdout
 
-# Dashes: the site never shows an em or en dash (Chance's rule), so each one gets
-# the closest plain punctuation, keeping the meaning of the quoted text.
-FIX = [
-    ("We recognize the pieces—we know that there is some electrical activity going on in our brains and our hearts—and yet",
-     "We recognize the pieces (we know that there is some electrical activity going on in our brains and our hearts), and yet"),
-    ("field–structure", "field-structure"),
-    ("frequency—it already knows", "frequency; it already knows"),
-    ("instead of being stored in the brain—or perhaps in addition to being stored in the brain—appeared",
-     "instead of being stored in the brain (or perhaps in addition to being stored in the brain) appeared"),
-    ("exclusively so—both", "exclusively so; both"),
-]
-for a, b in FIX:
-    assert a in html, a
-    html = html.replace(a, b)
-html = re.sub(r"(\d)–(\d)", r"\1-\2", html)
-assert not re.search("[–—]", html), "dash left"
+# Dashes in Chance's own notes and in the quoted books stay as written (Chance,
+# 2026-11-22: the no-dash rule is for copy Claude writes, not for his text).
 
 names = json.load(open(names_path))  # [[uploaded name, alt], ...] in document order
 media_order = []
@@ -145,7 +131,6 @@ for t in s.find_all(["colgroup", "thead", "tbody"]):
 out_html = str(s).strip()
 out_html = re.sub(r"\n{2,}", "\n", out_html)
 assert "<table" not in out_html
-assert not re.search("[–—]", out_html)
 open(out, "w").write(out_html + "\n")
 words = len(BeautifulSoup(out_html, "html.parser").get_text().split())
 print("figures", out_html.count("<img"), "quotes", out_html.count("<blockquote"), "words", words)
