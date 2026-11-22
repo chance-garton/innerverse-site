@@ -200,7 +200,7 @@ html.iv-support-page body { background: var(--ground); }
   .iv-sup-feature-small .iv-sup-feature-img { width: 120px; }
   .iv-sup-aff { grid-template-columns: 92px minmax(0, 1fr); grid-template-areas: "logo head" "copy copy" "actions actions"; column-gap: 16px; row-gap: 14px; padding: 16px; }
   .iv-sup-aff-logo { height: 92px; align-self: center; }
-  .iv-sup-aff-logo img { max-width: 82%; max-height: 78%; }
+  .iv-sup-aff-logo img { max-width: 92%; max-height: 88%; }
   .iv-sup-aff-covers { grid-template-columns: repeat(2, 36px); gap: 4px; }
   .iv-sup-aff-covers img { width: 36px; height: 36px; border-radius: 4px; }
   .iv-sup-aff-head { align-self: center; }
