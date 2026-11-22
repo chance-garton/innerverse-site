@@ -1,0 +1,26 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "aff-rmdy-logo",
+ "bytes_added": 240616,
+ "copied": [
+  {
+   "bytes_added": 240616,
+   "h": 1620,
+   "key": "sq/cdn-shop-files/2-f95df2b1-5818-4af3-be04-adc1c1708679",
+   "url": "https://rmdycollective.com/cdn/shop/files/2_f95df2b1-5818-4af3-be04-adc1c1708679.png",
+   "w": 2880,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-22T13:34:44+00:00",
+ "skipped": [],
+ "started": "2026-11-22T13:34:31+00:00"
+}
