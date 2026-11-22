@@ -375,6 +375,14 @@ html.iv-2026.iv-plus-ep .iv-plus-headslot .iv-header{margin-bottom:30px;}
    the surface rule above on every episode page; one more element in the selector wins it back. */
 html.iv-2026 body section.blog-item-comments{background-color:var(--surface)!important;background-image:none!important;}
 
+/* Early access note in place of the episode's sections until the premiere, 2026-11-22 */
+html.iv-2026 .iv-premiere-early{margin:26px 0 8px;padding:26px 28px;border-radius:16px;background:linear-gradient(180deg,rgba(232,180,60,.10),rgba(232,180,60,.04));border:1px solid rgba(232,180,60,.45);}
+html.iv-2026 .iv-premiere-early-kicker{color:#e8b43c;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12px;margin-bottom:8px;}
+html.iv-2026 .iv-premiere-early-title{margin:0 0 10px;font-size:26px;line-height:1.2;color:#f4f1e8;}
+html.iv-2026 .iv-premiere-early-text{margin:0 0 18px;color:#c9cfdb;font-size:16px;line-height:1.55;max-width:60ch;}
+html.iv-2026 .iv-premiere-early-btn{display:inline-block;padding:11px 22px;border-radius:999px;background:#e8b43c;color:#10141f !important;font-weight:700;font-size:14px;letter-spacing:.04em;text-decoration:none !important;}
+html.iv-2026 .iv-premiere-early-btn:hover{background:#f2c95c;}
+@media (max-width:700px){html.iv-2026 .iv-premiere-early{padding:20px 18px;}html.iv-2026 .iv-premiere-early-title{font-size:22px;}}
 /* Premiere banner (data/premieres.json), 2026-11-15 */
 html.iv-2026 .iv-premiere{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 14px;padding:10px 18px;max-width:640px;border-radius:999px;background:rgba(232,180,60,.12);border:1px solid rgba(232,180,60,.55);color:#f2c95c;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:13px;text-align:center;}
 html.iv-2026 .iv-premiere-dot{width:8px;height:8px;border-radius:50%;background:#f2c95c;box-shadow:0 0 0 0 rgba(242,201,92,.7);animation:ivPremPulse 1.8s infinite;flex:none;}

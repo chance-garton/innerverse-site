@@ -984,22 +984,45 @@ def build_transcript(slug, page_url):
     )
 
 
-def build_premiere(slug):
-    """A banner for a page that goes up before its premiere (data/premieres.json),
-    2026-11-15 (Chance). Rendered only while the time is still ahead at build;
-    the page script hides it once the time passes in the reader's browser."""
+def premiere_info(slug):
+    """The data/premieres.json entry for a page whose premiere is still ahead
+    at build time, else None."""
     import datetime as _dt, json as _json
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "premieres.json")
     try:
         p = _json.load(open(path, encoding="utf-8")).get(slug)
         at = _dt.datetime.fromisoformat(p["at"])
     except Exception:
-        return ""
+        return None
     if at <= _dt.datetime.now(_dt.timezone.utc):
+        return None
+    return p
+
+
+def build_premiere(slug):
+    """A banner for a page that goes up before its premiere (data/premieres.json),
+    2026-11-15 (Chance). Rendered only while the time is still ahead at build;
+    the page script hides it once the time passes in the reader's browser."""
+    p = premiere_info(slug)
+    if not p:
         return ""
     return ('<div class="iv-premiere" data-premiere-at="' + esc(p["at"]) + '">'
             '<span class="iv-premiere-dot"></span>'
             '<span class="iv-premiere-text">' + esc(p.get("text") or "Premieres soon") + "</span></div>")
+
+
+def build_premiere_early(f):
+    """Stands where the chapters, themes, quotes, notes and transcript go
+    until the premiere (2026-11-22, Chance): none of the episode's content is
+    in a page before the show is out, only the way to get it early."""
+    href = plus_href(f["directPlusUrl"]) if f.get("directPlusUrl") else url("/support")
+    label = "Watch it now in Plus+" if f.get("directPlusUrl") else "See InnerVerse Plus+"
+    return ('<div class="iv-premiere-early">'
+            '<div class="iv-premiere-early-kicker">Before the premiere</div>'
+            '<h2 class="iv-premiere-early-title">Get this episode early with InnerVerse Plus+</h2>'
+            '<p class="iv-premiere-early-text">Members have the full, extended episode right now, with its chapters, '
+            "notes and transcript. Everything for the free episode opens here when it premieres.</p>"
+            '<a class="iv-premiere-early-btn" href="' + esc(href) + '">' + label + "</a></div>")
 
 
 def render(slug, file, post, related, tags):
@@ -1021,6 +1044,15 @@ def render(slug, file, post, related, tags):
     chapters = parse_json_field(r.get("Chapters JSON"))
     themes = parse_json_field(r.get("Core Themes JSON"))
     quotes = parse_json_field(r.get("Quotes JSON"))
+    # 2026-11-22 (Chance): a page that is up before its premiere carries none
+    # of the episode's content (chapters, themes, quotes, notes, transcript,
+    # the chapter clips in the structured data), only the early access note.
+    # The hourly build puts it all back once the premiere time has passed.
+    upcoming = premiere_info(slug) is not None
+    if upcoming:
+        chapters, themes, quotes = [], [], []
+        f = dict(f, plusChapters=[])
+        r = {k: v for k, v in r.items() if k not in ("Chapters JSON", "Core Themes JSON", "Quotes JSON")}
 
     root = (
         build_header(f)
@@ -1031,11 +1063,12 @@ def render(slug, file, post, related, tags):
         + '<div class="iv-sticky-layout"><div class="iv-sticky-main">'
         + build_intro(f)
         + build_plus_book_row(f)
+        + (build_premiere_early(f) if upcoming else "")
         + build_chapters(chapters, build_locked_chapters(f), page_url)
         + build_themes(themes)
         + build_quotes(quotes, f["title"], guests)
-        + build_notes(slug)
-        + build_transcript(slug, page_url)
+        + ("" if upcoming else build_notes(slug))
+        + ("" if upcoming else build_transcript(slug, page_url))
         + '</div><div class="iv-sticky-sidebar">'
         + build_guest_card(guests)
         + build_affiliates_card(affs)
