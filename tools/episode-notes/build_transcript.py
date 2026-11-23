@@ -35,7 +35,8 @@ LONG = 250
 paras = []
 cur = []
 for t, word, start in words:
-    if start and cur and (re.search(r"[.?!\"”]$", cur[-1][1]) or len(cur) >= LONG):
+    ends = bool(cur) and re.search(r"[.?!\"”]$", cur[-1][1])
+    if cur and ((start and (ends or len(cur) >= LONG)) or (ends and len(cur) >= LONG) or len(cur) >= 2 * LONG):
         paras.append(cur)
         cur = []
     if start and cur and word[:1].isupper() and word not in ("I", "NDE") and not word.startswith("I'") and not word.isupper():

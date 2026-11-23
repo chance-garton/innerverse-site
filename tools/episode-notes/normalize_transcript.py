@@ -87,8 +87,13 @@ elif re.search(r"^\S*\d+:\d\d(?::\d\d)?[.,]\d+\s+-->\s", raw, re.M):
     body = grouped(lines)
     fmt = "D"
 elif re.search(r"^(?:\d+\t)?(?:\d+:)?\d+:\d\d\s+\S", raw, re.M):
-    lines = [(m.group(1), m.group(2).strip()) for m in
-             re.finditer(r"^(?:\d+\t)?((?:\d+:)?\d+:\d\d)\s+(\S.*)$", raw, re.M)]
+    lines = []
+    for line in raw.split("\n"):
+        m = re.match(r"^(?:\d+\t)?((?:\d+:)?\d+:\d\d)\s+(\S.*)$", line)
+        if m:
+            lines.append((m.group(1), m.group(2).strip()))
+        elif lines and line.strip():   # a line with no time of its own stays with the one before
+            lines[-1] = (lines[-1][0], lines[-1][1] + " " + line.strip())
     body = grouped(lines)
     fmt = "C"
 else:
