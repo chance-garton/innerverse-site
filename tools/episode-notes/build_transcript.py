@@ -28,11 +28,14 @@ for k, (t0, paras) in enumerate(blocks):
             words.append((t0 + (t1 - t0) * w / max(n, 1), word, j == 0))
             w += 1
 
-# Paragraphs: a break that falls mid-sentence (the transcriber's block edge) is joined.
+# Paragraphs: a break that falls mid-sentence (the transcriber's block edge) is joined,
+# unless the paragraph is already long (captions with little punctuation would
+# otherwise join into minutes long walls under one time; 2026-11-23).
+LONG = 250
 paras = []
 cur = []
 for t, word, start in words:
-    if start and cur and re.search(r"[.?!\"”]$", cur[-1][1]):
+    if start and cur and (re.search(r"[.?!\"”]$", cur[-1][1]) or len(cur) >= LONG):
         paras.append(cur)
         cur = []
     if start and cur and word[:1].isupper() and word not in ("I", "NDE") and not word.startswith("I'") and not word.isupper():
