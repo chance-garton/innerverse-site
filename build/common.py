@@ -167,10 +167,12 @@ VR_LOGO = "https://images.innerversepodcast.com/sq/b8217739-ae93-4527-bd8a-37d69
 # member class (set before first paint) picks which a visitor or a Plus+ member sees, so nothing jumps.
 #   key, label, link, member's label (None = the same), who sees it:
 #   "all", "visitor" (never for a member), "bar-visitor" (off a member's bar, still in the phone menu), "member".
-# A member reads: Plus+ Episodes, Chat, Biofield Anatomy, App, Tuning. A visitor: Episodes, Plus+, Inner Circle, App, About, Tuning.
+# A member reads: Plus+ Episodes, Music, Chat, Biofield Anatomy, App, Tuning.
+# A visitor: Episodes, Plus+, Music, Inner Circle, App, About, Tuning.
 NAV_LINKS = [
     ("podcast", "Episodes", "/episodes", None, "visitor"),
     ("plus", "Plus+", "/plus", "Plus+ Episodes", "all"),
+    ("music", "Music", "/music", None, "all"),
     ("circle", "Inner Circle", "https://circle.innerversepodcast.com/", "Chat", "all"),
     ("anatomy", "Biofield Anatomy", "/biofield-anatomy", None, "member"),
     ("app", "App", "https://circle.innerversepodcast.com/app/", None, "all"),
@@ -270,6 +272,7 @@ def nav(active="", inner_whirled=False, vibe_rant=False):
 FOOTER_COLS = [
     ("Listen &amp; Watch", [
         ("All Episodes", "/episodes", False),
+        ("InnerVerse Music", "/music", False),
         ("InnerVerse App", "https://circle.innerversepodcast.com/app/", False),
         ("YouTube", "https://www.youtube.com/@InnerVersePodcast", True),
         ("Apple Podcasts", "https://podcasts.apple.com/us/podcast/innerverse/id1066918535", True),

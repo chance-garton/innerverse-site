@@ -1,0 +1,595 @@
+{
+  "about": "Original songs made for InnerVerse episodes. The app orders songs by their episode's release date, newest first, and keeps one episode's songs in the order listed here (track order); keep this file in the same order so it reads the way the app shows it. id names the song (and its files and share page, songs/<id>/); episode is the episode's FREE slug (the /episodes/<slug> address); art is the square cover's address on images.innerversepodcast.com (copied there first), a square image in this folder, or empty to fall back to the episode's thumbnail. After any change here, run: python3 songs/build.py",
+  "songs": [
+    {
+      "id": "what-is-biofield-tuning-biofield-fluency",
+      "episode": "what-is-biofield-tuning",
+      "episodeTitle": "Biofield Tuning Sessions & Tuning Fork Sound Healing Explained",
+      "title": "Biofield Fluency",
+      "file": "what-is-biofield-tuning-biofield-fluency.mp3",
+      "art": "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/biofield-tuning-song-cover/orig.jpg",
+      "seconds": 219,
+      "added": "2026-11-22"
+    },
+    {
+      "id": "what-is-biofield-tuning-mind-and-body",
+      "episode": "what-is-biofield-tuning",
+      "episodeTitle": "Biofield Tuning Sessions & Tuning Fork Sound Healing Explained",
+      "title": "Mind and Body",
+      "file": "what-is-biofield-tuning-mind-and-body.mp3",
+      "art": "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-what-is-biofield-tuning/biofield-tuning-song-cover/orig.jpg",
+      "seconds": 204,
+      "added": "2026-11-22"
+    },
+    {
+      "id": "astroherbalism-scorpio-boundary-medicine",
+      "episode": "astroherbalism-scorpio",
+      "episodeTitle": "Scorpio Herbs: Boundary Medicine of Death & Rebirth | Astro-Herbalism",
+      "title": "Boundary Medicine",
+      "file": "astroherbalism-scorpio-boundary-medicine.mp3",
+      "art": "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-astroherbalism-scorpio/scorpio-herbs-music-cover/orig.jpg",
+      "seconds": 198,
+      "added": "2026-11-15"
+    },
+    {
+      "id": "astroherbalism-scorpio-love-and-death",
+      "episode": "astroherbalism-scorpio",
+      "episodeTitle": "Scorpio Herbs: Boundary Medicine of Death & Rebirth | Astro-Herbalism",
+      "title": "Love and Death",
+      "file": "astroherbalism-scorpio-love-and-death.mp3",
+      "art": "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-astroherbalism-scorpio/scorpio-herbs-music-cover/orig.jpg",
+      "seconds": 218,
+      "added": "2026-11-15"
+    },
+    {
+      "id": "does-christianity-need-the-devil-dawn-of-discernment",
+      "episode": "does-christianity-need-the-devil",
+      "episodeTitle": "Does Christianity NEED the Devil? Chance Garton & Dawn Lester",
+      "title": "Dawn of Discernment",
+      "file": "does-christianity-need-the-devil-dawn-of-discernment.mp3",
+      "art": "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-does-christianity-need-the-devil/no-devil-no-priests-music-cover/orig.jpg",
+      "seconds": 197,
+      "added": "2026-11-08"
+    },
+    {
+      "id": "does-christianity-need-the-devil-no-devil-no-priest",
+      "episode": "does-christianity-need-the-devil",
+      "episodeTitle": "Does Christianity NEED the Devil? Chance Garton & Dawn Lester",
+      "title": "No Devil, No Priest",
+      "file": "does-christianity-need-the-devil-no-devil-no-priest.mp3",
+      "art": "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-does-christianity-need-the-devil/no-devil-no-priests-music-cover/orig.jpg",
+      "seconds": 208,
+      "added": "2026-11-08"
+    },
+    {
+      "id": "inner-whirled-32-galatea",
+      "episode": "inner-whirled-32",
+      "episodeTitle": "Exposing the Astrological Errors of Fomenko's New Chronology",
+      "title": "Galatea",
+      "file": "inner-whirled-32-galatea.mp3",
+      "art": "https://images.innerversepodcast.com/sq/8836ff9c-6857-4e29-b52e-aa8c4ac97fb0/iw-32/orig.jpg",
+      "seconds": 188,
+      "added": "2026-11-01"
+    },
+    {
+      "id": "inner-whirled-32-loggia",
+      "episode": "inner-whirled-32",
+      "episodeTitle": "Exposing the Astrological Errors of Fomenko's New Chronology",
+      "title": "Loggia",
+      "file": "inner-whirled-32-loggia.mp3",
+      "art": "https://images.innerversepodcast.com/sq/8836ff9c-6857-4e29-b52e-aa8c4ac97fb0/iw-32/orig.jpg",
+      "seconds": 194,
+      "added": "2026-11-01"
+    },
+    {
+      "id": "kyle-denton-herbal-dentistry-inside-out",
+      "episode": "kyle-denton-herbal-dentistry",
+      "episodeTitle": "The Tooth Truths Most Dentists Won't Admit, with Kyle Denton of Tippecanoe Herbs",
+      "title": "Inside Out",
+      "file": "kyle-denton-herbal-dentistry-inside-out.mp3",
+      "art": "https://images.innerversepodcast.com/sq/a1f5bcab-e82e-4730-84f8-d163bab5a696/golden-tree-of-life-tooth-illustration/orig.png",
+      "seconds": 213,
+      "added": "2026-10-25"
+    },
+    {
+      "id": "kyle-denton-herbal-dentistry-the-whole-tooth",
+      "episode": "kyle-denton-herbal-dentistry",
+      "episodeTitle": "The Tooth Truths Most Dentists Won't Admit, with Kyle Denton of Tippecanoe Herbs",
+      "title": "The Whole Tooth",
+      "file": "kyle-denton-herbal-dentistry-the-whole-tooth.mp3",
+      "art": "https://images.innerversepodcast.com/sq/a1f5bcab-e82e-4730-84f8-d163bab5a696/golden-tree-of-life-tooth-illustration/orig.png",
+      "seconds": 207,
+      "added": "2026-10-25"
+    },
+    {
+      "id": "astroherbalism-libra-image-of-air",
+      "episode": "astroherbalism-libra",
+      "episodeTitle": "Libra Herbs: What Makes a Plant Venusian? | Astro-Herbalism",
+      "title": "Image of Air",
+      "file": "astroherbalism-libra-image-of-air.mp3",
+      "art": "https://images.innerversepodcast.com/sq/a133e901-9713-49ad-abdf-721104b75c9e/jade-libra-goddess-with-golden-scales-2/orig.jpg",
+      "seconds": 212,
+      "added": "2026-10-21"
+    },
+    {
+      "id": "inner-whirled-31-astronomical-dating",
+      "episode": "inner-whirled-31",
+      "episodeTitle": "Is Fomenko Legit? | Checking the Receipts On New Chronology",
+      "title": "Astronomical Dating",
+      "file": "inner-whirled-31-astronomical-dating.mp3",
+      "art": "https://images.innerversepodcast.com/sq/ac9d861c-c999-4cab-8fa8-a082785b746c/iw-31/orig.jpg",
+      "seconds": 187,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "inner-whirled-31-eclipse-triad",
+      "episode": "inner-whirled-31",
+      "episodeTitle": "Is Fomenko Legit? | Checking the Receipts On New Chronology",
+      "title": "Eclipse Triad",
+      "file": "inner-whirled-31-eclipse-triad.mp3",
+      "art": "https://images.innerversepodcast.com/sq/ac9d861c-c999-4cab-8fa8-a082785b746c/iw-31/orig.jpg",
+      "seconds": 208,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "dawn-lester-terrain-parenting-listen-to-them",
+      "episode": "dawn-lester-terrain-parenting",
+      "episodeTitle": "What Really Makes Kids Sick? Dawn Lester on Terrain Parenting",
+      "title": "Listen To Them",
+      "file": "dawn-lester-terrain-parenting-listen-to-them.mp3",
+      "art": "https://images.innerversepodcast.com/sq/b9c4b0f3-7681-4cff-ba7d-247b8f91132e/dawn-lester-terrain-parenting/orig.jpg",
+      "seconds": 197,
+      "added": "2026-10-18"
+    },
+    {
+      "id": "dawn-lester-terrain-parenting-database-of-names-and-addresses",
+      "episode": "dawn-lester-terrain-parenting",
+      "episodeTitle": "What Really Makes Kids Sick? Dawn Lester on Terrain Parenting",
+      "title": "Database of Names and Addresses",
+      "file": "dawn-lester-terrain-parenting-database-of-names-and-addresses.mp3",
+      "art": "https://images.innerversepodcast.com/sq/b9c4b0f3-7681-4cff-ba7d-247b8f91132e/dawn-lester-terrain-parenting/orig.jpg",
+      "seconds": 193,
+      "added": "2026-10-18"
+    },
+    {
+      "id": "inner-whirled-30-tartar-cartographer",
+      "episode": "inner-whirled-30",
+      "episodeTitle": "Why Was Tartaria Erased From The Map? Grand Tartary Explained",
+      "title": "Tartar Cartographer",
+      "file": "inner-whirled-30-tartar-cartographer.mp3",
+      "art": "https://images.innerversepodcast.com/sq/6d0ceafc-67d0-4fc0-b31f-c1be90697edd/iw-30/orig.jpg",
+      "seconds": 178,
+      "added": "2026-10-18"
+    },
+    {
+      "id": "inner-whirled-30-tartaros-empire",
+      "episode": "inner-whirled-30",
+      "episodeTitle": "Why Was Tartaria Erased From The Map? Grand Tartary Explained",
+      "title": "Tartaros Empire",
+      "file": "inner-whirled-30-tartaros-empire.mp3",
+      "art": "https://images.innerversepodcast.com/sq/6d0ceafc-67d0-4fc0-b31f-c1be90697edd/iw-30/orig.jpg",
+      "seconds": 198,
+      "added": "2026-10-18"
+    },
+    {
+      "id": "inner-whirled-30-tartaria-marginalia",
+      "episode": "inner-whirled-30",
+      "episodeTitle": "Why Was Tartaria Erased From The Map? Grand Tartary Explained",
+      "title": "Tartaria Marginalia",
+      "file": "inner-whirled-30-tartaria-marginalia.mp3",
+      "art": "https://images.innerversepodcast.com/sq/6d0ceafc-67d0-4fc0-b31f-c1be90697edd/iw-30/orig.jpg",
+      "seconds": 170,
+      "added": "2026-10-18"
+    },
+    {
+      "id": "nathanoakley1980-1980",
+      "episode": "nathanoakley1980",
+      "episodeTitle": "Nathan Oakley: Why the Globe Needs a Flat Earth",
+      "title": "1980",
+      "file": "nathanoakley1980-1980.mp3",
+      "art": "https://images.innerversepodcast.com/sq/49f810e8-767f-4c8a-bd85-250501d25559/nathan-oakley/orig.jpg",
+      "seconds": 204,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "nathanoakley1980-dnbearings",
+      "episode": "nathanoakley1980",
+      "episodeTitle": "Nathan Oakley: Why the Globe Needs a Flat Earth",
+      "title": "DnBearings",
+      "file": "nathanoakley1980-dnbearings.mp3",
+      "art": "https://images.innerversepodcast.com/sq/49f810e8-767f-4c8a-bd85-250501d25559/nathan-oakley/orig.jpg",
+      "seconds": 199,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "astrotheology-101-astrotheology-101",
+      "episode": "astrotheology-101",
+      "episodeTitle": "What Connects Christianity, Tarot & the Stars? Astrotheology 101 with Chance Garton & Meg Moonbeam",
+      "title": "Astrotheology 101",
+      "file": "astrotheology-101-astrotheology-101.mp3",
+      "art": "https://images.innerversepodcast.com/sq/89a030aa-ddbe-4788-9711-b2ba7a43736a/astrotheology-101/orig.jpg",
+      "seconds": 208,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "astrotheology-101-tetramorph",
+      "episode": "astrotheology-101",
+      "episodeTitle": "What Connects Christianity, Tarot & the Stars? Astrotheology 101 with Chance Garton & Meg Moonbeam",
+      "title": "Tetramorph",
+      "file": "astrotheology-101-tetramorph.mp3",
+      "art": "https://images.innerversepodcast.com/sq/89a030aa-ddbe-4788-9711-b2ba7a43736a/astrotheology-101/orig.jpg",
+      "seconds": 196,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "astroherbalism-virgo-distilling-perfection",
+      "episode": "astroherbalism-virgo",
+      "episodeTitle": "Virgo Season Herbs: Gentle Plant Medicine for Digestion, Nerves & Calm | Astro Herbalism",
+      "title": "Distilling Perfection",
+      "file": "astroherbalism-virgo-distilling-perfection.mp3",
+      "art": "https://images.innerversepodcast.com/sq/b1628837-d929-4bde-bd00-ce20f3a3a314/virgo-astro-herbs/orig.jpg",
+      "seconds": 175,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "keys-to-the-tarot-keys-to-the-tarot",
+      "episode": "keys-to-the-tarot",
+      "episodeTitle": "The Hidden Science of Tarot | Marty Leeds & Mario Garza",
+      "title": "Keys to the Tarot",
+      "file": "keys-to-the-tarot-keys-to-the-tarot.mp3",
+      "art": "https://images.innerversepodcast.com/sq/c172fa23-d3e7-4570-a005-4bd1d26a2eb8/keys-to-the-tarot/orig.jpg",
+      "seconds": 152,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "keys-to-the-tarot-the-holy-fool",
+      "episode": "keys-to-the-tarot",
+      "episodeTitle": "The Hidden Science of Tarot | Marty Leeds & Mario Garza",
+      "title": "The Holy Fool",
+      "file": "keys-to-the-tarot-the-holy-fool.mp3",
+      "art": "https://images.innerversepodcast.com/sq/c172fa23-d3e7-4570-a005-4bd1d26a2eb8/keys-to-the-tarot/orig.jpg",
+      "seconds": 153,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "inner-whirled-29-fleeced",
+      "episode": "inner-whirled-29",
+      "episodeTitle": "The Greek Myth That Wasn't Greek: Jason & the Argonauts",
+      "title": "Fleeced",
+      "file": "inner-whirled-29-fleeced.mp3",
+      "art": "https://images.innerversepodcast.com/sq/fb936153-d823-45a7-9ac4-7a3b1424e9c5/inner-whirled-29/orig.jpg",
+      "seconds": 195,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "inner-whirled-29-argonautical",
+      "episode": "inner-whirled-29",
+      "episodeTitle": "The Greek Myth That Wasn't Greek: Jason & the Argonauts",
+      "title": "Argonautical",
+      "file": "inner-whirled-29-argonautical.mp3",
+      "art": "https://images.innerversepodcast.com/sq/fb936153-d823-45a7-9ac4-7a3b1424e9c5/inner-whirled-29/orig.jpg",
+      "seconds": 150,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "great-chicago-fire-grand-fire-trine",
+      "episode": "great-chicago-fire",
+      "episodeTitle": "Was Chicago Firebombed? Tartaria & the Great Fire Conspiracy",
+      "title": "Grand Fire Trine",
+      "file": "great-chicago-fire-grand-fire-trine.mp3",
+      "art": "https://images.innerversepodcast.com/sq/150ea76a-ba82-461a-a1a6-768c0933f78a/chicago-fire/orig.jpg",
+      "seconds": 183,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "great-chicago-fire-the-great-fire",
+      "episode": "great-chicago-fire",
+      "episodeTitle": "Was Chicago Firebombed? Tartaria & the Great Fire Conspiracy",
+      "title": "The Great Fire",
+      "file": "great-chicago-fire-the-great-fire.mp3",
+      "art": "https://images.innerversepodcast.com/sq/150ea76a-ba82-461a-a1a6-768c0933f78a/chicago-fire/orig.jpg",
+      "seconds": 189,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "inner-whirled-28-old-jacks-tall-tales",
+      "episode": "inner-whirled-28",
+      "episodeTitle": "This Guy Claimed He Found a Tartaria Witness. Is it Real?",
+      "title": "Ol' Jack's Tall Tales",
+      "file": "inner-whirled-28-old-jacks-tall-tales.mp3",
+      "art": "https://images.innerversepodcast.com/sq/36e68080-20d5-44ef-86ea-930b7f1812ef/council-grove/orig.jpg",
+      "seconds": 153,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "inner-whirled-28-council-grove",
+      "episode": "inner-whirled-28",
+      "episodeTitle": "This Guy Claimed He Found a Tartaria Witness. Is it Real?",
+      "title": "Council Grove",
+      "file": "inner-whirled-28-council-grove.mp3",
+      "art": "https://images.innerversepodcast.com/sq/36e68080-20d5-44ef-86ea-930b7f1812ef/council-grove/orig.jpg",
+      "seconds": 163,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "leo-astroherbalism-leo-electro",
+      "episode": "leo-astroherbalism",
+      "episodeTitle": "Leo Herbs: St John's Wort, Motherwort, Angelica, Sunflower, Hawthorn | Astro Herbalism",
+      "title": "Leo Electro",
+      "file": "leo-astroherbalism-leo-electro.mp3",
+      "art": "https://images.innerversepodcast.com/sq/7c7632c1-39f5-41b9-9ea3-bcb240e9d284/leo-astro-herbs/orig.jpg",
+      "seconds": 93,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "tamara-sheville-science-fiction",
+      "episode": "tamara-sheville",
+      "episodeTitle": "Can You Prove Earth Is Round? Tamara Sheville's Level Plane Poems",
+      "title": "Science Fiction",
+      "file": "tamara-sheville-science-fiction.mp3",
+      "art": "https://images.innerversepodcast.com/sq/49bcfe76-c045-4c7c-a87d-249d83197479/tamara-globe/orig.jpg",
+      "seconds": 268,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "tamara-sheville-spaghettification",
+      "episode": "tamara-sheville",
+      "episodeTitle": "Can You Prove Earth Is Round? Tamara Sheville's Level Plane Poems",
+      "title": "Spaghettification",
+      "file": "tamara-sheville-spaghettification.mp3",
+      "art": "https://images.innerversepodcast.com/sq/49bcfe76-c045-4c7c-a87d-249d83197479/tamara-globe/orig.jpg",
+      "seconds": 203,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "atoms-dont-exist-flux-head",
+      "episode": "atoms-dont-exist",
+      "episodeTitle": "You Can't Prove Atoms Exist, w/ PhD Steven Young (Hedflux) & Marty Leeds (Gnostic Academy)",
+      "title": "Flux Head",
+      "file": "atoms-dont-exist-flux-head.mp3",
+      "art": "https://images.innerversepodcast.com/sq/a2f0b3e0-ae14-4046-ad14-f1d5cde205ef/atoms/orig.jpg",
+      "seconds": 306,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "atoms-dont-exist-atomism",
+      "episode": "atoms-dont-exist",
+      "episodeTitle": "You Can't Prove Atoms Exist, w/ PhD Steven Young (Hedflux) & Marty Leeds (Gnostic Academy)",
+      "title": "Atomism",
+      "file": "atoms-dont-exist-atomism.mp3",
+      "art": "https://images.innerversepodcast.com/sq/a2f0b3e0-ae14-4046-ad14-f1d5cde205ef/atoms/orig.jpg",
+      "seconds": 312,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "inner-whirled-27-tartarian-madness",
+      "episode": "inner-whirled-27",
+      "episodeTitle": "They Lied About Tartaria: Insane Asylums and the 1800s Reset Evidence Explained",
+      "title": "Tartarian Madness",
+      "file": "inner-whirled-27-tartarian-madness.mp3",
+      "art": "https://images.innerversepodcast.com/sq/d0096f26-1b67-48ce-95b0-febcde872251/kirkbride-asylums/orig.jpg",
+      "seconds": 163,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "inner-whirled-27-asylum-theory",
+      "episode": "inner-whirled-27",
+      "episodeTitle": "They Lied About Tartaria: Insane Asylums and the 1800s Reset Evidence Explained",
+      "title": "Asylum Theory",
+      "file": "inner-whirled-27-asylum-theory.mp3",
+      "art": "https://images.innerversepodcast.com/sq/d0096f26-1b67-48ce-95b0-febcde872251/kirkbride-asylums/orig.jpg",
+      "seconds": 151,
+      "added": "2026-10-19"
+    },
+    {
+      "id": "meg-moonbeam-basket-of-stars",
+      "episode": "meg-moonbeam",
+      "episodeTitle": "Secret Superpowers In Your Chart: Chiron, Natal Eclipses, & Advanced Astrology with Meg Moonbeam",
+      "title": "Basket of Stars",
+      "file": "meg-moonbeam-basket-of-stars.mp3",
+      "art": "https://images.innerversepodcast.com/sq/beab434b-c49f-4a03-9c04-ceb9713c89db/moonbeam/orig.jpg",
+      "seconds": 258,
+      "added": "2026-10-24"
+    },
+    {
+      "id": "meg-moonbeam-moonbeam",
+      "episode": "meg-moonbeam",
+      "episodeTitle": "Secret Superpowers In Your Chart: Chiron, Natal Eclipses, & Advanced Astrology with Meg Moonbeam",
+      "title": "Moonbeam",
+      "file": "meg-moonbeam-moonbeam.mp3",
+      "art": "https://images.innerversepodcast.com/sq/beab434b-c49f-4a03-9c04-ceb9713c89db/moonbeam/orig.jpg",
+      "seconds": 140,
+      "added": "2026-10-24"
+    },
+    {
+      "id": "inner-whirled-26-periodicals",
+      "episode": "inner-whirled-26",
+      "episodeTitle": "Tartaria and 1800s Insane Asylums: Debunking the Conspiracy Claims with Historical Records",
+      "title": "Periodicals",
+      "file": "inner-whirled-26-periodicals.mp3",
+      "art": "https://images.innerversepodcast.com/sq/da04aaf6-b5b1-4bb1-86f5-675366306395/inner-whirled-26/orig.jpg",
+      "seconds": 143,
+      "added": "2026-10-24"
+    },
+    {
+      "id": "inner-whirled-26-ragtime-investigation",
+      "episode": "inner-whirled-26",
+      "episodeTitle": "Tartaria and 1800s Insane Asylums: Debunking the Conspiracy Claims with Historical Records",
+      "title": "Ragtime Investigation",
+      "file": "inner-whirled-26-ragtime-investigation.mp3",
+      "art": "https://images.innerversepodcast.com/sq/da04aaf6-b5b1-4bb1-86f5-675366306395/inner-whirled-26/orig.jpg",
+      "seconds": 133,
+      "added": "2026-10-24"
+    },
+    {
+      "id": "inner-whirled-25-white-city",
+      "episode": "inner-whirled-25",
+      "episodeTitle": "Tartaria and the 1893 World's Fair: Debunking the Conspiracy Claims with Historical Records",
+      "title": "White City",
+      "file": "inner-whirled-25-white-city.mp3",
+      "art": "https://images.innerversepodcast.com/sq/c7cf84e1-2eea-453b-a57a-97920cdf5da5/inner-whirled-25/orig.jpg",
+      "seconds": 185,
+      "added": "2026-10-24"
+    },
+    {
+      "id": "inner-whirled-25-suspicions",
+      "episode": "inner-whirled-25",
+      "episodeTitle": "Tartaria and the 1893 World's Fair: Debunking the Conspiracy Claims with Historical Records",
+      "title": "Suspicions",
+      "file": "inner-whirled-25-suspicions.mp3",
+      "art": "https://images.innerversepodcast.com/sq/c7cf84e1-2eea-453b-a57a-97920cdf5da5/inner-whirled-25/orig.jpg",
+      "seconds": 188,
+      "added": "2026-10-24"
+    },
+    {
+      "id": "chris-crutchfield-the-skeleton",
+      "episode": "chris-crutchfield",
+      "episodeTitle": "The Internet of Bodies Wants To Hijack Your Biofield | Chris Crutchfield, Biopsy of a Psyop, 67",
+      "title": "The Skeleton",
+      "file": "chris-crutchfield-the-skeleton.mp3",
+      "art": "https://images.innerversepodcast.com/sq/0ea89b54-59d9-4724-92bd-0ff35f697ba8/chris-crutchfield/orig.jpg",
+      "seconds": 491,
+      "added": "2026-10-24"
+    },
+    {
+      "id": "astroherbalism-cancer-lunar-lazy-river",
+      "episode": "astroherbalism-cancer",
+      "episodeTitle": "Cancer Season Herbs: Linden, Willow, Marshmallow, Aloe | Astro Herbalism",
+      "title": "Lunar Lazy River",
+      "file": "astroherbalism-cancer-lunar-lazy-river.mp3",
+      "art": "https://images.innerversepodcast.com/sq/27f106b4-5dbe-454e-ab4f-a04a49ca7031/cancer-astro-herbalism/orig.jpg",
+      "seconds": 184,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "astroherbalism-gemini-totally-mintal",
+      "episode": "astroherbalism-gemini",
+      "episodeTitle": "Gemini Herbs: Mercury, Cedar, Holy Basil & The Mint Mystery | Astro-Herbalism",
+      "title": "Totally Mintal",
+      "file": "astroherbalism-gemini-totally-mintal.mp3",
+      "art": "https://images.innerversepodcast.com/sq/2faed48a-eba3-496c-b798-480b43d97617/gemini-astro-herbalism/orig.jpg",
+      "seconds": 258,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "golden-orphism-book-the-golden-book",
+      "episode": "golden-orphism-book",
+      "episodeTitle": "The Golden Orphism Book: Is It Real? A Forensic Analysis of the \"Oldest Book In The World\"",
+      "title": "The Golden Book",
+      "file": "golden-orphism-book-the-golden-book.mp3",
+      "art": "https://images.innerversepodcast.com/sq/6c15c563-c360-45a8-8aa8-70cc918b05b6/golden-book/orig.jpg",
+      "seconds": 120,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "jason-quitt-shining-island-the-shining-island",
+      "episode": "jason-quitt-shining-island",
+      "episodeTitle": "The Real Atlantis: Fall of the Pole Star & World Cataclysms | Jason Quitt on The Shining Island",
+      "title": "The Shining Island",
+      "file": "jason-quitt-shining-island-the-shining-island.mp3",
+      "art": "https://images.innerversepodcast.com/sq/80a748a9-95a0-4bfd-a183-f4cc30c8afbf/shining-island/orig.jpg",
+      "seconds": 269,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "jason-quitt-shining-island-fallen-star",
+      "episode": "jason-quitt-shining-island",
+      "episodeTitle": "The Real Atlantis: Fall of the Pole Star & World Cataclysms | Jason Quitt on The Shining Island",
+      "title": "Fallen Star",
+      "file": "jason-quitt-shining-island-fallen-star.mp3",
+      "art": "https://images.innerversepodcast.com/sq/80a748a9-95a0-4bfd-a183-f4cc30c8afbf/shining-island/orig.jpg",
+      "seconds": 190,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "brandy-gillmore-never-give-up",
+      "episode": "brandy-gillmore",
+      "episodeTitle": "Doctors Said She'd Never Heal. Her Mind Proved Them Wrong. | Brandy Gillmore",
+      "title": "Never Give Up",
+      "file": "brandy-gillmore-never-give-up.mp3",
+      "art": "https://images.innerversepodcast.com/sq/a78e2e36-82a1-4b0d-b4d5-54e1dfe699ff/never-give-up-brandy-gilmore/orig.jpg",
+      "seconds": 162,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "brandy-gillmore-brandy-neat",
+      "episode": "brandy-gillmore",
+      "episodeTitle": "Doctors Said She'd Never Heal. Her Mind Proved Them Wrong. | Brandy Gillmore",
+      "title": "Brandy Neat",
+      "file": "brandy-gillmore-brandy-neat.mp3",
+      "art": "https://images.innerversepodcast.com/sq/a78e2e36-82a1-4b0d-b4d5-54e1dfe699ff/never-give-up-brandy-gilmore/orig.jpg",
+      "seconds": 187,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "revelation-mind-war-inner-whirled-23-flawed-apocalypse",
+      "episode": "revelation-mind-war-inner-whirled-23",
+      "episodeTitle": "The Bible's Scariest Book Is a Forgery: Revelation Mind War",
+      "title": "Flawed Apocalypse",
+      "file": "revelation-mind-war-inner-whirled-23-flawed-apocalypse.mp3",
+      "art": "https://images.innerversepodcast.com/sq/13157315-d5bd-44bb-a79c-bd8bc9860917/revelation-inner-whirled/orig.jpg",
+      "seconds": 179,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "revelation-mind-war-inner-whirled-23-dropacalypse",
+      "episode": "revelation-mind-war-inner-whirled-23",
+      "episodeTitle": "The Bible's Scariest Book Is a Forgery: Revelation Mind War",
+      "title": "Dropacalypse",
+      "file": "revelation-mind-war-inner-whirled-23-dropacalypse.mp3",
+      "art": "https://images.innerversepodcast.com/sq/13157315-d5bd-44bb-a79c-bd8bc9860917/revelation-inner-whirled/orig.jpg",
+      "seconds": 144,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "mike-winner-ai-winning-the-future",
+      "episode": "mike-winner-ai",
+      "episodeTitle": "The AI Mirror: Decoding the Black Magic of Artificial Intelligence | Mike Winner (TerrainTV)",
+      "title": "Winning the Future",
+      "file": "mike-winner-ai-winning-the-future.mp3",
+      "art": "https://images.innerversepodcast.com/sq/88bf1e88-3e6d-4473-8541-71b7e9dba12b/winner-digital/orig.jpg",
+      "seconds": 110,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "mike-winner-ai-irreplaceable",
+      "episode": "mike-winner-ai",
+      "episodeTitle": "The AI Mirror: Decoding the Black Magic of Artificial Intelligence | Mike Winner (TerrainTV)",
+      "title": "Irreplaceable",
+      "file": "mike-winner-ai-irreplaceable.mp3",
+      "art": "https://images.innerversepodcast.com/sq/88bf1e88-3e6d-4473-8541-71b7e9dba12b/winner-digital/orig.jpg",
+      "seconds": 154,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "12-gates-new-jerusalem-zodiac-inner-whirled-22-twelve-gates",
+      "episode": "12-gates-new-jerusalem-zodiac-inner-whirled-22",
+      "episodeTitle": "The Manger Cave, the Virgin Mary and the 12 Zodiac Gates of New Jerusalem",
+      "title": "Twelve Gates",
+      "file": "12-gates-new-jerusalem-zodiac-inner-whirled-22-twelve-gates.mp3",
+      "art": "https://images.innerversepodcast.com/sq/59634bb0-22a3-433b-ac9e-7cf046a5c6c3/mary-twelve-gates/orig.jpg",
+      "seconds": 155,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "symbolic-studies-wheel-the-bull-wheel",
+      "episode": "symbolic-studies-wheel",
+      "episodeTitle": "Mario Garza (Symbolic Studies) | The Wheel, the Bull, and the Chariot That Doesn’t Move",
+      "title": "The Bull Wheel",
+      "file": "symbolic-studies-wheel-the-bull-wheel.mp3",
+      "art": "https://images.innerversepodcast.com/sq/7f134e4d-4d40-4f50-ba5e-634d19fce315/mario-garza-bull/orig.jpg",
+      "seconds": 195,
+      "added": "2026-10-26"
+    },
+    {
+      "id": "symbolic-studies-wheel-taurusoid",
+      "episode": "symbolic-studies-wheel",
+      "episodeTitle": "Mario Garza (Symbolic Studies) | The Wheel, the Bull, and the Chariot That Doesn’t Move",
+      "title": "Taurusoid",
+      "file": "symbolic-studies-wheel-taurusoid.mp3",
+      "art": "https://images.innerversepodcast.com/sq/7f134e4d-4d40-4f50-ba5e-634d19fce315/mario-garza-bull/orig.jpg",
+      "seconds": 246,
+      "added": "2026-10-26"
+    }
+  ]
+}

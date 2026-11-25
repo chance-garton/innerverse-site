@@ -120,3 +120,30 @@ html.iv-plus-member #iv-nav a.iv-nav-sp-all:hover,html.iv-plus-member #iv-nav a.
 #iv-nav.iv-nav-v2.iv-nav-menu-open{background:var(--ground);}
 #iv-nav.iv-nav-v2 .iv-nav-mobile-panel{max-height:calc(100vh - var(--header-height,65px));max-height:calc(100dvh - var(--header-height,65px));overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box;}
 @media (max-width:700px){#iv-nav.iv-nav-v2 .iv-nav-search{width:36px;height:36px;}}
+/* A tighter bar for narrow desktops (Music made a visitor's bar seven links, 2026-11-25): the same links,
+   closer together, so nothing touches between the phone menu's breakpoint and about 1200px. Inner Whirled
+   pages have a wider wordmark, so they keep the tight bar up to 1340px. */
+@media (min-width:1101px) and (max-width:1200px){
+  #iv-nav.iv-nav-v2 .iv-nav-inner,#iv-nav.iv-nav-v2.iv-nav-scrolled .iv-nav-inner{padding-left:32px;padding-right:32px;gap:18px;}
+  #iv-nav.iv-nav-v2 .iv-nav-center{gap:18px;}
+  #iv-nav.iv-nav-v2 .iv-nav-center .iv-nav-link{font-size:16px;letter-spacing:1.3px;}
+  #iv-nav.iv-nav-v2 .iv-nav-actions{gap:8px;}
+  #iv-nav .iv-nav-sp{padding-left:32px;padding-right:32px;}
+}
+/* Inner Whirled pages: the wordmark is about 110px wider than INNERVERSE, so the links sit closer at every
+   desktop width, and the bar keeps narrower side margins until the screen is wide enough for the full ones. */
+@media (min-width:1101px){
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-center{gap:20px;}
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-center .iv-nav-link{font-size:16px;letter-spacing:1.4px;}
+}
+@media (min-width:1101px) and (max-width:1340px){
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-inner,html.iv-iw #iv-nav.iv-nav-v2.iv-nav-scrolled .iv-nav-inner{padding-left:32px;padding-right:32px;gap:18px;}
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-center{gap:18px;}
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-center .iv-nav-link{letter-spacing:1.3px;}
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-actions{gap:8px;}
+  html.iv-iw #iv-nav .iv-nav-sp{padding-left:32px;padding-right:32px;}
+}
+@media (min-width:1341px) and (max-width:1560px){
+  html.iv-iw #iv-nav.iv-nav-v2 .iv-nav-inner,html.iv-iw #iv-nav.iv-nav-v2.iv-nav-scrolled .iv-nav-inner{padding-left:48px;padding-right:48px;}
+  html.iv-iw #iv-nav .iv-nav-sp{padding-left:48px;padding-right:48px;}
+}

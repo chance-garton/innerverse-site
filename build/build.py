@@ -54,6 +54,7 @@ def llms_txt(newest):
         "",
         "- [Home](" + o + "/): what InnerVerse is, the latest episode and how to listen",
         "- [Episodes](" + o + "/episodes): the full free archive, searchable by topic, show and guest",
+        "- [InnerVerse Music](" + o + "/music): original songs made for InnerVerse episodes, free to play",
         "- [About](" + o + "/about): Chance Garton and the history of the show",
         "- [InnerVerse Plus+](" + o + "/plus): the members' archive with full-length and bonus episodes",
         "- [Biofield Tuning](" + o + "/biofield-tuning): remote sound healing sessions with Chance Garton over Zoom",
@@ -99,6 +100,7 @@ import pages as hand  # noqa: E402
 import plus_episode  # noqa: E402
 import redirects  # noqa: E402
 import biofield_anatomy  # noqa: E402
+import music  # noqa: E402
 
 
 def write(rel, text):
@@ -244,6 +246,10 @@ def main():
     bt = hand.biofield_tuning()
     write("biofield-tuning.html", bt)
     write("biofield-tuning/index.html", bt)
+    # InnerVerse Music (build/music.py): the app's song list, free for everyone, on the site since 2026-11-25.
+    mu, music_report = music.build(list(index.values()))
+    write("music.html", mu)
+    write("music/index.html", mu)
     # The Biofield Anatomy map: a full-screen page of its own, hidden from search until its launch (build/biofield_anatomy.py).
     ba = biofield_anatomy.build(OUT)
     write("biofield-anatomy.html", ba)
@@ -253,6 +259,7 @@ def main():
     newest_date = max([d for d in [s[1] for s in sitemap] if d] or [today])
     sitemap[:0] = [(common.LIVE_ORIGIN + "/", newest_date), (common.LIVE_ORIGIN + "/episodes", newest_date),
                    (common.LIVE_ORIGIN + "/plus", newest_date),
+                   (common.LIVE_ORIGIN + "/music", ""),
                    (common.LIVE_ORIGIN + "/about", ""), (common.LIVE_ORIGIN + "/biofield-tuning", ""),
                    (common.LIVE_ORIGIN + "/contact", ""), (common.LIVE_ORIGIN + "/support", "")]
     write("llms.txt", llms_txt(newest))
@@ -291,6 +298,7 @@ def main():
     report = {"episodePages": len(pages), "plusPages": plus_pages, "plusPagesNoindex": plus_noindex, "postsWithNoData": [p["slug"] for p, _ in no_data], "plusWithNoData": plus_no_data,
               # The commits this build came from; a scheduled run compares them with the live copy and stops early when both are unchanged.
               "siteCommit": os.environ.get("IV_SITE_SHA", ""), "dataCommit": os.environ.get("IV_DATA_SHA", "")}
+    report["music"] = music_report
     write("build-report.json", json.dumps(report, indent=1))
     print(json.dumps(report))
 
