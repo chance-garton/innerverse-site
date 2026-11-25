@@ -1,0 +1,2501 @@
+{
+ "base": "https://images.innerversepodcast.com",
+ "batch": "acast-thumbs-2026-11-25",
+ "bytes_added": 133106249,
+ "copied": [
+  {
+   "bytes_added": 1122303,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1525436391760-6b42b756b614473aa9b07e11e61afa0b",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1525436391760-6b42b756b614473aa9b07e11e61afa0b.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1104207,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1549629036056-e4a1103ca461cfb40f08c162f4ad4397",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1549629036056-e4a1103ca461cfb40f08c162f4ad4397.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 773661,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1552139475879-a60fd29ad17753831eb53cefb5aa3828",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1552139475879-a60fd29ad17753831eb53cefb5aa3828.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1046430,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1557711736345-656bf246b922e924c2a0c7f1ea89afaf",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1557711736345-656bf246b922e924c2a0c7f1ea89afaf.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 694013,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1560530869785-1e14e6db39d3570182807ace5e660737",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1560530869785-1e14e6db39d3570182807ace5e660737.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 714612,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1565179627963-24c35ae48e12361c20514af163335125",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1565179627963-24c35ae48e12361c20514af163335125.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 753573,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1580122175785-7c66bc7144525bab850c40b55df36856",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1580122175785-7c66bc7144525bab850c40b55df36856.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 784476,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1580510366380-30d1fb1dfad789fe3ad89e880e0e83be",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1580510366380-30d1fb1dfad789fe3ad89e880e0e83be.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1204831,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1581385753172-45803149e8d050cd232d23c125b73100",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1581385753172-45803149e8d050cd232d23c125b73100.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 499672,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1611764164973-efe426b32aa5708e6591651b322f95dc",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1611764164973-efe426b32aa5708e6591651b322f95dc.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 952225,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1612477711061-3c5d2d484707e06c89df7742c2ee8f41",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1612477711061-3c5d2d484707e06c89df7742c2ee8f41.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 927333,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1613325301570-efc87a2931218115ece9b147a21edc77",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1613325301570-efc87a2931218115ece9b147a21edc77.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 685463,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1614809079722-a2725a0d9ce1849bf7db496ecd0ab3cb",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1614809079722-a2725a0d9ce1849bf7db496ecd0ab3cb.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 915633,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1615060267727-c63c44cea08505cc238a620bb1bd6d92",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1615060267727-c63c44cea08505cc238a620bb1bd6d92.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 794954,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1615596911553-5499736b3c91214aac6aab0a8ef336fa",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1615596911553-5499736b3c91214aac6aab0a8ef336fa.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 712601,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1616088260043-6add648ae0bcfc4025ce739bf54685e2",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1616088260043-6add648ae0bcfc4025ce739bf54685e2.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 735235,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1616807989767-b65b980145fb9eb792963573898b17b6",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1616807989767-b65b980145fb9eb792963573898b17b6.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 468870,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1616893273301-baa1a4bd82207818608f64c2c20bdb37",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1616893273301-baa1a4bd82207818608f64c2c20bdb37.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 845453,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1617548450530-ce0c53a69effa288985a2e66d1434fb6",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1617548450530-ce0c53a69effa288985a2e66d1434fb6.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 513860,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1618235123180-31cf35e094ed600cf5122579532b432a",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1618235123180-31cf35e094ed600cf5122579532b432a.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 753151,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1618764518885-633bafd4d70c1d08091356b86f82a719",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1618764518885-633bafd4d70c1d08091356b86f82a719.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 742348,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1619277358546-b23970f4b5c5eed0a366c813ababd18e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1619277358546-b23970f4b5c5eed0a366c813ababd18e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 710872,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1620824543807-5b8d7782c5c6e3d5cf57d7566810e1b4",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1620824543807-5b8d7782c5c6e3d5cf57d7566810e1b4.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 702725,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1621288797321-4923b3364ee039228b35afce2f0035bc",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1621288797321-4923b3364ee039228b35afce2f0035bc.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 829948,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1621686200587-7ec89fb7d752c14572ce85f6a0660c59",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1621686200587-7ec89fb7d752c14572ce85f6a0660c59.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 498950,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1622994281377-9e16f54c33531a999eae782395b54961",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1622994281377-9e16f54c33531a999eae782395b54961.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 705465,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1623246247707-075f8c34d700162407266a95e466a631",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1623246247707-075f8c34d700162407266a95e466a631.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 404750,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1624368488930-f193b25f9491919602b13cd69d046489",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1624368488930-f193b25f9491919602b13cd69d046489.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 548197,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1625426455497-64438f7dcee2dc2d466027f1e2716ece",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1625426455497-64438f7dcee2dc2d466027f1e2716ece.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 375396,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1625852682059-81b96ca06b0b664745a34517e1d594ef",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1625852682059-81b96ca06b0b664745a34517e1d594ef.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 663702,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1627225787592-72c74200d4954b45c8081823f86e856e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1627225787592-72c74200d4954b45c8081823f86e856e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 460173,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1627226162987-ce7e44f9a86eb0daac6ed12a0f522804",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1627226162987-ce7e44f9a86eb0daac6ed12a0f522804.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 423623,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1628012561577-040a25b8bc2e48e0b79d03f1e2d03320",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1628012561577-040a25b8bc2e48e0b79d03f1e2d03320.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 519881,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1628518040263-b4efa31fb1213beb786bce593cc4897c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1628518040263-b4efa31fb1213beb786bce593cc4897c.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 744384,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1636684725225-a21b82e27a713c629431b748ad91d195",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1636684725225-a21b82e27a713c629431b748ad91d195.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 393240,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1637256484256-041f3cab2b86d284c7029714475a126e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1637256484256-041f3cab2b86d284c7029714475a126e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 489297,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1638206071343-f41f8e5b3f2cfc0b4322fe241e213bee",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1638206071343-f41f8e5b3f2cfc0b4322fe241e213bee.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 674957,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1638891198940-57f8d0016d495d21764472bd8146a513",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1638891198940-57f8d0016d495d21764472bd8146a513.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 987531,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1639243187122-6b615953bdcdbf5f1f005317ec592b01",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1639243187122-6b615953bdcdbf5f1f005317ec592b01.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 727957,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1639770242972-1c65745cbda548b95be51e015efb82ed",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1639770242972-1c65745cbda548b95be51e015efb82ed.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 467408,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1639938637633-2ceff43d8e9002e4d6c01bdaf899ea54",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1639938637633-2ceff43d8e9002e4d6c01bdaf899ea54.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 438177,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1640997786729-a36aabfa1cdb1a2ed8c6421affc4dac1",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1640997786729-a36aabfa1cdb1a2ed8c6421affc4dac1.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 770793,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1641142332285-8ee4684e75e9fb939929db0ab8baddf5",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1641142332285-8ee4684e75e9fb939929db0ab8baddf5.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 598575,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1641611581564-12656b11324651fbced9bbfba9fdd97f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1641611581564-12656b11324651fbced9bbfba9fdd97f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 559020,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1642133356567-5288135849ff31093921a299f3f7a7d0",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1642133356567-5288135849ff31093921a299f3f7a7d0.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 577800,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1642697544715-1ac0d4a90ac72f2225931ab5ddf5c241",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1642697544715-1ac0d4a90ac72f2225931ab5ddf5c241.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 683065,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1643652369930-2f6b4488e91c708e46e64eb6c479f414",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1643652369930-2f6b4488e91c708e46e64eb6c479f414.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1005018,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1643916852941-235d97fcc7c118b90709caf0e35d401f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1643916852941-235d97fcc7c118b90709caf0e35d401f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 573430,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1644521962563-0a1ae7bca78fb52a2512ee955040a0fc",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1644521962563-0a1ae7bca78fb52a2512ee955040a0fc.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 792611,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1645132403127-6a1dfc23fbed3cb7850425d5357a0d8d",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1645132403127-6a1dfc23fbed3cb7850425d5357a0d8d.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 684350,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1646257994536-48d44a71218f0864190bbf04a85053bd",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1646257994536-48d44a71218f0864190bbf04a85053bd.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 727239,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1646843920822-516c4a776507eb8775a27343b7f8aaa3",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1646843920822-516c4a776507eb8775a27343b7f8aaa3.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 570282,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1647391683088-736b21cd5f50aaa37e7e1ee26e5968fc",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1647391683088-736b21cd5f50aaa37e7e1ee26e5968fc.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1048733,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1647616182095-8d9d49e5b15c5e9766bad45d99e6be6c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1647616182095-8d9d49e5b15c5e9766bad45d99e6be6c.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 796910,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1648136208341-a0b559b6d47a8ab107edc87757640061",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1648136208341-a0b559b6d47a8ab107edc87757640061.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 545066,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1648830260784-cdce5782c87e1e3436b9d830bd3023f8",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1648830260784-cdce5782c87e1e3436b9d830bd3023f8.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 781567,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1649355349268-23c94c2baf910276daa4d0bb14bde93b",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1649355349268-23c94c2baf910276daa4d0bb14bde93b.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 929524,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1650208054924-be36087cc100e83b116f25bba6e653c6",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1650208054924-be36087cc100e83b116f25bba6e653c6.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 757200,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1650573870162-9f35a67536770b112ae68df6e0e77c40",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1650573870162-9f35a67536770b112ae68df6e0e77c40.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 798697,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1651166076235-17f7bcb154203db510e8000b862cb88f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1651166076235-17f7bcb154203db510e8000b862cb88f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 975874,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1651768708984-61ef63c5dcc7c9617d3d8d5a668e698d",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1651768708984-61ef63c5dcc7c9617d3d8d5a668e698d.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1124109,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1652367232711-8fafd9e2545262d46ef7e5e791e7fdc3",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1652367232711-8fafd9e2545262d46ef7e5e791e7fdc3.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 510580,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1653598391193-93e3dda1313affc5b7ad591bd84caf1d",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1653598391193-93e3dda1313affc5b7ad591bd84caf1d.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 866751,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1654290614621-afa3c7217d636f4b3528f4eff89d0275",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1654290614621-afa3c7217d636f4b3528f4eff89d0275.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1233544,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1654798259146-e5965a493c7ae7972baefc939e5b200a",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1654798259146-e5965a493c7ae7972baefc939e5b200a.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 360041,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1655397879461-e5105276bebac3eb5bd9d72946303e4f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1655397879461-e5105276bebac3eb5bd9d72946303e4f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 598392,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1656124392961-9afe7a7e7dcd64202b4f8619f3183226",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1656124392961-9afe7a7e7dcd64202b4f8619f3183226.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 873695,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1656619476330-c53778fbb18026a019939fb36f9a1b28",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1656619476330-c53778fbb18026a019939fb36f9a1b28.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 579199,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1656693577950-d1a72fac09aa26987bd88f5d59a87554",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1656693577950-d1a72fac09aa26987bd88f5d59a87554.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1096884,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1657467256266-468d783199d704462ed77806c47f71b4",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1657467256266-468d783199d704462ed77806c47f71b4.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 410105,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1657823045154-331bfacb6a70a444b41bac97825751cb",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1657823045154-331bfacb6a70a444b41bac97825751cb.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 638599,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1658430061952-6da0f4c6f96353f4e1840b154528cd90",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1658430061952-6da0f4c6f96353f4e1840b154528cd90.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 482148,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1659028588188-9e4748ad0e03f13e506d4bb45e0b4a8b",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1659028588188-9e4748ad0e03f13e506d4bb45e0b4a8b.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 688985,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1659637227526-bd2d61455ce1909bab48f580d49dd3ec",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1659637227526-bd2d61455ce1909bab48f580d49dd3ec.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 797652,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1660252913288-f999d361fdbc017688929e17ebfecda9",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1660252913288-f999d361fdbc017688929e17ebfecda9.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 809659,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1660490933185-fd84d78e647ced9a3fd87c299969b771",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1660490933185-fd84d78e647ced9a3fd87c299969b771.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1119465,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1660942055722-cd9d80dcc1c03b50a9836e171c098b1d",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1660942055722-cd9d80dcc1c03b50a9836e171c098b1d.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 589621,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1660942377639-0f05b1baef9d9f4a6d8bca68586f030e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1660942377639-0f05b1baef9d9f4a6d8bca68586f030e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 679588,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1661655190229-fbb0b7aadf3abbac665985001dfb2b7e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1661655190229-fbb0b7aadf3abbac665985001dfb2b7e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 652080,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1662688390393-d8eb52b96faefba8785eeeb9cd90cfd6",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1662688390393-d8eb52b96faefba8785eeeb9cd90cfd6.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 960424,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1662689038209-f10d991076304cbb8be7eb8052c0223b",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1662689038209-f10d991076304cbb8be7eb8052c0223b.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 779705,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1663259665835-0ff716758040503a80886703f76cbb24",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1663259665835-0ff716758040503a80886703f76cbb24.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 262436,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1663259925269-e9b23c396d5066f23f34f48bb0d53b0a",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1663259925269-e9b23c396d5066f23f34f48bb0d53b0a.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 579959,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1663864056089-348c2c58d4fe17e7c0099eed4ef4fcf4",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1663864056089-348c2c58d4fe17e7c0099eed4ef4fcf4.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 141191,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1663864286795-2c48ad859f7b1786a5e02d8cd6d9a62d",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1663864286795-2c48ad859f7b1786a5e02d8cd6d9a62d.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 635503,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1664489673018-964d2e62db6e1f213424cfa3638e4832",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1664489673018-964d2e62db6e1f213424cfa3638e4832.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1074970,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1665106714058-972614ab705279ab2485399d0ec0ef07",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1665106714058-972614ab705279ab2485399d0ec0ef07.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 268445,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1665589497070-9872b1c2ac801e9f52cc537566706468",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1665589497070-9872b1c2ac801e9f52cc537566706468.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 748137,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1665634773333-c1c3ebb282449037c7c33d5d3334590c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1665634773333-c1c3ebb282449037c7c33d5d3334590c.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 460414,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1666447920510-58d60ccd9c5ebe7111ec556cc7dc1c72",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1666447920510-58d60ccd9c5ebe7111ec556cc7dc1c72.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 611480,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1666888878866-f2b3e37629a5b4166c470cfb4a2d8296",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1666888878866-f2b3e37629a5b4166c470cfb4a2d8296.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 694778,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1667657154223-7ddb0d5a45c413a1c02cc10a1344b07c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1667657154223-7ddb0d5a45c413a1c02cc10a1344b07c.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 908594,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1668102816265-b9d6249051921fb14f8a1da19b278749",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1668102816265-b9d6249051921fb14f8a1da19b278749.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 616891,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1668456026232-9ad7a14b91266f6895f68e1cd52c5550",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1668456026232-9ad7a14b91266f6895f68e1cd52c5550.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 371684,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1669090465723-e59d14059ce89f483a5003bdef47558a",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1669090465723-e59d14059ce89f483a5003bdef47558a.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 654594,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1669343244680-e9ca1a518263cc1b44b89d5a74f08b5f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1669343244680-e9ca1a518263cc1b44b89d5a74f08b5f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 883743,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1669919157866-0b82e0e777e7297c6d1288365d8c1305",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1669919157866-0b82e0e777e7297c6d1288365d8c1305.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 663631,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1670542743295-d5245e0c0281909bf58b5e719c445a55",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1670542743295-d5245e0c0281909bf58b5e719c445a55.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 722178,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1671387645006-ce38f8f6fcff515e9c3ebd91b4f3b31e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1671387645006-ce38f8f6fcff515e9c3ebd91b4f3b31e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 687927,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1671835421314-f5b64113a77700b2f2ed84a1d5f84ef9",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1671835421314-f5b64113a77700b2f2ed84a1d5f84ef9.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 315574,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1671905884824-fc13151721bdeeedea032511bc91435e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1671905884824-fc13151721bdeeedea032511bc91435e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 333030,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1672352530170-de5e360442426e5526c35e2b813f4cb2",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1672352530170-de5e360442426e5526c35e2b813f4cb2.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 640870,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1672505448757-894fb54eb68d4b1cad1a2fe6b24af423",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1672505448757-894fb54eb68d4b1cad1a2fe6b24af423.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 801110,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1673213953820-ef853e1d8832dc14fc55ab31bae7392d",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1673213953820-ef853e1d8832dc14fc55ab31bae7392d.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 691916,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1673555228857-7cf705c6d3f1ead1f185bf46c613b638",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1673555228857-7cf705c6d3f1ead1f185bf46c613b638.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 768233,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1674153407076-aaeef52a7b378637d92b930daef68994",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1674153407076-aaeef52a7b378637d92b930daef68994.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 625249,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1674758308084-de135e36e8d89fc8cc125cceb04e4b8d",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1674758308084-de135e36e8d89fc8cc125cceb04e4b8d.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 168314,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1675027682957-7e5403173b2355c3454b2fec34a87db5",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1675027682957-7e5403173b2355c3454b2fec34a87db5.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 696650,
+   "h": 3000,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1675274647312-2cad1681831d3cc5c646c17a290abcb1",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1675274647312-2cad1681831d3cc5c646c17a290abcb1.jpeg",
+   "w": 3000,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 523349,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1675399213400-a7dd8e791ab8241bdc211bb822c78fa7",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1675399213400-a7dd8e791ab8241bdc211bb822c78fa7.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 610694,
+   "h": 3000,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1675880541874-3740573972c19b6816694b70d57f202c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1675880541874-3740573972c19b6816694b70d57f202c.jpeg",
+   "w": 3000,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 679804,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1676231069232-d4d444b30bc1d043e67afc9726e5e607",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1676231069232-d4d444b30bc1d043e67afc9726e5e607.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 498926,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1676231427326-2cc7ac446d358d0848f98d5230b595a8",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1676231427326-2cc7ac446d358d0848f98d5230b595a8.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 365833,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1676527150254-314b8cefed7da918d39ee7b28151cb0a",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1676527150254-314b8cefed7da918d39ee7b28151cb0a.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 637157,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1677131607804-366f82779a623a6301b2c96b033954c7",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1677131607804-366f82779a623a6301b2c96b033954c7.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 875147,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1678070714243-5e2edbe4b9d5d5e646439a75f4bc66a3",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1678070714243-5e2edbe4b9d5d5e646439a75f4bc66a3.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 929898,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1678405613416-391b5d8cbf10731898fab1884c538ce9",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1678405613416-391b5d8cbf10731898fab1884c538ce9.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 681307,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1679283427192-410f628bd2c5e53a33652f507451b015",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1679283427192-410f628bd2c5e53a33652f507451b015.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 707438,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1680452293264-5efa4912f4233d436edf2c625717b3bc",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1680452293264-5efa4912f4233d436edf2c625717b3bc.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 776622,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1681053705725-3afdaf654b220cb0a58830a713c27c88",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1681053705725-3afdaf654b220cb0a58830a713c27c88.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1136364,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1681827180121-a65e18f9fc4a27f1f3706bcdbed95e2f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1681827180121-a65e18f9fc4a27f1f3706bcdbed95e2f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 488829,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1682180618361-81c9f949a4fe15038242e64ab08ad9b1",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1682180618361-81c9f949a4fe15038242e64ab08ad9b1.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 430952,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1682180792713-d5044af0ab2da65fea2b44de3f96d4cb",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1682180792713-d5044af0ab2da65fea2b44de3f96d4cb.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 324372,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1682180894893-a5bc1b529f5e08f1d0ee882289d54099",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1682180894893-a5bc1b529f5e08f1d0ee882289d54099.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 712535,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1682181301372-90be506237fdade8e58c3b7fc65b3a8a",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1682181301372-90be506237fdade8e58c3b7fc65b3a8a.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 626970,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1682966999337-aaf80cd76a30009e1090eb84d0b95063",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1682966999337-aaf80cd76a30009e1090eb84d0b95063.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 411555,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1682982224188-9b09d06a8bf12e687085a849600285f7",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1682982224188-9b09d06a8bf12e687085a849600285f7.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 923494,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1683477237875-ac50c597a0a37c23e124bf3ec7699dba",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1683477237875-ac50c597a0a37c23e124bf3ec7699dba.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 739148,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1684701648929-d8aafbc67dbe7a54a2729f1cfc05e666",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1684701648929-d8aafbc67dbe7a54a2729f1cfc05e666.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 888016,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1685297868256-2b3eefa0ac8982b52ed134d069365b25",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1685297868256-2b3eefa0ac8982b52ed134d069365b25.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 834969,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1685898386264-ff175a08f2e526d4517264007dc0f2bc",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1685898386264-ff175a08f2e526d4517264007dc0f2bc.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 684074,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1686863507951-07b4ed2183554c4cc5265d55577085a8",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1686863507951-07b4ed2183554c4cc5265d55577085a8.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 807782,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1687722218914-c3d1362e015c2900bbd95738d83ba326",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1687722218914-c3d1362e015c2900bbd95738d83ba326.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 863774,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1688315832906-c2eb16fed6715cdf16df32a7ebf8195f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1688315832906-c2eb16fed6715cdf16df32a7ebf8195f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 529947,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1688759959182-35c399bd64ee1ca65785cabc2703448c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1688759959182-35c399bd64ee1ca65785cabc2703448c.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 667550,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1689453607041-60e9fe691208f71547756909c6a100c3",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1689453607041-60e9fe691208f71547756909c6a100c3.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 737280,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1691344244371-4694e9b87707cc8a482bf9ec600b749c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1691344244371-4694e9b87707cc8a482bf9ec600b749c.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 828122,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1692555575744-09013553a47f97626a7b6f01adaffbaf",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1692555575744-09013553a47f97626a7b6f01adaffbaf.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 357650,
+   "h": 2362,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1693420216990-37807179b3d5c985cc155d9b9ffa81a4",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1693420216990-37807179b3d5c985cc155d9b9ffa81a4.jpeg",
+   "w": 2362,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 684932,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1693848188432-2819e3ac14c2a14a422fa5a50638d1eb",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1693848188432-2819e3ac14c2a14a422fa5a50638d1eb.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 775088,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1694107329611-75b6eb785ddd4bdea766ac6058c21c5c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1694107329611-75b6eb785ddd4bdea766ac6058c21c5c.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 299720,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1694883680512-ff43d8fe354053e35b6effb18306c75c",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1694883680512-ff43d8fe354053e35b6effb18306c75c.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 664467,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1696613144068-395ec3531df5faa2ec381a20d542d6e4",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1696613144068-395ec3531df5faa2ec381a20d542d6e4.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 511989,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1696799581481-a3bf634ee48ce5956ca467d0ed88e462",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1696799581481-a3bf634ee48ce5956ca467d0ed88e462.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 385434,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1698174370540-9e0f89bb64f0d800ecc0b18447c1e493",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1698174370540-9e0f89bb64f0d800ecc0b18447c1e493.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 788589,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1699635926769-45f9a6aa8be44601dc1d4a72e550d10f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1699635926769-45f9a6aa8be44601dc1d4a72e550d10f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 666156,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1704052691265-025d56276061b5d623fd19f140fcefbd",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1704052691265-025d56276061b5d623fd19f140fcefbd.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 588284,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1704403462296-9f1b53ba1503e3df8fdb7c47e38d0af0",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1704403462296-9f1b53ba1503e3df8fdb7c47e38d0af0.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 848472,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1704993281220-8be7ce487cadb701b5ce851217cd625a",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1704993281220-8be7ce487cadb701b5ce851217cd625a.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 834103,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1706292734596-530482d644fb9fa03336893625e1ba14",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1706292734596-530482d644fb9fa03336893625e1ba14.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 988765,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1708978777483-2b92ea1f313b8cca51f47e69652c27ad",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1708978777483-2b92ea1f313b8cca51f47e69652c27ad.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 684473,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1709701316647-2a8f7065c13f3ae4d549d5d287f58f02",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1709701316647-2a8f7065c13f3ae4d549d5d287f58f02.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 369250,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1709831368680-c30327bf4eb4f3f21eae1a328eb2e441",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1709831368680-c30327bf4eb4f3f21eae1a328eb2e441.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 659586,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1710521855566-42c1f9c7eec98d414c0ddf7011d8701b",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1710521855566-42c1f9c7eec98d414c0ddf7011d8701b.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 749016,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1711986710607-215baff5b4eade2036bc76b8fd734a15",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1711986710607-215baff5b4eade2036bc76b8fd734a15.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 406903,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1713193895391-58bf827677dfcb9a7968f36ec1086913",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1713193895391-58bf827677dfcb9a7968f36ec1086913.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 618946,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1713193900836-10dd9f899fe5c75e7b487ba994d18e52",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1713193900836-10dd9f899fe5c75e7b487ba994d18e52.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 735207,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1713801317078-902fcd03221cdd581238d5308e316661",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1713801317078-902fcd03221cdd581238d5308e316661.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 826041,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1714061579984-bec25c7233f2607475b94ca3da38ad03",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1714061579984-bec25c7233f2607475b94ca3da38ad03.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 379085,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1714590931411-d67a9d758f2a9152dd9bc26f96d0869a",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1714590931411-d67a9d758f2a9152dd9bc26f96d0869a.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 768848,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1715013125890-a98eb5e543a7a9239219ec88ff2c90c2",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1715013125890-a98eb5e543a7a9239219ec88ff2c90c2.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 872745,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1717437979269-fe14d4706e0c64cc8f0477ab37b37c48",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1717437979269-fe14d4706e0c64cc8f0477ab37b37c48.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 944835,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1718038647959-1e1a4567d0c5a4a599b276231a507a00",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1718038647959-1e1a4567d0c5a4a599b276231a507a00.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1212090,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1718242755843-649a4e47bdad52e4281c4197f88bd1ef",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1718242755843-649a4e47bdad52e4281c4197f88bd1ef.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 952782,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1718911363344-99c591cc972d1d638491a2987d95a0c3",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1718911363344-99c591cc972d1d638491a2987d95a0c3.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 528459,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1718912837301-967801aad42a7f33d3b09d6e3cd2b390",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1718912837301-967801aad42a7f33d3b09d6e3cd2b390.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 815976,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1720018579324-7e2710f1e065c41df28d9787e9a6d74d",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1720018579324-7e2710f1e065c41df28d9787e9a6d74d.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 474688,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1720715575263-0c2315746399e9e2378b5c7f22132f43",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1720715575263-0c2315746399e9e2378b5c7f22132f43.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 636950,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1721318661269-3242c6eb92f20d6ff432ba4fd290881e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1721318661269-3242c6eb92f20d6ff432ba4fd290881e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 677919,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1722184545905-23db39052d6bbea3a216065b6bdf1fb6",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1722184545905-23db39052d6bbea3a216065b6bdf1fb6.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 1149559,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1722614060453-b5cb30bd-5619-4c55-bf02-b1f86b43ece7",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1722614060453-b5cb30bd-5619-4c55-bf02-b1f86b43ece7.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 563149,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1723409947080-ff6d17bf-0706-444a-8b0c-7bb4f0375e1e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1723409947080-ff6d17bf-0706-444a-8b0c-7bb4f0375e1e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 767903,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1723735382656-b7a5be1b-b337-44d7-9423-b0e8f052aa21",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1723735382656-b7a5be1b-b337-44d7-9423-b0e8f052aa21.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 795341,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1724172909992-6d005aa5-5395-4f6e-a247-2c31efce1d90",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1724172909992-6d005aa5-5395-4f6e-a247-2c31efce1d90.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 703091,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1724601723887-b30aa65d-e431-4553-abfc-e761b09645fa",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1724601723887-b30aa65d-e431-4553-abfc-e761b09645fa.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 508509,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1725378388357-a31a0d4f-a11a-4e81-bc14-b59a4d1c7ed0",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1725378388357-a31a0d4f-a11a-4e81-bc14-b59a4d1c7ed0.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 676521,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1726850035991-b7f3bf39-05ae-46c0-aee4-32fa57e2c78f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1726850035991-b7f3bf39-05ae-46c0-aee4-32fa57e2c78f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 609338,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1726850298530-a5efdbc2-bf1b-47d1-aed3-5e21fc67aa5f",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1726850298530-a5efdbc2-bf1b-47d1-aed3-5e21fc67aa5f.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 961013,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1728231114928-fb28ace9-a778-479e-8d36-22a9020ef4fe",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1728231114928-fb28ace9-a778-479e-8d36-22a9020ef4fe.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 364159,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1728580599084-bdbe6de7-7bc5-4552-9e41-a44afe34094e",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1728580599084-bdbe6de7-7bc5-4552-9e41-a44afe34094e.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 366584,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1730069382325-6e691819-18ef-4136-9d3f-80766740b5a4",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1730069382325-6e691819-18ef-4136-9d3f-80766740b5a4.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 862125,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1730343939459-8c720a5a-5015-4177-a9f3-5f8610042fe5",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1730343939459-8c720a5a-5015-4177-a9f3-5f8610042fe5.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 912864,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1731085875482-c6670ae4-81b6-41d5-8a04-9a15dfcbb132",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1731085875482-c6670ae4-81b6-41d5-8a04-9a15dfcbb132.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 815082,
+   "h": 3000,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1731085946341-23fa3f20-0007-403e-ba87-77a124d49af8",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1731085946341-23fa3f20-0007-403e-ba87-77a124d49af8.jpeg",
+   "w": 3000,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 579292,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1732205069282-9d328311-f0d7-4860-95df-eb10b8dfdc52",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1732205069282-9d328311-f0d7-4860-95df-eb10b8dfdc52.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 805551,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1733428050113-67d25e56-ee5b-4cac-be8a-a7cc46a685e6",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1733428050113-67d25e56-ee5b-4cac-be8a-a7cc46a685e6.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 988588,
+   "h": 3000,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1735591751232-65a9eab3-25b1-419a-a023-113ada1cc062",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1735591751232-65a9eab3-25b1-419a-a023-113ada1cc062.jpeg",
+   "w": 3000,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 1656758,
+   "h": 1080,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1735591970810-ce9bcb85-6179-4f02-bb8d-65e242f06da3",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1735591970810-ce9bcb85-6179-4f02-bb8d-65e242f06da3.jpeg",
+   "w": 1920,
+   "widths": [
+    300,
+    500,
+    750,
+    1000,
+    1500
+   ]
+  },
+  {
+   "bytes_added": 514198,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1744752481407-d591fdba-0e89-4214-8e7b-d7a31a189a17",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1744752481407-d591fdba-0e89-4214-8e7b-d7a31a189a17.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 538964,
+   "h": 1400,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/1768510132017-d6d0e805-da0d-45d9-9376-706b90ed24ac",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/1768510132017-d6d0e805-da0d-45d9-9376-706b90ed24ac.jpeg",
+   "w": 1400,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  },
+  {
+   "bytes_added": 772286,
+   "h": 1080,
+   "key": "sq/shows-5a7e6d34b56c94b1216394e3/67cdee54ef638bd846cd6a3a530cafa4",
+   "url": "https://assets.pippa.io/shows/5a7e6d34b56c94b1216394e3/67cdee54ef638bd846cd6a3a530cafa4.jpg",
+   "w": 1080,
+   "widths": [
+    300,
+    500,
+    750,
+    1000
+   ]
+  }
+ ],
+ "dry_run": false,
+ "failed": [],
+ "finished": "2026-11-25T17:46:52+00:00",
+ "skipped": [],
+ "started": "2026-11-25T17:30:15+00:00"
+}
