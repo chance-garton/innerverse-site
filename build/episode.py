@@ -376,19 +376,13 @@ def build_intro(f):
     )
 
 
-def yt_join_icon(platform):
-    color = "#1AB7EA" if platform == "vimeo" else ("#EF1970" if platform == "odysee" else "#FF0000")
-    return ('<span class="iv-pill-circle-icon iv-pill-yt-icon"><svg viewBox="0 0 24 24" width="100%" height="100%"><rect width="24" height="24" rx="5" fill="' + color + '"></rect><path d="M10 8l6 4-6 4V8z" fill="#fff"></path></svg></span>')
-
-
 def build_plus_sales_card(f):
     generic = f["free"] or not (f["directPlusUrl"] or f["substackUrl"] or f["patreonUrl"])
     plus_url = url("/plus") if generic else plus_href(f["directPlusUrl"] or "/plus")
-    substack_href = PLATFORM_HOME["substack"] if generic else f["substackUrl"]
-    patreon_href = PLATFORM_HOME["patreon"] if generic else f["patreonUrl"]
-    plus_video = f["videoPlusUrl"] or f["videoUrl"]
-    video_href = PLATFORM_HOME["youtube"] if generic else plus_video
-    video_platform = "youtube" if generic else video_embed(plus_video)["platform"]
+    # 2026-11-25 (Chance): the card offers only the two ways in that unlock the
+    # site, the website and Patreon. Substack and YouTube memberships stay on
+    # those platforms; a row with no Patreon post goes to the Patreon page.
+    patreon_href = PLATFORM_HOME["patreon"] if generic else (f["patreonUrl"] or PLATFORM_HOME["patreon"])
     extra = extra_minutes(f)
     heading = "Hear every full episode" if generic else ("Hear the full " + (esc(f["plusDuration"]) + " " if f["plusDuration"] else "") + "episode")
     if generic:
@@ -398,14 +392,7 @@ def build_plus_sales_card(f):
                  + "the complete Plus+ archive, premium video and a private podcast feed for your app.")
         if f["notesTease"]:
             blurb += " " + IV_NOTES_TEASE
-    joins = ""
-    if substack_href:
-        joins += '<a href="' + esc(substack_href) + '" target="_blank" rel="noopener">' + img_icon(ICON["substack"], "Substack") + "Substack</a>"
-    if patreon_href:
-        joins += '<a href="' + esc(patreon_href) + '" target="_blank" rel="noopener">' + img_icon(ICON["patreon"], "Patreon") + "Patreon</a>"
-    if video_href:
-        label = "Vimeo" if video_platform == "vimeo" else ("Odysee" if video_platform == "odysee" else "YouTube")
-        joins += '<a href="' + esc(video_href) + '" target="_blank" rel="noopener">' + yt_join_icon(video_platform) + label + "</a>"
+    joins = '<a href="' + esc(patreon_href) + '" target="_blank" rel="noopener">' + img_icon(ICON["patreon"], "Patreon") + "Patreon</a>"
     eyebrow = ('<span class="iv2-eyebrow iv2-gold">Full episode &middot; ' + esc(f["plusDuration"]) + "</span>") if (f["plusDuration"] and not generic) else '<span class="iv2-eyebrow iv2-gold">InnerVerse Plus+</span>'
     return (
         '<div class="iv-plus-cta iv2-hcard" data-iv-plus-state="' + ("sell-free" if generic else "sell-cut") + '">'

@@ -606,23 +606,10 @@
        wrong). Signed-out copy for real members' cuts is unchanged. */
     var generic = f.free || !(f.directPlusUrl || f.substackUrl || f.patreonUrl);
     var plusUrl = generic ? PLATFORM_HOME.plus : (f.directPlusUrl || PLATFORM_HOME.plus);
-    var substackHref = generic ? PLATFORM_HOME.substack : f.substackUrl;
-    var patreonHref  = generic ? PLATFORM_HOME.patreon  : f.patreonUrl;
-    /* The members' cut is frequently a SEPARATE upload from the free
-       episode, so this pill prefers "YouTube Plus URL" and falls back to
-       Video URL when that is blank - which is every row without a separate
-       cut, so their behaviour is byte-for-byte unchanged. The main player
-       higher up the page always uses Video URL and is never affected.
-       Free episodes point at the channel join page either way. */
-    var plusVideo = f.videoPlusUrl || f.videoUrl;
-    var videoHref = generic ? PLATFORM_HOME.youtube : plusVideo;
-    var videoPlatform = generic ? 'youtube' : videoEmbed(plusVideo).platform;
-    var alts = '';
-    alts += pill(generic ? 'Browse Plus+' : 'Direct', plusUrl, '<span class="iv-pill-circle-icon">' + imgIcon(ICON.ivLogo, 'InnerVerse') + '</span>');
-    if (substackHref) alts += pill('Substack', substackHref, imgIcon(ICON.substack, 'Substack'));
-    if (patreonHref) alts += pill('Patreon', patreonHref, imgIcon(ICON.patreon, 'Patreon'));
-    if (videoHref) alts += pill(videoPlatform === 'vimeo' ? 'Vimeo' : (videoPlatform === 'odysee' ? 'Odysee' : 'YouTube'), videoHref,
-      '<span class="iv-pill-circle-icon iv-pill-yt-icon"><svg viewBox="0 0 24 24" width="100%" height="100%"><rect width="24" height="24" rx="5" fill="' + (videoPlatform === 'vimeo' ? '#1AB7EA' : (videoPlatform === 'odysee' ? '#EF1970' : '#FF0000')) + '"></rect><path d="M10 8l6 4-6 4V8z" fill="#fff"></path></svg></span>');
+    /* 2026-11-25 (Chance): only the two ways in that unlock the site, the
+       website and Patreon. Substack and YouTube memberships stay on those
+       platforms; a row with no Patreon post goes to the Patreon page. */
+    var patreonHref = generic ? PLATFORM_HOME.patreon : (f.patreonUrl || PLATFORM_HOME.patreon);
 
     /* Free episodes sell the membership itself rather than the rest of
        this episode, because there is no rest of this episode. */
@@ -632,8 +619,8 @@
 
     /* 2026-09-24 (Lapis Library): a horizontal card, the episode art on the
        left in a gold-lit frame, the copy on the right. "Direct" is no longer
-       a pill: the gold button IS the direct route. Substack, Patreon and the
-       video platform stay as icon links. The extra-minutes line is only
+       a pill: the gold button IS the direct route. Patreon stays as an icon
+       link (Substack and YouTube taken off 2026-11-25). The extra-minutes line is only
        written when both runtimes are known. */
     var extra = iv2ExtraMinutes(f);
     var heading = generic ? 'Hear every full episode' : ('Hear the full ' + (f.plusDuration ? esc(f.plusDuration) + ' ' : '') + 'episode');
@@ -641,12 +628,7 @@
       ? 'Every extended episode, the complete Plus+ archive, premium video and a private podcast feed for your app.'
       : ((extra ? extra + ' more minutes of this conversation, plus ' : 'The extended version of this episode, plus ') + 'the complete Plus+ archive, premium video and a private podcast feed for your app.');
     if (!generic && f.notesTease) blurb2 += ' ' + IV_NOTES_TEASE;   /* iv-show-notes */
-    var joins = '';
-    if (substackHref) joins += '<a href="' + esc(substackHref) + '" target="_blank" rel="noopener">' + imgIcon(ICON.substack, 'Substack') + 'Substack</a>';
-    if (patreonHref) joins += '<a href="' + esc(patreonHref) + '" target="_blank" rel="noopener">' + imgIcon(ICON.patreon, 'Patreon') + 'Patreon</a>';
-    if (videoHref) joins += '<a href="' + esc(videoHref) + '" target="_blank" rel="noopener">' +
-      '<span class="iv-pill-circle-icon iv-pill-yt-icon"><svg viewBox="0 0 24 24" width="100%" height="100%"><rect width="24" height="24" rx="5" fill="' + (videoPlatform === 'vimeo' ? '#1AB7EA' : (videoPlatform === 'odysee' ? '#EF1970' : '#FF0000')) + '"></rect><path d="M10 8l6 4-6 4V8z" fill="#fff"></path></svg></span>' +
-      (videoPlatform === 'vimeo' ? 'Vimeo' : (videoPlatform === 'odysee' ? 'Odysee' : 'YouTube')) + '</a>';
+    var joins = '<a href="' + esc(patreonHref) + '" target="_blank" rel="noopener">' + imgIcon(ICON.patreon, 'Patreon') + 'Patreon</a>';
     return '' +
         '<div class="iv-plus-cta iv2-hcard" data-iv-plus-state="' + (generic ? 'sell-free' : 'sell-cut') + '">' +
           '<div class="iv2-mediacol">' +
