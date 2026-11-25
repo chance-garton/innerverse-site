@@ -2,7 +2,7 @@
 sizing, the head, the nav and the footer.
 
 The nav and footer markup is the same markup the old iv-site-nav script drew
-into every Squarespace page (v2 nav), now written into the HTML itself so a
+into every page of the old site (v2 nav), now written into the HTML itself so a
 crawler sees every link without running anything. assets/site.js wires the
 burger, the scroll shrink and the member state on top of it.
 """
@@ -14,7 +14,6 @@ import re
 import sys
 
 LIVE_ORIGIN = "https://www.innerversepodcast.com"
-CDN = "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/"
 
 # Where the built site is served from. "" for the real domain; "/innerverse-site"
 # for the GitHub Pages test address. Every internal link and asset goes through
@@ -47,16 +46,12 @@ def url(path):
     return BASE + path
 
 
-STEPS = [100, 300, 500, 750, 1000, 1500, 2500]
-
-# Images copied off Squarespace into Cloudflare R2 (image move, stage 3).
-# IMAGE_BASE is the one setting for where the copies are served from: the
-# bucket's own address, images.innerversepodcast.com (live 2026-11-04).
+# Every image lives in Cloudflare R2. IMAGE_BASE is the one setting for where
+# it is served from: the bucket's own address, images.innerversepodcast.com
+# (live 2026-11-04).
 # Override with IV_IMAGE_BASE if it ever moves.
 IMAGE_BASE = os.environ.get("IV_IMAGE_BASE", "https://images.innerversepodcast.com").rstrip("/")
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT_DIR, "tools", "images"))
-from migrate import key_for, normalise  # noqa: E402  (the same keys the copy tool used)
 
 IMG_EXT = {"png": "p", "jpg": "j", "gif": "g", "webp": "w", "svg": "s"}
 IMG_WIDTHS = [300, 500, 750, 1000, 1500]
@@ -76,21 +71,13 @@ IMAGES = _load_image_map()  # bucket key -> (original type, WebP widths that exi
 
 
 def img_key(u):
-    """The bucket key for a Squarespace address (or an /s/ path), if copied.
-    normalise() runs twice, as in the copy tool: a %2B in a file name only
-    lines up with the map after the second pass."""
+    """The bucket key of an address on the image host, if the map knows it:
+    the path between the base and the last slash."""
     u = str(u or "").strip()
-    if u.startswith(IMAGE_BASE + "/"):
-        # an address already on our own image host (Stage 5 links): the key is
-        # the path between the base and the last slash, as in the browser twin
-        r = re.split(r"[?#]", u[len(IMAGE_BASE) + 1:])[0]
-        k = r[:r.rfind("/")] if "/" in r else ""
-        return k if k in IMAGES else None
-    if u.startswith("/s/"):
-        u = LIVE_ORIGIN + u
-    if not re.match(r"https?://(images\.squarespace-cdn\.com|static1\.squarespace\.com|(www\.)?innerversepodcast\.com/s/)", u):
+    if not u.startswith(IMAGE_BASE + "/"):
         return None
-    k = key_for(normalise(normalise(u)))
+    r = re.split(r"[?#]", u[len(IMAGE_BASE) + 1:])[0]
+    k = r[:r.rfind("/")] if "/" in r else ""
     return k if k in IMAGES else None
 
 
@@ -115,54 +102,15 @@ def _asked_width(u):
 
 
 def iv_img(u, width=500):
-    """Python twin of window.ivImg. A copied image comes back as its R2 file at
-    the nearest width that exists; anything else as before: format= first,
-    width snapped to a size the Squarespace CDN actually generates."""
+    """Python twin of window.ivImg: an image-host address comes back as its
+    file at the nearest width that exists; anything else unchanged."""
     if not u:
         return ""
     u = str(u)
     k = img_key(u)
     if k:
         return img_file(k, width or _asked_width(u) or 500)
-    if "images.squarespace-cdn.com" not in u:
-        return u
-    w = STEPS[-1]
-    for s in STEPS:
-        if s >= (width or 500):
-            w = s
-            break
-    base, _, query = u.partition("?")
-    rest = [kv for kv in query.split("&") if kv and not kv.startswith("format=")]
-    return base + "?format=" + str(w) + "w" + ("&" + "&".join(rest) if rest else "")
-
-
-# Any copied Squarespace image address left in a finished page (templates,
-# episode bodies, page data) is swapped for its R2 file: the width it asked
-# for with format=, or the largest WebP when it asked for none.
-_SQ_IMG = re.compile(r"https?://(?:images\.squarespace-cdn\.com|static1\.squarespace\.com)/[^\"'\s)<>\\]+")
-
-
-def _swap(m):
-    u = m.group(0)
-    tail = ""
-    for stop in ("&#39;", "&quot;", "&#x27;"):
-        i = u.find(stop)
-        if i != -1:
-            u, tail = u[:i], u[i:] + tail
-    k = img_key(html.unescape(u))
-    if not k:
-        return m.group(0)
-    return img_file(k, _asked_width(u)) + tail
-
-
-_PAGE_DATA = re.compile(r'(<script type="application/json"[^>]*>.*?</script>)', re.S)
-
-
-def swap_images(text):
-    """Page data (the JSON the scripts read) keeps its Squarespace addresses:
-    the scripts map them with ivImg, and keep them as a fallback."""
-    parts = _PAGE_DATA.split(text)
-    return "".join(p if i % 2 else _SQ_IMG.sub(_swap, p) for i, p in enumerate(parts))
+    return u
 
 
 def image_table():
@@ -211,9 +159,9 @@ def plain(s, limit=None):
     return s
 
 
-LOGO_URL = CDN + "9a710a85-f780-4b67-a4c7-2b45690b6006/2025-Electric-Logo-2026.png?format=300w&content-type=image%2Fpng"
-IW_MARK = CDN + "a39095cd-b9d2-444d-b4e2-14a2484d766d/Inner-Whirled-Logo.png?format=300w"
-VR_LOGO = CDN + "b8217739-ae93-4527-bd8a-37d690f4296b/VIBRANT_LOGO.png"
+LOGO_URL = "https://images.innerversepodcast.com/sq/9a710a85-f780-4b67-a4c7-2b45690b6006/2025-electric-logo-2026/w300.webp"
+IW_MARK = "https://images.innerversepodcast.com/sq/a39095cd-b9d2-444d-b4e2-14a2484d766d/inner-whirled-logo/w300.webp"
+VR_LOGO = "https://images.innerversepodcast.com/sq/b8217739-ae93-4527-bd8a-37d690f4296b/vibrant-logo/orig.png"
 
 V2_LINKS = [
     ("podcast", "Episodes", "/episodes"),
@@ -348,20 +296,14 @@ FONT_IW = ""  # IM Fell Great Primer is declared in src/css/00-fonts.css and loa
 HEAD_SCRIPT = r"""<script>
 (function(){var r=document.documentElement;
 try{if(localStorage.getItem('iv_session_token')&&localStorage.getItem('iv_plus_entitled')==='yes')r.classList.add('iv-plus-member');}catch(e){}
-var S=[100,300,500,750,1000,1500,2500];
 var IB=%s,IE={p:'png',j:'jpg',g:'gif',w:'webp',s:'svg'},IW=[300,500,750,1000,1500],IT=null;
 function itab(){if(IT)return IT;var s=window.IV_IMG_T;if(!s)return null;IT={};for(var i=0;i+9<=s.length;i+=9)IT[s.substr(i,7)]=s.substr(i+7,2);return IT;}
-function inrm(u){var m=/^(?:https?:)?\/\/([^\/?#]*)([^?#]*)/i.exec(u);if(!m)return'';var p=m[2].replace(/\+/g,' ');try{p=decodeURIComponent(p);}catch(e){}return'https://'+m[1].toLowerCase()+p;}
-function icl(s){s=s.toLowerCase().replace(/\.[a-z0-9]{2,4}$/,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');return s||'image';}
-function ikey(u){if(u.indexOf(IB+'/')===0){var r=u.slice(IB.length+1).split(/[?#]/)[0];return r.slice(0,r.lastIndexOf('/'));}
-var n=inrm(inrm(u)),m=/^https:\/\/([^\/]*)(.*)$/.exec(n);if(!m||!/^(images\.squarespace-cdn\.com|static1\.squarespace\.com)$/.test(m[1]))return'';
-var a=m[2].split('/').filter(Boolean);if(!a.length)return'';var ids=a.slice(0,-1).filter(function(x){return x!=='content'&&x!=='v1'&&x!=='static'&&x!=='5987d897cf81e0278ec5322e';}).map(icl).join('-');return'sq/'+(ids||'x')+'/'+icl(a[a.length-1]);}
+function ikey(u){if(u.indexOf(IB+'/')!==0)return'';var r=u.slice(IB.length+1).split(/[?#]/)[0];return r.slice(0,r.lastIndexOf('/'));}
 function ihash(k){var h=0x811c9dc5;for(var i=0;i<k.length;i++){h^=k.charCodeAt(i)&255;h=Math.imul(h,0x01000193)>>>0;}return('0000000'+h.toString(36)).slice(-7);}
 window.ivImgR2=function(u,w){var t=itab();if(!t)return'';var k=ikey(u);if(!k)return'';var e=t[ihash(k)];if(!e)return'';
 if(!w){var f=/[?&]format=(\d+)w/.exec(u)||/\/w(\d+)\.webp/.exec(u);w=f?+f[1]:500;}var b=parseInt(e.charAt(1),36),ws=[];for(var i=0;i<IW.length;i++)if(b&(1<<i))ws.push(IW[i]);
 if(!ws.length)return IB+'/'+k+'/orig.'+IE[e.charAt(0)];var x=ws[ws.length-1];for(i=0;i<ws.length;i++){if(ws[i]>=w){x=ws[i];break;}}return IB+'/'+k+'/w'+x+'.webp';};
-window.ivImgSq=function(u,w){if(!u)return'';u=String(u);if(u.indexOf('images.squarespace-cdn.com')===-1)return u;var x=S[S.length-1];for(var i=0;i<S.length;i++){if(S[i]>=(w||500)){x=S[i];break;}}var p=u.split('?');var rest=(p[1]||'').split('&').filter(function(kv){return kv&&kv.indexOf('format=')!==0;});return p[0]+'?format='+x+'w'+(rest.length?'&'+rest.join('&'):'');};
-window.ivImg=function(u,w){if(!u)return'';return window.ivImgR2(String(u),w)||window.ivImgSq(u,w);};
+window.ivImg=function(u,w){if(!u)return'';u=String(u);return window.ivImgR2(u,w)||u;};
 window.IV_BASE=%s;window.IV_EXTRA=%s;window.IV_PREMIERES=%s;window.ivPremiere=function(s){var p=(window.IV_PREMIERES||{})[s];return p&&Date.now()<Date.parse(p.at)?p:null;};window.ivPath=function(){var b=window.IV_BASE,p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);p=p.replace(/\/index\.html$/,'/').replace(/\.html$/,'');return p||'/';};if(window.IV_BASE)document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="/"]');if(!a)return;var h=a.getAttribute('href');if(h.indexOf('//')===0||h.indexOf(window.IV_BASE+'/')===0||h===window.IV_BASE)return;a.setAttribute('href',window.IV_BASE+h);},true);})();
 </script>"""
 
@@ -438,5 +380,5 @@ def page(head_html, body_html, html_class="", scripts=()):
     return (
         "<!doctype html>\n"
         '<html lang="en"' + (' class="' + html_class + '"' if html_class else "") + ">"
-        + swap_images(head_html) + "<body>" + swap_images(body_html) + tags + "</body></html>\n"
+        + head_html + "<body>" + body_html + tags + "</body></html>\n"
     )

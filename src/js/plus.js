@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection blocks iv-plus-index, iv-plus-feed-card and iv-plus-membership (its /plus hero and /support card; the membership core is in site.js) (live 2026-10-28). Path read through ivPath(). */
+/* Carried over from the old site's Code Injection blocks iv-plus-index, iv-plus-feed-card and iv-plus-membership (its /plus hero and /support card; the membership core is in site.js) (live 2026-10-28). Path read through ivPath(). */
 
 /* ============================================================
    INNERVERSE - THE /plus ARCHIVE (Lapis Library, 2026-09-25)
@@ -26,7 +26,7 @@
    plain substring filter in date order takes over below.
 
    Data. plus-index.json is the only file that covers the whole
-   members' catalogue (Squarespace categories, no Airtable), so it is
+   members' catalogue (old-site categories, no Airtable), so it is
    the list. Each entry is then joined to the free side for the
    fields the scorer ranks on: episodes-index.json (guests, subjects),
    episodes/_corpus.json (Topic Line, show categories) and
@@ -67,7 +67,7 @@
     ['The Inner Circle', 'Our members-only chat with Chance and the people who listen the way you do: a lounge that is always open, a room for every episode, on the site and in the InnerVerse app.']
   ];
 
-  /* Squarespace category spellings are the matching keys and are never
+  /* The old site category spellings are the matching keys and are never
      edited; these are display names only. Case is folded on load because a
      re-tagged post once split a show in two with one stray capital. */
   var SHOW_CANON = { 'innerverse': 'InnerVerse', 'inner whirled': 'Inner Whirled', 'vibe rant': 'Vibe Rant', 'astro-herbalism': 'Astro-Herbalism' };
@@ -1043,7 +1043,7 @@
   var CHECKOUT_YEARLY = 'https://innerverseplus.memberful.com/checkout?plan=149342';
   /* Copied images load from R2 (image move, stage 3); anything else as before. */
   var ivR2 = function (u) { return (window.ivImgR2 && window.ivImgR2(u)) || u; }
-  var PLUS_LOGO_URL = ivR2('https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng');
+  var PLUS_LOGO_URL = ivR2('https://images.innerversepodcast.com/sq/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus-asset/w300.webp');
   var PLUS_INDEX_URL = 'https://raw.githubusercontent.com/chance-garton/innerverse-data/main/plus-index.json';
 
   /* Per-episode static files built daily from Airtable (build-index.yml).

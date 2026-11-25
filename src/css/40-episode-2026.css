@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection block iv-episode-2026 (live 2026-10-28). */
+/* Carried over from the old site's Code Injection block iv-episode-2026 (live 2026-10-28). */
 /* ===== iv-episode-2026: the Lapis Library on /episodes and /plus pages (2026-09-24).
    Every rule is scoped to html.iv-2026, which the render script adds on
    /episodes/<slug> and /plus/<slug>. Remove that one class line in the
@@ -235,8 +235,6 @@ html.iv-2026 .iv-comments-heading-inner{padding-top:64px;}
 html.iv-2026 .iv-comments-title{font-size:40px;}
 html.iv-2026 #blogItemCommentsContent,html.iv-2026 .blog-item-comments{background:var(--surface)!important;}
 html.iv-2026 .blog-item-comments{padding-bottom:64px!important;border-bottom:1px solid var(--line);}
-html.iv-2026 .squarespace-comments .new-comment-area{background:var(--ground)!important;border:1px solid var(--line)!important;}
-html.iv-2026 .squarespace-comments .iv-cid-row input,html.iv-2026 .squarespace-comments .comment-input{background:var(--ground)!important;border:1px solid rgba(233,238,246,0.16)!important;border-radius:10px!important;}
 
 /* ---- /plus pages: gold furniture, lapis actions ---- */
 html.iv-2026.iv-plus-ep .iv-header-breadcrumb{color:var(--ink-muted);}

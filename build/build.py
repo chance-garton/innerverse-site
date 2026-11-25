@@ -3,7 +3,7 @@
 
 Reads the files the innerverse-data build already makes every day from
 Airtable (episodes/<slug>.json, _corpus.json, episodes-index.json) plus the
-frozen Squarespace snapshot in data/squarespace-posts.json, and writes one
+frozen snapshot of the old site in data/old-site-posts.json, and writes one
 finished page per episode, the stylesheet, the scripts, a sitemap and
 robots.txt.
 
@@ -136,7 +136,7 @@ def build_assets():
 
 
 def episode_file(slug):
-    """The live post slug, or the same slug without Squarespace's five
+    """The live post slug, or the same slug without the old site's five
     character duplicate suffix, as the render script tried both."""
     for cand in (slug, re.sub(r"-[a-z0-9]{5}$", "", slug)):
         p = os.path.join(DATA, "episodes", cand + ".json")
@@ -150,12 +150,12 @@ def main():
         shutil.rmtree(OUT)
     build_assets()
 
-    snap = load(os.path.join(ROOT, "data", "squarespace-posts.json"))
+    snap = load(os.path.join(ROOT, "data", "old-site-posts.json"))
     posts = snap["episodes"]
     corpus = load(os.path.join(DATA, "episodes", "_corpus.json"))["records"]
     index = {e["slug"]: e for e in load(os.path.join(DATA, "episodes-index.json"))["episodes"]}
 
-    # Which episodes have a page: every live Squarespace post with episode
+    # Which episodes have a page: every live post on the old site with episode
     # data. A post with no data file is a known duplicate (OPEN-ITEMS) and is
     # listed for the redirects file instead.
     pages, no_data = [], []
@@ -164,7 +164,7 @@ def main():
         (pages if file else no_data).append((p, file))
     # Episodes published after the snapshot (2026-11-04): every index row whose
     # url is a free /episodes/ page also gets a page, so new episodes appear
-    # without a Squarespace post. The snapshot only adds old SEO text and dates.
+    # without an old-site post. The snapshot only adds old SEO text and dates.
     known = {p["slug"] for p in posts}
     for e in index.values():
         u = (e.get("url") or "").rstrip("/")

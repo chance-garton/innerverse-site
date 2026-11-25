@@ -1,8 +1,9 @@
 name: Copy images to R2
 
-# Stage 2 of the image move (claude/BRIEF-image-migration-2026-10-30.md).
+# New images (episode thumbnails, slides, song covers, logos) into R2.
 # Run by hand from the Actions tab with a batch name from
-# data/images/batches.json. Copies that batch's images from Squarespace into
+# data/images/batches.json. Copies that batch's images (usually files in
+# data/images/incoming/, by their raw GitHub address) into
 # the R2 bucket, checks each file answers from the public address, and
 # commits data/images/map.json plus a run report in data/images/runs/.
 # Safe to rerun: finished images are skipped, nothing is overwritten.

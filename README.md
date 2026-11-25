@@ -1,36 +1,18 @@
 # innerverse-site
 
-The InnerVerse website, built as finished pages from the episode data, on its
-way off Squarespace. Plan and status: the Website Recode project's
-`claude/PLAN-site-off-squarespace-2026-10-19.md` and `claude/START-HERE.md`.
+The InnerVerse website, www.innerversepodcast.com, built as finished pages from the episode data and served by Cloudflare Pages (project `innerverse-site`). How it builds, deploys and is looked after is in Claude's project doc `claude/RUN-site.md`, section 1.
 
 ## How it works
 
-- `build/build.py` reads a checkout of `chance-garton/innerverse-data` (the
-  files its daily Airtable build makes) and `data/squarespace-posts.json` (a
-  frozen copy of what only Squarespace held: SEO titles and descriptions,
-  social images, tags, post dates), and writes `dist/`: one page per
-  `/episodes/<slug>`, `assets/`, `sitemap.xml`, `robots.txt`.
-- `build/episode.py` is the episode page: the old `iv-episode-render`
-  builders, ported to Python, so every word, chapter, quote, guest and the
-  structured data are in the HTML.
-- `src/css/` is the Lapis Library stylesheet, carried over from the Code
-  Injection blocks (file names say which), plus `00-base.css`, which stands in
-  for Squarespace's theme. Built into `assets/site.css`.
-- `src/js/site.js` (membership helper, nav, footer, Inner Whirled brand) and
-  `src/js/episode.js` (players, chapters, accordions, tabs, share, quote
-  cards, member-aware Plus card) wire the finished markup.
-- `.github/workflows/build.yml` builds hourly and publishes to GitHub Pages.
+- `build/build.py` reads a checkout of `chance-garton/innerverse-data` (the files its Airtable build makes) and `data/old-site-posts.json` (a frozen copy of what only the old site held: SEO titles and descriptions, social images, tags, post dates), and writes `dist/`: every `/episodes/<slug>` and `/plus/<slug>` page, the hand-made pages (`build/pages.py`), `assets/`, `sitemap.xml`, `robots.txt`, `llms.txt`, `_headers` and `_redirects`.
+- `build/episode.py` and `build/plus_episode.py` are the episode pages, so every word, chapter, quote, guest and the structured data are in the HTML.
+- `src/css/` is the site stylesheet (built into `assets/site.css`); `src/js/` wires the finished markup (players, chapters, search, membership, share and quote cards).
+- Images live on `images.innerversepodcast.com` (R2); see `data/images/README-images.md`. Free episode audio lives on `audio.innerversepodcast.com` (`tools/audio/`).
+- `.github/workflows/build.yml` builds on every push, by hand and hourly at :20, then deploys `dist/` with wrangler. A push to `main` publishes the site.
 
 ## Build locally
 
-    IV_DATA_DIR=../innerverse-data python3 build/build.py
+    IV_DATA_DIR=../innerverse-data IV_BASE="" IV_NOINDEX=0 python3 build/build.py
+    PW_CHROMIUM=/path/to/chrome NODE_PATH=/path/to/node_modules node tools/prerender.js
 
-`IV_BASE` sets the path prefix (`/innerverse-site` at the test address, empty
-on the real domain); `IV_NOINDEX=1` keeps search engines off a test build.
-
-## Still on Squarespace (later stages)
-
-`/plus/<slug>` pages, the homepage, `/episodes`, `/plus`, About, Biofield
-Tuning, the other hand-made pages, comments, redirects, image storage, the
-domain switch.
+`IV_BASE` sets a path prefix (empty on the real domain); `IV_NOINDEX=1` keeps search engines off a test build.

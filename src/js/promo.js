@@ -1,4 +1,4 @@
-/* InnerVerse promo box (assets/promo.js). Carried over from the Squarespace Code Injection
+/* InnerVerse promo box (assets/promo.js). Carried over from the old site's Code Injection
    block iv-promo (live 2026-10-28) on 2026-10-28; the stylesheet is src/css/63-promo.css.
    Only change: the page path comes from ivPath(), so the test address works. Doc: claude/iv-promo.md
    Free episode pages: under the Plus card. Members' /plus pages: above Get Tuned (a signed-out

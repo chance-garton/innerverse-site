@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Copy one batch of Squarespace images into Cloudflare R2.
+"""Copy one batch of images into Cloudflare R2.
 
 Brief: claude/BRIEF-image-migration-2026-10-30.md (Stage 2) in Chance's
 Claude project. For every image in the batch that is not already complete in
@@ -66,7 +66,7 @@ def clean(s):
 
 
 def key_for(url):
-    """Stable folder name in the bucket, made from the Squarespace address."""
+    """Stable folder name in the bucket, made from the source address."""
     p = urllib.parse.urlsplit(url)
     parts = [x for x in p.path.split("/") if x]
     name = clean(parts[-1]) if parts else "image"
@@ -222,7 +222,7 @@ def save(path, obj):
 
 
 def run(batch, dry, urls=None):
-    """urls: copy this list directly (used by tools/images/sync.py); otherwise
+    """urls: copy this list directly; otherwise
     the batch is read from data/images/batches.json."""
     if urls is None:
         batches = load(BATCHES, {})
@@ -270,7 +270,7 @@ def run(batch, dry, urls=None):
             report["bytes_added"] += added
         except Exception as e:  # noqa: BLE001
             report["failed"].append({"url": url, "key": key, "reason": str(e)[:300]})
-        time.sleep(0.3)  # gentle on Squarespace
+        time.sleep(0.3)  # gentle on the source host
 
     report["finished"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     if not dry:

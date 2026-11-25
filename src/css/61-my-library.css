@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection block iv-my-library (live 2026-10-28). */
+/* Carried over from the old site's Code Injection block iv-my-library (live 2026-10-28). */
 /* iv-my-library (2026-10-09): a Plus+ member's own Save button and private notes on every episode
    page, the same library the InnerVerse app keeps (stored by the innerverse-circle Worker). */
 html.iv-2026 .ivml-card{margin:40px 0 0!important;padding:22px 24px;border-left:3px solid var(--gold,#D8AA3C);display:flex;flex-direction:column;gap:14px;}

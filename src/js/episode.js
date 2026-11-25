@@ -1,11 +1,11 @@
 /* InnerVerse episode page script (assets/episode.js).
-   Carried over from the Squarespace Code Injection block iv-episode-render
+   Carried over from the old site's Code Injection block iv-episode-render
    (IV_BUILD 2026-10-04a-shownotes) on 2026-10-19 and changed in three ways:
    the page is built by the generator, so the fetch-and-draw path is gone and
    hydrate() at the end wires the finished markup; the members' page render
    (renderPlus) came back on 2026-10-28 for the /plus/<slug> pages, started by
-   ivPlusPage() instead of the Squarespace paywall; and nothing here talks to
-   Squarespace any more. */
+   ivPlusPage() instead of the old site's paywall; and nothing here talks to
+   the old site any more. */
 /* ============================================================
    INNERVERSE EPISODE PAGE - STATIC JSON BUILD
    Build 2026-09-24d-headroom (the Lapis Library on episode pages: html.iv-2026 switch, accordions at every width,
@@ -23,7 +23,7 @@
    HOW A PAGE GETS BUILT
    1. The script runs on every page of the site.
    2. It reads the last segment of the URL as the slug, ignoring the
-      five character suffix Squarespace adds to duplicated posts.
+      five character suffix the old site adds to duplicated posts.
    3. It fetches episodes/<slug>.json from the innerverse-data repo
       on GitHub's CDN, rebuilt daily from Airtable. See the
       iv-episode-data block below for why. There is no fallback:
@@ -42,7 +42,7 @@
       half width column the script lifts it out to full width first.
 
    MIGRATING AN EPISODE
-   Tick one checkbox in Airtable. Nothing on the Squarespace post
+   Tick one checkbox in Airtable. Nothing on the old site's post
    needs editing, and nothing is destroyed.
 
    HAND-BUILT PAGES ARE SAFE
@@ -51,7 +51,7 @@
 
    MARKUP CONTRACT
    Every class, wrapper and nesting order matches the reference
-   page. Never add Squarespace's "preFade" class to generated
+   page. Never add the old site's "preFade" class to generated
    nodes: it sets opacity 0 and the reveal observer only ever binds
    blocks present at page load, so injected text stays invisible.
    ============================================================ */
@@ -81,29 +81,25 @@
 
 
   var LIVE_ORIGIN = 'https://www.innerversepodcast.com';
-  var CDN = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/';
-  /* The platform icons and logos are 40 to 172 px on the page but their source
-     files run from 100 KB to 1.4 MB, so the suffix carries a width. format=
-     must come FIRST or the CDN ignores it (see the iv-img HEADER block). */
-  var PNG = '.png?format=300w&content-type=image%2Fpng';
-  var PNG_BIG = '.png?format=1500w&content-type=image%2Fpng';
+  /* The platform icons and logos are 40 to 172 px on the page, so each
+     points at a small WebP copy on the image host. */
 
   var ICON = {
-    plusLogo: CDN + 'c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset' + PNG,
-    ivLogo:   CDN + '5d0e8860-e033-455f-a928-ac117245bcd8/InnerVerse+Podcast+Logo' + PNG,
-    substack: CDN + '97ea4460-fa59-4cec-aeb7-738c2a811286/SUBSTACK' + PNG,
-    patreon:  CDN + 'a71319bb-a7f7-4bc7-934e-227cfea475d7/PATREON' + PNG,
-    apple:    CDN + '2d9b38a3-e7fd-48a4-93fc-72391a9e8b41/APPLE' + PNG,
-    spotify:  CDN + 'e25969fb-b848-4f61-bdb8-f4fb1953c3f6/SPOTIFY' + PNG,
-    rumble:   CDN + '084be10d-b58a-4cce-8e56-0ec65d279c5d/RUMBLE' + PNG,
-    share:    CDN + '8b43cf98-5e5a-4d66-b17c-e53003e00ba3/SHARE' + PNG,
-    imessage: CDN + 'bec737af-11ac-4d1d-b28c-5c5717a15a94/text' + PNG,
-    instagram:CDN + '49f44b8f-7aa0-4f45-87dd-b590e1a74520/INSTA' + PNG,
-    telegram: CDN + '3bfe10e1-b999-4d2b-9912-eaef614c6cd2/TELEGRAM' + PNG,
-    copy:     CDN + '803e4681-439b-4acd-943a-b7a6d5149626/copy-link' + PNG,
-    quoteFrame: CDN + 'd103f353-b80d-4fc1-aa9b-9f55ee195c83/Quote+Card+Frame' + PNG_BIG
+    plusLogo: 'https://images.innerversepodcast.com/sq/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus-asset/w300.webp',
+    ivLogo:   'https://images.innerversepodcast.com/sq/5d0e8860-e033-455f-a928-ac117245bcd8/innerverse-podcast-logo/w300.webp',
+    substack: 'https://images.innerversepodcast.com/sq/97ea4460-fa59-4cec-aeb7-738c2a811286/substack/w300.webp',
+    patreon:  'https://images.innerversepodcast.com/sq/a71319bb-a7f7-4bc7-934e-227cfea475d7/patreon/w300.webp',
+    apple:    'https://images.innerversepodcast.com/sq/2d9b38a3-e7fd-48a4-93fc-72391a9e8b41/apple/w300.webp',
+    spotify:  'https://images.innerversepodcast.com/sq/e25969fb-b848-4f61-bdb8-f4fb1953c3f6/spotify/w300.webp',
+    rumble:   'https://images.innerversepodcast.com/sq/084be10d-b58a-4cce-8e56-0ec65d279c5d/rumble/w300.webp',
+    share:    'https://images.innerversepodcast.com/sq/8b43cf98-5e5a-4d66-b17c-e53003e00ba3/share/w300.webp',
+    imessage: 'https://images.innerversepodcast.com/sq/bec737af-11ac-4d1d-b28c-5c5717a15a94/text/w300.webp',
+    instagram:'https://images.innerversepodcast.com/sq/49f44b8f-7aa0-4f45-87dd-b590e1a74520/insta/w300.webp',
+    telegram: 'https://images.innerversepodcast.com/sq/3bfe10e1-b999-4d2b-9912-eaef614c6cd2/telegram/w300.webp',
+    copy:     'https://images.innerversepodcast.com/sq/803e4681-439b-4acd-943a-b7a6d5149626/copy-link/w300.webp',
+    quoteFrame: 'https://images.innerversepodcast.com/sq/d103f353-b80d-4fc1-aa9b-9f55ee195c83/quote-card-frame/w1000.webp'
   };
-  /* Copied images load from R2 (image move, stage 3); anything else as before. */
+  /* Each icon at the nearest WebP size the image host holds. */
   var ICON_SQ = {};
   Object.keys(ICON).forEach(function (k) { ICON_SQ[k] = ICON[k]; ICON[k] = (window.ivImgR2 && window.ivImgR2(ICON[k])) || ICON[k]; });
 
@@ -241,7 +237,7 @@
   /* Resolves to the same { records: [ { id, fields } ] } shape the
      Airtable query used to, so every caller below is unchanged.
 
-     Two spellings are tried, because Squarespace appends a five
+     Two spellings are tried, because the old site appends a five
      character collision suffix to a duplicated post. Plus Slug needs no
      second try: the build writes a file under BOTH a row's Slug and its
      Plus Slug, so either spelling is a direct hit.
@@ -740,7 +736,7 @@
     });
   }
   /* /plus: the card goes straight under the description, above Get Tuned.
-     A page still served by Squarespace's own unlock (an admin) also carries
+     A page still served by the old site's own unlock (an admin) also carries
      the old hand-placed button block; it is stood down so there is one. */
   function ivShowNotes(host, before, slug) {
     ivNotesStyle();
@@ -1231,7 +1227,7 @@
 
   /* The post's own JSON, fetched once and shared. Both the tags cloud and
      the guest links need it, and it is the only source that gives the EXACT
-     category strings Squarespace will match in a URL. */
+     category strings the old site will match in a URL. */
   var IV_PAGE_JSON = null;
   function pageJson() {
     if (!IV_PAGE_JSON) {
@@ -1241,7 +1237,7 @@
     return IV_PAGE_JSON;
   }
 
-  /* Guest names are Squarespace CATEGORIES on each post, in capitals, but
+  /* Guest names are old-site CATEGORIES on each post, in capitals, but
      NOT simply the guest's name uppercased: "Gabe (Slick Dissident)" is filed
      under "SLICK DISSIDENT", and a guessed URL 404s. So the exact string is
      taken from the post's own categories and matched three ways, widening
@@ -1370,7 +1366,7 @@
     });
   }
 
-  /* Pills come from the post's own Squarespace tags, so there is no
+  /* Pills come from the post's own old-site tags, so there is no
      Airtable field to keep in sync. Hidden until they arrive. */
   function buildTagsCloud() {
     return '<div class="iv-tags-cloud" id="iv-tags-cloud" style="display:none">' +
@@ -1466,7 +1462,7 @@
     });
   }
 
-  /* Squarespace's own scroll-reveal script tags content with "preFade"
+  /* The old site's own scroll-reveal script tags content with "preFade"
      (opacity: 0) and reveals it with an observer that binds at page load.
      Nodes injected later can get the class without ever getting a reveal,
      which is how the footer title and tagline stayed invisible even when
@@ -1626,7 +1622,7 @@
     }
   }
 
-  /* Tags come from the post's own Squarespace tags, fetched from the
+  /* Tags come from the post's own old-site tags, fetched from the
      page's own JSON representation. No tags, no cloud. */
   function wireTagsCloud(container) {
     var cloud = container.querySelector('.iv-tags-cloud');
@@ -1659,8 +1655,8 @@
       (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   }
 
-  /* `alt` is the Squarespace address: used only if the R2 copy will not load
-     for a canvas (the bucket needs a CORS rule for that; image move, stage 3). */
+  /* `alt` is a second address on the image host (the plain original), tried
+     only if the sized copy will not load for a canvas. */
   function loadImage(src, alt) {
     return new Promise(function (resolve, reject) {
       if (!src) { reject(new Error('no src')); return; }
@@ -1831,7 +1827,7 @@
     }
 
     try {
-      var portrait = await loadImage(ivImg(portraitUrl, 500), window.ivImgSq ? window.ivImgSq(portraitUrl, 500) : '');
+      var portrait = await loadImage(ivImg(portraitUrl, 500), portraitUrl);
       ctx.save();
       ctx.beginPath(); ctx.arc(pX, pY, pR, 0, Math.PI * 2); ctx.closePath(); ctx.clip();
       ctx.drawImage(portrait, pX - pR, pY - pR, pR * 2, pR * 2);
@@ -1993,7 +1989,7 @@
      already hold a Portrait URL, so any missing one is filled in here by
      matching the quote's author against the episode's guests. Nothing has
      to be added to the JSON, on this episode or any past one. */
-  var HOST_PORTRAIT = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/aa717e55-9487-4255-a7df-3f8ef10940c4/Chance+Garton+Patreon+Portrait.png?format=500w&content-type=image%2Fpng';
+  var HOST_PORTRAIT = 'https://images.innerversepodcast.com/sq/aa717e55-9487-4255-a7df-3f8ef10940c4/chance-garton-patreon-portrait/w500.webp';
 
   /* The host portrait changed on 2026-09-21, and every episode's Quotes
      JSON still embeds the old one on Chance's quotes. Rather than rewrite
@@ -2102,7 +2098,7 @@
      live iv-episode-render (IV_BUILD 2026-10-04a-shownotes) as it was, with
      four changes: renderPlus tells its caller when there is nothing to draw,
      the related cards and the guest card's See all button stay on this site,
-     and it is started by ivPlusPage() below rather than by the Squarespace
+     and it is started by ivPlusPage() below rather than by the old site
      paywall. The page arrives as the signed-out join screen; this draws the
      members' page in front of it once the member state says so. */
   /* ===== BEGIN iv-plus-episode =====
@@ -2113,7 +2109,7 @@
      while (the iv-plus-optout block this replaces).
 
      The rule now is narrower and safer than a full render: the paywalled
-     blocks Squarespace serves are the product, so they are never rebuilt.
+     blocks the old site serves are the product, so they are never rebuilt.
      Their video is re-skinned in place, their description is stood down
      only when Airtable actually has one to put in its place, and
      everything else this adds is new furniture around them - header,
@@ -2188,7 +2184,7 @@
   /* Tab-switch, plus actually stopping whichever player was running.
      The free page's wireMediaToggle binds a click handler straight onto
      .iv-video-cover, which is exactly the direct bind that breaks once
-     Squarespace swaps this native video block for a copy of itself (see
+     The old site swaps this native video block for a copy of itself (see
      the delegated handler in renderPlus below), so that function still
      isn't reused here. But hiding a panel never stopped its player
      either, so switching tabs used to leave the old one making sound
@@ -2410,7 +2406,7 @@
 
      wireChapters cannot be reused as-is because it looks for .iv-ratio
      INSIDE the container it is given, and here the player sits in
-     Squarespace's video block while the chapters sit in a full width row
+     The old site's video block while the chapters sit in a full width row
      below it. */
   function wirePlusChapters(root) {
     root.querySelectorAll('.iv-chapter-row').forEach(function (row) {
@@ -2738,7 +2734,7 @@
           intro2: r['Intro Paragraph 2'] || ''
         };
         /* A row with no title is a stub, and a stub header would replace
-           a real Squarespace title with an empty one. */
+           a real old-site title with an empty one. */
         if (!f.title) { fail(); return; }
 
         paintPlusYellow();
@@ -2804,7 +2800,7 @@
           }
           ivFitPlayerArm();
           /* The play listener is delegated from the document rather than
-             bound to the cover. Squarespace re-initialises its own video
+             bound to the cover. The old site re-initialises its own video
              blocks after this runs and does it by swapping in a copy of
              the node: our markup survives that, a listener bound to it
              does not. Confirmed on the live page - the cover rendered
@@ -3064,7 +3060,7 @@
         fail();
       });
   }
-  /* (2026-10-28) Squarespace category pages go away with Squarespace, so the
+  /* (2026-10-28) Old-site category pages went away with the old site, so the
      guest card's See all button goes to the /episodes guest filter, as it
      already did on every /plus page (they had no categories). */
   function plusGuestLinks(root) {
@@ -3083,7 +3079,7 @@
   // MAIN
   // ================================================================
 
-  /* Squarespace appends a five character collision suffix when a post is
+  /* The old site appends a five character collision suffix when a post is
      duplicated, so /episodes/great-chicago-fire-b78pp is the same episode
      as the Airtable slug great-chicago-fire. Ask for both spellings and
      prefer an exact match, so no post URL has to be renamed. */
@@ -3629,9 +3625,9 @@
 
   /* ===== END iv-chapter-video-seek ===== */
 
-  /* ===== BEGIN iv-plus-page (2026-10-28, stage 1b of the move off Squarespace) =====
+  /* ===== BEGIN iv-plus-page (2026-10-28, stage 1b of the move to the new site) =====
      Takes the job ivPlusMemberfulUnlock did on the live site. There, a locked
-     Squarespace post decided between the join screen and the members' page.
+     The old site post decided between the join screen and the members' page.
      Here the generator writes the join screen (and the public part of the
      episode under it) into the HTML, so this only decides when a member's page
      goes in front of it:
@@ -3803,7 +3799,7 @@
   /* ===== END iv-plus-audio-handshake ===== */
   /* ===== END iv-plus-page ===== */
 
-  /* ===== BEGIN iv-hydrate (2026-10-19, the move off Squarespace) =====
+  /* ===== BEGIN iv-hydrate (2026-10-19, the move to the new site) =====
      The page now arrives finished: the generator in innerverse-site wrote
      every section into the HTML from the same episode data, with the same
      markup the builders above produce. Nothing is redrawn here; this only

@@ -1,4 +1,4 @@
-/* Members' My library card (assets/my-library.js). Carried over from the Squarespace Code
+/* Members' My library card (assets/my-library.js). Carried over from the old site's Code
    Injection block iv-my-library (live 2026-10-28) on 2026-10-28; the stylesheet is
    src/css/61-my-library.css. Only change: the page path comes from ivPath(). */
 (function () {

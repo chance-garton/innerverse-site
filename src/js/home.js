@@ -1,10 +1,10 @@
-/* Carried over from the Squarespace Code Injection block iv-home (live 2026-10-28). Path read through ivPath(). */
+/* Carried over from the old site's Code Injection block iv-home (live 2026-10-28). Path read through ivPath(). */
 
 (function () {
   'use strict';
   /* ============================================================
      IV HOME (release one, 2026-09-22; phone layout 2026-09-23b; desktop search 2026-09-23c). Draws the homepage around
-     the H1, hook and identity paragraph that the Squarespace code
+     the H1, hook and identity paragraph that the old site's code
      block serves as real HTML inside #iv-home-root. Runs only on a
      page carrying that root, on the paths in HOME_PATHS. Reads the
      innerverse-data static files only; never Airtable.
@@ -20,13 +20,12 @@
   window.__ivHomeStarted = true;
 
   var DATA = 'https://raw.githubusercontent.com/chance-garton/innerverse-data/main/';
-  var CDN = 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/';
   /* Copied images load from R2 (image move, stage 3); anything else as before. */
   var ivR2 = function (u) { return (window.ivImgR2 && window.ivImgR2(u)) || u; }
-  var PORTRAIT_DESKTOP = ivR2(CDN + '9c1dfacf-dd4d-4987-95d7-3a2a1a57d65d/Chance-Garton-hero-circular-feather-Portrait.png?format=750w');
-  var PORTRAIT_PHONE = ivR2(CDN + '0d1c6b4a-baa8-46a6-8e7a-7b5ad8f90fd5/Chance-Garton-hero-Portrait.png?format=500w');
+  var PORTRAIT_DESKTOP = ivR2('https://images.innerversepodcast.com/sq/9c1dfacf-dd4d-4987-95d7-3a2a1a57d65d/chance-garton-hero-circular-feather-portrait/w750.webp');
+  var PORTRAIT_PHONE = ivR2('https://images.innerversepodcast.com/sq/0d1c6b4a-baa8-46a6-8e7a-7b5ad8f90fd5/chance-garton-hero-portrait/w500.webp');
   var HOST_IMG = (window.ivImg ? window.ivImg('https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg', 750) : '') || 'https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg';
-  var PLUS_LOGO = ivR2(CDN + 'c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng');
+  var PLUS_LOGO = ivR2('https://images.innerversepodcast.com/sq/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus-asset/w300.webp');
   var CHECKOUT_TRIAL = 'https://innerverseplus.memberful.com/checkout?plan=149343';
   var ABOUT_URL = '/about';
   var GUEST_SHOW = 'Chance Guest Spots';
@@ -345,7 +344,7 @@
     phTerm = order[ti % order.length];
     setPh('try \u201c' + phTerm + '\u201d');
   }
-  /* Squarespace's own WebSite JSON-LD (name "INNERVERSE PODCAST") would sit
+  /* The old site's own WebSite JSON-LD (name "INNERVERSE PODCAST") would sit
      beside the graph in the code block; keep one WebSite node in the
      rendered page. */
   try {

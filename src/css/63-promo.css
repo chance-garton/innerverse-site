@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection block iv-promo (live 2026-10-28). Doc: claude/iv-promo.md */
+/* Carried over from the old site's Code Injection block iv-promo (live 2026-10-28). Doc: claude/iv-promo.md */
 .iv-promo{--pp:#F7F4EC;--pe:#E4DDCB;--pf:#1F4A3A;--pd:#163629;--pm:#4F5E4D;--ps:#9A6F1E;
   position:relative;container-type:inline-size;background:var(--pp);border-radius:6px;margin:0;box-sizing:border-box;
   box-shadow:0 0 0 1px var(--pe) inset,0 18px 40px -22px rgba(0,0,0,.7);font-family:'Manrope','Segoe UI',Helvetica,Arial,sans-serif;text-align:left}

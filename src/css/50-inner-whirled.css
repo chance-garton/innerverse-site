@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection block iv-inner-whirled (live 2026-10-28). */
+/* Carried over from the old site's Code Injection block iv-inner-whirled (live 2026-10-28). */
 /* ===== iv-inner-whirled: show skin for Inner Whirled episode pages (free /episodes/<slug> and /plus/<slug>).
    Everything is scoped to html.iv-iw, which the episode render sets when the row's
    Show Categories include "Inner Whirled". It sits on top of iv-episode-2026 and only
@@ -61,8 +61,6 @@ html.iv-2026.iv-iw .iv-quote-avatar{border-color:rgba(165,150,245,0.5);}
 html.iv-2026.iv-iw .iv-tag-pill{color:#C8C3DD;}
 html.iv-iw .iv-banner{background:#150F28;border-top-color:rgba(109,63,240,0.5);}
 html.iv-iw .iv-banner a{color:var(--lapis-lit);border-bottom-color:rgba(165,150,245,0.45);}
-html.iv-iw .squarespace-comments .comment-btn{background:var(--lapis)!important;}
-html.iv-iw .squarespace-comments .iv-cid-row input:focus,html.iv-iw .squarespace-comments .comment-input:focus{border-color:var(--lapis)!important;box-shadow:0 0 0 3px rgba(109,63,240,0.16)!important;}
 /* the comments band: the older iv-comments rule paints it black to navy, which outranks the Lapis surface */
 html.iv-2026.iv-iw section.blog-item-comments{background:var(--surface)!important;background-image:none!important;}
 html.iv-iw #iv-footer{background:#0C0819;}

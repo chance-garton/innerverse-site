@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection block _gap0 (live 2026-10-28). */
+/* Carried over from the old site's Code Injection block _gap0 (live 2026-10-28). */
 .blog-item-top-wrapper { display: none !important; }
 .iv-header { max-width: 1200px; margin: 0 auto 20px; }
 .iv-header-breadcrumb { font-size: 12px; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 16px; }
@@ -632,7 +632,7 @@ a.iv-aff-link-primary:hover, a.iv-aff-link-primary:focus { background: rgb(30,15
   .iv-nav-word{display:none;}
 }
 
-/* Hide Squarespace's native header — .user-accounts-text-link stays
+/* Hide the old site's native header — .user-accounts-text-link stays
    clickable via JS even while hidden, so native Login still works. */
 /* Hidden for visitors; shown inside the admin preview and editor (body.sqs-edit-mode) so the header editor (Site Title, logo) stays reachable (2026-09-23). */
 body:not(.sqs-edit-mode) #header{display:none!important;}
@@ -681,10 +681,10 @@ body{padding-top:112px!important;}
   .iv-footer-title{font-size:24px;}
 }
 
-/* Hide Squarespace's native footer sections */
+/* Hide the old site's native footer sections */
 #footer-sections{display:none!important;}
 
-/* Squarespace tags script-injected nodes with its scroll-reveal class
+/* The old site tags script-injected nodes with its scroll-reveal class
    preFade (opacity: 0), but the observer that reveals them only binds
    blocks present at page load, so nodes we inject can be tagged and never
    revealed. That is what left the footer brand and tagline invisible on
@@ -692,7 +692,7 @@ body{padding-top:112px!important;}
 [class*="iv-"].preFade{opacity:1!important;}
 
 /* The hand-built reference page splits its sections across separate
-   Squarespace code blocks, and each block wrapper contributes vertical space
+   The old site's code blocks, and each block wrapper contributes vertical space
    that the margins above were tuned around. The generated page puts every
    section in one container, so that space is missing and the sections crowd:
    the platforms row actually overlapped the media toggle by 10px. These

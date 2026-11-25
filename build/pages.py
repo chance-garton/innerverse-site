@@ -6,18 +6,18 @@ which opens each page in a headless browser, lets the scripts draw it, and
 writes what they drew into the HTML, so search engines and link previews get
 the full page without running anything. In a visitor's browser the original
 shell is put back before the scripts run, so search, filters and member state
-work exactly as on Squarespace.
+work exactly as on the old site.
 """
 
 import os
 import re
 
-from common import IMAGE_BASE, LIVE_ORIGIN, esc, footer, head, img_file, img_key, iv_img, json_ld, nav, page, url
+from common import IMAGE_BASE, LIVE_ORIGIN, esc, footer, head, iv_img, json_ld, nav, page, url
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
-DEFAULT_IMAGE = "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6070e0ff1834a220b71fa697/1618010367716/rokfin-cover-art.jpg"
+DEFAULT_IMAGE = "https://images.innerversepodcast.com/sq/t-6070e0ff1834a220b71fa697-1618010367716/rokfin-cover-art/orig.jpg"
 
 
 def mount(shell):
@@ -38,7 +38,7 @@ def home():
 def episodes(pages):
     """pages: [(post, file)] as build.py has them, newest first. The list of
     every episode under the search tool is plain links, so every episode page
-    is one click from the archive for a crawler, as Squarespace's paged list
+    is one click from the archive for a crawler, as the old site's paged list
     was."""
     title = "All Episodes | InnerVerse Podcast"
     desc = ("Search every InnerVerse episode with Chance Garton: astrology, mythology, lost history, natural health, and symbolism. "
@@ -56,7 +56,7 @@ def episodes(pages):
     return page(h, body, cls, scripts=("/assets/site.js", "/assets/archive.js"))
 
 
-PLUS_IMAGE = "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69fbc0e54bf4684fff7e35ec/1778106597548/ChatGPT+Image+May+6%2C+2026%2C+03_30_14+PM.png"
+PLUS_IMAGE = "https://images.innerversepodcast.com/sq/t-69fbc0e54bf4684fff7e35ec-1778106597548/chatgpt-image-may-6-2026-03-30-14-pm/orig.png"
 
 
 def local_path(e):
@@ -90,7 +90,7 @@ def plus(plus_index):
 
 # ---------------------------------------------------------------- About ----
 # The About InnerVerse page (brand-search entity page). Built for the new site
-# and held for the switch; never put on Squarespace (Chance, 2026-10-30).
+# and held for the switch; never put on the old site (Chance, 2026-10-30).
 # Design: the About-InnerVerse board on the canvas, in the site's own nav and
 # footer. Copy rules: claude/SPEC-brand-search-dominance.md, "About InnerVerse
 # Page" (no medical claims, no superlatives, no counts without a method).
@@ -98,7 +98,7 @@ def plus(plus_index):
 # from the live site's header, every channel link answered.
 
 ABOUT_PHOTO = "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg"
-ABOUT_OG = "https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69f7320df691fe20c1392d7c/1777807885424/ChatGPT+Image+Apr+30%2C+2026%2C+09_03_08+AM.png"
+ABOUT_OG = "https://images.innerversepodcast.com/sq/t-69f7320df691fe20c1392d7c-1777807885424/chatgpt-image-apr-30-2026-09-03-08-am/orig.png"
 RSS = "https://feeds.acast.com/public/shows/5a7e6d34b56c94b1216394e3"
 
 ABOUT_SHOWS = [
@@ -250,11 +250,8 @@ def about():
 # Biofield Tuning (stage 3, 2026-10-30). The page body is the live code block,
 # kept verbatim in src/templates/biofield-tuning.html (its own styles and the
 # Biofield Anatomy script travel with it). This wraps it in the site's head,
-# nav and footer. The /s/ chart PNGs were Squarespace file storage; they now
-# point at their R2 copies (the original files), and at the live site only if
-# one is ever missing from the image map.
-BT_OG = ("https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/6ac2b6826681143eec927d37/1791145602054/"
-         "chance%2Bgarton%2Bbiofield%2Btuning%2Bsessions%2Binnerverse%2Bpodcast.png")
+# nav and footer. The chart PNGs point straight at their files on the image host.
+BT_OG = "https://images.innerversepodcast.com/sq/t-6ac2b6826681143eec927d37-1791145602054/chance-garton-biofield-tuning-sessions-innerverse-podcast/orig.png"
 BT_OFFERS = [
     ("Full Session", 200, LIVE_ORIGIN + "/booking?type=tuning-45"),
     ("Quick Tune Up", 100, LIVE_ORIGIN + "/booking?type=tuning-20"),
@@ -263,18 +260,12 @@ BT_OFFERS = [
 ]
 
 
-def _chart_file(m):
-    k = img_key(m.group(1))
-    return '"' + (img_file(k, original=True) if k else LIVE_ORIGIN + m.group(1)) + '"'
-
-
 def biofield_tuning():
     title = "Biofield Tuning Sessions with Chance Garton | InnerVerse Podcast"
     desc = ("Book a remote Biofield Tuning session or a Counseling and Readings session with Chance Garton over Zoom, "
             "working with sound and the human energy field to support healing, clarity, and alignment.")
     canonical = LIVE_ORIGIN + "/biofield-tuning"
     body_html = open(os.path.join(ROOT, "src", "templates", "biofield-tuning.html"), encoding="utf-8").read()
-    body_html = re.sub(r'"(/s/[^"]+)"', _chart_file, body_html)
     ld = {
         "@context": "https://schema.org",
         "@graph": [
@@ -296,7 +287,7 @@ def biofield_tuning():
     return page(h, body, cls, scripts=("/assets/site.js",))
 
 
-# Contact (stage 3, 2026-11-03). The live page is one Squarespace form (Name,
+# Contact (stage 3, 2026-11-03). The live page is one form on the old site (Name,
 # Email, Subject, Message) under two lines of copy; the copy is carried word
 # for word. The form posts as JSON to a small Worker (CONTACT_ENDPOINT) that
 # emails Chance; src/js/contact.js does the sending and shows the thank-you.
@@ -387,40 +378,38 @@ def not_found():
 # em dashes reworded, the Oracle Card block dropped (Chance, 2026-11-04), and
 # the Astro-Herbalism button points at the show's archive on this site.
 # The Plus+ card is the signed-out view in the HTML; plus.js (mountSupportCta)
-# redraws it for signed-in and lapsed members, as on Squarespace.
-SQ = "https://images.squarespace-cdn.com/content/v1/5987d897cf81e0278ec5322e/"
-SUPPORT_OG = ("https://static1.squarespace.com/static/5987d897cf81e0278ec5322e/t/69fba4fde74674760d4a6655/"
-              "1778099453966/ChatGPT+Image+May+6%2C+2026%2C+03_30_14+PM.png")
-SUP_PLUS_ICON = SQ + "0ea36d78-0ea0-4069-84c3-357546676fd8/Plus-Icon.png"
+# redraws it for signed-in and lapsed members, as on the old site.
+SUPPORT_OG = "https://images.innerversepodcast.com/sq/t-69fba4fde74674760d4a6655-1778099453966/chatgpt-image-may-6-2026-03-30-14-pm/orig.png"
+SUP_PLUS_ICON = "https://images.innerversepodcast.com/sq/0ea36d78-0ea0-4069-84c3-357546676fd8/plus-icon/orig.png"
 SUP_CHECKOUT = "https://innerverseplus.memberful.com/checkout?plan="
 SUP_PLATFORMS = [
     ("Patreon", "$9", "https://www.patreon.com/cw/innerverse", "Become a patron",
-     SQ + "4886f9a3-5af4-419b-ab75-ff31986fe08a/Patreon.png",
+     "https://images.innerversepodcast.com/sq/4886f9a3-5af4-419b-ab75-ff31986fe08a/patreon/orig.png",
      "Patreon has the most complete archive of InnerVerse Plus+ Content, along with over 300 free episodes. As a "
      "Patreon member you get access to the extended video for each episode, and a custom RSS Feed URL Link to plug in "
      "to your favorite podcast player, allowing you to listen to InnerVerse Plus+ in the iTunes Podcast App or similar program.",
      "Patreon", ["Custom RSS Feed", "Video Episodes", "Complete Archive", "Episodes Collected By Topic"]),
     ("Substack", "$8", "https://innerversepodcast.substack.com", "Try free for 7 days",
-     SQ + "5d82bbd2-a173-4a85-a835-33e268485695/substack.png",
+     "https://images.innerversepodcast.com/sq/5d82bbd2-a173-4a85-a835-33e268485695/substack/orig.png",
      "Joining InnerVerse Plus+ here has the exclusive benefit of giving you access to more complete episode research "
      "notes for Inner Whirled Podcasts. Substack members get access to the extended video for each episode, and a custom "
      "RSS Feed URL Link to plug in to your favorite podcast player, allowing you to listen to InnerVerse Plus+ in the "
      "iTunes Podcast App or similar program.",
      "Substack", ["Custom RSS Feed", "Video Episodes", "Complete Research Notes", "Great Community"]),
     ("YouTube", "$10", "https://www.youtube.com/playlist?list=UUMOrqPdnXaoZ18JoXSXN5MjjA", "Join YouTube membership",
-     SQ + "a3a82ad1-a924-4be7-971d-4e5f59f32c5b/youtuber.png",
+     "https://images.innerversepodcast.com/sq/a3a82ad1-a924-4be7-971d-4e5f59f32c5b/youtuber/orig.png",
      "For those who enjoy YouTube’s infrastructure and functionality, you can join InnerVerse Plus+ with a paid "
      "YouTube channel membership and get premium episodes there.",
      None, ["Video Episodes", "Watch Without Leaving YouTube"]),
 ]
 SUP_BOOKS = [
-    ("July’s End with Black Swans", SQ + "ed6a3da5-c8d8-46a0-87e0-ffee9a4f2562/July%27s+End.webp",
+    ("July’s End with Black Swans", "https://images.innerversepodcast.com/sq/ed6a3da5-c8d8-46a0-87e0-ffee9a4f2562/july-s-end/orig.jpg",
      "https://www.audible.com/pd/Julys-End-with-Black-Swans-Audiobook/B09RQ7G6CY?ref=acx_bty_BK_ACX0_296155_pd_us&source_code=AUDFPWS0223189MWU-BK-ACX0-296155"),
-    ("A Godsacre for Winds of the Soul", SQ + "0dd20f77-340f-4d4a-94ab-d63d0c2aeaf2/A+godsacre.webp",
+    ("A Godsacre for Winds of the Soul", "https://images.innerversepodcast.com/sq/0dd20f77-340f-4d4a-94ab-d63d0c2aeaf2/a-godsacre/orig.jpg",
      "https://www.audible.com/pd/A-Godsacre-for-Winds-of-the-Soul-Audiobook/B0BSR7MFX5?ref=acx_bty_BK_ACX0_335197_pd_us&source_code=AUDFPWS0223189MWU-BK-ACX0-335197"),
-    ("The Holy Sailors", SQ + "cc68c653-088d-43fa-bc4e-997896b19c32/the+holy+sailors.webp",
+    ("The Holy Sailors", "https://images.innerversepodcast.com/sq/cc68c653-088d-43fa-bc4e-997896b19c32/the-holy-sailors/orig.jpg",
      "https://www.audible.com/pd/The-Holy-Sailors-Audiobook/B0C5FJXB9Y?ref=acx_bty_BK_ACX0_351752_pd_us&source_code=AUDFPWS0223189MWU-BK-ACX0-351752"),
-    ("Terminalia", SQ + "78f88ed0-ca24-42ad-bfb8-e50468ed0f07/terminalia.webp",
+    ("Terminalia", "https://images.innerversepodcast.com/sq/78f88ed0-ca24-42ad-bfb8-e50468ed0f07/terminalia/orig.jpg",
      "https://www.audible.com/pd/B0CXG1VYX2/?source_code=AUDFPWS0223189MWU-BK-ACX0-389833&ref=acx_bty_BK_ACX0_389833_pd_us"),
 ]
 DYLAN_SUBSTACK = "https://greattide.substack.com?r=1x95oc"
@@ -522,7 +511,7 @@ def support():
     work = _sup_section(
         "workwithchance", "Sessions", "Work with Chance", "",
         '<div class="iv-sup-feature">'
-        '<img class="iv-sup-feature-img" src="' + esc(iv_img(SQ + "4e0c5819-8627-4923-a558-ebed935da372/CHANCE+GARTON+ABOUT+PAGE+INNERVERSE.png", 1000))
+        '<img class="iv-sup-feature-img" src="' + esc(iv_img("https://images.innerversepodcast.com/sq/4e0c5819-8627-4923-a558-ebed935da372/chance-garton-about-page-innerverse/orig.png", 1000))
         + '" alt="Chance Garton" width="724" height="543" loading="lazy">'
         '<div class="iv-sup-feature-body"><h3>Biofield Tuning</h3>'
         "<p>Remote sound healing sessions via Zoom using tuning forks to locate and balance energetic dissonance in the biofield.</p>"
@@ -559,7 +548,7 @@ def support():
     # Card text is each affiliate's Body from the Airtable Affiliates table (the copy on the episode cards).
     cards = [
         aff_card("Tippecanoe Herbs", "https://tippecanoeherbs.com/",
-                 logo(SQ + "b9ecc671-b201-40f9-95ce-f9ff0c004f08/tippecanoe+logo.webp", "Tippecanoe Herbs", 640, 342),
+                 logo("https://images.innerversepodcast.com/sq/b9ecc671-b201-40f9-95ce-f9ff0c004f08/tippecanoe-logo/orig.jpg", "Tippecanoe Herbs", 640, 342),
                  "Use coupon code <b>innerverse</b> at checkout for a 10% discount",
                  "Kyle and Serena Denton are community herbalists creating wild-crafted and organic plant medicines out of "
                  "Milwaukee since 2015. I have used their teas and tinctures on an almost daily basis for years now. Kyle is a great "
@@ -584,7 +573,7 @@ def support():
                  "religious studies ever could be. Give yourself the keys of discernment. Listen to Spirit Whirled.",
                  "See the audiobooks", None, "", logo_cls=" iv-sup-aff-logo-dark", shop_ext=False),
         aff_card("LotusWei Flower Essence Elixirs", "https://lotuswei.com/innerverse",
-                 logo(SQ + "025478ea-ef40-443c-bd06-554aba0a9bcf/lotuswei.png", "LotusWei flower essence elixirs", 402, 505),
+                 logo("https://images.innerversepodcast.com/sq/025478ea-ef40-443c-bd06-554aba0a9bcf/lotuswei/orig.png", "LotusWei flower essence elixirs", 402, 505),
                  "Use my affiliate link to support InnerVerse",
                  "LotusWei provides amazing and transformative plant essence elixirs, using one of nature’s most gentle and "
                  "beautiful elements: the flowers themselves. Led by founder Katie Hess, LotusWei supports customers with diverse "
@@ -633,7 +622,7 @@ def support():
     dylan = _sup_section(
         "dylan", "Inner Whirled co-host", "Support Dylan Saccoccio on Substack", "",
         '<div class="iv-sup-feature iv-sup-feature-small">'
-        '<img class="iv-sup-feature-img" src="' + esc(iv_img(SQ + "6670d9e4-df07-4fcb-831f-47c6f4c1582c/dylan.jpg", 500)) + '" alt="Dylan Saccoccio" width="400" height="400" loading="lazy">'
+        '<img class="iv-sup-feature-img" src="' + esc(iv_img("https://images.innerversepodcast.com/sq/6670d9e4-df07-4fcb-831f-47c6f4c1582c/dylan/orig.jpg", 500)) + '" alt="Dylan Saccoccio" width="400" height="400" loading="lazy">'
         '<div class="iv-sup-feature-body">'
         "<p>The <i>Spirit Whirled</i> series may be finished, but Dylan’s work isn’t. There are hundreds of articles on his "
         "Substack along with access to our shared podcast Inner Whirled for paying supporters at greattide.substack.com.</p>"

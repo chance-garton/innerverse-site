@@ -1,6 +1,6 @@
 """One finished HTML page per /plus/<slug> (stage 1b).
 
-The live members' page is a paywalled Squarespace post: a signed-out visitor
+The live members' page is a paywalled post on the old site: a signed-out visitor
 gets the join screen that ivPlusMemberfulUnlock paints (paintLock), and a
 member gets the page renderPlus draws from the episode's data file once the
 innerverse-plus Worker says they are entitled.
@@ -24,7 +24,7 @@ import episode as ep
 PLUS_TRIAL = "https://innerverseplus.memberful.com/checkout?plan=149343"
 PLUS_MONTHLY = "https://innerverseplus.memberful.com/checkout?plan=149341"
 PLUS_YEARLY = "https://innerverseplus.memberful.com/checkout?plan=149342"
-PLUS_LOGO_URL = "https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng"
+PLUS_LOGO_URL = "https://images.innerversepodcast.com/sq/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus-asset/w300.webp"
 WORKER = "https://innerverse-plus.chance-5da.workers.dev"
 LOCK_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
             '<rect x="4.5" y="10.5" width="15" height="10.5" rx="2.2"></rect><path d="M8.2 10.5V7.6a3.8 3.8 0 0 1 7.6 0v2.9"></path></svg>')

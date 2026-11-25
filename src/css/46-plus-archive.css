@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection block iv-plus-index (live 2026-10-28). */
+/* Carried over from the old site's Code Injection block iv-plus-index (live 2026-10-28). */
 
 /* ===== BEGIN iv-plus-index =====
    The members' archive on the Lapis Library (2026-09-25). The page is drawn
@@ -21,7 +21,7 @@
 .iv-plus-page .fe-block-444f27bd799ed03f902b,
 .iv-plus-page .fe-block-d2ccd25962b3f94e8d75 { display: none !important; }
 
-/* Hiding a block in a Squarespace fluid-engine grid does not close the space
+/* Hiding a block in an old-site fluid-engine grid does not close the space
    it held. Dropping the explicit row template lets empty rows collapse. */
 .iv-plus-page .fluid-engine {
   grid-template-rows: none !important;

@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection block iv-plus-unlock (live 2026-10-28). */
+/* Carried over from the old site's Code Injection block iv-plus-unlock (live 2026-10-28). */
 /* InnerVerse Plus unlock surfaces: the locked-episode screen, the /plus hero,
    and the nav account control. One palette, one set of buttons, three places.
 
@@ -8,7 +8,7 @@
 
 :root { --iv-gold:#E8B923; --iv-gold-lit:#f6d150; --iv-ink:#14161c; }
 
-/* --- the prev/next pager Squarespace prints under every members' post.
+/* --- the prev/next pager the old site prints under every members' post.
    It is the one piece of the native page a Plus visitor should never see:
    on a locked page it is the only thing left standing, and on an unlocked
    one it duplicates navigation the archive already does better. Keyed to
@@ -18,7 +18,7 @@
 html.iv-loading-plus #itemPagination,
 html.iv-loading-plus .item-pagination { display:none !important; }
 
-/* --- the native Squarespace pricing block on /plus still advertises the
+/* --- the native old-site pricing block on /plus still advertises the
    retired $8 / $88 prices, and it flashed on screen every load before the
    real CTA replaced it. It is replaced for everyone now, so it never
    renders at all. --- */

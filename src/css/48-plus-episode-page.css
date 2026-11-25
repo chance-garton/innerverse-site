@@ -16,7 +16,7 @@ html.iv-2026 .iv-plus-pubinfo .iv-sticky-main > * + * { margin-top: 40px; }
   html.iv-2026 .iv-plus-public > .iv-plus-pubinfo { margin-top: 32px; }
   html.iv-2026 .iv-plus-pubinfo .iv-sticky-main > * + * { margin-top: 28px; }
 }
-/* The join screen inherited Squarespace's body type on the live site (Abel,
+/* The join screen inherited the old site's body type on the live site (Abel,
    and paragraphs at 1.6em of their own size); keep it identical. */
 .iv-plus-public .iv-lock { font-family: Abel, Manrope, "Segoe UI", Helvetica, Arial, sans-serif; color: #fff; }
 .iv-plus-public .iv-lock p { line-height: 1.6em; }

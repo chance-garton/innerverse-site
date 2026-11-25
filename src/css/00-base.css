@@ -1,4 +1,4 @@
-/* The new site's own base: what Squarespace's theme stylesheet used to
+/* The new site's own base: what the old site's theme stylesheet used to
    provide around the episode page, and nothing more. Everything after this
    file was carried over from Code Injection and expects these containers. */
 *, *::before, *::after { box-sizing: border-box; }
@@ -9,7 +9,7 @@ body {
   color: var(--ink, #E9EEF6);
   font-family: Manrope, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 17px;
-  /* em, not a bare number: Squarespace's theme set these on body and every
+  /* em, not a bare number: the old site's theme set these on body and every
      episode-page element inherits the computed px (27.2 and 0.51). */
   line-height: 1.6em;
   letter-spacing: .03em;
@@ -21,7 +21,7 @@ a { color: inherit; }
 #iv-footer { letter-spacing: normal; }
 #iv-footer .iv-footer-link { line-height: normal; }
 
-/* The page column Squarespace's blog item template gave every post:
+/* The page column the old site's blog item template gave every post:
    1200px wide on a desktop, 6vw gutters on a phone. */
 .iv-page { display: block; }
 .blog-item-wrapper { padding: 0 6vw; }

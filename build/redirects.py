@@ -1,8 +1,8 @@
 """Build the redirects file for the switch (dist/_redirects, Cloudflare Pages format).
 
 Sources, all in this repo's data/ folder:
-  live-urls-2026-10-30.json     every address the live Squarespace site serves
-  squarespace-url-mappings.txt  Squarespace's own URL Mappings field
+  live-urls-2026-10-30.json     every address the old site served
+  old-url-mappings.txt          the old site's own URL Mappings field
   redirects-decided.txt         redirects Chance has decided (his word wins)
 
 Rules:
@@ -66,15 +66,15 @@ def build(episode_slugs, plus_slugs, index_episodes):
         parts = ln.split()
         add(parts[0], parts[1], "decided")
 
-    # 2. Squarespace's URL Mappings.
-    for ln in _read_lines("squarespace-url-mappings.txt"):
+    # 2. The old site's URL Mappings.
+    for ln in _read_lines("old-url-mappings.txt"):
         m = re.match(r"^(\S+) -> (\S+) (30[12])$", ln.strip())
         if not m:
             continue
         old, new = m.group(1), m.group(2)
         if "[" in old:                      # the leftover store rule, no store exists
             continue
-        if old == "/index":                 # Squarespace's own 302, made permanent
+        if old == "/index":                 # The old site's own 302, made permanent
             new = "/episodes"
         if new.startswith("/episodes/") and not page_exists(new):
             notes.append("mapping target has no page, sent to /episodes: " + old + " -> " + new)

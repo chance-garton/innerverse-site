@@ -1,4 +1,4 @@
-/* Carried over from the Squarespace Code Injection block iv-home (live 2026-10-28). */
+/* Carried over from the old site's Code Injection block iv-home (live 2026-10-28). */
 /* ===== iv-home: homepage release one (Lapis Library). Tokens named as in the
    InnerVerse Design System tokens.json. Night on :root, Day under
    html[data-theme="light"] (nothing sets that attribute yet). Every other
@@ -23,7 +23,7 @@ html[data-theme="light"]{
   --gold-glow:rgba(216,170,60,0.5);--nav:rgba(243,245,249,0.94);--hero-glow:rgba(36,87,176,0.16);
 }
 
-/* ---- Squarespace page shell around the code block: flatten it ---- */
+/* ---- the old site's page shell around the code block: flatten it ---- */
 body:has(#iv-home-root){background:var(--ground)!important;padding-top:85px!important;}
 body:has(#iv-home-root) #page,
 body:has(#iv-home-root) .page-section:has(#iv-home-root),

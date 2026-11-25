@@ -1,6 +1,6 @@
-/* Carried over from the Squarespace Code Injection block iv-plus-episode (live 2026-10-28). */
+/* Carried over from the old site's Code Injection block iv-plus-episode (live 2026-10-28). */
 /* ===== BEGIN iv-plus-episode =====
-   The members' /plus/<slug> pages keep every block Squarespace serves
+   The members' /plus/<slug> pages keep every block the old site serves
    them - the paywalled video and the copy underneath are the product,
    and they are never rebuilt from Airtable. What this block adds is the
    frame around them: the episode header, a right hand column carrying
@@ -15,7 +15,7 @@
    isn't one.
 
    Rollback: delete this block and the iv-plus-episode block in the
-   footer. Nothing here hides or moves a Squarespace block permanently,
+   footer. Nothing here hides or moves an old-site block permanently,
    so the members' pages return to their original layout on reload. */
 
 /* ---------- layout ---------- */
@@ -79,9 +79,8 @@ html.iv-plus-ep .iv-guest-card a.iv-guest-allbtn:hover,
 html.iv-plus-ep .iv-guest-card a.iv-guest-allbtn:focus,
 html.iv-plus-ep .iv-tag-pill:hover,
 html.iv-plus-ep a.iv-aff-link-primary,
-html.iv-plus-ep .squarespace-comments .comment-btn { color: #0b0d12 !important; }
 
-/* Squarespace's own button block is painted by a stylesheet on their CDN,
+/* The old site's own button block is painted by a stylesheet on their CDN,
    which is cross-origin and therefore invisible to paintPlusYellow. The
    handful of /plus pages carrying a show-notes download button need it
    named explicitly or they keep a blue button on a yellow page. */

@@ -1,7 +1,7 @@
 """One finished HTML page per /episodes/<slug>.
 
 Every builder here is a line-for-line Python twin of the matching function in
-the old iv-episode-render script (Squarespace Code Injection, build
+the old iv-episode-render script (the old site's Code Injection, build
 2026-10-04a-shownotes), producing the same markup and classes, so the Lapis
 Library stylesheet carried over in src/css applies unchanged. The difference
 is when it runs: the page arrives finished, with every word, link and the
@@ -19,23 +19,22 @@ import re
 import time
 from urllib.parse import quote
 
-from common import (LIVE_ORIGIN, CDN, esc, esc_em, url, iv_img, json_ld, plain,
+from common import (LIVE_ORIGIN, esc, esc_em, url, iv_img, json_ld, plain,
                     head, nav, footer, page)
 
-PNG = ".png?format=300w&content-type=image%2Fpng"
 ICON = {
-    "plusLogo": CDN + "c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset" + PNG,
-    "ivLogo": CDN + "5d0e8860-e033-455f-a928-ac117245bcd8/InnerVerse+Podcast+Logo" + PNG,
-    "substack": CDN + "97ea4460-fa59-4cec-aeb7-738c2a811286/SUBSTACK" + PNG,
-    "patreon": CDN + "a71319bb-a7f7-4bc7-934e-227cfea475d7/PATREON" + PNG,
-    "apple": CDN + "2d9b38a3-e7fd-48a4-93fc-72391a9e8b41/APPLE" + PNG,
-    "spotify": CDN + "e25969fb-b848-4f61-bdb8-f4fb1953c3f6/SPOTIFY" + PNG,
-    "rumble": CDN + "084be10d-b58a-4cce-8e56-0ec65d279c5d/RUMBLE" + PNG,
-    "share": CDN + "8b43cf98-5e5a-4d66-b17c-e53003e00ba3/SHARE" + PNG,
-    "imessage": CDN + "bec737af-11ac-4d1d-b28c-5c5717a15a94/text" + PNG,
-    "instagram": CDN + "49f44b8f-7aa0-4f45-87dd-b590e1a74520/INSTA" + PNG,
-    "telegram": CDN + "3bfe10e1-b999-4d2b-9912-eaef614c6cd2/TELEGRAM" + PNG,
-    "copy": CDN + "803e4681-439b-4acd-943a-b7a6d5149626/copy-link" + PNG,
+    "plusLogo": "https://images.innerversepodcast.com/sq/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus-asset/w300.webp",
+    "ivLogo": "https://images.innerversepodcast.com/sq/5d0e8860-e033-455f-a928-ac117245bcd8/innerverse-podcast-logo/w300.webp",
+    "substack": "https://images.innerversepodcast.com/sq/97ea4460-fa59-4cec-aeb7-738c2a811286/substack/w300.webp",
+    "patreon": "https://images.innerversepodcast.com/sq/a71319bb-a7f7-4bc7-934e-227cfea475d7/patreon/w300.webp",
+    "apple": "https://images.innerversepodcast.com/sq/2d9b38a3-e7fd-48a4-93fc-72391a9e8b41/apple/w300.webp",
+    "spotify": "https://images.innerversepodcast.com/sq/e25969fb-b848-4f61-bdb8-f4fb1953c3f6/spotify/w300.webp",
+    "rumble": "https://images.innerversepodcast.com/sq/084be10d-b58a-4cce-8e56-0ec65d279c5d/rumble/w300.webp",
+    "share": "https://images.innerversepodcast.com/sq/8b43cf98-5e5a-4d66-b17c-e53003e00ba3/share/w300.webp",
+    "imessage": "https://images.innerversepodcast.com/sq/bec737af-11ac-4d1d-b28c-5c5717a15a94/text/w300.webp",
+    "instagram": "https://images.innerversepodcast.com/sq/49f44b8f-7aa0-4f45-87dd-b590e1a74520/insta/w300.webp",
+    "telegram": "https://images.innerversepodcast.com/sq/3bfe10e1-b999-4d2b-9912-eaef614c6cd2/telegram/w300.webp",
+    "copy": "https://images.innerversepodcast.com/sq/803e4681-439b-4acd-943a-b7a6d5149626/copy-link/w300.webp",
 }
 PLATFORMS = [
     ("Apple", "https://itunes.apple.com/us/podcast/innerverse-podcast/id1066918535?mt=2", ICON["apple"]),
@@ -62,7 +61,7 @@ SVG = {
 }
 
 HOST_GUEST_ID = "rec7Vm5QNrDbc9sdb"
-HOST_PORTRAIT = CDN + "aa717e55-9487-4255-a7df-3f8ef10940c4/Chance+Garton+Patreon+Portrait.png?format=500w&content-type=image%2Fpng"
+HOST_PORTRAIT = "https://images.innerversepodcast.com/sq/aa717e55-9487-4255-a7df-3f8ef10940c4/chance-garton-patreon-portrait/w500.webp"
 FREE_SHOWS = ["vibe rant", "astro-herbalism", "chance guest spots", "marvelous demystifiers"]
 IV_NOTES_TEASE = "Members also get the full research notes for this episode."
 # 2026-11-22 (Chance): the new square tuning fork photo replaces the old cutout everywhere.
@@ -336,7 +335,7 @@ def build_media_toggle_full(f):
 
 
 def build_media_novideo(f):
-    """The eight old pages with no video (kept old-style on Squarespace by
+    """The eight old pages with no video (kept old-style on the old site by
     Chance's choice). Here they get the same player with Listen alone, or the
     artwork alone when there is no audio either."""
     full = build_media_toggle_listen_only(f) if f["acastAudioUrl"] else (
@@ -558,8 +557,8 @@ def guest_panel_inner(g):
     first = (g["name"] or "").split(" ")[0]
     allbtn = ""
     if g["id"] != HOST_GUEST_ID and norm_name(g["name"]) != "chance garton":
-        # The live page linked a Squarespace category page when the post had
-        # one; those pages go away with Squarespace, and the /episodes guest
+        # The live page linked an old-site category page when the post had
+        # one; those pages went away with the old site, and the /episodes guest
         # filter lists the same episodes, so every card links there.
         allbtn = ('<a class="iv-guest-allbtn iv-guest-alllink" href="' + esc(url("/episodes") + "?guest=" + quote(g["name"]))
                   + '">See all ' + esc(first) + ' episodes<span class="iv-guest-allcaret">&rarr;</span></a>')
@@ -890,9 +889,9 @@ def affiliates_for(r, file):
 
 
 def seo_title(f, post, r=None):
-    # Airtable's SEO Title first (2026-10-29), then the Squarespace snapshot, then Title.
+    # Airtable's SEO Title first (2026-10-29), then the old site's snapshot, then Title.
     t = plain((r or {}).get("SEO Title")) or (post or {}).get("seoTitle") or plain(f["title"].replace("*", ""))
-    # Squarespace appended " | InnerVerse" to every SEO title; keep doing so.
+    # The old site appended " | InnerVerse" to every SEO title; keep doing so.
     return t if t.endswith("| InnerVerse") else t + " | InnerVerse"
 
 

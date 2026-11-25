@@ -1,9 +1,9 @@
-/* Carried over from the Squarespace Code Injection blocks iv-episodes-search and iv-archive-extras (live 2026-10-28). Path read through ivPath(). */
+/* Carried over from the old site's Code Injection blocks iv-episodes-search and iv-archive-extras (live 2026-10-28). Path read through ivPath(). */
 
 /* ============================================================
    INNERVERSE - THE /episodes PAGE (Lapis Library, 2026-09-24)
 
-   Replaces the native Squarespace post list on /episodes with a
+   Replaces the native old-site post list on /episodes with a
    ranked search over the pre-built index. The head block hides the
    native list from the first frame and sets html.iv-archive-2026,
    which switches on the styles and the v2 nav.
@@ -45,7 +45,7 @@
   var CHECKOUT_TRIAL = 'https://innerverseplus.memberful.com/checkout?plan=149343';
   /* Copied images load from R2 (image move, stage 3); anything else as before. */
   var ivR2 = function (u) { return (window.ivImgR2 && window.ivImgR2(u)) || u; }
-  var PLUS_LOGO = ivR2('https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus+asset.png?format=300w&content-type=image%2Fpng');
+  var PLUS_LOGO = ivR2('https://images.innerversepodcast.com/sq/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus-asset/w300.webp');
 
   /* Good first episodes, Chance's five in his order (2026-09-24). */
   var FIRST = ['astrotheology-101', 'chris-crutchfield', 'marizelle-arce-terrain-doctor', 'inner-whirled-25', 'keys-to-the-tarot'];
@@ -973,11 +973,11 @@
   var SHOW_LABEL = { 'Chance Guest Spots': 'Chance on Other Podcasts' };
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var SHOWS = [
-    { value: 'InnerVerse', cls: 'ivx-show-iv', logo: 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/9a710a85-f780-4b67-a4c7-2b45690b6006/2025-Electric-Logo-2026.png',
+    { value: 'InnerVerse', cls: 'ivx-show-iv', logo: 'https://images.innerversepodcast.com/sq/9a710a85-f780-4b67-a4c7-2b45690b6006/2025-electric-logo-2026/orig.png',
       line: 'The flagship podcast running ten years strong. Consciousness, health, and everything esoteric with guests from all walks of life.' },
-    { value: 'Inner Whirled', cls: 'ivx-show-iw', logo: 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/5f54aa66-6f0f-473b-91ca-6fcb9d07373f/InnerVerse+Inner+Whirled+Podcast+Patreon.png',
+    { value: 'Inner Whirled', cls: 'ivx-show-iw', logo: 'https://images.innerversepodcast.com/sq/5f54aa66-6f0f-473b-91ca-6fcb9d07373f/innerverse-inner-whirled-podcast-patreon/orig.png',
       line: 'Chance and Dylan Saccoccio dig through myth, language and hidden history.' },
-    { value: 'Vibe Rant', cls: 'ivx-show-vr', logo: 'https://images.squarespace-cdn.com/content/5987d897cf81e0278ec5322e/b8217739-ae93-4527-bd8a-37d690f4296b/VIBRANT_LOGO.png',
+    { value: 'Vibe Rant', cls: 'ivx-show-vr', logo: 'https://images.innerversepodcast.com/sq/b8217739-ae93-4527-bd8a-37d690f4296b/vibrant-logo/orig.png',
       line: 'Chance and Slick Dissident, loose and live, covering some of the wildest ideas ever discussed on the internet.' }
   ];
   var PLAY = '<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg>';
