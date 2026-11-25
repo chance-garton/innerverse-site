@@ -3,9 +3,13 @@
 Vimeo's own auto-caption track (read through the embed page with the site as
 referer, exactly as a member's browser would).
 
+The members' Vimeo links are not in the public episode files (2026-11-25), so
+they are read from Airtable by record id: set AIRTABLE_TOKEN. The episode files
+still give the slug and year.
+
 Output: vimeo_results.json {slug: {"first": sec|None, "src":..., "text":..., "err":...}}
 """
-import glob, json, os, re, subprocess, sys
+import glob, json, os, re, subprocess, sys, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 DATA, OUT = sys.argv[1], sys.argv[2]
@@ -16,12 +20,34 @@ def year_of(f):
     y = str(f.get('Year') or '').strip()
     return y or str(f.get('Publish Date') or '')[:4]
 
+def plus_video_links():
+    tok = os.environ.get('AIRTABLE_TOKEN', '').strip()
+    if not tok:
+        sys.exit('Set AIRTABLE_TOKEN: the members\' video links are read from Airtable.')
+    out, offset = {}, None
+    while True:
+        q = {'pageSize': '100', 'returnFieldsByFieldId': 'true', 'fields[]': 'fldc2niCZSekUFcmF'}
+        if offset:
+            q['offset'] = offset
+        req = urllib.request.Request('https://api.airtable.com/v0/appg1ujebSIw7TyFW/tbl8lZF3m1yZZ1hcQ?'
+                                     + urllib.parse.urlencode(q), headers={'Authorization': 'Bearer ' + tok})
+        d = json.load(urllib.request.urlopen(req, timeout=60))
+        for r in d.get('records', []):
+            u = (r.get('fields') or {}).get('fldc2niCZSekUFcmF')
+            if u:
+                out[r['id']] = u
+        offset = d.get('offset')
+        if not offset:
+            return out
+
+links = plus_video_links()
 rows = []
 for p in sorted(glob.glob(os.path.join(DATA, 'episodes', '*.json'))):
     if os.path.basename(p).startswith('_'):
         continue
-    f = json.load(open(p)).get('fields', {})
-    u = f.get('Plus Video URL') or ''
+    d = json.load(open(p))
+    f = d.get('fields', {})
+    u = links.get(d.get('recordId'), '')
     m = re.search(r'vimeo\.com/(?:video/)?(\d+)(?:/([0-9a-f]{6,}))?', u)
     if not m or year_of(f) < '2020':
         continue
