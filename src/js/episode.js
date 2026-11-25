@@ -2698,6 +2698,23 @@
     });
   }
 
+  /* ===== iv-video-link (2026-11-25, members' video rollout step 2) =====
+     The members' video address comes from the Worker, which hands it only to
+     a signed-in active member, instead of from the public data file. Resolves
+     to {video, youtube} or null. While the rollout runs, a null falls back to
+     the public "Plus Video URL" (step 4 in claude/RUN-security.md takes the
+     fallback out once the data file no longer carries it). */
+  function ivPlusVideoLink(slug) {
+    var tok = '';
+    try { tok = localStorage.getItem('iv_session_token') || ''; } catch (e) {}
+    if (!tok || !slug) return Promise.resolve(null);
+    return fetch(IV_NOTES_WORKER + '/video-link/' + encodeURIComponent(slug), {
+      headers: { 'Authorization': 'Bearer ' + tok }, cache: 'no-store'
+    }).then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (j) { return (j && typeof j === 'object') ? j : null; })
+      ['catch'](function () { return null; });
+  }
+
   function renderPlus(plusSlug, onFail) {
     var done = function () { if (window.IVLoaderHide) window.IVLoaderHide(); };
     var fail = function () { done(); if (onFail) onFail(); };
@@ -2711,8 +2728,9 @@
       slugBase !== plusSlug ? ('OR(' + slugEq(plusSlug) + ',' + slugEq(slugBase) + ')') : slugEq(plusSlug)
     );
 
-    ivEpisodeGet(plusSlug, 'filterByFormula=' + filter + '&maxRecords=4')
-      .then(function (data) {
+    Promise.all([ivEpisodeGet(plusSlug, 'filterByFormula=' + filter + '&maxRecords=4'), ivPlusVideoLink(plusSlug)])
+      .then(function (both) {
+        var data = both[0], vlink = both[1];
         var recs = data.records || [];
         var rec = recs.filter(function (x) { return (x.fields || {})['Slug'] === plusSlug; })[0] || recs.filter(function (x) { return (x.fields || {})['Plus Slug'] === plusSlug; })[0] || recs[0];
         if (!rec) { fail(); return; }
@@ -2764,7 +2782,8 @@
         });
 
         /* ---------------- video ----------------
-           The Vimeo id comes from Airtable's "Plus Video URL", which is a
+           The Vimeo id comes from Airtable's "Plus Video URL" (asked of the
+           Worker, see iv-video-link), which is a
            different upload from both "Video URL" (the free YouTube cut)
            and "YouTube Plus URL" (the members' cut on YouTube). The id
            already on the page is the fallback, so a page whose row has
@@ -2773,7 +2792,7 @@
            The eager iframe is REPLACED rather than covered: left in place
            it loads the whole player before the visitor asks for it. */
         ivSetIntroSkip(r['Plus Intro Skip Seconds']);   /* iv-intro-skip: members' clock */
-        var vimeo = vimeoId(r['Plus Video URL'] || '') || plusPageVimeoId();
+        var vimeo = vimeoId((vlink && vlink.video) || r['Plus Video URL'] || '') || plusPageVimeoId();
         var plusAudioUrl = r['Plus Audio URL'] || '';
         var vblock = host.querySelector('.sqs-block-video');
         if (vimeo && vblock) {
