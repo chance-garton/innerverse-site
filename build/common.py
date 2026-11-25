@@ -163,23 +163,38 @@ LOGO_URL = "https://images.innerversepodcast.com/sq/9a710a85-f780-4b67-a4c7-2b45
 IW_MARK = "https://images.innerversepodcast.com/sq/a39095cd-b9d2-444d-b4e2-14a2484d766d/inner-whirled-logo/w300.webp"
 VR_LOGO = "https://images.innerversepodcast.com/sq/b8217739-ae93-4527-bd8a-37d690f4296b/vibrant-logo/orig.png"
 
-V2_LINKS = [
-    ("podcast", "Episodes", "/episodes"),
-    ("plus", "Plus+", "/plus"),
-    ("circle", "Inner Circle", "https://circle.innerversepodcast.com/"),
-    ("app", "App", "https://circle.innerversepodcast.com/app/"),
-    ("about", "About", "/about"),
-    ("tuning", "Get Tuned", "/biofield-tuning"),
+# The header's links (2026-11-25, Chance: the header was full). One list serves both views; the page's
+# member class (set before first paint) picks which a visitor or a Plus+ member sees, so nothing jumps.
+#   key, label, link, member's label (None = the same), who sees it:
+#   "all", "visitor" (never for a member), "bar-visitor" (off a member's bar, still in the phone menu), "member".
+# A member reads: Plus+ Episodes, Chat, Biofield Anatomy, App, Tuning. A visitor: Episodes, Plus+, Inner Circle, App, About, Tuning.
+NAV_LINKS = [
+    ("podcast", "Episodes", "/episodes", None, "visitor"),
+    ("plus", "Plus+", "/plus", "Plus+ Episodes", "all"),
+    ("circle", "Inner Circle", "https://circle.innerversepodcast.com/", "Chat", "all"),
+    ("anatomy", "Biofield Anatomy", "/biofield-anatomy", None, "member"),
+    ("app", "App", "https://circle.innerversepodcast.com/app/", None, "all"),
+    ("about", "About", "/about", None, "bar-visitor"),
+    ("tuning", "Tuning", "/biofield-tuning", None, "all"),
 ]
+NAV_WHO = {"visitor": " iv-nav-v", "bar-visitor": " iv-nav-bar-v", "member": " iv-nav-m"}
 ICON_SEARCH = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>'
 ICON_PERSON = '<svg class="iv-nav-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>'
 ICON_BOLT = '<svg class="iv-nav-bolt" viewBox="0 0 16 18" width="15" height="17" fill="currentColor" aria-hidden="true"><path d="M9.6 0 1 10.2h5.6L5.4 18 15 6.9H9.2z"></path></svg>'
 
 
-def _link(key, label, href, active):
+ICON_CLOSE = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>'
+
+
+def _link(key, label, href, member_label, who, active):
     tuned = key == "tuning"
-    cls = "iv-nav-link" + (" iv-nav-tuned" if tuned else "") + (" iv-nav-active" if key == active else "")
-    return '<a href="' + esc(url(href)) + '" class="' + cls + '" data-key="' + key + '">' + (ICON_BOLT if tuned else "") + label + "</a>"
+    cls = "iv-nav-link" + NAV_WHO.get(who, "") + (" iv-nav-tuned" if tuned else "") + (" iv-nav-active" if key == active else "")
+    # A member has no Episodes link, so on a free episode page their Plus+ Episodes link carries the bar.
+    if key == "plus" and active == "podcast":
+        cls += " iv-nav-active-m"
+    # The served words are the visitor's; a member's wording rides in data-m and CSS shows it in their place.
+    text = ('<span class="iv-nav-lbl" data-m="' + esc(member_label) + '"><span class="iv-nav-lbl-v">' + label + "</span></span>") if member_label else label
+    return '<a href="' + esc(url(href)) + '" class="' + cls + '" data-key="' + key + '">' + (ICON_BOLT if tuned else "") + text + "</a>"
 
 
 def _login():
@@ -190,8 +205,26 @@ def _login():
         '<span class="iv-nav-face">' + ICON_PERSON + "</span>"
         "</button>"
         '<div class="iv-nav-account-menu">'
-        '<a class="iv-nav-account-item" data-act="settings" href="https://innerverseplus.memberful.com/account">Settings</a>'
-        '<button type="button" class="iv-nav-account-item" data-act="logout">Logout</button>'
+        '<div class="iv-nav-account-who"><span class="iv-nav-account-name"></span><span class="iv-nav-account-tag">Plus+ member</span></div>'
+        '<a class="iv-nav-account-item" data-act="settings" href="https://innerverseplus.memberful.com/account">Membership settings</a>'
+        '<button type="button" class="iv-nav-account-item" data-act="logout">Log out</button>'
+        "</div></div>"
+    )
+
+
+def _search():
+    # A plain link to the archive until site.js turns it into the drop-down search.
+    return '<a href="' + esc(url("/episodes")) + '" class="iv-nav-search" role="button" aria-label="Search episodes" aria-expanded="false" aria-controls="iv-nav-sp">' + ICON_SEARCH + "</a>"
+
+
+def _search_panel():
+    return (
+        '<div class="iv-nav-sp" id="iv-nav-sp" hidden><div class="iv-nav-sp-box" role="search">'
+        '<div class="iv-nav-sp-eyebrow"><span class="iv-nav-sp-v">Search every episode</span><span class="iv-nav-sp-m">Search Plus+ Episodes</span></div>'
+        '<div class="iv-nav-sp-field">' + ICON_SEARCH +
+        '<input type="search" id="iv-nav-q" class="iv-nav-sp-input" placeholder="a topic, a guest, a feeling" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-controls="iv-nav-sp-list" aria-expanded="false" aria-label="Search episodes">'
+        '<button type="button" class="iv-nav-sp-close" aria-label="Close search">' + ICON_CLOSE + "</button></div>"
+        '<div class="iv-nav-sp-list" id="iv-nav-sp-list" role="listbox" aria-label="Results"></div>'
         "</div></div>"
     )
 
@@ -218,17 +251,17 @@ def nav(active="", inner_whirled=False, vibe_rant=False):
             '<img class="iv-nav-logo" src="' + esc(NAV_LOGO) + '" alt="InnerVerse Podcast" width="48" height="48">'
             '<span class="iv-nav-word">InnerVerse</span>'
         )
-    links = "".join(_link(k, l, h, active) for k, l, h in V2_LINKS)
+    links = "".join(_link(k, l, h, m, w, active) for k, l, h, m, w in NAV_LINKS)
     join = '<a href="' + esc(url("/plus")) + '" class="iv-nav-join">Join Plus+</a>'
     return (
         '<div id="iv-nav" class="iv-nav-v2"><div class="iv-nav-inner">'
         '<a href="' + esc(url("/")) + '" class="iv-nav-brand" aria-label="InnerVerse Podcast home">' + brand + "</a>"
         '<nav class="iv-nav-side iv-nav-center" aria-label="Main">' + links + "</nav>"
         '<div class="iv-nav-actions">'
-        '<a href="' + esc(url("/episodes")) + '" class="iv-nav-search" aria-label="Search episodes">' + ICON_SEARCH + "</a>"
-        + _login() + join +
+        + _search() + _login() + join +
         '<button class="iv-nav-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>'
         "</div></div>"
+        + _search_panel() +
         '<div class="iv-nav-mobile-panel">' + links + _login() + join + "</div>"
         "</div>"
     )
@@ -252,6 +285,7 @@ FOOTER_COLS = [
         ("YouTube", "https://www.youtube.com/@InnerVersePodcast/join", True),
     ]),
     ("Connect", [
+        ("About InnerVerse", "/about", False),
         ("Sessions with Chance", "/biofield-tuning", False),
         ("Contact Chance", "/contact", False),
         ("Instagram", "https://www.instagram.com/innerversepodcast/", True),

@@ -11,6 +11,7 @@
    every Memberful and Patreon member). */
 (function () {
   'use strict';
+  var SELF_SRC = (document.currentScript && document.currentScript.src) || '';
 
   /* ---------------- ivMembership ---------------- */
   var IV_WORKER_ORIGIN = 'https://innerverse-plus.chance-5da.workers.dev';
@@ -52,7 +53,7 @@
       .catch(function () { cb({ signedIn: false, entitled: false }); });
   }
   function logout() {
-    ['iv_session_token', 'iv_plus_entitled', 'iv_plus_email', 'iv_plus_name', 'iv_plus_source'].forEach(function (k) {
+    ['iv_session_token', 'iv_plus_entitled', 'iv_plus_email', 'iv_plus_name', 'iv_plus_source', 'iv_circle_face', 'iv_circle_face_key', 'iv_circle_face_at'].forEach(function (k) {
       try { window.localStorage.removeItem(k); } catch (e) {}
     });
   }
@@ -76,63 +77,111 @@
     document.documentElement.style.setProperty('--header-height', nav.offsetHeight + 'px');
   }
 
-  function ivSyncLoginState(nav) {
+  function lsGet(k) { try { return window.localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+  function lsSet(k, v) { try { if (v) window.localStorage.setItem(k, v); else window.localStorage.removeItem(k); } catch (e) {} }
+
+  /* Signed in, the header shows a round picture and no word (2026-11-25): the
+     word "Account" is kept for screen readers and for the phone menu, where
+     the row reads as the member's name. */
+  function ivSyncLoginState(nav, who) {
     var signedIn = !!getToken();
+    var name = String((who && who.name) || lsGet('iv_plus_name') || '').trim();
     nav.querySelectorAll('.iv-nav-login').forEach(function (btn) {
       var label = btn.querySelector('.iv-nav-login-label');
       var wrap = btn.closest('.iv-nav-account-wrap');
+      var inPanel = !!btn.closest('.iv-nav-mobile-panel');
       if (!label) return;
       if (signedIn) {
-        label.textContent = 'Account';
+        label.textContent = name || 'Account';
         btn.classList.add('iv-nav-signedin');
         if (wrap) wrap.classList.add('iv-nav-signed');
-        btn.setAttribute('title', 'Signed in, open your account');
-        btn.setAttribute('aria-label', 'Open your account');
+        btn.removeAttribute('title');
+        btn.setAttribute('aria-label', inPanel ? 'Membership settings' + (name ? ', ' + name : '') : 'Your account' + (name ? ', ' + name : ''));
+        if (!inPanel) { btn.setAttribute('aria-haspopup', 'true'); btn.setAttribute('aria-expanded', wrap && wrap.classList.contains('iv-nav-account-open') ? 'true' : 'false'); }
       } else {
         label.textContent = 'Log in';
         btn.classList.remove('iv-nav-signedin');
         if (wrap) wrap.classList.remove('iv-nav-signed');
-        btn.removeAttribute('title');
+        btn.removeAttribute('title'); btn.removeAttribute('aria-haspopup'); btn.removeAttribute('aria-expanded');
         btn.setAttribute('aria-label', 'Log in');
       }
     });
+    nav.querySelectorAll('.iv-nav-account-name').forEach(function (n) {
+      n.textContent = signedIn ? (name || String((who && who.email) || lsGet('iv_plus_email') || '')) : '';
+    });
   }
 
-  /* Memberful has no profile photo, so the picture is the member's Gravatar;
-     no Gravatar means the gold monogram stays. */
-  function ivGravatarUrl(email) {
-    var sub = window.crypto && window.crypto.subtle;
-    if (!sub || !window.TextEncoder || !email) return Promise.resolve('');
-    try {
-      return sub.digest('SHA-256', new window.TextEncoder().encode(String(email).trim().toLowerCase())).then(function (buf) {
-        var hex = Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
-        return 'https://gravatar.com/avatar/' + hex + '?s=96&d=404';
-      })['catch'](function () { return ''; });
-    } catch (e) { return Promise.resolve(''); }
+  /* The picture is the member's Inner Circle photo when they have set one,
+     otherwise their initials (Chance Garton reads CG). 2026-11-25: this
+     replaces the Gravatar lookup, so no outside service is asked about a
+     member's email any more. The chat photo is kept on this device as a
+     small copy, so later pages paint it at once without asking again. */
+  function ivInitials(name, email) {
+    var parts = String(name || '').replace(/[^A-Za-z0-9À-ɏ\s'-]/g, ' ').trim().split(/\s+/).filter(Boolean);
+    var out = '';
+    if (parts.length >= 2) out = parts[0].charAt(0) + parts[parts.length - 1].charAt(0);
+    else if (parts.length === 1) out = parts[0].charAt(0);
+    else out = String(email || '').trim().charAt(0);
+    return out.toUpperCase() || '?';
   }
   function ivPaintAvatar(nav, who) {
-    var name = (who && who.name) || '', email = (who && who.email) || '';
-    var initial = String(name || email || '?').trim().charAt(0).toUpperCase() || '?';
+    var name = String((who && who.name) || lsGet('iv_plus_name') || ''), email = String((who && who.email) || lsGet('iv_plus_email') || '');
+    var face = lsGet('iv_circle_face');
+    var key = face ? 'img:' + face.length : 'ini:' + ivInitials(name, email);
     nav.querySelectorAll('.iv-nav-face').forEach(function (slot) {
-      if (slot.getAttribute('data-iv-av') === '1') return;
-      slot.setAttribute('data-iv-av', '1');
-      var mono = document.createElement('span');
-      mono.className = 'iv-nav-avatar';
-      mono.textContent = initial;
+      if (slot.getAttribute('data-iv-av') === key) return;
+      slot.setAttribute('data-iv-av', key);
+      var node;
+      if (face) { node = document.createElement('img'); node.src = face; node.alt = ''; node.decoding = 'async'; }
+      else { node = document.createElement('span'); node.textContent = ivInitials(name, email); node.setAttribute('aria-hidden', 'true'); }
+      node.className = 'iv-nav-avatar';
       slot.innerHTML = '';
-      slot.appendChild(mono);
-      if (!email) return;
-      ivGravatarUrl(email).then(function (u) {
-        if (!u) return;
-        var probe = new Image();
-        probe.onload = function () {
-          var img = document.createElement('img');
-          img.className = 'iv-nav-avatar'; img.src = u; img.alt = '';
-          if (mono.parentNode) mono.parentNode.replaceChild(img, mono);
-        };
-        probe.src = u;
-      });
+      slot.appendChild(node);
     });
+  }
+  /* The chat server answers /api/me with the member's own chat name and
+     picture. CHAT_FACE stays off until that answer is live on the server
+     (claude/RUN-inner-circle.md); with it off the header shows initials.
+     Asked at most twice a day; a photo is fetched only when it changed. */
+  var CIRCLE_API = 'https://innerverse-circle.chance-5da.workers.dev';
+  var CHAT_FACE = false;
+  function ivShrinkFace(blob) {
+    return new Promise(function (resolve, reject) {
+      var u = URL.createObjectURL(blob), im = new Image();
+      im.onload = function () {
+        try {
+          var S = 96, c = document.createElement('canvas'); c.width = S; c.height = S;
+          var side = Math.min(im.naturalWidth, im.naturalHeight);
+          c.getContext('2d').drawImage(im, (im.naturalWidth - side) / 2, (im.naturalHeight - side) / 2, side, side, 0, 0, S, S);
+          var out = c.toDataURL('image/webp', 0.82);
+          if (out.indexOf('data:image/webp') !== 0) out = c.toDataURL('image/jpeg', 0.82);
+          resolve(out);
+        } catch (e) { reject(e); } finally { URL.revokeObjectURL(u); }
+      };
+      im.onerror = function () { URL.revokeObjectURL(u); reject(new Error('image')); };
+      im.src = u;
+    });
+  }
+  function ivRefreshFace(nav, who) {
+    var token = getToken();
+    if (!CHAT_FACE || !token || !(who && who.entitled) || !window.fetch) return;
+    var last = parseInt(lsGet('iv_circle_face_at'), 10) || 0;
+    if (Date.now() - last < 12 * 3600 * 1000) return;
+    lsSet('iv_circle_face_at', String(Date.now()));
+    var auth = { headers: { Authorization: 'Bearer ' + token } };
+    fetch(CIRCLE_API + '/api/me', auth).then(function (r) { return r.ok ? r.json() : null; }).then(function (me) {
+      if (!me) return;
+      var av = String(me.avatar || ''), k = av.indexOf('img:') === 0 ? av.slice(4) : '';
+      if (!k) { lsSet('iv_circle_face', ''); lsSet('iv_circle_face_key', ''); ivPaintAvatar(nav, who); return; }
+      if (k === lsGet('iv_circle_face_key') && lsGet('iv_circle_face')) return;
+      return fetch(CIRCLE_API + '/media/' + k, auth).then(function (r) { return r.ok ? r.blob() : null; }).then(function (b) {
+        return b ? ivShrinkFace(b) : '';
+      }).then(function (data) {
+        if (!data) return;
+        lsSet('iv_circle_face', data); lsSet('iv_circle_face_key', k);
+        ivPaintAvatar(nav, who);
+      });
+    })['catch'](function () {});
   }
 
   function isIW() { return document.documentElement.classList.contains('iv-iw'); }
@@ -161,18 +210,20 @@
   function ivDoLogout() { logout(); window.location.reload(); }
 
   function wireLogin(nav) {
+    function setOpen(wrap, on) {
+      wrap.classList.toggle('iv-nav-account-open', on);
+      var b = wrap.querySelector('.iv-nav-login');
+      if (b && b.hasAttribute('aria-haspopup')) b.setAttribute('aria-expanded', on ? 'true' : 'false');
+    }
     nav.querySelectorAll('.iv-nav-login').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         var wrap = btn.closest('.iv-nav-account-wrap');
         if (!getToken()) { window.location.href = loginUrl(); return; }
-        var inPanel = !!btn.closest('.iv-nav-mobile-panel');
-        var noHover = !!(window.matchMedia && window.matchMedia('(hover: none)').matches);
-        if (wrap && !inPanel && noHover && !wrap.classList.contains('iv-nav-account-open')) {
-          wrap.classList.add('iv-nav-account-open');
-          e.preventDefault();
-          return;
-        }
-        ivOpenAccount();
+        /* In the phone menu the row goes straight to the membership settings;
+           on the bar the picture opens and closes its menu. */
+        if (btn.closest('.iv-nav-mobile-panel') || !wrap) { ivOpenAccount(); return; }
+        e.preventDefault();
+        setOpen(wrap, !wrap.classList.contains('iv-nav-account-open'));
       });
     });
     nav.querySelectorAll('.iv-nav-account-item').forEach(function (item) {
@@ -182,18 +233,27 @@
         ivOpenAccount();
       });
     });
-    document.addEventListener('click', function (e) {
+    function closeAll(except) {
       nav.querySelectorAll('.iv-nav-account-wrap.iv-nav-account-open').forEach(function (w) {
-        if (!w.contains(e.target)) w.classList.remove('iv-nav-account-open');
+        if (!except || !w.contains(except)) setOpen(w, false);
       });
+    }
+    document.addEventListener('click', function (e) { closeAll(e.target); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var openWrap = nav.querySelector('.iv-nav-account-wrap.iv-nav-account-open');
+      if (!openWrap) return;
+      closeAll(null);
+      var b = openWrap.querySelector('.iv-nav-login'); if (b) b.blur();
     });
     ivSyncLoginState(nav);
     if (document.documentElement.classList.contains('iv-plus-member')) ivApplyPlusBranding();
     if (getToken()) {
+      ivPaintAvatar(nav, null);   /* from what this device already knows, so no blank frame */
       checkStatus(function (status) {
         if (status && status.entitled) ivApplyPlusBranding(); else ivRevertPlusBranding();
-        ivSyncLoginState(nav);
-        if (status && status.signedIn) ivPaintAvatar(nav, status);
+        ivSyncLoginState(nav, status);
+        if (status && status.signedIn) { ivPaintAvatar(nav, status); ivRefreshFace(nav, status); }
       });
     }
   }
@@ -203,12 +263,249 @@
     var panel = nav.querySelector('.iv-nav-mobile-panel');
     if (!btn || !panel) return;
     btn.addEventListener('click', function () {
+      if (window.ivNavSearch) window.ivNavSearch.close(false);
       var open = nav.classList.toggle('iv-nav-menu-open');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
     panel.querySelectorAll('a, button').forEach(function (el) {
-      el.addEventListener('click', function () { nav.classList.remove('iv-nav-menu-open'); });
+      el.addEventListener('click', function () { nav.classList.remove('iv-nav-menu-open'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Open menu'); });
     });
+  }
+
+  /* ---------------- search ----------------
+     2026-11-25 (Chance): the magnifier opens a search that drops from the
+     header on every page, in place of a trip to /episodes. It searches the
+     archive that fits the person: the members' catalogue (plus-index.json,
+     every full episode plus the free shows listed on /plus) for a Plus+
+     member, the free archive (episodes-index.json) for everyone else. The
+     ranking is the shared scorer (window.ivSubjects in archive.js, loaded
+     here only when the search is first opened), so the results and the
+     count match the archive page that "See all" leads to. On the archive
+     page itself the magnifier puts the cursor in the page's own search. */
+  var DATA = 'https://raw.githubusercontent.com/chance-garton/innerverse-data/main/';
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>';
+  function escHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
+  }
+  /* No em or en dashes ever reach the page, whatever the data says. */
+  function noDash(s) { return String(s == null ? '' : s).replace(/\s*[\u2013\u2014]\s*/g, ', '); }
+  function getJSON(u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); }); }
+
+  function wireSearch(nav) {
+    var btn = nav.querySelector('.iv-nav-search'), panel = nav.querySelector('.iv-nav-sp');
+    if (!btn || !panel || !window.fetch) return;
+    var box = panel.querySelector('.iv-nav-sp-box'), input = panel.querySelector('.iv-nav-sp-input');
+    var listEl = panel.querySelector('.iv-nav-sp-list'), closeBtn = panel.querySelector('.iv-nav-sp-close');
+    var isOpen = false, mode = 'free', lists = {}, asked = {}, extraRaw = null, extraAsked = false, extraFor = {};
+    var scorerAsked = false, rows = [], hl = -1, timer = null;
+
+    function member() { return document.documentElement.classList.contains('iv-plus-member'); }
+    function herePath() { return (window.ivPath ? window.ivPath() : window.location.pathname).replace(/\/+$/, '').toLowerCase(); }
+    function allHref(q) { return (mode === 'plus' ? '/plus' : '/episodes') + (q ? '?q=' + encodeURIComponent(q) : ''); }
+    function relUrl(u, fallback) { try { var x = new URL(u, window.location.origin); return x.pathname + x.search; } catch (e) { return fallback; } }
+    function showOf(e) {
+      var s = (e.shows || [])[0] || 'InnerVerse';
+      if (/^innerverse$/i.test(s)) s = 'InnerVerse';
+      return s === 'Chance Guest Spots' ? 'Chance on Other Podcasts' : s;
+    }
+    function monthYear(d) { var p = String(d || '').split('-'); return p.length >= 2 && MONTHS[+p[1] - 1] ? MONTHS[+p[1] - 1] + ' ' + p[0] : ''; }
+    function byNewest(a, b) { var x = a.date || '', y = b.date || ''; return x < y ? 1 : x > y ? -1 : 0; }
+
+    function loadList(m) {
+      if (asked[m]) return asked[m];
+      asked[m] = getJSON(DATA + (m === 'plus' ? 'plus-index.json' : 'episodes-index.json')).then(function (d) {
+        var list = ((d && d.episodes) || []).map(function (e) {
+          var o = {}; for (var k in e) o[k] = e[k];
+          if (m === 'plus') {
+            o.title = String(o.title || '').replace(/\s*\(PLUS\)\s*$/i, '');
+            o.__href = relUrl(o.url, '/plus/' + encodeURIComponent(o.slug));
+            o.__full = /\/plus\//.test(o.url || '');
+            o.duration = o.plusDuration || o.duration || '';
+          } else {
+            var p = window.ivPremiere && window.ivPremiere(o.slug);
+            if (p && p.date) o.date = p.date;
+            o.__href = o.url ? relUrl(o.url, '/episodes/' + encodeURIComponent(o.slug)) : '/episodes/' + encodeURIComponent(o.slug);
+          }
+          if (!o.year && o.date) o.year = parseInt(String(o.date).slice(0, 4), 10) || undefined;
+          return o;
+        });
+        lists[m] = list;
+        if (m === 'free') applyTopics();
+        return list;
+      })['catch'](function () { asked[m] = null; return []; });
+      return asked[m];
+    }
+    function loadScorer() {
+      if (window.ivSubjects || scorerAsked) return;
+      scorerAsked = true;
+      var src = SELF_SRC && /site\.js/.test(SELF_SRC) ? SELF_SRC.replace(/site\.js/, 'archive.js') : (window.IV_BASE || '') + '/assets/archive.js';
+      var sc = document.createElement('script');
+      sc.src = src; sc.async = true;
+      sc.onload = function () { if (isOpen) render(); };
+      document.head.appendChild(sc);
+    }
+    /* The free index carries no topic lines (the members' one does), and the archive page ranks on them,
+       so they are read from the same file it uses; otherwise the count here could fall short of the page's. */
+    var topics = null;
+    function applyTopics() {
+      if (!topics || !lists.free) return;
+      lists.free.forEach(function (e) { if (!e.topicLine && topics[e.slug]) { e.topicLine = topics[e.slug]; delete e.__doc; } });
+    }
+    /* Chapter, theme and quote mentions (a large file, cached for a year): asked for once somebody types. */
+    function loadExtra() {
+      if (mode === 'free' && !topics) {
+        topics = {};
+        getJSON(DATA + 'episodes/_corpus.json').then(function (d) {
+          ((d && d.records) || []).forEach(function (r) { var f = r.fields || {}; if (f.Slug && f['Topic Line']) topics[f.Slug] = f['Topic Line']; });
+          applyTopics();
+          if (isOpen) render();
+        })['catch'](function () {});
+      }
+      if (extraAsked) return;
+      extraAsked = true;
+      (window.IV_EXTRA ? getJSON(window.IV_EXTRA) : Promise.reject())['catch'](function () { return getJSON(DATA + 'episodes-extra.json'); }).then(function (d) {
+        extraRaw = (d && d.extra) || null;
+        if (isOpen) render();
+      })['catch'](function () {});
+    }
+    /* The mentions are keyed by the free page's slug. The members' list gets a copy that also answers to
+       its own slugs, and keeps every free key so the archive page's own search is never left short. */
+    function extraOf(m) {
+      if (!extraRaw) return null;
+      if (m !== 'plus') return extraRaw;
+      if (extraFor.plus) return extraFor.plus;
+      var out = {}, k;
+      for (k in extraRaw) out[k] = extraRaw[k];
+      (lists.plus || []).forEach(function (e) { if (e.freeSlug && e.freeSlug !== e.slug && extraRaw[e.freeSlug] && !out[e.slug]) out[e.slug] = extraRaw[e.freeSlug]; });
+      extraFor.plus = out;
+      return out;
+    }
+    function find(q) {
+      var list = lists[mode] || [], s = window.ivSubjects;
+      if (s && s.filter) return s.filter(list, extraOf(mode), q, {}, '', 'best');
+      var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+      return list.filter(function (e) {
+        var h = (e.title + ' ' + (e.guests || []).join(' ') + ' ' + (e.topics || []).join(' ') + ' ' + (e.shows || []).join(' ') + ' ' + (e.tags || []).join(' ') + ' ' + (e.topicLine || '')).toLowerCase();
+        e.__why = ''; e.__close = false;
+        return terms.every(function (t) { return h.indexOf(t) !== -1; });
+      }).sort(byNewest);
+    }
+    function rowHtml(e, withWhy) {
+      var thumb = e.thumb ? (window.ivImg ? window.ivImg(e.thumb, 300) : e.thumb) : '';
+      var img = thumb ? '<img src="' + escHtml(thumb) + '" alt="" loading="lazy" decoding="async">' : '<span class="iv-nav-sp-noimg"></span>';
+      var why = withWhy ? String(e.__why || '').split(' \u00b7 ')[0] : (e.duration || '');
+      var meta = [showOf(e), monthYear(e.date), noDash(why)].filter(Boolean).join(' \u00b7 ');
+      return '<a class="iv-nav-sp-row" role="option" href="' + escHtml(e.__href) + '">' + img +
+        '<span class="iv-nav-sp-text"><span class="iv-nav-sp-title">' + escHtml(noDash(e.title)) + '</span>' +
+        '<span class="iv-nav-sp-meta">' + escHtml(meta) + '</span></span></a>';
+    }
+    function setHl(i) {
+      hl = i;
+      rows.forEach(function (r, k) { r.classList.toggle('iv-nav-sp-hl', k === i); r.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+      if (rows[i] && rows[i].scrollIntoView) rows[i].scrollIntoView({ block: 'nearest' });
+    }
+    function render() {
+      var q = input.value.trim(), list = lists[mode], html = '';
+      if (!list) { listEl.innerHTML = ''; rows = []; hl = -1; return; }
+      if (q.length < 2) {
+        /* Before a search: the three newest, so the panel is a quick way to the latest. */
+        var newest = (mode === 'plus' ? list.filter(function (e) { return e.__full; }) : list.slice()).sort(byNewest).slice(0, 3);
+        if (newest.length) html = '<div class="iv-nav-sp-head">' + (mode === 'plus' ? 'Newest full episodes' : 'Newest episodes') + '</div>' + newest.map(function (e) { return rowHtml(e, false); }).join('');
+      } else {
+        var found = find(q), hits = found.filter(function (e) { return !e.__close; });
+        var show = (hits.length ? hits : found).slice(0, 5);
+        if (!hits.length && show.length) html += '<div class="iv-nav-sp-head">Close matches</div>';
+        html += show.map(function (e) { return rowHtml(e, true); }).join('');
+        if (!found.length) html = '<div class="iv-nav-sp-none">Nothing matched. Try a guest, a subject or a single word.</div>';
+        html += '<a class="iv-nav-sp-all" role="option" href="' + escHtml(allHref(hits.length ? q : '')) + '"><span>' +
+          (hits.length ? 'See ' + (hits.length === 1 ? 'the 1 result' : 'all ' + hits.length + ' results') + ' in ' + (mode === 'plus' ? 'Plus+ Episodes' : 'the archive')
+            : (mode === 'plus' ? 'Browse Plus+ Episodes' : 'Browse the archive')) + '</span>' + ARROW + '</a>';
+      }
+      listEl.innerHTML = html;
+      rows = Array.prototype.slice.call(listEl.querySelectorAll('a'));
+      hl = -1;
+      input.setAttribute('aria-expanded', rows.length ? 'true' : 'false');
+    }
+    function open() {
+      mode = member() ? 'plus' : 'free';
+      /* The archive this would search has its own search on the page: use that one. */
+      var own = document.getElementById('iva-q'), p = herePath();
+      if (own && ((mode === 'plus' && p === '/plus') || (mode === 'free' && p === '/episodes'))) {
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
+        try { own.focus({ preventScroll: true }); } catch (e) { own.focus(); }
+        return;
+      }
+      if (isOpen) { input.focus(); return; }
+      isOpen = true;
+      nav.classList.remove('iv-nav-menu-open');
+      var burger = nav.querySelector('.iv-nav-burger'); if (burger) burger.setAttribute('aria-expanded', 'false');
+      panel.hidden = false;
+      nav.classList.add('iv-nav-search-open');
+      btn.setAttribute('aria-expanded', 'true');
+      input.setAttribute('aria-label', mode === 'plus' ? 'Search Plus+ Episodes' : 'Search episodes');
+      input.focus();
+      input.select();
+      loadScorer();
+      loadList(mode).then(function () { if (isOpen) render(); });
+      if (input.value.trim().length >= 2) loadExtra();
+    }
+    function close(refocus) {
+      if (!isOpen) return;
+      isOpen = false;
+      panel.hidden = true;
+      nav.classList.remove('iv-nav-search-open');
+      btn.setAttribute('aria-expanded', 'false');
+      if (refocus) btn.focus();
+    }
+    window.ivNavSearch = { open: open, close: close };
+
+    btn.addEventListener('click', function (e) { e.preventDefault(); if (isOpen) close(false); else open(); });
+    btn.addEventListener('keydown', function (e) { if (e.key === ' ') { e.preventDefault(); if (isOpen) close(false); else open(); } });
+    closeBtn.addEventListener('click', function () { close(true); });
+    /* a click on the dimmed page closes it; a click inside the box does not */
+    panel.addEventListener('click', function (e) { if (!box.contains(e.target)) close(false); });
+    document.addEventListener('click', function (e) {
+      if (isOpen && !panel.contains(e.target) && !btn.contains(e.target)) close(false);
+    });
+    input.addEventListener('input', function () {
+      if (input.value.trim().length >= 2) loadExtra();
+      clearTimeout(timer);
+      timer = setTimeout(render, 110);
+    });
+    input.addEventListener('keydown', function (e) {
+      var k = e.key;
+      if (k === 'ArrowDown' || k === 'ArrowUp') {
+        if (!rows.length) return;
+        e.preventDefault();
+        setHl(k === 'ArrowDown' ? (hl + 1) % rows.length : (hl <= 0 ? rows.length - 1 : hl - 1));
+      } else if (k === 'Enter') {
+        e.preventDefault();
+        if (hl >= 0 && rows[hl]) { window.location.href = rows[hl].getAttribute('href'); return; }
+        var q = input.value.trim();
+        window.location.href = allHref(q);
+      } else if (k === 'Escape') {
+        e.preventDefault();
+        close(true);
+      }
+    });
+    /* "/" (or Ctrl or Cmd K) opens the search from anywhere outside a text field. */
+    document.addEventListener('keydown', function (e) {
+      if (e.defaultPrevented) return;
+      var t = e.target, typing = t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName || ''));
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey) && !e.altKey) { e.preventDefault(); open(); return; }
+      if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) { e.preventDefault(); open(); return; }
+      if (e.key === 'Escape' && isOpen) close(true);
+    });
+    /* signing in or out on another tab changes which archive this searches */
+    if (window.MutationObserver) {
+      new MutationObserver(function () {
+        if (!isOpen) return;
+        var m = member() ? 'plus' : 'free';
+        if (m !== mode) { mode = m; loadList(mode).then(function () { if (isOpen) render(); }); }
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    }
   }
 
   function wireScroll(nav) {
@@ -288,7 +585,8 @@
            room for, so the wordmark ran into EPISODES. Pull only as far as
            keeps a 32px gap; with no room even unpulled, use the burger. */
         nav.classList.remove('iv-nav-iw-tight');
-        var first = nav.querySelector('.iv-nav-center .iv-nav-link');
+        /* the first link that is on show (a member has no Episodes link) */
+        var first = Array.prototype.filter.call(nav.querySelectorAll('.iv-nav-center .iv-nav-link'), function (l) { return l.offsetParent !== null; })[0];
         var room = first ? first.getBoundingClientRect().left - word.getBoundingClientRect().right : 999;
         if (room < 24) nav.classList.add('iv-nav-iw-tight');
         else {
@@ -308,6 +606,7 @@
     if (nav) {
       syncHeaderHeightVar(nav);
       wireLogin(nav);
+      wireSearch(nav);
       wireBurger(nav);
       wireScroll(nav);
       if (isIW()) iwFit();
