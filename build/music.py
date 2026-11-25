@@ -27,11 +27,23 @@ MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", 
 I_PLAY = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"></path></svg>'
 I_SHUFFLE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"></path><path d="M4 20 21 3"></path><path d="M21 16v5h-5"></path><path d="m15 15 6 6"></path><path d="m4 4 5 5"></path></svg>'
 I_NOTE = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>'
+I_HEART = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"></path></svg>'
 I_LINK = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"></path><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"></path></svg>'
 
 
+_LOADED = None
+
+
 def load_songs():
-    """The live list, or the copy in the repo when the live file cannot be had."""
+    """The live list, or the copy in the repo when the live file cannot be had.
+    Asked for once per build (the Music page and My library both read it)."""
+    global _LOADED
+    if _LOADED is None:
+        _LOADED = _read_songs()
+    return _LOADED
+
+
+def _read_songs():
     try:
         req = urllib.request.Request(SONGS_URL, headers={"User-Agent": "innerverse-site-build"})
         with urllib.request.urlopen(req, timeout=12) as r:
@@ -82,7 +94,9 @@ def row(s, n, dates):
         '<div class="ivm-main"><span class="ivm-title">' + esc(title) + "</span>"
         '<a class="ivm-ep" href="' + esc(url("/episodes/" + ep)) + '">' + esc(ep_title) + "</a></div>"
         '<span class="ivm-date">' + esc(month_year(dates.get(ep))) + "</span>"
-        '<span class="ivm-acts"><button type="button" class="ivm-act ivm-share" aria-label="Copy a link to ' + esc(title) + '">' + I_LINK + "</button></span>"
+        '<span class="ivm-acts"><button type="button" class="ivm-act ivm-share" aria-label="Copy a link to ' + esc(title) + '">' + I_LINK + "</button>"
+        # The heart is in every row from the start; the stylesheet shows it to a Plus+ member only.
+        '<button type="button" class="ivm-act ivm-heart" aria-pressed="false" aria-label="Save ' + esc(title) + ' to My library">' + I_HEART + "</button></span>"
         '<span class="ivm-len">' + clock(s.get("seconds")) + "</span>"
         "</li>"
     )
@@ -135,12 +149,20 @@ def build(episodes):
         '</div><div class="ivm-hero-cap"><span class="ivm-hero-k" id="ivm-hero-k">Newest song</span>'
         '<span class="ivm-hero-t" id="ivm-hero-t">' + esc(songs[0].get("title") if songs else "") + "</span></div></div>"
         "</header>"
+        # Plus+ members only (the stylesheet hides it from everyone else): every song, or the ones they saved.
+        '<div class="ivm-tools" id="ivm-tools"><div class="ivm-tabs" id="ivm-tabs" role="group" aria-label="Which songs to show">'
+        '<button type="button" class="ivm-tab is-on" data-view="all" aria-pressed="true">All songs</button>'
+        '<button type="button" class="ivm-tab" data-view="saved" aria-pressed="false">' + I_HEART + '<span>Saved</span><span class="ivm-tab-n" id="ivm-saved-n" hidden></span></button>'
+        '</div><a class="ivm-tools-lib" href="' + esc(url("/library")) + '">My library</a></div>'
         '<ol class="ivm-list" id="ivm-list">' + "".join(row(s, i + 1, dates) for i, s in enumerate(songs)) + "</ol>"
+        '<div class="ivm-empty" id="ivm-empty" hidden>' + I_HEART.replace('width="17" height="17"', 'width="30" height="30"') +
+        '<h2>No saved songs yet</h2><p>Tap the heart on any song and it is kept here and in the InnerVerse app.</p>'
+        '<button type="button" class="ivm-btn ivm-btn-secondary" data-view="all">Show all songs</button></div>'
         '<p class="ivm-status" id="ivm-status" role="status" aria-live="polite"></p>'
         "</div></main>"
         '<script type="application/json" id="ivm-data">' + json_ld(data) + "</script>"
     )
     cls = "iv-music-page"
     h = head(title, desc, canonical, first_art, "website", cls, extra='<script type="application/ld+json">' + json_ld(ld) + "</script>")
-    html = page(h, nav("music") + body_html + footer(), cls, scripts=("/assets/site.js", "/assets/music.js"))
+    html = page(h, nav("music") + body_html + footer(), cls, scripts=("/assets/site.js", "/assets/library-client.js", "/assets/music.js"))
     return html, {"songs": len(songs), "source": source}

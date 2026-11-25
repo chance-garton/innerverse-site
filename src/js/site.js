@@ -74,7 +74,11 @@
   var IV_PLUS_LOGO = ivR2('https://images.innerversepodcast.com/sq/c3607ade-e087-4b27-af0f-e0913f4dc3d0/plus-asset/w300.webp');
 
   function syncHeaderHeightVar(nav) {
-    document.documentElement.style.setProperty('--header-height', nav.offsetHeight + 'px');
+    /* The bar alone (2026-11-25): measured while the phone menu was open, the menu's own height was
+       counted as header, which shrank the room the menu is allowed and cut off its last rows. */
+    var h = nav.offsetHeight, panel = nav.querySelector('.iv-nav-mobile-panel');
+    if (panel) h -= panel.offsetHeight;
+    document.documentElement.style.setProperty('--header-height', h + 'px');
   }
 
   function lsGet(k) { try { return window.localStorage.getItem(k) || ''; } catch (e) { return ''; } }
@@ -228,6 +232,7 @@
     });
     nav.querySelectorAll('.iv-nav-account-item').forEach(function (item) {
       item.addEventListener('click', function (e) {
+        if (item.getAttribute('data-act') === 'library') return;   /* a plain link to /library */
         e.preventDefault();
         if (item.getAttribute('data-act') === 'logout') { ivDoLogout(); return; }
         ivOpenAccount();

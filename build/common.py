@@ -208,6 +208,8 @@ def _login():
         "</button>"
         '<div class="iv-nav-account-menu">'
         '<div class="iv-nav-account-who"><span class="iv-nav-account-name"></span><span class="iv-nav-account-tag">Plus+ member</span></div>'
+        # My library (2026-11-25): a Plus+ member's saved episodes, notes and songs; the stylesheet hides it from anyone else.
+        '<a class="iv-nav-account-item" data-act="library" href="' + esc(url("/library")) + '">My library</a>'
         '<a class="iv-nav-account-item" data-act="settings" href="https://innerverseplus.memberful.com/account">Membership settings</a>'
         '<button type="button" class="iv-nav-account-item" data-act="logout">Log out</button>'
         "</div></div>"

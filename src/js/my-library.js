@@ -8,7 +8,8 @@
      description. The key matches the app: the members' page when the episode has one ("p:"),
      otherwise the free page ("e:"). Rollback: delete this block. */
   var API = 'https://innerverse-circle.chance-5da.workers.dev';
-  var APP_LIB = 'https://circle.innerversepodcast.com/app/#/library';
+  /* 2026-11-25: the library has its own page on the site now (it opened the app before) */
+  var LIB_PAGE = (window.IV_BASE || '') + '/library';
   /* 2026-10-10: the episode's own Inner Circle room (the circle maps a /plus slug to its free twin) */
   var CIRCLE_ROOM = 'https://circle.innerversepodcast.com/#room=ep:';
   var seg = (window.ivPath ? window.ivPath() : window.location.pathname).split('/').filter(Boolean);
@@ -104,7 +105,7 @@
     card.id = 'ivml';
     card.innerHTML =
       '<div class="ivml-top"><span class="iv2-eyebrow iv2-gold">Plus+ features</span>' +
-        '<a class="ivml-lib" href="' + APP_LIB + '" target="_blank" rel="noopener">Open My library</a></div>' +
+        '<a class="ivml-lib" href="' + LIB_PAGE + '">Open My library</a></div>' +
       '<div class="ivml-acts">' +
         '<button type="button" class="iv2-btn iv2-btn-secondary ivml-watch" aria-pressed="false">' + CHECK + '<span>Mark as watched</span></button>' +
         '<button type="button" class="iv2-btn iv2-btn-secondary ivml-save" aria-pressed="false">' + HEART(false) + '<span>Save episode</span></button>' +

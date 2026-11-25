@@ -1,7 +1,8 @@
 /* 49-music.css
    InnerVerse Music (/music), 2026-11-25. Scoped to .ivm and .ivm-bar, Lapis Library tokens.
-   The songs are free for everyone, so the page stays lapis for a member too; only the
-   heart (a Plus+ library feature) is gold. */
+   The songs are free for everyone, so the page stays lapis for a member too; only what belongs
+   to a Plus+ member's library (the hearts, the Saved view, the door to My library) is gold.
+   The list rows, the bar and the notice are also used by /library (49-library.css). */
 html.iv-music-page body{background:var(--ground);}
 .ivm{max-width:1080px;margin:0 auto;padding:72px 40px 96px;font-family:var(--font-sans);color:var(--ink);letter-spacing:normal;line-height:1.5;-webkit-font-smoothing:antialiased;}
 html.iv-music-page.ivm-has-bar .ivm{padding-bottom:150px;}
@@ -51,15 +52,40 @@ html.iv-music-page.ivm-has-bar .ivm{padding-bottom:150px;}
 .ivm-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;}
 .ivm-title{font-weight:700;font-size:16px;line-height:1.3;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .ivm-row.is-current .ivm-title{color:var(--lapis-lit);}
-.ivm a.ivm-ep{align-self:flex-start;max-width:100%;font-size:13.5px;line-height:1.35;color:var(--ink-muted);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:color .15s ease;}
-.ivm a.ivm-ep:hover{color:var(--lapis-lit);}
+.ivm a.ivm-ep,.ivl a.ivm-ep{align-self:flex-start;max-width:100%;font-size:13.5px;line-height:1.35;color:var(--ink-muted);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:color .15s ease;}
+.ivm a.ivm-ep:hover,.ivl a.ivm-ep:hover{color:var(--lapis-lit);}
 .ivm-date{flex:0 0 76px;font-size:13px;color:var(--ink-muted);white-space:nowrap;}
 .ivm-acts{flex:0 0 auto;display:flex;align-items:center;gap:2px;}
 .ivm-act{width:38px;height:38px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--ink-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s ease,color .15s ease,background-color .15s ease;}
 .ivm-row:hover .ivm-act,.ivm-act:focus-visible,.ivm-row.is-current .ivm-act,.ivm-act.is-on{opacity:1;}
 .ivm-act:hover{color:var(--ink);background:rgba(233,238,246,0.08);}
-.ivm-heart.is-on{color:var(--gold-text);}
-.ivm-heart.is-on svg{fill:currentColor;}
+.ivm-row[hidden],.ivm-empty[hidden],.ivm-tab-n[hidden]{display:none;}
+/* the heart: in every row, shown to a Plus+ member at all times (2026-11-25: on hover alone nobody found it) */
+.ivm-act.ivm-heart{opacity:1;}
+.ivm-heart.is-on,.ivm-bar .ivm-bar-heart.is-on{color:var(--gold-text)!important;}
+.ivm-heart.is-on svg,.ivm-bar-heart.is-on svg{fill:currentColor;}
+.ivm-heart.is-on:hover{color:var(--gold-text);background:rgba(216,170,60,0.12);}
+html:not(.iv-plus-member) .ivm-heart,html:not(.iv-plus-member) .ivm-tools,html:not(.iv-plus-member) .ivm-bar-heart{display:none!important;}
+
+/* ---- All songs and Saved (Plus+ members) ---- */
+.ivm-tools{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:18px;}
+.ivm-tabs{display:flex;align-items:center;gap:8px;min-width:0;}
+.ivm-tab{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:var(--radius-pill);border:1.5px solid rgba(233,238,246,0.24);background:transparent;color:var(--ink);font-family:var(--font-sans);font-weight:700;font-size:14px;line-height:1;white-space:nowrap;cursor:pointer;transition:background-color .18s ease,border-color .18s ease,color .18s ease;}
+.ivm-tab svg{display:block;width:15px;height:15px;color:var(--gold-text);}
+.ivm-tab:hover{border-color:rgba(143,181,240,0.65);}
+.ivm-tab.is-on{border-color:var(--lapis-lit);background:rgba(59,116,204,0.16);}
+.ivm-tab[data-view="saved"]:hover{border-color:rgba(216,170,60,0.65);}
+.ivm-tab[data-view="saved"].is-on{border-color:var(--gold);background:rgba(216,170,60,0.13);color:var(--gold-text);}
+.ivm-tab[data-view="saved"].is-on svg{fill:currentColor;}
+.ivm-tab-n{font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink-muted);}
+.ivm-tab.is-on .ivm-tab-n{color:inherit;opacity:.8;}
+.ivm-tab:focus-visible,.ivm a.ivm-tools-lib:focus-visible{outline:2px solid var(--lapis-lit);outline-offset:2px;}
+.ivm a.ivm-tools-lib{display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:var(--radius-pill);border:1.5px solid rgba(216,170,60,0.5);color:var(--gold-text);font-weight:700;font-size:14px;line-height:1;text-decoration:none;white-space:nowrap;transition:background-color .18s ease,border-color .18s ease;}
+.ivm a.ivm-tools-lib:hover{border-color:var(--gold);background:rgba(216,170,60,0.12);}
+.ivm-empty{display:flex;flex-direction:column;align-items:center;gap:12px;padding:64px 20px 24px;text-align:center;color:var(--gold-text);}
+.ivm-empty h2{margin:6px 0 0;font-family:var(--font-display);font-weight:600;font-size:28px;line-height:1.15;letter-spacing:-0.5px;color:var(--ink);}
+.ivm-empty p{max-width:420px;font-size:16px;line-height:1.6;color:var(--ink-muted);}
+.ivm-empty .ivm-btn{margin-top:10px;}
 .ivm-len{flex:0 0 42px;text-align:right;font-size:13.5px;font-variant-numeric:tabular-nums;color:var(--ink-muted);}
 .ivm-status{min-height:0;}
 .ivm-toast{position:fixed;left:50%;bottom:110px;transform:translate(-50%,8px);z-index:9000;padding:10px 16px;border-radius:var(--radius-pill);background:var(--ink);color:var(--ground);font-family:var(--font-sans);font-weight:700;font-size:13.5px;line-height:1.2;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;white-space:nowrap;}
@@ -92,8 +118,9 @@ a.ivm-bar-e:hover{color:var(--lapis-lit);}
 .ivm-range::-moz-range-progress{height:4px;border-radius:2px;background:var(--lapis-lit);}
 .ivm-range::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;margin-top:-4.5px;border-radius:50%;background:var(--ink);border:0;box-shadow:0 1px 4px rgba(0,0,0,.5);}
 .ivm-range::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--ink);border:0;}
-.ivm-bar-shuf{width:40px;height:40px;color:var(--ink-muted)!important;transition:color .15s ease,background-color .15s ease;}
-.ivm-bar-shuf:hover{background:rgba(233,238,246,0.08);}
+.ivm-bar-end{display:flex;align-items:center;gap:4px;}
+.ivm-bar-shuf,.ivm-bar-heart{width:40px;height:40px;color:var(--ink-muted)!important;transition:color .15s ease,background-color .15s ease;}
+.ivm-bar-shuf:hover,.ivm-bar-heart:hover{background:rgba(233,238,246,0.08);}
 .ivm-bar-shuf[aria-pressed="true"]{color:var(--lapis-lit)!important;background:rgba(59,116,204,0.16);}
 
 @media (max-width:900px){
@@ -129,5 +156,8 @@ a.ivm-bar-e:hover{color:var(--lapis-lit);}
   .ivm-bar-now img{width:44px;height:44px;}
   .ivm-bar-skip.ivm-prev{display:none;}
   .ivm-toast{bottom:150px;}
+  .ivm-tools{gap:10px;padding-bottom:14px;}
+  .ivm-tab,.ivm a.ivm-tools-lib{height:38px;padding:0 14px;font-size:13.5px;}
+  .ivm-bar-end{gap:0;}
 }
 @media (prefers-reduced-motion:reduce){.ivm-eq i{animation:none;transform:scaleY(.7);}.ivm-bar{transition:none;}}

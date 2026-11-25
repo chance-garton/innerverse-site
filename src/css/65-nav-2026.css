@@ -56,6 +56,8 @@ html:not(.iv-plus-member) #iv-nav.iv-nav-v2 .iv-nav-account-who:has(.iv-nav-acco
 #iv-nav.iv-nav-v2 .iv-nav-actions .iv-nav-account-item{padding:10px 12px;border-radius:var(--radius-md);font-family:var(--font-sans);font-weight:600;font-size:14px;line-height:1.2;letter-spacing:0;text-transform:none;color:var(--ink);}
 #iv-nav.iv-nav-v2 .iv-nav-actions .iv-nav-account-item:hover,#iv-nav.iv-nav-v2 .iv-nav-actions .iv-nav-account-item:focus-visible{background:var(--card);color:var(--ink);outline:0;}
 html.iv-plus-member #iv-nav.iv-nav-v2 .iv-nav-actions .iv-nav-account-item:hover{color:var(--gold-text);}
+/* My library is a Plus+ member's page, so the link is theirs alone (bar and phone menu). */
+html:not(.iv-plus-member) #iv-nav .iv-nav-account-item[data-act="library"]{display:none;}
 
 /* ---- the phone menu ---- */
 #iv-nav.iv-nav-v2 .iv-nav-mobile-panel .iv-nav-account-who{display:none;}
