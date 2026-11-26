@@ -65,6 +65,7 @@ def build(episodes):
 
         # ---- a Plus+ member: the frame library.js fills ----
         '<div class="ivl-member">'
+        '<div class="ivcl-rowwrap" id="ivl-continue" hidden></div>'
         '<div class="ivl-tools">'
         '<label class="ivl-search">' + I_SEARCH +
         '<input type="search" id="ivl-q" placeholder="Search your library" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" aria-label="Search your library">'

@@ -415,6 +415,11 @@ def head(title, description, canonical, image="", og_type="website", html_class=
 def page(head_html, body_html, html_class="", scripts=()):
     if scripts:
         scripts = ("/assets/img-map.js",) + tuple(scripts)
+        # Continue listening (2026-11-26) rides on every page, straight after site.js, so the
+        # players that follow can tell it what is playing.
+        if "/assets/site.js" in scripts and "/assets/listen.js" not in scripts:
+            i = scripts.index("/assets/site.js") + 1
+            scripts = scripts[:i] + ("/assets/listen.js",) + scripts[i:]
     tags = "".join('<script src="' + url(s) + "?v=" + ASSET_VERSION + '" defer></script>' for s in scripts)
     return (
         "<!doctype html>\n"

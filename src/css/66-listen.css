@@ -1,0 +1,100 @@
+/* Continue listening (2026-11-26): the card in the corner (src/js/listen.js) and the Continue listening
+   row on the home page and /library. The card never sits on top of an episode page's player: where it
+   would, the script swaps it for the round button (.is-mini). */
+.ivcl{position:fixed;right:16px;bottom:16px;z-index:7900;font-family:var(--font-sans);color:var(--ink);-webkit-font-smoothing:antialiased;}
+.ivcl[hidden]{display:none!important;}
+.ivcl-card{position:relative;box-sizing:border-box;width:min(372px,calc(100vw - 32px));height:78px;display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 36px 12px 12px;border-radius:var(--radius-xl);background:rgba(13,19,34,0.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 18px 44px rgba(0,0,0,0.5);overflow:hidden;animation:ivcl-in .32s cubic-bezier(.2,.7,.2,1);}
+@keyframes ivcl-in{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.ivcl-art{display:block;width:52px;height:52px;}
+.ivcl-art img{display:block;width:52px;height:52px;border-radius:var(--radius-sm);object-fit:cover;background:var(--card);}
+.ivcl-txt{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.ivcl-k{font-size:10.5px;line-height:1.2;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lapis-lit);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+a.ivcl-t{font-size:14px;line-height:1.3;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+a.ivcl-t:hover{color:var(--lapis-lit);}
+.ivcl-s{font-size:12.5px;line-height:1.3;color:var(--ink-muted);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ivcl.is-note .ivcl-s{color:var(--ink);}
+.ivcl-ctl{display:flex;align-items:center;gap:4px;}
+.ivcl button{border:0;padding:0;margin:0;background:transparent;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font:inherit;}
+.ivcl-back{width:36px;height:36px;border-radius:50%;color:var(--ink-muted)!important;transition:color .15s ease,background-color .15s ease;}
+.ivcl-back:hover{color:var(--ink)!important;background:rgba(233,238,246,0.08)!important;}
+.ivcl:not(.is-started) .ivcl-back,.ivcl.ivcl-song .ivcl-back{display:none;}
+.ivcl-pp{width:42px;height:42px;border-radius:50%;background:var(--lapis)!important;color:var(--on-lapis)!important;box-shadow:0 0 20px rgba(59,116,204,0.45);transition:background-color .15s ease;}
+.ivcl-pp:hover{background:#4a85dd!important;}
+.ivcl-i-pause,.ivcl.is-playing .ivcl-i-play{display:none;}
+.ivcl.is-playing .ivcl-i-pause{display:block;}
+.ivcl-pp .ivcl-i-play{margin-left:2px;}
+.ivcl-x{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;color:var(--ink-muted)!important;}
+.ivcl-x:hover{color:var(--ink)!important;background:rgba(233,238,246,0.08)!important;}
+.ivcl-line{position:absolute;left:0;right:0;bottom:0;height:7px;cursor:pointer;}
+.ivcl-line::before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(233,238,246,0.14);}
+.ivcl-line i{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--lapis-lit);transition:width .25s linear;}
+.ivcl.is-busy .ivcl-pp{opacity:.7;}
+/* a Plus+ member's card wears gold, as their header does */
+.ivcl.ivcl-plus .ivcl-k{color:var(--gold-text);}
+.ivcl.ivcl-plus .ivcl-pp{background:var(--gold)!important;color:var(--on-gold)!important;box-shadow:0 0 20px rgba(216,170,60,0.35);}
+.ivcl.ivcl-plus .ivcl-pp:hover{background:#e3b94f!important;}
+.ivcl.ivcl-plus .ivcl-line i{background:var(--gold);}
+.ivcl.ivcl-plus a.ivcl-t:hover{color:var(--gold-text);}
+
+/* the round button that stands in for the card beside an episode page's player */
+.ivcl-disc{display:none!important;position:relative;width:56px;height:56px;border-radius:50%!important;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,0.55);background:var(--card)!important;}
+.ivcl.is-mini .ivcl-card{display:none;}
+.ivcl.is-mini .ivcl-disc{display:block!important;animation:ivcl-in .25s ease;}
+.ivcl-disc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.ivcl-disc-ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--lapis-lit) var(--p,0%),rgba(233,238,246,0.22) 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));}
+.ivcl.ivcl-plus .ivcl-disc-ring{background:conic-gradient(var(--gold) var(--p,0%),rgba(233,238,246,0.22) 0);}
+.ivcl-disc-i{position:absolute;inset:3px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(8,12,22,0.5);color:#fff;}
+.ivcl-disc:hover .ivcl-disc-i{background:rgba(8,12,22,0.32);}
+
+/* room at the foot of the page so the card never hides the last links */
+html.ivcl-has-card #iv-footer{padding-bottom:118px;}
+
+@media (max-width:699px){
+  .ivcl{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));}
+  .ivcl.is-mini{left:auto;}
+  .ivcl-card{width:auto;height:66px;grid-template-columns:46px minmax(0,1fr) auto;gap:11px;padding:9px 34px 9px 9px;border-radius:var(--radius-lg);}
+  .ivcl-art,.ivcl-art img{width:46px;height:46px;}
+  .ivcl-back{display:none!important;}
+  .ivcl-pp{width:40px;height:40px;}
+  a.ivcl-t{font-size:13.5px;}
+  html.ivcl-has-card #iv-footer{padding-bottom:96px;}
+}
+
+/* ---------------- the Continue listening row (home page, /library) ---------------- */
+.ivcl-rowwrap[hidden]{display:none!important;}
+.ivcl-row-head{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 14px;}
+.ivcl-rowwrap .ivcl-row-h,#iv-home-root .ivcl-rowwrap .ivcl-row-h{margin:0;font-family:var(--font-sans);font-size:13px;line-height:1.2;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);}
+.ivcl-row-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}
+.ivcl-tile{display:flex;flex-direction:column;gap:8px;min-width:0;color:var(--ink);text-decoration:none!important;}
+.ivcl-tile:nth-child(n+5){display:none;}
+.ivcl-tile-art{position:relative;display:block;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:border-color .2s ease;}
+.ivcl-tile:hover .ivcl-tile-art{border-color:rgba(216,170,60,0.55);}
+.ivcl-tile-art img{display:block;width:100%;height:100%;object-fit:cover;}
+.ivcl-tile-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(10,15,28,0.6);}
+.ivcl-tile-bar i{display:block;height:100%;background:var(--gold);}
+.ivcl-tile:not(.ivcl-plus) .ivcl-tile-bar i{background:var(--lapis-lit);}
+.ivcl-tile-k{font-family:var(--font-sans);font-size:11px;line-height:1.2;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ivcl-tile-t{font-family:var(--font-sans);font-size:14.5px;line-height:1.3;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.ivcl-tile:hover .ivcl-tile-t{color:var(--gold-text);}
+/* narrower screens: one row that scrolls sideways, running to the screen's edges (each page's own side margins) */
+@media (max-width:900px){
+  .ivcl-row-list{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -40px;padding:0 40px 4px;scroll-padding:0 40px;scrollbar-width:none;}
+  #iv-home-root .ivcl-row-list{margin:0 -48px;padding:0 48px 4px;scroll-padding:0 48px;}
+  .ivcl-row-list::-webkit-scrollbar{display:none;}
+  .ivcl-tile{flex:0 0 min(62vw,240px);scroll-snap-align:start;}
+  .ivcl-tile:nth-child(n+5){display:flex;}
+}
+@media (max-width:700px){
+  #iv-home-root .ivcl-row-list{margin:0 -20px;padding:0 20px 4px;scroll-padding:0 20px;}
+  .ivl .ivcl-row-list{margin:0 -16px;padding:0 16px 4px;scroll-padding:0 16px;}
+}
+/* where each page puts it */
+#iv-home-root .ivcl-rowwrap{margin:0;}
+.ivl .ivcl-rowwrap{margin:0 0 36px;}
+
+/* the saved moment, marked on an episode page's video cover (episode.js iv-listen) */
+.iv-resume-chip{position:absolute;left:14px;bottom:16px;z-index:2;padding:6px 12px;border-radius:var(--radius-pill);background:rgba(8,12,22,0.8);color:#fff;font-family:var(--font-sans);font-size:12.5px;line-height:1.2;font-weight:700;letter-spacing:.02em;pointer-events:none;}
+.iv-resume-bar{position:absolute;left:0;right:0;bottom:0;z-index:2;height:5px;background:rgba(255,255,255,0.22);pointer-events:none;}
+.iv-resume-bar i{display:block;height:100%;background:var(--lapis-lit);}
+html.iv-plus-ep .iv-resume-bar i{background:var(--gold);}
+@media (max-width:699px){.iv-resume-chip{left:10px;bottom:12px;font-size:12px;padding:5px 10px;}}

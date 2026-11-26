@@ -181,6 +181,7 @@
         '<div class="ivh-member-head"><img class="ivh-plus-logo" src="' + sized(PLUS_LOGO, 300) + '" alt="" loading="lazy" width="52" height="52">' +
           '<div class="ivh-member-head-text"><div class="ivh-label">InnerVerse Plus+ &middot; Member</div>' +
           '<h2 class="ivh-h2" id="ivh-welcome">Welcome back.</h2></div></div>' +
+        '<div class="ivcl-rowwrap" id="ivh-continue" hidden></div>' +   /* Continue listening (listen.js, 2026-11-26) */
         '<div class="ivh-tiles">' +
           '<a class="ivh-tile" id="ivh-tile-new" href="/plus">' + thumbHtml('', '', 'ivh-play-gold') +
             '<div class="ivh-label-sm">New for Plus+</div><div class="ivh-tile-title">&nbsp;</div></a>' +
@@ -368,6 +369,7 @@
     if (w) w.textContent = fn ? 'Welcome back, ' + clean(fn) + '.' : 'Welcome back.';
   }
   syncMember();
+  if (window.ivListen) window.ivListen.row(document.getElementById('ivh-continue'), { limit: 8 });
   if (window.MutationObserver) {
     new MutationObserver(syncMember).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   }

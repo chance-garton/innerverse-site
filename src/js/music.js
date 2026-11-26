@@ -110,7 +110,7 @@
     bPP.setAttribute('aria-label', playing ? 'Pause' : 'Play');
     if (heroK && cur) heroK.textContent = playing ? 'Now playing' : 'Up next';
   }
-  function select(song, play) {
+  function select(song, play, quiet) {
     if (!song) return;
     var same = cur && cur.id === song.id;
     cur = song;
@@ -123,7 +123,7 @@
       bImg.src = img(song.art, 300);
       if (heroImg && song.art) heroImg.src = img(song.art, 750);
       if (heroT) heroT.textContent = song.title || '';
-      address();
+      if (!quiet) address();
       session(song);
     }
     paintHearts();
@@ -162,6 +162,15 @@
   function prev() { if (audio.currentTime > 3) { audio.currentTime = 0; return; } step(-1); }
 
   audio.addEventListener('play', paintRows);
+  /* Continue listening (listen.js, 2026-11-26): the song is remembered on this device (it starts again
+     when picked up, as in the app), and the other players stop while this one plays. */
+  var L = window.ivListen || null;
+  audio.addEventListener('play', function () {
+    if (!L || !cur) return;
+    L.claim('music');
+    L.song({ id: cur.id, title: cur.title, art: cur.art, episodeTitle: cur.episodeTitle, src: AUDIO + encodeURIComponent(cur.file || (cur.id + '.mp3')) });
+  });
+  if (L) L.on(function (type, who) { if (type === 'claim' && who !== 'music' && !audio.paused) audio.pause(); });
   audio.addEventListener('pause', paintRows);
   audio.addEventListener('ended', function () { step(1, true); });
   audio.addEventListener('error', function () { if (cur) { toast('That song could not load. Check your connection.'); paintRows(); } });
@@ -405,7 +414,14 @@
   function fromAddress() {
     if (LIBMODE) return;
     var id = ''; try { id = new URLSearchParams(window.location.search).get('song') || ''; } catch (e) {}
-    var s = id && byId(id); if (!s) return;
+    var s = id && byId(id);
+    if (!s) {
+      /* Continue listening: the song last played on this device waits in the bar, one tap away */
+      var c = window.ivListen && window.ivListen.cur(), rid = c && /^s:/.test(c.key) ? c.key.slice(2) : '';
+      var rs = rid && byId(rid);
+      if (rs && !cur) select(rs, false, true);
+      return;
+    }
     select(s, false);
     var r = rowOf(s.id);
     if (r) { r.classList.add('is-linked'); try { r.scrollIntoView({ block: 'center' }); } catch (e) { r.scrollIntoView(); } }

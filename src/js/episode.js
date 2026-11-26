@@ -2771,6 +2771,12 @@
         var vimeo = vimeoId((vlink && vlink.video) || '') || plusPageVimeoId();
         var plusAudioUrl = r['Plus Audio URL'] || '';
         var vblock = host.querySelector('.sqs-block-video');
+        /* iv-listen: the members' audio is kept by its key, never by a signed link */
+        var ivPk = plusAudioUrl.indexOf('/audio/') > -1 && /workers\.dev\//.test(plusAudioUrl) ? decodeURIComponent(plusAudioUrl.split('/audio/')[1].split('?')[0]) : '';
+        var ivListenInfo = {
+          key: 'p:' + plusSlug, off: 0, duration: f.duration, plus: true,
+          meta: { title: f.title, thumb: f.thumbnail, show: f.showCategory, href: '/plus/' + plusSlug, pk: ivPk, src: ivPk ? '' : plusAudioUrl, plus: 1 }
+        };
         if (vimeo && vblock) {
           /* No Plus Audio URL on the row -> the exact original video-only
              re-skin below, untouched. Present -> the same Watch/Listen
@@ -2786,6 +2792,7 @@
             });
             wirePlusMediaTabs(vblock);
             wireAudioPlayer(vblock);
+            ivListenWire(vblock, ivListenInfo);   /* iv-listen */
           } else {
             vblock.innerHTML =
               '<div class="iv-ratio" data-video-platform="vimeo" ' +
@@ -2795,6 +2802,7 @@
                   '<button type="button" class="iv-video-play" aria-label="Play video">' + SVG.bigPlay + '</button>' +
                 '</div>' +
               '</div>';
+            ivListenWire(vblock, ivListenInfo);   /* iv-listen: video only, kept for the cover and the row */
           }
           ivFitPlayerArm();
           /* The play listener is delegated from the document rather than
@@ -2815,7 +2823,7 @@
                iframe on every jump. The raw build below stays as the fallback
                for a page whose row has no id, where the id came off the page
                itself. */
-            if (box.getAttribute('data-video-id') && ivMountVideo(box, ivIntroSkip())) return;
+            if (box.getAttribute('data-video-id') && ivMountVideo(box, ivCoverStart())) return;   /* iv-listen */
             var src = box.getAttribute('data-video-src');
             if (!src) return;
             if (ivIntroSkip() > 0 && src.indexOf('#') < 0) src += '#t=' + Math.floor(ivIntroSkip()) + 's';
@@ -2839,6 +2847,7 @@
             acastAudioUrl: plusAudioUrl
           });
           wireAudioPlayer(vblock);
+          ivListenWire(vblock, ivListenInfo);   /* iv-listen */
         }
 
         /* ---------------- description ----------------
@@ -3206,8 +3215,9 @@
   function ivAudioFirstSeek(audio) {
     if (!audio || audio.__ivStarted) return;
     audio.__ivStarted = true;
-    if (audio.currentTime >= 1) return;          /* scrubbed by hand first */
-    var at = ivAudioIntroTarget(audio);
+    if (audio.currentTime >= 1) { ivResumeClear(); return; }   /* scrubbed by hand first, or already at the saved moment */
+    var at = (IV_RESUME && IV_RESUME.t > 0) ? IV_RESUME.t : ivAudioIntroTarget(audio);   /* iv-listen: Continue listening */
+    ivResumeClear();
     if (!(at > 0)) return;
     function seek() { try { if (audio.currentTime < at) audio.currentTime = at; } catch (e) { } }
     if (audio.readyState >= 1) seek();
@@ -3265,6 +3275,7 @@
      has started does not flash the opening seconds before jumping. */
   function ivMountVideo(ratio, seconds) {
     if (!ratio) return false;
+    ivClaimPage(); ivResumeClear();   /* iv-listen */
     var platform = ratio.getAttribute('data-video-platform');
     var id = ratio.getAttribute('data-video-id') || ratio.getAttribute('data-yt-id');
     if (!platform || !id) return false;
@@ -3321,6 +3332,7 @@
      which always works because it is just a fresh embed URL. */
   function ivVideoSeekPlay(ratio, seconds) {
     if (!ratio) return false;
+    ivClaimPage();   /* iv-listen */
     var at = Math.max(0, Math.floor(seconds || 0));
     var iframe = ratio.querySelector('iframe');
     if (!iframe) return ivMountVideo(ratio, at);
@@ -3538,7 +3550,7 @@
     if (cover && ratio) {
       cover.addEventListener('click', function () {
         ivPauseAudio(container);
-        ivMountVideo(ratio, ivIntroSkip());   /* iv-intro-skip */
+        ivMountVideo(ratio, ivCoverStart());   /* iv-intro-skip, iv-listen */
       });
     }
 
@@ -3620,6 +3632,122 @@
       else { audio.addEventListener('loadedmetadata', go, { once: true }); audio.load(); }
     };
   }
+
+  /* ===== BEGIN iv-listen (2026-11-26, Continue listening; src/js/listen.js) =====
+     Tells listen.js what this page's player is playing and where (every 5 s, on pause, at the end),
+     and opens the player at the moment this device stopped at: the Listen tab with the audio waiting at
+     that place when it was last heard as audio, the Watch cover marked "Resume" when it was watched.
+     Nothing plays until the visitor taps. A ?t= in the address, a chapter or a hand scrub always wins.
+     Times are kept on the audio clock (free audio = video + Audio Offset Seconds; members' audio is on
+     the members' video clock, offset 0). Rollback: delete this block and its calls (ivListenWire in
+     hydrate and renderPlus, ivClaimPage, ivResumeClear, ivCoverStart). */
+  var IV_RESUME = null;   /* {t: audio clock, v: video clock} while a saved moment is waiting */
+  function ivClaimPage() { if (window.ivListen) window.ivListen.claim('page'); }
+  function ivResumeClear() {
+    if (!IV_RESUME) return;
+    IV_RESUME = null;
+    document.querySelectorAll('.iv-resume-chip, .iv-resume-bar').forEach(function (el) { el.parentNode.removeChild(el); });
+    document.querySelectorAll('.iv-audio-label[data-iv-label]').forEach(function (el) { el.textContent = el.getAttribute('data-iv-label'); el.removeAttribute('data-iv-label'); });
+  }
+  function ivCoverStart() { return (IV_RESUME && IV_RESUME.v != null) ? IV_RESUME.v : ivIntroSkip(); }
+  function ivDurSec(s) {
+    var m = /(?:(\d+)\s*h)?\s*(?:(\d+)\s*m)?/i.exec(String(s || ''));
+    return m ? ((+m[1] || 0) * 3600 + (+m[2] || 0) * 60) : 0;
+  }
+  function ivVideoDuration() {
+    try {
+      if (IV_VIDEO.platform === 'youtube' && IV_VIDEO.player && IV_VIDEO.player.getDuration) return Promise.resolve(IV_VIDEO.player.getDuration() || 0);
+      if (IV_VIDEO.platform === 'vimeo' && IV_VIDEO.player && IV_VIDEO.player.getDuration) return IV_VIDEO.player.getDuration()['catch'](function () { return 0; });
+    } catch (e) { }
+    return Promise.resolve(0);
+  }
+  function ivListenWire(container, info) {
+    var L = window.ivListen;
+    if (!L || !container || !info || !info.key || container.__ivListen) return;
+    container.__ivListen = true;
+    var key = info.key, off = Number(info.off) || 0, m = info.meta;
+    var audio = container.querySelector('.iv-audio-player audio');
+    var guess = ivDurSec(info.duration);
+    function audioDur() {
+      if (audio && isFinite(audio.duration) && audio.duration > 0) return audio.duration;
+      var p = L.get(key); return (p && p.d) || (guess ? guess + off : 0);
+    }
+
+    /* the audio */
+    if (audio) {
+      var last = 0;
+      audio.addEventListener('play', function () { ivClaimPage(); ivResumeClear(); L.start(key, m, 'audio'); last = Date.now(); });
+      audio.addEventListener('timeupdate', function () {
+        if (audio.paused || audio.currentTime < 1) return;
+        var n = Date.now(); if (n - last < 5000) return; last = n;
+        L.save(key, audio.currentTime, audioDur(), 'audio');
+      });
+      audio.addEventListener('pause', function () { if (audio.currentTime >= 1 && !audio.ended) L.save(key, audio.currentTime, audioDur(), 'audio'); });
+      audio.addEventListener('ended', function () { L.done(key); });
+      window.addEventListener('pagehide', function () { if (!audio.paused && audio.currentTime >= 1) L.save(key, audio.currentTime, audioDur(), 'audio'); });
+    }
+
+    /* the video: only YouTube and Vimeo say where they are */
+    var vOn = false;
+    setInterval(function () {
+      if (!IV_VIDEO.player || !IV_VIDEO.ready || !container.querySelector('.iv-ratio iframe')) { vOn = false; return; }
+      ivVideoState().then(function (st) {
+        if (!st.playing || !(st.time > 2)) { vOn = false; return; }
+        ivClaimPage();
+        var c = L.cur();
+        if (!vOn || !c || c.key !== key) L.start(key, m, 'video');
+        vOn = true;
+        ivVideoDuration().then(function (d) {
+          var p = L.get(key);
+          L.save(key, st.time + off, d ? d + off : ((p && p.d) || (guess ? guess + off : 0)), 'video');
+        });
+      });
+    }, 5000);
+
+    /* another player is about to make sound: this one stops */
+    L.on(function (type, who) {
+      if (type !== 'claim' || who === 'page') return;
+      ivPauseAudio(container);
+      if (container.querySelector('.iv-ratio iframe')) ivPauseVideo();
+    });
+
+    /* the saved moment */
+    var tParam = null;
+    try { tParam = new URLSearchParams(window.location.search).get('t'); } catch (e) {}
+    var p = L.get(key);
+    if (tParam != null || !p || !(p.t >= 20) || (p.d && p.t > p.d - 45)) return;
+    var at = p.t, hasVideo = !!container.querySelector('.iv-ratio[data-video-id]'), tag = fmtTime(at);
+    IV_RESUME = { t: at, v: hasVideo ? Math.max(0, at - off) : null };
+    var listenBtn = container.querySelector('.iv-tbtn[data-panel="listen"]');
+    var label = container.querySelector('.iv-audio-label');
+    if (label) { label.setAttribute('data-iv-label', label.textContent); label.textContent = 'RESUME FROM ' + tag; }
+    var cover = container.querySelector('.iv-video-cover');
+    if (cover && hasVideo) {
+      var pct = p.d ? Math.min(100, Math.round(at / p.d * 100)) : 0;
+      cover.insertAdjacentHTML('beforeend', '<span class="iv-resume-chip">Resume from ' + esc(tag) + '</span>' +
+        (pct ? '<span class="iv-resume-bar"><i style="width:' + pct + '%"></i></span>' : ''));
+    }
+    if (audio) {
+      /* wait at the place, without playing; on a phone that skips this, the first play seeks there */
+      var park = function () {
+        if (!IV_RESUME || !audio.paused || audio.currentTime >= 1) return;
+        try { audio.currentTime = IV_RESUME.t; } catch (e) { }
+      };
+      audio.addEventListener('loadedmetadata', park);
+      if (audio.readyState >= 1) park();
+    }
+    /* last heard as audio: open on Listen. A members' page waits for its signed link first, so a Listen
+       tab that the link check takes away never leaves the player empty. */
+    if (p.mode === 'audio' && listenBtn && audio) {
+      var open = function () { if (IV_RESUME && listenBtn.isConnected && !listenBtn.classList.contains('iv-tbtn-active')) listenBtn.click(); };
+      if (!info.plus || audio.getAttribute('src')) open();
+      else if (window.MutationObserver) {
+        var mo = new MutationObserver(function () { if (audio.getAttribute('src')) { mo.disconnect(); open(); } });
+        mo.observe(audio, { attributes: true, attributeFilter: ['src'] });
+      }
+    }
+  }
+  /* ===== END iv-listen ===== */
 
   /* ===== END iv-chapter-video-seek ===== */
 
@@ -3830,6 +3958,10 @@
 
     wireMediaToggle(root);
     wireAudioPlayer(root);
+    ivListenWire(root, {   /* iv-listen */
+      key: 'e:' + st.slug, off: f.audioOffset, duration: f.duration,
+      meta: { title: f.title, thumb: f.thumbnail, show: f.showCategory, href: '/episodes/' + st.slug, src: f.acastAudioUrl, off: f.audioOffset }
+    });
     ivFitPlayerArm();
     wirePlusCardMemberState(root, f);
     wireTunedTabs(root);

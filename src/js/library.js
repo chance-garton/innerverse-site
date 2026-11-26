@@ -405,6 +405,8 @@
     }, function (err) { fail(err && err.status === 401); });
   }
   start();
+  /* Continue listening (listen.js, 2026-11-26): what this device was in the middle of, above the search */
+  if (window.ivListen) window.ivListen.row($('ivl-continue'), { limit: 8 });
   if (window.MutationObserver) new MutationObserver(function () { start(); lapsedPitch(); }).observe(docEl, { attributes: true, attributeFilter: ['class'] });
   lapsedPitch();
 })();
