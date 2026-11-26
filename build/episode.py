@@ -805,7 +805,7 @@ def structured_data(f, r, guests, canonical, description, image, post):
     """PodcastEpisode for the show, a VideoObject with each chapter as a Clip
     (Google's key moments), a Person per guest and a breadcrumb trail."""
     series = {"@type": "PodcastSeries", "@id": LIVE_ORIGIN + "/#podcast", "name": "InnerVerse Podcast",
-              "url": LIVE_ORIGIN + "/", "webFeed": "https://feeds.acast.com/public/shows/innerverse",
+              "url": LIVE_ORIGIN + "/", "webFeed": "https://anchor.fm/s/11a94b25c/podcast/rss",
               "author": {"@type": "Person", "name": "Chance Garton", "url": LIVE_ORIGIN + "/about"}}
     people = [{"@type": "Person", "name": g["name"], **({"image": iv_img(g["portrait"], 500)} if g["portrait"] else {}),
                **({"url": g["website"]} if g.get("website") else {})} for g in guests]

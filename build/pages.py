@@ -99,7 +99,7 @@ def plus(plus_index):
 
 ABOUT_PHOTO = "https://images.innerversepodcast.com/sq/chance-garton-innerverse-site-main-data-images-incoming-site-photos-2026-11-22/chance-garton-tuning-fork/orig.jpg"
 ABOUT_OG = "https://images.innerversepodcast.com/sq/t-69f7320df691fe20c1392d7c-1777807885424/chatgpt-image-apr-30-2026-09-03-08-am/orig.png"
-RSS = "https://feeds.acast.com/public/shows/5a7e6d34b56c94b1216394e3"
+RSS = "https://anchor.fm/s/11a94b25c/podcast/rss"
 
 ABOUT_SHOWS = [
     ("InnerVerse", "#3B74CC", "InnerVerse",
@@ -120,7 +120,6 @@ ABOUT_LISTEN = [
     ("Website archive", "/episodes", False),
     ("Apple Podcasts", "https://podcasts.apple.com/us/podcast/innerverse/id1066918535", True),
     ("Spotify", "https://open.spotify.com/show/3PtsUrYFJiradha3biNf9Y", True),
-    ("Acast", "https://shows.acast.com/innerverse", True),
     ("YouTube", "https://www.youtube.com/@InnerVersePodcast", True),
     ("Rumble", "https://rumble.com/c/InnerVerse", True),
     ("Public RSS feed", RSS, True),
