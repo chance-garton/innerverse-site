@@ -1,6 +1,6 @@
 {
- "bytes": 43298279016,
- "count": 604,
+ "bytes": 43436869876,
+ "count": 605,
  "episodes": {
   "5a7e6d958b69319e0ee89e55": {
    "bytes": 68652587,
@@ -5572,6 +5572,19 @@
    ],
    "source": "https://anchor.fm/s/7e20d7c/podcast/play/34617838/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-5-1%2F192272547-44100-2-a4486a03875ca.m4a",
    "url": "https://audio.innerversepodcast.com/episodes/virtual-unreality-gnostic-artificial-archons.mp3"
+  },
+  "src:what-is-biofield-tuning": {
+   "bytes": 138590860,
+   "slug": "what-is-biofield-tuning",
+   "slugs": [
+    "what-is-biofield-tuning"
+   ],
+   "source": [
+    "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-2026-11-25/what-is-biofield-tuning.part0",
+    "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-2026-11-25/what-is-biofield-tuning.part1",
+    "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-2026-11-25/what-is-biofield-tuning.part2"
+   ],
+   "url": "https://audio.innerversepodcast.com/episodes/what-is-biofield-tuning.mp3"
   }
  }
 }
