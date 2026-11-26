@@ -102,6 +102,7 @@ import redirects  # noqa: E402
 import biofield_anatomy  # noqa: E402
 import music  # noqa: E402
 import library  # noqa: E402
+import player  # noqa: E402
 
 
 def write(rel, text):
@@ -255,6 +256,11 @@ def main():
     lb = library.build(list(index.values()))
     write("library.html", lb)
     write("library/index.html", lb)
+    # The pop-out player (build/player.py): a small window a desktop listener opens from a page's player.
+    # Never listed and not in the sitemap.
+    pl = player.build()
+    write("player.html", pl)
+    write("player/index.html", pl)
     # The Biofield Anatomy map: a full-screen page of its own, hidden from search until its launch (build/biofield_anatomy.py).
     ba = biofield_anatomy.build(OUT)
     write("biofield-anatomy.html", ba)
@@ -288,7 +294,7 @@ def main():
                       "  Content-Security-Policy: frame-ancestors 'self' https://circle.innerversepodcast.com\n"
                       "  Permissions-Policy: camera=(), microphone=(), geolocation=()\n\n"
                       "/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n\n"
-                      + biofield_anatomy.headers() + library.headers())
+                      + biofield_anatomy.headers() + library.headers() + player.headers())
     # A real not-found page: Cloudflare Pages serves it with a 404 status for any address
     # that has no page and no redirect.
     write("404.html", hand.not_found())

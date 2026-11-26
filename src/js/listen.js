@@ -8,7 +8,7 @@
      items   per key: {t, d, at, mode, m}  t and d in seconds on the AUDIO clock (a free episode's audio is
              its video time plus Audio Offset Seconds; members' audio runs on the members' video clock),
              mode "audio" or "video", m what is needed to show and play it again:
-             {title, thumb, show, href, src (public audio) or pk (members' audio key), off, plus, song, sub}
+             {title, thumb, show, href, src (public audio) or pk (members' audio key), off, plus, song, sub, iw}
    A song keeps no place (it starts again, as in the app). An episode within 45 seconds of its end counts
    as finished and is dropped.
 
@@ -27,7 +27,19 @@
      ivListen.get(key) / cur()      the saved place / the last thing played
      ivListen.claim(who)            a player is about to make sound; the others stop ("page", "music", "bar")
      ivListen.on(fn)                fn(type, detail): "claim" and "change"
-     ivListen.row(el, opts)         draw the Continue listening row into el (Plus+ members only) */
+     ivListen.row(el, opts)         draw the Continue listening row into el (Plus+ members only)
+
+   The pop-out player (2026-11-26, stage 3): on a desktop a page player can hand what it is playing to a
+   small window (/player, src/js/player.js) that keeps playing while this tab browses on. The window reads
+   and writes the same record. What to play is handed over in localStorage "iv_pop"; the window marks
+   itself open in "iv_pop_live" every two seconds, and while it is open the card stays away. The window
+   and the tabs stop for each other across tabs (a claim made in one is heard in the others).
+     ivListen.canPop()              a desktop with a mouse, and not the window itself
+     ivListen.pop(req)              open the window and hand it req {key, t, play, m, q, shuffle, need};
+                                    false when the browser blocked the window (keep playing in the page)
+     ivListen.popOpen() / popSend(tok, req)   the same in two steps, when the place is only known a moment later
+     ivListen.popAlive()            the window is open
+     ivListen.note(msg)             one line of notice under the header */
 (function () {
   'use strict';
   if (window.ivListen) return;
@@ -60,6 +72,7 @@
     if (m && m.off) out.off = Number(m.off) || 0;
     if (m && m.plus) out.plus = 1;
     if (m && m.song) out.song = 1;
+    if (m && m.iw) out.iw = 1;            /* an Inner Whirled episode: the pop-out window wears the violet */
     return out;
   }
 
@@ -99,10 +112,63 @@
         href: '/music?song=' + encodeURIComponent(song.id), src: song.src, song: 1
       }, 'audio');
     },
-    claim: function (who) { tell('claim', who); },
+    claim: function (who) { tell('claim', who); say({ type: 'claim', who: who }); },
     on: function (fn) { heard.push(fn); }
   };
   window.ivListen = api;
+
+  /* ---------------- across tabs: the pop-out window ---------------- */
+  var POP_KEY = 'iv_pop', POP_LIVE = 'iv_pop_live', POP_NAME = 'ivplayer', POP_PATH = '/player';
+  var IS_POP = path() === POP_PATH;
+  var chan = null;
+  try { if (window.BroadcastChannel) chan = new window.BroadcastChannel('iv_listen'); } catch (e) {}
+  function say(msg) { if (chan) { try { chan.postMessage(msg); } catch (e) {} } }
+  /* Sound starting in the window stops every tab, and sound starting in any tab stops the window.
+     Two ordinary tabs are left alone, as before. */
+  if (chan) chan.addEventListener('message', function (e) {
+    var d = e.data || {};
+    if (d.type === 'claim') { if (d.who === 'pop' || IS_POP) tell('claim', 'away'); return; }
+    tell('far', d);
+  });
+  api.say = say;
+  api.isPop = IS_POP;
+  api.popAlive = popAlive;
+  api.canPop = function () {
+    return !IS_POP && !!window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine) and (min-width:900px)').matches;
+  };
+  /* Call inside the click. The window is found by its name when it is already open (it is then left as
+     it is and only told what to play); otherwise a new one is opened. Null when the browser said no. */
+  api.popOpen = function () {
+    var w = null, there = false, base = window.IV_BASE || '';
+    var W = 400, H = 580, sc = window.screen || {};
+    var left = (sc.availLeft || 0) + (sc.availWidth || 1280) - W - 28, top = (sc.availTop || 0) + Math.max(0, (sc.availHeight || 800) - H - 90);
+    try { w = window.open('', POP_NAME, 'popup=yes,width=' + W + ',height=' + H + ',left=' + left + ',top=' + top); } catch (e) {}
+    if (!w) return null;
+    try { there = (w.location.pathname.replace(/\/+$/, '') === base + POP_PATH) && w.location.origin === window.location.origin; } catch (e) {}
+    return { w: w, there: there, base: base };
+  };
+  api.popSend = function (tok, req) {
+    if (!tok || !tok.w) return false;
+    req = req || {};
+    req.at = Date.now(); req.fresh = !tok.there;
+    try { localStorage.setItem(POP_KEY, JSON.stringify(req)); } catch (e) {}
+    if (!tok.there) { tok.there = true; try { tok.w.location.replace(tok.base + POP_PATH); } catch (e) {} }
+    try { tok.w.focus(); } catch (e) {}
+    return true;
+  };
+  api.pop = function (req) { var tok = api.popOpen(); return tok ? api.popSend(tok, req) : false; };
+
+  var noteEl = null, noteT = null;
+  api.note = function (msg) {
+    if (window.ivMusic && window.ivMusic.toast) { window.ivMusic.toast(msg); return; }
+    if (!noteEl) {
+      noteEl = document.createElement('div'); noteEl.className = 'ivcl-note'; noteEl.setAttribute('role', 'status'); noteEl.setAttribute('aria-live', 'polite');
+      document.body.appendChild(noteEl);
+    }
+    noteEl.textContent = msg;
+    window.requestAnimationFrame(function () { noteEl.classList.add('is-on'); });
+    clearTimeout(noteT); noteT = setTimeout(function () { noteEl.classList.remove('is-on'); }, 3600);
+  };
 
   /* ---------------- small helpers ---------------- */
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -129,6 +195,7 @@
     new MutationObserver(function () { var now = member(); if (now === was) return; was = now; fn(); }).observe(docEl, { attributes: true, attributeFilter: ['class'] });
   }
   function token() { try { return localStorage.getItem('iv_session_token') || ''; } catch (e) { return ''; } }
+  function popAlive() { var t = 0; try { t = Number(localStorage.getItem(POP_LIVE)) || 0; } catch (e) {} return Date.now() - t < 6500; }
   function path() { return ((window.ivPath ? window.ivPath() : location.pathname).replace(/\/+$/, '') || '/').toLowerCase(); }
   function sameHref(h) { return !!h && (h.split('?')[0].replace(/\/+$/, '').toLowerCase() === path()); }
   function playable(key, it) {
@@ -392,7 +459,7 @@
   function refresh() {
     var c = api.cur();
     if (playing() && nowKey) { show(true); return; }        /* what the card is playing stays put */
-    if (!c || HIDE_ON.test(path()) || sameHref(c.item.m && c.item.m.href) || !playable(c.key, c.item)) {
+    if (!c || popAlive() || HIDE_ON.test(path()) || sameHref(c.item.m && c.item.m.href) || !playable(c.key, c.item)) {
       if (aud && aud.getAttribute('src') && nowKey && c && c.key === nowKey) { show(true); return; }
       show(false); return;
     }
@@ -424,6 +491,18 @@
   window.addEventListener('resize', placeSoon);
   window.addEventListener('pagehide', function () { keep(true); });
   onMemberChange(function () { if (!playing()) refresh(); });
+  /* the pop-out window opening or closing: the card steps away, or comes back with the new place */
+  var popWas = popAlive(), popT = 0;
+  function popWatch() {
+    var now = popAlive();
+    if (now !== popWas) { popWas = now; if (!playing()) refresh(); }
+    clearTimeout(popT);
+    if (now) popT = setTimeout(popWatch, 3500);
+  }
+  if (!IS_POP) {
+    window.addEventListener('storage', function (e) { if (e.key === POP_LIVE) popWatch(); });
+    if (popWas) popT = setTimeout(popWatch, 3500);
+  }
 
   function boot() {
     refresh();

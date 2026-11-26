@@ -26,6 +26,7 @@
   var I_NEXT = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16 5h2v14h-2zM4 6.2v11.6a1 1 0 0 0 1.55.83l8.85-5.8a1 1 0 0 0 0-1.66l-8.85-5.8A1 1 0 0 0 4 6.2z"></path></svg>';
   var I_SHUFFLE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"></path><path d="M4 20 21 3"></path><path d="M21 16v5h-5"></path><path d="m15 15 6 6"></path><path d="m4 4 5 5"></path></svg>';
   var I_LINK = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"></path><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"></path></svg>';
+  var I_POP = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4 11 13"></path><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"></path></svg>';
   var I_HEART = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"></path></svg>';
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -59,7 +60,8 @@
         '<input type="range" class="ivm-range" min="0" max="100" step="1" value="0" aria-label="Position in the song">' +
         '<span class="ivm-bar-time ivm-t-all">0:00</span></div>' +
       '<div class="ivm-bar-end"><button type="button" class="ivm-bar-heart" aria-pressed="false" aria-label="Save this song to My library">' + I_HEART.replace('width="17" height="17"', 'width="19" height="19"') + '</button>' +
-        '<button type="button" class="ivm-bar-shuf" aria-pressed="false" aria-label="Shuffle">' + I_SHUFFLE + '</button></div>' +
+        '<button type="button" class="ivm-bar-shuf" aria-pressed="false" aria-label="Shuffle">' + I_SHUFFLE + '</button>' +
+        '<button type="button" class="ivm-bar-pop" aria-label="Pop out: keep playing in a small window" title="Pop out: keep playing in a small window">' + I_POP + '</button></div>' +
     '</div>';
   document.body.appendChild(bar);
   var bImg = bar.querySelector('.ivm-bar-now img'), bTitle = bar.querySelector('.ivm-bar-t'), bEp = bar.querySelector('.ivm-bar-e');
@@ -206,6 +208,24 @@
     select(byId(order[0]), true); toast('Shuffle is on.');
   });
   bHeart.addEventListener('click', function () { if (cur) heart(cur, bHeart); });
+
+  /* ---------------- the pop-out window (desktop; listen.js and player.js, 2026-11-26) ---------------- */
+  /* Hands the song, its place and the list it is playing through to the small window, then stops here
+     so nothing plays twice. If the browser blocks the window, the song carries on in the page. */
+  function srcOf(s) { return AUDIO + encodeURIComponent(s.file || (s.id + '.mp3')); }
+  bar.querySelector('.ivm-bar-pop').addEventListener('click', function () {
+    var P = window.ivListen;
+    if (!cur || !P || !P.pop) return;
+    var was = !audio.paused && !audio.ended;
+    var q = showing().map(byId).filter(Boolean).map(function (s) {
+      return { id: s.id, title: s.title, art: s.art, episodeTitle: s.episodeTitle, seconds: s.seconds, src: srcOf(s) };
+    });
+    if (!q.some(function (s) { return s.id === cur.id; })) q.unshift({ id: cur.id, title: cur.title, art: cur.art, episodeTitle: cur.episodeTitle, seconds: cur.seconds, src: srcOf(cur) });
+    var ok = P.pop({ key: 's:' + cur.id, t: audio.currentTime || 0, play: true, q: q, shuffle: shuffleOn });
+    if (!ok) { toast('Your browser blocked the player window.' + (was ? ' Still playing here.' : '')); return; }
+    audio.pause();
+    toast('Playing in the small window.');
+  });
 
   /* ---------------- a link to one song ---------------- */
   function linkFor(song) { return window.location.origin + '/music?song=' + encodeURIComponent(song.id); }

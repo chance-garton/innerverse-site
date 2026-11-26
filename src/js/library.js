@@ -165,7 +165,7 @@
     while ((m = re.exec(text))) {
       if (!m[0]) { re.lastIndex++; continue; }
       out += esc(text.slice(i, m.index));
-      out += m[1] ? '<a class="ivl-ts" href="' + esc(href + '?t=' + toSec(m[1])) + '" aria-label="Open the episode at ' + esc(m[1]) + '">' + I_PLAY_S + esc(m[1]) + '</a>' : '<mark>' + esc(m[0]) + '</mark>';
+      out += m[1] ? '<a class="ivl-ts" href="' + esc(href + '?t=' + toSec(m[1])) + '" aria-label="Play the episode from ' + esc(m[1]) + '">' + I_PLAY_S + esc(m[1]) + '</a>' : '<mark>' + esc(m[0]) + '</mark>';
       i = m.index + m[0].length;
     }
     return out + esc(text.slice(i));
@@ -268,9 +268,30 @@
   }
   function grow(ta) { ta.style.height = 'auto'; ta.style.height = Math.min(Math.max(ta.scrollHeight + 2, 110), 420) + 'px'; }
 
+  /* A time in a note (2026-11-26): on a desktop it plays on the spot in the pop-out window (listen.js,
+     player.js), as the app plays it on the spot. On a phone, with a modifier key held, or when the
+     browser blocks the window, the link opens the episode page at that moment, as before. The page does
+     not know an episode's audio, so the window is given the episode and the moment on the video clock
+     and reads the rest from the episode's data file. */
+  function popTime(e, a, it) {
+    var P = window.ivListen;
+    if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (!P || !P.canPop || !P.canPop()) return;
+    var sec = Number((/[?&]t=(\d+)/.exec(a.getAttribute('href') || '') || [])[1]);
+    if (!(sec >= 0)) return;
+    var tok = P.popOpen(); if (!tok) return;
+    e.preventDefault();
+    var path = it.href.slice(BASE.length), name = path.split('?')[0].split('/').pop();
+    try { name = decodeURIComponent(name); } catch (err) {}
+    P.popSend(tok, { key: it.key, play: true, need: { name: name, plus: !!it.full, vt: sec, title: it.title, thumb: it.thumb, show: (it.shows && it.shows[0]) || '', href: path,
+      iw: /inner whirled/i.test((it.shows || []).join(' ')) && !/vibe rant/i.test((it.shows || []).join(' ')) } });
+  }
+
   epList.addEventListener('click', function (e) {
     var li = e.target.closest('.ivl-ep'); if (!li) return;
     var it = byKey[li.getAttribute('data-key')]; if (!it) return;
+    var ts = e.target.closest('a.ivl-ts');
+    if (ts) { popTime(e, ts, it); return; }
     if (e.target.closest('.ivl-save')) {
       var on = !(mine(it) || {}).saved;
       lib.put(keyFor(it), { saved: on }).then(function () { toast(on ? 'Saved to My library.' : 'Removed from My library.'); }, function () { toast('Not saved. Check your connection.'); });

@@ -3640,7 +3640,11 @@
      Nothing plays until the visitor taps. A ?t= in the address, a chapter or a hand scrub always wins.
      Times are kept on the audio clock (free audio = video + Audio Offset Seconds; members' audio is on
      the members' video clock, offset 0). Rollback: delete this block and its calls (ivListenWire in
-     hydrate and renderPlus, ivClaimPage, ivResumeClear, ivCoverStart). */
+     hydrate and renderPlus, ivClaimPage, ivResumeClear, ivCoverStart).
+     The pop-out window (2026-11-26, stage 3; listen.js and player.js): on a desktop the Pop out button
+     in the Watch and Listen row hands this episode to a small window that carries on as audio from the
+     same moment, and the page stops. When the episode has moved on in that window, a paused player
+     here picks up from the window's place the next time it plays. */
   var IV_RESUME = null;   /* {t: audio clock, v: video clock} while a saved moment is waiting */
   function ivClaimPage() { if (window.ivListen) window.ivListen.claim('page'); }
   function ivResumeClear() {
@@ -3666,6 +3670,7 @@
     if (!L || !container || !info || !info.key || container.__ivListen) return;
     container.__ivListen = true;
     var key = info.key, off = Number(info.off) || 0, m = info.meta;
+    if (m && document.documentElement.classList.contains('iv-iw')) m.iw = 1;   /* the pop-out window wears the page's violet */
     var audio = container.querySelector('.iv-audio-player audio');
     var guess = ivDurSec(info.duration);
     function audioDur() {
@@ -3674,15 +3679,30 @@
     }
 
     /* the audio */
+    /* mineAt: when this page last wrote (or read) the place. A place written later than that came from
+       another tab (the pop-out window), and a paused player here follows it at its next play, unless
+       the listener has since moved this player by hand (a scrub, a chapter, a switch from Watch). */
+    var mineAt = Date.now(), handSet = false, selfSeek = false;
     if (audio) {
       var last = 0;
-      audio.addEventListener('play', function () { ivClaimPage(); ivResumeClear(); L.start(key, m, 'audio'); last = Date.now(); });
+      audio.addEventListener('seeking', function () { if (selfSeek) selfSeek = false; else handSet = true; });
+      audio.addEventListener('play', function () {
+        var q = L.get(key);
+        if (!handSet && q && q.at > mineAt + 250 && q.t >= 1 && Math.abs(q.t - (audio.currentTime || 0)) > 2) {
+          var to = q.t, hop = function () { selfSeek = true; try { audio.currentTime = to; } catch (e) { selfSeek = false; } };
+          if (audio.readyState >= 1) hop(); else audio.addEventListener('loadedmetadata', hop, { once: true });
+        }
+        ivClaimPage(); ivResumeClear(); L.start(key, m, 'audio'); last = mineAt = Date.now();
+      });
       audio.addEventListener('timeupdate', function () {
         if (audio.paused || audio.currentTime < 1) return;
-        var n = Date.now(); if (n - last < 5000) return; last = n;
+        var n = Date.now(); if (n - last < 5000) return; last = mineAt = n;
         L.save(key, audio.currentTime, audioDur(), 'audio');
       });
-      audio.addEventListener('pause', function () { if (audio.currentTime >= 1 && !audio.ended) L.save(key, audio.currentTime, audioDur(), 'audio'); });
+      audio.addEventListener('pause', function () {
+        if (audio.currentTime >= 1 && !audio.ended) L.save(key, audio.currentTime, audioDur(), 'audio');
+        mineAt = Date.now(); handSet = false;
+      });
       audio.addEventListener('ended', function () { L.done(key); });
       window.addEventListener('pagehide', function () { if (!audio.paused && audio.currentTime >= 1) L.save(key, audio.currentTime, audioDur(), 'audio'); });
     }
@@ -3700,6 +3720,7 @@
         ivVideoDuration().then(function (d) {
           var p = L.get(key);
           L.save(key, st.time + off, d ? d + off : ((p && p.d) || (guess ? guess + off : 0)), 'video');
+          mineAt = Date.now();
         });
       });
     }, 5000);
@@ -3710,6 +3731,40 @@
       ivPauseAudio(container);
       if (container.querySelector('.iv-ratio iframe')) ivPauseVideo();
     });
+
+    /* the pop-out window: desktop only (the button is hidden elsewhere by its stylesheet) */
+    var row = container.querySelector('.iv-toggle-btns');
+    if (audio && row && L.popOpen && (m.src || m.pk) && !row.querySelector('.iv-pop-btn')) {
+      var pop = document.createElement('button');
+      pop.type = 'button'; pop.className = 'iv-pop-btn';
+      pop.setAttribute('aria-label', 'Pop out: keep listening in a small window');
+      pop.title = 'Keep listening in a small window while you browse';
+      pop.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4 11 13"></path><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"></path></svg><span>Pop out</span>';
+      row.insertBefore(pop, row.querySelector('.iv2-fullchip') || row.querySelector('.iv-pip-btn') || null);
+      /* nothing playing here: where the audio is waiting, else the saved place, else where a first play lands */
+      var rest = function () {
+        if (audio.currentTime >= 1) return audio.currentTime;
+        var q = L.get(key);
+        return (q && q.t >= 1) ? q.t : ivAudioIntroTarget(audio);
+      };
+      pop.addEventListener('click', function () {
+        if (!L.canPop()) return;
+        var sounding = !audio.paused;
+        var tok = L.popOpen();      /* inside the click, or the browser blocks it */
+        if (!tok) { L.note('Your browser blocked the player window.' + (sounding ? ' Still playing here.' : '')); return; }
+        var send = function (t) { L.popSend(tok, { key: key, m: m, t: Math.max(0, t || 0), play: true }); mineAt = Date.now(); };
+        if (sounding) { var t = audio.currentTime; audio.pause(); send(t); return; }
+        if (IV_VIDEO.player && IV_VIDEO.ready && container.querySelector('.iv-ratio iframe')) {
+          /* mid-video: the window carries on as audio from the same moment (video clock + offset) */
+          ivVideoState().then(function (st) {
+            if (st.time > 2) { if (st.playing) ivPauseVideo(); send(st.time + off); }
+            else send(rest());
+          });
+          return;
+        }
+        send(rest());
+      });
+    }
 
     /* the saved moment */
     var tParam = null;
@@ -3731,7 +3786,8 @@
       /* wait at the place, without playing; on a phone that skips this, the first play seeks there */
       var park = function () {
         if (!IV_RESUME || !audio.paused || audio.currentTime >= 1) return;
-        try { audio.currentTime = IV_RESUME.t; } catch (e) { }
+        selfSeek = true;
+        try { audio.currentTime = IV_RESUME.t; } catch (e) { selfSeek = false; }
       };
       audio.addEventListener('loadedmetadata', park);
       if (audio.readyState >= 1) park();
