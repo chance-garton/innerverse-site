@@ -59,6 +59,12 @@
         "https://raw.githubusercontent.com/chance-garton/innerverse-site/audio-import-2026-11-25/what-is-biofield-tuning.part2"
       ],
       "from": "Chance's edited free episode mp3, attached in chat 2026-11-22 (podcast feed not yet on Spotify)"
+    },
+    {
+      "slug": "what-is-biofield-tuning-recut",
+      "date": "2026-11-25",
+      "url": "https://anchor.fm/s/11a94b25c/podcast/play/130051489/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-10-26%2F437702996-44100-2-8e7f50f5bff8a.mp3",
+      "from": "Spotify feed, re-exported 2026-11-25 with about 3.5 s cut at 28:06 (replaces what-is-biofield-tuning.mp3 for the free page)"
     }
   ],
   "youtube_blocked": "2026-11-17: YouTube refuses both the Actions runner and the sandbox for media. Breaking Reality 34 (md8TWkytvIs) has no audio (Chance: let it go). Vibe Rant 113 came from Chance's own mp3."
