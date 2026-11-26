@@ -60,12 +60,34 @@ html.iv-music-page.ivm-has-bar .ivm{padding-bottom:150px;}
 .ivm-row:hover .ivm-act,.ivm-act:focus-visible,.ivm-row.is-current .ivm-act,.ivm-act.is-on{opacity:1;}
 .ivm-act:hover{color:var(--ink);background:rgba(233,238,246,0.08);}
 .ivm-row[hidden],.ivm-empty[hidden],.ivm-tab-n[hidden]{display:none;}
-/* the heart: in every row, shown to a Plus+ member at all times (2026-11-25: on hover alone nobody found it) */
+/* the heart: in every row, shown at all times (2026-11-25: on hover alone nobody found it) */
 .ivm-act.ivm-heart{opacity:1;}
 .ivm-heart.is-on,.ivm-bar .ivm-bar-heart.is-on{color:var(--gold-text)!important;}
 .ivm-heart.is-on svg,.ivm-bar-heart.is-on svg{fill:currentColor;}
 .ivm-heart.is-on:hover{color:var(--gold-text);background:rgba(216,170,60,0.12);}
-html:not(.iv-plus-member) .ivm-heart,html:not(.iv-plus-member) .ivm-tools,html:not(.iv-plus-member) .ivm-bar-heart{display:none!important;}
+/* the Saved view is a member's; a visitor keeps the heart, which opens the Plus+ pitch */
+html:not(.iv-plus-member) .ivm-tools{display:none!important;}
+
+/* ---- the heart for someone who is not a member: the Plus+ pitch, over the page ---- */
+.ivm-pitch{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,16,0.74);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;}
+.ivm-pitch[hidden]{display:none;}
+.ivm-pitch-card{position:relative;box-sizing:border-box;width:100%;max-width:430px;padding:30px 28px 24px;border-radius:var(--radius-xl);background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);box-shadow:0 24px 70px rgba(0,0,0,0.55);color:var(--ink);animation:ivmPitch .22s ease;}
+@keyframes ivmPitch{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ivm-pitch-k{display:flex;align-items:center;gap:8px;font-weight:700;font-size:12px;line-height:1.2;letter-spacing:2px;text-transform:uppercase;color:var(--gold-text);}
+.ivm-pitch-k svg{fill:currentColor;}
+.ivm-pitch-card h2{margin:12px 0 10px;padding-right:28px;font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.12;letter-spacing:-0.6px;color:var(--ink);text-transform:none;}
+.ivm-pitch-card p{margin:0 0 22px;font-size:15.5px;line-height:1.6;color:var(--ink-muted);}
+.ivm-pitch-card a.ivm-pitch-btn{box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;margin-top:10px;padding:8px 20px;border-radius:var(--radius-md);border:2px solid rgba(216,170,60,0.6);background:transparent;color:var(--ink);font-weight:700;font-size:15px;line-height:1.25;text-decoration:none;transition:background-color .18s ease,border-color .18s ease;}
+.ivm-pitch-card a.ivm-pitch-btn span{flex:0 0 auto;font-weight:600;font-size:12.5px;opacity:.78;white-space:nowrap;}
+.ivm-pitch-card a.ivm-pitch-btn:hover{border-color:var(--gold);background:rgba(216,170,60,0.12);}
+.ivm-pitch-card a.ivm-pitch-primary{background:var(--gold);border-color:var(--gold);color:var(--on-gold);}
+.ivm-pitch-card a.ivm-pitch-primary:hover{background:#E3B94F;border-color:#E3B94F;}
+.ivm-pitch-login{display:block;width:100%;height:46px;margin-top:12px;padding:0 16px;border:0;border-radius:var(--radius-md);background:rgba(233,238,246,0.07);color:var(--ink);font-family:var(--font-sans);font-weight:700;font-size:14px;letter-spacing:0;text-transform:none;cursor:pointer;transition:background-color .18s ease;}
+.ivm-pitch-login:hover{background:rgba(233,238,246,0.12);}
+.ivm-pitch-x{position:absolute;top:14px;right:14px;width:36px;height:36px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--ink-muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:color .15s ease,background-color .15s ease;}
+.ivm-pitch-x:hover{color:var(--ink);background:rgba(233,238,246,0.08);}
+.ivm-pitch-card a:focus-visible,.ivm-pitch-card button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.ivm-pitch-card{animation:none;}}
 
 /* ---- All songs and Saved (Plus+ members) ---- */
 .ivm-tools{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:18px;}
@@ -159,5 +181,10 @@ a.ivm-bar-e:hover{color:var(--lapis-lit);}
   .ivm-tools{gap:10px;padding-bottom:14px;}
   .ivm-tab,.ivm a.ivm-tools-lib{height:38px;padding:0 14px;font-size:13.5px;}
   .ivm-bar-end{gap:0;}
+  .ivm-pitch{padding:16px;}
+  .ivm-pitch-card{padding:26px 22px 20px;}
+  .ivm-pitch-card h2{font-size:27px;}
+  /* the price sits under the words, so the gold button never breaks mid-phrase */
+  .ivm-pitch-card a.ivm-pitch-primary{flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;}
 }
 @media (prefers-reduced-motion:reduce){.ivm-eq i{animation:none;transform:scaleY(.7);}.ivm-bar{transition:none;}}

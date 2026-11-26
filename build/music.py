@@ -95,7 +95,7 @@ def row(s, n, dates):
         '<a class="ivm-ep" href="' + esc(url("/episodes/" + ep)) + '">' + esc(ep_title) + "</a></div>"
         '<span class="ivm-date">' + esc(month_year(dates.get(ep))) + "</span>"
         '<span class="ivm-acts"><button type="button" class="ivm-act ivm-share" aria-label="Copy a link to ' + esc(title) + '">' + I_LINK + "</button>"
-        # The heart is in every row from the start; the stylesheet shows it to a Plus+ member only.
+        # The heart is in every row from the start: it saves for a Plus+ member and opens the Plus+ pitch for anyone else.
         '<button type="button" class="ivm-act ivm-heart" aria-pressed="false" aria-label="Save ' + esc(title) + ' to My library">' + I_HEART + "</button></span>"
         '<span class="ivm-len">' + clock(s.get("seconds")) + "</span>"
         "</li>"

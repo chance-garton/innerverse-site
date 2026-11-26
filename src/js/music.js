@@ -196,7 +196,7 @@
     if (!order.length) { if (view === 'saved') toast('No saved songs yet.'); return; }
     select(byId(order[0]), true); toast('Shuffle is on.');
   });
-  bHeart.addEventListener('click', function () { if (cur) heart(cur); });
+  bHeart.addEventListener('click', function () { if (cur) heart(cur, bHeart); });
 
   /* ---------------- a link to one song ---------------- */
   function linkFor(song) { return window.location.origin + '/music?song=' + encodeURIComponent(song.id); }
@@ -217,9 +217,9 @@
     document.body.removeChild(ta);
   }
 
-  /* ---------------- hearts (Plus+ members; the app's own library) ---------------- */
-  /* Every row carries its heart from the start (CSS shows it to a Plus+ member only), so nothing
-     shifts when the library answers. */
+  /* ---------------- hearts (the app's own library) ---------------- */
+  /* Every row carries its heart from the start, so nothing shifts when the library answers. For a
+     Plus+ member it saves the song; for anyone else it opens the Plus+ pitch (Chance, 2026-11-25). */
   function isSaved(id) { var x = lib && lib.get('s:' + id); return !!(x && x.saved); }
   function savedIds() { return songs.filter(function (s) { return isSaved(s.id); }).map(function (s) { return s.id; }); }
   function paintHeart(h, s) {
@@ -237,14 +237,54 @@
     var n = savedIds().length, c = document.getElementById('ivm-saved-n');
     if (c) { c.textContent = n ? String(n) : ''; c.hidden = !n; }
   }
-  function heart(song) {
-    if (!member()) return;
+  function heart(song, from) {
+    if (!member()) { pitch(from); return; }
     var on = !isSaved(song.id);
     if (on && shown) shown[song.id] = true;
     lib.put('s:' + song.id, { saved: on }).then(function () { toast(on ? 'Saved to My library.' : 'Removed from My library.'); },
       function () { toast('Not saved. Check your connection.'); });
   }
   if (lib) lib.on(function (key) { if (/^s:/.test(key)) { paintHearts(); announce(); } });
+
+  /* ---------------- not a member: what the heart is for, and the way in ---------------- */
+  /* Opens over the page, so a song that is playing keeps playing. Someone signed in whose plan has
+     lapsed is sent to /library, which carries the reactivate buttons. */
+  var TRIAL = 'https://innerverseplus.memberful.com/checkout?plan=149343';
+  var pitchEl = null, pitchBack = null;
+  function closePitch() {
+    if (!pitchEl || pitchEl.hidden) return;
+    pitchEl.hidden = true;
+    if (pitchBack && pitchBack.focus) { try { pitchBack.focus(); } catch (e) {} }
+    pitchBack = null;
+  }
+  function pitch(from) {
+    var m = window.ivMembership, signedIn = !!(m && m.getToken && m.getToken()), base = window.IV_BASE || '';
+    if (!pitchEl) {
+      pitchEl = document.createElement('div');
+      pitchEl.className = 'ivm-pitch'; pitchEl.hidden = true;
+      pitchEl.setAttribute('role', 'dialog'); pitchEl.setAttribute('aria-modal', 'true'); pitchEl.setAttribute('aria-labelledby', 'ivm-pitch-h');
+      document.body.appendChild(pitchEl);
+      pitchEl.addEventListener('click', function (e) {
+        if (e.target === pitchEl || e.target.closest('.ivm-pitch-x')) { closePitch(); return; }
+        if (e.target.closest('.ivm-pitch-login') && m && m.loginUrl) window.location.href = m.loginUrl();
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePitch(); });
+    }
+    var X = '<button type="button" class="ivm-pitch-x" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>';
+    var K = '<div class="ivm-pitch-k">' + I_HEART.replace('width="17" height="17"', 'width="13" height="13"') + '<span>InnerVerse Plus+</span></div>';
+    pitchEl.innerHTML = '<div class="ivm-pitch-card">' + X + K + (signedIn
+      ? '<h2 id="ivm-pitch-h">Pick your library back up</h2>' +
+        '<p>Saving songs is part of Plus+. Reactivate and everything you saved is here again, on the website and in the app.</p>' +
+        '<a class="ivm-pitch-btn ivm-pitch-primary" href="' + base + '/library">Reactivate Plus+</a>'
+      : '<h2 id="ivm-pitch-h">Keep the songs you love</h2>' +
+        '<p>Saving is part of Plus+. Members keep their favorite songs and episodes in one library, on the website and in the app, along with every full, extended episode.</p>' +
+        '<a class="ivm-pitch-btn ivm-pitch-primary" href="' + TRIAL + '">Start your 7-day free trial<span>then $9 a month</span></a>' +
+        '<a class="ivm-pitch-btn" href="' + base + '/library">See what a library holds</a>' +
+        '<button type="button" class="ivm-pitch-login">Already a member? Log in</button>') + '</div>';
+    pitchBack = from || null;
+    pitchEl.hidden = false;
+    var first = pitchEl.querySelector('.ivm-pitch-primary'); if (first) { try { first.focus(); } catch (e) {} }
+  }
 
   /* ---------------- All songs and Saved ---------------- */
   /* In the Saved view a song whose heart is taken off stays in place until the view is opened
@@ -332,7 +372,7 @@
     var song = byId(row.getAttribute('data-id')); if (!song) return;
     if (e.target.closest('a')) return;                                   /* the episode link goes to the episode */
     if (e.target.closest('.ivm-share')) { share(song); return; }
-    if (e.target.closest('.ivm-heart')) { heart(song); return; }
+    if (e.target.closest('.ivm-heart')) { heart(song, e.target.closest('.ivm-heart')); return; }
     if (cur && cur.id === song.id) toggle(); else select(song, true);
   });
   document.addEventListener('keydown', function (e) {
